@@ -1,3 +1,5 @@
+import seoMap from '../public/seo-map.json' with { type: 'json' };
+
 const ISLANDS = ['oahu', 'maui', 'kauai', 'bigisland'] as const;
 
 type SeoEntry = { title: string; description: string; island: string | null; path: string };
@@ -46,14 +48,11 @@ export async function GET(request: Request) {
   )[0];
   const deployment = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : url.origin;
 
-  const [htmlRes, mapRes] = await Promise.all([
-    fetch(`${deployment}/index.html`, { headers: { 'x-seo-bypass': '1' } }),
-    fetch(`${deployment}/seo-map.json`, { headers: { 'x-seo-bypass': '1' } }),
-  ]);
+  const htmlRes = await fetch(`${deployment}/index.html`, { headers: { 'x-seo-bypass': '1' } });
   if (!htmlRes.ok) return new Response('index missing', { status: 500 });
 
   const html = await htmlRes.text();
-  const map = (mapRes.ok ? ((await mapRes.json()) as Record<string, SeoEntry>) : {}) as Record<string, SeoEntry>;
+  const map = seoMap as Record<string, SeoEntry>;
   const fromHost = islandFromHost(host);
   const pathSeg = path.split('/').filter(Boolean)[0];
   const fromPath =

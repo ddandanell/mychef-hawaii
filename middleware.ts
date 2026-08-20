@@ -18,6 +18,7 @@ function isStaticAsset(pathname: string): boolean {
   if (pathname.startsWith('/photos/')) return true;
   if (pathname.startsWith('/api/')) return true;
   if (pathname.startsWith('/_vercel/')) return true;
+  if (pathname === '/seo-map.json') return true;
   return /\.[a-zA-Z0-9]+$/.test(pathname) && pathname !== '/sitemap.xml' && pathname !== '/robots.txt' && pathname !== '/sitemap-hub.xml';
 }
 

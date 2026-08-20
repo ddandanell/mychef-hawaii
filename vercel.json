@@ -6,7 +6,7 @@
   "rewrites": [
     { "source": "/robots.txt", "destination": "/api/robots" },
     { "source": "/sitemap.xml", "destination": "/sitemaps/hub.xml" },
-    { "source": "/((?!api/|assets/|photos/|sitemaps/).*)", "destination": "/index.html" }
+    { "source": "/((?!api/|assets/|photos/|sitemaps/|seo-map\\.json).*)", "destination": "/index.html" }
   ],
   "headers": [
     {
