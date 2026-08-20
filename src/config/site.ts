@@ -38,7 +38,16 @@ function rootHostOf(hostname: string): string {
   return h;
 }
 
-export function originFor(island: IslandId | 'root', loc: Location = window.location): string {
+type HostLoc = { protocol: string; hostname: string; port?: string };
+
+function currentLoc(): HostLoc {
+  if (typeof window !== 'undefined') {
+    return { protocol: window.location.protocol, hostname: window.location.hostname, port: window.location.port };
+  }
+  return { protocol: 'https:', hostname: PRODUCTION_ROOT, port: '' };
+}
+
+export function originFor(island: IslandId | 'root', loc: HostLoc = currentLoc()): string {
   const port = loc.port && loc.port !== '80' && loc.port !== '443' ? `:${loc.port}` : '';
   const root = rootHostOf(loc.hostname);
   if (island === 'root' || !usesIslandSubdomains(loc.hostname)) {
@@ -48,7 +57,7 @@ export function originFor(island: IslandId | 'root', loc: Location = window.loca
 }
 
 /** Absolute URL on an island host (or root). Path-prefix fallback on Vercel default URLs. */
-export function siteUrl(island: IslandId | 'root', path = '/', loc: Location = window.location): string {
+export function siteUrl(island: IslandId | 'root', path = '/', loc: HostLoc = currentLoc()): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
   const origin = originFor(island, loc);
   if (island !== 'root' && !usesIslandSubdomains(loc.hostname)) {
@@ -57,4 +66,16 @@ export function siteUrl(island: IslandId | 'root', path = '/', loc: Location = w
     return `${origin}${prefix}${clean}`;
   }
   return `${origin}${clean === '/' ? '/' : clean}`;
+}
+
+export function locFromHost(hostname: string): HostLoc {
+  const h = hostname.split(':')[0] ?? hostname;
+  const proto = h === 'localhost' || h.endsWith('.localhost') || h.startsWith('127.') ? 'http:' : 'https:';
+  return { protocol: proto, hostname: h, port: '' };
+}
+
+/** True when this request is on the purchased apex / island wildcard, not a *.vercel.app preview. */
+export function isProductionApex(hostname: string): boolean {
+  const h = hostname.split(':')[0]?.toLowerCase() ?? '';
+  return h === PRODUCTION_ROOT || h === `www.${PRODUCTION_ROOT}` || h.endsWith(`.${PRODUCTION_ROOT}`);
 }

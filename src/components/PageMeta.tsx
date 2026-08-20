@@ -33,6 +33,15 @@ export default function PageMeta({
     if (el) el.setAttribute('content', resolved.description);
 
     const canonicalHref = islandId ? siteUrl(islandId, localPath) : siteUrl('root', pathname);
+    const setMeta = (attr: 'name' | 'property', key: string, value: string) => {
+      let node = document.head.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
+      if (!node) {
+        node = document.createElement('meta');
+        node.setAttribute(attr, key);
+        document.head.appendChild(node);
+      }
+      node.setAttribute('content', value);
+    };
     let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!link) {
       link = document.createElement('link');
@@ -40,6 +49,11 @@ export default function PageMeta({
       document.head.appendChild(link);
     }
     link.href = canonicalHref;
+    setMeta('property', 'og:title', resolved.title);
+    setMeta('property', 'og:description', resolved.description);
+    setMeta('property', 'og:url', canonicalHref);
+    setMeta('property', 'og:type', 'website');
+    setMeta('name', 'robots', 'index,follow');
     return () => {
       if (explicit) delete document.documentElement.dataset.metaLocked;
     };
