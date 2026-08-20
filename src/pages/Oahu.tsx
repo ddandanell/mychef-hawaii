@@ -101,7 +101,7 @@ function TwoDoors() {
               eyebrow="Visiting?"
               title="Celebration weeks, fully cheffed."
               body="Celebration dinners, multi-day villa service and wedding weekends in the resort corridors. Arrive to a stocked fridge and a chef who knows your dates."
-              img="/assets/hero-private-chef.jpg"
+              img="/photos/svc-private-chef-oahu.jpg"
               cta={
                 <Link
                   to={href('/private-chef')}
@@ -118,7 +118,7 @@ function TwoDoors() {
               eyebrow="Live here?"
               title="The kamaʻāina line."
               body="Weekly meal prep and standing chef service for households from Kahala to Hawaiʻi Kai. Fixed weekly fee + groceries at cost."
-              img="/vacation-chef.jpg"
+              img="/photos/vacation-chef.jpg"
               chips={<StatusChip kind="bde" onDark>BDE</StatusChip>}
               cta={
                 <Link
@@ -155,14 +155,14 @@ function Services() {
           <ServiceCard
             title="Celebration & villa dinners"
             desc="Multi-course in-villa dinners, by tier — from set menus to the chef's-table halo."
-            img="/assets/food-plating.jpg"
+            img="/photos/svc-private-chef-oahu.jpg"
             to={href('/private-chef')}
             band={`${tierSpan}/pp by tier`}
           />
           <ServiceCard
             title="Multi-day resort-villa packages"
             desc="3–7 day stays, Ko Olina to the North Shore — provisioning, full-board days, one team."
-            img="/vacation-chef.jpg"
+            img="/photos/vacation-chef.jpg"
             to={href('/vacation-chef')}
           />
           <ServiceCard

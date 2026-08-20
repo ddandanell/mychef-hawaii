@@ -57,7 +57,7 @@ const dayRows = [
   {
     label: 'Midday',
     text: 'Pool lunches, kids fed early, nobody cooks.',
-    image: '/vacation-chef.jpg',
+    image: '/photos/vacation-chef.jpg',
     alt: 'A chef plating a casual but refined family lunch on a villa kitchen island',
   },
   {
@@ -278,8 +278,8 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
         eyebrow={`Vacation Chef — ${c.islandName}`}
         title={c.h1}
         lede="Breakfast through dinner, provisioning managed, menus that evolve across the stay. Up to three meals a day; groceries at cost, always itemised."
-        image="/vacation-chef.jpg"
-        imageAlt="A chef plating a casual but refined family lunch on a villa kitchen island in daytime warmth"
+        image="/photos/vacation-chef.jpg"
+        imageAlt="A vacation chef plates morning fruit and eggs in a villa kitchen while a family breakfasts by the pool. Concept image, not a myCHEF event."
         chips={
           <>
             {vacationOffer ? <BandChip onDark label={`Multi-day — ${vacationOffer.orientation}`} /> : null}

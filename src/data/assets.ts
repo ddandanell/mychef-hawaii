@@ -21,20 +21,20 @@ export interface AssetEntry {
 }
 
 const LICENSE_POSTURE =
-  'stock search result; replace with owned/licensed final photography before paid public launch';
+  'campaign still generated for layout; concept image, not a documented myCHEF event; replace with owned photography before paid claims';
 
 export const assets: Record<string, AssetEntry> = {
   heroPrivateChef: {
-    file: '/assets/hero-private-chef.jpg',
-    alt: 'Private chef plating a dish in a villa kitchen, hands arranging garnish',
+    file: '/photos/svc-private-chef-maui.jpg',
+    alt: 'A private chef finishes seared fish in a Maui villa kitchen. Concept image, not a myCHEF event.',
     source: 'Stock photo search result (research download)',
     licensePosture: LICENSE_POSTURE,
     culturalCheck:
       'Pass: working professional shown hands-first, no posed face; no tiki/hula/lei/sunset imagery; no sacred terminology.',
   },
   foodPlating: {
-    file: '/assets/food-plating.jpg',
-    alt: 'Close-up of chef hands tweezing a garnish onto a ceramic plate',
+    file: '/photos/svc-private-chef-maui.jpg',
+    alt: 'Close-up of seared fish being finished on a ceramic plate in a villa kitchen. Concept image, not a myCHEF event.',
     source: 'Stock photo search result (research download)',
     licensePosture: LICENSE_POSTURE,
     culturalCheck:
@@ -73,8 +73,8 @@ export const assets: Record<string, AssetEntry> = {
       'Pass: elegant not tropical-kitsch; no leis or tiki décor; no identifiable guests facing camera.',
   },
   weddingGarden: {
-    file: '/assets/wedding-garden.jpg',
-    alt: 'Outdoor garden wedding table with florals and candle lanterns',
+    file: '/photos/home/hub-weddings.jpg',
+    alt: 'A wedding-week long table under a banyan at dusk, guests eating while chefs plate. Concept image, not a myCHEF event.',
     source: 'Stock photo search result (research download)',
     licensePosture: LICENSE_POSTURE,
     culturalCheck:
@@ -113,8 +113,8 @@ export const assets: Record<string, AssetEntry> = {
       'Pass: ingredient-focused editorial still; not used as generic "tropical paradise" décor.',
   },
   dinnerForTwo: {
-    file: '/assets/dinner-for-two.jpg',
-    alt: 'Intimate candlelit dinner table for two with wine, muted evening tones',
+    file: '/photos/loc-kapalua.jpg',
+    alt: 'A couple at a twilight dinner-for-two in Kapalua, northwest Maui. Concept image, not a myCHEF event.',
     source: 'Stock photo search result (research download)',
     licensePosture: LICENSE_POSTURE,
     culturalCheck:

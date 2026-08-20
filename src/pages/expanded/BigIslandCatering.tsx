@@ -82,7 +82,7 @@ export default function BigIslandCatering() {
         service="Catering & Events — planned service, activates at launch"
         title="Estate weddings and event weeks, west-side first."
         lede="Staffed catering planned for Kohala-corridor estates and venues: wedding-week formats, reunion feasts and Waimea farm dinners — with the island’s event-spike weeks flagged honestly instead of overpromised. Dated inquiries decide when this switches on."
-        image="/assets/wedding-garden.jpg"
+        image="/photos/svc-catering.jpg"
         imageAlt="Long wedding reception table in a private estate garden with ivory florals and brass candlelight"
         chips={
           <>

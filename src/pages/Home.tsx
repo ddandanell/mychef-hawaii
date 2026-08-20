@@ -210,14 +210,14 @@ const services = [
     title: 'Catering & Events',
     desc: 'Receptions, retreats and gatherings from 10 to 75 guests.',
     img: '/photos/home/svc-catering.jpg',
-    alt: 'Long outdoor table with family-style fish, vegetables and candles in a Hawaiian garden at dusk.',
+    alt: 'A chef team plates identical event dishes under a tent beside a Hawaiian lawn and ocean. Concept image, not a myCHEF event.',
     to: '/corporate',
   },
   {
     title: 'Vacation Chef',
     desc: 'Multi-day and weekly chef service for villa stays and households.',
     img: '/photos/home/svc-vacation.jpg',
-    alt: 'A villa kitchen island laid with family-style bowls, chef hands at the edge — concept illustration.',
+    alt: 'A vacation chef plates morning fruit and eggs while a family breakfasts by the pool. Concept image, not a myCHEF event.',
     to: '/services#vacation-chef',
   },
 ];
@@ -290,7 +290,7 @@ function StatewideHubs() {
           >
             <img
               src="/photos/home/hub-weddings.jpg"
-              alt="A long estate wedding table set with ceramic plates and brass candlesticks. Concept illustration, not a myCHEF event."
+              alt="A wedding-week long table under a banyan at dusk, guests eating while chefs plate. Concept image, not a myCHEF event."
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div

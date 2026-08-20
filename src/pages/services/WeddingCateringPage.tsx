@@ -307,7 +307,7 @@ export default function WeddingCateringPage() {
         eyebrow="myCHEF Maui — Wedding Weeks"
         title="The whole wedding week, beautifully fed."
         lede="One culinary team from the welcome dinner to the recovery brunch — private estate formats for 10 to 75 guests across Wailea, Kāʻanapali, Kapalua, Makena and Upcountry."
-        image="/assets/wedding-garden.jpg"
+        image="/photos/home/hub-weddings.jpg"
         imageAlt="A private estate garden set for a wedding-week dinner — one culinary team across the whole week"
         chips={
           <>

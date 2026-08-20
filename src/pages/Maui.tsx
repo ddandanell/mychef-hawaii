@@ -84,14 +84,14 @@ function Services() {
           <ServiceCard
             title="Signature in-villa dinner"
             desc="Multi-course, 4–15 guests, your table."
-            img="/assets/food-plating.jpg"
+            img="/photos/svc-private-chef-maui.jpg"
             to={href('/private-chef')}
             band={`${tierBand('maui', 'CORE')}/pp`}
           />
           <ServiceCard
             title="Private chef's table"
             desc="Our halo: a coursed tasting at your villa, beyond any resort communal table."
-            img="/assets/hero-private-chef.jpg"
+            img="/photos/loc-wailea.jpg"
             to={href('/private-chef#chefs-table')}
             band={`${tierBand('maui', 'ULTRA')}/pp`}
           />
@@ -105,7 +105,7 @@ function Services() {
           <ServiceCard
             title="Wedding week"
             desc="Welcome dinner to recovery brunch — one team all week."
-            img="/assets/wedding-garden.jpg"
+            img="/photos/home/hub-weddings.jpg"
             to={href('/wedding-catering')}
             stat="≈2,500 Maui weddings/yr (2024, official)"
           />
@@ -113,7 +113,7 @@ function Services() {
             wide
             title="Multi-day & retreat full-board"
             desc="A chef for your whole stay — villa provisioning, full-board days and retreat service across the resort corridors."
-            img="/vacation-chef.jpg"
+            img="/photos/vacation-chef.jpg"
             to={href('/vacation-chef')}
             band={vacation ? vacation.orientation : ''}
           />

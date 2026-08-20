@@ -181,7 +181,7 @@ function Planned() {
             planned
             title="In-villa dinners"
             desc="Market bands $118–$250/pp, competitor-labeled — our posture sits at the signature tier."
-            img="/assets/food-plating.jpg"
+            img="/photos/loc-kauai-north.jpg"
             to="/kauai/private-chef"
             band={`Our posture ${tierBand('kauai', 'CORE')}/pp`}
           />
@@ -189,7 +189,7 @@ function Planned() {
             planned
             title="Wedding weeks to ~75"
             desc="Estate formats, one team across the week — welcome dinner to recovery brunch."
-            img="/assets/wedding-garden.jpg"
+            img="/photos/home/hub-weddings.jpg"
             to="/kauai/events"
             stat="1,660 Kauaʻi weddings in 2024 (official)"
           />
@@ -197,14 +197,14 @@ function Planned() {
             planned
             title="Arrival-night dinner + provisioning"
             desc="Land late, eat well, fridge stocked — the first evening handled before you unpack."
-            img="/assets/private-dining-room.jpg"
+            img="/photos/loc-kauai-south.jpg"
             to="/kauai/private-chef"
           />
           <ServiceCard
             planned
             title="Retreat & wellness full-board"
             desc="Multi-day chef service for retreat houses — full-board days, one team."
-            img="/vacation-chef.jpg"
+            img="/photos/vacation-chef.jpg"
             to="/kauai/vacation-chef"
           />
         </Reveal>

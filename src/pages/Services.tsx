@@ -204,7 +204,7 @@ function PrivateChefBlock() {
     <ServiceBlock
       anchor="private-chef"
       bg="sand"
-      image="/assets/food-plating.jpg"
+      image="/photos/svc-private-chef-maui.jpg"
       alt="A chef plating a coursed dish at a private in-villa dinner service"
       caption="Concept image — not a myCHEF Hawaiʻi event. Final photography pending."
     >
@@ -313,7 +313,7 @@ function VacationChefBlock() {
       anchor="vacation-chef"
       flip
       bg="ivory"
-      image="/vacation-chef.jpg"
+      image="/photos/vacation-chef.jpg"
       alt="A chef plating a casual-but-refined family lunch on a villa kitchen island"
     >
       <BlockTitle>A chef for your whole stay.</BlockTitle>
@@ -369,7 +369,7 @@ function WeddingBand() {
       <div className="absolute inset-0">
         <img
           ref={imgRef}
-          src="/photos/wedding-garden.jpg"
+          src="/photos/home/hub-weddings.jpg"
           alt="A styled wedding reception table at a private estate, set for a wedding-week celebration"
           loading="lazy"
           className="h-[120%] w-full object-cover"

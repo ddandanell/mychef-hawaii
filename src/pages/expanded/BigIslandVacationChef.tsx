@@ -35,7 +35,7 @@ const dayRows = [
   {
     label: 'Midday',
     text: 'Villa lunches between beach and pool, kids fed early, nobody cooks.',
-    image: '/vacation-chef.jpg',
+    image: '/photos/vacation-chef.jpg',
     alt: 'A chef plating a casual but refined family lunch on a villa kitchen island',
   },
   {
@@ -83,7 +83,7 @@ export default function BigIslandVacationChef() {
         service="Vacation Chef — planned service, activates at launch"
         title="A chef for your whole Kohala stay."
         lede="Breakfast through dinner across a corridor week — provisioning managed, menus that evolve across the stay, groceries at cost and always itemised. Planned for Kohala/Waimea corridor stays when the island launches; your dated inquiry is the demand evidence."
-        image="/vacation-chef.jpg"
+        image="/photos/vacation-chef.jpg"
         imageAlt="A chef plating a casual but refined family lunch on a villa kitchen island in daytime warmth"
         chips={
           <>

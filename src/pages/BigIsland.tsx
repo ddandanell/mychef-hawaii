@@ -77,7 +77,7 @@ function Planned() {
             planned
             title="Kona/Kohala villa dinners"
             desc="Signature multi-course dinners in corridor villas — indicative band pending rate-card activation."
-            img="/assets/food-plating.jpg"
+            img="/photos/loc-kona.jpg"
             to="/bigisland/private-chef"
             band={`${tierBand('bigisland', 'CORE')}/pp indicative`}
           />
@@ -92,14 +92,14 @@ function Planned() {
             planned
             title="Estate weddings"
             desc="Kohala estates, wedding-week format — welcome dinner to recovery brunch, one team."
-            img="/assets/wedding-garden.jpg"
+            img="/photos/home/hub-weddings.jpg"
             to="/bigisland/catering"
           />
           <ServiceCard
             planned
             title="Multi-day villa residencies"
             desc="A chef for the whole stay, for Kohala/Waimea corridor weeks."
-            img="/vacation-chef.jpg"
+            img="/photos/vacation-chef.jpg"
             to="/bigisland/vacation-chef"
           />
         </Reveal>

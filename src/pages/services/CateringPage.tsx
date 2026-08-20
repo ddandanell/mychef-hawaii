@@ -279,8 +279,8 @@ export default function CateringPage() {
         eyebrow="myCHEF Oʻahu — Catering & Events"
         title="Catering that shows up like a kitchen brigade."
         lede="Staffed events for 10–75 guests across Oʻahu — estate receptions, retreat weeks, office and production catering. Published staffing ratios, itemised quotes, zone fees on the website before they’re on an invoice."
-        image="/craft-fire.jpg"
-        imageAlt="A chef working over a grill at dusk, warm ember tones against a deep neutral background"
+        image="/photos/svc-catering.jpg"
+        imageAlt="A chef team plates identical event dishes under a tent beside a Hawaiian lawn and ocean. Concept image, not a myCHEF event."
         chips={
           <>
             <PlainChip onDark>10–75 guests</PlainChip>

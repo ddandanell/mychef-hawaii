@@ -44,8 +44,8 @@ const content: Record<LiveIslandId, PrivateChefContent> = {
     islandName: 'Maui',
     path: '/maui/private-chef',
     h1: 'Your private chef on Maui.',
-    heroImage: '/assets/hero-private-chef.jpg',
-    heroAlt: 'A private chef at work in a villa kitchen, preparing a coursed in-villa dinner',
+    heroImage: '/photos/svc-private-chef-maui.jpg',
+    heroAlt: 'A private chef finishes seared fish with herbs in a Maui villa kitchen, ocean in the window. Concept image, not a myCHEF event.',
     bandTiers: [
       { tier: 'CORE', label: 'Core myCHEF' },
       { tier: 'ULTRA', label: "Chef's table" },
@@ -73,8 +73,8 @@ const content: Record<LiveIslandId, PrivateChefContent> = {
     islandName: 'Oʻahu',
     path: '/oahu/private-chef',
     h1: 'Your private chef on Oʻahu.',
-    heroImage: '/assets/food-plating.jpg',
-    heroAlt: 'A chef plating a coursed dish during a private in-villa dinner service',
+    heroImage: '/photos/svc-private-chef-oahu.jpg',
+    heroAlt: 'A private chef cooks fish and greens at an Oʻahu estate range while the dining table is set beyond. Concept image, not a myCHEF event.',
     bandTiers: [
       { tier: 'ENTRY', label: 'Entry' },
       { tier: 'CORE', label: 'Core myCHEF' },

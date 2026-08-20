@@ -78,7 +78,7 @@ export default function KauaiEvents() {
         service="Weddings & Events — planned service, activates at launch"
         title="Fifteen to seventy-five guests. Kauaʻi’s unserved band."
         lede="The local chef ceiling is 15 guests; the resorts start making sense at 75. Between them sits the island’s real event market — estate weddings, retreat weeks, celebration feasts — with nobody staffed to serve it. That gap is the planned flagship, and your dated inquiry is the evidence that launches it."
-        image="/assets/wedding-garden.jpg"
+        image="/photos/home/hub-weddings.jpg"
         imageAlt="Long wedding reception table in a private estate garden with ivory florals and brass candlelight"
         chips={
           <>

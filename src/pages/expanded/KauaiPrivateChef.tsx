@@ -71,7 +71,7 @@ export default function KauaiPrivateChef() {
         service="Private Chef — planned service, activates at launch"
         title="A private chef on your shore."
         lede="Signature in-villa dinners planned as a dual-node service — a South Shore base around Poʻipū and Kōloa, a North Shore pod for Princeville and Hanalei estates. It activates when the inquiry list proves the demand. Tell us your dates and your shore."
-        image="/assets/hero-private-chef.jpg"
+        image="/photos/loc-kauai-north.jpg"
         imageAlt="Close-up of chef hands tweezing a garnish onto a muted ceramic plate"
         chips={
           <>

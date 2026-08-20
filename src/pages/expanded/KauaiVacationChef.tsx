@@ -35,7 +35,7 @@ const dayRows = [
   {
     label: 'Midday',
     text: 'Pool lunches, kids fed early, nobody watches the clock or the stove.',
-    image: '/vacation-chef.jpg',
+    image: '/photos/vacation-chef.jpg',
     alt: 'A chef plating a casual but refined family lunch on a villa kitchen island',
   },
   {
@@ -82,7 +82,7 @@ export default function KauaiVacationChef() {
         service="Vacation Chef — planned service, activates at launch"
         title="A chef for the whole Kauaʻi week."
         lede="Kauaʻi stays average over a week — so the planned format fits the trip: a 3-day anchor package, arrival-night dinner with provisioning, and full-board weeks for retreat houses. It activates when the inquiry list proves the demand; your dates are that proof."
-        image="/vacation-chef.jpg"
+        image="/photos/vacation-chef.jpg"
         imageAlt="A chef plating a casual but refined family lunch on a villa kitchen island in daytime warmth"
         chips={
           <>

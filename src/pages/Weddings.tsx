@@ -19,7 +19,7 @@ const islandsWeddings = [
     body: 'Primary wedding island: welcome dinner, rehearsal, reception and recovery brunch with one team. Peak months September, October and May, plus December–March villa pressure.',
     to: '/maui/wedding-catering',
     cta: 'Maui wedding catering',
-    img: '/photos/wedding-garden.jpg',
+    img: '/photos/home/hub-weddings.jpg',
     chip: 'Booking now',
   },
   {
@@ -28,7 +28,7 @@ const islandsWeddings = [
     body: 'Celebration dinners and weekend stacks in the resort corridors — not a convention-centre product. Ko Olina, Kahala and windward estates are the usual rooms.',
     to: '/oahu/catering',
     cta: 'Oʻahu catering',
-    img: '/photos/wedding-garden.jpg',
+    img: '/photos/loc-kahala.jpg',
     chip: 'Booking now',
   },
   {
@@ -37,7 +37,7 @@ const islandsWeddings = [
     body: '1,660 non-resident marriages in 2024 (official). Estate formats to about 75 guests, both shores. Inquiry-stage — your dates help set the launch.',
     to: '/kauai/events',
     cta: 'Join the Kauaʻi list',
-    img: '/photos/island-kauai.jpg',
+    img: '/photos/loc-kauai-north.jpg',
     chip: 'Inquiry stage',
   },
   {
@@ -46,7 +46,7 @@ const islandsWeddings = [
     body: 'Kohala estates, wedding-week format, gated until a west-side team exists. Inquiry only; no local-entity claim.',
     to: '/bigisland/catering',
     cta: 'Join the Big Island list',
-    img: '/photos/dinner-for-two.jpg',
+    img: '/photos/loc-kohala.jpg',
     chip: 'Inquiry stage',
   },
 ];
@@ -56,8 +56,8 @@ export default function Weddings() {
     <>
       <section className="relative flex min-h-[70svh] min-h-[520px] items-end overflow-hidden">
         <HeroMedia
-          src="/photos/wedding-garden.jpg"
-          alt="Estate wedding table under linen canopies — concept image, not a myCHEF event"
+          src="/photos/home/hub-weddings.jpg"
+          alt="A wedding-week long table under a banyan at dusk, guests eating while chefs plate. Concept image, not a myCHEF event."
         />
         <div className="relative mx-auto w-full max-w-spread px-5 pb-20 pt-36 lg:px-10">
           <div className="max-w-[680px]">
