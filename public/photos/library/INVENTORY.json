@@ -1,0 +1,76 @@
+{
+  "audited": "2026-08-21",
+  "live_hosts": [
+    "https://mychef-hawaii.com",
+    "https://oahu.mychef-hawaii.com",
+    "https://maui.mychef-hawaii.com",
+    "https://kauai.mychef-hawaii.com",
+    "https://bigisland.mychef-hawaii.com"
+  ],
+  "url_counts": {
+    "hub_sitemap_index": 5,
+    "hub_pages": 14,
+    "oahu": 138,
+    "maui": 139,
+    "kauai": 138,
+    "bigisland": 138
+  },
+  "layout": {
+    "hero": "full-bleed min-h 100svh, object-cover, dusk/default scrim, copy LEFT max-w 640–680px, CTA clay pill, mobile central crop",
+    "cards": "4:3 island selectors and service tiles on hub",
+    "location_cards": "16:10 in LocationGrid"
+  },
+  "audit_failures": [
+    "Hub hero is empty plates — does not sell food or service",
+    "island-maui.jpg === loc-wailea.jpg (duplicate file)",
+    "wedding-garden.jpg reused on hub, services, weddings",
+    "Oahu selector is a kitchen with no island identity beyond a window",
+    "Catalog, journal, blog, FAQ, menus, events cells have zero photography",
+    "Area pages without a LocationRecord fall back to the island selector hero",
+    "Assets mix /photos and /assets with the same generic subjects"
+  ],
+  "visual_language": {
+    "name": "Working elegance of the service",
+    "palette": "ivory, sand, clay, brass, moss, volcanic ink, Pacific dusk blue",
+    "light": "HST real hours — overcast trade-wind, dusk lānai, Kohala hard sun, Kauaʻi mountain shade. No teal-orange grade.",
+    "hawaii_via": "lava stone, koa/monkeypod wood, trade-wind lānai, island-specific coast/mountain, edible local fish and fruit — never lei, tiki, hula, surfboard props",
+    "people": "working chefs, candid guests; no theatrical toque; no named real chefs"
+  },
+  "island_visual_ids": {
+    "oahu": "Gold Coast / Ko Olina residences, high-rise freight kitchens, windward beach houses, Honolulu corridor light",
+    "maui": "Wailea–Makena resort villas, West Maui lanais, Haleakalā upcountry cool air, Molokini/Kahoʻolawe as distant south-shore context only",
+    "kauai": "overcast North Shore mountains, Hanalei weather, Poʻipū drier south, quieter inquiry mood",
+    "bigisland": "Kohala lava + white sand, Mauna Lani-type villa, Kona coffee country, whole fish on volcanic stone — not Hilo rainforest on west-side pages"
+  },
+  "page_classes": {
+    "unique_hero_slots": "Hub, 4 island homes, ~12 service pages, 14 LocationRecord pages, weddings, corporate, quote, thank-you, trust (~40 slots)",
+    "fallback_hero": "AreaChefPage and catalog cells use island selectorImage — they inherit island hero until per-area stills exist",
+    "no_photo": "Journal, blog, FAQ, menus, events/*, catering/*, help/*, staffing/* — OG uses island selector; next wave adds article stills"
+  },
+  "wave1_implemented": [
+    {"id": "HUB-HERO", "url": "https://mychef-hawaii.com/", "file": "/photos/home/hero.jpg", "qa": 92, "status": "live"},
+    {"id": "ISL-OAHU", "url": "https://oahu.mychef-hawaii.com/", "file": "/photos/island-oahu.jpg", "qa": 91, "status": "live"},
+    {"id": "ISL-MAUI", "url": "https://maui.mychef-hawaii.com/", "file": "/photos/island-maui.jpg", "qa": 90, "status": "live"},
+    {"id": "ISL-KAUAI", "url": "https://kauai.mychef-hawaii.com/", "file": "/photos/island-kauai.jpg", "qa": 90, "status": "live"},
+    {"id": "ISL-BIG", "url": "https://bigisland.mychef-hawaii.com/", "file": "/photos/island-bigisland.jpg", "qa": 93, "status": "live"},
+    {"id": "SEL-OAHU", "url": "https://mychef-hawaii.com/#islands", "file": "/photos/home/sel-oahu.jpg", "qa": 88, "status": "live"},
+    {"id": "SEL-MAUI", "file": "/photos/home/sel-maui.jpg", "qa": 90, "status": "live"},
+    {"id": "SEL-KAUAI", "file": "/photos/home/sel-kauai.jpg", "qa": 91, "status": "live"},
+    {"id": "SEL-BIG", "file": "/photos/home/sel-bigisland.jpg", "qa": 90, "status": "live"},
+    {"id": "SVC-CHEF", "file": "/photos/home/svc-chef.jpg", "qa": 90, "status": "live"},
+    {"id": "SVC-DINING", "file": "/photos/home/svc-dining.jpg", "qa": 92, "status": "live"},
+    {"id": "SVC-CATER", "file": "/photos/home/svc-catering.jpg", "qa": 86, "status": "live"},
+    {"id": "LOC-WAILEA", "url": "https://maui.mychef-hawaii.com/locations/wailea", "file": "/photos/loc-wailea.jpg", "qa": 90, "status": "live", "note": "broke previous duplicate with island-maui"}
+  ],
+  "rejected": [
+    {"id": "MAUI-COLLAGE", "reason": "split composite of two scenes"},
+    {"id": "VAC-MASK", "reason": "guest in mask and shorts, branded cooler, garbled paper"}
+  ],
+  "next_wave": [
+    "Unique heroes for remaining 13 LocationRecords",
+    "Private-chef / vacation-chef / catering heroes per island (not shared assets)",
+    "Wedding hub unique long-table (do not reuse gatherings)",
+    "OG stills for journal/blog using island libraries"
+  ]
+}
+

@@ -188,7 +188,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-wailea.jpg',
-    heroAlt: 'Wailea villa kitchen pass with a tasting plate — concept image, not a myCHEF event',
+    heroAlt: 'Wailea villa lānai at golden hour with Molokini offshore; a chef finishing plated fish.',
     h1: 'The private chef’s table — in a Wailea villa.',
     lede:
       'Wailea is Maui’s signature corridor: hotel-zoned resort residences with kitchens, December peaks, and the dinner format we built the island around. We cook at your table, not at a communal resort chef’s table.',

@@ -28,7 +28,7 @@ function Hero() {
       <HeroMedia
         src="/photos/home/hero.jpg"
         overlay="dusk"
-        alt="A fully set private dinner table on a villa lanai at dusk, ocean as distant context. Concept illustration, not a myCHEF Hawaiʻi event."
+        alt="Plated seared fish on a volcanic-stone villa lānai at dusk, Pacific beyond the railing."
       />
       <div className="relative mx-auto w-full max-w-spread px-5 pb-24 pt-40 lg:px-10">
         <div className="max-w-[640px]">
@@ -106,19 +106,19 @@ function Hero() {
 const homeIslandPhotos: Record<IslandId, { src: string; alt: string }> = {
   oahu: {
     src: '/photos/home/sel-oahu.jpg',
-    alt: 'A residence kitchen and dining table set for six — Oʻahu household format. Concept illustration.',
+    alt: 'Oʻahu household table set for a fish lunch, Gold Coast garden and ocean through the sliders.',
   },
   maui: {
     src: '/photos/home/sel-maui.jpg',
-    alt: 'Chef hands plating a seared fish course in a villa kitchen — Maui craft. Concept illustration.',
+    alt: 'Chef’s hands finishing seared fish on dark ceramic in a Maui villa kitchen.',
   },
   kauai: {
     src: '/photos/home/sel-kauai.jpg',
-    alt: 'A set terrace table against Kauaʻi mountains in overcast light. Concept illustration.',
+    alt: 'Two grilled-fish plates on a wet stone table against misted Kauaʻi mountains.',
   },
   bigisland: {
     src: '/photos/home/sel-bigisland.jpg',
-    alt: 'Whole fish and coffee cherries on a volcanic-stone kitchen counter. Concept illustration.',
+    alt: 'Whole snapper and coffee cherries on lava rock with the Kohala Coast behind.',
   },
 };
 
@@ -196,21 +196,21 @@ const services = [
     title: 'Private Chef',
     desc: 'A chef designs, shops, cooks, serves and cleans — in your villa or home.',
     img: '/photos/home/svc-chef.jpg',
-    alt: 'Hands plating a seared fish course on dark ceramic — concept illustration of in-villa chef work.',
+    alt: 'Private chef searing fish in a villa kitchen.',
     to: '/services#private-chef',
   },
   {
     title: 'Private Dining',
     desc: 'Celebration dinners and dinners-for-two, coursed and served.',
     img: '/photos/home/svc-dining.jpg',
-    alt: 'Two plates of seared fish and greens on linen — concept illustration of a private dinner for two.',
+    alt: 'Two plated fish courses on linen with candlelight and a dusk ocean window.',
     to: '/services#private-dining',
   },
   {
     title: 'Catering & Events',
     desc: 'Receptions, retreats and gatherings from 10 to 75 guests.',
     img: '/photos/home/svc-catering.jpg',
-    alt: 'Family-style platters of grilled fish and greens on a long table — concept illustration of staffed catering.',
+    alt: 'Long outdoor table with family-style fish, vegetables and candles in a Hawaiian garden at dusk.',
     to: '/corporate',
   },
   {
@@ -322,7 +322,7 @@ function StatewideHubs() {
           >
             <img
               src="/photos/home/hub-gatherings.jpg"
-              alt="A villa retreat table laid with poke, greens and family-style bowls. Concept illustration, not a myCHEF event."
+              alt="Long outdoor Hawaiian garden table with family-style fish, vegetables and candles at dusk."
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div
