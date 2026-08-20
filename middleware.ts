@@ -53,12 +53,16 @@ export default function middleware(request: Request) {
     }
   }
 
-  if (path === '/sitemap.xml') {
-    url.pathname = '/api/sitemap';
-    return rewrite(url);
-  }
-  if (path === '/sitemap-hub.xml') {
-    url.pathname = '/api/sitemap-hub';
+  if (path === '/sitemap.xml' || path === '/sitemap-hub.xml') {
+    if (host.endsWith('.vercel.app') || host.endsWith('.now.sh')) {
+      url.pathname = '/sitemaps/vercel.xml';
+    } else if ((host === PRODUCTION_ROOT || host === `www.${PRODUCTION_ROOT}`) && path === '/sitemap.xml') {
+      url.pathname = '/sitemaps/index.xml';
+    } else if (host.endsWith(`.${PRODUCTION_ROOT}`) && (ISLANDS as readonly string[]).includes(label)) {
+      url.pathname = `/sitemaps/${label}.xml`;
+    } else {
+      url.pathname = '/sitemaps/hub.xml';
+    }
     return rewrite(url);
   }
   if (path === '/robots.txt') {

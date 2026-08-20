@@ -4,10 +4,9 @@
   "outputDirectory": "dist",
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
-    { "source": "/sitemap-hub.xml", "destination": "/api/sitemap-hub" },
     { "source": "/robots.txt", "destination": "/api/robots" },
-    { "source": "/((?!api/|assets/|photos/).*)", "destination": "/index.html" }
+    { "source": "/sitemap.xml", "destination": "/sitemaps/hub.xml" },
+    { "source": "/((?!api/|assets/|photos/|sitemaps/).*)", "destination": "/index.html" }
   ],
   "headers": [
     {

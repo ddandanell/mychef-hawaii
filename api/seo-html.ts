@@ -1,58 +1,92 @@
-export const config = { runtime: 'nodejs' };
+const ISLANDS = ['oahu', 'maui', 'kauai', 'bigisland'] as const;
 
-import { resolveDocumentSeo } from '../src/lib/seo';
+type SeoEntry = { title: string; description: string; island: string | null; path: string };
 
 function esc(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 }
 
-function inject(html: string, seo: ReturnType<typeof resolveDocumentSeo>): string {
-  const extra = [
-    `<link rel="canonical" href="${esc(seo.canonical)}" />`,
-    `<meta property="og:type" content="${seo.ogType}" />`,
-    `<meta property="og:title" content="${esc(seo.title)}" />`,
-    `<meta property="og:description" content="${esc(seo.description)}" />`,
-    `<meta property="og:url" content="${esc(seo.canonical)}" />`,
-    `<meta property="og:image" content="${esc(seo.ogImage)}" />`,
-    `<meta name="twitter:card" content="summary_large_image" />`,
-    `<meta name="robots" content="${seo.robots}" />`,
-    `<script type="application/ld+json">${JSON.stringify(seo.jsonLd)}</script>`,
-  ].join('\n    ');
+function islandFromHost(host: string): (typeof ISLANDS)[number] | null {
+  const first = host.split(':')[0]?.split('.')[0]?.toLowerCase() ?? '';
+  return (ISLANDS as readonly string[]).includes(first) ? (first as (typeof ISLANDS)[number]) : null;
+}
 
-  let out = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(seo.title)}</title>`);
-  if (/<meta name="description"/.test(out)) {
-    out = out.replace(
-      /<meta name="description"[^>]*>/,
-      `<meta name="description" content="${esc(seo.description)}" />`,
-    );
-  } else {
-    out = out.replace('</title>', `</title>\n    <meta name="description" content="${esc(seo.description)}" />`);
+function localPath(host: string, pathname: string, island: string | null): string {
+  const p = pathname.replace(/\/$/, '') || '/';
+  if (island) return p.startsWith('/') ? p : `/${p}`;
+  const seg = p.split('/').filter(Boolean)[0];
+  if (seg && (ISLANDS as readonly string[]).includes(seg)) {
+    const rest = p.slice(seg.length + 1);
+    return rest ? rest : '/';
   }
-  if (!out.includes('rel="canonical"')) {
-    out = out.replace('</head>', `    ${extra}\n  </head>`);
+  return p.startsWith('/') ? p : `/${p}`;
+}
+
+function canonical(host: string, island: string | null, path: string): string {
+  const h = host.split(':')[0] ?? host;
+  const proto = h.includes('localhost') ? 'http' : 'https';
+  const apex = h.endsWith('.vercel.app') || h.endsWith('.now.sh');
+  const clean = path.startsWith('/') ? path : `/${path}`;
+  if (island && !apex) {
+    const root = h.includes('.') ? h.split('.').slice(1).join('.') : h;
+    const origin = islandFromHost(h) ? `${proto}://${h}` : `${proto}://${island}.${root}`;
+    return `${origin}${clean === '/' ? '/' : clean}`;
   }
-  return out;
+  if (island && apex) {
+    return `${proto}://${h}${clean === '/' ? `/${island}` : `/${island}${clean}`}`;
+  }
+  return `${proto}://${h}${clean === '/' ? '/' : clean}`;
 }
 
 export async function GET(request: Request) {
   const url = new URL(request.url);
   const path = url.searchParams.get('path') || '/';
-  const host = request.headers.get('x-forwarded-host') || request.headers.get('host') || 'mychef-hawaii.com';
-  const seo = resolveDocumentSeo(host, path);
-
+  const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || 'mychef-hawaii.com').split(
+    ':',
+  )[0];
   const deployment = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : url.origin;
-  const indexRes = await fetch(`${deployment}/index.html`, {
-    headers: { 'x-seo-bypass': '1' },
-  });
-  if (!indexRes.ok) {
-    return new Response('index missing', { status: 500 });
+
+  const [htmlRes, mapRes] = await Promise.all([
+    fetch(`${deployment}/index.html`, { headers: { 'x-seo-bypass': '1' } }),
+    fetch(`${deployment}/seo-map.json`, { headers: { 'x-seo-bypass': '1' } }),
+  ]);
+  if (!htmlRes.ok) return new Response('index missing', { status: 500 });
+
+  const html = await htmlRes.text();
+  const map = (mapRes.ok ? ((await mapRes.json()) as Record<string, SeoEntry>) : {}) as Record<string, SeoEntry>;
+  const fromHost = islandFromHost(host);
+  const pathSeg = path.split('/').filter(Boolean)[0];
+  const fromPath =
+    !fromHost && pathSeg && (ISLANDS as readonly string[]).includes(pathSeg) ? pathSeg : null;
+  const island = fromHost ?? fromPath;
+  const local = localPath(host, path, fromHost);
+  const rec = map[`${island ?? 'hub'}:${local}`] ?? map['hub:/'];
+  const title = rec?.title ?? 'myCHEF Hawaii';
+  const description =
+    rec?.description ??
+    'Private chefs, private dining, catering and events across Oʻahu, Maui, Kauaʻi and Hawaiʻi Island.';
+  const canon = canonical(host, island, local);
+
+  const extra = [
+    `<link rel="canonical" href="${esc(canon)}" />`,
+    `<meta property="og:type" content="website" />`,
+    `<meta property="og:title" content="${esc(title)}" />`,
+    `<meta property="og:description" content="${esc(description)}" />`,
+    `<meta property="og:url" content="${esc(canon)}" />`,
+    `<meta name="robots" content="index,follow" />`,
+  ].join('\n    ');
+
+  let out = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);
+  if (/<meta name="description"/.test(out)) {
+    out = out.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${esc(description)}" />`);
   }
-  const html = inject(await indexRes.text(), seo);
-  return new Response(html, {
+  out = out.replace('</head>', `    ${extra}\n  </head>`);
+
+  return new Response(out, {
     headers: {
       'content-type': 'text/html; charset=utf-8',
       'cache-control': 'public, s-maxage=120, stale-while-revalidate=86400',
-      'x-island': seo.islandId ?? 'hub',
+      'x-island': island ?? 'hub',
     },
   });
 }

@@ -1,12 +1,9 @@
-export const config = { runtime: 'nodejs' };
-
-import { PRODUCTION_ROOT, detectIslandFromHost, locFromHost, siteUrl } from '../src/config/site';
-
 export async function GET(request: Request) {
-  const host = (request.headers.get('host') || PRODUCTION_ROOT).split(':')[0];
-  const loc = locFromHost(host);
-  const island = detectIslandFromHost(host);
-  const origin = (island ? siteUrl(island, '/', loc) : siteUrl('root', '/', loc)).replace(/\/$/, '');
+  const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || 'mychef-hawaii.com')
+    .split(':')[0]
+    .toLowerCase();
+  const proto = host.includes('localhost') ? 'http' : 'https';
+  const origin = `${proto}://${host}`;
   const body = `User-agent: *
 Allow: /
 

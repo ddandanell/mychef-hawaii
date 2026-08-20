@@ -1,4 +1,4 @@
-import type { IslandId } from '@/data/islands';
+import type { IslandId } from '../data/islands';
 
 /** Production root. Island hosts are oahu / maui / kauai / bigisland subdomains. */
 export const PRODUCTION_ROOT = 'mychef-hawaii.com';
