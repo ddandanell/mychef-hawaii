@@ -71,9 +71,7 @@ export default function middleware(request: Request) {
     return rewrite(url);
   }
 
-  url.pathname = '/api/seo-html';
-  url.searchParams.set('path', path);
-  return rewrite(url);
+  return next();
 }
 
 export const config = {
