@@ -1,0 +1,182 @@
+import type { IslandId } from './islands';
+import { islands } from './islands';
+import { areasFor } from './areas';
+import { articlesFor } from './editorial';
+import { zoneMap } from './zoneMap';
+
+export type CatalogKind =
+  | 'service'
+  | 'event'
+  | 'catering'
+  | 'fine-dining'
+  | 'help'
+  | 'staffing'
+  | 'menu';
+
+export interface CatalogEntry {
+  path: string;
+  kind: CatalogKind;
+  title: string;
+  h1: string;
+  lede: string;
+  body: string[];
+}
+
+const SERVICE_PATHS: { path: string; label: string; lede: (n: string) => string }[] = [
+  { path: '/private-chef-cost', label: 'Private chef cost', lede: (n) => `Planning-orientation bands for ${n}. BUSINESS DECISION REQUIRED until the rate card is approved.` },
+  { path: '/personal-chef', label: 'Personal chef / kamaʻāina line', lede: (n) => `Weekly household service on ${n}. Resident line — not a tourist one-off.` },
+  { path: '/meal-prep', label: 'Meal prep', lede: (n) => `Volume meal prep on ${n} is gated until utilization is proven. Inquiry only.` },
+  { path: '/cooking-classes', label: 'Cooking classes', lede: (n) => `Experience product on ${n} publishes only with a real instructor bench — otherwise it stays a page that says so.` },
+  { path: '/omakase-at-home', label: 'Omakase at home', lede: (n) => `Premium tasting at home on ${n}. Menu/IP and sourcing verification are launch gates.` },
+  { path: '/chefs-table', label: "Chef's table", lede: (n) => `Private chef's table in your ${n} villa — not a resort communal table.` },
+  { path: '/honeymoon-dinners', label: 'Honeymoon dinners', lede: (n) => `Dinner-for-two posture on ${n}. Planning orientation, BDE-labeled.` },
+  { path: '/rehearsal-dinners', label: 'Rehearsal dinners', lede: (n) => `Wedding-week SKU on ${n}: rehearsal, welcome, day-after as separate lines.` },
+  { path: '/retreat-catering', label: 'Retreat catering', lede: (n) => `Full-board retreat days on ${n}. Dietary capability is table stakes, claimed only when true.` },
+  { path: '/corporate-catering', label: 'Corporate catering', lede: (n) => `Offsites and executive dinners on ${n}. Not HCC citywides (closed through 2027).` },
+  { path: '/faq', label: 'FAQ', lede: (n) => `Island questions for ${n}. Statewide policy lives on the hub.` },
+  { path: '/menus', label: 'Menus', lede: (n) => `Menus on ${n} are designed per table. This page explains the process, not a fake standing carte.` },
+  { path: '/kids-menus', label: 'Kids at the table', lede: (n) => `Children’s plates on ${n} are planned with the adults’ menu, not an afterthought.` },
+  { path: '/dietary', label: 'Dietary', lede: (n) => `Vegan, gluten-free, allergy-aware — designed in advance on ${n}.` },
+  { path: '/how-it-works', label: 'How it works', lede: (n) => `Same network process. ${n} changes the drive times, which we publish.` },
+  { path: '/pricing', label: 'Pricing orientation', lede: (n) => `${n} bands from the canonical rate card. BDE-labeled.` },
+  { path: '/catering', label: 'Catering', lede: (n) => `Staffed catering on ${n}. Drop-off is a different product. Guest counts we staff are published.` },
+  { path: '/events', label: 'Events', lede: (n) => `Estate and villa events on ${n}. Receptions about 10–75; larger formats are quoted.` },
+  { path: '/about', label: 'About this island department', lede: (n) => `myCHEF ${n} is a department of the Hawaii network — own chefs, zones and inquiry vs live posture.` },
+  { path: '/coverage', label: 'Coverage map', lede: (n) => `Where we cook on ${n}. Published zones, not statewide fiction.` },
+  { path: '/guest-counts', label: 'Guest counts we staff', lede: (n) => `Dinners 2–15, receptions about 10–75 on ${n}. Larger formats are quoted, not promised.` },
+  { path: '/what-we-dont-do', label: 'What we will not claim', lede: (n) => `No fake reviews, no invented licenses, no “now serving ${n}” language ahead of a staffed team.` },
+];
+
+const EVENT_SLUGS = ['weddings', 'birthdays', 'anniversaries', 'corporate-events', 'retreats', 'villa-parties', 'welcome-dinners', 'brunch'];
+const CATERING_SLUGS = ['bbq', 'plated', 'family-style', 'buffet', 'grazing', 'drop-off'];
+const FINE_SLUGS = ['romantic-dinner', 'tasting-menu', 'chefs-table-evening', 'celebration-dinner'];
+const HELP_SLUGS = ['getting-started', 'menu-guide', 'wedding-guide', 'corporate-guide', 'managing-booking'];
+const STAFF_SLUGS = ['servers', 'bartenders', 'butlers'];
+const MENU_SLUGS = ['three-course', 'family-style-menu', 'breakfast', 'lunch'];
+
+function entry(island: IslandId, path: string, kind: CatalogKind, label: string, extra: string): CatalogEntry {
+  const n = islands[island].name;
+  const z = zoneMap[island];
+  const areas = areasFor(island)
+    .map((a) => a.name)
+    .join(', ');
+  const inquiry = islands[island].state === 'inquiry';
+  return {
+    path,
+    kind,
+    title: `${label} — myCHEF ${n}`,
+    h1: label,
+    lede: extra,
+    body: [
+      `${label} on ${n} is its own commercial cell — not a find-and-replace of a sibling island. ${islands[island].role}`,
+      `${z.headline} ${z.honestyLine}`,
+      `Published areas on this host: ${areas}. Neighborhoods are folders here, never new subdomains.`,
+      inquiry
+        ? `${n} is inquiry-stage. Dated inquiries, not a booking button, until a staffed insured team exists.`
+        : `${n} is booking now on live corridors. Quotes are written. Travel fees are published.`,
+      'No fabricated reviews, chef names, licenses or partnerships appear here. Preview photography is concept illustration.',
+    ],
+  };
+}
+
+const UNIQUE: Record<IslandId, { path: string; label: string; lede: string }[]> = {
+  oahu: [
+    { path: '/kamaaina', label: 'Kamaʻāina household line', lede: 'Frequency, not yield — weekly service for Oʻahu residents. Not a tourist SKU.' },
+    { path: '/conventions', label: 'Conventions and HCC', lede: 'Hawaiʻi Convention Center citywides are closed through 2027. This department is not a MICE play.' },
+    { path: '/gold-coast', label: 'Gold Coast estates', lede: 'Kahala and Diamond Head residences with real dining rooms — base zone.' },
+    { path: '/short-stay', label: 'Legal short-stay villas', lede: 'Ko Olina holds the deepest legal short-stay villa pool on Oʻahu. We say so because the law does.' },
+  ],
+  maui: [
+    { path: '/lahaina', label: 'Lahaina, named honestly', lede: 'West Maui is Kāʻanapali, Nāpili, Kapalua. We do not market this department as Lahaina luxury dining.' },
+    { path: '/south-maui', label: 'South Maui corridor', lede: 'Wailea, Makena, Kīhei — three cells, three logistics stories, one South Maui team.' },
+    { path: '/west-maui', label: 'West Maui corridor', lede: 'Kāʻanapali to Kapalua. Traffic is planned into arrival, not discovered on the invoice.' },
+    { path: '/wedding-week', label: 'Maui wedding week', lede: 'Primary wedding island. Welcome, rehearsal, reception, recovery brunch as separate lines.' },
+  ],
+  kauai: [
+    { path: '/hanalei-bridge', label: 'Hanalei bridge clause', lede: 'Far-North events inherit the weather/road clause. 72-hour notice. Reschedule rather than forfeit.' },
+    { path: '/north-shore', label: 'Kauaʻi North Shore', lede: 'Princeville, Hanalei, Hāʻena. Inquiry-stage. Surf-season winters book early — when we launch.' },
+    { path: '/south-shore', label: 'Kauaʻi South Shore', lede: 'Poʻipū and Kōloa. Shorter drive from Līhuʻe than the North. Still inquiry-stage.' },
+    { path: '/inquiry-list', label: 'Inquiry list', lede: 'Kauaʻi does not have a booking button. Dated inquiries set the launch sequence.' },
+  ],
+  bigisland: [
+    { path: '/kohala-corridor', label: 'Kona–Kohala corridor', lede: 'Seven resort communities inside a 30-minute west-side radius. The island is 4,000 square miles; we will not pretend to cover it.' },
+    { path: '/coffee-act-198', label: 'Coffee origin labeling', lede: 'Named Kaʻū and Kona coffee follow Act 198 from 2027. We do not invent farm names.' },
+    { path: '/ironman-weeks', label: 'Ironman weeks', lede: 'Event weeks in Kailua-Kona compress availability. We publish that instead of overselling.' },
+    { path: '/east-side', label: 'Hilo and Volcano', lede: '2.5–3 hours from Kona. Quote-only. Dedicated staffing — never a same-day west-side round trip.' },
+  ],
+};
+
+export function catalogFor(island: IslandId): CatalogEntry[] {
+  const n = islands[island].name;
+  const out: CatalogEntry[] = SERVICE_PATHS.map((s) => entry(island, s.path, 'service', s.label, s.lede(n)));
+  EVENT_SLUGS.forEach((s) =>
+    out.push(entry(island, `/events/${s}`, 'event', s.replace(/-/g, ' '), `${s.replace(/-/g, ' ')} on ${n}. Occasion cell, not a cloned wedding page.`)),
+  );
+  CATERING_SLUGS.forEach((s) =>
+    out.push(
+      entry(
+        island,
+        `/catering/${s}`,
+        'catering',
+        `${s.replace(/-/g, ' ')} catering`,
+        `${s.replace(/-/g, ' ')} as a format on ${n}. Drop-off is a different product from staffed service.`,
+      ),
+    ),
+  );
+  FINE_SLUGS.forEach((s) =>
+    out.push(
+      entry(
+        island,
+        `/fine-dining/${s}`,
+        'fine-dining',
+        s.replace(/-/g, ' '),
+        `Fine-dining format on ${n}. Halo products stay labeled as posture, not as a Michelin claim we do not make.`,
+      ),
+    ),
+  );
+  HELP_SLUGS.forEach((s) =>
+    out.push(entry(island, `/help/${s}`, 'help', s.replace(/-/g, ' '), `Help article for ${n} guests and planners.`)),
+  );
+  STAFF_SLUGS.forEach((s) =>
+    out.push(
+      entry(island, `/staffing/${s}`, 'staffing', s, `${s} add-ons on ${n} are quoted as hourly or per-event lines — never buried in a menu price.`),
+    ),
+  );
+  MENU_SLUGS.forEach((s) =>
+    out.push(entry(island, `/menus/${s}`, 'menu', s.replace(/-/g, ' '), `${s.replace(/-/g, ' ')} on ${n} is designed per table.`)),
+  );
+  UNIQUE[island].forEach((u) => out.push(entry(island, u.path, 'service', u.label, u.lede)));
+  return out;
+}
+
+export function getCatalog(island: IslandId, path: string): CatalogEntry | undefined {
+  const clean = path.endsWith('/') && path !== '/' ? path.slice(0, -1) : path;
+  return catalogFor(island).find((c) => c.path === clean);
+}
+
+/** All indexable paths on one island host, for sitemap / counts. */
+export function allIslandPaths(island: IslandId): string[] {
+  const paths = new Set<string>([
+    '/',
+    '/private-chef',
+    '/vacation-chef',
+    island === 'maui' ? '/wedding-catering' : '/catering',
+    island === 'kauai' ? '/events' : '/catering',
+    '/locations',
+    '/journal',
+    '/blog',
+    '/quote',
+    '/sitemap',
+  ]);
+  areasFor(island).forEach((a) => {
+    paths.add(`/locations/${a.slug}`);
+    paths.add(`/private-chef/${a.slug}`);
+  });
+  catalogFor(island).forEach((c) => paths.add(c.path));
+  articlesFor(island).forEach((a) => paths.add(`/${a.kind}/${a.slug}`));
+  return [...paths];
+}
+
+export function islandPageCount(island: IslandId): number {
+  return allIslandPaths(island).length;
+}

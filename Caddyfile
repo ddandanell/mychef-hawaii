@@ -1,0 +1,15 @@
+# Wildcard for island departments. Vite stays on :3000.
+# Caddy on :80 so http://oahu.localhost/ (no port) also works.
+#
+#   caddy run --config Caddyfile
+#
+# Chrome already resolves *.localhost → 127.0.0.1.
+# Production: add mychef-hawaii.com + *.mychef-hawaii.com on the host (Vercel wildcard).
+
+http://localhost, http://*.localhost {
+	reverse_proxy 127.0.0.1:3000
+}
+
+http://mychef-hawaii.com, http://www.mychef-hawaii.com, http://*.mychef-hawaii.com {
+	reverse_proxy 127.0.0.1:3000
+}

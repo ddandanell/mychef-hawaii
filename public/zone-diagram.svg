@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 480" fill="none">
+  <!-- Abstract concentric-zone diagram: base / surcharge / quote-only rings with label callouts. Recolorable strokes. -->
+  <g stroke="#9C7A33" stroke-width="1.5">
+    <circle cx="240" cy="240" r="200" stroke-dasharray="4 6" opacity="0.7"/>
+    <circle cx="240" cy="240" r="132" opacity="0.85"/>
+    <circle cx="240" cy="240" r="64" stroke="#3C5648" stroke-width="2"/>
+  </g>
+  <circle cx="240" cy="240" r="8" fill="#3C5648"/>
+  <g font-family="'JetBrains Mono', ui-monospace, monospace" font-size="13" letter-spacing="2">
+    <text x="240" y="52" text-anchor="middle" fill="#5C5344">ZONE C — QUOTE ONLY</text>
+    <text x="240" y="120" text-anchor="middle" fill="#5C5344">ZONE B — SURCHARGE</text>
+    <text x="240" y="196" text-anchor="middle" fill="#3C5648">ZONE A — BASE</text>
+  </g>
+  <g stroke="#E3D9C8" stroke-width="1">
+    <line x1="240" y1="60" x2="240" y2="40"/>
+    <line x1="240" y1="128" x2="240" y2="108"/>
+    <line x1="240" y1="204" x2="240" y2="176"/>
+  </g>
+</svg>
