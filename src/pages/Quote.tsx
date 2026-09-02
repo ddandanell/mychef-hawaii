@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
 import { useNavigate, useSearchParams } from 'react-router';
+import { Longform, SiblingCluster } from '@/components/Longform';
 import HostLink from '@/components/HostLink';
+import { quoteTrustSections } from '@/data/longformHub';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
@@ -188,6 +190,7 @@ export default function Quote() {
   const channelField = CHANNEL_FIELD[channel];
 
   return (
+    <>
     <section className="bg-ivory">
       <div className="lg:grid lg:grid-cols-[55fr_45fr]">
         <div className="bg-ink px-5 py-10 lg:hidden">
@@ -425,5 +428,8 @@ export default function Quote() {
         </aside>
       </div>
     </section>
+    <Longform sections={quoteTrustSections} />
+    <SiblingCluster island={islandId} current="quote" />
+    </>
   );
 }

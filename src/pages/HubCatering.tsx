@@ -1,9 +1,10 @@
-import * as Accordion from '@radix-ui/react-accordion';
 import { DualCtaLight } from '@/components/DualCta';
 import HostLink from '@/components/HostLink';
+import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
 import PageMeta from '@/components/PageMeta';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
-import { CATERING_VOLUMES, HUB_CATERING, cateringOffers } from '@/data/catering';
+import { HUB_CATERING, cateringOffers } from '@/data/catering';
+import { hubCateringFaqs, hubCateringSections } from '@/data/longformHub';
 import { islandOrder, islands } from '@/data/islands';
 import { photos } from '@/data/photos';
 import { FEE_DISCLOSURE, STAFFING } from '@/data/rateCard';
@@ -95,8 +96,8 @@ export default function HubCatering() {
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-ink">Choose the island</h2>
           <p className="mt-4 max-w-[65ch] text-ink-soft">
-            Oahu catering is the largest door ({CATERING_VOLUMES['oahu catering']}/mo). Maui catering{' '}
-            {CATERING_VOLUMES['maui catering']}. Kauai catering {CATERING_VOLUMES['kauai catering']}.
+            Open the island where the house is. Each island page publishes its own starting prices and a sample
+            menu. This page stays statewide.
           </p>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {islandOrder.map((id) => {
@@ -109,9 +110,9 @@ export default function HubCatering() {
                   path="/catering"
                   className="border border-stone bg-white p-5 transition-colors hover:border-ink/40"
                 >
-                  <p className="font-display text-2xl font-medium text-ink">{c.h1}</p>
+                  <p className="font-display text-2xl font-medium text-ink">{isl.name}</p>
                   <p className="mt-2 text-ink-soft">from ${c.fromPp} per guest</p>
-                  <p className="mt-2 text-sm text-ink-soft">{isl.name}</p>
+                  <p className="mt-2 text-sm text-ink-soft">Staffed villa events</p>
                 </HostLink>
               );
             })}
@@ -204,27 +205,9 @@ export default function HubCatering() {
         </div>
       </section>
 
-      <section className="border-t border-stone bg-ivory py-20">
-        <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-5 lg:px-10">
-          <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink lg:col-span-2">Questions</h2>
-          <Accordion.Root type="single" collapsible className="lg:col-span-3">
-            {HUB_CATERING.faqs.map((f, i) => (
-              <Accordion.Item key={f.q} value={`c-${i}`} className="border-b border-stone">
-                <Accordion.Header>
-                  <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left">
-                    <span className="font-display text-[1.25rem] font-light text-ink">{f.q}</span>
-                    <span className="text-[12px] text-ink-soft">+</span>
-                  </Accordion.Trigger>
-                </Accordion.Header>
-                <Accordion.Content>
-                  <p className="pb-6 text-[17px] leading-relaxed text-ink-soft">{f.a}</p>
-                </Accordion.Content>
-              </Accordion.Item>
-            ))}
-          </Accordion.Root>
-        </div>
-      </section>
-
+      <Longform sections={hubCateringSections} />
+      <SiblingCluster current="catering" />
+      <LongFaq items={[...HUB_CATERING.faqs, ...hubCateringFaqs]} />
       <QuoteTeaserBand headline="Hawaii catering — from $125 a guest. Quote in writing." />
     </>
   );

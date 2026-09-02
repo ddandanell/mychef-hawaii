@@ -136,7 +136,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     description:
       'Private chef Oahu from $125 a guest. Honolulu and personal chef on this same page — no /honolulu. Villa dinners. Oahu catering is the larger door on /catering.',
     lede:
-      'Private chef Oahu and Honolulu — villa dinners from $125 a guest. Oahu catering (720/mo) is the larger door on /catering. Same team: we shop, cook, serve and clean.',
+      'Private chef Oahu and Honolulu — villa dinners from $125 a guest. Staffed events for a larger list live on /catering. Same team: we shop, cook, serve and clean.',
     fromPp: 125,
     dayFrom: 850,
     heroPhoto: 'oahuDinner',
@@ -167,7 +167,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       },
       {
         q: 'Oahu catering or a private chef?',
-        a: 'A villa dinner for the house is private chef Oahu. Ten to seventy-five guests is Oahu catering — 720 searches a month, the largest Hawaii keyword we publish. Same team, buffet or plated. See /catering.',
+        a: 'A villa dinner for the house is private chef Oahu. Ten to seventy-five guests is the catering page — same team, buffet or plated. See /catering.',
       },
     ],
   },
@@ -393,7 +393,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
       description:
         'Private chef Honolulu and personal chef Honolulu from $125/pp. In-residence dinners from Waikīkī to Kahala. Weekly household service for kamaʻāina.',
       lede:
-        'Honolulu is the search: private chef Honolulu (70/mo) and personal chef Honolulu (40/mo). We cook in residences with kitchens — Gold Coast, Waikīkī towers, town apartments.',
+        'Honolulu is the residence search: private chef and personal chef in the same city. We cook in residences with kitchens — Gold Coast, Waikīkī towers, town apartments.',
       body: [
         'Visitors book celebration dinners. Residents book the weekly line from $300/week plus groceries at cost.',
         'Standard hotel rooms without kitchens are not a chef venue. Residences, yes.',
@@ -570,7 +570,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
       title: 'Private chef Kona Hawaii — from $125/pp | myCHEF',
       description:
         'Private chef Kona and Kailua-Kona from $125/pp. West-side villa dinners, Stay Chef weeks, Ironman-week honesty.',
-      lede: 'Private chef Kona is a 70/month search. We cook Kailua-Kona, Keauhou and the south end of the Kohala corridor.',
+      lede: 'Private chef Kona is covered on this island — Kailua-Kona, Keauhou and the south end of the Kohala corridor.',
       body: [
         'CORE $150–$225/pp. Event weeks (including Ironman) compress the calendar — flag dates on WhatsApp.',
         'Named Kona coffee follows origin-labeling rules. We do not invent farm names.',

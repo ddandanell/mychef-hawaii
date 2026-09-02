@@ -2,9 +2,11 @@ import { Link } from 'react-router';
 import * as Accordion from '@radix-ui/react-accordion';
 import { DualCta } from '@/components/DualCta';
 import HostLink from '@/components/HostLink';
+import { Longform, SiblingCluster } from '@/components/Longform';
 import PageMeta from '@/components/PageMeta';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import { SampleMenu } from '@/components/SampleMenu';
+import { islandHomeLongform } from '@/data/longformIslands';
 import { islandOrder, islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
 import { islandOffers } from '@/data/offers';
@@ -17,14 +19,7 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
   const offer = islandOffers[islandId];
   const hero = photos[offer.heroPhoto];
   const inquiry = island.state === 'inquiry';
-  const cateringLabel =
-    islandId === 'oahu'
-      ? 'Oahu catering'
-      : islandId === 'maui'
-        ? 'Maui catering'
-        : islandId === 'kauai'
-          ? 'Kauai catering'
-          : 'Catering';
+  const copy = islandHomeLongform[islandId];
 
   return (
     <>
@@ -36,7 +31,7 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            mainEntity: offer.faqs.map((f) => ({
+            mainEntity: copy.faqs.map((f) => ({
               '@type': 'Question',
               name: f.q,
               acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -86,7 +81,7 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
                 to={href('/catering')}
                 className="border-b border-stone px-5 py-16 lg:px-12 md:border-l"
               >
-                <h2 className="font-display text-[2rem] font-light text-ink">{cateringLabel}</h2>
+                <h2 className="font-display text-[2rem] font-light text-ink">Staffed events</h2>
                 <p className="mt-2 text-[17px] text-ink-soft">Buffet or plated, from ${offer.fromPp} a guest.</p>
               </Link>
             ),
@@ -95,6 +90,8 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
       </section>
 
       <SampleMenu island={islandId} />
+      <Longform sections={copy.sections} />
+      <SiblingCluster island={islandId} current="home" />
 
       <section className="border-t border-stone bg-ivory py-20">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
@@ -140,7 +137,7 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
             Cost, cleanup, kitchens.
           </h2>
           <Accordion.Root type="single" collapsible className="lg:col-span-3">
-            {offer.faqs.map((f, i) => (
+            {copy.faqs.map((f, i) => (
               <Accordion.Item key={f.q} value={`item-${i}`} className="border-b border-stone">
                 <Accordion.Header>
                   <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left">

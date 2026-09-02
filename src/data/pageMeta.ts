@@ -20,7 +20,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/islands': {
     title: 'Private chef Oahu, Maui, Kauai & Big Island | myCHEF',
     description:
-      'Four island sites. Private chef Maui from $150/pp (260/mo). Private chef Kauai from $150/pp (210/mo). Oahu from $125/pp. Big Island from $125/pp.',
+      'Four island sites. Private chef Maui from $150 a guest. Private chef Kauai from $150 a guest. Oahu from $125 a guest. Big Island from $125 a guest.',
   },
   '/areas': {
     title: 'Private chef Oahu, Maui, Kauai & Big Island | myCHEF',
@@ -135,11 +135,11 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/oahu/catering': {
     title: 'Oahu Catering | Staffed Villa Events — myCHEF',
     description:
-      'Oahu catering from $125 a guest. The largest Hawaii keyword we publish (720/mo). Buffet or plated, villa and wedding catering.',
+      'Oahu catering from $125 a guest. Buffet or plated, villa and wedding catering from Honolulu to Ko Olina.',
   },
   '/oahu/weddings': {
     title: 'Wedding Catering Oahu — myCHEF',
-    description: 'Wedding catering Oahu (140/mo). Kahala, Ko Olina and Kailua estates. Starting prices published.',
+    description: 'Wedding catering Oahu. Kahala, Ko Olina and Kailua estates. Starting prices published.',
   },
   '/oahu/wedding-catering': {
     title: 'Wedding catering Oahu — Gold Coast weekend chefs | myCHEF',
@@ -202,7 +202,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/maui/catering': {
     title: 'Maui Catering | Staffed Villa Events — myCHEF',
     description:
-      'Maui catering from $150 a guest (480/mo). Buffet or plated, villa and wedding catering. Published prices and menus.',
+      'Maui catering from $150 a guest. Buffet or plated, villa and wedding catering. Published prices and menus.',
   },
   '/kauai/private-chef': {
     title: 'Personal chef Kauai villas & vacation rentals | myCHEF',

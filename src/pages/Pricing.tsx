@@ -1,8 +1,10 @@
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import * as Accordion from '@radix-ui/react-accordion';
+import { Longform, SiblingCluster } from '@/components/Longform';
 import { PackageGrid } from '@/components/PackageGrid';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { hubPricingSections } from '@/data/longformHub';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
@@ -32,8 +34,8 @@ const faqs = [
     a: 'Oʻahu Signature $125–$190 a guest. Maui and Kauaʻi $150–$250. Hawaiʻi Island Signature $150–$225, Table from $110. Stay Chef day rates from $850 Oʻahu / $1,050 Maui / $1,100 Kauaʻi / $950 Hawaiʻi Island. Written quote before you commit.',
   },
   {
-    q: 'Private chef Maui cost — what do I actually pay per guest?',
-    a: 'Signature dinners start at $150–$250 a guest. Date Night for two from $500+. Stay Chef from $1,050 a day. That is the food and chef line — service and GET are called out on the written quote.',
+    q: 'Private chef Hawaii cost — what is actually on the quote?',
+    a: 'The food and chef line from the published band, then 20% service and GET up to 4.712% as their own lines. Stay Chef groceries at cost. Zone travel only outside the usual corridors. The written quote is the confirmed total.',
   },
   {
     q: 'What’s included in the per-guest price?',
@@ -263,6 +265,8 @@ export default function Pricing() {
         </div>
       </section>
 
+      {!islandId ? <Longform sections={hubPricingSections} /> : null}
+      <SiblingCluster island={islandId} current="pricing" />
       <QuoteTeaserBand headline="Want the exact number for your dates?" />
     </>
   );

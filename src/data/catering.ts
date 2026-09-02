@@ -34,9 +34,9 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     h1: 'Oahu catering.',
     title: 'Oahu Catering | Staffed Villa Events — myCHEF',
     description:
-      'Oahu catering from $125/pp. The largest Hawaii keyword we publish (720/mo). Buffet or plated, villa and wedding catering, Honolulu to Ko Olina. WhatsApp for a quote.',
+      'Oahu catering from $125 a guest. Buffet or plated, villa and wedding catering, Honolulu to Ko Olina. WhatsApp for a quote.',
     lede:
-      'Oahu catering is the money search — 720 a month, low competition, eight times private chef Oahu. Buffet or plated. Villa, retreat, wedding. Published prices and a written menu.',
+      'Oahu catering is the staffed-event door: buffet or plated, villa, retreat, wedding. Published prices and a written menu. Honolulu to Ko Olina.',
     fromPp: 125,
     weddingFrom: 125,
     places: 'Honolulu, Waikīkī residences, Kahala, Kailua, Ko Olina',
@@ -66,9 +66,9 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     h1: 'Maui catering.',
     title: 'Maui Catering | Staffed Villa Events — myCHEF',
     description:
-      'Maui catering from $150/pp (480/mo). Buffet or plated, villa and wedding catering in Wailea, West Maui and Kīhei. Published prices and menus. WhatsApp for a quote.',
+      'Maui catering from $150 a guest. Buffet or plated, villa and wedding catering in Wailea, West Maui and Kīhei. Published prices and menus. WhatsApp for a quote.',
     lede:
-      'Maui catering searches at 480 a month — larger than private chef Maui. Same team, staffed room. Buffet or plated. Published $150–$250/pp. Not a named-chef marketplace.',
+      'Maui catering is the staffed-room door on this island. Same team as a villa dinner. Buffet or plated. Published $150–$250 a guest. Not a named-chef marketplace.',
     fromPp: 150,
     weddingFrom: 150,
     places: 'Wailea, Kāʻanapali, Lahaina / West Maui, Kīhei, Kapalua',
@@ -98,9 +98,9 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     h1: 'Kauai catering.',
     title: 'Kauai Catering | Staffed Villa Events — myCHEF',
     description:
-      'Kauai catering from $150/pp (210/mo — equal to private chef Kauai). Buffet vs plated, published menu, wedding catering from $175/pp. Princeville, Poʻipū, Hanalei.',
+      'Kauai catering from $150 a guest. Buffet vs plated, published menu, wedding catering from $175 a guest. Princeville, Poʻipū, Hanalei.',
     lede:
-      'Kauai catering and private chef Kauai search at the same volume — 210 a month each. Two money doors. Published prices. A sample menu. Buffet or plated.',
+      'Kauai catering is the staffed-event door on this island — published prices, a sample menu, buffet or plated. Villa dinners live on the home.',
     fromPp: 150,
     weddingFrom: 175,
     places: 'Princeville, Poʻipū, Hanalei, Kapaʻa',
@@ -158,7 +158,7 @@ export const HUB_CATERING = {
   description:
     'Hawaii catering for villa and estate events. Buffet or plated. Oahu, Maui, Kauaʻi, Big Island. Published starting prices. WhatsApp for a quote.',
   lede:
-    'Staffed villa events on four islands. Buffet or plated. Published starting prices. The island pages carry the larger doors: Oahu catering, Maui catering, Kauai catering.',
+    'Staffed villa events on four islands. Buffet or plated. Published starting prices. Open the island page for the house you booked.',
   faqs: [
     {
       q: 'How much is Hawaii catering?',
@@ -170,7 +170,7 @@ export const HUB_CATERING = {
     },
     {
       q: 'Which island should I open?',
-      a: 'Oahu catering is the largest door. Maui catering is next. Kauai catering matches private chef Kauai. Big Island is west-side first — Kona and Kohala. Pick the island host for prices and a sample menu.',
+      a: 'Open the island where the villa is. Oʻahu, Maui, Kauaʻi, and Hawaiʻi Island each publish starting prices and a sample menu. West-side first on Hawaiʻi Island — Kona and Kohala.',
     },
     {
       q: 'Do you publish a Hawaii catering menu?',

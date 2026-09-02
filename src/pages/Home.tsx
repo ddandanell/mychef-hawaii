@@ -1,9 +1,10 @@
 import { Link } from 'react-router';
-import * as Accordion from '@radix-ui/react-accordion';
 import { DualCta } from '@/components/DualCta';
 import HostLink from '@/components/HostLink';
 import HeroMedia from '@/components/HeroMedia';
+import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { hubHomeFaqs, hubHomeSections } from '@/data/longformHub';
 import { islandOrder, islands } from '@/data/islands';
 import { islandOffers } from '@/data/offers';
 import { photos } from '@/data/photos';
@@ -41,7 +42,7 @@ const CHAPTERS = [
   },
   {
     to: '/catering',
-    title: 'Hawaii catering',
+    title: 'Catering',
     line: 'Staffed villa events. Buffet or plated. Ten to seventy-five guests.',
     img: photos.catering.file,
     alt: photos.catering.alt,
@@ -155,28 +156,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-t border-stone bg-ivory py-20">
-        <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-5 lg:px-10">
-          <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink lg:col-span-2">
-            Questions
-          </h2>
-          <Accordion.Root type="single" collapsible className="lg:col-span-3">
-            {hubFaqs.map((f, i) => (
-              <Accordion.Item key={f.q} value={`h-${i}`} className="border-b border-stone">
-                <Accordion.Header>
-                  <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left">
-                    <span className="font-display text-[1.25rem] font-light text-ink">{f.q}</span>
-                    <span className="text-[12px] text-ink-soft">+</span>
-                  </Accordion.Trigger>
-                </Accordion.Header>
-                <Accordion.Content>
-                  <p className="pb-6 text-[17px] leading-relaxed text-ink-soft">{f.a}</p>
-                </Accordion.Content>
-              </Accordion.Item>
-            ))}
-          </Accordion.Root>
-        </div>
-      </section>
+      <Longform sections={hubHomeSections} />
+      <SiblingCluster current="home" />
+      <LongFaq items={[...hubFaqs, ...hubHomeFaqs]} />
 
       <QuoteTeaserBand headline="Enquire for dates." />
     </>

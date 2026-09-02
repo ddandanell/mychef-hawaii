@@ -3,7 +3,9 @@ import { Link } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ConciergeBell, Flame, NotebookPen, ShoppingBasket, Sparkles } from 'lucide-react';
+import { Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { privateChefLongform } from '@/data/longformPrivateChef';
 import Reveal from '@/components/Reveal';
 import { formatBand, formatOtherOffer, getOtherOffer, getTiers } from '@/data/rateCard';
 import type { RateTier } from '@/data/rateCard';
@@ -137,8 +139,8 @@ const content: Record<IslandId, PrivateChefContent> = {
         a: 'Estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. Kauai wedding catering from $175 a guest plus staffing — see /catering.',
       },
       {
-        q: 'Kauai catering or a private chef?',
-        a: 'Same volume — 210 searches a month each. A villa dinner is private chef. Ten to seventy-five guests is Kauai catering: menu, prices, buffet or plated, on the catering page.',
+        q: 'A staffed event or a private chef?',
+        a: 'A villa dinner is this page. Ten to seventy-five guests is the catering page: menu, prices, buffet or plated.',
       },
     ],
   },
@@ -477,10 +479,12 @@ export default function PrivateChefPage({ island }: { island: IslandId }) {
       <EveningTimeline />
       <MenusDietary />
       {island === 'maui' ? <MauiExtras /> : island === 'oahu' ? <OahuExtras /> : <NeighborExtras island={island} />}
+      <Longform sections={privateChefLongform[island].sections} />
+      <SiblingCluster island={island} current="chef" />
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <ServiceFaq
-            items={c.faqs}
+            items={[...c.faqs, ...privateChefLongform[island].faqs]}
             intro={`Island-specific answers for ${c.islandName} — statewide answers live on the homepage.`}
           />
         </div>

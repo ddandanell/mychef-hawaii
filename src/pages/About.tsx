@@ -3,6 +3,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { DualCta } from '@/components/DualCta';
 import HeroMedia from '@/components/HeroMedia';
 import HostLink from '@/components/HostLink';
+import { SiblingCluster } from '@/components/Longform';
 import PageMeta from '@/components/PageMeta';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import { islandOrder, islands } from '@/data/islands';
@@ -308,6 +309,7 @@ export default function About() {
         </div>
       </section>
 
+      <SiblingCluster />
       <QuoteTeaserBand headline="Enquire for dates. Quote in writing." />
     </>
   );

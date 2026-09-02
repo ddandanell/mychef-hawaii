@@ -1,7 +1,9 @@
 import { Link } from 'react-router';
 import { DualCtaLight } from '@/components/DualCta';
+import { Longform, SiblingCluster } from '@/components/Longform';
 import PageMeta from '@/components/PageMeta';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { cateringLongform } from '@/data/longformCatering';
 import Reveal from '@/components/Reveal';
 import { useIsland } from '@/context/IslandContext';
 import { cateringOffers } from '@/data/catering';
@@ -62,6 +64,7 @@ export default function CateringMoneyPage() {
   const id = (islandId ?? 'oahu') as IslandId;
   const { island, href } = usePageIsland(id);
   const offer = cateringOffers[id];
+  const long = cateringLongform[id];
   const core = getTiers(id).find((t) => t.tier === 'CORE');
   const wedding = getOtherOffer('wedding');
   const hero = photos[offer.photo];
@@ -76,7 +79,7 @@ export default function CateringMoneyPage() {
       <PageMeta title={offer.title} description={offer.description} />
       <ServiceHero
         crumbs={crumbs}
-        eyebrow={`${offer.h1} · ${offer.volume}/mo`}
+        eyebrow={offer.h1}
         title={offer.h1}
         lede={offer.lede}
         image={hero.file}
@@ -213,10 +216,13 @@ export default function CateringMoneyPage() {
         </div>
       </section>
 
+      <Longform sections={long.sections} />
+      <SiblingCluster island={id} current="catering" />
+
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <ServiceFaq
-            items={offer.faqs}
+            items={[...offer.faqs, ...long.faqs]}
             title={`${offer.h1} prices, menu, wedding.`}
             intro="Real answers — then WhatsApp."
           />

@@ -1,7 +1,9 @@
 import { Link } from 'react-router';
 import HeroMedia from '@/components/HeroMedia';
 import HostLink from '@/components/HostLink';
+import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { hubWeddingsFaqs, hubWeddingsSections } from '@/data/longformHub';
 import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 
 const islandsWeddings = [
@@ -105,6 +107,9 @@ export default function Weddings() {
         ))}
       </section>
 
+      <Longform sections={hubWeddingsSections} />
+      <SiblingCluster current="weddings" />
+      <LongFaq items={hubWeddingsFaqs} />
       <QuoteTeaserBand headline="Tell us the island, the dates, the headcount." />
     </>
   );

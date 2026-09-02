@@ -1,5 +1,7 @@
 import { Link } from 'react-router';
+import { Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { weddingLongform } from '@/data/longformWeddings';
 import Reveal from '@/components/Reveal';
 import { useIsland } from '@/context/IslandContext';
 import type { IslandId } from '@/data/islands';
@@ -50,7 +52,7 @@ const COPY: Record<
   oahu: {
     h1: 'Wedding catering Oahu.',
     lede:
-      'Wedding catering Oahu (140/mo). Celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. One team, written quote, published starting prices.',
+      'Wedding catering Oahu: celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. One team, written quote, published starting prices.',
     eyebrow: 'myCHEF Oʻahu — Wedding weekends',
     places: 'Kahala / Gold Coast, Ko Olina, Kailua estates, Waikīkī residences',
     peak: 'Year-round · December–March pressure',
@@ -240,9 +242,15 @@ export default function IslandWeddingPage() {
         </div>
       </section>
 
+      <Longform sections={weddingLongform[id].sections} />
+      <SiblingCluster island={id} current="weddings" />
+
       <section className="bg-sand py-24 lg:py-32">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <ServiceFaq items={faqs} title={`Asked before a ${island.name} wedding week.`} />
+          <ServiceFaq
+            items={[...faqs, ...weddingLongform[id].faqs]}
+            title={`Asked before a ${island.name} wedding week.`}
+          />
         </div>
       </section>
 
