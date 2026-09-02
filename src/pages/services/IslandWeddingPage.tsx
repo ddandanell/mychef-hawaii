@@ -48,7 +48,7 @@ const COPY: Record<
     hero: photos.wedding,
   },
   oahu: {
-    h1: 'Wedding catering Oahu — one kitchen.',
+    h1: 'Wedding catering Oahu.',
     lede:
       'Wedding catering Oahu (140/mo). Celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. One team, written quote, published starting prices.',
     eyebrow: 'myCHEF Oʻahu — Wedding weekends',

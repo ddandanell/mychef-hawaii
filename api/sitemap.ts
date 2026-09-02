@@ -1,52 +1,50 @@
 /**
- * XML sitemap. Standalone — do not import src/lib/seo.ts (that graph 500s
- * the serverless function before GET can catch).
- *
- * Locs are always purchased hosts: mychef-hawaii.com and island subdomains.
- * Never mychef-hawaii.vercel.app. Never mychefhawaii.com.
+ * XML sitemap. Standalone — do not import src/.
+ * Lists only the 12 locked Hawaii money URLs.
  */
 
 const PRODUCTION_ROOT = 'mychef-hawaii.com';
 const ISLANDS = ['oahu', 'maui', 'kauai', 'bigisland'] as const;
 
-const HUB_PATHS = [
-  '/',
-  '/private-chef',
-  '/catering',
-  '/weddings',
-  '/bar',
-  '/pricing',
-  '/quote',
-  '/trust',
-  '/legal',
-] as const;
+type Host = 'hub' | (typeof ISLANDS)[number];
 
-const ISLAND_PATHS = ['/', '/private-chef', '/catering', '/weddings', '/bar', '/pricing', '/quote'] as const;
+const MASTER: { host: Host; path: string }[] = [
+  { host: 'hub', path: '/' },
+  { host: 'hub', path: '/catering' },
+  { host: 'hub', path: '/weddings' },
+  { host: 'oahu', path: '/' },
+  { host: 'oahu', path: '/catering' },
+  { host: 'oahu', path: '/weddings' },
+  { host: 'maui', path: '/' },
+  { host: 'maui', path: '/catering' },
+  { host: 'maui', path: '/weddings' },
+  { host: 'kauai', path: '/' },
+  { host: 'kauai', path: '/catering' },
+  { host: 'bigisland', path: '/' },
+];
 
 function xmlEscape(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 }
 
-function loc(host: string, path: string): string {
+function loc(host: Host, path: string): string {
+  const hostname = host === 'hub' ? PRODUCTION_ROOT : `${host}.${PRODUCTION_ROOT}`;
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return `https://${host}${clean === '/' ? '/' : clean}`;
+  return `https://${hostname}${clean === '/' ? '/' : clean}`;
 }
 
-function islandFromHost(hostname: string): (typeof ISLANDS)[number] | null {
-  const h = hostname.split(':')[0]?.toLowerCase() ?? '';
-  const first = h.split('.')[0];
-  return (ISLANDS as readonly string[]).includes(first) ? (first as (typeof ISLANDS)[number]) : null;
-}
-
-function urlEntry(href: string, changefreq: string, priority: string): string {
+function urlEntry(href: string, priority: string): string {
   return `  <url>
     <loc>${xmlEscape(href)}</loc>
-    <changefreq>${changefreq}</changefreq>
+    <changefreq>${href.endsWith('.com/') ? 'weekly' : 'monthly'}</changefreq>
     <priority>${priority}</priority>
   </url>`;
 }
 
-function urlset(entries: string[]): string {
+function urlset(rows: { host: Host; path: string }[]): string {
+  const entries = rows.map((r) =>
+    urlEntry(loc(r.host, r.path), r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : '0.8'),
+  );
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${entries.join('\n')}
@@ -54,24 +52,9 @@ ${entries.join('\n')}
 `;
 }
 
-function islandUrlset(island: (typeof ISLANDS)[number]): string {
-  return urlset(
-    ISLAND_PATHS.map((p) =>
-      urlEntry(loc(`${island}.${PRODUCTION_ROOT}`, p), p === '/' ? 'weekly' : 'monthly', p === '/' ? '1.0' : '0.8'),
-    ),
-  );
-}
-
-function hubUrlset(): string {
-  const hub = HUB_PATHS.map((p) =>
-    urlEntry(loc(PRODUCTION_ROOT, p), p === '/' ? 'weekly' : 'monthly', p === '/' ? '1.0' : '0.7'),
-  );
-  const islands = ISLANDS.flatMap((id) =>
-    ISLAND_PATHS.map((p) =>
-      urlEntry(loc(`${id}.${PRODUCTION_ROOT}`, p), p === '/' ? 'weekly' : 'monthly', p === '/' ? '0.9' : '0.8'),
-    ),
-  );
-  return urlset([...hub, ...islands]);
+function islandFromHost(hostname: string): (typeof ISLANDS)[number] | null {
+  const first = hostname.split(':')[0]?.split('.')[0]?.toLowerCase() ?? '';
+  return (ISLANDS as readonly string[]).includes(first) ? (first as (typeof ISLANDS)[number]) : null;
 }
 
 export async function GET(request: Request) {
@@ -79,22 +62,8 @@ export async function GET(request: Request) {
     const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || PRODUCTION_ROOT)
       .split(':')[0]
       .toLowerCase();
-
     const island = islandFromHost(host);
-    const onApex = host === PRODUCTION_ROOT || host === `www.${PRODUCTION_ROOT}`;
-
-    let body: string;
-    if (island) {
-      body = islandUrlset(island);
-    } else if (onApex) {
-      // Apex returns the commercial urlset (hub paths + island homes). Island
-      // hosts publish their own /sitemap.xml. robots.txt points here.
-      body = hubUrlset();
-    } else {
-      // Preview / unknown host: still emit production canonicals, never vercel.app.
-      body = hubUrlset();
-    }
-
+    const body = island ? urlset(MASTER.filter((r) => r.host === island)) : urlset(MASTER);
     return new Response(body, {
       headers: {
         'content-type': 'application/xml; charset=utf-8',
@@ -105,10 +74,7 @@ export async function GET(request: Request) {
     console.error('sitemap', err);
     return new Response(
       `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"></urlset>`,
-      {
-        status: 200,
-        headers: { 'content-type': 'application/xml; charset=utf-8' },
-      },
+      { status: 200, headers: { 'content-type': 'application/xml; charset=utf-8' } },
     );
   }
 }

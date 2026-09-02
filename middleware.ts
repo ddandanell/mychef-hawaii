@@ -20,56 +20,47 @@ function isApexNetwork(hostname: string): boolean {
   return h === PRODUCTION_ROOT || h === `www.${PRODUCTION_ROOT}` || h.endsWith(`.${PRODUCTION_ROOT}`);
 }
 
-const HUB_PATHS = [
-  '/',
-  '/private-chef',
-  '/catering',
-  '/weddings',
-  '/bar',
-  '/pricing',
-  '/quote',
-  '/trust',
-  '/legal',
-] as const;
-const ISLAND_PATHS = ['/', '/private-chef', '/catering', '/weddings', '/bar', '/pricing', '/quote'] as const;
+type MapHost = 'hub' | (typeof ISLANDS)[number];
+const MASTER: { host: MapHost; path: string }[] = [
+  { host: 'hub', path: '/' },
+  { host: 'hub', path: '/catering' },
+  { host: 'hub', path: '/weddings' },
+  { host: 'oahu', path: '/' },
+  { host: 'oahu', path: '/catering' },
+  { host: 'oahu', path: '/weddings' },
+  { host: 'maui', path: '/' },
+  { host: 'maui', path: '/catering' },
+  { host: 'maui', path: '/weddings' },
+  { host: 'kauai', path: '/' },
+  { host: 'kauai', path: '/catering' },
+  { host: 'bigisland', path: '/' },
+];
 
 function xmlEscape(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 }
 
-function loc(host: string, path: string): string {
+function loc(host: MapHost, path: string): string {
+  const hostname = host === 'hub' ? PRODUCTION_ROOT : `${host}.${PRODUCTION_ROOT}`;
   const clean = path.startsWith('/') ? path : `/${path}`;
-  return `https://${host}${clean === '/' ? '/' : clean}`;
+  return `https://${hostname}${clean === '/' ? '/' : clean}`;
 }
 
-function urlEntry(href: string, changefreq: string, priority: string): string {
-  return `  <url>\n    <loc>${xmlEscape(href)}</loc>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+function urlEntry(href: string, priority: string): string {
+  return `  <url>\n    <loc>${xmlEscape(href)}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
 }
 
-function urlset(entries: string[]): string {
+function urlset(rows: { host: MapHost; path: string }[]): string {
+  const entries = rows.map((r) =>
+    urlEntry(loc(r.host, r.path), r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : '0.8'),
+  );
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`;
 }
 
 function sitemapXml(hostname: string): string {
-  const h = hostname.split(':')[0]?.toLowerCase() ?? '';
-  const first = h.split('.')[0];
+  const first = hostname.split(':')[0]?.split('.')[0]?.toLowerCase() ?? '';
   const island = (ISLANDS as readonly string[]).includes(first) ? (first as (typeof ISLANDS)[number]) : null;
-  if (island) {
-    return urlset(
-      ISLAND_PATHS.map((p) =>
-        urlEntry(loc(`${island}.${PRODUCTION_ROOT}`, p), p === '/' ? 'weekly' : 'monthly', p === '/' ? '1.0' : '0.8'),
-      ),
-    );
-  }
-  const hub = HUB_PATHS.map((p) =>
-    urlEntry(loc(PRODUCTION_ROOT, p), p === '/' ? 'weekly' : 'monthly', p === '/' ? '1.0' : '0.7'),
-  );
-  const islands = ISLANDS.flatMap((id) =>
-    ISLAND_PATHS.map((p) =>
-      urlEntry(loc(`${id}.${PRODUCTION_ROOT}`, p), p === '/' ? 'weekly' : 'monthly', p === '/' ? '0.9' : '0.8'),
-    ),
-  );
-  return urlset([...hub, ...islands]);
+  return island ? urlset(MASTER.filter((r) => r.host === island)) : urlset(MASTER);
 }
 
 function isStaticAsset(pathname: string): boolean {

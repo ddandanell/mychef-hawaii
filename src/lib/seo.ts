@@ -4,7 +4,7 @@ import {
   canonicalUrl,
   detectIslandFromHost,
 } from '../config/site';
-import { HUB_COMMERCIAL_PATHS, ISLAND_COMMERCIAL_PATHS } from '../data/commercialGraph';
+import { MASTER_MAP, masterHostName, type MasterHost } from '../data/commercialGraph';
 import { getArea } from '../data/areas';
 import { getArticle } from '../data/editorial';
 import { getCatalog } from '../data/islandCatalog';
@@ -26,7 +26,6 @@ export interface DocumentSeo {
   islandId: IslandId | null;
 }
 
-const HUB_PATHS = [...HUB_COMMERCIAL_PATHS];
 
 function cleanPath(pathname: string): string {
   const p = pathname.replace(/\/$/, '') || '/';
@@ -255,31 +254,12 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
 export function sitemapLocs(hostname: string): { loc: string; changefreq: string; priority: string }[] {
   const host = hostname.split(':')[0] ?? hostname;
   const fromHost = detectIslandFromHost(host);
-
-  if (fromHost) {
-    return ISLAND_COMMERCIAL_PATHS.map((p) => ({
-      loc: canonicalUrl(fromHost, p, host),
-      changefreq: p === '/' ? 'weekly' : 'monthly',
-      priority: p === '/' ? '1.0' : '0.8',
-    }));
-  }
-
-  const rows: { loc: string; changefreq: string; priority: string }[] = HUB_PATHS.map((p) => ({
-    loc: canonicalUrl('root', p, host),
-    changefreq: p === '/' ? 'weekly' : 'monthly',
-    priority: p === '/' ? '1.0' : '0.7',
+  const rows = fromHost ? MASTER_MAP.filter((r) => r.host === fromHost) : MASTER_MAP;
+  return rows.map((r) => ({
+    loc: `https://${masterHostName(r.host as MasterHost)}${r.path === '/' ? '/' : r.path}`,
+    changefreq: r.path === '/' ? 'weekly' : 'monthly',
+    priority: r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : '0.8',
   }));
-
-  for (const id of ISLAND_HOSTS) {
-    for (const p of ISLAND_COMMERCIAL_PATHS) {
-      rows.push({
-        loc: canonicalUrl(id, p, host),
-        changefreq: p === '/' ? 'weekly' : 'monthly',
-        priority: p === '/' ? '0.9' : '0.8',
-      });
-    }
-  }
-  return rows;
 }
 
 export function islandSitemapIndex(hostname: string): string[] {

@@ -81,9 +81,9 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     keyword: 'private chef maui',
     volume: 260,
     h1: 'Private chef Maui.',
-    title: 'Private chef Maui — from $150/pp | myCHEF',
+    title: 'Private Chef Maui | Villa Chefs — myCHEF',
     description:
-      'Best private chef Maui from $150/pp. Maui catering is the larger door (480/mo). Wailea, Kīhei, Lahaina. Published prices and menus — not a named-chef marketplace.',
+      'Private chef Maui from $150 a guest. Wailea, Kīhei and West Maui named in coverage — not as their own URLs. Maui catering is the larger door on /catering.',
     lede:
       'A chef in your Wailea, Kapalua or Kāʻanapali villa. Maui catering sits next to it at 480 searches a month. Published prices and a written menu beat a named-chef SERP.',
     fromPp: 150,
@@ -132,9 +132,9 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     keyword: 'private chef oahu',
     volume: 90,
     h1: 'Private chef Oahu.',
-    title: 'Private chef Oahu & Honolulu — from $125 a guest | myCHEF',
+    title: 'Private Chef Oahu | Villa Chefs — myCHEF',
     description:
-      'Private chef Oahu from $125 a guest (90/mo). Honolulu (70/mo) on this same page. Villa dinners. Oahu catering is the larger door — see /catering. WhatsApp for a quote.',
+      'Private chef Oahu from $125 a guest. Honolulu and personal chef on this same page — no /honolulu. Villa dinners. Oahu catering is the larger door on /catering.',
     lede:
       'Private chef Oahu and Honolulu — villa dinners from $125 a guest. Oahu catering (720/mo) is the larger door on /catering. Same team: we shop, cook, serve and clean.',
     fromPp: 125,
@@ -175,9 +175,9 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     keyword: 'private chef kauai',
     volume: 210,
     h1: 'Private chef Kauai.',
-    title: 'Private chef Kauai — from $150/pp | myCHEF',
+    title: 'Private Chef Kauai | Villa Chefs — myCHEF',
     description:
-      'Private chef Kauai from $150/pp. Kauai catering is an equal door (210/mo) — menu, prices, wedding, buffet or plated. Princeville, Poʻipū, Hanalei. WhatsApp for a quote.',
+      'Private chef Kauai from $150 a guest. Princeville, Poʻipū and Hanalei named in coverage. Kauai catering is an equal door on /catering.',
     lede:
       'Private chef Kauai and Kauai catering search at the same volume — 210 a month each. Two money doors, one team: villa dinners and staffed events in Princeville, Poʻipū and Hanalei. From $150/pp.',
     fromPp: 150,
@@ -219,10 +219,10 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   bigisland: {
     keyword: 'private chef big island',
     volume: 70,
-    h1: 'Private chef Big Island & Kona.',
-    title: 'Private chef Big Island & Kona — from $125/pp | myCHEF',
+    h1: 'Private chef Big Island.',
+    title: 'Private Chef Big Island | Villa Chefs — myCHEF',
     description:
-      'Private chef Big Island and Kona from $125/pp. Kohala Coast, Waikoloa, Waimea and Kailua-Kona villa dinners. WhatsApp for a written quote.',
+      'Private chef Big Island from $125 a guest. Kona is covered on this same page — no /kona. Kohala Coast, Waikoloa and Kailua-Kona villa dinners.',
     lede:
       'Kona and the Kohala Coast first — seven resort communities in one west-side radius. Hilo and Volcano are quote-only; we will not fake a same-day round trip.',
     fromPp: 125,

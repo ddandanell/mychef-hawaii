@@ -63,7 +63,7 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
         <div className="mt-8">
           <DualCta
             island={islandId}
-            intent={islandId === 'oahu' ? 'Oahu catering or a private chef' : 'a private chef'}
+            intent="a private chef"
             size="lg"
           />
         </div>
