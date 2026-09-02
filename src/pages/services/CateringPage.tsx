@@ -276,11 +276,6 @@ export default function CateringPage() {
   const id = (islandId ?? 'oahu') as IslandId;
   const island = islands[id];
   const offer = islandOffers[id];
-  const crumbs = [
-    { label: 'Home', to: '/' },
-    { label: island.name, to: '/' },
-    { label: 'Catering' },
-  ];
   const crumbs = useHostHomeCrumbs('Catering');
 
   return (
@@ -294,11 +289,6 @@ export default function CateringPage() {
         imageAlt={photos.catering.alt}
         island={id}
         whatsappIntent="catering"
-        eyebrow="myCHEF Oʻahu — Catering & Events"
-        title="Catering that shows up like a kitchen brigade."
-        lede="Staffed events for 10–75 guests across Oʻahu — estate receptions, retreat weeks, office and production catering. Published staffing ratios, itemised quotes, zone fees on the website before they’re on an invoice."
-        image="/photos/hawaii-plated-catering-tent-sunset.jpg"
-        imageAlt="Plated catering long table under a tent on a Hawaiian lawn at sunset. Campaign still, not a documented event."
         chips={
           <>
             <PlainChip onDark>10–75 guests</PlainChip>

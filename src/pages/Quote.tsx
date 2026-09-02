@@ -401,8 +401,6 @@ export default function Quote() {
         <aside className="relative hidden lg:block">
           <div className="sticky top-0 flex h-[100dvh] items-end overflow-hidden">
             <img
-              src="/photos/villa-table-menu-card-detail.jpg"
-              alt="Kahala"
               src="/photos/hawaii-plated-catering-tent-sunset.jpg"
               alt="Plated catering long table under a tent on a Hawaiian lawn at sunset. Campaign still, not a documented event."
               className="absolute inset-0 h-full w-full object-cover"

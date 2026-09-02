@@ -127,9 +127,6 @@ const bands: Band[] = [
     honestLine:
       'Join the inquiry list with shore and dates. Far-North needs 72-hour notice.',
     cta: 'Private chef Kauai — from $150 a guest',
-    alt: 'Garden estate outdoor table under mature trees on Kauaʻi, desaturated greens, linen tablecloth',
-      'We open Kauaʻi when its inquiry list proves demand. Tell us your dates and shore — it directly shapes the launch.',
-    cta: 'Join the Kauaʻi inquiry list',
     alt: 'Chef’s hands finishing seared fish in a Kauaʻi kitchen, misted mountains beyond. Campaign still, not a documented event.',
   },
   {
@@ -141,9 +138,6 @@ const bands: Band[] = [
     honestLine:
       "The island is 4,000 square miles; we won't pretend to cover it. Kona–Kohala first, east side quote-only.",
     cta: 'Private chef Big Island — from $125 a guest',
-    alt: 'Hawaiʻi Island villa dining terrace with dark volcanic stone textures and a distant muted coastline',
-      "The island is 4,000 square miles; we won't pretend to cover it. Kona–Kohala first, east side quote-only, when we launch.",
-    cta: 'Join the Hawaiʻi Island inquiry list',
     alt: 'Whole grilled fish and tropical fruit on Kohala lava rock at golden hour. Campaign still, not a documented event.',
   },
 ];

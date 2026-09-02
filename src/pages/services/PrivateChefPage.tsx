@@ -16,7 +16,6 @@ import {
   ServiceFaq,
   ServiceHero,
   serviceJsonLd,
-  ZoneStrip,
   useHashScroll,
   useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
@@ -47,9 +46,6 @@ const content: Record<IslandId, PrivateChefContent> = {
     islandName: 'Maui',
     path: '/maui/private-chef',
     h1: 'Personal chef for Maui villas.',
-    heroImage: '/photos/maui-wailea-kitchen-plating.jpg',
-    heroAlt: 'Chef’s hands finishing seared fish in a Wailea villa kitchen.',
-    h1: 'Your private chef on Maui.',
     heroImage: '/photos/maui-villa-terrace-cocktail-bar.jpg',
     heroAlt: 'A Maui villa terrace at sunset with a stocked cocktail bar overlooking the Pacific. Campaign still, not a documented event.',
     bandTiers: [
@@ -454,11 +450,6 @@ export default function PrivateChefPage({ island }: { island: IslandId }) {
   useHashScroll();
   const c = content[island];
   const tiers = getTiers(island);
-  const crumbs = [
-    { label: 'Home', to: '/' },
-    { label: c.islandName, to: '/' },
-    { label: 'Private Chef' },
-  ];
   const crumbs = useHostHomeCrumbs('Private Chef');
 
   return (

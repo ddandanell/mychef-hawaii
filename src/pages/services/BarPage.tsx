@@ -50,8 +50,6 @@ const COPY: Record<
     h1: 'Estate cocktails on both Kauaʻi shores.',
     lede:
       'Princeville, Hanalei and Poʻipū — a bartender on the terrace. Stack with a Kauaʻi chef night or book the hour. Starting prices published.',
-    hero: photos.kauaiNorth,
-      'Princeville, Hanalei and Poʻipū — a bartender on the terrace when the island team launches. Dated inquiries set the sequence. Starting prices are published now.',
     hero: photos.bar,
     places: 'Princeville, Hanalei, Poʻipū, Kōloa',
   },
@@ -59,8 +57,6 @@ const COPY: Record<
     h1: 'Sunset pours on the Kohala Coast.',
     lede:
       'Lava-coast terraces in the Kona–Kohala corridor. Bartender add-on or a 4-hour mobile-bar package. The rate is published so you can plan.',
-    hero: photos.kohalaFish,
-      'Lava-coast terraces in the Kona–Kohala corridor. Inquiry-stage until a west-side team is staffed. The rate is published so you can plan.',
     hero: photos.bar,
     places: 'Kohala Coast, Waikoloa, Mauna Kea resort belt, Kona',
   },

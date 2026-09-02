@@ -115,8 +115,6 @@ export default function KauaiPrivateChef() {
         <div className="mx-auto grid w-full max-w-container items-center gap-10 px-5 lg:grid-cols-2 lg:px-10">
           <Reveal className="overflow-hidden ">
             <img
-              src="/photos/maui-kapalua-dinner-for-two.jpg"
-              alt="Dinner for two on a Kapalua lānai at blue hour."
               src="/photos/oahu-villa-lanai-plated-dinner-dusk.jpg"
               alt="Dinner for two on a villa lānai at dusk. Campaign still, not a documented event."
               loading="lazy"

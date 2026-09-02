@@ -285,11 +285,6 @@ export default function VacationChefPage({ island }: { island: IslandId }) {
   const c = content[island];
   const vacationOffer = getOtherOffer('vacation-chef');
   const weeklyOffer = getOtherOffer('weekly-meal-prep');
-  const crumbs = [
-    { label: 'Home', to: '/' },
-    { label: c.islandName, to: '/' },
-    { label: 'Vacation Chef' },
-  ];
   const crumbs = useHostHomeCrumbs('Vacation Chef');
 
   return (
@@ -299,12 +294,10 @@ export default function VacationChefPage({ island }: { island: IslandId }) {
         eyebrow={`Vacation Chef — ${c.islandName}`}
         title={c.h1}
         lede="Breakfast through dinner, provisioning managed, menus that evolve across the stay. Up to three meals a day; groceries at cost, always itemised."
-        image="/photos/vacation-chef-morning-breakfast-pool.jpg"
-        imageAlt="A vacation chef plating morning fruit and eggs by a villa pool."
-        island={island}
-        whatsappIntent="a vacation chef for the week"
         image="/photos/oahu-vacation-chef-pool-breakfast.jpg"
         imageAlt="Oʻahu vacation-chef breakfast by the pool — tropical fruit, omelette, croissants. Campaign still, not a documented event."
+        island={island}
+        whatsappIntent="a vacation chef for the week"
         chips={
           <>
             {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, island)}`} /> : null}

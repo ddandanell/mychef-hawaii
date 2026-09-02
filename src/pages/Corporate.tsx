@@ -35,8 +35,6 @@ export default function Corporate() {
     <>
       <section className="relative flex min-h-[70svh] min-h-[520px] items-end overflow-hidden">
         <HeroMedia
-          src="/photos/live-fire-grill-lanai-fish.jpg"
-          alt="Hands at a volcanic-stone grill station"
           src="/photos/hawaii-plated-catering-tent-sunset.jpg"
           alt="Plated catering long table under a tent on a Hawaiian lawn at sunset — campaign still, not a documented event"
         />

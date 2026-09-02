@@ -12,45 +12,6 @@ const rows: { id: IslandId; line: string }[] = [
   { id: 'maui', line: 'Welcome pours in Wailea, Kapalua and Kāʻanapali.' },
   { id: 'kauai', line: 'Princeville, Hanalei and Poʻipū — a bartender on the terrace.' },
   { id: 'bigisland', line: 'Kona–Kohala first. Sunset bar on lava-coast terraces.' },
-/**
- * Statewide bar hub — root-owned. Deep-links to island subdomains.
- */
-
-const islandsBar: {
-  id: IslandId;
-  title: string;
-  body: string;
-  img: string;
-  alt: string;
-}[] = [
-  {
-    id: 'oahu',
-    title: 'Oʻahu terrace bar',
-    body: 'Waikīkī residences, Kahala lawns, Ko Olina villas and Kailua houses. Cocktail hour stacked with a chef night, or booked alone.',
-    img: photos.bar.file,
-    alt: photos.bar.alt,
-  },
-  {
-    id: 'maui',
-    title: 'Maui villa & wedding-week bar',
-    body: 'Welcome pours in Wailea, Kapalua and Kāʻanapali. The bar stacks with the wedding week or a signature dinner.',
-    img: photos.bar.file,
-    alt: photos.bar.alt,
-  },
-  {
-    id: 'kauai',
-    title: 'Kauaʻi estate cocktails',
-    body: 'Princeville, Hanalei and Poʻipū. Inquiry-stage — your dates help staff the island team.',
-    img: photos.bar.file,
-    alt: photos.bar.alt,
-  },
-  {
-    id: 'bigisland',
-    title: 'Kohala Coast pours',
-    body: 'Kona–Kohala first. Sunset bar on lava-coast terraces when the west-side team launches.',
-    img: photos.bar.file,
-    alt: photos.bar.alt,
-  },
 ];
 
 export default function Bar() {

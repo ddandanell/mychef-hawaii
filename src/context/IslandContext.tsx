@@ -73,6 +73,7 @@ export function IslandProvider({ children }: { children: ReactNode }) {
       hostMode,
       localPath,
       href: (path: string) => islandHref(basePath, path),
+      homePath,
       toHub: (path = '/') => (typeof window === 'undefined' ? path : siteUrl('root', path)),
       toIsland: (islandId, path = '/') =>
         typeof window === 'undefined' ? path : siteUrl(islandId, path),
