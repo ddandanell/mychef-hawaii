@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ConciergeBell, Flame, NotebookPen, ShoppingBasket, Sparkles } from 'lucide-react';
-import Contours from '@/components/Contours';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
@@ -137,7 +136,7 @@ const content: Record<IslandId, PrivateChefContent> = {
       },
       {
         q: 'Can you staff a small wedding?',
-        a: 'Estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. Kauai wedding catering from $175/pp plus staffing — see /catering.',
+        a: 'Estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. Kauai wedding catering from $175 a guest plus staffing — see /catering.',
       },
       {
         q: 'Kauai catering or a private chef?',
@@ -208,7 +207,7 @@ function Inclusions() {
           {inclusions.map((tile) => (
             <div
               key={tile.title}
-              className="rounded-[14px] border border-stone bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1"
+              className="border border-stone bg-white p-5 transition-all duration-300 "
             >
               <tile.icon aria-hidden="true" className="h-6 w-6 text-clay" strokeWidth={1.5} />
               <h3 className="mt-4 font-display text-[1.125rem] font-medium leading-[1.2] text-ink">{tile.title}</h3>
@@ -290,7 +289,7 @@ function MenusDietary() {
     <section className="bg-ivory py-20 lg:py-28">
       <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-2 lg:px-10">
         <Reveal>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Menus & dietary</p>
+          <p className="text-[12px] text-ink-soft">Menus & dietary</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
             How menus work.
           </h2>
@@ -330,12 +329,7 @@ function MauiExtras() {
 
   return (
     <>
-      <section id="chefs-table" className="grain-dark relative overflow-hidden bg-ink py-20 lg:py-28">
-        <Contours
-          stroke="#9C7A33"
-          strokeWidth={1}
-          className="absolute -left-32 top-1/2 h-[520px] w-[700px] -translate-y-1/2 opacity-25"
-        />
+      <section id="chefs-table" className="relative overflow-hidden bg-ink py-20 lg:py-28">
         <div className="relative mx-auto w-full max-w-container px-5 lg:px-10">
           <SectionIntro
             dark
@@ -345,10 +339,10 @@ function MauiExtras() {
           />
           <Reveal delay={0.15} className="mt-8 flex flex-col gap-4">
             {ultra ? (
-              <BandChip onDark label={`Chef’s table ${formatBand(ultra)}/pp — ${ultra.model}`} />
+              <BandChip onDark label={`Chef’s table ${formatBand(ultra)} a guest — ${ultra.model}`} />
             ) : null}
             <p className="flex flex-wrap items-center gap-2 text-sm leading-[1.65] text-ivory/75">
-              <span>The resort version seats you with strangers at $150/pp.</span>
+              <span>The resort version seats you with strangers at $150 a guest.</span>
               <StatusChip kind="pending" onDark>
                 Published anchor — labeled
               </StatusChip>
@@ -361,7 +355,7 @@ function MauiExtras() {
         <div className="mx-auto grid w-full max-w-container items-center gap-10 px-5 lg:grid-cols-2 lg:px-10">
           <Reveal>
             <figure>
-              <div className="overflow-hidden rounded-[14px]">
+              <div className="overflow-hidden ">
                 <img
                   src="/photos/dinner-for-two.jpg"
                   alt="A candlelit table set for two — the fixed-price private dinner-for-two format"
@@ -400,7 +394,7 @@ function OahuExtras() {
     <section className="bg-sand py-20 lg:py-28">
       <div className="mx-auto grid w-full max-w-container gap-10 px-5 lg:grid-cols-2 lg:px-10">
         <Reveal>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Oʻahu — condo kitchens</p>
+          <p className="text-[12px] text-ink-soft">Oʻahu — condo kitchens</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
             Small kitchen? No problem.
           </h2>
@@ -418,7 +412,7 @@ function OahuExtras() {
         <Reveal delay={0.15} className="flex items-center">
           <Link
             to="/oahu/vacation-chef#weekly"
-            className="group block w-full rounded-[14px] border border-stone bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
+            className="group block w-full border border-stone bg-white p-8 transition-all duration-300 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
           >
             <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-moss">For residents</p>
             <h3 className="mt-3 font-display text-[1.375rem] font-medium leading-[1.2] text-ink">
@@ -478,7 +472,7 @@ export default function PrivateChefPage({ island }: { island: IslandId }) {
         chips={c.bandTiers.map(({ tier, label }) => {
           const entry = tiers.find((t) => t.tier === tier);
           return entry ? (
-            <BandChip key={tier} onDark label={`${label} ${formatBand(entry)}/pp`} />
+            <BandChip key={tier} onDark label={`${label} ${formatBand(entry)} a guest`} />
           ) : null;
         })}
         primary={{ label: 'Get a quote', to: `/quote?island=${island}&service=private-chef` }}

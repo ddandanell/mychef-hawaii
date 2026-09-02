@@ -30,7 +30,7 @@ export default function AreaChefPage() {
       />
       <HeroFrame island={island}>
         <HeroEyebrow island={island} />
-        <p className="mt-3 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ivory/70">
+        <p className="mt-3 text-[12px] text-ivory/70">
           Private chef · {area.name}
         </p>
         <HeroH1 text={`A chef in ${area.name}.`} />

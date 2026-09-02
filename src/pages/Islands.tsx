@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
-import Contours from '@/components/Contours';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
@@ -50,7 +49,7 @@ function ClipImage({ src, alt, className }: { src: string; alt: string; classNam
   }, []);
 
   return (
-    <div ref={ref} className={cn('overflow-hidden rounded-[14px]', className)}>
+    <div ref={ref} className={cn('overflow-hidden ', className)}>
       <img
         src={src}
         alt={alt}
@@ -68,15 +67,14 @@ function Header() {
 
   return (
     <section className="relative overflow-hidden bg-ivory py-20 lg:py-28">
-      <Contours className="absolute -right-24 -top-16 h-96 w-[520px] opacity-[0.06]" stroke="#A34A28" />
       <div className="relative mx-auto w-full max-w-container px-5 lg:px-10">
-        <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Four Islands</p>
+        <p className="text-[12px] text-ink-soft">Four Islands</p>
         <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
           <WordMask text="Choose your island." delay={0.15} />
         </h1>
         <Reveal delay={0.5} y={24}>
           <p className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink">
-            Four island departments under mychef-hawaii.com. Each island is its own host — its own chefs,
+            Four island departments. Each island is its own host — its own chefs,
             zones and pricing. All four book now. Kauaʻi is a real market — not a waitlist.
           </p>
         </Reveal>
@@ -129,22 +127,22 @@ const bands: Band[] = [
     id: 'kauai',
     eyebrow: 'Kauaʻi — Booking now',
     role:
-      'Private chef Kauai from $150/pp. North Shore estates, Poʻipū retreats, weddings to ~75 guests. A real bookable market.',
+      'Private chef Kauai from $150 a guest. North Shore estates, Poʻipū retreats, weddings to ~75 guests. A real bookable market.',
     coverage: 'Princeville/Hanalei (North) · Poʻipū/Kōloa (South) · Līhuʻe base · Haʻena quote-only',
     honestLine:
       'Kauaʻi searches almost as hard as Maui. We book both shores. WhatsApp the dates.',
-    cta: 'Private chef Kauai — from $150/pp',
+    cta: 'Private chef Kauai — from $150 a guest',
     alt: 'Garden estate outdoor table under mature trees on Kauaʻi, desaturated greens, linen tablecloth',
   },
   {
     id: 'bigisland',
     eyebrow: 'Hawaiʻi Island (Big Island) — Booking now',
     role:
-      'Private chef Big Island and Kona from $125/pp. Kohala Coast first — seven luxury resort communities within a 30-minute west-side radius.',
+      'Private chef Big Island and Kona from $125 a guest. Kohala Coast first — seven luxury resort communities within a 30-minute west-side radius.',
     coverage: 'Zones A–D published · Kona–Kohala base · Hilo/Volcano quote-only (2.5–3 hr drive)',
     honestLine:
       "The island is 4,000 square miles; we won't pretend to cover it. Kona–Kohala first, east side quote-only.",
-    cta: 'Private chef Big Island — from $125/pp',
+    cta: 'Private chef Big Island — from $125 a guest',
     alt: 'Hawaiʻi Island villa dining terrace with dark volcanic stone textures and a distant muted coastline',
   },
 ];
@@ -168,7 +166,7 @@ function IslandBand({ band, index }: { band: Band; index: number }) {
           <ClipImage
             src={isl.selectorImage}
             alt={band.alt}
-            className={cn('aspect-[4/3] shadow-soft', flip ? 'lg:order-2 lg:col-span-2' : 'lg:col-span-2')}
+            className={cn('aspect-[4/3] ', flip ? 'lg:order-2 lg:col-span-2' : 'lg:col-span-2')}
           />
           <Reveal stagger staggerDelay={0.08} className={cn(flip ? 'lg:order-1 lg:col-span-3' : 'lg:col-span-3')}>
             <p className="flex flex-wrap items-center gap-2.5 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ink-soft">
@@ -207,7 +205,7 @@ function IslandBand({ band, index }: { band: Band; index: number }) {
               className={cn(
                 'mt-7 inline-flex items-center gap-1.5 rounded-full px-6 py-3 text-sm font-medium transition-all duration-200',
                 liveIsland
-                  ? 'bg-clay text-white group-hover:-translate-y-px group-hover:bg-clay-deep'
+                  ? 'bg-clay text-white group-group-hover:bg-clay-deep'
                   : 'border border-brass text-brass group-hover:bg-brass/10',
               )}
             >
@@ -226,7 +224,6 @@ function IslandBand({ band, index }: { band: Band; index: number }) {
 function AsymmetryExplainer() {
   return (
     <section className="grain-dark relative overflow-hidden bg-ink py-20 lg:py-28">
-      <Contours stroke="#9C7A33" strokeWidth={1} className="absolute -left-32 bottom-0 h-[480px] w-[640px] opacity-20" />
       <div className="relative mx-auto w-full max-w-[720px] px-5 text-center lg:px-0">
         <Reveal>
           <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ivory">

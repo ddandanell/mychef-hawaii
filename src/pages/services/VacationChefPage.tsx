@@ -118,7 +118,7 @@ function DayStory() {
               key={row.label}
               className={`grid items-center gap-8 lg:grid-cols-2 ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
             >
-              <Reveal className="overflow-hidden rounded-[14px]">
+              <Reveal className="overflow-hidden ">
                 <img
                   src={row.image}
                   alt={row.alt}
@@ -127,7 +127,7 @@ function DayStory() {
                 />
               </Reveal>
               <Reveal delay={0.1}>
-                <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">{row.label}</p>
+                <p className="text-[12px] text-ink-soft">{row.label}</p>
                 <p className="mt-3 max-w-[50ch] font-display text-[1.625rem] font-medium leading-[1.3] text-ink">
                   {row.text}
                 </p>
@@ -153,7 +153,7 @@ function PricingModel({ island, islandName }: { island: IslandId; islandName: st
           body="An all-day chef can’t stack events — multi-day is priced for utilization, which is why per-day beats per-dinner across a stay."
         />
         <Reveal delay={0.1}>
-          <div className="rounded-[14px] border border-stone bg-white p-6 shadow-soft lg:p-8">
+          <div className="border border-stone bg-white p-6 lg:p-8">
             <p className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft">
               Worked example — 8 guests · 5 days · {islandName}
             </p>
@@ -202,7 +202,7 @@ function OahuWeekly() {
           <BandChip label="4-week minimum posture" />
           <Link
             to="/quote?island=oahu&service=weekly"
-            className="mt-2 inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]"
+            className="mt-2 inline-flex h-12 items-center bg-ink px-6 text-sm font-medium text-[#F6F1E8]"
           >
             Start a household plan
           </Link>
@@ -224,7 +224,7 @@ function MauiRetreats() {
         <Reveal delay={0.15} className="mt-8">
           <Link
             to="/quote?island=maui&service=vacation-chef"
-            className="inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]"
+            className="inline-flex h-12 items-center bg-ink px-6 text-sm font-medium text-[#F6F1E8]"
           >
             Plan a retreat week
           </Link>
@@ -266,7 +266,7 @@ function Practicalities() {
         <SectionIntro eyebrow="Practicalities" title="The unglamorous parts, answered." />
         <Reveal stagger staggerDelay={0.07} className="mt-12 grid gap-4 md:grid-cols-2 lg:gap-6">
           {tiles.map((t) => (
-            <div key={t.title} className="rounded-[14px] border border-stone bg-white p-6 shadow-soft">
+            <div key={t.title} className="border border-stone bg-white p-6 ">
               <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{t.title}</h3>
               <div className="mt-3 text-[1.0625rem] leading-[1.65] text-ink-soft">{t.body}</div>
             </div>

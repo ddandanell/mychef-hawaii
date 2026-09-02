@@ -42,7 +42,7 @@ export default function LocationGrid({
             <Link
               key={loc.slug}
               to={pathFor(loc.slug)}
-              className="group flex flex-col overflow-hidden rounded-[14px] border border-stone bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
+              className="group flex flex-col overflow-hidden border border-stone bg-white transition-all duration-300 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
             >
               <div className="aspect-[16/10] overflow-hidden">
                 <img

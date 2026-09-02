@@ -6,7 +6,7 @@ export function SampleMenu({ island }: { island: IslandId }) {
   return (
     <section className="bg-ivory py-20 lg:py-28">
       <div className="mx-auto w-full max-w-3xl px-5 lg:px-10">
-        <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">A sample three-course</p>
+        <p className="text-[12px] text-ink-soft">A sample three-course</p>
         <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
           {menu.title}
         </h2>

@@ -40,7 +40,7 @@ export default function Corporate() {
         />
         <div className="relative mx-auto w-full max-w-spread px-5 pb-20 pt-36 lg:px-10">
           <div className="max-w-[680px]">
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">
+            <p className="text-[12px] text-ink-soft">
               Gatherings — Hawaii hub
             </p>
             <h1 className="mt-5 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-white">
@@ -58,7 +58,7 @@ export default function Corporate() {
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link
                 to="/quote?service=catering-events"
-                className="inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-clay"
+                className="inline-flex h-12 items-center bg-ink px-6 text-sm font-medium text-[#F6F1E8]"
               >
                 Request a catering quote
               </Link>
@@ -76,7 +76,7 @@ export default function Corporate() {
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <Reveal>
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">What we actually staff</p>
+            <p className="text-[12px] text-ink-soft">What we actually staff</p>
             <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
               Three gathering types. One quote form.
             </h2>
@@ -86,7 +86,7 @@ export default function Corporate() {
               <Link
                 key={u.title}
                 to={u.to}
-                className="group flex flex-col rounded-[14px] border border-stone bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1"
+                className="group flex flex-col border border-stone bg-white p-6 transition-all duration-300 "
               >
                 <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{u.title}</h3>
                 <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">{u.body}</p>

@@ -4,7 +4,6 @@ import * as Accordion from '@radix-ui/react-accordion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ChevronDown } from 'lucide-react';
-import Contours from '@/components/Contours';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
@@ -29,7 +28,7 @@ function Header() {
     <section className="bg-ivory py-20 lg:py-28">
       <div className="mx-auto grid w-full max-w-container items-center gap-12 px-5 lg:grid-cols-2 lg:gap-20 lg:px-10">
         <div>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Trust</p>
+          <p className="text-[12px] text-ink-soft">Trust</p>
           <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
             <WordMask text="New to Hawaiʻi. Not new at this." delay={0.15} />
           </h1>
@@ -41,7 +40,7 @@ function Header() {
             </p>
           </Reveal>
         </div>
-        <ClipReveal className="aspect-[4/5] rounded-[14px] border border-stone shadow-soft">
+        <ClipReveal className="aspect-[4/5]">
           <img
             src="/photos/vacation-chef.jpg"
             alt="Three small framed prints of different coastlines on a warm plaster wall"
@@ -155,7 +154,7 @@ function ProofRegisterSection() {
     <section className="bg-ivory pb-20 lg:pb-28">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">The Proof Register</p>
+          <p className="text-[12px] text-ink-soft">The Proof Register</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
             Every claim, with its status.
           </h2>
@@ -214,52 +213,25 @@ const policyCards = [
 ];
 
 function ReviewPolicy() {
-  const contourRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = contourRef.current;
-    if (!el) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const paths = el.querySelectorAll('path');
-    paths.forEach((p) => {
-      const len = p.getTotalLength();
-      gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
-    });
-    const tween = gsap.to(paths, {
-      strokeDashoffset: 0,
-      ease: 'none',
-      stagger: 0.05,
-      scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom 40%', scrub: true },
-    });
-    return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
-    };
-  }, []);
-
   return (
-    <section className="grain-dark relative overflow-hidden bg-ink py-20 lg:py-28">
-      <div ref={contourRef} aria-hidden="true" className="absolute inset-0">
-        <Contours stroke="#9C7A33" strokeWidth={1} className="absolute -right-40 top-0 h-[640px] w-[860px] opacity-25" />
-      </div>
+    <section className="relative overflow-hidden bg-ink py-20 lg:py-28">
       <div className="relative mx-auto w-full max-w-container px-5 lg:px-10">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Our Review Policy</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ivory">
+          <p className="text-[12px] text-ivory/70">Our review policy</p>
+          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.5rem)] font-light leading-[1.1] text-ivory">
             The rules we hold ourselves to.
           </h2>
         </Reveal>
-        <Reveal stagger staggerDelay={0.1} className="mt-12 grid gap-5 sm:grid-cols-2">
+        <Reveal stagger staggerDelay={0.1} className="mt-12 grid gap-8 sm:grid-cols-2">
           {policyCards.map((c) => (
-            <div
-              key={c.title}
-              className="rounded-[14px] bg-ivory p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 lg:p-8"
-            >
-              <div className="flex flex-wrap items-center justify-between gap-3">
-                <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{c.title}</h3>
-                <StatusChip kind="policy">Policy</StatusChip>
+            <div key={c.title} className="border-b border-white/10 pb-6">
+              <div className="flex flex-wrap items-baseline justify-between gap-3">
+                <h3 className="font-display text-[1.375rem] font-light leading-[1.2] text-ivory">{c.title}</h3>
+                <StatusChip kind="policy" onDark>
+                  Policy
+                </StatusChip>
               </div>
-              <p className="mt-3 text-[1.0625rem] leading-[1.65] text-ink-soft">{c.body}</p>
+              <p className="mt-3 text-[17px] leading-[1.65] text-ivory/80">{c.body}</p>
             </div>
           ))}
         </Reveal>
@@ -275,7 +247,7 @@ const vettingSteps = [
     n: '01',
     title: 'Credential check',
     body: 'Food-handler certification per Hawaiʻi DOH requirements.',
-    chip: 'RPR — permit pathway under professional review',
+    chip: 'Permit pathway under professional review',
   },
   { n: '02', title: 'Background check', body: 'Completed before any client-facing event.', chip: null },
   {
@@ -327,7 +299,7 @@ function Vetting() {
       <div className="mx-auto grid w-full max-w-container items-center gap-12 px-5 lg:grid-cols-2 lg:gap-20 lg:px-10">
         <div>
           <Reveal>
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Vetting</p>
+            <p className="text-[12px] text-ink-soft">Vetting</p>
             <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
               The standard every island team is hired to.
             </h2>
@@ -363,7 +335,7 @@ function Vetting() {
           </Reveal>
         </div>
         <figure>
-          <div ref={wrapRef} className="relative overflow-hidden rounded-[14px] shadow-soft">
+          <div ref={wrapRef} className="relative overflow-hidden ">
             <img
               ref={imgRef}
               src="/photos/food-plating.jpg"

@@ -1,12 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
-import { ChevronDown, Menu, X } from 'lucide-react';
 import { DualCtaCompact } from '@/components/DualCta';
 import { goToHost } from '@/components/HostLink';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
-import { islandOffers } from '@/data/offers';
 import { cn } from '@/lib/utils';
 
 const hubLinks = [
@@ -17,18 +15,17 @@ const hubLinks = [
   { label: 'Pricing', to: '/pricing' },
 ];
 
-function Wordmark({ islandName }: { islandName?: string }) {
+const HERO_PATHS = new Set(['/', '/bar', '/weddings', '/private-chef', '/catering', '/vacation-chef']);
+
+function Wordmark({ onDark }: { onDark?: boolean }) {
   return (
-    <span className="flex items-baseline gap-2">
-      <span className="font-display text-2xl font-medium tracking-tight text-ink">
-        myCHEF
-      </span>
-      <span className="hidden text-[12px] text-ink-soft sm:inline">{islandName ?? 'Hawaii'}</span>
+    <span className={cn('font-display text-[1.375rem] font-light tracking-tight', onDark ? 'text-white' : 'text-ink')}>
+      myCHEF
     </span>
   );
 }
 
-function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
+function IslandSwitcher({ onNavigate, onDark }: { onNavigate?: () => void; onDark?: boolean }) {
   const { island } = useIsland();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -48,20 +45,20 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="listbox"
-        className="inline-flex items-center gap-2 px-1 py-1.5 text-sm text-ink transition-colors hover:text-ink-soft"
+        className={cn('inline-flex items-center gap-1 py-1 text-sm', onDark ? 'text-white' : 'text-ink')}
       >
         {island ? island.shortName : 'All Hawaiʻi'}
-        <ChevronDown className={cn('h-3.5 w-3.5 transition-transform', open && 'rotate-180')} />
+        <span className="text-[12px] opacity-60">{open ? '–' : '+'}</span>
       </button>
       <AnimatePresence>
         {open && (
           <motion.div
-            initial={{ opacity: 0, y: -6 }}
+            initial={{ opacity: 0, y: -4 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -6 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, y: -4 }}
+            transition={{ duration: 0.15 }}
             role="listbox"
-            className="absolute right-0 top-full z-50 mt-2 w-72 overflow-hidden border border-stone bg-white"
+            className="absolute right-0 top-full z-50 mt-2 w-56 border border-stone bg-ivory"
           >
             <button
               type="button"
@@ -72,16 +69,12 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
                 onNavigate?.();
                 goToHost('root');
               }}
-              className="flex w-full items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-sand"
+              className="block w-full px-4 py-2.5 text-left text-sm text-ink hover:bg-sand"
             >
-              <span className="-mt-0.5 flex-1">
-                <span className="block font-display text-base font-medium text-ink">All Hawaiʻi</span>
-                <span className="block text-xs text-ink-soft">Private chef · catering · four islands</span>
-              </span>
+              All Hawaiʻi
             </button>
             {islandOrder.map((id) => {
               const isl = islands[id];
-              const o = islandOffers[id];
               return (
                 <button
                   key={id}
@@ -93,20 +86,15 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
                     onNavigate?.();
                     goToHost(id);
                   }}
-                  className="flex w-full items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-sand"
+                  className="flex w-full items-baseline justify-between gap-3 px-4 py-2.5 text-left text-sm text-ink hover:bg-sand"
                 >
-                  <span className="-mt-0.5 flex-1">
-                    <span className="block font-display text-base font-medium text-ink">{isl.name}</span>
-                    <span className="block text-xs text-ink-soft">
-                      Chef from ${o.fromPp}/pp · catering
-                    </span>
-                  </span>
+                  <span>{isl.name}</span>
+                  {isl.state === 'inquiry' ? (
+                    <span className="text-[12px] text-ink-soft">Opening</span>
+                  ) : null}
                 </button>
               );
             })}
-            <div className="border-t border-stone px-4 py-2.5 text-[12px] text-ink-soft">
-              All Hawaiʻi · Oʻahu · Maui · Kauaʻi · Hawaiʻi Island
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -115,12 +103,13 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 export default function Navbar() {
-  const { island, href, islandId } = useIsland();
+  const { island, href, islandId, localPath } = useIsland();
+  const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 120);
+    const onScroll = () => setScrolled(window.scrollY > 48);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
     return () => window.removeEventListener('scroll', onScroll);
@@ -137,23 +126,21 @@ export default function Navbar() {
       ]
     : [...hubLinks, { label: 'Quote', to: '/quote' }];
 
+  const path = island ? localPath : pathname;
+  const overHero = HERO_PATHS.has(path.replace(/\/$/, '') || '/') && !scrolled && !drawerOpen;
+  const onDark = overHero;
   const homeTarget = href('/');
 
   return (
     <header
       className={cn(
-        'sticky top-0 z-50 border-b border-stone bg-ivory/90 backdrop-blur transition-all duration-300',
-        scrolled ? 'h-auto' : 'h-auto',
+        'fixed inset-x-0 top-0 z-50 h-16 transition-colors duration-300',
+        overHero ? 'border-b border-transparent bg-transparent' : 'border-b border-stone bg-ivory',
       )}
     >
-      <div
-        className={cn(
-          'mx-auto flex w-full max-w-spread items-center justify-between px-5 transition-all duration-300 lg:px-10',
-          scrolled ? 'h-[60px]' : 'h-[72px]',
-        )}
-      >
+      <div className="mx-auto flex h-16 w-full max-w-spread items-center justify-between px-5 lg:px-10">
         <Link to={homeTarget} aria-label={island ? `myCHEF ${island.name} home` : 'myCHEF Hawaii home'} className="shrink-0">
-          <Wordmark islandName={island?.shortName} />
+          <Wordmark onDark={onDark} />
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
@@ -161,56 +148,50 @@ export default function Navbar() {
             <Link
               key={l.label}
               to={l.to}
-              className="text-sm font-medium text-ink-soft transition-colors hover:text-clay"
+              className={cn('text-sm', onDark ? 'text-white/85 hover:text-white' : 'text-ink-soft hover:text-ink')}
             >
               {l.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
-          <IslandSwitcher />
-          <DualCtaCompact island={islandId ?? undefined} />
+        <div className="hidden items-center gap-4 lg:flex">
+          <IslandSwitcher onDark={onDark} />
+          <DualCtaCompact island={islandId ?? undefined} onDark={onDark} />
         </div>
 
         <button
           type="button"
-          className="inline-flex items-center justify-center rounded-full p-2 text-ink lg:hidden"
+          className={cn('inline-flex items-center justify-center p-2 lg:hidden', onDark ? 'text-white' : 'text-ink')}
           aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
           onClick={() => setDrawerOpen((v) => !v)}
         >
-          {drawerOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          {drawerOpen ? 'Close' : 'Menu'}
         </button>
       </div>
 
       <AnimatePresence>
         {drawerOpen && (
           <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-0 top-[60px] z-40 flex flex-col bg-ivory lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 top-16 z-40 flex flex-col bg-ivory lg:hidden"
           >
             <div className="border-b border-stone px-5 py-4">
               <IslandSwitcher onNavigate={() => setDrawerOpen(false)} />
             </div>
-            <nav aria-label="Mobile" className="flex flex-1 flex-col gap-1 overflow-y-auto px-5 py-6">
-              {islandLinks.map((l, i) => (
-                <motion.div
+            <nav aria-label="Mobile" className="flex flex-1 flex-col overflow-y-auto px-5 py-6">
+              {islandLinks.map((l) => (
+                <Link
                   key={l.label + l.to}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.06 * i, duration: 0.3 }}
+                  to={l.to}
+                  onClick={() => setDrawerOpen(false)}
+                  className="block border-b border-stone py-4 font-display text-2xl font-light text-ink"
                 >
-                  <Link
-                    to={l.to}
-                    onClick={() => setDrawerOpen(false)}
-                    className="block rounded-[10px] px-3 py-3 font-display text-2xl font-medium text-ink transition-colors hover:bg-sand"
-                  >
-                    {l.label}
-                  </Link>
-                </motion.div>
+                  {l.label}
+                </Link>
               ))}
             </nav>
             <div className="border-t border-stone p-5">

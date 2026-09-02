@@ -117,7 +117,7 @@ function Formats() {
           {formats.map((f) => (
             <div
               key={f.title}
-              className="group relative flex flex-col overflow-hidden rounded-[14px] border border-stone bg-white shadow-soft transition-all duration-300 hover:-translate-y-1"
+              className="group relative flex flex-col overflow-hidden border border-stone bg-white transition-all duration-300 "
             >
               {f.image ? (
                 <div className="relative aspect-[16/10] overflow-hidden">
@@ -207,7 +207,7 @@ function EventTabs({ island }: { island: IslandId }) {
               </div>
               <Link
                 to={`/quote?island=${island}&service=catering`}
-                className="mt-7 inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]"
+                className="mt-7 inline-flex h-12 items-center bg-ink px-6 text-sm font-medium text-[#F6F1E8]"
               >
                 {tab.cta}
               </Link>
@@ -287,7 +287,7 @@ export default function CateringPage() {
         crumbs={crumbs}
         eyebrow={`myCHEF ${island.name} — Catering & Events`}
         title={`Private catering on ${island.name}.`}
-        lede={`Staffed events for 10–75 guests across ${island.name} — estate receptions, retreat weeks, celebrations. CORE dinners ${offer.fromPp === 125 ? 'from $125/pp' : `from $${offer.fromPp}/pp`}. Grazing, pūpū, buffet, coursed, live stations.`}
+        lede={`Staffed events for 10–75 guests across ${island.name} — estate receptions, retreat weeks, celebrations. CORE dinners ${offer.fromPp === 125 ? 'from $125 a guest' : `from $${offer.fromPp} a guest`}. Grazing, pūpū, buffet, coursed, live stations.`}
         image={photos.catering.file}
         imageAlt={photos.catering.alt}
         island={id}

@@ -95,7 +95,7 @@ function Hero({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="overflow-hidden rounded-[14px] border border-stone shadow-soft"
+          className="overflow-hidden border border-stone "
         >
           <img
             src="/photos/thank-you.jpg"
@@ -160,7 +160,7 @@ function StepTwo() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4 }}
-              className="rounded-[14px] border border-stone bg-white px-6 py-10 text-center font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft shadow-soft"
+              className="border border-stone bg-white px-6 py-10 text-center font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft "
             >
               {done === 'added' ? 'Noted — mahalo. Your coordinator sees this with your enquiry.' : 'You’re all set.'}
             </motion.p>
@@ -171,8 +171,8 @@ function StepTwo() {
               transition={{ duration: 0.3 }}
             >
               <Reveal>
-                <div className="rounded-[14px] border border-stone bg-white p-6 shadow-soft lg:p-10">
-                  <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">
+                <div className="border border-stone bg-white p-6 lg:p-10">
+                  <p className="text-[12px] text-ink-soft">
                     Optional — 60 seconds
                   </p>
                   <h2 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.25rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
@@ -279,7 +279,7 @@ function StepTwo() {
                       <div className="flex flex-col items-start gap-4 pt-2 md:col-span-2 md:flex-row md:items-center">
                         <button
                           type="submit"
-                          className="inline-flex items-center rounded-full border border-brass px-6 py-3 text-sm font-medium text-brass transition-all duration-200 hover:-translate-y-px hover:bg-brass/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-brass active:scale-[0.97]"
+                          className="inline-flex items-center rounded-full border border-brass px-6 py-3 text-sm font-medium text-brass transition-all duration-200 hover:bg-brass/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-brass active:scale-[0.97]"
                         >
                           Add these details
                         </button>
@@ -316,7 +316,7 @@ function WhileYouWait() {
     <section className="bg-ivory py-20 lg:py-28">
       <div className="mx-auto w-full max-w-3xl px-5 lg:px-10">
         <Reveal>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">While You Wait</p>
+          <p className="text-[12px] text-ink-soft">While You Wait</p>
         </Reveal>
         <Reveal stagger staggerDelay={0.08} className="mt-6">
           {nextLinks.map((l) => (

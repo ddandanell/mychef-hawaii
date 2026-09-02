@@ -34,7 +34,7 @@ export interface RateCardEntry {
   status: RateStatus;
 }
 
-const PER_PERSON = 'per person · groceries included in the dinner band';
+const PER_PERSON = 'per guest · groceries included in the dinner band';
 const MIN_PARTY = 'Minimum party 6 · neighbor-island ENTRY 8+';
 const PUBLISHED: RateStatus = 'PUBLISHED';
 
@@ -43,13 +43,13 @@ export const rateCard: RateCardEntry[] = [
   { island: 'oahu', offer: 'signature-dinner', tier: 'ENTRY', band: [95, 125], model: PER_PERSON, minimumParty: 8, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'oahu', offer: 'signature-dinner', tier: 'CORE', band: [125, 190], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'oahu', offer: 'signature-dinner', tier: 'PREMIUM', band: [190, 275], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
-  { island: 'oahu', offer: 'signature-dinner', tier: 'ULTRA', band: [275, 400], highPlus: true, model: "per person · chef's-table halo, quoted manually", minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
+  { island: 'oahu', offer: 'signature-dinner', tier: 'ULTRA', band: [275, 400], highPlus: true, model: "per guest · chef's-table halo, quoted manually", minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
 
   // Maui (live)
   { island: 'maui', offer: 'signature-dinner', tier: 'ENTRY', band: [125, 150], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'maui', offer: 'signature-dinner', tier: 'CORE', band: [150, 250], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'maui', offer: 'signature-dinner', tier: 'PREMIUM', band: [250, 350], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
-  { island: 'maui', offer: 'signature-dinner', tier: 'ULTRA', band: [300, 450], highPlus: true, model: "per person · private chef's table", minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
+  { island: 'maui', offer: 'signature-dinner', tier: 'ULTRA', band: [300, 450], highPlus: true, model: "per guest · private chef's table", minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
 
   // Hawaiʻi Island — west-side first; CORE already specified $150–$225
   { island: 'bigisland', offer: 'signature-dinner', tier: 'ENTRY', band: [110, 140], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
@@ -61,7 +61,7 @@ export const rateCard: RateCardEntry[] = [
   { island: 'kauai', offer: 'signature-dinner', tier: 'ENTRY', band: [125, 150], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'kauai', offer: 'signature-dinner', tier: 'CORE', band: [150, 250], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'kauai', offer: 'signature-dinner', tier: 'PREMIUM', band: [250, 350], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
-  { island: 'kauai', offer: 'signature-dinner', tier: 'ULTRA', band: [350, 350], highPlus: true, model: 'per person · North Shore estate product', minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
+  { island: 'kauai', offer: 'signature-dinner', tier: 'ULTRA', band: [350, 350], highPlus: true, model: 'per guest · North Shore estate product', minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
 ];
 
 /** Villa chef day rate — chef + assistant, one meal, groceries billed at cost. */
@@ -281,7 +281,7 @@ export interface FeeStackRow {
 
 /** Canonical fee stack — disclosed line items on every quote. */
 export const feeStack: FeeStackRow[] = [
-  { label: 'Menu price (per-person, day rate, or fixed) — published starting price', chip: 'PUBLISHED' },
+  { label: 'Menu price (per guest, day rate, or fixed) — published starting price', chip: 'PUBLISHED' },
   {
     label: 'Service charge — 20% market convention; distributed to staff or disclosed in writing (HRS §481B-14 posture)',
     chip: 'RPR — ATTORNEY',
@@ -355,5 +355,5 @@ export function formatMobileBarPackage(island: IslandId): string {
 
 export function coreDinnerFrom(island: IslandId): string {
   const core = getTiers(island).find((t) => t.tier === 'CORE');
-  return core ? `${formatFrom(core.band[0])} / person` : '';
+  return core ? `${formatFrom(core.band[0])} a guest` : '';
 }

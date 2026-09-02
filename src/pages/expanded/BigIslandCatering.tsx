@@ -109,7 +109,7 @@ export default function BigIslandCatering() {
             {formats.map((f) => (
               <div
                 key={f.title}
-                className="rounded-[14px] border border-stone bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1"
+                className="border border-stone bg-white p-6 transition-all duration-300 "
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{f.title}</h3>

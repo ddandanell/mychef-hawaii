@@ -1,7 +1,6 @@
 import { Link, useParams } from 'react-router';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ChevronDown } from 'lucide-react';
-import { DualCta, DualCtaLight } from '@/components/DualCta';
+import { DualCta } from '@/components/DualCta';
 import HostLink from '@/components/HostLink';
 import { PackageStrip } from '@/components/PackageGrid';
 import PageMeta from '@/components/PageMeta';
@@ -51,23 +50,21 @@ export default function NeighborhoodMoneyPage({ slug: slugProp }: { slug?: strin
       />
 
       <section className="relative flex min-h-[70svh] min-h-[480px] items-end overflow-hidden">
-        <img src={hero.file} alt={hero.alt} className="absolute inset-0 h-full w-full object-cover" />
+        <img src={hero.file} alt={page.name} className="absolute inset-0 h-full w-full object-cover" />
         <div
           aria-hidden="true"
           className="absolute inset-0"
           style={{
             backgroundImage:
-              'linear-gradient(180deg, rgba(26,21,16,0.15) 0%, rgba(26,21,16,0.55) 45%, rgba(26,21,16,0.88) 100%)',
+              'linear-gradient(180deg, rgba(28,25,22,0.08) 0%, rgba(28,25,22,0.22) 50%, rgba(28,25,22,0.42) 100%)',
           }}
         />
         <div className="relative mx-auto w-full max-w-spread px-5 pb-16 pt-32 lg:px-10">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">
-            {island.name} · {page.zone}
-          </p>
-          <h1 className="mt-4 max-w-3xl font-display text-[clamp(2.25rem,5vw,4rem)] font-medium leading-[1.05] text-white">
+          <p className="text-[12px] text-ivory/80">{page.name}</p>
+          <h1 className="mt-4 max-w-3xl font-display text-[clamp(2.25rem,5vw,4rem)] font-light leading-[1.05] text-white">
             {page.h1}
           </h1>
-          <p className="mt-5 max-w-[62ch] text-[1.125rem] leading-[1.6] text-ivory/90">{page.lede}</p>
+          <p className="mt-5 max-w-[54ch] text-[17px] leading-[1.65] text-ivory/90">{page.lede}</p>
           <div className="mt-8">
             <DualCta island={islandId} intent={`a private chef in ${page.name}`} />
           </div>
@@ -86,38 +83,21 @@ export default function NeighborhoodMoneyPage({ slug: slugProp }: { slug?: strin
               Hawaii prices. We shop, cook, serve and clean. Villa / Airbnb / vacation-rental kitchens with a real
               cooktop. Hawaiʻi guest reviews: none yet.
             </p>
-            <div className="mt-8">
-              <DualCtaLight island={islandId} intent={`a private chef in ${page.name}`} />
-            </div>
           </div>
           <div>
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Also on {island.name}</p>
+            <p className="text-[12px] text-ink-soft">Also on {island.name}</p>
             <div className="mt-4 flex flex-col gap-2">
-              <Link to={href('/private-chef')} className="text-sm text-clay underline underline-offset-4">
-                Private chef
-              </Link>
-              <Link to={href('/catering')} className="text-sm text-clay underline underline-offset-4">
-                Catering
-              </Link>
-              <Link to={href('/weddings')} className="text-sm text-clay underline underline-offset-4">
-                Weddings
-              </Link>
-              <Link to={href('/pricing')} className="text-sm text-clay underline underline-offset-4">
-                Pricing
-              </Link>
-            </div>
-            <div className="mt-8 flex flex-wrap gap-3">
               <Link to={href('/private-chef')} className="text-sm text-ink underline underline-offset-4">
                 Private chef
               </Link>
               <Link to={href('/catering')} className="text-sm text-ink underline underline-offset-4">
-                {islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
+                Catering
+              </Link>
+              <Link to={href('/weddings')} className="text-sm text-ink underline underline-offset-4">
+                Weddings
               </Link>
               <Link to={href('/pricing')} className="text-sm text-ink underline underline-offset-4">
-                Packages &amp; prices
-              </Link>
-              <Link to={href('/quote')} className="text-sm text-ink underline underline-offset-4">
-                Quote
+                Pricing
               </Link>
             </div>
           </div>
@@ -138,8 +118,9 @@ export default function NeighborhoodMoneyPage({ slug: slugProp }: { slug?: strin
                 <Accordion.Item key={f.q} value={`n-${i}`} className="border-b border-stone">
                   <Accordion.Header>
                     <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left">
-                      <span className="font-display text-xl font-medium text-ink">{f.q}</span>
-                      <ChevronDown className="h-5 w-5 text-clay group-data-[state=open]:rotate-180" />
+                      <span className="font-display text-xl font-light text-ink">{f.q}</span>
+                      <span className="text-[18px] text-ink-soft group-data-[state=open]:hidden">+</span>
+                      <span className="hidden text-[18px] text-ink-soft group-data-[state=open]:inline">–</span>
                     </Accordion.Trigger>
                   </Accordion.Header>
                   <Accordion.Content>
@@ -157,18 +138,14 @@ export default function NeighborhoodMoneyPage({ slug: slugProp }: { slug?: strin
           {islandOrder
             .filter((id) => id !== islandId)
             .map((id) => (
-              <HostLink
-                key={id}
-                island={id}
-                className="rounded-full border border-stone bg-white px-4 py-2 text-sm hover:border-clay/50"
-              >
-                Private chef {islands[id].shortName}
+              <HostLink key={id} island={id} className="text-sm text-ink underline underline-offset-4">
+                {islands[id].name}
               </HostLink>
             ))}
         </div>
       </section>
 
-      <QuoteTeaserBand headline={`${page.h1} — from $${offer.fromPp}/pp.`} />
+      <QuoteTeaserBand headline={`${page.name} — from $${offer.fromPp} a guest.`} />
     </>
   );
 }

@@ -1,33 +1,30 @@
 import { Link } from 'react-router';
-import { motion } from 'framer-motion';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ChevronDown } from 'lucide-react';
 import { DualCta } from '@/components/DualCta';
 import HostLink from '@/components/HostLink';
 import PageMeta from '@/components/PageMeta';
-import { HowItWorksBlock, PackageStrip } from '@/components/PackageGrid';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
-import Reveal from '@/components/Reveal';
 import { SampleMenu } from '@/components/SampleMenu';
-import { islandOrder } from '@/data/islands';
+import { islandOrder, islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
 import { islandOffers } from '@/data/offers';
 import { photos } from '@/data/photos';
-import { formatFrom } from '@/data/rateCard';
-import { CostChip, HeroFrame, IslandJsonLd } from '@/pages/islands/shared';
+import { HeroFrame, IslandJsonLd } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
-
-const SIBLING: Record<IslandId, string> = {
-  maui: 'Private chef Maui — 260 searches/mo',
-  kauai: 'Private chef Kauai — 210 searches/mo',
-  oahu: 'Private chef Oahu — 90 searches/mo',
-  bigisland: 'Private chef Big Island — 70 searches/mo',
-};
 
 export default function IslandHome({ islandId }: { islandId: IslandId }) {
   const { island, href } = usePageIsland(islandId);
   const offer = islandOffers[islandId];
   const hero = photos[offer.heroPhoto];
+  const inquiry = island.state === 'inquiry';
+  const cateringLabel =
+    islandId === 'oahu'
+      ? 'Oahu catering'
+      : islandId === 'maui'
+        ? 'Maui catering'
+        : islandId === 'kauai'
+          ? 'Kauai catering'
+          : 'Catering';
 
   return (
     <>
@@ -49,199 +46,114 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
       />
 
       <HeroFrame island={island} src={hero.file} alt={hero.alt}>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass"
-        >
-          myCHEF {island.name} · from ${offer.fromPp}/pp
-        </motion.p>
-        <h1 className="mt-5 font-display text-[clamp(2.75rem,7vw,5rem)] font-medium leading-[1.02] tracking-[-0.02em] text-white">
+        {inquiry ? <p className="text-[12px] text-white/70">Opening</p> : null}
+        <h1 className="mt-3 font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
           {offer.h1}
         </h1>
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
-        >
-          <p className="mt-6 max-w-[62ch] text-[1.125rem] leading-[1.6] text-ivory/90">{offer.lede}</p>
-          <div className="mt-6 flex flex-wrap items-center gap-2.5">
-            <CostChip label="Private chef" band={`from $${offer.fromPp}/pp`} index={0} />
-            <CostChip
-              label={islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
-              band={`from $${offer.fromPp}/pp`}
-              index={1}
-            />
-            <CostChip label="Stay Chef" band={`${formatFrom(offer.dayFrom)}/day`} index={2} />
-          </div>
-          <div className="mt-8">
-            <DualCta
-              island={islandId}
-              intent={islandId === 'oahu' ? 'Oahu catering or a private chef' : 'a private chef'}
-              size="lg"
-            />
-          </div>
-        </motion.div>
+        <p className="mt-5 max-w-[42ch] text-[17px] leading-[1.55] text-white/90">
+          We shop, cook, serve and clean.
+        </p>
+        <p className="mt-4 text-[17px] text-white/80">
+          Signature dinner from ${offer.fromPp} a guest, {island.shortName}.
+        </p>
+        <div className="mt-8">
+          <DualCta
+            island={islandId}
+            intent={islandId === 'oahu' ? 'Oahu catering or a private chef' : 'a private chef'}
+            size="lg"
+          />
+        </div>
       </HeroFrame>
 
-      <section className="bg-ivory py-16 lg:py-20">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Two doors</p>
-          <h2 className="mt-4 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-ink">
-            Private chef and catering. Equal products.
-          </h2>
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {(islandId === 'oahu' || islandId === 'maui'
-              ? (['catering', 'chef'] as const)
-              : (['chef', 'catering'] as const)
-            ).map((door) =>
-              door === 'chef' ? (
-                <Link key="chef" to={href('/private-chef')} className="border border-stone bg-white p-6">
-                  <p className="font-display text-2xl font-medium text-ink">
-                    {islandId === 'oahu' ? 'Private chef Oahu' : offer.h1}
-                  </p>
-                  <p className="mt-2 text-ink-soft">from ${offer.fromPp} per guest · villa dinner</p>
-                </Link>
-              ) : (
-                <Link key="catering" to={href('/catering')} className="border border-ink bg-white p-6">
-                  <p className="font-display text-2xl font-medium text-ink">
-                    {islandId === 'oahu'
-                      ? 'Oahu catering'
-                      : islandId === 'maui'
-                        ? 'Maui catering'
-                        : islandId === 'kauai'
-                          ? 'Kauai catering'
-                          : 'Catering'}
-                  </p>
-                  <p className="mt-2 text-ink-soft">
-                    {islandId === 'oahu'
-                      ? '720 searches/mo — eight times private chef Oahu. Buffet or plated from $125 per guest.'
-                      : islandId === 'maui'
-                        ? '480 searches/mo — larger than private chef Maui. Buffet or plated from $150 per guest.'
-                        : islandId === 'kauai'
-                          ? '210 searches/mo — equal to private chef Kauai. Menu, prices, wedding.'
-                          : 'Staffed events, buffet or plated, published prices.'}
-                  </p>
-                </Link>
-              ),
-            )}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-sand py-16 lg:py-20">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">
-            One dinner · a family week · a wedding
-          </p>
-          <h2 className="mt-4 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-ink">
-            Pick the shape. WhatsApp the dates.
-          </h2>
-          <div className="mt-10">
-            <PackageStrip island={islandId} />
-          </div>
+      <section className="bg-ivory">
+        <div className="grid md:grid-cols-2">
+          {(islandId === 'oahu' || islandId === 'maui'
+            ? (['catering', 'chef'] as const)
+            : (['chef', 'catering'] as const)
+          ).map((door) =>
+            door === 'chef' ? (
+              <Link key="chef" to={href('/private-chef')} className="border-b border-stone px-5 py-16 lg:px-12">
+                <h2 className="font-display text-[2rem] font-light text-ink">Private chef</h2>
+                <p className="mt-2 text-[17px] text-ink-soft">From ${offer.fromPp} a guest.</p>
+              </Link>
+            ) : (
+              <Link
+                key="catering"
+                to={href('/catering')}
+                className="border-b border-stone px-5 py-16 lg:px-12 md:border-l"
+              >
+                <h2 className="font-display text-[2rem] font-light text-ink">{cateringLabel}</h2>
+                <p className="mt-2 text-[17px] text-ink-soft">Buffet or plated, from ${offer.fromPp} a guest.</p>
+              </Link>
+            ),
+          )}
         </div>
       </section>
 
       <SampleMenu island={islandId} />
-      <HowItWorksBlock island={islandId} />
 
-      <section className="bg-ivory py-20 lg:py-28">
+      <section className="border-t border-stone bg-ivory py-20">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Where we cook</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] text-ink">
-            Villa kitchens on {island.name}
+          <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink">
+            Where we cook on {island.name}
           </h2>
-          <p className="mt-4 max-w-[65ch] text-ink-soft">
-            We cook in villa, Airbnb and vacation-rental kitchens with a real cooktop
+          <p className="mt-5 max-w-[60ch] text-[17px] leading-relaxed text-ink-soft">
+            Villa, Airbnb and vacation-rental kitchens with a real cooktop
             {offer.neighborhoods.length
               ? ` — including ${offer.neighborhoods.map((n) => n.name).join(', ')}`
               : ''}
-            . Hotel rooms without kitchens are declined.
+            . Hotel rooms without kitchens are declined. Travel beyond the usual corridors is published on the quote.
           </p>
-          {islandId === 'oahu' || islandId === 'maui' || islandId === 'kauai' ? (
-            <p className="mt-6 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft">
-              <Link to={href('/catering')} className="font-medium text-clay underline underline-offset-4">
-                {islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : 'Kauai catering'}
-              </Link>{' '}
-              is a money page on this host — menu, prices, buffet vs plated, wedding.
-            </p>
-          ) : null}
-          <div className="mt-8 flex flex-wrap gap-4 text-sm">
-            <Link to={href('/private-chef')} className="font-medium text-clay underline underline-offset-4">
-              Private chef
-            </Link>
-            <Link to={href('/catering')} className="font-medium text-clay underline underline-offset-4">
-              {islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
-            </Link>
-            <Link to={href('/bar')} className="font-medium text-clay underline underline-offset-4">
-              Bar
-            </Link>
-            <Link to={href('/weddings')} className="font-medium text-clay underline underline-offset-4">
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <Link to={href('/weddings')} className="text-ink underline underline-offset-4">
               Weddings
             </Link>
-            <Link to={href('/pricing')} className="font-medium text-clay underline underline-offset-4">
-              Pricing
+            <Link to={href('/bar')} className="text-ink underline underline-offset-4">
+              Bar
             </Link>
-            <Link to={href('/quote')} className="font-medium text-clay underline underline-offset-4">
-              Quote
+            <Link to={href('/pricing')} className="text-ink underline underline-offset-4">
+              What a night costs
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-sand py-16">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Sister islands</p>
-          <div className="mt-6 flex flex-wrap gap-3">
-            {islandOrder
-              .filter((id) => id !== islandId)
-              .map((id) => (
-                <HostLink
-                  key={id}
-                  island={id}
-                  className="rounded-full border border-stone bg-white px-4 py-2 text-sm text-ink hover:border-clay/50"
-                >
-                  {SIBLING[id]}
-                </HostLink>
-              ))}
-          </div>
+      <section className="border-t border-stone bg-ivory py-12">
+        <div className="mx-auto flex w-full max-w-container flex-wrap gap-x-6 gap-y-2 px-5 text-sm lg:px-10">
+          {islandOrder
+            .filter((id) => id !== islandId)
+            .map((id) => (
+              <HostLink key={id} island={id} className="text-ink-soft underline underline-offset-4 hover:text-ink">
+                {islands[id].name}
+              </HostLink>
+            ))}
         </div>
       </section>
 
-      <section className="bg-ivory py-20 lg:py-28">
+      <section className="border-t border-stone bg-ivory py-20">
         <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-5 lg:px-10">
-          <Reveal className="lg:col-span-2">
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Questions</p>
-            <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] text-ink">
-              Cost, cleanup, kids, kitchens.
-            </h2>
-          </Reveal>
-          <Reveal className="lg:col-span-3">
-            <Accordion.Root type="single" collapsible className="w-full">
-              {offer.faqs.map((f, i) => (
-                <Accordion.Item key={f.q} value={`item-${i}`} className="border-b border-stone">
-                  <Accordion.Header>
-                    <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left">
-                      <span className="font-display text-[1.25rem] font-medium leading-[1.2] text-ink">{f.q}</span>
-                      <ChevronDown className="h-5 w-5 shrink-0 text-clay transition-transform group-data-[state=open]:rotate-180" />
-                    </Accordion.Trigger>
-                  </Accordion.Header>
-                  <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                    <p className="pb-6 pr-8 text-[1.0625rem] leading-[1.65] text-ink-soft">{f.a}</p>
-                  </Accordion.Content>
-                </Accordion.Item>
-              ))}
-            </Accordion.Root>
-          </Reveal>
+          <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink lg:col-span-2">
+            Cost, cleanup, kitchens.
+          </h2>
+          <Accordion.Root type="single" collapsible className="lg:col-span-3">
+            {offer.faqs.map((f, i) => (
+              <Accordion.Item key={f.q} value={`item-${i}`} className="border-b border-stone">
+                <Accordion.Header>
+                  <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left">
+                    <span className="font-display text-[1.25rem] font-light text-ink">{f.q}</span>
+                    <span className="text-[12px] text-ink-soft">+</span>
+                  </Accordion.Trigger>
+                </Accordion.Header>
+                <Accordion.Content>
+                  <p className="pb-6 text-[17px] leading-relaxed text-ink-soft">{f.a}</p>
+                </Accordion.Content>
+              </Accordion.Item>
+            ))}
+          </Accordion.Root>
         </div>
       </section>
 
-      <QuoteTeaserBand
-        headline={`${offer.h1} — from $${offer.fromPp}/pp.`}
-        note="WhatsApp or quote · typical reply in Hawaii business hours"
-      />
+      <QuoteTeaserBand headline={inquiry ? 'Enquire for dates.' : `${offer.h1} — from $${offer.fromPp} a guest.`} />
     </>
   );
 }

@@ -87,7 +87,7 @@ export default function CateringMoneyPage() {
           <>
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ivory/80">10–75 guests</span>
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ivory/80">
-              Food {core ? formatFrom(core.band[0]) : `from $${offer.fromPp}`}/pp
+              Food {core ? formatFrom(core.band[0]) : `from $${offer.fromPp}`} a guest
             </span>
             <span className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ivory/80">
               Buffet · plated · wedding
@@ -198,7 +198,7 @@ export default function CateringMoneyPage() {
           <SectionIntro
             eyebrow="Wedding catering"
             title="Welcome dinner to recovery brunch."
-            body={`One culinary team for the week. Estate formats to about 75 guests in ${offer.places}. Reception from $${offer.weddingFrom}/pp plus staffing. Wet-weather plan in writing.`}
+            body={`One culinary team for the week. Estate formats to about 75 guests in ${offer.places}. Reception from $${offer.weddingFrom} a guest plus staffing. Wet-weather plan in writing.`}
           />
           <Reveal>
             <img
@@ -224,7 +224,7 @@ export default function CateringMoneyPage() {
       </section>
 
       <QuoteTeaserBand
-        headline={`${offer.h1} — from $${offer.fromPp}/pp. Quote in writing.`}
+        headline={`${offer.h1} — from $${offer.fromPp} a guest. Quote in writing.`}
         note={`WhatsApp or quote · ${island.name} · typical reply in Hawaii business hours`}
       />
       <JsonLd
