@@ -5,6 +5,5 @@
   "installCommand": "npm ci",
   "devCommand": "next dev",
   "outputDirectory": null,
-  "trailingSlash": false,
-  "public": true
+  "trailingSlash": false
 }
