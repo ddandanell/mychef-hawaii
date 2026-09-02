@@ -48,7 +48,7 @@ export const islands: Record<IslandId, IslandMeta> = {
     shortName: 'Kauaʻi',
     state: 'live',
     hue: '#2C5248',
-    role: 'Princeville estates and Poʻipū retreats — a real bookable market.',
+    role: 'Private chef and Kauai catering — two equal 210/mo doors. Princeville, Poʻipū, Hanalei.',
     basePath: '/kauai',
     selectorImage: '/photos/kauai-chef-plating-seared-fish-mountains.jpg',
     selectorCta: 'Private chef Kauai — from $150/pp',

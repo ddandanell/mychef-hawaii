@@ -21,7 +21,8 @@ const SHARED_CLOSE: SampleCourse = {
 export const sampleMenus: Record<IslandId, SampleMenu> = {
   maui: {
     title: 'A Maui villa dinner, three courses',
-    intro: 'Built for a Wailea or Kapalua kitchen — not a laminated carte. You pick the catch; we shop that day.',
+    intro:
+      'Built for a Wailea or Kapalua kitchen — not a laminated carte. You pick the catch; we shop that day. Sushi-forward is a menu direction we can arrange (nigiri, sashimi, hand rolls) — not a separate brand.',
     courses: [
       {
         course: 'First',

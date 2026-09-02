@@ -14,6 +14,29 @@ export const SEARCH_VOLUMES = {
   'personal chef honolulu': 40,
   'personal chef maui': 20,
   'personal chef oahu': 20,
+  'kauai catering': 210,
+} as const;
+
+/** Related searches (DataForSEO, 2 Sep 2026). Fold into titles/H1s/FAQs — do not invent volumes. */
+export const RELATED_SEARCHES = {
+  maui: [
+    'best private chef maui',
+    'female private chef maui',
+    'private chef lahaina maui',
+    'private chef wailea maui',
+    'private sushi chef maui',
+    'private chef maui cost',
+    'private chef kihei maui',
+  ],
+  kauai: [
+    'kauai catering',
+    'private chef poipu kauai',
+    'private chef princeville',
+    'private chef hanalei',
+    'kauai wedding catering',
+    'kauai catering prices',
+    'kauai catering menu',
+  ],
 } as const;
 
 export interface MoneyNeighborhood {
@@ -54,9 +77,9 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     h1: 'Private chef Maui',
     title: 'Private chef Maui — from $150/pp | myCHEF',
     description:
-      'Private chef Maui from $150/pp. In-villa dinners, family weeks and wedding catering in Wailea, Kāʻanapali, Kapalua and Kīhei. WhatsApp us — typical reply in business hours.',
+      'Best private chef Maui from $150/pp. Wailea, Kīhei, Lahaina / West Maui. Published prices and menus — not a named-chef marketplace. WhatsApp for a quote.',
     lede:
-      'A chef in your Wailea, Kapalua or Kāʻanapali villa. We shop, cook, serve and clean. Same company as myCHEF Bali and Dubai — Hawaii prices, Hawaii kitchens.',
+      'A chef in your Wailea, Kapalua or Kāʻanapali villa. Published prices and a written menu beat a named-chef SERP. We shop, cook, serve and clean.',
     fromPp: 150,
     dayFrom: 1050,
     heroPhoto: 'mauiKitchen',
@@ -84,6 +107,18 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       {
         q: 'Can you do kids’ plates and allergies?',
         a: 'Yes. Kids eat with the adults, not off a hidden menu. Vegan, gluten-free and nut-aware are designed in advance — not swapped at the pass.',
+      },
+      {
+        q: 'Private chef Maui cost — what do I actually pay?',
+        a: 'Per person: CORE $150–$250. Groceries for Stay Chef are billed at cost with receipts. Service 20% and Hawaiʻi GET up to 4.712% sit on their own lines — once. See /pricing.',
+      },
+      {
+        q: 'Do you do a private sushi chef on Maui?',
+        a: 'We can arrange a sushi-forward menu — nigiri, sashimi, hand rolls — cooked in your villa. It is a menu direction, not a separate brand. Ask on WhatsApp.',
+      },
+      {
+        q: 'Can I request a female private chef on Maui?',
+        a: 'Chefs are assigned to the booking, not sold as a gender marketplace. If you have a preference, say so — we will match when the calendar allows. We do not invent chef names or bios.',
       },
     ],
   },
@@ -132,9 +167,9 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     h1: 'Private chef Kauaʻi',
     title: 'Private chef Kauai — from $150/pp | myCHEF',
     description:
-      'Private chef Kauai from $150/pp. Princeville, Hanalei and Poʻipū villa dinners, family weeks and estate catering. Book now — WhatsApp for a quote in business hours.',
+      'Private chef Kauai from $150/pp. Kauai catering is an equal door (210/mo) — menu, prices, wedding, buffet or plated. Princeville, Poʻipū, Hanalei. WhatsApp for a quote.',
     lede:
-      'Kauaʻi searches as hard as Maui. We cook it like a real market: Princeville estates, Poʻipū retreats, published Maui-class starting prices from $150/pp.',
+      'Private chef Kauai and Kauai catering search at the same volume — 210 a month each. Two money doors, one team: villa dinners and staffed events in Princeville, Poʻipū and Hanalei. From $150/pp.',
     fromPp: 150,
     dayFrom: 1100,
     heroPhoto: 'kauaiChef',
@@ -159,7 +194,15 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       },
       {
         q: 'Can you staff a small wedding?',
-        a: 'Estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. WhatsApp the week and we quote it.',
+        a: 'Yes — Kauai wedding catering for estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. From $175/pp plus staffing. WhatsApp the week.',
+      },
+      {
+        q: 'Kauai catering prices — buffet or plated?',
+        a: 'Same Kauaʻi CORE band as a private-chef dinner: $150–$250 per person. Buffet is the volume format; plated (coursed seated) is the restaurant arc. Staffing is itemised. Full menu and fee stack on /catering and /pricing.',
+      },
+      {
+        q: 'Do you publish a Kauai catering menu?',
+        a: 'Yes — a sample estate menu on the Kauai catering page. Your written menu is designed for that house and that guest list. We do not laminate a fake carte.',
       },
     ],
   },
@@ -207,12 +250,12 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
     {
       slug: 'wailea',
       name: 'Wailea',
-      h1: 'Private chef in Wailea, Maui',
+      h1: 'Private chef Wailea Maui',
       title: 'Private chef Wailea Maui — from $150/pp | myCHEF',
       description:
-        'Private chef in Wailea, Maui from $150/pp. In-villa dinners and wedding-week catering in resort residences. WhatsApp for a quote.',
+        'Private chef Wailea Maui from $150/pp. Published prices and menus — villa dinners and wedding-week catering in resort residences. WhatsApp for a quote.',
       lede:
-        'Wailea is where Maui books a private chef: hotel-zoned residences with real kitchens, December peaks, the dinner we built the island around.',
+        'Private chef Wailea Maui is the search. Hotel-zoned residences with real kitchens, published $150–$250/pp CORE, a written menu — not a named-chef marketplace.',
       body: [
         'This is not a resort communal chef’s table. It is your villa, your guest list, a menu designed that week.',
         'Starting CORE $150–$250 per person. Date Night, Family Feast and Wedding week sit on the same rate card. We shop in Kihei / Wailea the day of service.',
@@ -227,6 +270,10 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
         {
           q: 'Can you do a wedding week in Wailea?',
           a: 'Yes — welcome dinner through recovery brunch. Starting from $150/pp plus staffing.',
+        },
+        {
+          q: 'Private chef Maui cost in Wailea?',
+          a: 'CORE $150–$250 per person. Groceries for Stay Chef at cost. 20% service and GET up to 4.712% as their own lines. See /pricing.',
         },
       ],
     },
@@ -254,12 +301,12 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
     {
       slug: 'lahaina',
       name: 'Lahaina / West Maui',
-      h1: 'Private chef in West Maui — Lahaina searches',
-      title: 'Private chef Lahaina & West Maui — from $150/pp | myCHEF',
+      h1: 'Private chef Lahaina Maui',
+      title: 'Private chef Lahaina Maui — West Maui from $150/pp | myCHEF',
       description:
-        'Looking for a private chef in Lahaina? We cook West Maui: Kāʻanapali, Nāpili and Kapalua villas from $150/pp. Honest geography, published prices.',
+        'Private chef Lahaina Maui — we cook West Maui: Kāʻanapali, Nāpili and Kapalua villas from $150/pp. Honest geography, published prices and menus.',
       lede:
-        'People search “private chef Lahaina.” We answer with the kitchens we actually enter: Kāʻanapali, Nāpili, Kapalua. West Maui service, published Maui prices.',
+        'People search “private chef Lahaina Maui.” We answer with the kitchens we actually enter: Kāʻanapali, Nāpili, Kapalua. West Maui service, published Maui prices.',
       body: [
         'We do not market a luxury-dining destination that the town is not. We do cook next door, in hotel-zoned residences, at the same $150–$250/pp CORE band.',
         'WhatsApp the address. If the kitchen works, we book it. If it does not, we say so before you put a deposit down.',
@@ -280,12 +327,12 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
     {
       slug: 'kihei',
       name: 'Kīhei',
-      h1: 'Private chef in Kīhei, Maui',
+      h1: 'Private chef Kihei Maui',
       title: 'Private chef Kihei Maui — from $150/pp | myCHEF',
       description:
-        'Private chef in Kīhei, Maui. Family dinners and multi-day villa chefs from $150/pp. South Maui kitchens, honest quotes.',
+        'Private chef Kihei Maui. Family dinners and multi-day villa chefs from $150/pp. South Maui kitchens, published prices.',
       lede:
-        'Kīhei is service-led South Maui — condos and vacation homes with kitchens, not a Wailea clone page. Same starting prices. Kids’ plates are normal here.',
+        'Private chef Kihei Maui is a related search we actually serve — condos and vacation homes with kitchens, not a Wailea clone page. Same $150–$250/pp CORE. Kids’ plates are normal here.',
       body: [
         'Family Feast is the usual order: 6–8 people, fresh catch, a clean kitchen. Stay Chef if you are in for the week.',
       ],
@@ -295,6 +342,10 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
         {
           q: 'Is Kīhei cheaper than Wailea?',
           a: 'The menu band is the Maui rate card. There is no “discount geography.” Kitchen constraints are stated on the quote.',
+        },
+        {
+          q: 'Sushi-forward menu in Kīhei?',
+          a: 'Yes — we can arrange nigiri, sashimi and hand rolls as a menu direction. Ask on WhatsApp. Not a separate “sushi chef” brand.',
         },
       ],
     },
@@ -423,42 +474,70 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
     {
       slug: 'princeville',
       name: 'Princeville',
-      h1: 'Private chef in Princeville, Kauaʻi',
+      h1: 'Private chef Princeville Kauai',
       title: 'Private chef Princeville Kauai — from $150/pp | myCHEF',
-      description: 'Private chef in Princeville, Kauaʻi from $150/pp. North Shore estate dinners and villa weeks. Book now.',
-      lede: 'Princeville is Kauaʻi’s estate inventory. We book it. CORE $150–$250/pp — Maui-class prices for a Kauaʻi table.',
+      description:
+        'Private chef Princeville Kauai from $150/pp. North Shore estate dinners, villa weeks and Kauai catering. Book now.',
+      lede:
+        'Private chef Princeville is the North Shore search. We book it. CORE $150–$250/pp — Maui-class prices. Kauai catering for the same estates.',
       body: [
         'Winter surf season: ask early. Far-North (Hāʻena) inherits the Hanalei-bridge weather clause — reschedule rather than forfeit.',
+        'Need a reception, not a dinner? Kauai catering — buffet or plated, wedding week, published prices — is a peer door on this host.',
       ],
       zone: 'North Shore — published zone',
       photo: 'kauaiNorth',
       faqs: [
         { q: 'Can I book a date now?', a: 'Yes. WhatsApp the dates and the house. This is not a waitlist island.' },
+        {
+          q: 'Princeville catering or a private chef?',
+          a: 'Dinner for the house is private chef. Ten to seventy-five guests is Kauai catering — same team, staffed. See /catering.',
+        },
       ],
     },
     {
       slug: 'poipu',
       name: 'Poʻipū',
-      h1: 'Private chef in Poʻipū, Kauaʻi',
+      h1: 'Private chef Poipu Kauai',
       title: 'Private chef Poipu Kauai — from $150/pp | myCHEF',
-      description: 'Private chef in Poʻipū and Kōloa from $150/pp. South Shore arrival-night dinners and retreat weeks.',
-      lede: 'Sunnier, steadier, closer to Līhuʻe. Arrival-night dinner plus Stay Chef for the week is the usual Poʻipū order.',
-      body: ['Same Kauaʻi CORE band as Princeville. Shorter drive — the zone map is a map, not a surprise.'],
+      description:
+        'Private chef Poipu Kauai from $150/pp. South Shore arrival-night dinners, retreat weeks and Kauai catering in Poʻipū and Kōloa.',
+      lede:
+        'Private chef Poipu Kauai is a related search we book. Sunnier, steadier, closer to Līhuʻe. Arrival-night dinner plus Stay Chef — or Kauai catering for the house.',
+      body: [
+        'Same Kauaʻi CORE band as Princeville. Shorter drive — the zone map is a map, not a surprise.',
+        'Retreat catering and wedding-week satellite dinners sit on /catering with published starting prices.',
+      ],
       zone: 'South Shore',
       photo: 'kauaiSouth',
-      faqs: [{ q: 'Retreat catering?', a: 'Full-board days for houses that actually cook. Dietary is designed in, not promised as theatre.' }],
+      faqs: [
+        { q: 'Retreat catering?', a: 'Full-board days for houses that actually cook. Dietary is designed in, not promised as theatre.' },
+        {
+          q: 'Kauai catering menu in Poʻipū?',
+          a: 'Sample estate menu on the Kauai catering page. Your written menu is designed that week. Buffet or plated.',
+        },
+      ],
     },
     {
       slug: 'hanalei',
       name: 'Hanalei',
-      h1: 'Private chef in Hanalei, Kauaʻi',
+      h1: 'Private chef Hanalei Kauai',
       title: 'Private chef Hanalei Kauai — from $150/pp | myCHEF',
-      description: 'Private chef in Hanalei. North Shore Kauaʻi dinners from $150/pp. Weather and road honesty published up front.',
-      lede: 'Hanalei town and the valley. The bridge is real. We plan around it instead of arguing with it.',
-      body: ['Estate dinners. 72-hour notice for far-North. CORE from $150/pp.'],
+      description:
+        'Private chef Hanalei Kauai from $150/pp. North Shore dinners and Kauai catering. Weather and road honesty published up front.',
+      lede:
+        'Private chef Hanalei is the valley search. The bridge is real. We plan around it instead of arguing with it. CORE from $150/pp.',
+      body: [
+        'Estate dinners and Kauai wedding catering when the guest list grows. 72-hour notice for far-North. CORE from $150/pp.',
+      ],
       zone: 'North Shore',
       photo: 'kauaiNorth',
-      faqs: [{ q: 'Road closure?', a: 'We reschedule rather than forfeit. That is on the quote before any deposit.' }],
+      faqs: [
+        { q: 'Road closure?', a: 'We reschedule rather than forfeit. That is on the quote before any deposit.' },
+        {
+          q: 'Can you cater a Hanalei wedding?',
+          a: 'Estate formats, quoted with staffing. Far-North inherits the weather clause. See Kauai catering.',
+        },
+      ],
     },
     {
       slug: 'kapaa',

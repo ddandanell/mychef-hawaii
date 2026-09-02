@@ -104,6 +104,9 @@ export default function NeighborhoodMoneyPage() {
               <Link to={href('/private-chef')} className="text-sm text-ink underline underline-offset-4">
                 Private chef
               </Link>
+              <Link to={href('/catering')} className="text-sm text-ink underline underline-offset-4">
+                {islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
+              </Link>
               <Link to={href('/pricing')} className="text-sm text-ink underline underline-offset-4">
                 Packages &amp; prices
               </Link>

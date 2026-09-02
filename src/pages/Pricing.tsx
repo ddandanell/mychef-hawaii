@@ -47,6 +47,20 @@ const feeChipKind: Record<FeeStackRow['chip'], ChipKind> = {
 /* ---------------- Section 1 — Header + Status Banner ---------------- */
 
 function Header() {
+  const { islandId } = useIsland();
+  const h1 =
+    islandId === 'maui'
+      ? 'Private chef Maui cost — published, line by line.'
+      : islandId === 'kauai'
+        ? 'Private chef Kauai cost — and Kauai catering prices.'
+        : 'Private chef Hawaii cost — published, line by line.';
+  const lede =
+    islandId === 'maui'
+      ? 'Per person, what is included, groceries at cost, 20% service, Hawaiʻi GET. Private chef Maui cost is CORE $150–$250/pp. Published prices and a written menu — not a named-chef marketplace. Your written quote is the confirmed total.'
+      : islandId === 'kauai'
+        ? 'Per person, what is included, groceries at cost, 20% service, Hawaiʻi GET. Private chef Kauai and Kauai catering share the same $150–$250/pp CORE band. Wedding catering from $175/pp plus staffing. Quote in writing.'
+        : 'Per person, what is included, groceries at cost, 20% service, Hawaiʻi GET. Private chef Maui cost starts at $150–$250/pp. We publish starting prices and a named chef team — not a marketplace of fifty random chefs. Your written quote is the confirmed total.';
+
   return (
     <section className="relative overflow-hidden bg-ivory pb-16 pt-14 lg:pb-20 lg:pt-20">
       <Contours className="absolute -right-24 -top-16 h-96 w-[520px] opacity-[0.06]" stroke="#A34A28" />
@@ -62,9 +76,11 @@ function Header() {
             the quote. 50% deposit locks the date. Gratuity is voluntary.
           </p>
         </motion.div>
-        <p className="mt-10 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Pricing</p>
+        <p className="mt-10 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">
+          Private chef cost · {islandId === 'maui' ? 'Maui' : islandId === 'kauai' ? 'Kauaʻi' : 'Hawaii'}
+        </p>
         <h1 className="mt-4 max-w-3xl font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
-          <WordMask text="Published starting prices. Quote in writing." delay={0.35} />
+          <WordMask text={h1} delay={0.35} />
         </h1>
         <motion.p
           initial={{ opacity: 0, y: 24 }}
@@ -72,9 +88,7 @@ function Header() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
           className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink"
         >
-          One architecture, four island rate cards. We publish starting prices and a named chef team — not a
-          marketplace of fifty random chefs. Same $125–$250 band as the per-person platforms; your written quote is
-          the confirmed total.
+          {lede}
         </motion.p>
       </div>
     </section>
@@ -412,25 +426,37 @@ function FeeStack() {
 
 const faqs = [
   {
-    q: 'Are these the real prices?',
-    a: 'These are published starting prices — the same architecture as our Bali and Dubai sites. Your written quote is the confirmed, itemised total for your menu, date and kitchen.',
+    q: 'How much does a private chef cost in Hawaii?',
+    a: 'Oʻahu CORE $125–$190 per person. Maui and Kauaʻi $150–$250/pp. Big Island CORE $150–$225, ENTRY from $110. Stay Chef day rates from $850 Oʻahu / $1,050 Maui / $1,100 Kauaʻi / $950 Hawaiʻi Island. Written quote before you commit.',
+  },
+  {
+    q: 'Private chef Maui cost — what do I actually pay per person?',
+    a: 'Signature dinners start at $150–$250 per person (CORE). Date Night for two from $500+. Stay Chef from $1,050/day. That is the food/chef line — groceries, service and GET are called out next.',
+  },
+  {
+    q: 'What’s included in the per-person price?',
+    a: 'Menu design, same-day shopping, cooking in your villa, table service and a clean kitchen. Alcohol is BYO or quoted separately (mobile bar is its own line). Rentals and venue fees are add-ons when you want them.',
+  },
+  {
+    q: 'Are groceries included?',
+    a: 'On a signature dinner, groceries sit inside the per-person band. On Stay Chef / vacation-chef / multi-day days, groceries are billed at cost with receipts — never marked up silently.',
+  },
+  {
+    q: 'What is the 20% service charge?',
+    a: 'A 20% service charge is added as its own line on every quote (HRS §481B-14 posture). It is not a tip. Gratuity is always voluntary and never hidden in the bill.',
+  },
+  {
+    q: 'What is Hawaiʻi GET?',
+    a: 'General Excise Tax, up to 4.712% including the county surcharge, shown as its own line, valid through December 31, 2030. We do not bury it in the food price.',
   },
   {
     q: 'Why bands instead of a single number?',
     a: 'A private-chef quote depends on your menu, your date and your kitchen. A band is an honest starting range; the quote is always exact before you deposit.',
   },
   {
-    q: 'What’s included — and what isn’t?',
-    a: 'Menu design, shopping, cooking, tableside service and kitchen cleanup are inside the dinner band. Day-rate and vacation-chef groceries are billed at cost. Service charge, GET and any travel-zone fee appear as their own lines.',
-  },
-  {
     q: 'How do deposits work?',
     a: 'A 50% deposit locks your date. The full cancellation posture lives on our legal page.',
     link: { to: '/legal', label: 'Read the terms posture →' },
-  },
-  {
-    q: 'Do you have a mobile bar?',
-    a: 'Yes — a first-class offer on every island host, with published starting prices. Stack it with a chef night or a wedding week.',
   },
 ];
 

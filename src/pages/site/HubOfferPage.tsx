@@ -27,7 +27,7 @@ export default function HubOfferPage({
     catering: {
       h1: 'Private catering in Hawaii',
       lede:
-        'Staffed events for about 10–75 guests — grazing, pūpū, buffet, coursed, live stations. Wedding weeks, retreats, celebrations. Published starting prices on every island.',
+        'Staffed events for about 10–75 guests — grazing, pūpū, buffet, coursed, live stations. Kauai catering searches at 210/mo — equal to private chef Kauai — and is a real money page: menu, prices, wedding. Published starting prices on every island.',
       intent: 'catering',
       service: 'catering-events' as const,
       path: '/catering',

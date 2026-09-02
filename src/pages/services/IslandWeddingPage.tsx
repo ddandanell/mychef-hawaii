@@ -67,9 +67,9 @@ const COPY: Record<
     hero: photos.oahuEstate,
   },
   kauai: {
-    h1: 'Estate weddings on both Kauaʻi shores.',
+    h1: 'Kauai wedding catering — both shores.',
     lede:
-      'Princeville, Hanalei and Poʻipū — formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. Book now. Maui-class starting prices from $150/pp.',
+      'Kauai wedding catering in Princeville, Hanalei and Poʻipū — formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. From $175/pp plus staffing. Book now.',
     eyebrow: 'myCHEF Kauaʻi — Estate weddings',
     places: 'Princeville, Hanalei, Poʻipū, Kōloa',
     peak: 'North Shore winters book early',

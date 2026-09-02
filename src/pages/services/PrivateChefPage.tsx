@@ -69,6 +69,18 @@ const content: Record<IslandId, PrivateChefContent> = {
         q: 'How early should we book for December through March?',
         a: 'Peak-season dates go first. As a launch-season kitchen our calendar is still open, but the holidays and spring break book weeks out — ask early, and we hold confirmed dates in writing.',
       },
+      {
+        q: 'Private chef Maui cost — what do I actually pay?',
+        a: 'CORE $150–$250 per person. Groceries for Stay Chef at cost with receipts. Service 20% and Hawaiʻi GET up to 4.712% on their own lines — once. Published prices and a written menu, not a named-chef marketplace.',
+      },
+      {
+        q: 'Do you do a private sushi chef on Maui?',
+        a: 'We can arrange a sushi-forward menu — nigiri, sashimi, hand rolls — cooked in your villa. It is a menu direction, not a separate brand. Ask on WhatsApp.',
+      },
+      {
+        q: 'Can I request a female private chef on Maui?',
+        a: 'Chefs are assigned to the booking, not sold as a gender marketplace. If you have a preference, say so — we will match when the calendar allows. We do not invent chef names or bios.',
+      },
     ],
   },
   oahu: {
@@ -125,7 +137,11 @@ const content: Record<IslandId, PrivateChefContent> = {
       },
       {
         q: 'Can you staff a small wedding?',
-        a: 'Estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines.',
+        a: 'Estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. Kauai wedding catering from $175/pp plus staffing — see /catering.',
+      },
+      {
+        q: 'Kauai catering or a private chef?',
+        a: 'Same volume — 210 searches a month each. A villa dinner is private chef. Ten to seventy-five guests is Kauai catering: menu, prices, buffet or plated, on the catering page.',
       },
     ],
   },

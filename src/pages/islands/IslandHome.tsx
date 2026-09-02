@@ -67,6 +67,9 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
           <div className="mt-6 flex flex-wrap items-center gap-2.5">
             <CostChip label="CORE dinner" band={`from $${offer.fromPp}/pp`} index={0} />
             <CostChip label="Stay Chef" band={`${formatFrom(offer.dayFrom)}/day`} index={1} />
+            {islandId === 'kauai' ? (
+              <CostChip label="Kauai catering" band="from $150/pp" index={2} />
+            ) : null}
           </div>
           <div className="mt-8">
             <DualCta island={islandId} intent="a private chef" size="lg" />
@@ -112,12 +115,20 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
               </Link>
             ))}
           </div>
+          {islandId === 'kauai' ? (
+            <p className="mt-10 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft">
+              <Link to={href('/catering')} className="font-medium text-clay underline underline-offset-4">
+                Kauai catering
+              </Link>{' '}
+              searches at 210/mo — equal to private chef Kauai. Menu, prices, wedding, buffet vs plated. Not a stub.
+            </p>
+          ) : null}
           <div className="mt-8 flex flex-wrap gap-4 text-sm">
             <Link to={href('/private-chef')} className="font-medium text-clay underline underline-offset-4">
               Private chef
             </Link>
             <Link to={href('/catering')} className="font-medium text-clay underline underline-offset-4">
-              Catering
+              {islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
             </Link>
             <Link to={href('/bar')} className="font-medium text-clay underline underline-offset-4">
               Bar

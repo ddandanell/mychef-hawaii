@@ -21,7 +21,7 @@ const hubFaqs = [
   },
   {
     q: 'How much does a private chef cost in Hawaii?',
-    a: 'Oʻahu CORE $125–$190/pp (private chef oahu 90/mo). Maui $150–$250/pp (private chef maui 260/mo). Kauaʻi the same Maui-class band (private chef kauai 210/mo). Big Island CORE $150–$225, from $125/pp at ENTRY. 20% service + Hawaiʻi GET up to 4.712% once on the quote.',
+    a: 'Oʻahu CORE $125–$190/pp (private chef oahu 90/mo). Maui $150–$250/pp (private chef maui 260/mo). Kauaʻi the same Maui-class band (private chef kauai 210/mo). Kauai catering is an equal door at 210/mo. Big Island CORE $150–$225, from $125/pp at ENTRY. 20% service + Hawaiʻi GET up to 4.712% once on the quote. Groceries at cost on Stay Chef.',
   },
   {
     q: "What's included?",
