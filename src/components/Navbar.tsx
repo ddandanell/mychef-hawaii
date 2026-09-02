@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
 import { DualCtaCompact } from '@/components/DualCta';
-import { goToHost } from '@/components/HostLink';
+import HostLink, { goToHost } from '@/components/HostLink';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
 import { cn } from '@/lib/utils';
@@ -13,10 +13,11 @@ const hubLinks = [
   { label: 'Bar', to: '/bar' },
   { label: 'Weddings', to: '/weddings' },
   { label: 'Pricing', to: '/pricing' },
+  { label: 'About', to: '/about' },
 ];
 
 /** Hub paths whose first viewport is a dark still (wordmark inverts to paper). */
-const HUB_DARK_HERO = new Set(['/', '/bar', '/weddings']);
+const HUB_DARK_HERO = new Set(['/', '/bar', '/weddings', '/about']);
 /** Island paths whose first viewport is a dark still. Hub /private-chef and /catering are ivory. */
 const ISLAND_DARK_HERO = new Set([
   '/',
@@ -132,6 +133,7 @@ export default function Navbar() {
         { label: 'Bar', to: href('/bar') },
         { label: 'Weddings', to: href('/weddings') },
         { label: 'Pricing', to: href('/pricing') },
+        { label: 'About', to: '/about', hub: true as const },
         { label: 'Quote', to: href('/quote') },
       ]
     : [...hubLinks, { label: 'Quote', to: '/quote' }];
@@ -154,15 +156,21 @@ export default function Navbar() {
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
-          {islandLinks.map((l) => (
-            <Link
-              key={l.label}
-              to={l.to}
-              className={cn('text-sm', onDark ? 'text-white/85 hover:text-white' : 'text-ink-soft hover:text-ink')}
-            >
-              {l.label}
-            </Link>
-          ))}
+          {islandLinks.map((l) => {
+            const cls = cn('text-sm', onDark ? 'text-white/85 hover:text-white' : 'text-ink-soft hover:text-ink');
+            if ('hub' in l && l.hub) {
+              return (
+                <HostLink key={l.label} island="root" path={l.to} className={cls}>
+                  {l.label}
+                </HostLink>
+              );
+            }
+            return (
+              <Link key={l.label} to={l.to} className={cls}>
+                {l.label}
+              </Link>
+            );
+          })}
         </nav>
 
         <div className="hidden items-center gap-4 lg:flex">
@@ -193,16 +201,27 @@ export default function Navbar() {
               <IslandSwitcher onNavigate={() => setDrawerOpen(false)} />
             </div>
             <nav aria-label="Mobile" className="flex flex-1 flex-col overflow-y-auto px-5 py-6">
-              {islandLinks.map((l) => (
-                <Link
-                  key={l.label + l.to}
-                  to={l.to}
-                  onClick={() => setDrawerOpen(false)}
-                  className="block border-b border-stone py-4 font-display text-2xl font-light text-ink"
-                >
-                  {l.label}
-                </Link>
-              ))}
+              {islandLinks.map((l) => {
+                const cls = 'block border-b border-stone py-4 font-display text-2xl font-light text-ink';
+                if ('hub' in l && l.hub) {
+                  return (
+                    <HostLink
+                      key={l.label + l.to}
+                      island="root"
+                      path={l.to}
+                      className={cls}
+                      onClick={() => setDrawerOpen(false)}
+                    >
+                      {l.label}
+                    </HostLink>
+                  );
+                }
+                return (
+                  <Link key={l.label + l.to} to={l.to} onClick={() => setDrawerOpen(false)} className={cls}>
+                    {l.label}
+                  </Link>
+                );
+              })}
             </nav>
             <div className="border-t border-stone p-5">
               <DualCtaCompact island={islandId ?? undefined} />

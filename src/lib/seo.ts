@@ -258,7 +258,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
   return rows.map((r) => ({
     loc: `https://${masterHostName(r.host as MasterHost)}${r.path === '/' ? '/' : r.path}`,
     changefreq: r.path === '/' ? 'weekly' : 'monthly',
-    priority: r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : '0.8',
+    priority: r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8',
   }));
 }
 

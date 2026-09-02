@@ -25,6 +25,7 @@ const MASTER: { host: MapHost; path: string }[] = [
   { host: 'hub', path: '/' },
   { host: 'hub', path: '/catering' },
   { host: 'hub', path: '/weddings' },
+  { host: 'hub', path: '/about' },
   { host: 'oahu', path: '/' },
   { host: 'oahu', path: '/catering' },
   { host: 'oahu', path: '/weddings' },
@@ -52,7 +53,10 @@ function urlEntry(href: string, priority: string): string {
 
 function urlset(rows: { host: MapHost; path: string }[]): string {
   const entries = rows.map((r) =>
-    urlEntry(loc(r.host, r.path), r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : '0.8'),
+    urlEntry(
+      loc(r.host, r.path),
+      r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8',
+    ),
   );
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`;
 }
@@ -67,6 +71,7 @@ function isStaticAsset(pathname: string): boolean {
   if (pathname === '/index.html') return true;
   if (pathname.startsWith('/assets/')) return true;
   if (pathname.startsWith('/photos/')) return true;
+  if (pathname.startsWith('/about/') && /\.[a-zA-Z0-9]+$/.test(pathname)) return true;
   if (pathname.startsWith('/api/')) return true;
   if (pathname.startsWith('/_vercel/')) return true;
   if (pathname === '/seo-map.json') return true;

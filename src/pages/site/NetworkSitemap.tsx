@@ -9,6 +9,7 @@ const HUB_LABELS: Record<string, string> = {
   '/private-chef': 'Personal chef / villa',
   '/catering': 'Catering',
   '/weddings': 'Weddings',
+  '/about': 'About',
   '/bar': 'Bar',
   '/pricing': 'Pricing',
   '/quote': 'Quote',

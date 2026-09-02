@@ -1,6 +1,6 @@
 /**
  * XML sitemap. Standalone — do not import src/.
- * Lists only the 12 locked Hawaii money URLs.
+ * Lists the 12 locked Hawaii money URLs plus hub /about.
  */
 
 const PRODUCTION_ROOT = 'mychef-hawaii.com';
@@ -12,6 +12,7 @@ const MASTER: { host: Host; path: string }[] = [
   { host: 'hub', path: '/' },
   { host: 'hub', path: '/catering' },
   { host: 'hub', path: '/weddings' },
+  { host: 'hub', path: '/about' },
   { host: 'oahu', path: '/' },
   { host: 'oahu', path: '/catering' },
   { host: 'oahu', path: '/weddings' },
@@ -43,7 +44,10 @@ function urlEntry(href: string, priority: string): string {
 
 function urlset(rows: { host: Host; path: string }[]): string {
   const entries = rows.map((r) =>
-    urlEntry(loc(r.host, r.path), r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : '0.8'),
+    urlEntry(
+      loc(r.host, r.path),
+      r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8',
+    ),
   );
   return `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

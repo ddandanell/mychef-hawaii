@@ -48,6 +48,7 @@ export default function Footer() {
                     { label: 'Weddings', path: '/weddings' },
                     { label: 'Bar', path: '/bar' },
                     { label: 'Pricing', path: '/pricing' },
+                    { label: 'About', path: '/about' },
                     { label: 'Quote', path: quoteTo },
                     { label: 'Legal', path: '/legal' },
                   ]
@@ -57,6 +58,7 @@ export default function Footer() {
                     { label: 'Weddings', path: '/weddings' },
                     { label: 'Bar', path: '/bar' },
                     { label: 'Pricing', path: '/pricing' },
+                    { label: 'About', path: '/about' },
                     { label: 'Quote', path: quoteTo },
                     { label: 'Trust', path: '/trust' },
                     { label: 'Legal', path: '/legal' },
@@ -64,7 +66,7 @@ export default function Footer() {
                   ]
               ).map((l) => (
                 <li key={l.label}>
-                  {islandId ? (
+                  {islandId && l.path !== '/about' ? (
                     <Link
                       to={l.path.startsWith('/quote') ? l.path : href(l.path)}
                       className="text-sm text-ivory/80 hover:text-ivory"

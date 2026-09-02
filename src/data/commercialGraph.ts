@@ -1,5 +1,5 @@
 /**
- * Locked master map — 12 keyword URLs. Sitemap lists only these.
+ * Locked master map — 12 money URLs plus hub /about.
  * Supporting /private-chef /bar /pricing /quote stay live, unadvertised.
  * No neighborhood or blog URLs.
  */
@@ -13,14 +13,15 @@ export type MasterHost = 'hub' | IslandSitemapHost;
 
 export interface MasterLoc {
   host: MasterHost;
-  path: '/' | '/catering' | '/weddings';
+  path: '/' | '/catering' | '/weddings' | '/about';
 }
 
-/** The 12 shipped money URLs. One primary keyword each. */
+/** The 12 money URLs plus hub /about. One primary keyword each on the money set. */
 export const MASTER_MAP: readonly MasterLoc[] = [
   { host: 'hub', path: '/' },
   { host: 'hub', path: '/catering' },
   { host: 'hub', path: '/weddings' },
+  { host: 'hub', path: '/about' },
   { host: 'oahu', path: '/' },
   { host: 'oahu', path: '/catering' },
   { host: 'oahu', path: '/weddings' },
@@ -56,10 +57,11 @@ export function masterLocs(filterHost?: MasterHost): { loc: string; path: string
   return MASTER_MAP.filter((row) => !filterHost || row.host === filterHost).map((row) => ({
     loc: absoluteUrl(masterHostName(row.host), row.path),
     path: row.path,
-    priority: row.path === '/' ? (row.host === 'hub' ? '1.0' : '0.9') : '0.8',
+    priority:
+      row.path === '/' ? (row.host === 'hub' ? '1.0' : '0.9') : row.path === '/about' ? '0.6' : '0.8',
   }));
 }
 
 /** @deprecated use MASTER_MAP — kept for HTML nav of supporting pages */
-export const HUB_COMMERCIAL_PATHS = ['/', '/catering', '/weddings', '/private-chef', '/bar', '/pricing', '/quote'] as const;
+export const HUB_COMMERCIAL_PATHS = ['/', '/catering', '/weddings', '/about', '/private-chef', '/bar', '/pricing', '/quote'] as const;
 export const ISLAND_COMMERCIAL_PATHS = ['/', '/catering', '/weddings', '/private-chef', '/bar', '/pricing', '/quote'] as const;
