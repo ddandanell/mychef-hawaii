@@ -146,14 +146,14 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
         }}
       />
       <Hero src={hero.file} alt={hero.alt}>
-        <p className="text-[12px] text-paper/80">{island.name} catering</p>
+        <p className="text-[13px] text-mute">{island.name} catering</p>
         <LineReveal
           text={offer.h1}
-          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper"
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-5 max-w-[54ch] text-[17px] leading-[1.65] text-paper">{offer.lede}</p>
+        <p className="mt-5 max-w-[54ch] text-[17px] leading-[1.65] text-ink">{offer.lede}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="catering" inverse />
+          <QuoteCta island={islandId} service="catering" />
         </div>
       </Hero>
 

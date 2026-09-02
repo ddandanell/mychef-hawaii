@@ -5,10 +5,11 @@
   --color-sand: #ede6d8;
   --color-line: #ddd4c6;
   --color-ink: #1c1916;
-  --color-mute: #8a8378;
+  --color-mute: #5c564e;
+  --color-on-ink: #e4dcd0;
   --color-ivory: #f6f1e8;
   --color-stone: #ddd4c6;
-  --color-ink-soft: #8a8378;
+  --color-ink-soft: #5c564e;
 
   --font-display: var(--font-fraunces), "Iowan Old Style", Palatino, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;

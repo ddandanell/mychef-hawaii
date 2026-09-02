@@ -2,6 +2,7 @@ import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
 import Photo from '@/components/Photo';
+import TypePanel from '@/components/TypePanel';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
@@ -93,17 +94,17 @@ export function HubWeddingsView() {
         }}
       />
       <Hero src="/photos/maui-wedding-long-table-banyan-dusk.jpg" alt="A wedding-week long table under a banyan at dusk, ocean lawn beyond." min="short">
-        <p className="text-[12px] text-paper/80">Wedding week</p>
+        <p className="text-[13px] text-mute">Wedding week</p>
         <LineReveal
           text="Wedding catering Hawaii — one team for the whole week."
-          className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] tracking-[-0.02em] text-paper"
+          className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
         />
-        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-paper">
+        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ink">
           Welcome dinner to recovery brunch. Guest lists we staff: dinners for two to fifteen, receptions about ten to
           seventy-five.
         </p>
         <div className="mt-8">
-          <QuoteCta service="wedding-week" inverse />
+          <QuoteCta service="wedding-week" />
         </div>
       </Hero>
 
@@ -111,20 +112,16 @@ export function HubWeddingsView() {
         {islandsWeddings.map((row) => (
           <HostLink key={row.id} island={row.id} path="/weddings" className="group relative block min-h-[70svh] min-h-[420px] overflow-hidden">
             <Photo src={row.img} alt={row.alt} fill sizes="100vw" />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-[36rem] bg-gradient-to-r from-ink/32 via-ink/16 to-transparent"
-            />
-            <span className="relative mx-auto flex min-h-[70svh] min-h-[420px] w-full max-w-spread items-end px-5 pb-16 lg:px-10">
-              <span className="block max-w-[560px]">
-                <span className="block font-display text-[clamp(2rem,4vw,2.75rem)] font-light leading-[1.1] text-paper">
+            <span className="relative mx-auto flex min-h-[70svh] min-h-[420px] w-full max-w-spread items-end px-5 py-12 lg:px-10">
+              <TypePanel className="max-w-[560px]">
+                <span className="block font-display text-[clamp(2rem,4vw,2.75rem)] font-light leading-[1.1] text-ink">
                   {row.title}
                 </span>
-                <span className="mt-3 block text-[17px] leading-[1.65] text-paper">{row.body}</span>
-                <span className="mt-4 block text-[17px] text-paper">
+                <span className="mt-3 block text-[17px] leading-[1.65] text-ink">{row.body}</span>
+                <span className="mt-4 block text-[17px] text-ink">
                   Wedding catering {formatOtherOffer(getOtherOffer('wedding'), row.id)}
                 </span>
-              </span>
+              </TypePanel>
             </span>
           </HostLink>
         ))}
@@ -146,14 +143,14 @@ export function IslandWeddingView({ islandId, hostMode }: { islandId: IslandId; 
   return (
     <>
       <Hero src={copy.hero.file} alt={copy.hero.alt} min="short">
-        <p className="text-[12px] text-paper/80">{copy.eyebrow}</p>
+        <p className="text-[13px] text-mute">{copy.eyebrow}</p>
         <LineReveal
           text={copy.h1}
-          className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper"
+          className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-paper">{copy.lede}</p>
+        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ink">{copy.lede}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="wedding-week" inverse />
+          <QuoteCta island={islandId} service="wedding-week" />
         </div>
       </Hero>
       <Longform sections={long.sections} />

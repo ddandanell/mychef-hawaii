@@ -29,7 +29,7 @@ export default async function NotFound() {
         <div className="mt-8 flex flex-wrap gap-3">
           <CtaLink href={home}>{island ? `${islands[island].name} home` : 'Home'}</CtaLink>
           {islandOrder.map((id) => (
-            <HostLink key={id} island={id} className="inline-flex h-12 items-center border border-line px-6 text-[14px] font-medium text-ink">
+            <HostLink key={id} island={id} className="inline-flex h-12 items-center border border-ink bg-paper px-6 text-[14px] font-medium text-ink">
               {islands[id].name}
             </HostLink>
           ))}

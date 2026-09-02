@@ -76,14 +76,14 @@ export default function HomeView() {
       <Hero src={photos.hubHero.file} alt={photos.hubHero.alt}>
         <LineReveal
           text="Private Chef Hawaii — in your villa, on your island."
-          className="font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-paper"
+          className="font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
         />
-        <p className="mt-5 max-w-[40ch] text-[17px] leading-[1.55] text-paper">
+        <p className="mt-5 max-w-[40ch] text-[17px] leading-[1.55] text-ink">
           We shop, cook, serve and clean on Oʻahu, Maui, Kauaʻi and Hawaiʻi Island.
         </p>
-        <p className="mt-4 text-[17px] text-paper">Signature dinner from $125 a guest, Oʻahu.</p>
+        <p className="mt-4 text-[17px] text-ink">Signature dinner from $125 a guest, Oʻahu.</p>
         <div className="mt-8">
-          <QuoteCta inverse />
+          <QuoteCta />
         </div>
       </Hero>
 

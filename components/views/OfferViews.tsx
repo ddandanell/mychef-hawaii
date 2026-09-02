@@ -92,15 +92,15 @@ export function IslandVacationView({ islandId, hostMode }: { islandId: IslandId;
   return (
     <>
       <Hero src={photos.vacation.file} alt={photos.vacation.alt} min="short">
-        <p className="text-[12px] text-paper/80">{islands[islandId].name}</p>
+        <p className="text-[13px] text-mute">{islands[islandId].name}</p>
         <LineReveal
           text={copy.h1}
-          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper"
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-paper">{copy.lede}</p>
-        <p className="mt-4 text-[17px] text-paper">{formatDayRate(islandId)} · {day.model}</p>
+        <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-ink">{copy.lede}</p>
+        <p className="mt-4 text-[17px] text-ink">{formatDayRate(islandId)} · {day.model}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="vacation-chef" inverse />
+          <QuoteCta island={islandId} service="vacation-chef" />
         </div>
       </Hero>
       <SiblingCluster island={islandId} href={href} />

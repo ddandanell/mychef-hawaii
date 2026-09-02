@@ -32,16 +32,16 @@ export default function PrivateChefView({ islandId, hostMode }: { islandId: Isla
   return (
     <>
       <Hero src={hero.file} alt={hero.alt}>
-        <p className="text-[12px] text-paper/80">myCHEF {islands[islandId].name}</p>
+        <p className="text-[13px] text-mute">myCHEF {islands[islandId].name}</p>
         <LineReveal
           text={H1[islandId]}
-          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper"
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-5 max-w-[48ch] text-[17px] leading-[1.65] text-paper">
+        <p className="mt-5 max-w-[48ch] text-[17px] leading-[1.65] text-ink">
           In-home dinner, weekly household line, no restaurant. {core ? `${formatBand(core)} a guest CORE.` : ''}
         </p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="private-chef" inverse />
+          <QuoteCta island={islandId} service="private-chef" />
         </div>
       </Hero>
       <Longform sections={copy.sections} />

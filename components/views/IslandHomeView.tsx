@@ -42,23 +42,23 @@ export default function IslandHomeView({
       />
 
       <Hero src={hero.file} alt={hero.alt}>
-        {inquiry ? <p className="text-[12px] text-paper/80">Opening</p> : null}
+        {inquiry ? <p className="text-[13px] text-mute">Opening</p> : null}
         <LineReveal
           text={offer.h1}
-          className="mt-3 font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-paper"
+          className="mt-3 font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
         />
-        <p className="mt-5 max-w-[42ch] text-[17px] leading-[1.55] text-paper">
+        <p className="mt-5 max-w-[42ch] text-[17px] leading-[1.55] text-ink">
           {islandId === 'oahu'
             ? 'Honolulu villas and residences. We shop, cook, serve and clean.'
             : islandId === 'bigisland'
               ? 'Kona and the Kohala Coast. We shop, cook, serve and clean.'
               : 'We shop, cook, serve and clean.'}
         </p>
-        <p className="mt-4 text-[17px] text-paper">
+        <p className="mt-4 text-[17px] text-ink">
           Signature dinner from ${offer.fromPp} a guest, {island.shortName}.
         </p>
         <div className="mt-8">
-          <QuoteCta island={islandId} inverse />
+          <QuoteCta island={islandId} />
         </div>
       </Hero>
 

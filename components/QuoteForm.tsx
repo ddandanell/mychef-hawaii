@@ -186,7 +186,7 @@ export default function QuoteForm() {
   return (
     <div className="lg:grid lg:grid-cols-[55fr_45fr]">
       <div className="bg-ink px-5 py-10 lg:hidden">
-        <p className="text-[12px] text-paper/70">{inquiry ? 'Opening' : 'Request a quote'}</p>
+        <p className="text-[13px] text-on-ink">{inquiry ? 'Opening' : 'Request a quote'}</p>
         <p className="mt-4 font-display text-[1.75rem] font-light leading-[1.15] text-paper">
           {inquiry ? 'Tell us your dates.' : 'Five fields. A human reply.'}
         </p>
@@ -390,20 +390,18 @@ export default function QuoteForm() {
             alt="A menu card on ivory linen beside a plated fish course."
             className="absolute inset-0 h-full w-full object-cover"
           />
-          <div
-            aria-hidden="true"
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink/35 to-transparent"
-          />
-          <div className="relative p-10">
-            <p className="text-[12px] text-paper/80">{inquiry ? 'Opening' : 'Request a quote'}</p>
-            <p className="mt-4 font-display text-[2rem] font-light leading-[1.15] text-paper">
-              {inquiry ? 'Join the inquiry list.' : 'Five fields. A human reply.'}
-            </p>
-            <ul className="mt-8 space-y-3 text-[17px] leading-relaxed text-paper">
-              <li>Reply from a real coordinator — typically within Hawaii business hours.</li>
-              <li>Itemised written quote — service charge and tax on their own lines.</li>
-              <li>No account. No spam. One honest follow-up, ever.</li>
-            </ul>
+          <div className="relative p-8">
+            <div className="bg-paper px-6 py-8 text-ink">
+              <p className="text-[13px] text-mute">{inquiry ? 'Opening' : 'Request a quote'}</p>
+              <p className="mt-4 font-display text-[2rem] font-light leading-[1.15] text-ink">
+                {inquiry ? 'Join the inquiry list.' : 'Five fields. A human reply.'}
+              </p>
+              <ul className="mt-8 space-y-3 text-[17px] leading-relaxed text-ink">
+                <li>Reply from a real coordinator — typically within Hawaii business hours.</li>
+                <li>Itemised written quote — service charge and tax on their own lines.</li>
+                <li>No account. No spam. One honest follow-up, ever.</li>
+              </ul>
+            </div>
           </div>
         </div>
       </aside>

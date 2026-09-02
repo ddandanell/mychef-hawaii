@@ -18,7 +18,7 @@ export function LocationsBlock({
   return (
     <section id={id} className={cn(ink ? 'bg-ink text-paper' : 'border-t border-line bg-paper text-ink')}>
       <div className="mx-auto w-full max-w-container px-5 py-16 lg:px-10 lg:py-20">
-        <p className={cn('text-[12px]', ink ? 'text-paper/50' : 'text-mute')}>Locations</p>
+        <p className={cn('text-[13px]', ink ? 'text-on-ink' : 'text-mute')}>Locations</p>
         <h2
           className={cn(
             'mt-3 font-display text-[clamp(1.75rem,3vw,2.25rem)] font-light',
@@ -27,7 +27,7 @@ export function LocationsBlock({
         >
           Where we cook
         </h2>
-        <p className={cn('mt-4 max-w-[62ch] text-[17px] leading-relaxed', ink ? 'text-paper/75' : 'text-mute')}>
+        <p className={cn('mt-4 max-w-[62ch] text-[17px] leading-relaxed', ink ? 'text-on-ink' : 'text-mute')}>
           {LOCATIONS_LEDE}
         </p>
         <ul className="mt-10 space-y-8">
@@ -41,13 +41,13 @@ export function LocationsBlock({
                     {islands[id].name}
                   </HostLink>
                 </p>
-                <p className={cn('mt-2 max-w-[70ch] text-[17px] leading-relaxed', ink ? 'text-paper/75' : 'text-mute')}>
+                <p className={cn('mt-2 max-w-[70ch] text-[17px] leading-relaxed', ink ? 'text-on-ink' : 'text-mute')}>
                   {area.line}
                 </p>
                 {anchored ? (
                   <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
                     {area.corridors.map((c) => (
-                      <li key={c.id} id={c.id} className={cn('scroll-mt-24', ink ? 'text-paper/80' : 'text-ink')}>
+                      <li key={c.id} id={c.id} className={cn('scroll-mt-24', ink ? 'text-paper' : 'text-ink')}>
                         {c.name}
                       </li>
                     ))}

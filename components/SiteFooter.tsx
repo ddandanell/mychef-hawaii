@@ -24,26 +24,26 @@ export default function SiteFooter({
             <HostLink island="root" className="font-display text-2xl font-light tracking-tight text-paper">
               myCHEF
             </HostLink>
-            <p className="mt-4 max-w-xs text-[17px] leading-relaxed text-paper/75">
+            <p className="mt-4 max-w-xs text-[17px] leading-relaxed text-on-ink">
               A chef in your villa. Oʻahu, Maui, Kauaʻi, Hawaiʻi Island.
             </p>
             <div className="mt-6">
-              <EnquireCta island={islandId} inverse />
+              <EnquireCta island={islandId} variant="secondary" />
             </div>
           </div>
 
           <nav aria-label="Islands">
-            <p className="text-[12px] text-paper/50">Islands</p>
+            <p className="text-[13px] text-on-ink">Islands</p>
             <ul className="mt-4 space-y-2">
               {islandOrder.map((id) => (
                 <li key={id}>
-                  <HostLink island={id} className="text-sm text-paper/80 hover:text-paper">
+                  <HostLink island={id} className="text-base text-paper hover:underline underline-offset-4">
                     {islands[id].name}
                   </HostLink>
                 </li>
               ))}
               <li>
-                <HostLink island="root" className="text-sm text-paper/80 hover:text-paper">
+                <HostLink island="root" className="text-base text-paper hover:underline underline-offset-4">
                   All Hawaiʻi
                 </HostLink>
               </li>
@@ -51,20 +51,20 @@ export default function SiteFooter({
           </nav>
 
           <nav aria-label="Company">
-            <p className="text-[12px] text-paper/50">Company</p>
+            <p className="text-[13px] text-on-ink">Company</p>
             <ul className="mt-4 space-y-2">
               <li>
-                <HostLink island="root" path="/about" className="text-sm text-paper/80 hover:text-paper">
+                <HostLink island="root" path="/about" className="text-base text-paper hover:underline underline-offset-4">
                   About
                 </HostLink>
               </li>
               <li>
-                <HostLink island="root" path="/pricing" className="text-sm text-paper/80 hover:text-paper">
+                <HostLink island="root" path="/pricing" className="text-base text-paper hover:underline underline-offset-4">
                   Pricing
                 </HostLink>
               </li>
               <li>
-                <HostLink island="root" path="/legal" className="text-sm text-paper/80 hover:text-paper">
+                <HostLink island="root" path="/legal" className="text-base text-paper hover:underline underline-offset-4">
                   Legal
                 </HostLink>
               </li>
@@ -72,7 +72,7 @@ export default function SiteFooter({
           </nav>
         </div>
 
-        <p className="mt-12 border-t border-white/10 pt-6 text-[12px] leading-relaxed text-paper/50">
+        <p className="mt-12 border-t border-white/15 pt-6 text-[13px] leading-relaxed text-on-ink">
           Published prices. Written quote. 20% service and Hawaiʻi GET are their own lines. Oʻahu Signature $125–$190 a
           guest. Maui $150–$250.{' '}
           <a href={href('/legal')} className="underline underline-offset-2">

@@ -4,6 +4,7 @@ import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
 import LineReveal from '@/components/LineReveal';
 import Photo from '@/components/Photo';
+import TypePanel from '@/components/TypePanel';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { islandOrder, islands } from '@/data/islands';
 import { feeStack } from '@/data/rateCard';
@@ -162,13 +163,13 @@ export function CorporateView() {
       <Hero src="/photos/live-fire-grill-lanai-fish.jpg" alt="Live-fire grill on a villa lānai, whole fish and citrus." min="short">
         <LineReveal
           text="Retreats, crews, private rooms — not citywides."
-          className="font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper"
+          className="font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-paper">
+        <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-ink">
           Staffed private chef catering for 10–75 guests: villa retreats, production crews and private gatherings.
         </p>
         <div className="mt-8">
-          <QuoteCta service="catering-events" inverse />
+          <QuoteCta service="catering-events" />
         </div>
       </Hero>
       <section className="bg-paper py-20">
@@ -207,12 +208,11 @@ export function IslandsView() {
           return (
             <HostLink key={id} island={id} className="relative block min-h-[70vh] overflow-hidden">
               <Photo src={isl.selectorImage} alt={isl.name} fill sizes="100vw" />
-              <span className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-[36rem] bg-gradient-to-r from-ink/32 via-ink/16 to-transparent" />
-              <span className="relative flex min-h-[70vh] items-end px-5 pb-16 lg:px-10">
-                <span className="block max-w-xl">
-                  <span className="block font-display text-[clamp(2.5rem,6vw,4rem)] font-light text-paper">{isl.name}</span>
-                  <span className="mt-3 block text-[17px] text-paper">{isl.role}</span>
-                </span>
+              <span className="relative flex min-h-[70vh] items-end px-5 py-12 lg:px-10">
+                <TypePanel className="max-w-xl">
+                  <span className="block font-display text-[clamp(2.5rem,6vw,4rem)] font-light text-ink">{isl.name}</span>
+                  <span className="mt-3 block text-[17px] text-ink">{isl.role}</span>
+                </TypePanel>
               </span>
             </HostLink>
           );

@@ -122,17 +122,17 @@ export default function AboutView() {
         src="/about/brigade-hero.png"
         alt="A full villa brigade at twilight — chefs plating, service moving, a long table beyond the pass."
       >
-        <p className="text-[12px] text-paper/80">About myCHEF Hawaii</p>
+        <p className="text-[13px] text-mute">About myCHEF Hawaii</p>
         <LineReveal
           text="A brigade in the villa."
-          className="mt-4 font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-paper"
+          className="mt-4 font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
         />
-        <p className="mt-5 max-w-[42ch] text-[17px] leading-[1.55] text-paper">
+        <p className="mt-5 max-w-[42ch] text-[17px] leading-[1.55] text-ink">
           Four islands. We staff the crew to the size of the house — chef, sous, service, bar, shopper — not a
           marketplace freelancer with a tote bag.
         </p>
         <div className="mt-8">
-          <QuoteCta inverse />
+          <QuoteCta />
         </div>
       </Hero>
 

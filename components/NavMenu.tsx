@@ -17,12 +17,10 @@ export interface NavTarget {
 export function NavMenu({
   label,
   items,
-  onDark,
   align = 'left',
 }: {
   label: string;
   items: NavTarget[];
-  onDark?: boolean;
   align?: 'left' | 'right';
 }) {
   const [open, setOpen] = useState(false);
@@ -62,13 +60,10 @@ export function NavMenu({
         aria-controls={menuId}
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}
-        className={cn(
-          'inline-flex items-center gap-1.5 py-1 text-sm font-medium',
-          onDark ? 'text-paper/85 hover:text-paper' : 'text-mute hover:text-ink',
-        )}
+        className="inline-flex min-h-10 items-center gap-1.5 py-1 text-base font-medium text-ink hover:underline underline-offset-4"
       >
         {label}
-        <span className="text-[11px] opacity-60" aria-hidden>
+        <span className="text-[13px] text-mute" aria-hidden>
           {open ? '–' : '+'}
         </span>
       </button>
@@ -82,7 +77,7 @@ export function NavMenu({
             exit={reduce ? undefined : { opacity: 0, y: 12 }}
             transition={{ duration: DURATION.fast, ease: EASE_STANDARD }}
             className={cn(
-              'absolute top-full z-50 mt-3 min-w-[16rem] border border-line bg-paper py-2',
+              'absolute top-full z-50 mt-2 min-w-[17rem] border border-line bg-paper py-2',
               align === 'right' ? 'right-0' : 'left-0',
             )}
           >
@@ -91,10 +86,10 @@ export function NavMenu({
                 key={`${item.island}-${item.path ?? '/'}-${item.label}`}
                 island={item.island}
                 path={item.path ?? '/'}
-                className="flex items-baseline justify-between gap-4 px-4 py-2.5 text-left text-sm text-ink hover:bg-sand"
+                className="flex min-h-12 items-baseline justify-between gap-4 px-4 py-3 text-left text-base text-ink hover:bg-sand hover:underline underline-offset-4"
               >
                 <span>{item.label}</span>
-                {item.note ? <span className="text-[12px] text-mute">{item.note}</span> : null}
+                {item.note ? <span className="text-[13px] text-mute">{item.note}</span> : null}
               </HostLink>
             ))}
           </motion.div>
@@ -118,10 +113,10 @@ export function MobileDisclosure({
         type="button"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-baseline justify-between gap-4 py-4 text-left"
+        className="flex min-h-14 w-full items-baseline justify-between gap-4 py-4 text-left"
       >
         <span className="font-display text-2xl font-light text-ink">{label}</span>
-        <span className="text-sm text-mute">{open ? '–' : '+'}</span>
+        <span className="text-base text-mute">{open ? '–' : '+'}</span>
       </button>
       {open ? <div className="flex flex-col pb-4">{children}</div> : null}
     </div>

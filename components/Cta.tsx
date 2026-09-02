@@ -8,9 +8,7 @@ const base =
 
 const variants = {
   primary: `${base} bg-ink text-paper focus-visible:outline-ink`,
-  inverse: `${base} bg-paper text-ink border border-ink focus-visible:outline-paper`,
-  ghost: `${base} bg-transparent text-ink border border-ink focus-visible:outline-ink`,
-  ghostInverse: `${base} bg-transparent text-paper border border-paper focus-visible:outline-paper`,
+  secondary: `${base} bg-paper text-ink border border-ink focus-visible:outline-ink`,
 } as const;
 
 export function CtaLink({
@@ -43,33 +41,32 @@ export function CtaLink({
 export function QuoteCta({
   island,
   service,
-  inverse = false,
+  variant = 'primary',
   className,
 }: {
   island?: IslandId | null;
   service?: string;
-  inverse?: boolean;
+  variant?: keyof typeof variants;
   className?: string;
 }) {
   return (
-    <CtaLink href={quotePath(island ?? undefined, service)} variant={inverse ? 'inverse' : 'primary'} className={className}>
+    <CtaLink href={quotePath(island ?? undefined, service)} variant={variant} className={className}>
       {primaryCtaLabel(island)}
     </CtaLink>
   );
 }
 
-/** Nav / footer enquire — same ink system, short label. */
 export function EnquireCta({
   island,
-  inverse = false,
+  variant = 'primary',
   className,
 }: {
   island?: IslandId | null;
-  inverse?: boolean;
+  variant?: keyof typeof variants;
   className?: string;
 }) {
   return (
-    <CtaLink href={quotePath(island ?? undefined)} variant={inverse ? 'inverse' : 'primary'} className={className}>
+    <CtaLink href={quotePath(island ?? undefined)} variant={variant} className={className}>
       Enquire
     </CtaLink>
   );

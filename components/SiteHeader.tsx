@@ -10,10 +10,6 @@ import { useIsland } from '@/components/IslandProvider';
 import { islandOrder, islands } from '@/data/islands';
 import { SERVICE_AREAS } from '@/data/serviceAreas';
 import { DURATION, EASE_STANDARD } from '@/lib/motion';
-import { cn } from '@/lib/utils';
-
-const HUB_DARK_HERO = new Set(['/', '/bar', '/weddings', '/about', '/corporate', '/gatherings']);
-const ISLAND_DARK_HERO = new Set(['/', '/bar', '/weddings', '/private-chef', '/catering', '/vacation-chef']);
 
 const CHEF_ITEMS: NavTarget[] = [
   { label: 'Oʻahu', island: 'oahu' },
@@ -53,15 +49,6 @@ const ISLAND_SWITCH: NavTarget[] = [
   })),
 ];
 
-function localPath(pathname: string, islandId: string | null, hostMode: boolean): string {
-  const clean = pathname.replace(/\/+$/, '') || '/';
-  if (hostMode) return clean;
-  if (islandId && (clean === `/${islandId}` || clean.startsWith(`/${islandId}/`))) {
-    return clean.slice(islandId.length + 1) || '/';
-  }
-  return clean;
-}
-
 function areaItems(islandId: (typeof islandOrder)[number]): NavTarget[] {
   return SERVICE_AREAS[islandId].corridors.map((c) => ({
     label: c.name,
@@ -76,7 +63,7 @@ function MobileLink({ item, onPick }: { item: NavTarget; onPick: () => void }) {
       island={item.island}
       path={item.path ?? '/'}
       onClick={onPick}
-      className="flex items-baseline justify-between gap-3 py-2 text-lg text-ink"
+      className="flex min-h-12 items-baseline justify-between gap-3 py-2 text-base text-ink hover:underline"
     >
       <span>{item.label}</span>
       {item.note ? <span className="text-[13px] text-mute">{item.note}</span> : null}
@@ -84,46 +71,34 @@ function MobileLink({ item, onPick }: { item: NavTarget; onPick: () => void }) {
   );
 }
 
+const linkCls = 'text-base font-medium text-ink hover:underline underline-offset-4';
+
 export default function SiteHeader() {
-  const { islandId, hostMode } = useIsland();
+  const { islandId } = useIsland();
   const pathname = usePathname();
-  const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const reduce = useReducedMotion();
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 80);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   useEffect(() => {
     setDrawerOpen(false);
   }, [pathname]);
 
-  const path = localPath(pathname, islandId, hostMode);
-  const overHero = (islandId ? ISLAND_DARK_HERO : HUB_DARK_HERO).has(path) && !scrolled && !drawerOpen;
-  const onDark = overHero;
-  const linkCls = cn('text-sm font-medium', onDark ? 'text-paper/85 hover:text-paper' : 'text-mute hover:text-ink');
-
   return (
-    <header
-      className={cn(
-        'fixed inset-x-0 top-0 z-50 h-16 transition-colors duration-[450ms] ease-[cubic-bezier(0.22,1,0.36,1)]',
-        overHero ? 'border-b border-transparent bg-transparent' : 'border-b border-line bg-paper',
-      )}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-line bg-paper">
       <div className="mx-auto flex h-16 w-full max-w-spread items-center justify-between px-5 lg:px-10">
         <div className="flex items-center gap-6">
           <HostLink
             island="root"
             aria-label="myCHEF Hawaii home"
-            className={cn('font-display text-[1.375rem] font-light tracking-tight', onDark ? 'text-paper' : 'text-ink')}
+            className="font-display text-[1.375rem] font-light tracking-tight text-ink"
           >
             myCHEF
           </HostLink>
-          {islandId ? <div className="hidden lg:block"><NavMenu label="Islands" items={ISLAND_SWITCH} onDark={onDark} /></div> : null}
+          {islandId ? (
+            <div className="hidden lg:block">
+              <NavMenu label="Islands" items={ISLAND_SWITCH} />
+            </div>
+          ) : null}
         </div>
 
         <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
@@ -141,14 +116,14 @@ export default function SiteHeader() {
               <HostLink island={islandId} path="/bar" className={linkCls}>
                 Bar
               </HostLink>
-              <NavMenu label="Areas" items={areaItems(islandId)} onDark={onDark} />
+              <NavMenu label="Areas" items={areaItems(islandId)} />
             </>
           ) : (
             <>
-              <NavMenu label="Private chefs" items={CHEF_ITEMS} onDark={onDark} />
-              <NavMenu label="Catering" items={CATERING_ITEMS} onDark={onDark} />
-              <NavMenu label="Weddings" items={WEDDING_ITEMS} onDark={onDark} />
-              <NavMenu label="Bar" items={BAR_ITEMS} onDark={onDark} />
+              <NavMenu label="Private chefs" items={CHEF_ITEMS} />
+              <NavMenu label="Catering" items={CATERING_ITEMS} />
+              <NavMenu label="Weddings" items={WEDDING_ITEMS} />
+              <NavMenu label="Bar" items={BAR_ITEMS} />
               <HostLink island="root" path="/pricing" className={linkCls}>
                 Pricing
               </HostLink>
@@ -160,12 +135,12 @@ export default function SiteHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <EnquireCta island={islandId} inverse={onDark} />
+          <EnquireCta island={islandId} />
         </div>
 
         <button
           type="button"
-          className={cn('inline-flex items-center justify-center p-2 text-sm font-medium lg:hidden', onDark ? 'text-paper' : 'text-ink')}
+          className="inline-flex min-h-12 items-center justify-center px-2 text-base font-medium text-ink lg:hidden"
           aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
           onClick={() => setDrawerOpen((v) => !v)}
         >

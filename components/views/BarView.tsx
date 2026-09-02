@@ -43,17 +43,17 @@ export function HubBarView() {
   return (
     <>
       <Hero src={photos.bar.file} alt={photos.bar.alt} min="short">
-        <p className="text-[12px] text-paper/80">Cocktails</p>
+        <p className="text-[13px] text-mute">Cocktails</p>
         <LineReveal
           text="Cocktails where you already are."
-          className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper"
+          className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-paper">
+        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ink">
           A bartender, a terrace bar, citrus and ice — stacked with dinner or booked as its own hour.
         </p>
-        <p className="mt-5 text-[17px] text-paper">From {formatMobileBarGuest('maui')}, Maui.</p>
+        <p className="mt-5 text-[17px] text-ink">From {formatMobileBarGuest('maui')}, Maui.</p>
         <div className="mt-8">
-          <QuoteCta service="mobile-bar" inverse />
+          <QuoteCta service="mobile-bar" />
         </div>
       </Hero>
       <section className="bg-paper py-20 lg:py-28">
@@ -113,15 +113,15 @@ export function IslandBarView({ islandId, hostMode }: { islandId: IslandId; host
   return (
     <>
       <Hero src={copy.hero.file} alt={copy.hero.alt} min="short">
-        <p className="text-[12px] text-paper/80">{islands[islandId].name}</p>
+        <p className="text-[13px] text-mute">{islands[islandId].name}</p>
         <LineReveal
           text={copy.h1}
-          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper"
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-paper">{copy.lede}</p>
-        <p className="mt-4 text-[17px] text-paper">{formatMobileBarPackage(islandId)}</p>
+        <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-ink">{copy.lede}</p>
+        <p className="mt-4 text-[17px] text-ink">{formatMobileBarPackage(islandId)}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="mobile-bar" inverse />
+          <QuoteCta island={islandId} service="mobile-bar" />
         </div>
       </Hero>
       <LongFaq items={faqs} />

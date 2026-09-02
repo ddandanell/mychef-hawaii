@@ -15,7 +15,7 @@ export default function QuoteTeaser({
           {headline}
         </h2>
         <div className="mt-8">
-          <QuoteCta island={island} inverse />
+          <QuoteCta island={island} variant="secondary" />
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import HostLink from '@/components/HostLink';
+import TypePanel from '@/components/TypePanel';
 import { islandOrder, islands } from '@/data/islands';
 import { islandOffers } from '@/data/offers';
 
@@ -72,20 +73,16 @@ export default function IslandScroll() {
                 <span className="absolute inset-0">
                   <Image src={isl.selectorImage} alt={isl.name} fill sizes="100vw" className="object-cover" />
                 </span>
-                <span
-                  aria-hidden="true"
-                  className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-[36rem] bg-gradient-to-r from-ink/32 via-ink/16 to-transparent"
-                />
-                <span className="relative z-10 flex h-full items-end px-5 pb-16 lg:px-10">
-                  <span className="block max-w-[28rem]">
-                    <span className="block font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-paper">
+                <span className="relative z-10 flex h-full items-end px-5 py-12 lg:px-10">
+                  <TypePanel className="max-w-[28rem]">
+                    <span className="block font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-ink">
                       {isl.name}
                     </span>
-                    <span className="mt-3 block text-[17px] text-paper/90">
+                    <span className="mt-3 block text-[17px] text-ink">
                       {isl.state === 'inquiry' ? 'Opening. ' : ''}
                       From ${o.fromPp} a guest.
                     </span>
-                  </span>
+                  </TypePanel>
                 </span>
               </HostLink>
             </div>
