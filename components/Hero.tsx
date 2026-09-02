@@ -12,12 +12,15 @@ export default function Hero({
   children,
   min = 'hero',
   className,
+  objectPosition,
 }: {
   src: string;
   alt: string;
   children: React.ReactNode;
   min?: 'hero' | 'short';
   className?: string;
+  /** Crop the still toward a darker third — island catering, not a scrim. */
+  objectPosition?: string;
 }) {
   return (
     <section
@@ -28,7 +31,14 @@ export default function Hero({
       )}
     >
       <div className="absolute inset-0">
-        <Photo src={src} alt={alt} fill priority sizes="100vw" />
+        <Photo
+          src={src}
+          alt={alt}
+          fill
+          priority
+          sizes="100vw"
+          style={objectPosition ? { objectPosition } : undefined}
+        />
       </div>
       <div className="relative mx-auto w-full max-w-spread px-5 py-12 lg:px-10 lg:py-16">
         <TypePanel className="max-w-[38rem]">{children}</TypePanel>

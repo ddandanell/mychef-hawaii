@@ -20,29 +20,29 @@ const COPY: Record<IslandId, { h1: string; lede: string; hero: { file: string; a
   oahu: {
     h1: 'A cocktail bar on your lānai — Waikīkī to Ko Olina.',
     lede: 'Bartender, citrus, ice and glassware on the terrace. Stack it with an Oʻahu chef night or book the hour alone.',
-    hero: photos.bar,
+    hero: photos.barHero,
   },
   maui: {
     h1: 'Mobile bar for villa nights and wedding weeks.',
     lede: 'Welcome pours, rehearsal-night cocktails and a terrace hour in Wailea, Kapalua, Kāʻanapali and Makena.',
-    hero: photos.bar,
+    hero: photos.barHero,
   },
   kauai: {
     h1: 'Estate cocktails on both Kauaʻi shores.',
     lede: 'Princeville, Hanalei and Poʻipū — a bartender on the terrace. Starting prices published.',
-    hero: photos.kauaiNorth,
+    hero: photos.barHero,
   },
   bigisland: {
     h1: 'Sunset pours on the Kohala Coast.',
     lede: 'Lava-coast terraces in the Kona–Kohala corridor. Bartender add-on or a 4-hour mobile-bar package.',
-    hero: photos.kohalaFish,
+    hero: photos.barHero,
   },
 };
 
 export function HubBarView() {
   return (
     <>
-      <Hero src={photos.bar.file} alt={photos.bar.alt} min="short">
+      <Hero src={photos.barHero.file} alt={photos.barHero.alt} min="short">
         <p className="text-[13px] text-mute">Cocktails</p>
         <LineReveal
           text="Cocktails where you already are."

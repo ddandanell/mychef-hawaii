@@ -4,8 +4,36 @@
 
 export const photos = {
   hubHero: {
-    file: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
-    alt: `Seared fish on a volcanic-stone Oʻahu villa lānai at dusk, Pacific beyond the railing.`,
+    file: '/photos/heroes/hero-hub.png',
+    alt: `A long private-chef table on a Hawaiian lawn at sunset — grilled fish, tropical flowers, the Pacific beyond.`,
+  },
+  oahuHero: {
+    file: '/photos/heroes/hero-oahu.png',
+    alt: `A chef plating sesame ahi on an Oʻahu villa counter, Diamond Head and Waikīkī lights at twilight.`,
+  },
+  mauiHero: {
+    file: '/photos/heroes/hero-maui.png',
+    alt: `A candlelit Maui villa terrace table at dusk — seared fish, heliconia, the west-side sunset.`,
+  },
+  kauaiHero: {
+    file: '/photos/heroes/hero-kauai.png',
+    alt: `An estate table on Kauaʻi looking into a misted valley of fluted mountains at golden hour.`,
+  },
+  bigislandHero: {
+    file: '/photos/heroes/hero-bigisland.png',
+    alt: `A lava-coast terrace table on Hawaiʻi Island at sunset — fruit, wine glasses, Mauna Loa on the horizon.`,
+  },
+  cateringHero: {
+    file: '/photos/heroes/hero-catering.png',
+    alt: `A staffed lawn reception in Hawaiʻi — seafood and fruit on ice, string lights, guests on the grass at sunset.`,
+  },
+  weddingHero: {
+    file: '/photos/heroes/hero-weddings.png',
+    alt: `A long wedding-week table on a Hawaiian ocean lawn — candles, orchids, guests toasting at sunset.`,
+  },
+  barHero: {
+    file: '/photos/heroes/hero-bar.png',
+    alt: `A bartender straining a citrus cocktail over crushed ice on a villa bar cart, Hawaiian sunset beyond.`,
   },
   oahuDinner: {
     file: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',

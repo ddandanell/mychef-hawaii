@@ -35,7 +35,7 @@ function cleanPath(pathname: string): string {
 
 function ogImageFor(islandId: IslandId | null, origin: string): string {
   if (!islandId) return `${origin}${photos.hubHero.file}`;
-  return `${origin}${islands[islandId].selectorImage}`;
+  return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;
 }
 
 function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {

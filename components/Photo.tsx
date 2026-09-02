@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
@@ -10,6 +11,7 @@ export default function Photo({
   fill = false,
   width,
   height,
+  style,
 }: {
   src: string;
   alt: string;
@@ -19,6 +21,7 @@ export default function Photo({
   fill?: boolean;
   width?: number;
   height?: number;
+  style?: CSSProperties;
 }) {
   if (fill) {
     return (
@@ -29,6 +32,7 @@ export default function Photo({
         priority={priority}
         sizes={sizes}
         className={cn('object-cover', className)}
+        style={style}
       />
     );
   }

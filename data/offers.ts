@@ -88,7 +88,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       'A chef in your Wailea, Kapalua or Kāʻanapali villa. Published prices and a written menu. Staffed receptions live on /catering.',
     fromPp: 150,
     dayFrom: 1050,
-    heroPhoto: 'mauiKitchen',
+    heroPhoto: 'mauiHero',
     neighborhoods: [
       { slug: 'wailea', name: 'Wailea' },
       { slug: 'kaanapali', name: 'Kāʻanapali' },
@@ -139,7 +139,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       'Private chef Oahu and Honolulu — villa dinners from $125 a guest. Staffed events for a larger list live on /catering. Same team: we shop, cook, serve and clean.',
     fromPp: 125,
     dayFrom: 850,
-    heroPhoto: 'oahuDinner',
+    heroPhoto: 'oahuHero',
     neighborhoods: [
       { slug: 'honolulu', name: 'Honolulu' },
       { slug: 'waikiki', name: 'Waikīkī' },
@@ -182,7 +182,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       'Private chef Kauai on both shores — Princeville, Poʻipū and Hanalei. Villa dinners and staffed events, inquiry stage. From $150 a guest.',
     fromPp: 150,
     dayFrom: 1100,
-    heroPhoto: 'kauaiChef',
+    heroPhoto: 'kauaiHero',
     neighborhoods: [
       { slug: 'princeville', name: 'Princeville' },
       { slug: 'poipu', name: 'Poʻipū' },
@@ -227,7 +227,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       'Kona and the Kohala Coast first — seven resort communities in one west-side radius. Hilo and Volcano are quote-only; we will not fake a same-day round trip.',
     fromPp: 125,
     dayFrom: 950,
-    heroPhoto: 'kohalaFish',
+    heroPhoto: 'bigislandHero',
     neighborhoods: [
       { slug: 'kona', name: 'Kona' },
       { slug: 'waimea', name: 'Waimea' },

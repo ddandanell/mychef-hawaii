@@ -4,7 +4,6 @@ import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
-import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { HUB_CATERING, cateringOffers } from '@/data/catering';
 import { hubCateringFaqs, hubCateringSections } from '@/data/longformHub';
@@ -13,6 +12,14 @@ import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { photos } from '@/data/photos';
 import { FEE_DISCLOSURE, STAFFING, formatFrom, formatOtherOffer, getOtherOffer, getTiers } from '@/data/rateCard';
 import { islandHref } from '@/lib/paths';
+
+/** Darker third of each island still — not a second catering frame, not a scrim. */
+const CATERING_CROP: Record<IslandId, string> = {
+  oahu: '72% 78%',
+  maui: '78% 72%',
+  kauai: '18% 62%',
+  bigisland: '80% 68%',
+};
 
 const formats = [
   {
@@ -70,24 +77,18 @@ export function HubCateringView() {
         ]}
       />
 
-      <section className="bg-paper pb-10 pt-16 lg:pt-24">
-        <div className="mx-auto grid w-full max-w-container items-center gap-10 px-5 lg:grid-cols-2 lg:px-10">
-          <div>
-            <p className="text-[12px] text-mute">Hawaii catering</p>
-            <h1 className="mt-4 font-display text-[clamp(2.5rem,5vw,4rem)] font-light leading-[1.05] text-ink">
-              {HUB_CATERING.h1}
-            </h1>
-            <p className="mt-5 max-w-[62ch] text-[1.125rem] leading-[1.65] text-mute">{HUB_CATERING.lede}</p>
-            <p className="mt-4 max-w-[62ch] text-sm text-mute">
-              Ten to seventy-five guests. Villa, wedding, retreat. From $125 a guest on Oʻahu.
-            </p>
-            <div className="mt-8">
-              <QuoteCta service="catering" />
-            </div>
-          </div>
-          <Photo src={photos.catering.file} alt={photos.catering.alt} className="aspect-[4/3] w-full object-cover" />
+      <Hero src={photos.cateringHero.file} alt={photos.cateringHero.alt}>
+        <p className="text-[13px] text-mute">Hawaii catering</p>
+        <LineReveal
+          text={HUB_CATERING.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,5vw,4rem)] font-light leading-[1.05] text-ink"
+        />
+        <p className="mt-5 max-w-[54ch] text-[17px] leading-[1.65] text-ink">{HUB_CATERING.lede}</p>
+        <p className="mt-4 text-[17px] text-ink">Ten to seventy-five guests. From $125 a guest on Oʻahu.</p>
+        <div className="mt-8">
+          <QuoteCta service="catering" />
         </div>
-      </section>
+      </Hero>
 
       <section className="bg-sand py-16 lg:py-24">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
@@ -145,7 +146,7 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
           })),
         }}
       />
-      <Hero src={hero.file} alt={hero.alt}>
+      <Hero src={hero.file} alt={hero.alt} objectPosition={CATERING_CROP[islandId]}>
         <p className="text-[13px] text-mute">{island.name} catering</p>
         <LineReveal
           text={offer.h1}
