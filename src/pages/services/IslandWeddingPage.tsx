@@ -25,6 +25,7 @@ import {
   ServiceHero,
   serviceJsonLd,
   useHashScroll,
+  useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
 import type { ServiceFaqItem } from '@/pages/services/ServicePage';
 import { InquiryHero } from '@/pages/expanded/shared';
@@ -88,11 +89,7 @@ export default function IslandWeddingPage() {
   const wedding = getOtherOffer('wedding');
   const two = getOtherOffer('dinner-for-two');
   const inquiry = island.state === 'inquiry';
-  const crumbs = [
-    { label: 'Home', to: href('/') },
-    { label: island.name, to: href('/') },
-    { label: 'Weddings' },
-  ];
+  const crumbs = useHostHomeCrumbs('Weddings');
 
   const faqs: ServiceFaqItem[] = [
     {

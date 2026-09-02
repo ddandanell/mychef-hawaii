@@ -1,5 +1,5 @@
 import type { ComponentType } from 'react';
-import { Route } from 'react-router';
+import { Navigate, Route } from 'react-router';
 import type { IslandId } from '@/data/islands';
 import Maui from '@/pages/Maui';
 import Oahu from '@/pages/Oahu';
@@ -57,6 +57,7 @@ export function islandLeaves(id: IslandId, prefix = '') {
   return (
     <>
       <Route path={root} element={<Home />} />
+      <Route path={p('/overview')} element={<Navigate to={root} replace />} />
       <Route path={p('/private-chef')} element={<Chef />} />
       <Route path={p('/vacation-chef')} element={<Vac />} />
       <Route path={p('/catering')} element={<IslandCatering />} />

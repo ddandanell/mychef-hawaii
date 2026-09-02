@@ -16,7 +16,9 @@ import {
   ServiceFaq,
   ServiceHero,
   serviceJsonLd,
+  ZoneStrip,
   useHashScroll,
+  useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
 import type { IslandId } from '@/data/islands';
 import { islands } from '@/data/islands';
@@ -47,6 +49,9 @@ const content: Record<IslandId, PrivateChefContent> = {
     h1: 'Personal chef for Maui villas.',
     heroImage: '/photos/maui-wailea-kitchen-plating.jpg',
     heroAlt: 'Chef’s hands finishing seared fish in a Wailea villa kitchen.',
+    h1: 'Your private chef on Maui.',
+    heroImage: '/photos/maui-villa-terrace-cocktail-bar.jpg',
+    heroAlt: 'A Maui villa terrace at sunset with a stocked cocktail bar overlooking the Pacific. Campaign still, not a documented event.',
     bandTiers: [
       { tier: 'CORE', label: 'Core myCHEF' },
       { tier: 'ULTRA', label: "Chef's table" },
@@ -354,8 +359,8 @@ function MauiExtras() {
             <figure>
               <div className="overflow-hidden ">
                 <img
-                  src="/photos/dinner-for-two.jpg"
-                  alt="A candlelit table set for two — the fixed-price private dinner-for-two format"
+                  src="/photos/oahu-villa-lanai-plated-dinner-dusk.jpg"
+                  alt="Dinner for two on a villa lānai at dusk — seared fish, wine, candlelight. Campaign still, not a documented event."
                   loading="lazy"
                   className="aspect-[4/5] w-full object-cover"
                 />
@@ -454,6 +459,7 @@ export default function PrivateChefPage({ island }: { island: IslandId }) {
     { label: c.islandName, to: '/' },
     { label: 'Private Chef' },
   ];
+  const crumbs = useHostHomeCrumbs('Private Chef');
 
   return (
     <>

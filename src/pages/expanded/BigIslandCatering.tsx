@@ -5,7 +5,7 @@ import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { FaqSection, SectionHead, ZoneModule } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
-import { BandChip, PlainChip, SectionIntro, useHashScroll } from '@/pages/services/ServicePage';
+import { BandChip, PlainChip, SectionIntro, useHashScroll, useHostHomeCrumbs } from '@/pages/services/ServicePage';
 import { InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
 
 /**
@@ -16,14 +16,7 @@ import { InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
  * sec7 T7.2–T7.5). No Request a Quote, no "now serving", no LocalBusiness.
  */
 
-const islandName = 'Hawaiʻi Island';
 const path = '/bigisland/catering';
-
-const crumbs = [
-  { label: 'Home', to: '/' },
-  { label: islandName, to: '/bigisland' },
-  { label: 'Catering' },
-];
 
 const formats = [
   {
@@ -72,6 +65,7 @@ export default function BigIslandCatering() {
   useHashScroll();
   const { island } = usePageIsland('bigisland');
   const staffingOffer = getOtherOffer('event-staffing');
+  const crumbs = useHostHomeCrumbs('Catering');
 
   return (
     <>
@@ -82,8 +76,8 @@ export default function BigIslandCatering() {
         service="Catering & Events — planned service, activates at launch"
         title="Estate weddings and event weeks, west-side first."
         lede="Staffed catering planned for Kohala-corridor estates and venues: wedding-week formats, reunion feasts and Waimea farm dinners — with the island’s event-spike weeks flagged honestly instead of overpromised. Dated inquiries decide when this switches on."
-        image="/photos/svc-catering.jpg"
-        imageAlt="Long wedding reception table in a private estate garden with ivory florals and brass candlelight"
+        image="/photos/hawaii-plated-catering-tent-sunset.jpg"
+        imageAlt="Plated seared fish at a candlelit long table under a tent on a Hawaiian lawn at sunset. Campaign still, not a documented event."
         chips={
           <>
             <PlainChip onDark>1,311 weddings in 2024 (official)</PlainChip>

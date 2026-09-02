@@ -6,7 +6,7 @@ import { getTiers, formatBand } from '@/data/rateCard';
 import { FaqSection, SectionHead, ZoneModule } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
-import { BandChip, PlainChip, SectionIntro } from '@/pages/services/ServicePage';
+import { BandChip, PlainChip, SectionIntro, useHostHomeCrumbs } from '@/pages/services/ServicePage';
 import { InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
 
 /**
@@ -16,14 +16,7 @@ import { InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
  * "now serving", no LocalBusiness schema. CTA = Join the Inquiry List.
  */
 
-const islandName = 'Hawaiʻi Island';
 const path = '/bigisland/private-chef';
-
-const crumbs = [
-  { label: 'Home', to: '/' },
-  { label: islandName, to: '/bigisland' },
-  { label: 'Private Chef' },
-];
 
 const inclusions = [
   { icon: NotebookPen, title: 'Menu design', text: 'Designed with you around the west-side sourcing bench, within 48 hours of your inquiry being picked up at launch.' },
@@ -59,6 +52,7 @@ const faqs: Faq[] = [
 export default function BigIslandPrivateChef() {
   const { island } = usePageIsland('bigisland');
   const core = getTiers('bigisland').find((t) => t.tier === 'CORE');
+  const crumbs = useHostHomeCrumbs('Private Chef');
 
   return (
     <>
@@ -140,8 +134,8 @@ export default function BigIslandPrivateChef() {
           </div>
           <Reveal delay={0.1} className="overflow-hidden ">
             <img
-              src="/photos/hawaii-produce-fish-sourcing-still.jpg"
-              alt="Hawaii produce and whole fish on a villa kitchen board — sourcing still, not a named farm."
+              src="/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg"
+              alt="Whole grilled fish and tropical fruit on lava rock at golden hour. Campaign still, not a documented event."
               loading="lazy"
               className="aspect-[16/10] h-full w-full object-cover"
             />

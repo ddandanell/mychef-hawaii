@@ -18,7 +18,7 @@ gsap.registerPlugin(ScrollTrigger);
  * /services — statewide service-category hub (services.md). Explains the
  * four service lines at brand level and routes every transactional intent
  * to island pages. Starting prices render from the canonical rate card.
- * Schema: ItemList of Service (overview only).
+ * Schema: ItemList of Service at brand level.
  */
 
 /* ---------------- Clip-reveal image (GSAP, isolated) ---------------- */

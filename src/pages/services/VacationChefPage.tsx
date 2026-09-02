@@ -10,6 +10,7 @@ import {
   ServiceHero,
   serviceJsonLd,
   useHashScroll,
+  useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
 import type { IslandId } from '@/data/islands';
 import type { ServiceFaqItem } from '@/pages/services/ServicePage';
@@ -70,20 +71,20 @@ const dayRows = [
   {
     label: 'Morning',
     text: 'Coffee, fruit, a proper breakfast before the beach.',
-    image: '/photos/hawaii-produce-fish-sourcing-still.jpg',
-    alt: 'Island produce — avocado, citrus, greens and fish on ice — styled on a wooden table',
+    image: '/photos/oahu-vacation-chef-pool-breakfast.jpg',
+    alt: 'Vacation-chef breakfast by the pool — tropical fruit, omelette, croissants',
   },
   {
     label: 'Midday',
     text: 'Pool lunches, kids fed early, nobody cooks.',
-    image: '/photos/vacation-chef.jpg',
-    alt: 'A chef plating a casual but refined family lunch on a villa kitchen island',
+    image: '/photos/oahu-vacation-chef-pool-breakfast.jpg',
+    alt: 'Poolside tropical breakfast — fruit, omelette and palms. Campaign still, not a documented event.',
   },
   {
     label: 'Evening',
     text: 'The dressed dinner — the night-in that beats the reservation.',
-    image: '/photos/bartender-terrace-service.jpg',
-    alt: "Server's hands setting wine glasses on a private dining table in warm dusk light",
+    image: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
+    alt: 'Plated villa dinner at dusk — seared fish and candlelight. Campaign still, not a documented event.',
   },
 ];
 
@@ -289,6 +290,7 @@ export default function VacationChefPage({ island }: { island: IslandId }) {
     { label: c.islandName, to: '/' },
     { label: 'Vacation Chef' },
   ];
+  const crumbs = useHostHomeCrumbs('Vacation Chef');
 
   return (
     <>
@@ -301,6 +303,8 @@ export default function VacationChefPage({ island }: { island: IslandId }) {
         imageAlt="A vacation chef plating morning fruit and eggs by a villa pool."
         island={island}
         whatsappIntent="a vacation chef for the week"
+        image="/photos/oahu-vacation-chef-pool-breakfast.jpg"
+        imageAlt="Oʻahu vacation-chef breakfast by the pool — tropical fruit, omelette, croissants. Campaign still, not a documented event."
         chips={
           <>
             {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, island)}`} /> : null}

@@ -25,6 +25,8 @@ export interface IslandContextValue {
   /** Path with the hub prefix stripped (`/journal` not `/maui/journal`). */
   localPath: string;
   href: (path: string) => string;
+  /** Front page of this host. Island subdomain → `/`. Hub → `/`. Path clone → `/oahu` (never `/overview`, never the hub from an island host). */
+  homePath: string;
   toHub: (path?: string) => string;
   toIsland: (id: IslandId, path?: string) => string;
 }
@@ -61,6 +63,7 @@ export function IslandProvider({ children }: { children: ReactNode }) {
     const hostMode = Boolean(fromHost);
     const basePath = island ? (hostMode ? '' : island.basePath) : '';
     const localPath = island && !hostMode ? stripPrefix(pathname, island.id) : pathname || '/';
+    const homePath = basePath || '/';
 
     return {
       island,

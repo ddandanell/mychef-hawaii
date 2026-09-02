@@ -98,8 +98,8 @@ function Hero({
           className="overflow-hidden border border-stone "
         >
           <img
-            src="/photos/thank-you.jpg"
-            alt="A folded linen napkin and a sprig of rosemary on a stone counter in soft window light"
+            src="/photos/oahu-villa-lanai-plated-dinner-dusk.jpg"
+            alt="Plated villa dinner at dusk. Campaign still, not a documented event."
             className="aspect-[16/9] w-full object-cover"
           />
         </motion.div>

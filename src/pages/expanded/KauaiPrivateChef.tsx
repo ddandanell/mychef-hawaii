@@ -6,7 +6,7 @@ import { getTiers, formatBand, formatOtherOffer, getOtherOffer } from '@/data/ra
 import { FaqSection, ZoneModule } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
-import { BandChip, PlainChip, SectionIntro } from '@/pages/services/ServicePage';
+import { BandChip, PlainChip, SectionIntro, useHostHomeCrumbs } from '@/pages/services/ServicePage';
 import { InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
 
 /**
@@ -17,14 +17,7 @@ import { InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
  * Quote, no "now serving", no LocalBusiness schema.
  */
 
-const islandName = 'Kauaʻi';
 const path = '/kauai/private-chef';
-
-const crumbs = [
-  { label: 'Home', to: '/' },
-  { label: islandName, to: '/kauai' },
-  { label: 'Private Chef' },
-];
 
 const inclusions = [
   { icon: NotebookPen, title: 'Menu design', text: 'Designed with you, within 48 hours of your inquiry being picked up at launch.' },
@@ -62,6 +55,7 @@ export default function KauaiPrivateChef() {
   const core = getTiers('kauai').find((t) => t.tier === 'CORE');
   const dinnerTwo = getOtherOffer('dinner-for-two');
   const dinnerTwoKauai = formatOtherOffer(dinnerTwo, 'kauai');
+  const crumbs = useHostHomeCrumbs('Private Chef');
 
   return (
     <>
@@ -123,6 +117,8 @@ export default function KauaiPrivateChef() {
             <img
               src="/photos/maui-kapalua-dinner-for-two.jpg"
               alt="Dinner for two on a Kapalua lānai at blue hour."
+              src="/photos/oahu-villa-lanai-plated-dinner-dusk.jpg"
+              alt="Dinner for two on a villa lānai at dusk. Campaign still, not a documented event."
               loading="lazy"
               className="aspect-[4/5] w-full object-cover"
             />

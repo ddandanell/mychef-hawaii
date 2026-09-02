@@ -20,6 +20,7 @@ import {
   ServiceHero,
   serviceJsonLd,
   useHashScroll,
+  useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
 import type { ServiceFaqItem } from '@/pages/services/ServicePage';
 
@@ -45,7 +46,7 @@ const formats: { title: string; text: string; band?: string; image?: string }[] 
   {
     title: 'Live stations',
     text: 'Fire, smoke and a chef working the pass in front of your guests.',
-    image: '/photos/live-fire-grill-lanai-fish.jpg',
+    image: '/photos/hawaii-plated-catering-tent-sunset.jpg',
   },
 ];
 
@@ -123,7 +124,7 @@ function Formats() {
                 <div className="relative aspect-[16/10] overflow-hidden">
                   <img
                     src={f.image}
-                    alt="A chef working over a grill at dusk, warm ember tones against a deep neutral background"
+                    alt="Plated catering long table under a tent on a Hawaiian lawn at sunset. Campaign still, not a documented event."
                     loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                   />
@@ -280,6 +281,7 @@ export default function CateringPage() {
     { label: island.name, to: '/' },
     { label: 'Catering' },
   ];
+  const crumbs = useHostHomeCrumbs('Catering');
 
   return (
     <>
@@ -292,6 +294,11 @@ export default function CateringPage() {
         imageAlt={photos.catering.alt}
         island={id}
         whatsappIntent="catering"
+        eyebrow="myCHEF Oʻahu — Catering & Events"
+        title="Catering that shows up like a kitchen brigade."
+        lede="Staffed events for 10–75 guests across Oʻahu — estate receptions, retreat weeks, office and production catering. Published staffing ratios, itemised quotes, zone fees on the website before they’re on an invoice."
+        image="/photos/hawaii-plated-catering-tent-sunset.jpg"
+        imageAlt="Plated catering long table under a tent on a Hawaiian lawn at sunset. Campaign still, not a documented event."
         chips={
           <>
             <PlainChip onDark>10–75 guests</PlainChip>

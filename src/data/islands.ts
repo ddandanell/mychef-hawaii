@@ -38,9 +38,9 @@ export const islands: Record<IslandId, IslandMeta> = {
     hue: '#9A6B4A',
     role: 'Private chef Maui and Maui catering. Wailea to West Maui.',
     basePath: '/maui',
-    selectorImage: '/photos/maui-wailea-kitchen-plating.jpg',
-    selectorCta: 'Private chef Maui — from $150/pp',
-    stateLabel: 'Request a quote',
+    selectorImage: '/photos/maui-villa-terrace-cocktail-bar.jpg',
+    selectorCta: 'Enter the Maui site',
+    stateLabel: 'Booking now',
   },
   kauai: {
     id: 'kauai',

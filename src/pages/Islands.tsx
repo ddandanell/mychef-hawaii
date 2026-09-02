@@ -106,7 +106,7 @@ const bands: Band[] = [
     coverage: 'Wailea · Kāʻanapali · Kapalua · Makena · Upcountry — plus travel-zone honesty beyond base zones.',
     stats: ['$305 per-visitor-per-day spend — CY2025, preliminary', '2,500 destination weddings — 2024, official'],
     cta: 'Explore Maui',
-    alt: 'Elegant Maui villa interior opening to a calm coastline view, warm stone and wood',
+    alt: 'A mobile cocktail bar on a Maui villa terrace at sunset. Campaign still, not a documented event.',
   },
   {
     id: 'oahu',
@@ -116,7 +116,7 @@ const bands: Band[] = [
     coverage: 'Waikīkī · Kahala & the Gold Coast · Ko Olina · Kailua/Lanikai · North Shore (surcharge zone)',
     stats: ['5.68M visitors — CY2025, preliminary', '5,154 destination weddings — 2024, official'],
     cta: 'Explore Oʻahu',
-    alt: "Modern open-plan chef's kitchen in a luxury Oʻahu resort villa, chef's hands plating at a counter",
+    alt: 'Plated private-chef dinner on an Oʻahu villa lānai at dusk. Campaign still, not a documented event.',
   },
   {
     id: 'kauai',
@@ -128,6 +128,9 @@ const bands: Band[] = [
       'Join the inquiry list with shore and dates. Far-North needs 72-hour notice.',
     cta: 'Private chef Kauai — from $150 a guest',
     alt: 'Garden estate outdoor table under mature trees on Kauaʻi, desaturated greens, linen tablecloth',
+      'We open Kauaʻi when its inquiry list proves demand. Tell us your dates and shore — it directly shapes the launch.',
+    cta: 'Join the Kauaʻi inquiry list',
+    alt: 'Chef’s hands finishing seared fish in a Kauaʻi kitchen, misted mountains beyond. Campaign still, not a documented event.',
   },
   {
     id: 'bigisland',
@@ -139,6 +142,9 @@ const bands: Band[] = [
       "The island is 4,000 square miles; we won't pretend to cover it. Kona–Kohala first, east side quote-only.",
     cta: 'Private chef Big Island — from $125 a guest',
     alt: 'Hawaiʻi Island villa dining terrace with dark volcanic stone textures and a distant muted coastline',
+      "The island is 4,000 square miles; we won't pretend to cover it. Kona–Kohala first, east side quote-only, when we launch.",
+    cta: 'Join the Hawaiʻi Island inquiry list',
+    alt: 'Whole grilled fish and tropical fruit on Kohala lava rock at golden hour. Campaign still, not a documented event.',
   },
 ];
 

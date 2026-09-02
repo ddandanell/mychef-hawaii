@@ -41,8 +41,8 @@ function Header() {
         </div>
         <ClipReveal className="aspect-[4/5]">
           <img
-            src="/photos/vacation-chef.jpg"
-            alt="Three small framed prints of different coastlines on a warm plaster wall"
+            src="/photos/oahu-vacation-chef-pool-breakfast.jpg"
+            alt="Vacation-chef breakfast by a villa pool — tropical fruit, omelette, croissants. Campaign still, not a documented event."
             className="h-full w-full object-cover"
             loading="lazy"
           />
@@ -337,8 +337,8 @@ function Vetting() {
           <div ref={wrapRef} className="relative overflow-hidden ">
             <img
               ref={imgRef}
-              src="/photos/food-plating.jpg"
-              alt="A chef plating a coursed dish — the craft standard every island team is vetted to"
+              src="/photos/kauai-chef-plating-seared-fish-mountains.jpg"
+              alt="A chef plating a coursed dish in an open Hawaiian kitchen. Campaign still, not a documented event."
               loading="lazy"
               className="aspect-[4/5] w-full scale-[1.15] object-cover"
             />
