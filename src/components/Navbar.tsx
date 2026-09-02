@@ -15,7 +15,17 @@ const hubLinks = [
   { label: 'Pricing', to: '/pricing' },
 ];
 
-const HERO_PATHS = new Set(['/', '/bar', '/weddings', '/private-chef', '/catering', '/vacation-chef']);
+/** Hub paths whose first viewport is a dark still (wordmark inverts to paper). */
+const HUB_DARK_HERO = new Set(['/', '/bar', '/weddings']);
+/** Island paths whose first viewport is a dark still. Hub /private-chef and /catering are ivory. */
+const ISLAND_DARK_HERO = new Set([
+  '/',
+  '/bar',
+  '/weddings',
+  '/private-chef',
+  '/catering',
+  '/vacation-chef',
+]);
 
 function Wordmark({ onDark }: { onDark?: boolean }) {
   return (
@@ -126,8 +136,8 @@ export default function Navbar() {
       ]
     : [...hubLinks, { label: 'Quote', to: '/quote' }];
 
-  const path = island ? localPath : pathname;
-  const overHero = HERO_PATHS.has(path.replace(/\/$/, '') || '/') && !scrolled && !drawerOpen;
+  const path = (island ? localPath : pathname).replace(/\/+$/, '') || '/';
+  const overHero = (island ? ISLAND_DARK_HERO : HUB_DARK_HERO).has(path) && !scrolled && !drawerOpen;
   const onDark = overHero;
   const homeTarget = href('/');
 

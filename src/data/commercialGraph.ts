@@ -9,7 +9,7 @@ export const PRODUCTION_ROOT = 'mychef-hawaii.com';
 export const ISLAND_SITEMAP_HOSTS = ['oahu', 'maui', 'kauai', 'bigisland'] as const;
 export type IslandSitemapHost = (typeof ISLAND_SITEMAP_HOSTS)[number];
 
-/** Hub paths advertised in XML + HTML sitemaps. */
+/** Master map — hub. One primary keyword per URL. /how-it-works stays live, unadvertised. */
 export const HUB_COMMERCIAL_PATHS = [
   '/',
   '/private-chef',
@@ -20,7 +20,6 @@ export const HUB_COMMERCIAL_PATHS = [
   '/quote',
   '/trust',
   '/legal',
-  '/how-it-works',
 ] as const;
 
 /** Per-island paths advertised in XML + HTML sitemaps. */

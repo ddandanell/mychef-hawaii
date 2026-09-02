@@ -24,8 +24,20 @@ function localPath(host: string, pathname: string, island: string | null): strin
   return p.startsWith('/') ? p : `/${p}`;
 }
 
-function canonical(island: string | null, path: string): string {
+const CANONICAL_ALIASES: Record<string, string> = {
+  '/wedding-catering': '/weddings',
+  '/mobile-bar': '/bar',
+  '/events': '/catering',
+};
+
+function canonicalPath(path: string): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
+  const noTrail = clean.replace(/\/+$/, '') || '/';
+  return CANONICAL_ALIASES[noTrail] ?? noTrail;
+}
+
+function canonical(island: string | null, path: string): string {
+  const clean = canonicalPath(path);
   if (island) {
     return `https://${island}.mychef-hawaii.com${clean === '/' ? '/' : clean}`;
   }
@@ -50,13 +62,14 @@ export async function GET(request: Request) {
   const fromPath =
     !fromHost && pathSeg && (ISLANDS as readonly string[]).includes(pathSeg) ? pathSeg : null;
   const island = fromHost ?? fromPath;
-  const local = localPath(host, path, fromHost);
-  const rec = map[`${island ?? 'hub'}:${local}`] ?? map['hub:/'];
+  const local = canonicalPath(localPath(host, path, fromHost));
+  const rec = map[`${island ?? 'hub'}:${local}`];
   const title = rec?.title ?? 'myCHEF Hawaii';
   const description =
     rec?.description ??
     'Private chefs, private dining, catering and events across Oʻahu, Maui, Kauaʻi and Hawaiʻi Island.';
   const canon = canonical(island, local);
+  const robots = rec ? 'index,follow' : 'noindex,follow';
 
   const extra = [
     `<link rel="canonical" href="${esc(canon)}" />`,
@@ -64,7 +77,7 @@ export async function GET(request: Request) {
     `<meta property="og:title" content="${esc(title)}" />`,
     `<meta property="og:description" content="${esc(description)}" />`,
     `<meta property="og:url" content="${esc(canon)}" />`,
-    `<meta name="robots" content="index,follow" />`,
+    `<meta name="robots" content="${robots}" />`,
   ].join('\n    ');
 
   let out = html.replace(/<title>[^<]*<\/title>/, `<title>${esc(title)}</title>`);

@@ -88,10 +88,10 @@ export default function Home() {
         <HeroMedia src={photos.hubHero.file} alt={photos.hubHero.alt} />
         <div className="relative mx-auto w-full max-w-spread px-5 pb-24 pt-40 lg:px-10">
           <h1 className="max-w-3xl font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-            A private chef in your villa.
+            Private chef Hawaii.
           </h1>
           <p className="mt-5 max-w-[40ch] text-[17px] leading-[1.55] text-white/90">
-            We shop, cook, serve and clean on four islands.
+            A chef in your villa. We shop, cook, serve and clean on four islands.
           </p>
           <p className="mt-4 text-[17px] text-white/80">Signature dinner from $125 a guest, Oʻahu.</p>
           <div className="mt-8">

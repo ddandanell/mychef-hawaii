@@ -39,7 +39,7 @@ const COPY: Record<
   { h1: string; lede: string; eyebrow: string; places: string; peak: string; hero: { file: string; alt: string } }
 > = {
   maui: {
-    h1: 'The whole wedding week, beautifully fed.',
+    h1: 'Wedding catering Maui.',
     lede:
       'One culinary team from the welcome dinner to the recovery brunch — private estate formats for 10 to 75 guests across Wailea, Kāʻanapali, Kapalua, Makena and Upcountry.',
     eyebrow: 'myCHEF Maui — Wedding weeks',
@@ -66,7 +66,7 @@ const COPY: Record<
     hero: photos.kauaiNorth,
   },
   bigisland: {
-    h1: 'Kohala estate wedding weeks.',
+    h1: 'Wedding catering Big Island.',
     lede:
       'Kona–Kohala corridor: Mauna Kea resort belt, Waikoloa, the lava coast. One culinary team for the week. Published starting prices. WhatsApp the date.',
     eyebrow: 'myCHEF Hawaiʻi Island — Estate weeks',

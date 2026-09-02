@@ -80,7 +80,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   maui: {
     keyword: 'private chef maui',
     volume: 260,
-    h1: 'Private chef Maui',
+    h1: 'Private chef Maui.',
     title: 'Private chef Maui — from $150/pp | myCHEF',
     description:
       'Best private chef Maui from $150/pp. Maui catering is the larger door (480/mo). Wailea, Kīhei, Lahaina. Published prices and menus — not a named-chef marketplace.',
@@ -131,12 +131,12 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   oahu: {
     keyword: 'private chef oahu',
     volume: 90,
-    h1: 'Oahu catering. Private chef Oahu.',
-    title: 'Oahu catering & private chef Oahu — from $125/pp | myCHEF',
+    h1: 'Private chef Oahu.',
+    title: 'Private chef Oahu & Honolulu — from $125 a guest | myCHEF',
     description:
-      'Oahu catering from $125/pp (720/mo — largest Hawaii keyword we publish). Private chef Oahu and Honolulu (90/mo). Buffet, plated, villa dinners. WhatsApp for a quote.',
+      'Private chef Oahu from $125 a guest (90/mo). Honolulu (70/mo) on this same page. Villa dinners. Oahu catering is the larger door — see /catering. WhatsApp for a quote.',
     lede:
-      'Oahu catering is 720 searches a month. Private chef Oahu is 90. Same team, two doors: a staffed room or a villa dinner. From $125 per guest. We shop, cook, serve and clean.',
+      'Private chef Oahu and Honolulu — villa dinners from $125 a guest. Oahu catering (720/mo) is the larger door on /catering. Same team: we shop, cook, serve and clean.',
     fromPp: 125,
     dayFrom: 850,
     heroPhoto: 'oahuDinner',
@@ -174,7 +174,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   kauai: {
     keyword: 'private chef kauai',
     volume: 210,
-    h1: 'Private chef Kauaʻi',
+    h1: 'Private chef Kauai.',
     title: 'Private chef Kauai — from $150/pp | myCHEF',
     description:
       'Private chef Kauai from $150/pp. Kauai catering is an equal door (210/mo) — menu, prices, wedding, buffet or plated. Princeville, Poʻipū, Hanalei. WhatsApp for a quote.',
@@ -219,7 +219,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   bigisland: {
     keyword: 'private chef big island',
     volume: 70,
-    h1: 'Private chef Big Island',
+    h1: 'Private chef Big Island & Kona.',
     title: 'Private chef Big Island & Kona — from $125/pp | myCHEF',
     description:
       'Private chef Big Island and Kona from $125/pp. Kohala Coast, Waikoloa, Waimea and Kailua-Kona villa dinners. WhatsApp for a written quote.',

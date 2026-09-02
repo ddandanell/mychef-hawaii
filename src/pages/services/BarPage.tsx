@@ -195,7 +195,7 @@ export default function BarPage() {
               <Link to={href('/private-chef')} className="text-sm text-ink underline underline-offset-4">
                 Private chef
               </Link>
-              <Link to={href('/wedding-catering')} className="text-sm text-ink underline underline-offset-4">
+              <Link to={href('/weddings')} className="text-sm text-ink underline underline-offset-4">
                 Wedding week
               </Link>
             </div>

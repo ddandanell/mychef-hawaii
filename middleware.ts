@@ -3,6 +3,14 @@ import { next, rewrite } from '@vercel/functions';
 const PRODUCTION_ROOT = 'mychef-hawaii.com';
 const ISLANDS = ['oahu', 'maui', 'kauai', 'bigisland'] as const;
 
+/** Deferred neighborhood slugs — 301 to the island home. Not their own URLs. */
+const DEFERRED: Record<(typeof ISLANDS)[number], readonly string[]> = {
+  oahu: ['honolulu', 'waikiki', 'kailua', 'north-shore', 'kahala', 'ko-olina'],
+  maui: ['wailea', 'kaanapali', 'lahaina', 'kihei', 'kapalua', 'makena'],
+  kauai: ['princeville', 'poipu', 'hanalei', 'kapaa'],
+  bigisland: ['kona', 'waimea', 'waikoloa', 'kohala'],
+};
+
 function firstLabel(hostname: string): string {
   return hostname.split(':')[0]?.split('.')[0]?.toLowerCase() ?? '';
 }
@@ -49,6 +57,28 @@ export default function middleware(request: Request) {
     if (seg && (ISLANDS as readonly string[]).includes(seg)) {
       const rest = path.slice(seg.length + 1) || '/';
       const dest = new URL(rest.startsWith('/') ? rest : `/${rest}`, `https://${seg}.${PRODUCTION_ROOT}`);
+      dest.search = url.search;
+      return Response.redirect(dest, 301);
+    }
+  }
+
+  // Island host: doorway / neighborhood slugs collapse to the island home.
+  if (host.endsWith(`.${PRODUCTION_ROOT}`) && (ISLANDS as readonly string[]).includes(label)) {
+    const segs = path.split('/').filter(Boolean);
+    const first = segs[0] ?? '';
+    const deferred = DEFERRED[label as (typeof ISLANDS)[number]];
+    if (first && deferred?.includes(first) && segs.length === 1) {
+      const dest = new URL('/', `https://${label}.${PRODUCTION_ROOT}`);
+      dest.search = url.search;
+      return Response.redirect(dest, 301);
+    }
+    if (first === 'locations') {
+      const dest = new URL('/', `https://${label}.${PRODUCTION_ROOT}`);
+      dest.search = url.search;
+      return Response.redirect(dest, 301);
+    }
+    if (first === 'private-chef' && segs.length > 1) {
+      const dest = new URL('/private-chef', `https://${label}.${PRODUCTION_ROOT}`);
       dest.search = url.search;
       return Response.redirect(dest, 301);
     }

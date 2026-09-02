@@ -93,9 +93,22 @@ export function canonicalOrigin(island: IslandId | 'root', hostname?: string): s
   return `https://${island}.${PRODUCTION_ROOT}`;
 }
 
+/** Aliases stay live; canonical points at the master-map URL. */
+const CANONICAL_ALIASES: Record<string, string> = {
+  '/wedding-catering': '/weddings',
+  '/mobile-bar': '/bar',
+  '/events': '/catering',
+};
+
+export function canonicalPath(path: string): string {
+  const clean = path.startsWith('/') ? path : `/${path}`;
+  const noTrail = clean.replace(/\/+$/, '') || '/';
+  return CANONICAL_ALIASES[noTrail] ?? noTrail;
+}
+
 /** Canonical URL for a path. Use this for <link rel="canonical"> and og:url. */
 export function canonicalUrl(island: IslandId | 'root', path = '/', hostname?: string): string {
-  const clean = path.startsWith('/') ? path : `/${path}`;
+  const clean = canonicalPath(path);
   const origin = canonicalOrigin(island, hostname);
   return `${origin}${clean === '/' ? '/' : clean}`;
 }

@@ -6,7 +6,7 @@ import { islandOrder, islands } from '@/data/islands';
 
 const HUB_LABELS: Record<string, string> = {
   '/': 'Home',
-  '/private-chef': 'Private chef',
+  '/private-chef': 'Personal chef / villa',
   '/catering': 'Catering',
   '/weddings': 'Weddings',
   '/bar': 'Bar',
@@ -14,7 +14,6 @@ const HUB_LABELS: Record<string, string> = {
   '/quote': 'Quote',
   '/trust': 'Trust',
   '/legal': 'Legal',
-  '/how-it-works': 'How it works',
 };
 
 const ISLAND_LABELS: Record<string, string> = {

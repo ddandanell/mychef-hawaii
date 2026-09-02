@@ -19,7 +19,6 @@ const HUB_PATHS = [
   '/quote',
   '/trust',
   '/legal',
-  '/how-it-works',
 ] as const;
 
 const ISLAND_PATHS = ['/', '/private-chef', '/catering', '/weddings', '/bar', '/pricing', '/quote'] as const;

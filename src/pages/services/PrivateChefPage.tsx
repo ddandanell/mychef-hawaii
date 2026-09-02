@@ -44,7 +44,7 @@ const content: Record<IslandId, PrivateChefContent> = {
   maui: {
     islandName: 'Maui',
     path: '/maui/private-chef',
-    h1: 'Private chef Maui',
+    h1: 'Personal chef for Maui villas.',
     heroImage: '/photos/maui-wailea-kitchen-plating.jpg',
     heroAlt: 'Chef’s hands finishing seared fish in a Wailea villa kitchen.',
     bandTiers: [
@@ -85,7 +85,7 @@ const content: Record<IslandId, PrivateChefContent> = {
   oahu: {
     islandName: 'Oʻahu',
     path: '/oahu/private-chef',
-    h1: 'Private chef Oʻahu',
+    h1: 'Personal chef for Oahu villas.',
     heroImage: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
     heroAlt: 'Plated private-chef dinner on an Oʻahu Gold Coast lānai at dusk.',
     bandTiers: [
@@ -114,7 +114,7 @@ const content: Record<IslandId, PrivateChefContent> = {
   kauai: {
     islandName: 'Kauaʻi',
     path: '/kauai/private-chef',
-    h1: 'Private chef Kauaʻi',
+    h1: 'Personal chef for Kauai villas.',
     heroImage: '/photos/kauai-chef-plating-seared-fish-mountains.jpg',
     heroAlt: 'Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond.',
     bandTiers: [
@@ -147,7 +147,7 @@ const content: Record<IslandId, PrivateChefContent> = {
   bigisland: {
     islandName: 'Hawaiʻi Island',
     path: '/bigisland/private-chef',
-    h1: 'Private chef Big Island',
+    h1: 'Personal chef for Big Island villas.',
     heroImage: '/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg',
     heroAlt: 'Whole grilled fish and tropical fruit on Kohala lava rock at golden hour.',
     bandTiers: [

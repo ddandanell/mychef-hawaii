@@ -16,9 +16,9 @@ export default function HubOfferPage({
 }) {
   const copy = {
     'private-chef': {
-      h1: 'Private chef Hawaii',
+      h1: 'Personal chef for Hawaii villas.',
       lede:
-        'A chef in your villa kitchen — Oʻahu from $125 a guest, Maui and Kauaʻi from $150 a guest, Big Island from $125 a guest. We shop, cook, serve and clean.',
+        'Personal chef and vacation-rental chef in Hawaii. Oʻahu from $125 a guest, Maui and Kauaʻi from $150 a guest, Big Island from $125 a guest. We shop, cook, serve and clean.',
       intent: 'a private chef',
       service: 'private-chef' as const,
       path: '/private-chef',
@@ -46,6 +46,19 @@ export default function HubOfferPage({
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: copy.h1,
+            description: copy.lede,
+            areaServed: 'Hawaiʻi',
+            parentOrganization: { '@type': 'Organization', name: 'myCHEF Hawaii' },
+          }),
+        }}
+      />
       <section className="bg-ivory pb-10 pt-16 lg:pt-24">
         <div className="mx-auto grid w-full max-w-container items-center gap-10 px-5 lg:grid-cols-2 lg:px-10">
           <div>

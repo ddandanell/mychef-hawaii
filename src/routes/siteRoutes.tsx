@@ -1,7 +1,6 @@
 import type { ComponentType } from 'react';
 import { Route } from 'react-router';
 import type { IslandId } from '@/data/islands';
-import { moneyNeighborhoods } from '@/data/offers';
 import Maui from '@/pages/Maui';
 import Oahu from '@/pages/Oahu';
 import BigIsland from '@/pages/BigIsland';
@@ -15,17 +14,13 @@ import OahuVacationChef from '@/pages/services/OahuVacationChef';
 import KauaiVacationChef from '@/pages/services/KauaiVacationChef';
 import BigIslandVacationChef from '@/pages/services/BigIslandVacationChef';
 import IslandCatering from '@/pages/services/IslandCatering';
-import LocationPage from '@/pages/locations/LocationPage';
-import NeighborhoodMoneyPage from '@/pages/locations/NeighborhoodMoneyPage';
 import Quote from '@/pages/Quote';
 import ThankYou from '@/pages/ThankYou';
 import Legal from '@/pages/Legal';
-import AreaChefPage from '@/pages/site/AreaChefPage';
 import ArticlePage from '@/pages/site/ArticlePage';
 import { CatalogOrNotFound } from '@/pages/site/CatalogPage';
 import HtmlSitemap from '@/pages/site/HtmlSitemap';
 import JournalIndex from '@/pages/site/JournalIndex';
-import LocationHub from '@/pages/site/LocationHub';
 import BarPage from '@/pages/services/BarPage';
 import IslandWeddingPage from '@/pages/services/IslandWeddingPage';
 import Pricing from '@/pages/Pricing';
@@ -71,16 +66,6 @@ export function islandLeaves(id: IslandId, prefix = '') {
       <Route path={p('/bar')} element={<BarPage />} />
       <Route path={p('/mobile-bar')} element={<BarPage />} />
       <Route path={p('/pricing')} element={<Pricing />} />
-      <Route path={p('/locations')} element={<LocationHub />} />
-      <Route path={p('/locations/:slug')} element={<LocationPage />} />
-      <Route path={p('/private-chef/:slug')} element={<AreaChefPage />} />
-      {moneyNeighborhoods[id].map((n) => (
-        <Route
-          key={n.slug}
-          path={p(`/${n.slug}`)}
-          element={<NeighborhoodMoneyPage slug={n.slug} />}
-        />
-      ))}
       <Route path={p('/journal')} element={<JournalIndex kind="journal" />} />
       <Route path={p('/blog')} element={<JournalIndex kind="blog" />} />
       <Route path={p('/journal/:slug')} element={<ArticlePage kind="journal" />} />

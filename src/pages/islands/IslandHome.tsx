@@ -51,7 +51,11 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
           {offer.h1}
         </h1>
         <p className="mt-5 max-w-[42ch] text-[17px] leading-[1.55] text-white/90">
-          We shop, cook, serve and clean.
+          {islandId === 'oahu'
+            ? 'Honolulu villas and residences. We shop, cook, serve and clean.'
+            : islandId === 'bigisland'
+              ? 'Kona and the Kohala Coast. We shop, cook, serve and clean.'
+              : 'We shop, cook, serve and clean.'}
         </p>
         <p className="mt-4 text-[17px] text-white/80">
           Signature dinner from ${offer.fromPp} a guest, {island.shortName}.

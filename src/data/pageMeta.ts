@@ -1,6 +1,7 @@
 /**
- * Unique titles and descriptions per route. Location pages compose their own
- * from `locations.ts`. Root never targets island-modified transactional terms.
+ * Unique titles and descriptions per master-map URL.
+ * One primary keyword per URL. Neighborhood doorway titles stay unused —
+ * those slugs 301 to the island home.
  */
 
 export interface PageMetaRecord {
@@ -9,9 +10,9 @@ export interface PageMetaRecord {
 }
 
 const DEFAULT: PageMetaRecord = {
-  title: 'Private chef Hawaii — from $125/pp | myCHEF',
+  title: 'Private chef Hawaii — from $125 a guest | myCHEF',
   description:
-    'Private chef Hawaii from $125/pp. In-villa dinners, catering, weddings and mobile bar on Oʻahu, Maui, Kauaʻi and Hawaiʻi Island. WhatsApp for a quote.',
+    'Private chef Hawaii from $125 a guest. In-villa dinners, catering, weddings and mobile bar on Oʻahu, Maui, Kauaʻi and Hawaiʻi Island. WhatsApp for a quote.',
 };
 
 export const PAGE_META: Record<string, PageMetaRecord> = {
@@ -31,9 +32,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Private chef dinners from $125/pp, Stay Chef day rates, wedding catering and mobile bar across Hawaii. WhatsApp for a quote.',
   },
   '/private-chef': {
-    title: 'Private chef Hawaii — from $125/pp | myCHEF',
+    title: 'Personal chef for Hawaii villas & vacation rentals | myCHEF',
     description:
-      'Private chef Hawaii on Oʻahu, Maui, Kauaʻi and the Big Island. Published starting prices. Villa kitchens. WhatsApp for a quote.',
+      'Personal chef and vacation-rental chef in Hawaii. Villa dinner, in-home service, no restaurant. Enquire on WhatsApp.',
   },
   '/catering': {
     title: 'Hawaii catering — from $125/pp | myCHEF',
@@ -59,9 +60,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'Five fields, two minutes. WhatsApp or this form. Typical reply in Hawaii business hours.',
   },
   '/weddings': {
-    title: 'Wedding catering & wedding-week chefs — Hawaii | myCHEF',
+    title: 'Wedding catering Hawaii | myCHEF',
     description:
-      'Welcome dinner to recovery brunch on Maui, Oʻahu, Kauaʻi and Hawaiʻi Island. Published starting prices. WhatsApp the date.',
+      'Wedding catering Hawaii: welcome dinner, ceremony, and the days after. One chef, one conversation. Enquire on WhatsApp.',
   },
   '/bar': {
     title: 'Mobile bar & villa cocktails — Hawaii | myCHEF',
@@ -98,9 +99,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Staffed private chef catering for 10–75 guests: villa retreats, production crews and private gatherings.',
   },
   '/oahu': {
-    title: 'Oahu catering & private chef Oahu — from $125/pp | myCHEF',
+    title: 'Private chef Oahu & Honolulu — from $125 a guest | myCHEF',
     description:
-      'Oahu catering from $125/pp (720/mo). Private chef Oahu from $125/pp (90/mo). Buffet, plated, villa dinners. Honolulu to Ko Olina. WhatsApp for a quote.',
+      'Private chef Oahu from $125 a guest (90/mo). Honolulu (70/mo) on this same page. Oahu catering lives on /catering. WhatsApp for a quote.',
   },
   '/maui': {
     title: 'Private chef Maui — from $150/pp | myCHEF',
@@ -118,8 +119,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Private chef Big Island and Kona from $125/pp. Kohala Coast, Waikoloa, Waimea and Kailua-Kona villa dinners.',
   },
   '/oahu/private-chef': {
-    title: 'Oʻahu private chef — In-villa dinners | myCHEF',
-    description: 'Coursed in-villa dinners across Oʻahu’s five corridors. Menu design, shopping, cooking, service and cleanup.',
+    title: 'Personal chef Oahu villas & vacation rentals | myCHEF',
+    description:
+      'Personal chef for Oahu villas and vacation rentals. In-home dinner, weekly household line. WhatsApp for a quote.',
   },
   '/oahu/vacation-chef': {
     title: 'Oʻahu vacation chef and weekly household service | myCHEF',
@@ -152,10 +154,14 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     title: 'Oʻahu private chef prices — day rate, dinner bands, bar | myCHEF',
     description: 'Published starting prices for Oʻahu: villa chef day rate, signature dinners, mobile bar and weekly household service.',
   },
+  '/oahu/quote': {
+    title: 'Get a quote — private chef & catering Oahu | myCHEF',
+    description: 'Five fields, two minutes. Oahu villa dinner or catering. WhatsApp or this form. Typical reply in Hawaii business hours.',
+  },
   '/maui/private-chef': {
-    title: 'Private chef Maui — Wailea, Lahaina, Kihei | myCHEF',
+    title: 'Personal chef Maui villas & vacation rentals | myCHEF',
     description:
-      'Best private chef Maui from $150/pp. Wailea, Lahaina / West Maui, Kīhei. Sushi-forward menus on request. Published prices — not a named-chef marketplace.',
+      'Personal chef for Maui villas and vacation rentals. In-home dinner in Wailea, West Maui and Kīhei. WhatsApp for a quote.',
   },
   '/maui/vacation-chef': {
     title: 'Maui vacation chef — Multi-day villa service | myCHEF',
@@ -167,8 +173,8 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Welcome dinner, rehearsal, reception and recovery brunch in Wailea, Kapalua, Kāʻanapali and Makena. Published starting prices.',
   },
   '/maui/weddings': {
-    title: 'Maui wedding catering — wedding-week chefs | myCHEF',
-    description: 'One Maui team for the wedding week. Starting prices published. Quote confirmed in writing.',
+    title: 'Wedding catering Maui | myCHEF',
+    description: 'Wedding catering Maui: welcome dinner through recovery brunch. Starting prices published. Quote in writing.',
   },
   '/maui/bar': {
     title: 'Maui mobile bar — villa cocktails in Wailea & Kapalua | myCHEF',
@@ -184,14 +190,19 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Private chef Maui cost: $150–$250/pp CORE, groceries at cost on Stay Chef, 20% service, GET up to 4.712%. Published, line by line.',
   },
+  '/maui/quote': {
+    title: 'Get a quote — private chef & catering Maui | myCHEF',
+    description: 'Five fields, two minutes. Maui villa dinner or catering. WhatsApp or this form. Typical reply in Hawaii business hours.',
+  },
   '/maui/catering': {
     title: 'Maui catering — from $150/pp | myCHEF',
     description:
       'Maui catering from $150/pp (480/mo). Buffet or plated, villa and wedding catering in Wailea, West Maui and Kīhei. Published prices and menus.',
   },
   '/kauai/private-chef': {
-    title: 'Private chef Kauai — from $150/pp | myCHEF',
-    description: 'In-villa dinners on both Kauaʻi shores from $150/pp. Princeville and Poʻipū. Book now.',
+    title: 'Personal chef Kauai villas & vacation rentals | myCHEF',
+    description:
+      'Personal chef for Kauai villas and vacation rentals. Princeville, Poʻipū, Hanalei. Enquire — not a waitlist.',
   },
   '/kauai/vacation-chef': {
     title: 'Vacation chef Kauai — Stay Chef from $1,100/day | myCHEF',
@@ -213,8 +224,8 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Kauai wedding catering from $175/pp plus staffing. Estate formats on both shores. Published starting prices. WhatsApp the week.',
   },
   '/kauai/weddings': {
-    title: 'Kauai wedding catering — from $175/pp | myCHEF',
-    description: 'Princeville, Hanalei and Poʻipū wedding weeks. Kauai wedding catering, published prices. Book now.',
+    title: 'Wedding catering Kauai | myCHEF',
+    description: 'Wedding catering Kauai from $175/pp plus staffing. Princeville, Hanalei and Poʻipū. Enquire now.',
   },
   '/kauai/bar': {
     title: 'Kauaʻi mobile bar — Princeville & Poʻipū estates | myCHEF',
@@ -229,9 +240,13 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Private chef Kauai cost $150–$250/pp. Kauai catering prices, wedding from $175/pp plus staffing. Groceries, 20% service, GET — published.',
   },
+  '/kauai/quote': {
+    title: 'Get a quote — private chef & catering Kauai | myCHEF',
+    description: 'Five fields, two minutes. Kauai villa dinner or catering. Enquire now — not a waitlist.',
+  },
   '/bigisland/private-chef': {
-    title: 'Private chef Big Island & Kona — from $125/pp | myCHEF',
-    description: 'Kona–Kohala villa dinners from $125/pp. WhatsApp for a written quote.',
+    title: 'Personal chef Big Island villas & vacation rentals | myCHEF',
+    description: 'Personal chef for Big Island and Kona villas. In-home dinner, Stay Chef weeks. WhatsApp for a quote.',
   },
   '/bigisland/vacation-chef': {
     title: 'Vacation chef Big Island — Stay Chef from $950/day | myCHEF',
@@ -247,8 +262,8 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Kohala and Kona wedding weeks. Published starting prices. WhatsApp the date.',
   },
   '/bigisland/weddings': {
-    title: 'Hawaiʻi Island estate weddings — Kohala | myCHEF',
-    description: 'Kohala Coast wedding weeks. Starting prices published. Book now.',
+    title: 'Wedding catering Big Island | myCHEF',
+    description: 'Wedding catering Big Island — Kohala and Kona estate weeks. Starting prices published. Enquire now.',
   },
   '/bigisland/bar': {
     title: 'Hawaiʻi Island mobile bar — Kohala Coast cocktails | myCHEF',
@@ -261,6 +276,10 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/bigisland/pricing': {
     title: 'Hawaiʻi Island private chef prices — Kohala & Kona | myCHEF',
     description: 'Published starting prices for Big Island villa chefs, dinners, bar and estate weddings. West side first.',
+  },
+  '/bigisland/quote': {
+    title: 'Get a quote — private chef & catering Big Island | myCHEF',
+    description: 'Five fields, two minutes. Big Island and Kona villa dinner or catering. WhatsApp or this form.',
   },
 };
 
