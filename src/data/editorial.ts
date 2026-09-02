@@ -103,7 +103,7 @@ function journalSeeds(id: IslandId): Omit<Article, 'kind'>[] {
       description: z.honestyLine,
       h1: z.headline,
       lede: `${z.honestyLine} Areas: ${areaNames}.`,
-      sections: z.zones.map((zone) => ({ heading: `${zone.name} — Zone ${zone.code}`, body: `${zone.note}${zone.driveTime ? ` Drive: ${zone.driveTime}.` : ''}` })),
+      sections: z.zones.map((zone) => ({ heading: zone.name, body: `${zone.note}${zone.driveTime ? ` Drive: ${zone.driveTime}.` : ''}` })),
     },
     {
       slug: 'vacation-chef-week',

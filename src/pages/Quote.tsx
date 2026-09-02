@@ -42,7 +42,7 @@ const CHANNEL_FIELD: Record<Channel, { label: string; type: 'email' | 'tel'; pla
     label: 'WhatsApp number',
     type: 'tel',
     placeholder: 'Include your country code',
-    note: 'WhatsApp — international visitors',
+    note: 'WhatsApp — visitors to Hawaiʻi',
   },
 };
 

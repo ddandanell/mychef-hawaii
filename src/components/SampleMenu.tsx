@@ -14,7 +14,7 @@ export function SampleMenu({ island }: { island: IslandId }) {
         <ol className="mt-12 space-y-8">
           {menu.courses.map((c) => (
             <li key={c.course} className="border-t border-stone pt-6">
-              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.18em] text-clay">{c.course}</p>
+              <p className="text-[12px] text-ink-soft">{c.course}</p>
               <h3 className="mt-1 font-display text-[1.625rem] font-medium leading-[1.2] text-ink">{c.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-ink-soft">{c.note}</p>
             </li>

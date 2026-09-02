@@ -1,4 +1,4 @@
-import { CONCEPT, photos } from './photos';
+import { photos } from './photos';
 
 /**
  * Photography asset library — campaign stills generated for this site.
@@ -147,5 +147,3 @@ export const assets: Record<string, AssetEntry> = {
 };
 
 export type AssetKey = keyof typeof assets;
-
-void CONCEPT;

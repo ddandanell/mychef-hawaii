@@ -22,7 +22,6 @@ import {
   ServiceFaq,
   ServiceHero,
   serviceJsonLd,
-  ZoneStrip,
   useHashScroll,
 } from '@/pages/services/ServicePage';
 import type { ServiceFaqItem } from '@/pages/services/ServicePage';
@@ -205,8 +204,9 @@ export default function BarPage() {
 
       <section className="bg-ivory py-24 lg:py-32">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <ZoneStrip islandId={id} />
-          <p className="mt-12 max-w-[65ch] text-[17px] leading-[1.65] text-ink-soft">
+          <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink">Where we pour</h2>
+          <p className="mt-5 max-w-[60ch] text-[17px] leading-relaxed text-ink-soft">{copy.places}</p>
+          <p className="mt-8 max-w-[65ch] text-[17px] leading-[1.65] text-ink-soft">
             Service 20% and Hawaiʻi GET are added as their own lines.{' '}
             <Link to="/legal" className="text-ink underline underline-offset-4">
               Legal

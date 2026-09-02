@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ConciergeBell, Flame, NotebookPen, ShoppingBasket, Sparkles } from 'lucide-react';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
-import StatusChip from '@/components/StatusChip';
 import { formatBand, formatOtherOffer, getOtherOffer, getTiers } from '@/data/rateCard';
 import type { RateTier } from '@/data/rateCard';
 import {
@@ -14,7 +13,6 @@ import {
   SectionIntro,
   ServiceFaq,
   ServiceHero,
-  ZoneStrip,
   serviceJsonLd,
   useHashScroll,
 } from '@/pages/services/ServicePage';
@@ -341,11 +339,8 @@ function MauiExtras() {
             {ultra ? (
               <BandChip onDark label={`Chef’s table ${formatBand(ultra)} a guest — ${ultra.model}`} />
             ) : null}
-            <p className="flex flex-wrap items-center gap-2 text-sm leading-[1.65] text-ivory/75">
-              <span>The resort version seats you with strangers at $150 a guest.</span>
-              <StatusChip kind="pending" onDark>
-                Published anchor — labeled
-              </StatusChip>
+            <p className="text-sm leading-[1.65] text-ivory/75">
+              The resort version seats you with strangers at $150 a guest.
             </p>
           </Reveal>
         </div>
@@ -482,11 +477,6 @@ export default function PrivateChefPage({ island }: { island: IslandId }) {
       <EveningTimeline />
       <MenusDietary />
       {island === 'maui' ? <MauiExtras /> : island === 'oahu' ? <OahuExtras /> : <NeighborExtras island={island} />}
-      <section className="bg-sand py-20 lg:py-28">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <ZoneStrip islandId={island} />
-        </div>
-      </section>
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <ServiceFaq

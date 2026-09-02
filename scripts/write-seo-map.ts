@@ -53,6 +53,7 @@ ISLAND_HOSTS.forEach((id) => {
 
 writeFileSync(join(sitemapDir, 'hub.xml'), urlset(PRODUCTION_ROOT));
 writeFileSync(join(sitemapDir, 'index.xml'), urlset(PRODUCTION_ROOT));
+writeFileSync(join(publicDir, 'sitemap.xml'), urlset(PRODUCTION_ROOT));
 
 const vercelXml = join(sitemapDir, 'vercel.xml');
 try {

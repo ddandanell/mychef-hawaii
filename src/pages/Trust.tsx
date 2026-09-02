@@ -34,9 +34,8 @@ function Header() {
           </h1>
           <Reveal delay={0.65} y={24}>
             <p className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink">
-              myCHEF operates private-chef services internationally and is launching in Hawaiʻi now. That
-              means we don&apos;t have Hawaiʻi reviews yet — so instead of pretending, we publish exactly
-              what we can prove, and label everything else.
+              We do not yet have Hawaiʻi guest reviews. They publish here after verified events — never
+              bought, never invented. Published prices and a written quote are what we can prove today.
             </p>
           </Reveal>
         </div>
@@ -112,7 +111,7 @@ const registerRows: RegisterRow[] = [
     status: proofRegister[0].status,
     label: proofRegister[0].label,
     detail:
-      'Family history is real and labeled by geography. It says nothing about Hawaiʻi yet — and we never present it as local experience.',
+      'Hawaiʻi reviews publish only after verified events here. We do not invent local proof, and we do not borrow another market’s name to fill the gap.',
   },
   {
     claim: 'Hawaiʻi client reviews',
@@ -366,7 +365,7 @@ export default function Trust() {
             '@type': 'Organization',
             '@id': '#org',
             name: 'myCHEF Hawaii',
-            parentOrganization: { '@type': 'Organization', name: 'myCHEF (international)' },
+            parentOrganization: { '@type': 'Organization', name: 'myCHEF' },
           }),
         }}
       />
