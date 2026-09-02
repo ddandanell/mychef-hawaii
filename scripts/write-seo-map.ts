@@ -55,7 +55,13 @@ ISLAND_HOSTS.forEach((id) => {
 
 writeFileSync(join(sitemapDir, 'hub.xml'), urlset(PRODUCTION_ROOT));
 writeFileSync(join(sitemapDir, 'index.xml'), urlset(PRODUCTION_ROOT));
-writeFileSync(join(publicDir, 'sitemap.xml'), urlset(PRODUCTION_ROOT));
+const masterXml = urlset(PRODUCTION_ROOT);
+writeFileSync(join(publicDir, 'sitemap.xml'), masterXml);
+writeFileSync(join(publicDir, 'sitemap-hub.xml'), masterXml);
+writeFileSync(
+  join(publicDir, 'robots.txt'),
+  `User-agent: *\nAllow: /\n\nSitemap: https://${PRODUCTION_ROOT}/sitemap.xml\n`,
+);
 
 const vercelXml = join(sitemapDir, 'vercel.xml');
 try {

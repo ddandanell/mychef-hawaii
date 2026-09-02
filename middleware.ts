@@ -20,53 +20,6 @@ function isApexNetwork(hostname: string): boolean {
   return h === PRODUCTION_ROOT || h === `www.${PRODUCTION_ROOT}` || h.endsWith(`.${PRODUCTION_ROOT}`);
 }
 
-type MapHost = 'hub' | (typeof ISLANDS)[number];
-const MASTER: { host: MapHost; path: string }[] = [
-  { host: 'hub', path: '/' },
-  { host: 'hub', path: '/catering' },
-  { host: 'hub', path: '/weddings' },
-  { host: 'hub', path: '/about' },
-  { host: 'oahu', path: '/' },
-  { host: 'oahu', path: '/catering' },
-  { host: 'oahu', path: '/weddings' },
-  { host: 'maui', path: '/' },
-  { host: 'maui', path: '/catering' },
-  { host: 'maui', path: '/weddings' },
-  { host: 'kauai', path: '/' },
-  { host: 'kauai', path: '/catering' },
-  { host: 'bigisland', path: '/' },
-];
-
-function xmlEscape(s: string): string {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
-}
-
-function loc(host: MapHost, path: string): string {
-  const hostname = host === 'hub' ? PRODUCTION_ROOT : `${host}.${PRODUCTION_ROOT}`;
-  const clean = path.startsWith('/') ? path : `/${path}`;
-  return `https://${hostname}${clean === '/' ? '/' : clean}`;
-}
-
-function urlEntry(href: string, priority: string): string {
-  return `  <url>\n    <loc>${xmlEscape(href)}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
-}
-
-function urlset(rows: { host: MapHost; path: string }[]): string {
-  const entries = rows.map((r) =>
-    urlEntry(
-      loc(r.host, r.path),
-      r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8',
-    ),
-  );
-  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`;
-}
-
-function sitemapXml(hostname: string): string {
-  const first = hostname.split(':')[0]?.split('.')[0]?.toLowerCase() ?? '';
-  const island = (ISLANDS as readonly string[]).includes(first) ? (first as (typeof ISLANDS)[number]) : null;
-  return island ? urlset(MASTER.filter((r) => r.host === island)) : urlset(MASTER);
-}
-
 function isStaticAsset(pathname: string): boolean {
   if (pathname === '/index.html') return true;
   if (pathname.startsWith('/assets/')) return true;
@@ -74,13 +27,21 @@ function isStaticAsset(pathname: string): boolean {
   if (pathname.startsWith('/about/') && /\.[a-zA-Z0-9]+$/.test(pathname)) return true;
   if (pathname.startsWith('/api/')) return true;
   if (pathname.startsWith('/_vercel/')) return true;
+  if (pathname.startsWith('/sitemaps/')) return true;
   if (pathname === '/seo-map.json') return true;
-  return /\.[a-zA-Z0-9]+$/.test(pathname) && pathname !== '/sitemap.xml' && pathname !== '/robots.txt' && pathname !== '/sitemap-hub.xml';
+  // Build-time files in public/ (copied to dist). Never generate these in-process —
+  // returning a body from this function is the live FUNCTION_INVOCATION_FAILED path.
+  if (pathname === '/sitemap.xml' || pathname === '/robots.txt' || pathname === '/sitemap-hub.xml') {
+    return true;
+  }
+  return /\.[a-zA-Z0-9]+$/.test(pathname);
 }
 
-export default function middleware(request: Request) {
+function route(request: Request): Response {
   const url = new URL(request.url);
-  const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || '').split(':')[0].toLowerCase();
+  const host = (request.headers.get('x-forwarded-host') || request.headers.get('host') || '')
+    .split(':')[0]
+    .toLowerCase();
   const path = url.pathname;
 
   if (request.headers.get('x-seo-bypass') === '1') return next();
@@ -132,34 +93,26 @@ export default function middleware(request: Request) {
     }
   }
 
-  // Serve sitemap + robots here. A hop to /api/sitemap 500s when that
-  // function is missing or fails to boot — live robots.txt points at this URL.
-  if (path === '/sitemap.xml' || path === '/sitemap-hub.xml') {
-    return new Response(sitemapXml(host), {
-      status: 200,
-      headers: {
-        'content-type': 'application/xml; charset=utf-8',
-        'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400',
-      },
-    });
-  }
-  if (path === '/robots.txt') {
-    const originHost =
-      (ISLANDS as readonly string[]).includes(label) ? `${label}.${PRODUCTION_ROOT}` : PRODUCTION_ROOT;
-    const origin = `https://${originHost}`;
-    const body = `User-agent: *\nAllow: /\n\nHost: ${origin}\nSitemap: ${origin}/sitemap.xml\n`;
-    return new Response(body, {
-      status: 200,
-      headers: {
-        'content-type': 'text/plain; charset=utf-8',
-        'cache-control': 'public, s-maxage=3600',
-      },
-    });
-  }
-
   return next();
 }
 
+export default function middleware(request: Request) {
+  try {
+    return route(request);
+  } catch (err) {
+    console.error('middleware', err);
+    try {
+      return next();
+    } catch {
+      return new Response('', { status: 200, headers: { 'cache-control': 'no-store' } });
+    }
+  }
+}
+
+// Vercel Routing Middleware matcher (not Next.js-only). Exclude build-time SEO
+// files so /sitemap.xml and /robots.txt never invoke this function.
 export const config = {
-  matcher: ['/((?!assets/|photos/|_vercel/|src/).*)'],
+  matcher: [
+    '/((?!assets/|photos/|_vercel/|src/|sitemaps/|api/|sitemap\\.xml|robots\\.txt|sitemap-hub\\.xml|seo-map\\.json).*)',
+  ],
 };
