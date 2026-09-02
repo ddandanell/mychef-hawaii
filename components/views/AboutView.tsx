@@ -7,6 +7,7 @@ import LineReveal from '@/components/LineReveal';
 import { LongFaq, SiblingCluster } from '@/components/Longform';
 import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
+import { LocationsBlock } from '@/components/LocationsBlock';
 import { islandOrder, islands } from '@/data/islands';
 
 const DESCRIPTION =
@@ -35,7 +36,7 @@ const faqs = [
   },
   {
     q: 'How do I reach you?',
-    a: 'The quote form. Five fields, two minutes. WhatsApp if you already have dates. Typical reply in Hawaii business hours. We do not publish a street office or an 808 number on this page.',
+    a: 'The quote form — island, dates, guests. Typical reply in Hawaii business hours. We do not publish a street office or a local phone number.',
   },
 ];
 
@@ -233,6 +234,8 @@ export default function AboutView() {
         </div>
       </section>
 
+      <LocationsBlock id="locations" />
+
       <section className="bg-paper py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <p className="text-[12px] text-mute">Contact</p>
@@ -240,8 +243,8 @@ export default function AboutView() {
             Start on the quote form.
           </h2>
           <p className="mt-5 max-w-[60ch] text-[17px] leading-[1.7] text-mute">
-            No walk-in shop. No published street address. Request a quote with island, dates, and headcount. We reply in
-            Hawaii business hours with a menu direction and a price you can hold.
+            No walk-in shop. No published street address. Enquire with island, dates, and guests. We reply in Hawaii
+            business hours with a menu direction and a price you can hold.
           </p>
           <div className="mt-8">
             <QuoteCta />

@@ -57,3 +57,20 @@ export function QuoteCta({
     </CtaLink>
   );
 }
+
+/** Nav / footer enquire — same ink system, short label. */
+export function EnquireCta({
+  island,
+  inverse = false,
+  className,
+}: {
+  island?: IslandId | null;
+  inverse?: boolean;
+  className?: string;
+}) {
+  return (
+    <CtaLink href={quotePath(island ?? undefined)} variant={inverse ? 'inverse' : 'primary'} className={className}>
+      Enquire
+    </CtaLink>
+  );
+}

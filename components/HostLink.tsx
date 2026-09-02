@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 import { ISLAND_HOSTS, detectIslandFromHost, siteUrl } from '@/lib/site';
 import type { IslandId } from '@/data/islands';
 import { useIsland } from '@/components/IslandProvider';
+import { islandHref } from '@/lib/paths';
 
 type Host = IslandId | 'root';
 
@@ -20,11 +21,15 @@ export default function HostLink({
   path = '/',
   className,
   children,
+  onClick,
+  'aria-label': ariaLabel,
 }: {
   island: Host;
   path?: string;
   className?: string;
   children: ReactNode;
+  onClick?: () => void;
+  'aria-label'?: string;
 }) {
   const { islandId, hostMode } = useIsland();
   const clean = path.startsWith('/') ? path : `/${path}`;
@@ -32,14 +37,9 @@ export default function HostLink({
   const here = currentHost(islandId, hostMode, pathname);
 
   if (here === island) {
-    const href =
-      island === 'root' || hostMode
-        ? clean
-        : clean === '/'
-          ? `/${island}`
-          : `/${island}${clean}`;
+    const href = islandHref(island === 'root' ? null : island, island === 'root' ? false : hostMode, clean);
     return (
-      <Link href={href} className={className}>
+      <Link href={href} className={className} onClick={onClick} aria-label={ariaLabel}>
         {children}
       </Link>
     );
@@ -55,7 +55,7 @@ export default function HostLink({
         });
 
   return (
-    <a href={href} className={className}>
+    <a href={href} className={className} onClick={onClick} aria-label={ariaLabel}>
       {children}
     </a>
   );

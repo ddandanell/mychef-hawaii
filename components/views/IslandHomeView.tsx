@@ -12,7 +12,7 @@ import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { islandOffers } from '@/data/offers';
 import { photos } from '@/data/photos';
 import { islandHref } from '@/lib/paths';
-import { zoneMap } from '@/data/zoneMap';
+import { LocationsBlock } from '@/components/LocationsBlock';
 
 export default function IslandHomeView({
   islandId,
@@ -27,29 +27,8 @@ export default function IslandHomeView({
   const inquiry = island.state === 'inquiry';
   const copy = islandHomeLongform[islandId];
   const href = (path: string) => islandHref(islandId, hostMode, path);
-  const areaServed = zoneMap[islandId].zones.filter((z) => z.class !== 'quote-only').map((z) => z.name);
-
-  const jsonLd =
-    island.state === 'live'
-      ? {
-          '@context': 'https://schema.org',
-          '@type': 'LocalBusiness',
-          name: `myCHEF ${island.name}`,
-          description: island.role,
-          parentOrganization: { '@type': 'Organization', '@id': '#org' },
-          areaServed,
-        }
-      : {
-          '@context': 'https://schema.org',
-          '@type': 'WebPage',
-          name: `myCHEF ${island.name}`,
-          description: island.role,
-          isPartOf: { '@type': 'WebSite', name: 'myCHEF Hawaii' },
-        };
-
   return (
     <>
-      <JsonLd data={jsonLd} />
       <JsonLd
         data={{
           '@context': 'https://schema.org',
@@ -110,27 +89,19 @@ export default function IslandHomeView({
       <Longform sections={copy.sections} />
       <SiblingCluster island={islandId} current="home" href={href} />
 
-      <section className="border-t border-line bg-paper py-20">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink">
-            Where we cook on {island.name}
-          </h2>
-          <p className="mt-5 max-w-[60ch] text-[17px] leading-relaxed text-mute">
-            Villa, Airbnb and vacation-rental kitchens with a real cooktop
-            {offer.neighborhoods.length ? ` — including ${offer.neighborhoods.map((n) => n.name).join(', ')}` : ''}. Hotel
-            rooms without kitchens are declined. Travel beyond the usual corridors is published on the quote.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            <Link href={href('/weddings')} className="text-ink underline underline-offset-4">
-              Weddings
-            </Link>
-            <Link href={href('/bar')} className="text-ink underline underline-offset-4">
-              Bar
-            </Link>
-            <Link href={href('/pricing')} className="text-ink underline underline-offset-4">
-              What a night costs
-            </Link>
-          </div>
+      <LocationsBlock id="locations" anchorsFor={islandId} />
+
+      <section className="border-t border-line bg-paper py-12">
+        <div className="mx-auto flex w-full max-w-container flex-wrap gap-x-6 gap-y-2 px-5 text-sm lg:px-10">
+          <Link href={href('/weddings')} className="text-ink underline underline-offset-4">
+            Weddings
+          </Link>
+          <Link href={href('/bar')} className="text-ink underline underline-offset-4">
+            Bar
+          </Link>
+          <Link href={href('/pricing')} className="text-ink underline underline-offset-4">
+            What a night costs
+          </Link>
         </div>
       </section>
 

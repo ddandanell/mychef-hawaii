@@ -62,26 +62,15 @@ export default function HomeView() {
   return (
     <>
       <JsonLd
-        data={[
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FoodService',
-            name: 'myCHEF Hawaii',
-            description:
-              'Private chef Hawaii from $125 a guest. In-villa dinners, catering, weddings and bar on Oʻahu, Maui, Kauaʻi and Hawaiʻi Island.',
-            areaServed: 'Hawaiʻi',
-            parentOrganization: { '@type': 'Organization', name: 'myCHEF' },
-          },
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: hubFaqs.map((f) => ({
-              '@type': 'Question',
-              name: f.q,
-              acceptedAnswer: { '@type': 'Answer', text: f.a },
-            })),
-          },
-        ]}
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: hubFaqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
       />
 
       <Hero src={photos.hubHero.file} alt={photos.hubHero.alt}>

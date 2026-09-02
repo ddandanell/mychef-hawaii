@@ -1,11 +1,15 @@
 import type { IslandId } from '@/data/islands';
 
 export function islandHref(island: IslandId | null, hostMode: boolean, path: string): string {
-  const [rawPath, qs] = path.split('?');
+  const hashAt = path.indexOf('#');
+  const hash = hashAt >= 0 ? path.slice(hashAt) : '';
+  const withoutHash = hashAt >= 0 ? path.slice(0, hashAt) : path;
+  const [rawPath, qs] = withoutHash.split('?');
   const raw = rawPath.startsWith('/') ? rawPath : `/${rawPath}`;
-  if (!island || hostMode) return qs ? `${raw}?${qs}` : raw;
+  const withQs = (base: string) => `${qs ? `${base}?${qs}` : base}${hash}`;
+  if (!island || hostMode) return withQs(raw);
   const prefixed = raw === '/' ? `/${island}` : `/${island}${raw}`;
-  return qs ? `${prefixed}?${qs}` : prefixed;
+  return withQs(prefixed);
 }
 
 export function quotePath(island?: string, service?: string): string {

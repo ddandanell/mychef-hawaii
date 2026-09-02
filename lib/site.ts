@@ -58,14 +58,17 @@ export function originFor(island: IslandId | 'root', loc: HostLoc = currentLoc()
 
 /** Absolute URL on an island host (or root). Path-prefix fallback on Vercel default URLs. */
 export function siteUrl(island: IslandId | 'root', path = '/', loc: HostLoc = currentLoc()): string {
-  const clean = path.startsWith('/') ? path : `/${path}`;
+  const hashAt = path.indexOf('#');
+  const hash = hashAt >= 0 ? path.slice(hashAt) : '';
+  const withoutHash = hashAt >= 0 ? path.slice(0, hashAt) || '/' : path;
+  const clean = withoutHash.startsWith('/') ? withoutHash : `/${withoutHash}`;
   const origin = originFor(island, loc);
   if (island !== 'root' && !usesIslandSubdomains(loc.hostname)) {
     const prefix = `/${island}`;
-    if (clean === '/') return `${origin}${prefix}`;
-    return `${origin}${prefix}${clean}`;
+    if (clean === '/') return `${origin}${prefix}${hash}`;
+    return `${origin}${prefix}${clean}${hash}`;
   }
-  return `${origin}${clean === '/' ? '/' : clean}`;
+  return `${origin}${clean === '/' ? '/' : clean}${hash}`;
 }
 
 export function locFromHost(hostname: string): HostLoc {

@@ -8,12 +8,13 @@ import { MASTER_MAP, masterHostName, type MasterHost } from '@/data/commercialGr
 import { getArea } from '@/data/areas';
 import { getArticle } from '@/data/editorial';
 import { getCatalog } from '@/data/islandCatalog';
-import { islands, type IslandId } from '@/data/islands';
+import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { getLocation } from '@/data/locations';
 import { islandOffers } from '@/data/offers';
 import { lookupPageMeta, metaForPath } from '@/data/pageMeta';
 import { photos } from '@/data/photos';
 import { formatBand, getDayRate, getMobileBar, getOtherOffer, getTiers } from '@/data/rateCard';
+import { SERVICE_AREAS } from '@/data/serviceAreas';
 
 export interface DocumentSeo {
   title: string;
@@ -118,6 +119,37 @@ function orgJsonLd(name: string, url: string) {
   };
 }
 
+function areaPlaces(islandId: IslandId | null) {
+  const ids = islandId ? [islandId] : islandOrder;
+  return ids.flatMap((id) => SERVICE_AREAS[id].corridors.map((c) => ({ '@type': 'Place', name: c.name })));
+}
+
+function publishedPriceRange(islandId: IslandId | null): string {
+  if (islandId) {
+    const core = getTiers(islandId).find((t) => t.tier === 'CORE');
+    return core ? `$${core.band[0]}–$${core.band[1]}` : '$125–$250';
+  }
+  const oahu = getTiers('oahu').find((t) => t.tier === 'CORE');
+  const maui = getTiers('maui').find((t) => t.tier === 'CORE');
+  return `$${oahu?.band[0] ?? 125}–$${maui?.band[1] ?? 250}`;
+}
+
+/** LocalBusiness / FoodService — service-area kitchen. No telephone. No streetAddress. */
+export function localBusinessJsonLd(islandId: IslandId | null, origin: string) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': ['LocalBusiness', 'FoodService'],
+    name: islandId ? `myCHEF ${islands[islandId].name}` : 'myCHEF Hawaii',
+    url: origin,
+    priceRange: publishedPriceRange(islandId),
+    areaServed: areaPlaces(islandId),
+    serviceType: 'Private chef',
+    parentOrganization: islandId
+      ? { '@type': 'Organization', name: 'myCHEF Hawaii', url: `https://${PRODUCTION_ROOT}` }
+      : { '@type': 'Organization', name: 'myCHEF' },
+  };
+}
+
 export function resolveDocumentSeo(hostname: string, pathname: string): DocumentSeo {
   const host = hostname.split(':')[0] ?? hostname;
   const path = cleanPath(pathname);
@@ -211,16 +243,7 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     },
   ];
 
-  if (islandId) {
-    jsonLd.push({
-      '@context': 'https://schema.org',
-      '@type': 'FoodService',
-      name: `myCHEF ${islands[islandId].name}`,
-      url: origin,
-      areaServed: { '@type': 'AdministrativeArea', name: islands[islandId].name },
-      serviceType: 'Private chef',
-    });
-  }
+  jsonLd.push(localBusinessJsonLd(islandId, origin || `https://${PRODUCTION_ROOT}`));
 
   const priced =
     localPath === '/' ||
