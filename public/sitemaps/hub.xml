@@ -51,6 +51,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mychef-hawaii.com/bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.com/mobile-bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mychef-hawaii.com/corporate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

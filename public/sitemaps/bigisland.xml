@@ -16,6 +16,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://bigisland.mychef-hawaii.com/wedding-catering</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/weddings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/mobile-bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/pricing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://bigisland.mychef-hawaii.com/catering</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -237,11 +262,6 @@
   </url>
   <url>
     <loc>https://bigisland.mychef-hawaii.com/how-it-works</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bigisland.mychef-hawaii.com/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

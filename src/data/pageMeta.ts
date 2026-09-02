@@ -232,10 +232,19 @@ export function metaForPath(
   islandId?: string | null,
   hostMode?: boolean,
 ): PageMetaRecord {
+  return lookupPageMeta(pathname, islandId, hostMode) ?? DEFAULT;
+}
+
+/** Explicit title/description if we wrote one — does not fall back to DEFAULT. */
+export function lookupPageMeta(
+  pathname: string,
+  islandId?: string | null,
+  hostMode?: boolean,
+): PageMetaRecord | undefined {
   const clean = pathname.replace(/\/$/, '') || '/';
   if (hostMode && islandId) {
     const prefixed = clean === '/' ? `/${islandId}` : `/${islandId}${clean}`;
-    return PAGE_META[prefixed] ?? PAGE_META[clean] ?? DEFAULT;
+    return PAGE_META[prefixed] ?? PAGE_META[clean];
   }
-  return PAGE_META[clean] ?? DEFAULT;
+  return PAGE_META[clean];
 }

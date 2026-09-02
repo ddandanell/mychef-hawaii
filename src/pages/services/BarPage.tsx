@@ -3,7 +3,6 @@ import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import { useIsland } from '@/context/IslandContext';
 import type { IslandId } from '@/data/islands';
-import { islands } from '@/data/islands';
 import { photos } from '@/data/photos';
 import {
   FEE_DISCLOSURE,

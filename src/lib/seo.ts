@@ -11,7 +11,7 @@ import { getArticle } from '../data/editorial';
 import { allIslandPaths, getCatalog } from '../data/islandCatalog';
 import { islands, type IslandId } from '../data/islands';
 import { getLocation } from '../data/locations';
-import { metaForPath } from '../data/pageMeta';
+import { lookupPageMeta, metaForPath } from '../data/pageMeta';
 import { photos } from '../data/photos';
 import { formatBand, getDayRate, getMobileBar, getOtherOffer, getTiers } from '../data/rateCard';
 
@@ -179,25 +179,31 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (area) {
       title = `Private chef ${area.name} — myCHEF ${island.name}`;
       description = area.blurb;
-    } else if (catalog) {
-      title = catalog.title;
-      description = catalog.lede;
-    } else if (localPath === '/journal') {
-      title = `Journal — myCHEF ${island.name}`;
-      description = `Island journal for ${island.name}. ${island.role}`;
-    } else if (localPath === '/blog') {
-      title = `Blog — myCHEF ${island.name}`;
-      description = `Guides and notes for private chef service on ${island.name}.`;
-    } else if (localPath === '/locations') {
-      title = `Service areas — myCHEF ${island.name}`;
-      description = `Coverage on ${island.name}: published zones, not statewide fiction.`;
-    } else if (localPath === '/sitemap') {
-      title = `Sitemap — myCHEF ${island.name}`;
-      description = `${allIslandPaths(islandId).length} pages on the ${island.name} site.`;
     } else {
-      const mapped = metaForPath(path, islandId, hostMode);
-      title = mapped.title;
-      description = mapped.description;
+      const explicit = lookupPageMeta(path, islandId, hostMode);
+      if (explicit) {
+        title = explicit.title;
+        description = explicit.description;
+      } else if (catalog) {
+        title = catalog.title;
+        description = catalog.lede;
+      } else if (localPath === '/journal') {
+        title = `Journal — myCHEF ${island.name}`;
+        description = `Island journal for ${island.name}. ${island.role}`;
+      } else if (localPath === '/blog') {
+        title = `Blog — myCHEF ${island.name}`;
+        description = `Guides and notes for private chef service on ${island.name}.`;
+      } else if (localPath === '/locations') {
+        title = `Service areas — myCHEF ${island.name}`;
+        description = `Coverage on ${island.name}: published zones, not statewide fiction.`;
+      } else if (localPath === '/sitemap') {
+        title = `Sitemap — myCHEF ${island.name}`;
+        description = `${allIslandPaths(islandId).length} pages on the ${island.name} site.`;
+      } else {
+        const mapped = metaForPath(path, islandId, hostMode);
+        title = mapped.title;
+        description = mapped.description;
+      }
     }
   } else {
     const mapped = metaForPath(path);
