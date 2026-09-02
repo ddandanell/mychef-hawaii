@@ -3,10 +3,10 @@ import { Link } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ConciergeBell, Flame, NotebookPen, ShoppingBasket, Sparkles } from 'lucide-react';
-import Contours from '@/components/Contours';
+import { Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { privateChefLongform } from '@/data/longformPrivateChef';
 import Reveal from '@/components/Reveal';
-import StatusChip from '@/components/StatusChip';
 import { formatBand, formatOtherOffer, getOtherOffer, getTiers } from '@/data/rateCard';
 import type { RateTier } from '@/data/rateCard';
 import {
@@ -20,7 +20,9 @@ import {
   useHashScroll,
   useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
-import type { LiveIslandId, ServiceFaqItem } from '@/pages/services/ServicePage';
+import type { IslandId } from '@/data/islands';
+import { islands } from '@/data/islands';
+import type { ServiceFaqItem } from '@/pages/services/ServicePage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -40,10 +42,13 @@ interface PrivateChefContent {
   faqs: ServiceFaqItem[];
 }
 
-const content: Record<LiveIslandId, PrivateChefContent> = {
+const content: Record<IslandId, PrivateChefContent> = {
   maui: {
     islandName: 'Maui',
     path: '/maui/private-chef',
+    h1: 'Personal chef for Maui villas.',
+    heroImage: '/photos/maui-wailea-kitchen-plating.jpg',
+    heroAlt: 'Chef’s hands finishing seared fish in a Wailea villa kitchen.',
     h1: 'Your private chef on Maui.',
     heroImage: '/photos/maui-villa-terrace-cocktail-bar.jpg',
     heroAlt: 'A Maui villa terrace at sunset with a stocked cocktail bar overlooking the Pacific. Campaign still, not a documented event.',
@@ -68,14 +73,26 @@ const content: Record<LiveIslandId, PrivateChefContent> = {
         q: 'How early should we book for December through March?',
         a: 'Peak-season dates go first. As a launch-season kitchen our calendar is still open, but the holidays and spring break book weeks out — ask early, and we hold confirmed dates in writing.',
       },
+      {
+        q: 'Private chef Maui cost — what do I actually pay?',
+        a: 'CORE $150–$250 per person. Groceries for Stay Chef at cost with receipts. Service 20% and Hawaiʻi GET up to 4.712% on their own lines — once. Published prices and a written menu, not a named-chef marketplace.',
+      },
+      {
+        q: 'Do you do a private sushi chef on Maui?',
+        a: 'We can arrange a sushi-forward menu — nigiri, sashimi, hand rolls — cooked in your villa. It is a menu direction, not a separate brand. Ask on WhatsApp.',
+      },
+      {
+        q: 'Can I request a female private chef on Maui?',
+        a: 'Chefs are assigned to the booking, not sold as a gender marketplace. If you have a preference, say so — we will match when the calendar allows. We do not invent chef names or bios.',
+      },
     ],
   },
   oahu: {
     islandName: 'Oʻahu',
     path: '/oahu/private-chef',
-    h1: 'Your private chef on Oʻahu.',
+    h1: 'Personal chef for Oahu villas.',
     heroImage: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
-    heroAlt: 'Plated private-chef dinner on an Oʻahu Gold Coast lānai at dusk. Campaign still, not a documented event.',
+    heroAlt: 'Plated private-chef dinner on an Oʻahu Gold Coast lānai at dusk.',
     bandTiers: [
       { tier: 'ENTRY', label: 'Entry' },
       { tier: 'CORE', label: 'Core myCHEF' },
@@ -96,6 +113,68 @@ const content: Record<LiveIslandId, PrivateChefContent> = {
       {
         q: 'Do you serve residents, not just visitors?',
         a: 'Yes — the kamaʻāina weekly line is a standing weekly chef service for Oʻahu households, from Kahala to Hawaiʻi Kai. It has its own anchor on the vacation chef page, under #weekly.',
+      },
+    ],
+  },
+  kauai: {
+    islandName: 'Kauaʻi',
+    path: '/kauai/private-chef',
+    h1: 'Personal chef for Kauai villas.',
+    heroImage: '/photos/kauai-chef-plating-seared-fish-mountains.jpg',
+    heroAlt: 'Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond.',
+    bandTiers: [
+      { tier: 'CORE', label: 'Core myCHEF' },
+      { tier: 'ENTRY', label: 'Entry' },
+    ],
+    faqs: [
+      {
+        q: 'Is Kauaʻi a waitlist island?',
+        a: 'Kauaʻi is inquiry-stage. Join the inquiry list with the shore and the dates. Far-North (Hāʻena) needs 72-hour notice and a weather/road clause — we publish that instead of pretending the Hanalei bridge never closes.',
+      },
+      {
+        q: 'Princeville or Poʻipū — does the price change?',
+        a: 'Menu bands are the Kauaʻi card — CORE $150–$250 per person, Maui-class. Drive time is a published zone line, not a hidden markup on the fish.',
+      },
+      {
+        q: 'Do you cook in a vacation rental?',
+        a: 'Yes, when there is a real kitchen. Hotel rooms without cooktops are declined or redesigned. WhatsApp the property type.',
+      },
+      {
+        q: 'Can you staff a small wedding?',
+        a: 'Estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. Kauai wedding catering from $175 a guest plus staffing — see /catering.',
+      },
+      {
+        q: 'A staffed event or a private chef?',
+        a: 'A villa dinner is this page. Ten to seventy-five guests is the catering page: menu, prices, buffet or plated.',
+      },
+    ],
+  },
+  bigisland: {
+    islandName: 'Hawaiʻi Island',
+    path: '/bigisland/private-chef',
+    h1: 'Personal chef for Big Island villas.',
+    heroImage: '/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg',
+    heroAlt: 'Whole grilled fish and tropical fruit on Kohala lava rock at golden hour.',
+    bandTiers: [
+      { tier: 'CORE', label: 'Core myCHEF' },
+      { tier: 'ENTRY', label: 'Entry' },
+    ],
+    faqs: [
+      {
+        q: 'How much is a private chef in Kona?',
+        a: 'CORE dinners start at $150–$225 per person. ENTRY from $110. Stay Chef from $950/day. Written quote before you commit.',
+      },
+      {
+        q: 'Can you cover Hilo from Kona?',
+        a: 'Not in one day. East side is 2.5–3 hours — dedicated staffing, quoted honestly. West-side villas are the default.',
+      },
+      {
+        q: 'Do you take Ironman week?',
+        a: 'Yes, with compressed availability. Flag those dates early on WhatsApp.',
+      },
+      {
+        q: 'Airbnb kitchens?',
+        a: 'Yes, when they actually cook. We shop Kona-side the day of service and leave the kitchen clean.',
       },
     ],
   },
@@ -133,7 +212,7 @@ function Inclusions() {
           {inclusions.map((tile) => (
             <div
               key={tile.title}
-              className="rounded-[14px] border border-stone bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1"
+              className="border border-stone bg-white p-5 transition-all duration-300 "
             >
               <tile.icon aria-hidden="true" className="h-6 w-6 text-clay" strokeWidth={1.5} />
               <h3 className="mt-4 font-display text-[1.125rem] font-medium leading-[1.2] text-ink">{tile.title}</h3>
@@ -215,7 +294,7 @@ function MenusDietary() {
     <section className="bg-ivory py-20 lg:py-28">
       <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-2 lg:px-10">
         <Reveal>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Menus & dietary</p>
+          <p className="text-[12px] text-ink-soft">Menus & dietary</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
             How menus work.
           </h2>
@@ -255,12 +334,7 @@ function MauiExtras() {
 
   return (
     <>
-      <section id="chefs-table" className="grain-dark relative overflow-hidden bg-ink py-20 lg:py-28">
-        <Contours
-          stroke="#9C7A33"
-          strokeWidth={1}
-          className="absolute -left-32 top-1/2 h-[520px] w-[700px] -translate-y-1/2 opacity-25"
-        />
+      <section id="chefs-table" className="relative overflow-hidden bg-ink py-20 lg:py-28">
         <div className="relative mx-auto w-full max-w-container px-5 lg:px-10">
           <SectionIntro
             dark
@@ -270,13 +344,10 @@ function MauiExtras() {
           />
           <Reveal delay={0.15} className="mt-8 flex flex-col gap-4">
             {ultra ? (
-              <BandChip onDark label={`Chef’s table ${formatBand(ultra)}/pp — ${ultra.model}`} />
+              <BandChip onDark label={`Chef’s table ${formatBand(ultra)} a guest — ${ultra.model}`} />
             ) : null}
-            <p className="flex flex-wrap items-center gap-2 text-sm leading-[1.65] text-ivory/75">
-              <span>The resort version seats you with strangers at $150/pp.</span>
-              <StatusChip kind="pending" onDark>
-                Published anchor — labeled
-              </StatusChip>
+            <p className="text-sm leading-[1.65] text-ivory/75">
+              The resort version seats you with strangers at $150 a guest.
             </p>
           </Reveal>
         </div>
@@ -286,7 +357,7 @@ function MauiExtras() {
         <div className="mx-auto grid w-full max-w-container items-center gap-10 px-5 lg:grid-cols-2 lg:px-10">
           <Reveal>
             <figure>
-              <div className="overflow-hidden rounded-[14px]">
+              <div className="overflow-hidden ">
                 <img
                   src="/photos/oahu-villa-lanai-plated-dinner-dusk.jpg"
                   alt="Dinner for two on a villa lānai at dusk — seared fish, wine, candlelight. Campaign still, not a documented event."
@@ -295,7 +366,7 @@ function MauiExtras() {
                 />
               </div>
               <figcaption className="mt-3 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink-soft">
-                Concept image — not a myCHEF Hawaiʻi event. Final photography pending.
+                Date Night — cooked in the villa.
               </figcaption>
             </figure>
           </Reveal>
@@ -325,7 +396,7 @@ function OahuExtras() {
     <section className="bg-sand py-20 lg:py-28">
       <div className="mx-auto grid w-full max-w-container gap-10 px-5 lg:grid-cols-2 lg:px-10">
         <Reveal>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Oʻahu — condo kitchens</p>
+          <p className="text-[12px] text-ink-soft">Oʻahu — condo kitchens</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
             Small kitchen? No problem.
           </h2>
@@ -343,7 +414,7 @@ function OahuExtras() {
         <Reveal delay={0.15} className="flex items-center">
           <Link
             to="/oahu/vacation-chef#weekly"
-            className="group block w-full rounded-[14px] border border-stone bg-white p-8 shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
+            className="group block w-full border border-stone bg-white p-8 transition-all duration-300 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
           >
             <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-moss">For residents</p>
             <h3 className="mt-3 font-display text-[1.375rem] font-medium leading-[1.2] text-ink">
@@ -362,12 +433,32 @@ function OahuExtras() {
   );
 }
 
+function NeighborExtras({ island }: { island: IslandId }) {
+  const n = islands[island].name;
+  return (
+    <section className="bg-sand py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+        <SectionIntro
+          eyebrow={`${n} — how we cook it`}
+          title="Villa kitchens. Published prices. No waitlist."
+          body="Family week, one dinner, or a wedding-week stack. Cleanup included. Groceries at cost on Stay Chef. WhatsApp the dates."
+        />
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- Page ---------------- */
 
-export default function PrivateChefPage({ island }: { island: LiveIslandId }) {
+export default function PrivateChefPage({ island }: { island: IslandId }) {
   useHashScroll();
   const c = content[island];
   const tiers = getTiers(island);
+  const crumbs = [
+    { label: 'Home', to: '/' },
+    { label: c.islandName, to: '/' },
+    { label: 'Private Chef' },
+  ];
   const crumbs = useHostHomeCrumbs('Private Chef');
 
   return (
@@ -379,28 +470,27 @@ export default function PrivateChefPage({ island }: { island: LiveIslandId }) {
         lede="Your chef designs the menu with you, shops that day, arrives three hours before service, cooks, serves, and leaves the kitchen cleaner than they found it."
         image={c.heroImage}
         imageAlt={c.heroAlt}
+        island={island}
+        whatsappIntent="a private chef"
         chips={c.bandTiers.map(({ tier, label }) => {
           const entry = tiers.find((t) => t.tier === tier);
           return entry ? (
-            <BandChip key={tier} onDark label={`${label} ${formatBand(entry)}/pp`} />
+            <BandChip key={tier} onDark label={`${label} ${formatBand(entry)} a guest`} />
           ) : null;
         })}
-        primary={{ label: 'Request a Quote', to: `/quote?island=${island}&service=private-chef` }}
-        secondary={{ label: 'See pricing orientation →', to: '/pricing' }}
+        primary={{ label: 'Get a quote', to: `/quote?island=${island}&service=private-chef` }}
+        secondary={{ label: 'See pricing →', to: '/pricing' }}
       />
       <Inclusions />
       <EveningTimeline />
       <MenusDietary />
-      {island === 'maui' ? <MauiExtras /> : <OahuExtras />}
-      <section className="bg-sand py-20 lg:py-28">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <ZoneStrip islandId={island} />
-        </div>
-      </section>
+      {island === 'maui' ? <MauiExtras /> : island === 'oahu' ? <OahuExtras /> : <NeighborExtras island={island} />}
+      <Longform sections={privateChefLongform[island].sections} />
+      <SiblingCluster island={island} current="chef" />
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <ServiceFaq
-            items={c.faqs}
+            items={[...c.faqs, ...privateChefLongform[island].faqs]}
             intro={`Island-specific answers for ${c.islandName} — statewide answers live on the homepage.`}
           />
         </div>

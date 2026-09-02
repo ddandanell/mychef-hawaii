@@ -7,7 +7,6 @@ import { photos } from '@/data/photos';
 import {
   FEE_DISCLOSURE,
   STAFFING,
-  feeStack,
   formatFrom,
   formatMobileBarGuest,
   formatMobileBarPackage,
@@ -23,7 +22,6 @@ import {
   ServiceFaq,
   ServiceHero,
   serviceJsonLd,
-  ZoneStrip,
   useHashScroll,
   useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
@@ -51,6 +49,8 @@ const COPY: Record<
   kauai: {
     h1: 'Estate cocktails on both Kauaʻi shores.',
     lede:
+      'Princeville, Hanalei and Poʻipū — a bartender on the terrace. Stack with a Kauaʻi chef night or book the hour. Starting prices published.',
+    hero: photos.kauaiNorth,
       'Princeville, Hanalei and Poʻipū — a bartender on the terrace when the island team launches. Dated inquiries set the sequence. Starting prices are published now.',
     hero: photos.bar,
     places: 'Princeville, Hanalei, Poʻipū, Kōloa',
@@ -58,6 +58,8 @@ const COPY: Record<
   bigisland: {
     h1: 'Sunset pours on the Kohala Coast.',
     lede:
+      'Lava-coast terraces in the Kona–Kohala corridor. Bartender add-on or a 4-hour mobile-bar package. The rate is published so you can plan.',
+    hero: photos.kohalaFish,
       'Lava-coast terraces in the Kona–Kohala corridor. Inquiry-stage until a west-side team is staffed. The rate is published so you can plan.',
     hero: photos.bar,
     places: 'Kohala Coast, Waikoloa, Mauna Kea resort belt, Kona',
@@ -132,7 +134,9 @@ export default function BarPage() {
           image={copy.hero.file}
           imageAlt={copy.hero.alt}
           chips={heroChips}
-          primary={{ label: 'Request a bar quote', to: `/quote?island=${id}&service=mobile-bar` }}
+          island={id}
+          whatsappIntent="a mobile bar"
+          primary={{ label: 'Get a bar quote', to: `/quote?island=${id}&service=mobile-bar` }}
           secondary={{ label: 'See the package ↓', to: '#package' }}
         />
       )}
@@ -144,33 +148,29 @@ export default function BarPage() {
             title="A 4-hour terrace package — or per guest."
             body={FEE_DISCLOSURE}
           />
-          <Reveal stagger className="mt-14 grid gap-6 lg:grid-cols-3">
-            <article className="rounded-[18px] border-2 border-clay bg-white p-7 shadow-soft lg:p-8">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft">4-hour package</p>
-              <p className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink">
-                {formatFrom(bar.packageFrom)}
+          <div className="mt-14">
+            <div className="grid gap-2 border-b border-stone py-6 md:grid-cols-[1fr_auto] md:items-baseline">
+              <p className="font-display text-[1.375rem] font-light text-ink">4-hour package</p>
+              <p className="font-display text-[2.5rem] font-light text-ink">{formatFrom(bar.packageFrom)}</p>
+              <p className="text-[17px] text-ink-soft md:col-span-2">
+                + ${bar.packagePerGuest} a guest · bartender + setup · {island.name}
               </p>
-              <p className="mt-2 text-sm text-ink-soft">
-                + ${bar.packagePerGuest}/guest · bartender + setup · {island.name}
-              </p>
-            </article>
-            <article className="rounded-[18px] border border-stone bg-white p-7 shadow-soft lg:p-8">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft">Per guest</p>
-              <p className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink">
+            </div>
+            <div className="grid gap-2 border-b border-stone py-6 md:grid-cols-[1fr_auto] md:items-baseline">
+              <p className="font-display text-[1.375rem] font-light text-ink">Per guest</p>
+              <p className="font-display text-[2.5rem] font-light text-ink">
                 {formatRange(bar.perGuest[0], bar.perGuest[1])}
               </p>
-              <p className="mt-2 text-sm text-ink-soft">{bar.model}</p>
-            </article>
-            <article className="rounded-[18px] border border-stone bg-white p-7 shadow-soft lg:p-8">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft">Staffing</p>
-              <p className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink">
-                from ${STAFFING.serverHourly}/hr
-              </p>
-              <p className="mt-2 text-sm text-ink-soft">
+              <p className="text-[17px] text-ink-soft md:col-span-2">{bar.model}</p>
+            </div>
+            <div className="grid gap-2 border-b border-stone py-6 md:grid-cols-[1fr_auto] md:items-baseline">
+              <p className="font-display text-[1.375rem] font-light text-ink">Staffing</p>
+              <p className="font-display text-[2.5rem] font-light text-ink">from ${STAFFING.serverHourly}/hr</p>
+              <p className="text-[17px] text-ink-soft md:col-span-2">
                 Extra servers {STAFFING.minimumHours}–5 hr minimums · sous-chef ${STAFFING.sousHourly}/hr
               </p>
-            </article>
-          </Reveal>
+            </div>
+          </div>
           <p className="mt-8 max-w-[65ch] text-sm leading-relaxed text-ink-soft">{bar.note}</p>
           <p className="mt-3 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">{copy.places}</p>
         </div>
@@ -182,26 +182,20 @@ export default function BarPage() {
             <img
               src={photos.bartender.file}
               alt={photos.bartender.alt}
-              className="aspect-[4/3] w-full rounded-[18px] object-cover shadow-soft"
+              className="aspect-[4/3] w-full object-cover"
             />
           </Reveal>
           <div>
             <SectionIntro
               eyebrow="Stacked with the kitchen"
-              title="Bar + chef, like Bali — priced for Hawaiʻi."
+              title="Bar + chef, stacked on one quote."
               body="Most tables book the bartender next to the dinner. Wedding weeks add a welcome pour. The quote itemises both so nothing is buried in a menu price."
             />
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link
-                to={href('/private-chef')}
-                className="rounded-full border border-stone bg-white px-4 py-2 text-sm text-ink hover:border-clay/50"
-              >
+            <div className="mt-8 flex flex-wrap gap-6">
+              <Link to={href('/private-chef')} className="text-sm text-ink underline underline-offset-4">
                 Private chef
               </Link>
-              <Link
-                to={href('/wedding-catering')}
-                className="rounded-full border border-stone bg-white px-4 py-2 text-sm text-ink hover:border-clay/50"
-              >
+              <Link to={href('/weddings')} className="text-sm text-ink underline underline-offset-4">
                 Wedding week
               </Link>
             </div>
@@ -211,16 +205,15 @@ export default function BarPage() {
 
       <section className="bg-ivory py-24 lg:py-32">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <ZoneStrip islandId={id} />
-          <div className="mt-12 space-y-3">
-            {feeStack
-              .filter((r) => r.chip === 'RPR — ATTORNEY' || r.chip === 'RPR — CPA' || r.label.startsWith('Gratuity'))
-              .map((row) => (
-                <p key={row.label} className="font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.08em] text-ink-soft">
-                  {row.label}
-                </p>
-              ))}
-          </div>
+          <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink">Where we pour</h2>
+          <p className="mt-5 max-w-[60ch] text-[17px] leading-relaxed text-ink-soft">{copy.places}</p>
+          <p className="mt-8 max-w-[65ch] text-[17px] leading-[1.65] text-ink-soft">
+            Service 20% and Hawaiʻi GET are added as their own lines.{' '}
+            <Link to="/legal" className="text-ink underline underline-offset-4">
+              Legal
+            </Link>
+            .
+          </p>
         </div>
       </section>
 

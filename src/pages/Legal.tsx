@@ -3,11 +3,7 @@ import { Link } from 'react-router';
 import type { ReactNode } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight } from 'lucide-react';
-import Contours from '@/components/Contours';
 import Reveal from '@/components/Reveal';
-import StatusChip from '@/components/StatusChip';
-import type { ChipKind } from '@/components/StatusChip';
 import WordMask from '@/components/WordMask';
 import { feeStack } from '@/data/rateCard';
 import { cn } from '@/lib/utils';
@@ -21,35 +17,25 @@ gsap.registerPlugin(ScrollTrigger);
  * label (RPR / CPA), adjacent to the number it governs.
  */
 
-function feeChipKind(chip: string): ChipKind {
-  if (chip.startsWith('VERIFIED')) return 'verified';
-  if (chip.startsWith('RPR')) return 'rpr';
-  if (chip.startsWith('PUBLISHED')) return 'published';
-  return 'published';
-}
-
-/* ---------------- Section 1 — Header ---------------- */
-
 function Header() {
   return (
     <section className="relative overflow-hidden bg-ivory pt-20 lg:pt-28">
-      <Contours className="absolute -right-24 -top-16 h-96 w-[520px] opacity-[0.06]" stroke="#A34A28" />
       <div className="relative mx-auto w-full max-w-container px-5 lg:px-10">
-        <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Policies</p>
-        <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
+        <p className="text-[12px] text-ink-soft">Policies</p>
+        <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink">
           <WordMask text="The fine print, in large type." delay={0.15} />
         </h1>
         <Reveal delay={0.6} y={24}>
           <p className="mt-6 max-w-[68ch] text-[1.25rem] leading-[1.55] text-ink">
             Everything that governs a myCHEF Hawaii booking, written to be read. Items still under
-            professional review are labeled exactly that.
+            counsel or CPA review are written as sentences, not labels.
           </p>
         </Reveal>
         <Reveal delay={0.75} className="mt-8 max-w-[68ch]">
-          <p className="rounded-[10px] border border-brass px-5 py-4 font-mono text-[0.75rem] uppercase leading-6 tracking-[0.08em] text-brass">
+          <p className="text-[17px] leading-[1.65] text-ink-soft">
             This page describes policy posture, not executed legal terms. Final contracts are
-            attorney-drafted. Chips: <span className="whitespace-nowrap">RPR = requires professional review</span>{' '}
-            · <span className="whitespace-nowrap">CPA = CPA sign-off pending</span>.
+            attorney-drafted. Tax figures await CPA sign-off. Deposit and cancellation windows are
+            proposed until counsel drafts the booking terms.
           </p>
         </Reveal>
       </div>
@@ -61,10 +47,6 @@ function Header() {
 
 function P({ children }: { children: ReactNode }) {
   return <p className="mt-4 max-w-[68ch] text-[1.0625rem] leading-[1.65] text-ink-soft">{children}</p>;
-}
-
-function ChipRow({ children }: { children: ReactNode }) {
-  return <span className="mt-3 flex flex-wrap items-center gap-2">{children}</span>;
 }
 
 const cancellationTiers = [
@@ -83,21 +65,18 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
         <P>
           Every booking is confirmed by an itemised written quote: menu price, staffing, travel-zone fees,
           service charge and tax posture — each on its own line.{' '}
-          <StatusChip kind="verified">Verified — Policy</StatusChip>
         </P>
         <P>
           Indicative website bands are published starting prices. Your written quote confirms the night.{' '}
-          <StatusChip kind="published">Published</StatusChip>
         </P>
-        <div className="mt-6 rounded-[14px] border border-stone bg-white p-5 lg:p-6">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink">
+        <div className="mt-6 border-t border-stone pt-5">
+          <p className="text-[12px] text-ink-soft">
             Every quote shows this fee stack
           </p>
           <ul className="mt-4 divide-y divide-stone">
             {feeStack.map((row) => (
               <li key={row.label} className="flex flex-wrap items-center gap-x-4 gap-y-2 py-3">
                 <span className="min-w-0 flex-1 text-sm leading-relaxed text-ink-soft">{row.label}</span>
-                <StatusChip kind={feeChipKind(row.chip)}>{row.chip}</StatusChip>
               </li>
             ))}
           </ul>
@@ -115,10 +94,7 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
           A deposit locks your date; the Hawaiʻi market norm is 50%, with final balance due 7–14 days before
           the event and headcount lock at 14–21 days.
         </P>
-        <ChipRow>
-          <StatusChip kind="published">Market norm — labeled</StatusChip>
-          <StatusChip kind="rpr">RPR</StatusChip>
-        </ChipRow>
+        <p className="mt-3 text-[12px] text-ink-soft">Deposit windows are proposed until counsel drafts the booking terms.</p>
         <P>No Hawaiʻi catering-deposit statute governs this; final terms are attorney-drafted.</P>
       </>
     ),
@@ -130,11 +106,11 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
     body: (
       <>
         <P>Proposed cancellation tiers — presented as proposed, not final:</P>
-        <div className="mt-4 max-w-[68ch] rounded-[14px] border border-stone bg-white">
+        <div className="mt-4 max-w-[68ch] border border-stone bg-white">
           <ul className="divide-y divide-stone">
             {cancellationTiers.map((t) => (
               <li key={t.window} className="flex items-center gap-4 px-5 py-3.5">
-                <span className="w-24 shrink-0 font-mono text-[0.75rem] uppercase tracking-[0.1em] text-brass">
+                <span className="w-24 shrink-0 text-[12px] text-ink-soft">
                   {t.window}
                 </span>
                 <span className="text-sm leading-relaxed text-ink-soft">{t.posture}</span>
@@ -142,12 +118,10 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
             ))}
           </ul>
         </div>
-        <ChipRow>
-          <StatusChip kind="rpr">RPR — Attorney review</StatusChip>
-        </ChipRow>
+        <p className="mt-3 text-[12px] text-ink-soft">Cancellation tiers are proposed, pending attorney review.</p>
         <P>
           Force-majeure: road closures, flood advisories and bridge closures (e.g., Hanalei) reschedule
-          rather than forfeit, where safe and feasible. <StatusChip kind="rpr">RPR</StatusChip>
+          rather than forfeit, where safe and feasible. Force-majeure language is pending attorney review.
         </P>
       </>
     ),
@@ -163,11 +137,8 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
           the maximum rate is 4.7120% including county surcharge — identical on all four islands, valid
           through December 31, 2030 — always shown as its own line.
         </P>
-        <ChipRow>
-          <StatusChip kind="verified">Verified — DOTAX-derived</StatusChip>
-          <StatusChip kind="rpr">CPA sign-off pending</StatusChip>
-        </ChipRow>
-        <p className="mt-5 font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ink-soft">
+        <p className="mt-3 text-[12px] text-ink-soft">GET rate is taken from DOTAX. CPA sign-off is pending.</p>
+        <p className="mt-5 text-[12px] leading-5 text-ink-soft">
           We will never display the obsolete 4.166% figure.
         </p>
       </>
@@ -184,10 +155,7 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
           requires it be distributed to employees as tip income or its retention clearly disclosed. Our
           quotes will state which, in writing.
         </P>
-        <ChipRow>
-          <StatusChip kind="published">Market norm — labeled</StatusChip>
-          <StatusChip kind="rpr">RPR — Attorney</StatusChip>
-        </ChipRow>
+        <p className="mt-3 text-[12px] text-ink-soft">Service-charge distribution is pending attorney review.</p>
         <P>Gratuity beyond that is always voluntary.</P>
       </>
     ),
@@ -201,11 +169,11 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
         <P>
           Operating structure, food-handler certification pathway and insurance certificates publish here
           when issued and verifiable.{' '}
-          <StatusChip kind="pending">Pending — publish only if true</StatusChip>
+          License numbers publish here only when issued and verifiable.
         </P>
         <P>
           We do not display license numbers or certificates we don&apos;t hold.{' '}
-          <StatusChip kind="not-available">Prohibited</StatusChip>
+
         </P>
       </>
     ),
@@ -265,8 +233,8 @@ function PolicyDocument() {
                 key={s.id}
                 href={`#${s.id}`}
                 className={cn(
-                  'whitespace-nowrap rounded-full border px-3 py-1.5 font-mono text-[0.6875rem] uppercase tracking-[0.08em] transition-colors',
-                  active === s.id ? 'border-brass text-brass' : 'border-stone text-ink-soft',
+                  'whitespace-nowrap border-b px-3 py-1.5 text-[12px] transition-colors',
+                  active === s.id ? 'border-ink text-ink' : 'border-transparent text-ink-soft',
                 )}
               >
                 {s.num} · {s.title}
@@ -279,7 +247,7 @@ function PolicyDocument() {
           {/* Desktop: sticky section rail */}
           <nav aria-label="Policy sections" className="hidden lg:block">
             <div className="sticky top-32 self-start">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Contents</p>
+              <p className="text-[12px] text-ink-soft">Contents</p>
               <ul className="mt-6 space-y-1">
                 {policySections.map((s) => (
                   <li key={s.id}>
@@ -292,8 +260,8 @@ function PolicyDocument() {
                     >
                       <span
                         className={cn(
-                          'font-mono text-[0.75rem] tracking-[0.1em]',
-                          active === s.id ? 'text-brass' : 'text-ink-soft/60',
+                          'text-[12px]',
+                          active === s.id ? 'text-ink' : 'text-ink-soft/60',
                         )}
                       >
                         {s.num}
@@ -316,10 +284,10 @@ function PolicyDocument() {
                 className={cn('scroll-mt-32', i > 0 && 'mt-16 border-t border-stone pt-16')}
               >
                 <Reveal>
-                  <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">
+                  <p className="text-[12px] text-ink-soft">
                     §{s.num}
                   </p>
-                  <h2 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
+                  <h2 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-light leading-[1.1] tracking-[-0.015em] text-ink">
                     {s.title}
                   </h2>
                 </Reveal>
@@ -337,17 +305,14 @@ function PolicyDocument() {
 
 const labelExplainers = [
   {
-    chip: 'verified' as ChipKind,
     label: 'Verified',
     body: "Checked against an official or primary source, with period labels (e.g., 'CY2025, preliminary').",
   },
   {
-    chip: 'published' as ChipKind,
     label: 'Published',
     body: 'Starting prices from the rate card. Your written quote is the contract; service charge and GET stay on their own lines.',
   },
   {
-    chip: 'pending' as ChipKind,
     label: 'Labeled signal',
     body: 'Competitor or platform figures, date-stamped and attributed — never presented as neutral market facts.',
   },
@@ -364,9 +329,9 @@ function LabelsExplainer() {
         </Reveal>
         <Reveal stagger staggerDelay={0.1} className="mt-12 grid gap-5 md:grid-cols-3">
           {labelExplainers.map((l) => (
-            <div key={l.label} className="rounded-[14px] border border-stone bg-white p-6 lg:p-8">
-              <StatusChip kind={l.chip}>{l.label}</StatusChip>
-              <p className="mt-4 text-[1.0625rem] leading-[1.65] text-ink-soft">{l.body}</p>
+            <div key={l.label} className="border-b border-stone py-6">
+              <p className="text-[12px] text-ink-soft">{l.label}</p>
+              <p className="mt-3 text-[17px] leading-[1.65] text-ink-soft">{l.body}</p>
             </div>
           ))}
         </Reveal>
@@ -387,10 +352,9 @@ function SlimCta() {
           </p>
           <Link
             to="/quote"
-            className="inline-flex items-center gap-1.5 rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-clay active:scale-[0.97]"
+            className="inline-flex h-12 items-center bg-ink px-6 text-sm font-medium text-[#F6F1E8]"
           >
-            Request a Quote
-            <ArrowRight className="h-4 w-4" />
+            Enquire
           </Link>
         </Reveal>
       </div>

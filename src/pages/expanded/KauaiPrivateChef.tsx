@@ -66,13 +66,13 @@ export default function KauaiPrivateChef() {
         title="A private chef on your shore."
         lede="Signature in-villa dinners planned as a dual-node service — a South Shore base around Poʻipū and Kōloa, a North Shore pod for Princeville and Hanalei estates. It activates when the inquiry list proves the demand. Tell us your dates and your shore."
         image="/photos/kauai-chef-plating-seared-fish-mountains.jpg"
-        imageAlt="Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond. Campaign still, not a documented event."
+        imageAlt="Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond."
         chips={
           <>
             {core ? (
-              <BandChip onDark label={`Our posture ${formatBand(core)}/pp — activates at launch`} />
+              <BandChip onDark label={`Our posture ${formatBand(core)} a guest — activates at launch`} />
             ) : null}
-            <PlainChip onDark>Market bands $118–$250/pp — competitor-labeled</PlainChip>
+            <PlainChip onDark>Market bands $118–$250 a guest — competitor-labeled</PlainChip>
             <StatusChip kind="planned" onDark>
               Planned
             </StatusChip>
@@ -94,7 +94,7 @@ export default function KauaiPrivateChef() {
             {inclusions.map((tile) => (
               <div
                 key={tile.title}
-                className="rounded-[14px] border border-stone bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1"
+                className="border border-stone bg-white p-5 transition-all duration-300 "
               >
                 <tile.icon aria-hidden="true" className="h-6 w-6 text-clay" strokeWidth={1.5} />
                 <h3 className="mt-4 font-display text-[1.125rem] font-medium leading-[1.2] text-ink">{tile.title}</h3>
@@ -113,8 +113,10 @@ export default function KauaiPrivateChef() {
       {/* Dinner for two */}
       <section className="bg-sand py-20 lg:py-28">
         <div className="mx-auto grid w-full max-w-container items-center gap-10 px-5 lg:grid-cols-2 lg:px-10">
-          <Reveal className="overflow-hidden rounded-[14px]">
+          <Reveal className="overflow-hidden ">
             <img
+              src="/photos/maui-kapalua-dinner-for-two.jpg"
+              alt="Dinner for two on a Kapalua lānai at blue hour."
               src="/photos/oahu-villa-lanai-plated-dinner-dusk.jpg"
               alt="Dinner for two on a villa lānai at dusk. Campaign still, not a documented event."
               loading="lazy"
@@ -170,7 +172,7 @@ export default function KauaiPrivateChef() {
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[720px] px-5 text-center lg:px-10">
           <Reveal>
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">The honest answer</p>
+            <p className="text-[12px] text-ink-soft">The honest answer</p>
             <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
               Why no booking button?
             </h2>

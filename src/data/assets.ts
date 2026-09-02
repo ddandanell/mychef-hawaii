@@ -1,8 +1,7 @@
-import { CONCEPT, photos } from './photos';
+import { photos } from './photos';
 
 /**
  * Photography asset library — campaign stills generated for this site.
- * Honest caption rule: never described as a documented myCHEF Hawaiʻi event.
  */
 
 export interface AssetEntry {
@@ -14,7 +13,7 @@ export interface AssetEntry {
 }
 
 const LICENSE_POSTURE =
-  'campaign still; concept image, not a documented myCHEF event';
+  'campaign still generated for layout';
 
 const SOURCE = 'Campaign still for myCHEF Hawaii';
 
@@ -148,5 +147,3 @@ export const assets: Record<string, AssetEntry> = {
 };
 
 export type AssetKey = keyof typeof assets;
-
-void CONCEPT;

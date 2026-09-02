@@ -4,15 +4,18 @@ import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import { useIsland } from '@/context/IslandContext';
 import { getArea } from '@/data/areas';
 import { getLocation } from '@/data/locations';
+import { getMoneyNeighborhood } from '@/data/offers';
+import NeighborhoodMoneyPage from '@/pages/locations/NeighborhoodMoneyPage';
 import { HeroEyebrow, HeroFrame, HeroH1, PrimaryCta, SectionHead } from '@/pages/islands/shared';
 import LocationPage from '@/pages/locations/LocationPage';
 import NotFound from '@/pages/NotFound';
 
-/** mychef.id-style /private-chef/{area} cell. Uses full location doc when one exists. */
+/** /private-chef/{area} cell. Uses full location doc when one exists. */
 export default function AreaChefPage() {
   const { slug } = useParams();
   const { island, islandId } = useIsland();
   if (!island || !islandId || !slug) return <NotFound />;
+  if (getMoneyNeighborhood(islandId, slug)) return <NeighborhoodMoneyPage />;
   const loc = getLocation(islandId, slug);
   if (loc) return <LocationPage />;
 
@@ -27,7 +30,7 @@ export default function AreaChefPage() {
       />
       <HeroFrame island={island}>
         <HeroEyebrow island={island} />
-        <p className="mt-3 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ivory/70">
+        <p className="mt-3 text-[12px] text-ivory/70">
           Private chef · {area.name}
         </p>
         <HeroH1 text={`A chef in ${area.name}.`} />
@@ -45,8 +48,8 @@ export default function AreaChefPage() {
           <div>
             <SectionHead eyebrow="Logistics" title="Published, not discovered." />
             <p className="mt-6 text-[1.0625rem] leading-[1.65] text-ink-soft">{area.logistics}</p>
-            <Link to="/locations" className="mt-6 inline-block text-sm font-medium text-clay">
-              All {island.name} areas
+            <Link to="/private-chef" className="mt-6 inline-block text-sm font-medium text-clay">
+              Private chef — {island.name}
             </Link>
           </div>
         </div>

@@ -1,22 +1,14 @@
 import { Link } from 'react-router';
-import {
-  CalendarRange,
-  CloudRain,
-  Handshake,
-  UtensilsCrossed,
-  Users,
-  Wine,
-} from 'lucide-react';
+import { Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { weddingLongform } from '@/data/longformWeddings';
 import Reveal from '@/components/Reveal';
-import StatusChip from '@/components/StatusChip';
 import { useIsland } from '@/context/IslandContext';
 import type { IslandId } from '@/data/islands';
 import { photos } from '@/data/photos';
 import {
   FEE_DISCLOSURE,
   STAFFING,
-  feeStack,
   formatBand,
   formatFrom,
   formatOtherOffer,
@@ -50,7 +42,7 @@ const COPY: Record<
   { h1: string; lede: string; eyebrow: string; places: string; peak: string; hero: { file: string; alt: string } }
 > = {
   maui: {
-    h1: 'The whole wedding week, beautifully fed.',
+    h1: 'Wedding catering Maui — one team for the week.',
     lede:
       'One culinary team from the welcome dinner to the recovery brunch — private estate formats for 10 to 75 guests across Wailea, Kāʻanapali, Kapalua, Makena and Upcountry.',
     eyebrow: 'myCHEF Maui — Wedding weeks',
@@ -59,30 +51,30 @@ const COPY: Record<
     hero: photos.wedding,
   },
   oahu: {
-    h1: 'A wedding weekend on the Gold Coast — one kitchen.',
+    h1: 'Wedding catering Oahu — one kitchen for the weekend.',
     lede:
-      'Celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. Not a convention-centre product. One team, written quote, published starting prices.',
+      'Wedding catering Oahu: celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. One kitchen, written quote, published starting prices.',
     eyebrow: 'myCHEF Oʻahu — Wedding weekends',
     places: 'Kahala / Gold Coast, Ko Olina, Kailua estates, Waikīkī residences',
     peak: 'Year-round · December–March pressure',
     hero: photos.oahuEstate,
   },
   kauai: {
-    h1: 'Estate weddings on both Kauaʻi shores.',
+    h1: 'Kauai wedding catering — both shores.',
     lede:
-      'Princeville, Hanalei and Poʻipū — formats to about 75 guests. Inquiry-stage until a staffed island team exists. Starting prices are published so you can plan the week.',
+      'Kauai wedding catering in Princeville, Hanalei and Poʻipū — formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. From $175 a guest plus staffing. Inquiry stage.',
     eyebrow: 'myCHEF Kauaʻi — Estate weddings',
     places: 'Princeville, Hanalei, Poʻipū, Kōloa',
-    peak: 'North Shore winters book early — when we launch',
+    peak: 'North Shore winters book early',
     hero: photos.kauaiNorth,
   },
   bigisland: {
-    h1: 'Kohala estate weeks, when the west side launches.',
+    h1: 'Wedding catering Big Island.',
     lede:
-      'Kona–Kohala corridor first: Mauna Kea resort belt, Waikoloa, the lava coast. Dated inquiries, not a booking button, until the west-side team is insured and staffed.',
+      'Kona–Kohala corridor: Mauna Kea resort belt, Waikoloa, the lava coast. One culinary team for the week. Published starting prices. WhatsApp the date.',
     eyebrow: 'myCHEF Hawaiʻi Island — Estate weeks',
     places: 'Kohala Coast, Waikoloa, Mauna Kea, Kona',
-    peak: 'Inquiry list · west side first',
+    peak: 'West side first · Ironman weeks flag early',
     hero: photos.kohalaTable,
   },
 };
@@ -122,7 +114,7 @@ export default function IslandWeddingPage() {
 
   const chips = (
     <>
-      {core ? <BandChip label={`Reception from ${formatBand(core)}/pp`} onDark /> : null}
+      {core ? <BandChip label={`Reception from ${formatBand(core)} a guest`} onDark /> : null}
       <PlainChip onDark>{copy.peak}</PlainChip>
     </>
   );
@@ -152,7 +144,9 @@ export default function IslandWeddingPage() {
           image={copy.hero.file}
           imageAlt={copy.hero.alt}
           chips={chips}
-          primary={{ label: 'Request a wedding quote', to: `/quote?island=${id}&service=wedding-week` }}
+          island={id}
+          whatsappIntent="a wedding week"
+          primary={{ label: 'Request a quote', to: `/quote?island=${id}&service=wedding-week` }}
           secondary={{ label: 'See the week ↓', to: '#the-week' }}
         />
       )}
@@ -162,8 +156,8 @@ export default function IslandWeddingPage() {
           <SectionIntro eyebrow="The wedding week" title="One team, four events, no hand-offs." />
           <Reveal stagger staggerDelay={0.09} className="mt-14 space-y-8">
             {weekEvents.map((e) => (
-              <div key={e.day} className="rounded-[18px] border border-stone bg-white p-6 shadow-soft lg:p-8">
-                <h3 className="font-display text-[1.625rem] font-medium leading-[1.2] text-brass">{e.day}</h3>
+              <div key={e.day} className="border-b border-stone py-6">
+                <h3 className="font-display text-[1.625rem] font-light leading-[1.2] text-ink">{e.day}</h3>
                 <p className="mt-2 max-w-[60ch] text-[1.0625rem] leading-[1.65] text-ink-soft">{e.text}</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {e.chips.map((chip) => (
@@ -174,8 +168,8 @@ export default function IslandWeddingPage() {
             ))}
           </Reveal>
           <div className="mt-12 grid grid-cols-2 gap-4 lg:gap-6">
-            <img src={photos.wedding.file} alt={photos.wedding.alt} className="aspect-[4/3] w-full rounded-[18px] object-cover shadow-soft" />
-            <img src={photos.weddingDetail.file} alt={photos.weddingDetail.alt} className="aspect-[4/3] w-full rounded-[18px] object-cover shadow-soft" />
+            <img src={photos.wedding.file} alt="Wailea" className="aspect-[4/3] w-full object-cover" />
+            <img src={photos.weddingDetail.file} alt="Wailea" className="aspect-[4/3] w-full object-cover" />
           </div>
         </div>
       </section>
@@ -187,44 +181,39 @@ export default function IslandWeddingPage() {
             title="Reception, week stack, elopement — real numbers."
             body={FEE_DISCLOSURE}
           />
-          <Reveal stagger className="mt-14 grid gap-6 lg:grid-cols-3">
-            <article className="rounded-[18px] border-2 border-clay bg-white p-7 shadow-soft lg:p-8">
-              <h3 className="font-display text-[1.375rem] font-medium text-ink">Reception</h3>
-              <p className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink">
-                {core ? formatFrom(core.band[0]) : ''}
-                <span className="ml-2 font-sans text-base font-normal text-ink-soft">/ person</span>
+          <div className="mt-14">
+            <div className="grid gap-2 border-b border-stone py-6 md:grid-cols-[1fr_auto] md:items-baseline">
+              <h3 className="font-display text-[1.375rem] font-light text-ink">Reception</h3>
+              <p className="font-display text-[2.5rem] font-light text-ink">
+                {core ? formatFrom(core.band[0]) : ''} <span className="text-[17px] text-ink-soft">a guest</span>
               </p>
-              <p className="mt-3 text-sm text-ink-soft">
+              <p className="text-[17px] text-ink-soft md:col-span-2">
                 {formatOtherOffer(wedding, id)} · servers from ${STAFFING.serverHourly}/hr
               </p>
-            </article>
-            <article className="rounded-[18px] border border-stone bg-white p-7 shadow-soft lg:p-8">
-              <h3 className="font-display text-[1.375rem] font-medium text-ink">Week stack</h3>
-              <p className="mt-4 text-[1.0625rem] leading-relaxed text-ink-soft">
-                Welcome through recovery brunch, one proposal — one team, one invoice.
+            </div>
+            <div className="grid gap-2 border-b border-stone py-6">
+              <h3 className="font-display text-[1.375rem] font-light text-ink">Week stack</h3>
+              <p className="text-[17px] leading-relaxed text-ink-soft">
+                Welcome through recovery brunch, one proposal — one team, one invoice. {copy.places}
               </p>
-              <p className="mt-4 font-mono text-[0.75rem] uppercase tracking-[0.1em] text-ink-soft">{copy.places}</p>
-            </article>
-            <article className="rounded-[18px] border border-stone bg-white p-7 shadow-soft lg:p-8">
-              <h3 className="font-display text-[1.375rem] font-medium text-ink">Elopements</h3>
-              <p className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink">
+            </div>
+            <div className="grid gap-2 border-b border-stone py-6 md:grid-cols-[1fr_auto] md:items-baseline">
+              <h3 className="font-display text-[1.375rem] font-light text-ink">Elopements</h3>
+              <p className="font-display text-[2.5rem] font-light text-ink">
                 {formatFrom(two.byIsland[id].from, two.byIsland[id].highPlus)}
               </p>
-              <p className="mt-3 text-sm text-ink-soft">{formatOtherOffer(two, id)}</p>
-            </article>
-          </Reveal>
-          <div className="mt-10 space-y-3">
-            {feeStack
-              .filter((r) => r.chip === 'RPR — ATTORNEY' || r.chip === 'RPR — CPA' || r.label.startsWith('Booking'))
-              .map((row) => (
-                <p key={row.label} className="flex flex-wrap items-center gap-2 text-sm text-ink">
-                  <span className="font-mono text-[0.6875rem] uppercase tracking-[0.1em]">{row.label}</span>
-                  <StatusChip kind={row.chip.startsWith('RPR') ? 'rpr' : 'policy'}>{row.chip}</StatusChip>
-                </p>
-              ))}
+              <p className="text-[17px] text-ink-soft md:col-span-2">{formatOtherOffer(two, id)}</p>
+            </div>
           </div>
-          <Link to={href('/bar')} className="mt-8 inline-flex text-sm font-medium text-clay underline underline-offset-4">
-            Add the mobile bar →
+          <p className="mt-8 max-w-[65ch] text-[17px] leading-[1.65] text-ink-soft">
+            Service 20% and Hawaiʻi GET are added as their own lines.{' '}
+            <Link to="/legal" className="text-ink underline underline-offset-4">
+              Legal
+            </Link>
+            .
+          </p>
+          <Link to={href('/bar')} className="mt-6 inline-flex text-sm text-ink underline underline-offset-4">
+            Add the mobile bar
           </Link>
         </div>
       </section>
@@ -234,26 +223,31 @@ export default function IslandWeddingPage() {
           <SectionIntro eyebrow="Planner-friendly" title="What we handle." />
           <Reveal stagger className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { icon: UtensilsCrossed, title: 'Rentals & tabletop', text: 'Tables, linen, tabletop — coordinated before guests arrive.' },
-              { icon: Users, title: 'Staffing', text: `Servers from $${STAFFING.serverHourly}/hr · sous-chef $${STAFFING.sousHourly}/hr.` },
-              { icon: Wine, title: 'Bar', text: 'Mobile bar on the same quote. Licensing posture in writing.' },
-              { icon: CloudRain, title: 'Weather', text: 'Every outdoor event carries a written backup plan.' },
-              { icon: Handshake, title: 'Vendors', text: 'We slot into your planner’s team — timelines and COIs handled.' },
-              { icon: CalendarRange, title: 'The week', text: 'Four events, one culinary team, one plan.' },
+              { title: 'Rentals & tabletop', text: 'Tables, linen, tabletop — coordinated before guests arrive.' },
+              { title: 'Staffing', text: `Servers from $${STAFFING.serverHourly}/hr · sous-chef $${STAFFING.sousHourly}/hr.` },
+              { title: 'Bar', text: 'Mobile bar on the same quote. Licensing posture in writing.' },
+              { title: 'Weather', text: 'Every outdoor event carries a written backup plan.' },
+              { title: 'Vendors', text: 'We slot into your planner’s team — timelines and COIs handled.' },
+              { title: 'The week', text: 'Four events, one culinary team, one plan.' },
             ].map((t) => (
-              <div key={t.title} className="rounded-[18px] border border-stone bg-white p-6 shadow-soft">
-                <t.icon aria-hidden="true" className="h-6 w-6 text-clay" strokeWidth={1.5} />
-                <h3 className="mt-4 font-display text-[1.375rem] font-medium text-ink">{t.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-ink-soft">{t.text}</p>
+              <div key={t.title} className="border-b border-stone py-6">
+                <h3 className="font-display text-[1.375rem] font-light text-ink">{t.title}</h3>
+                <p className="mt-2 text-[17px] leading-relaxed text-ink-soft">{t.text}</p>
               </div>
             ))}
           </Reveal>
         </div>
       </section>
 
+      <Longform sections={weddingLongform[id].sections} />
+      <SiblingCluster island={id} current="weddings" />
+
       <section className="bg-sand py-24 lg:py-32">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <ServiceFaq items={faqs} title={`Asked before a ${island.name} wedding week.`} />
+          <ServiceFaq
+            items={[...faqs, ...weddingLongform[id].faqs]}
+            title={`Asked before a ${island.name} wedding week.`}
+          />
         </div>
       </section>
 

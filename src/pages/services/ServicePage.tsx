@@ -3,12 +3,9 @@ import type { ReactNode } from 'react';
 import { Link, useLocation } from 'react-router';
 import { motion } from 'framer-motion';
 import * as Accordion from '@radix-ui/react-accordion';
-import { ChevronDown } from 'lucide-react';
+import { DualCta } from '@/components/DualCta';
 import HeroMedia from '@/components/HeroMedia';
-import HostLink from '@/components/HostLink';
 import Reveal from '@/components/Reveal';
-import StatusChip from '@/components/StatusChip';
-import type { ChipKind } from '@/components/StatusChip';
 import WordMask from '@/components/WordMask';
 import { useIsland } from '@/context/IslandContext';
 import type { IslandId } from '@/data/islands';
@@ -23,8 +20,6 @@ import { cn } from '@/lib/utils';
  * objects (rateCard / zoneMap / proofRegister) — nothing here hard-codes a
  * price, zone, or proof claim.
  */
-
-export type LiveIslandId = Extract<IslandId, 'maui' | 'oahu'>;
 
 /* ---------------- JSON-LD ---------------- */
 
@@ -81,51 +76,22 @@ export function useHashScroll() {
   }, [hash]);
 }
 
-/* ---------------- Chips ---------------- */
+/* ---------------- Quiet price / fact lines (not pills) ---------------- */
 
-/** A published price/model line. Legal chips (CPA / attorney) stay optional. */
 export function BandChip({
   label,
-  chipLabel,
-  kind = 'published',
   onDark,
 }: {
   label: string;
   chipLabel?: string;
-  kind?: ChipKind;
+  kind?: string;
   onDark?: boolean;
 }) {
-  return (
-    <span className="inline-flex flex-wrap items-center gap-x-2 gap-y-1.5">
-      <span
-        className={cn(
-          'font-mono text-[0.75rem] uppercase leading-5 tracking-[0.1em]',
-          onDark ? 'text-ivory/90' : 'text-ink',
-        )}
-      >
-        {label}
-      </span>
-      {chipLabel ? (
-        <StatusChip kind={kind} onDark={onDark}>
-          {chipLabel}
-        </StatusChip>
-      ) : null}
-    </span>
-  );
+  return <p className={cn('text-[17px]', onDark ? 'text-ivory/90' : 'text-ink')}>{label}</p>;
 }
 
-/** A plain mono outline chip for non-price facts (guest ranges, peak months). */
 export function PlainChip({ children, onDark }: { children: ReactNode; onDark?: boolean }) {
-  return (
-    <span
-      className={cn(
-        'inline-flex items-center rounded-full border px-3 py-1 font-mono text-[0.6875rem] uppercase leading-4 tracking-[0.12em]',
-        onDark ? 'border-ivory/30 text-ivory/85' : 'border-stone text-ink-soft',
-      )}
-    >
-      {children}
-    </span>
-  );
+  return <span className={cn('text-[12px]', onDark ? 'text-ivory/70' : 'text-ink-soft')}>{children}</span>;
 }
 
 /* ---------------- Breadcrumb ---------------- */
@@ -148,10 +114,7 @@ export function Breadcrumb({ items, onDark }: { items: Crumb[]; onDark?: boolean
   return (
     <nav
       aria-label="Breadcrumb"
-      className={cn(
-        'font-mono text-[0.6875rem] uppercase tracking-[0.14em]',
-        onDark ? 'text-ivory/60' : 'text-ink-soft',
-      )}
+      className={cn('text-[12px]', onDark ? 'text-ivory/60' : 'text-ink-soft')}
     >
       {items.map((c, i) => (
         <span key={c.label}>
@@ -161,7 +124,7 @@ export function Breadcrumb({ items, onDark }: { items: Crumb[]; onDark?: boolean
             </span>
           ) : null}
           {c.to ? (
-            <Link to={c.to} className={cn('transition-colors', onDark ? 'hover:text-ivory' : 'hover:text-clay')}>
+            <Link to={c.to} className={cn('transition-colors', onDark ? 'hover:text-ivory' : 'hover:text-ink')}>
               {c.label}
             </Link>
           ) : (
@@ -191,6 +154,8 @@ export function ServiceHero({
   primary,
   secondary,
   fullHeight = false,
+  island,
+  whatsappIntent,
 }: {
   crumbs: Crumb[];
   eyebrow: string;
@@ -202,11 +167,13 @@ export function ServiceHero({
   primary: HeroCta;
   secondary: HeroCta;
   fullHeight?: boolean;
+  island?: IslandId;
+  whatsappIntent?: string;
 }) {
   return (
     <section
       className={cn(
-        'relative flex items-end overflow-hidden',
+        'relative -mt-16 flex items-end overflow-hidden',
         fullHeight ? 'min-h-[100svh] min-h-[640px]' : 'min-h-[80svh] min-h-[560px]',
       )}
     >
@@ -215,12 +182,9 @@ export function ServiceHero({
         <div className="max-w-[680px]">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.1 }}>
             <Breadcrumb items={crumbs} onDark />
-            <p className="mt-5 flex items-center gap-2.5 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">
-              <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
-              {eyebrow}
-            </p>
+            <p className="mt-5 text-[12px] text-ivory/80">{eyebrow}</p>
           </motion.div>
-          <h1 className="mt-5 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-white">
+          <h1 className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
             <WordMask text={title} delay={0.2} />
           </h1>
           <motion.div
@@ -228,29 +192,27 @@ export function ServiceHero({
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
           >
-            <p className="mt-6 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ivory/90 lg:text-[1.125rem]">
+            <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ivory/90">
               {lede}
             </p>
-            {chips ? <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">{chips}</div> : null}
+            {chips ? <div className="mt-6 space-y-1">{chips}</div> : null}
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              <Link
-                to={primary.to}
-                className="inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-clay active:scale-[0.97]"
-              >
-                {primary.label}
-              </Link>
-              {secondary.to.startsWith('#') ? (
-                <a
-                  href={secondary.to}
-                  className="text-sm font-medium text-ivory/90 underline decoration-brass/60 underline-offset-4 transition-colors hover:text-white"
+              {island ? (
+                <DualCta island={island} intent={whatsappIntent ?? title} />
+              ) : (
+                <Link
+                  to={primary.to}
+                  className="inline-flex h-12 items-center bg-[#F6F1E8] px-6 text-sm font-medium text-ink"
                 >
+                  {primary.label}
+                </Link>
+              )}
+              {secondary.to.startsWith('#') ? (
+                <a href={secondary.to} className="text-sm text-ivory/90 underline underline-offset-4 hover:text-white">
                   {secondary.label}
                 </a>
               ) : (
-                <Link
-                  to={secondary.to}
-                  className="text-sm font-medium text-ivory/90 underline decoration-brass/60 underline-offset-4 transition-colors hover:text-white"
-                >
+                <Link to={secondary.to} className="text-sm text-ivory/90 underline underline-offset-4 hover:text-white">
                   {secondary.label}
                 </Link>
               )}
@@ -279,12 +241,12 @@ export function SectionIntro({
 }) {
   return (
     <Reveal className={cn(center && 'mx-auto max-w-2xl text-center')}>
-      <p className={cn('font-mono text-[0.75rem] uppercase tracking-[0.18em]', dark ? 'text-brass' : 'text-clay')}>
+      <p className={cn('text-[12px]', dark ? 'text-ivory/70' : 'text-ink-soft')}>
         {eyebrow}
       </p>
       <h2
         className={cn(
-          'mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em]',
+          'mt-4 font-display text-[clamp(2rem,4vw,2.5rem)] font-light leading-[1.1]',
           dark ? 'text-ivory' : 'text-ink',
         )}
       >
@@ -314,53 +276,35 @@ export function ZoneStrip({ islandId }: { islandId: IslandId }) {
   const surcharge = zm.zones.filter((z) => z.class === 'surcharge');
   const quoteOnly = zm.zones.filter((z) => z.class === 'quote-only');
 
-  const rows: { label: string; value: string; bde: boolean }[] = [];
+  const rows: { label: string; value: string }[] = [];
   if (base.length) {
-    rows.push({ label: 'Base zones — included', value: base.map((z) => z.name).join(' · '), bde: false });
+    rows.push({ label: 'Included', value: base.map((z) => z.name).join(', ') });
   }
   if (surcharge.length) {
     rows.push({
-      label: 'Surcharge — published',
-      value: surcharge.map((z) => (z.driveTime ? `${z.name} (${z.driveTime})` : z.name)).join(' · '),
-      bde: surcharge.some((z) => z.feeChip === 'PUBLISHED'),
+      label: 'Travel surcharge',
+      value: surcharge.map((z) => (z.driveTime ? `${z.name} (${z.driveTime})` : z.name)).join(', '),
     });
   }
   if (quoteOnly.length) {
     rows.push({
-      label: 'Quote-only — extended drive',
-      value: quoteOnly.map((z) => z.name).join(' · '),
-      bde: quoteOnly.some((z) => z.feeChip === 'PUBLISHED'),
+      label: 'Quoted with the menu',
+      value: quoteOnly.map((z) => z.name).join(', '),
     });
   }
 
   return (
     <div>
-      <SectionIntro eyebrow="Coverage — honestly zoned" title={zm.headline} />
+      <SectionIntro eyebrow={`Coverage — ${isl.name}`} title={zm.headline} />
       <Reveal stagger staggerDelay={0.07} className="mt-10">
-        {rows.slice(0, 3).map((row) => (
-          <div
-            key={row.label}
-            className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 border-b border-stone py-4"
-          >
-            <span className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft">{row.label}</span>
-            <span className="flex flex-wrap items-center justify-end gap-2">
-              <span className="text-sm text-ink">{row.value}</span>
-              {row.bde ? <StatusChip kind="published">Quoted with the menu</StatusChip> : null}
-            </span>
+        {rows.map((row) => (
+          <div key={row.label} className="border-b border-stone py-4">
+            <p className="text-[12px] text-ink-soft">{row.label}</p>
+            <p className="mt-1 text-[17px] text-ink">{row.value}</p>
           </div>
         ))}
       </Reveal>
-      <Reveal delay={0.1}>
-        <p className="mt-6 font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ink-soft">
-          {zm.honestyLine}
-        </p>
-        <HostLink
-          island={isl.id}
-          className="mt-3 inline-flex items-center text-sm font-medium text-clay underline decoration-clay/40 underline-offset-4 transition-colors hover:text-clay-deep"
-        >
-          See the full zone module on the {isl.name} page →
-        </HostLink>
-      </Reveal>
+      <p className="mt-6 max-w-[65ch] text-[17px] leading-[1.65] text-ink-soft">{zm.honestyLine}</p>
     </div>
   );
 }
@@ -385,8 +329,8 @@ export function ServiceFaq({
     <div>
       <div className="grid gap-12 lg:grid-cols-5">
         <Reveal className="lg:col-span-2">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Questions</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
+          <p className="text-[12px] text-ink-soft">Questions</p>
+          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.5rem)] font-light leading-[1.1] text-ink">
             {title}
           </h2>
           {intro ? <p className="mt-4 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft">{intro}</p> : null}
@@ -397,8 +341,9 @@ export function ServiceFaq({
               <Accordion.Item key={f.q} value={`item-${i}`} className="border-b border-stone">
                 <Accordion.Header>
                   <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left">
-                    <span className="font-display text-[1.25rem] font-medium leading-[1.2] text-ink">{f.q}</span>
-                    <ChevronDown className="h-5 w-5 shrink-0 text-clay transition-transform duration-300 group-data-[state=open]:rotate-180" />
+                    <span className="font-display text-[1.25rem] font-light leading-[1.2] text-ink">{f.q}</span>
+                    <span className="text-[18px] text-ink-soft group-data-[state=open]:hidden">+</span>
+                    <span className="hidden text-[18px] text-ink-soft group-data-[state=open]:inline">–</span>
                   </Accordion.Trigger>
                 </Accordion.Header>
                 <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">

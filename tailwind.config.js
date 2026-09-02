@@ -7,7 +7,7 @@ module.exports = {
       fontFamily: {
         display: ["Fraunces", "Georgia", "serif"],
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["'JetBrains Mono'", "ui-monospace", "monospace"],
+        mono: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {
         soft: "0 1px 2px rgba(34,29,21,.05), 0 12px 32px -12px rgba(34,29,21,.14)",
@@ -18,12 +18,12 @@ module.exports = {
         spread: "1360px",
       },
       colors: {
-        ivory: "#F4EDE0",
-        sand: "#E8D8C0",
-        stone: "#D3C4A8",
+        ivory: "#F6F1E8",
+        sand: "#EDE6D8",
+        stone: "#DDD4C6",
         ink: {
-          DEFAULT: "#1A1510",
-          soft: "#5A5146",
+          DEFAULT: "#1C1916",
+          soft: "#8A8378",
         },
         clay: {
           DEFAULT: "#B34828",

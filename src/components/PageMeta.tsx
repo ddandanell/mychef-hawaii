@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router';
-import { siteUrl } from '@/config/site';
+import { canonicalUrl } from '@/config/site';
 import { useIsland } from '@/context/IslandContext';
 import { metaForPath } from '@/data/pageMeta';
 
@@ -32,7 +32,7 @@ export default function PageMeta({
     const el = document.querySelector('meta[name="description"]');
     if (el) el.setAttribute('content', resolved.description);
 
-    const canonicalHref = islandId ? siteUrl(islandId, localPath) : siteUrl('root', pathname);
+    const canonicalHref = islandId ? canonicalUrl(islandId, localPath) : canonicalUrl('root', pathname);
     const setMeta = (attr: 'name' | 'property', key: string, value: string) => {
       let node = document.head.querySelector(`meta[${attr}="${key}"]`) as HTMLMetaElement | null;
       if (!node) {
