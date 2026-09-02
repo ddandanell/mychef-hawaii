@@ -2,10 +2,11 @@ import { Link } from 'react-router';
 import HostLink from '@/components/HostLink';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
+import { quotePath } from '@/lib/paths';
 
 export default function Footer() {
   const { islandId, href } = useIsland();
-  const quoteTo = islandId ? href(`/quote?island=${islandId}`) : '/quote';
+  const quoteTo = quotePath(islandId ?? undefined);
 
   return (
     <footer className="bg-ink text-ivory">
@@ -68,7 +69,7 @@ export default function Footer() {
                 <li key={l.label}>
                   {islandId && l.path !== '/about' ? (
                     <Link
-                      to={l.path.startsWith('/quote') ? l.path : href(l.path)}
+                      to={href(l.path)}
                       className="text-sm text-ivory/80 hover:text-ivory"
                     >
                       {l.label}

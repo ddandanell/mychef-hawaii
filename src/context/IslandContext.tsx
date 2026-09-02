@@ -4,6 +4,7 @@ import { useLocation } from 'react-router';
 import { detectIslandFromHost, originFor, siteUrl } from '@/config/site';
 import type { IslandId, IslandMeta, IslandState } from '@/data/islands';
 import { islands } from '@/data/islands';
+import { islandHref } from '@/lib/paths';
 
 /**
  * IslandContext — each wildcard host is its own department.
@@ -68,11 +69,7 @@ export function IslandProvider({ children }: { children: ReactNode }) {
       basePath,
       hostMode,
       localPath,
-      href: (path: string) => {
-        const clean = path.startsWith('/') ? path : `/${path}`;
-        if (clean === '/') return basePath || '/';
-        return `${basePath}${clean}`;
-      },
+      href: (path: string) => islandHref(basePath, path),
       toHub: (path = '/') => (typeof window === 'undefined' ? path : siteUrl('root', path)),
       toIsland: (islandId, path = '/') =>
         typeof window === 'undefined' ? path : siteUrl(islandId, path),
