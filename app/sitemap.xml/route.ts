@@ -1,4 +1,4 @@
-import { ISLAND_HOSTS, PRODUCTION_ROOT, detectIslandFromHost } from '@/lib/site';
+import { PRODUCTION_ROOT, detectIslandFromHost } from '@/lib/site';
 import { MASTER_MAP, masterHostName, type MasterHost } from '@/data/commercialGraph';
 
 function xmlEscape(s: string): string {

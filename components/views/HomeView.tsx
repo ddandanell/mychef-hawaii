@@ -94,7 +94,7 @@ export default function HomeView() {
         </p>
         <p className="mt-4 text-[17px] text-paper">Signature dinner from $125 a guest, Oʻahu.</p>
         <div className="mt-8">
-          <QuoteCta />
+          <QuoteCta inverse />
         </div>
       </Hero>
 

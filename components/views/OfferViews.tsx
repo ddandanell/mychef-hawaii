@@ -100,7 +100,7 @@ export function IslandVacationView({ islandId, hostMode }: { islandId: IslandId;
         <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-paper">{copy.lede}</p>
         <p className="mt-4 text-[17px] text-paper">{formatDayRate(islandId)} · {day.model}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="vacation-chef" />
+          <QuoteCta island={islandId} service="vacation-chef" inverse />
         </div>
       </Hero>
       <SiblingCluster island={islandId} href={href} />

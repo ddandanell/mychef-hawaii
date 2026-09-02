@@ -53,7 +53,7 @@ export function HubBarView() {
         </p>
         <p className="mt-5 text-[17px] text-paper">From {formatMobileBarGuest('maui')}, Maui.</p>
         <div className="mt-8">
-          <QuoteCta service="mobile-bar" />
+          <QuoteCta service="mobile-bar" inverse />
         </div>
       </Hero>
       <section className="bg-paper py-20 lg:py-28">
@@ -121,7 +121,7 @@ export function IslandBarView({ islandId, hostMode }: { islandId: IslandId; host
         <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-paper">{copy.lede}</p>
         <p className="mt-4 text-[17px] text-paper">{formatMobileBarPackage(islandId)}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="mobile-bar" />
+          <QuoteCta island={islandId} service="mobile-bar" inverse />
         </div>
       </Hero>
       <LongFaq items={faqs} />

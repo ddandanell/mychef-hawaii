@@ -8,7 +8,7 @@ const base =
 
 const variants = {
   primary: `${base} bg-ink text-paper focus-visible:outline-ink`,
-  inverse: `${base} bg-paper text-ink focus-visible:outline-paper`,
+  inverse: `${base} bg-paper text-ink border border-ink focus-visible:outline-paper`,
   ghost: `${base} bg-transparent text-ink border border-ink focus-visible:outline-ink`,
   ghostInverse: `${base} bg-transparent text-paper border border-paper focus-visible:outline-paper`,
 } as const;

@@ -20,15 +20,27 @@ export default function Photo({
   width?: number;
   height?: number;
 }) {
-  const shared = {
-    src,
-    alt,
-    priority,
-    sizes,
-    className: cn('object-cover', className),
-  };
   if (fill) {
-    return <Image {...shared} fill />;
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        priority={priority}
+        sizes={sizes}
+        className={cn('object-cover', className)}
+      />
+    );
   }
-  return <Image {...shared} width={width ?? 1600} height={height ?? 1067} />;
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={width ?? 1600}
+      height={height ?? 1067}
+      priority={priority}
+      sizes={sizes}
+      className={cn('object-cover', className)}
+    />
+  );
 }

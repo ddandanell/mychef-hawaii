@@ -131,7 +131,7 @@ export default function AboutView() {
           marketplace freelancer with a tote bag.
         </p>
         <div className="mt-8">
-          <QuoteCta />
+          <QuoteCta inverse />
         </div>
       </Hero>
 

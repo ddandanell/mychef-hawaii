@@ -79,7 +79,7 @@ export default function IslandHomeView({
           Signature dinner from ${offer.fromPp} a guest, {island.shortName}.
         </p>
         <div className="mt-8">
-          <QuoteCta island={islandId} />
+          <QuoteCta island={islandId} inverse />
         </div>
       </Hero>
 

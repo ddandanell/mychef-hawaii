@@ -1,6 +1,7 @@
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
+import Photo from '@/components/Photo';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
@@ -102,15 +103,14 @@ export function HubWeddingsView() {
           seventy-five.
         </p>
         <div className="mt-8">
-          <QuoteCta service="wedding-week" />
+          <QuoteCta service="wedding-week" inverse />
         </div>
       </Hero>
 
       <section className="bg-paper">
         {islandsWeddings.map((row) => (
           <HostLink key={row.id} island={row.id} path="/weddings" className="group relative block min-h-[70svh] min-h-[420px] overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={row.img} alt={row.alt} className="absolute inset-0 h-full w-full object-cover" />
+            <Photo src={row.img} alt={row.alt} fill sizes="100vw" />
             <span
               aria-hidden="true"
               className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-[36rem] bg-gradient-to-r from-ink/32 via-ink/16 to-transparent"
@@ -153,7 +153,7 @@ export function IslandWeddingView({ islandId, hostMode }: { islandId: IslandId; 
         />
         <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-paper">{copy.lede}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="wedding-week" />
+          <QuoteCta island={islandId} service="wedding-week" inverse />
         </div>
       </Hero>
       <Longform sections={long.sections} />

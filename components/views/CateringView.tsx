@@ -153,7 +153,7 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
         />
         <p className="mt-5 max-w-[54ch] text-[17px] leading-[1.65] text-paper">{offer.lede}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="catering" />
+          <QuoteCta island={islandId} service="catering" inverse />
         </div>
       </Hero>
 

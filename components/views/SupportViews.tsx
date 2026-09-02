@@ -3,6 +3,7 @@ import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
 import LineReveal from '@/components/LineReveal';
+import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { islandOrder, islands } from '@/data/islands';
 import { feeStack } from '@/data/rateCard';
@@ -167,7 +168,7 @@ export function CorporateView() {
           Staffed private chef catering for 10–75 guests: villa retreats, production crews and private gatherings.
         </p>
         <div className="mt-8">
-          <QuoteCta service="catering-events" />
+          <QuoteCta service="catering-events" inverse />
         </div>
       </Hero>
       <section className="bg-paper py-20">
@@ -205,8 +206,7 @@ export function IslandsView() {
           const isl = islands[id];
           return (
             <HostLink key={id} island={id} className="relative block min-h-[70vh] overflow-hidden">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={isl.selectorImage} alt={isl.name} className="absolute inset-0 h-full w-full object-cover" />
+              <Photo src={isl.selectorImage} alt={isl.name} fill sizes="100vw" />
               <span className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-[36rem] bg-gradient-to-r from-ink/32 via-ink/16 to-transparent" />
               <span className="relative flex min-h-[70vh] items-end px-5 pb-16 lg:px-10">
                 <span className="block max-w-xl">
