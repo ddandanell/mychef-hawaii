@@ -15,7 +15,7 @@ export interface AssetEntry {
 const LICENSE_POSTURE =
   'campaign still generated for layout';
 
-const SOURCE = 'Campaign still for myCHEF Hawaii';
+const SOURCE = 'Generated campaign still for myCHEF Hawaii';
 
 export const assets: Record<string, AssetEntry> = {
   heroPrivateChef: {
@@ -135,7 +135,7 @@ export const assets: Record<string, AssetEntry> = {
     alt: photos.catering.alt,
     source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck: 'Pass: plated outdoor table under tent; no named venue.',
+    culturalCheck: 'Pass: working chef team; no named venue.',
   },
   kohala: {
     file: photos.kohalaFish.file,
