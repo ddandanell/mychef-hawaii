@@ -6,7 +6,7 @@ import { PackageGrid } from '@/components/PackageGrid';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import { hubPricingSections } from '@/data/longformHub';
 import { useIsland } from '@/context/IslandContext';
-import { islandOrder, islands } from '@/data/islands';
+import { islandOrder, islands, primaryCtaLabel } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
 import {
   formatBand,
@@ -145,7 +145,7 @@ export default function Pricing() {
             Minimum party usually six. Groceries sit inside the dinner band. Small parties are quoted as a
             fixed night — ask us.{' '}
             <Link to={`/quote?island=${active}&service=signature-dinner`} className="text-ink underline underline-offset-4">
-              Enquire
+              {primaryCtaLabel(active)}
             </Link>
             .
           </p>

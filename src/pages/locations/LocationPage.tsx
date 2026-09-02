@@ -157,7 +157,7 @@ export default function LocationPage() {
               to={loc.quoteQuery}
               className="inline-flex h-12 items-center bg-[#F6F1E8] px-6 text-sm font-medium text-ink"
             >
-              {inquiry ? 'Enquire for dates' : 'Enquire'}
+              {inquiry ? 'Join the inquiry list' : 'Request a quote'}
             </Link>
             <Link to="/" className="text-sm text-ivory/90 underline underline-offset-4">
               {island.name} home

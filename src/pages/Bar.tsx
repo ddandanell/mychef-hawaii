@@ -36,7 +36,7 @@ export default function Bar() {
                 to="/quote?service=mobile-bar"
                 className="inline-flex h-12 items-center bg-[#F6F1E8] px-6 text-sm font-medium text-ink"
               >
-                Enquire
+                Request a quote
               </Link>
             </div>
           </div>

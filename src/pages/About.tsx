@@ -10,7 +10,7 @@ import { islandOrder, islands } from '@/data/islands';
 
 const TITLE = 'About myCHEF Hawaii | Island Chef Teams';
 const DESCRIPTION =
-  'myCHEF Hawaii is a four-island villa chef team. We staff a brigade to the size of the house — chef, sous, service, bar, shopper. Enquire for a written quote.';
+  'myCHEF Hawaii is a four-island villa chef team. We staff a brigade to the size of the house — chef, sous, service, bar, shopper. Request a quote.';
 
 const faqs = [
   {
@@ -88,7 +88,7 @@ const islandPhotos: Record<(typeof islandOrder)[number], { src: string; position
 const islandCopy: Record<(typeof islandOrder)[number], string> = {
   oahu: `Oʻahu is town and the short-stay villa belt. Honolulu residences, Waikīkī apartments that actually have a kitchen, Kahala dining rooms, Kailua weeks, Ko Olina villa stays. A Gold Coast dinner and a North Shore surcharge day are not the same drive; the quote says which. Personal-chef weeks for households sit next to visitor dinners. The crew in the photograph is the point: this is not one person with a tote bag and a hope.`,
   maui: `Maui is the villa dinner people picture when they say private chef — Wailea, West Maui, Kīhei, Kapalua, Makena, named here as coverage, not as extra URLs. Catering is the larger door on this island. The same team shops, cooks, and staffs the room. A reception on the lawn is a different crew than Date Night for two. We write that difference before the deposit.`,
-  kauai: `Kauaʻi is both shores: Princeville and Hanalei on the north, Poʻipū and Kōloa on the south. The bridge and the weather are real; far-North bookings inherit a written road clause instead of a shrug. Private chef and catering search at the same weight here. We staff the estate to the guest list, then drive home. We do not pretend Līhuʻe and Hāʻena are the same afternoon.`,
+  kauai: `Kauaʻi is both shores, inquiry-stage: Princeville and Hanalei on the north, Poʻipū and Kōloa on the south. The bridge and the weather are real; far-North inquiries inherit a written road clause instead of a shrug. We staff the estate to the guest list when a crew exists. We do not pretend Līhuʻe and Hāʻena are the same afternoon.`,
   bigisland: `Hawaiʻi Island is west-side first: Kona, Waikoloa, the Kohala Coast. Kona is a search people type; it lives on this island’s home, not on a /kona page. Hilo is a different day — we will not sell a same-day round trip. Ironman week compresses the calendar. Tell us the dates early. The crew size still follows the house.`,
 };
 
@@ -140,7 +140,7 @@ export default function About() {
               to="/quote"
               className="inline-flex h-12 items-center bg-[#F6F1E8] px-6 text-sm font-medium text-ink"
             >
-              Enquire
+              Request a quote
             </Link>
           </div>
         </div>
@@ -266,7 +266,7 @@ export default function About() {
             Start on the quote form.
           </h2>
           <p className="mt-5 max-w-[60ch] text-[17px] leading-[1.7] text-ink-soft">
-            No walk-in shop. No published street address. Enquire with island, dates, and headcount. We reply
+            No walk-in shop. No published street address. Request a quote with island, dates, and headcount. We reply
             in Hawaii business hours with a menu direction and a price you can hold.
           </p>
           <div className="mt-8">
@@ -310,7 +310,7 @@ export default function About() {
       </section>
 
       <SiblingCluster />
-      <QuoteTeaserBand headline="Enquire for dates. Quote in writing." />
+      <QuoteTeaserBand headline="Request a quote. Quote in writing." />
     </>
   );
 }

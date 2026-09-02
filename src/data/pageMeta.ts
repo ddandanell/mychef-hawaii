@@ -62,7 +62,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/about': {
     title: 'About myCHEF Hawaii | Island Chef Teams',
     description:
-      'myCHEF Hawaii is a four-island villa chef team. We staff a brigade to the size of the house — chef, sous, service, bar, shopper. Enquire for a written quote.',
+      'myCHEF Hawaii is a four-island villa chef team. We staff a brigade to the size of the house — chef, sous, service, bar, shopper. Request a quote.',
   },
   '/weddings': {
     title: 'Wedding Catering Hawaii | Wedding-Week Chefs | myCHEF',

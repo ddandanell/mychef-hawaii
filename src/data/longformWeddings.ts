@@ -124,7 +124,7 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
         h2: 'Wedding week on Kauaʻi',
         paras: [
           'A wedding week on Kauaʻi is an estate week on two shores — Princeville and Hanalei to the north, Poʻipū and Kōloa to the south — not a ballroom and not a keyword we do not own on this page. Welcome dinner, rehearsal, reception, recovery brunch. Formats to about seventy-five guests. From $175 a guest in USD plus staffing. CORE villa food on the island card is $150–$250. One culinary conversation. Separate lines so you can cut a brunch without reopening the week.',
-          'You book myCHEF Hawaii. We staff the house. We do not sell chef bios or a waitlist fiction. Kauaʻi books. Tell us the shore and the dates on /quote. Far-North — Hāʻena past the Hanalei bridge — needs seventy-two-hour notice and a weather-and-road clause. Closures reschedule rather than forfeit. We publish that before a deposit, not after a washed-out Saturday.',
+          'You book myCHEF Hawaii. We staff the house when a Kauaʻi crew exists. Kauaʻi is inquiry-stage — join the inquiry list with the shore and the dates on /quote. Far-North — Hāʻena past the Hanalei bridge — needs seventy-two-hour notice and a weather-and-road clause. Closures reschedule rather than forfeit. We publish that before a deposit, not after a washed-out Saturday.',
           'Florals, photography, and officiants stay yours unless we quote them. The bar is a sibling on /bar. A staffed villa event that is not a wedding week lives on /catering. A single estate dinner lives on /private-chef. Stay Chef from $1,100 a day lives on /vacation-chef. This page is the week. Proof is published prices and a written stack. We do not invent Kauaʻi reviews or an 808 number.',
         ],
       },
@@ -141,7 +141,7 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
         paras: [
           'Five fields on /quote. Shore named. Dates. Headcount. Service. How to reach you. Typical reply in Hawaii business hours. Menu direction, crew list, written total: food from $175 a guest plus staffing, 20% service, GET up to 4.712%, 50% to lock the week. Gratuity is voluntary. Elopements and dinners for two sit at $650–$950 USD as a fixed event, not a per-guest fiction. A Kauaʻi crew cannot hold two estate weeks that overlap — North Shore winters especially.',
           'North Shore winters book early. We will not pencil two Kauaʻi estate weeks onto the same Saturday. Send the date while the house is still a maybe. Allergies and a bartender belong in the first thread. Rentals and tabletop are add-ons when you want them. Alcohol is BYO or /bar. We do not fold a mystery hospitality line into the fish. The quote is exact before you deposit.',
-          'Open /pricing for the Kauaʻi card. Open /catering if the gathering is a staffed villa event without vows. Open /private-chef if it is one dinner. This page stays the wedding week — estate formats, both shores, written weather. Send the week on /quote.',
+          'Open /pricing for the Kauaʻi card. Open /catering if the gathering is a staffed villa event without vows. Open /private-chef if it is one dinner. This page stays the wedding week — estate formats, both shores, written weather. Join the inquiry list on /quote. We will not sell a Book now button on an island that is still inquiry-stage.',
         ],
       },
       {
@@ -170,6 +170,10 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
         q: 'Is Kauaʻi a waitlist?',
         a: 'Kauaʻi is inquiry-stage. Join the inquiry list with the shore and the dates. We will not pencil two overlapping estate weeks. North Shore winters move first.',
       },
+      {
+        q: 'Can we book both shores in one weekend?',
+        a: 'Only if the travel is written as separate chef days. A Princeville Saturday and a Poʻipū Sunday are not one commute. Say so on /quote and we will tell you which days can share a crew.',
+      },
     ],
   },
   bigisland: {
@@ -179,7 +183,7 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
         paras: [
           'A wedding week on Hawaiʻi Island is a west-side estate week: Kohala Coast resort communities, Waikoloa, the Mauna Kea belt, Kailua-Kona and Keauhou. Seven luxury corridors inside about thirty minutes of each other. Welcome dinner, rehearsal, reception, recovery brunch. One team. Reception food follows the island card from $150 a guest in USD; servers and sous are hourly on top. CORE dinners $150–$225. ENTRY from $110 when the table is smaller and the kitchen is simpler. We do not pretend this page owns a statewide catering keyword.',
           'The island is four thousand square miles. We will not fake a same-day Kona–Hilo round trip. East side — Hilo, Volcano — is quote-only, two-and-a-half to three hours, dedicated staffing. Waimea and Hāmākua are a surcharge. Kaʻū and the south are an extended surcharge with advance notice. The zone map is on the quote before a deposit. Ironman weeks compress the west-side calendar; flag those dates early on /quote.',
-          'You book myCHEF Hawaii. We assign the brigade. No chef-name marketplace, no invented reviews, no 808 number. Proof is the published card on /pricing, a sample west-side menu, and a written week. Siblings: /catering for a staffed villa event without vows, /private-chef for a single Kohala night, /bar for the terrace pour, /vacation-chef for Stay Chef from $950 a day. This page is the estate week.',
+          'You inquire with myCHEF Hawaii. We assign the brigade when a west-side crew exists. No chef-name marketplace, no invented reviews, no 808 number. Proof is the published card on /pricing, a sample west-side menu, and a written week. Siblings: /catering for a staffed villa event without vows, /private-chef for a single Kohala night, /bar for the terrace pour, /vacation-chef for Stay Chef from $950 a day. This page is the estate week — inquiry-stage, Kohala first.',
         ],
       },
       {
@@ -203,7 +207,7 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
         paras: [
           'Hawaiʻi Island punishes optimism. A Kohala welcome on Friday and a Kona reception on Saturday is a corridor we can write. A Volcano brunch on Sunday is a different staffing day — dedicated, quoted, never squeezed into a west-side load-out. We would rather lose that brunch than invent a same-day crossing. Waimea dinners sit on a surcharge line because elevation and drive time change the chef day, not because the beef is a story.',
           'Ironman and other west-side event weeks compress lodging, traffic, and grocery windows. Flag those dates on /quote as soon as they exist. We hold one wedding week at a time per crew. Coffee origin labeling will tighten how menus name Kona and Kaʻū cups; producer names wait on written verification. Until then the pour can still be good without a farm line we cannot prove.',
-          'Siblings stay useful: /bar for sunset pours on a Kohala terrace, /vacation-chef when the house wants breakfast and a stocked fridge between events, /pricing for the USD card. This page does not borrow a statewide catering head term. It is Kohala and Kona estate weeks — written weather, published zones, a quote before a deposit.',
+          'Siblings stay useful: /bar for sunset pours on a Kohala terrace, /vacation-chef when the house wants breakfast and a stocked fridge between events, /pricing for the USD card. This page does not borrow a statewide catering head term. It is Kohala and Kona estate weeks — written weather, published zones, inquiry-stage. Join the inquiry list on /quote. We will not sell a Book now button on a west-side calendar we have not staffed yet.',
         ],
       },
     ],
@@ -223,6 +227,10 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
       {
         q: 'How many guests?',
         a: 'Estate receptions about ten to seventy-five. Elopements from $550 USD. Larger rooms are exceptions.',
+      },
+      {
+        q: 'Is the Big Island bookable now?',
+        a: 'Hawaiʻi Island is inquiry-stage. Join the inquiry list with west-side dates. We will not sell a Book now button or a same-day Hilo add-on.',
       },
     ],
   },

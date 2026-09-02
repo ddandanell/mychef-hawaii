@@ -388,7 +388,7 @@ export default function Quote() {
                   disabled={sending}
                   className="flex h-12 w-full items-center justify-center bg-ink px-6 text-sm font-medium text-[#F6F1E8] disabled:opacity-70"
                 >
-                  {sending ? 'Sending…' : inquiry ? 'Enquire for dates' : 'Request my quote'}
+                  {sending ? 'Sending…' : inquiry ? 'Join the inquiry list' : 'Request my quote'}
                 </button>
                 <p className="mt-4 text-center text-[12px] text-ink-soft">
                   No payment. No account. Response in Hawaii business hours.
