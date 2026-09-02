@@ -1,5 +1,6 @@
 import { DualCtaLight } from '@/components/DualCta';
 import HostLink from '@/components/HostLink';
+import PageMeta from '@/components/PageMeta';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import { CATERING_VOLUMES, HUB_CATERING, cateringOffers } from '@/data/catering';
 import { islandOrder, islands } from '@/data/islands';
@@ -12,6 +13,7 @@ import { photos } from '@/data/photos';
 export default function HubCatering() {
   return (
     <>
+      <PageMeta title={HUB_CATERING.title} description={HUB_CATERING.description} />
       <section className="bg-ivory pb-10 pt-16 lg:pt-24">
         <div className="mx-auto grid w-full max-w-container items-center gap-10 px-5 lg:grid-cols-2 lg:px-10">
           <div>

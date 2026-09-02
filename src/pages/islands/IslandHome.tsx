@@ -4,6 +4,7 @@ import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDown } from 'lucide-react';
 import { DualCta } from '@/components/DualCta';
 import HostLink from '@/components/HostLink';
+import PageMeta from '@/components/PageMeta';
 import { HowItWorksBlock, PackageStrip } from '@/components/PackageGrid';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
@@ -30,6 +31,7 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
 
   return (
     <>
+      <PageMeta title={offer.title} description={offer.description} />
       <IslandJsonLd island={island} />
       <script
         type="application/ld+json"
@@ -74,7 +76,11 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
             <CostChip label="Stay Chef" band={`${formatFrom(offer.dayFrom)}/day`} index={2} />
           </div>
           <div className="mt-8">
-            <DualCta island={islandId} intent="a private chef" size="lg" />
+            <DualCta
+              island={islandId}
+              intent={islandId === 'oahu' ? 'Oahu catering or a private chef' : 'a private chef'}
+              size="lg"
+            />
           </div>
         </motion.div>
       </HeroFrame>
@@ -86,24 +92,40 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
             Private chef and catering. Equal products.
           </h2>
           <div className="mt-10 grid gap-4 md:grid-cols-2">
-            <Link to={href('/private-chef')} className="border border-stone bg-white p-6 hover:border-clay/50">
-              <p className="font-display text-2xl font-medium text-ink">{offer.h1}</p>
-              <p className="mt-2 text-ink-soft">from ${offer.fromPp} per guest · villa dinner</p>
-            </Link>
-            <Link to={href('/catering')} className="border border-ink bg-white p-6">
-              <p className="font-display text-2xl font-medium text-ink">
-                {islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
-              </p>
-              <p className="mt-2 text-ink-soft">
-                {islandId === 'oahu'
-                  ? '720 searches/mo — the largest Hawaii keyword we publish. Buffet or plated.'
-                  : islandId === 'maui'
-                    ? '480 searches/mo — larger than private chef Maui. Buffet or plated.'
-                    : islandId === 'kauai'
-                      ? '210 searches/mo — equal to private chef Kauai. Menu, prices, wedding.'
-                      : 'Staffed events, buffet or plated, published prices.'}
-              </p>
-            </Link>
+            {(islandId === 'oahu' || islandId === 'maui'
+              ? (['catering', 'chef'] as const)
+              : (['chef', 'catering'] as const)
+            ).map((door) =>
+              door === 'chef' ? (
+                <Link key="chef" to={href('/private-chef')} className="border border-stone bg-white p-6">
+                  <p className="font-display text-2xl font-medium text-ink">
+                    {islandId === 'oahu' ? 'Private chef Oahu' : offer.h1}
+                  </p>
+                  <p className="mt-2 text-ink-soft">from ${offer.fromPp} per guest · villa dinner</p>
+                </Link>
+              ) : (
+                <Link key="catering" to={href('/catering')} className="border border-ink bg-white p-6">
+                  <p className="font-display text-2xl font-medium text-ink">
+                    {islandId === 'oahu'
+                      ? 'Oahu catering'
+                      : islandId === 'maui'
+                        ? 'Maui catering'
+                        : islandId === 'kauai'
+                          ? 'Kauai catering'
+                          : 'Catering'}
+                  </p>
+                  <p className="mt-2 text-ink-soft">
+                    {islandId === 'oahu'
+                      ? '720 searches/mo — eight times private chef Oahu. Buffet or plated from $125 per guest.'
+                      : islandId === 'maui'
+                        ? '480 searches/mo — larger than private chef Maui. Buffet or plated from $150 per guest.'
+                        : islandId === 'kauai'
+                          ? '210 searches/mo — equal to private chef Kauai. Menu, prices, wedding.'
+                          : 'Staffed events, buffet or plated, published prices.'}
+                  </p>
+                </Link>
+              ),
+            )}
           </div>
         </div>
       </section>

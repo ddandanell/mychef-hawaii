@@ -131,12 +131,12 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   oahu: {
     keyword: 'private chef oahu',
     volume: 90,
-    h1: 'Private chef Oʻahu',
-    title: 'Private chef Oahu — from $125/pp | myCHEF',
+    h1: 'Oahu catering. Private chef Oahu.',
+    title: 'Oahu catering & private chef Oahu — from $125/pp | myCHEF',
     description:
-      'Private chef Oahu and Honolulu from $125/pp. Oahu catering is the larger door (720/mo) — buffet, plated, wedding. Waikīkī, Kailua, Ko Olina. WhatsApp for a quote.',
+      'Oahu catering from $125/pp (720/mo — largest Hawaii keyword we publish). Private chef Oahu and Honolulu (90/mo). Buffet, plated, villa dinners. WhatsApp for a quote.',
     lede:
-      'Honolulu to Ko Olina. Celebration dinners from $125/pp — and Oahu catering, the 720/mo search, for the staffed room. Same team. Villa kitchens.',
+      'Oahu catering is 720 searches a month. Private chef Oahu is 90. Same team, two doors: a staffed room or a villa dinner. From $125 per guest. We shop, cook, serve and clean.',
     fromPp: 125,
     dayFrom: 850,
     heroPhoto: 'oahuDinner',
@@ -164,6 +164,10 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       {
         q: 'North Shore — is travel extra?',
         a: 'Turtle Bay and the North Shore are a published surcharge for the drive. It appears on the quote, never as a surprise on the bill.',
+      },
+      {
+        q: 'Oahu catering or a private chef?',
+        a: 'A villa dinner for the house is private chef Oahu. Ten to seventy-five guests is Oahu catering — 720 searches a month, the largest Hawaii keyword we publish. Same team, buffet or plated. See /catering.',
       },
     ],
   },

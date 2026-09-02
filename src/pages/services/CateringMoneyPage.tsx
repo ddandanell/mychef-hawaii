@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import { DualCtaLight } from '@/components/DualCta';
+import PageMeta from '@/components/PageMeta';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import { useIsland } from '@/context/IslandContext';
@@ -72,6 +73,7 @@ export default function CateringMoneyPage() {
 
   return (
     <>
+      <PageMeta title={offer.title} description={offer.description} />
       <ServiceHero
         crumbs={crumbs}
         eyebrow={`${offer.h1} · ${offer.volume}/mo`}
@@ -131,6 +133,11 @@ export default function CateringMoneyPage() {
               </p>
               <p className="mt-3 text-sm text-ink-soft">
                 Menu design, shopping, cooking, service, cleanup. Same band as a private-chef dinner on this island.
+                {id === 'kauai'
+                  ? ' A Kauaʻi incumbent publishes $200–$250 per guest; we publish $150–$250 and a written quote.'
+                  : id === 'maui'
+                    ? ' Published $150–$250 per guest — not a named-chef marketplace.'
+                    : ''}
               </p>
             </article>
             <article className="border border-stone bg-white p-7">

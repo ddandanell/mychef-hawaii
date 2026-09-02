@@ -12,9 +12,10 @@ import { photos } from '@/data/photos';
 import NotFound from '@/pages/NotFound';
 import { useIsland } from '@/context/IslandContext';
 
-export default function NeighborhoodMoneyPage() {
-  const { slug } = useParams();
-  const { islandId, href, island } = useIsland();
+export default function NeighborhoodMoneyPage({ slug: slugProp }: { slug?: string }) {
+  const { slug: paramSlug } = useParams();
+  const { islandId, href, island, localPath } = useIsland();
+  const slug = slugProp || paramSlug || localPath.replace(/^\//, '').split('/')[0];
   if (!islandId || !island || !slug) return <NotFound />;
   const page = getMoneyNeighborhood(islandId, slug);
   if (!page) return <NotFound />;

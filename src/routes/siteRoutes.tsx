@@ -75,7 +75,11 @@ export function islandLeaves(id: IslandId, prefix = '') {
       <Route path={p('/locations/:slug')} element={<LocationPage />} />
       <Route path={p('/private-chef/:slug')} element={<AreaChefPage />} />
       {moneyNeighborhoods[id].map((n) => (
-        <Route key={n.slug} path={p(`/${n.slug}`)} element={<NeighborhoodMoneyPage />} />
+        <Route
+          key={n.slug}
+          path={p(`/${n.slug}`)}
+          element={<NeighborhoodMoneyPage slug={n.slug} />}
+        />
       ))}
       <Route path={p('/journal')} element={<JournalIndex kind="journal" />} />
       <Route path={p('/blog')} element={<JournalIndex kind="blog" />} />

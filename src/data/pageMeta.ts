@@ -98,9 +98,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Staffed private chef catering for 10–75 guests: villa retreats, production crews and private gatherings.',
   },
   '/oahu': {
-    title: 'Private chef Oahu — from $125/pp | myCHEF',
+    title: 'Oahu catering & private chef Oahu — from $125/pp | myCHEF',
     description:
-      'Private chef Oahu and Honolulu from $125/pp. Oahu catering is the larger door (720/mo). Villa dinners and staffed events in Waikīkī, Kailua, Ko Olina.',
+      'Oahu catering from $125/pp (720/mo). Private chef Oahu from $125/pp (90/mo). Buffet, plated, villa dinners. Honolulu to Ko Olina. WhatsApp for a quote.',
   },
   '/maui': {
     title: 'Private chef Maui — from $150/pp | myCHEF',
