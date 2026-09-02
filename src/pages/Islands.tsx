@@ -5,7 +5,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ArrowRight } from 'lucide-react';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
-import StatusChip from '@/components/StatusChip';
 import WordMask from '@/components/WordMask';
 import HostLink from '@/components/HostLink';
 import { originFor } from '@/config/site';
@@ -78,12 +77,7 @@ function Header() {
             zones and pricing. All four book now. Kauaʻi is a real market — not a waitlist.
           </p>
         </Reveal>
-        <Reveal delay={0.65} className="mt-8 flex flex-wrap items-center gap-3">
-          <span className="inline-flex items-center gap-2 rounded-full border border-stone bg-white/70 px-3.5 py-1.5 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-            <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
-            Booking now — {live.join(' · ')}
-          </span>
-        </Reveal>
+        <p className="mt-8 text-[12px] text-ink-soft">Booking now — {live.join(' · ')}</p>
       </div>
     </section>
   );
@@ -169,13 +163,9 @@ function IslandBand({ band, index }: { band: Band; index: number }) {
             className={cn('aspect-[4/3] ', flip ? 'lg:order-2 lg:col-span-2' : 'lg:col-span-2')}
           />
           <Reveal stagger staggerDelay={0.08} className={cn(flip ? 'lg:order-1 lg:col-span-3' : 'lg:col-span-3')}>
-            <p className="flex flex-wrap items-center gap-2.5 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ink-soft">
-              <span
-                aria-hidden="true"
-                className={cn('inline-block h-1.5 w-1.5 rounded-full', liveIsland ? 'bg-moss' : 'bg-brass')}
-              />
+            <p className="text-[12px] text-ink-soft">
               {band.eyebrow}
-              {!liveIsland && <StatusChip kind="inquiry">Inquiry stage</StatusChip>}
+              {isl.state === 'inquiry' ? ' · Opening' : ''}
             </p>
             <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
               {isl.name}

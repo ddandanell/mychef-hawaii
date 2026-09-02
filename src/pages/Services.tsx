@@ -95,15 +95,8 @@ function MonoChips({ items }: { items: string[] }) {
 
 function AvailabilityRow() {
   return (
-    <span className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-      <span className="inline-flex items-center gap-2">
-        <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
-        Oʻahu &amp; Maui — booking now
-      </span>
-      <span className="inline-flex items-center gap-2">
-        <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-brass" />
-        Kauaʻi &amp; Hawaiʻi Island — booking now
-      </span>
+    <span className="text-[12px] text-ink-soft">
+      Oʻahu, Maui, Kauaʻi and Hawaiʻi Island — booking now
     </span>
   );
 }
