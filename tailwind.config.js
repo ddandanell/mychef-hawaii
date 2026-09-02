@@ -18,12 +18,12 @@ module.exports = {
         spread: "1360px",
       },
       colors: {
-        ivory: "#F4EDE0",
-        sand: "#E8D8C0",
-        stone: "#D3C4A8",
+        ivory: "#F6F1E8",
+        sand: "#EDE6D8",
+        stone: "#DDD4C6",
         ink: {
-          DEFAULT: "#1A1510",
-          soft: "#5A5146",
+          DEFAULT: "#1C1916",
+          soft: "#8A8378",
         },
         clay: {
           DEFAULT: "#B34828",

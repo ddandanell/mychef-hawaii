@@ -1,10 +1,6 @@
-import { useIsland } from '@/context/IslandContext';
-import CateringPage from '@/pages/services/CateringPage';
-import KauaiCatering from '@/pages/services/KauaiCatering';
+import CateringMoneyPage from '@/pages/services/CateringMoneyPage';
 
-/** Catering / events on every island host. Kauaʻi is a dedicated 210/mo money page. */
+/** Every island /catering is a money page — Oahu 720, Maui 480, Kauai 210. */
 export default function IslandCatering() {
-  const { islandId } = useIsland();
-  if (islandId === 'kauai') return <KauaiCatering />;
-  return <CateringPage />;
+  return <CateringMoneyPage />;
 }

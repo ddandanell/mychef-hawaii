@@ -15,6 +15,12 @@ export const SEARCH_VOLUMES = {
   'personal chef maui': 20,
   'personal chef oahu': 20,
   'kauai catering': 210,
+  'oahu catering': 720,
+  'maui catering': 480,
+  'hawaii catering': 210,
+  'wedding catering oahu': 140,
+  'wedding catering maui': 30,
+  'wedding catering hawaii': 30,
 } as const;
 
 /** Related searches (DataForSEO, 2 Sep 2026). Fold into titles/H1s/FAQs — do not invent volumes. */
@@ -77,9 +83,9 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     h1: 'Private chef Maui',
     title: 'Private chef Maui — from $150/pp | myCHEF',
     description:
-      'Best private chef Maui from $150/pp. Wailea, Kīhei, Lahaina / West Maui. Published prices and menus — not a named-chef marketplace. WhatsApp for a quote.',
+      'Best private chef Maui from $150/pp. Maui catering is the larger door (480/mo). Wailea, Kīhei, Lahaina. Published prices and menus — not a named-chef marketplace.',
     lede:
-      'A chef in your Wailea, Kapalua or Kāʻanapali villa. Published prices and a written menu beat a named-chef SERP. We shop, cook, serve and clean.',
+      'A chef in your Wailea, Kapalua or Kāʻanapali villa. Maui catering sits next to it at 480 searches a month. Published prices and a written menu beat a named-chef SERP.',
     fromPp: 150,
     dayFrom: 1050,
     heroPhoto: 'mauiKitchen',
@@ -128,9 +134,9 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     h1: 'Private chef Oʻahu',
     title: 'Private chef Oahu — from $125/pp | myCHEF',
     description:
-      'Private chef Oahu and Honolulu from $125/pp. Villa dinners, personal chef weeks and catering in Waikīkī, Kailua, Ko Olina and the North Shore. WhatsApp for a quote.',
+      'Private chef Oahu and Honolulu from $125/pp. Oahu catering is the larger door (720/mo) — buffet, plated, wedding. Waikīkī, Kailua, Ko Olina. WhatsApp for a quote.',
     lede:
-      'Honolulu to Ko Olina, Kailua to the North Shore. Celebration dinners for visitors, weekly personal chef for households who live here. From $125/pp.',
+      'Honolulu to Ko Olina. Celebration dinners from $125/pp — and Oahu catering, the 720/mo search, for the staffed room. Same team. Villa kitchens.',
     fromPp: 125,
     dayFrom: 850,
     heroPhoto: 'oahuDinner',

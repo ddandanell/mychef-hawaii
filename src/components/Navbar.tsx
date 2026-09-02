@@ -20,13 +20,10 @@ const hubLinks = [
 function Wordmark({ islandName }: { islandName?: string }) {
   return (
     <span className="flex items-baseline gap-2">
-      <span className="font-display text-2xl font-semibold tracking-tight text-ink">
-        my<span className="text-clay">CHEF</span>
-        <span aria-hidden="true" className="ml-0.5 inline-block h-2 w-2 rounded-full bg-clay align-super" />
+      <span className="font-display text-2xl font-medium tracking-tight text-ink">
+        myCHEF
       </span>
-      <span className="hidden font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft sm:inline">
-        {islandName ?? 'Hawaii'}
-      </span>
+      <span className="hidden text-[12px] text-ink-soft sm:inline">{islandName ?? 'Hawaii'}</span>
     </span>
   );
 }
@@ -51,10 +48,9 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-haspopup="listbox"
-        className="inline-flex items-center gap-2 rounded-full border border-stone bg-white/70 px-3.5 py-1.5 font-mono text-[0.75rem] uppercase tracking-[0.12em] text-ink transition-colors hover:border-clay/50"
+        className="inline-flex items-center gap-2 px-1 py-1.5 text-sm text-ink transition-colors hover:text-ink-soft"
       >
-        <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
-        {island ? island.shortName : 'Hawaiʻi'}
+        {island ? island.shortName : 'All Hawaiʻi'}
         <ChevronDown className={cn('h-3.5 w-3.5 transition-transform', open && 'rotate-180')} />
       </button>
       <AnimatePresence>
@@ -65,7 +61,7 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.2 }}
             role="listbox"
-            className="absolute right-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-[14px] border border-stone bg-white shadow-soft"
+            className="absolute right-0 top-full z-50 mt-2 w-72 overflow-hidden border border-stone bg-white"
           >
             <button
               type="button"
@@ -78,10 +74,9 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
               }}
               className="flex w-full items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-sand"
             >
-              <span aria-hidden="true" className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-clay" />
               <span className="-mt-0.5 flex-1">
                 <span className="block font-display text-base font-medium text-ink">All Hawaiʻi</span>
-                <span className="block text-xs text-ink-soft">Private chef Hawaii — from $125/pp</span>
+                <span className="block text-xs text-ink-soft">Private chef · catering · four islands</span>
               </span>
             </button>
             {islandOrder.map((id) => {
@@ -100,18 +95,17 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
                   }}
                   className="flex w-full items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-sand"
                 >
-                  <span aria-hidden="true" className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-moss" />
                   <span className="-mt-0.5 flex-1">
                     <span className="block font-display text-base font-medium text-ink">{isl.name}</span>
                     <span className="block text-xs text-ink-soft">
-                      {o.h1} — from ${o.fromPp}/pp
+                      Chef from ${o.fromPp}/pp · catering
                     </span>
                   </span>
                 </button>
               );
             })}
-            <div className="border-t border-stone px-4 py-2.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-ink-soft">
-              Four islands booking now
+            <div className="border-t border-stone px-4 py-2.5 text-[12px] text-ink-soft">
+              All Hawaiʻi · Oʻahu · Maui · Kauaʻi · Hawaiʻi Island
             </div>
           </motion.div>
         )}
@@ -149,9 +143,8 @@ export default function Navbar() {
     <header
       className={cn(
         'sticky top-0 z-50 border-b border-stone bg-ivory/90 backdrop-blur transition-all duration-300',
-        scrolled ? 'shadow-soft' : 'shadow-none',
+        scrolled ? 'h-auto' : 'h-auto',
       )}
-      style={{ borderTopWidth: 3, borderTopStyle: 'solid', borderTopColor: island?.hue ?? '#B34828' }}
     >
       <div
         className={cn(

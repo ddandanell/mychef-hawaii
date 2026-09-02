@@ -71,16 +71,14 @@ export function HeroEyebrow({ island, alias }: { island: IslandMeta; alias?: str
 /** Hero published-price chip: a rate-card figure, no BDE. */
 export function CostChip({ label, band, index = 0 }: { label: string; band: string; index?: number }) {
   return (
-    <motion.span
+    <motion.p
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.8 + index * 0.06 }}
-      className="inline-flex items-center gap-2 rounded-full border border-ivory/25 bg-ink/40 px-3.5 py-1.5 backdrop-blur-sm"
+      className="text-[0.9375rem] text-ivory/90"
     >
-      <span className="text-[0.8125rem] text-ivory/90">
-        {label} {band}
-      </span>
-    </motion.span>
+      {label} {band}
+    </motion.p>
   );
 }
 

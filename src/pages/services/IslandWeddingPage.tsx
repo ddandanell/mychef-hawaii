@@ -58,9 +58,9 @@ const COPY: Record<
     hero: photos.wedding,
   },
   oahu: {
-    h1: 'A wedding weekend on the Gold Coast — one kitchen.',
+    h1: 'Wedding catering Oahu — one kitchen.',
     lede:
-      'Celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. Not a convention-centre product. One team, written quote, published starting prices.',
+      'Wedding catering Oahu (140/mo). Celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. One team, written quote, published starting prices.',
     eyebrow: 'myCHEF Oʻahu — Wedding weekends',
     places: 'Kahala / Gold Coast, Ko Olina, Kailua estates, Waikīkī residences',
     peak: 'Year-round · December–March pressure',

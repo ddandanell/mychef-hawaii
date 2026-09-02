@@ -36,9 +36,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Private chef Hawaii on Oʻahu, Maui, Kauaʻi and the Big Island. Published starting prices. Villa kitchens. WhatsApp for a quote.',
   },
   '/catering': {
-    title: 'Private catering Hawaii — Kauai catering 210/mo | myCHEF',
+    title: 'Hawaii catering — from $125/pp | myCHEF',
     description:
-      'Staffed catering across four islands. Kauai catering searches at 210/mo — equal to private chef Kauai. Menu, prices, wedding. From $150/pp.',
+      'Hawaii catering from $125/pp (210/mo). Oahu catering 720/mo, Maui catering 480, Kauai catering 210. Buffet or plated. WhatsApp for a quote.',
   },
   '/vacation-chef': {
     title: 'Vacation chef Hawaii — Stay Chef from $850/day | myCHEF',
@@ -100,7 +100,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/oahu': {
     title: 'Private chef Oahu — from $125/pp | myCHEF',
     description:
-      'Private chef Oahu and Honolulu from $125/pp. Villa dinners, personal chef weeks and catering in Waikīkī, Kailua, Ko Olina and the North Shore.',
+      'Private chef Oahu and Honolulu from $125/pp. Oahu catering is the larger door (720/mo). Villa dinners and staffed events in Waikīkī, Kailua, Ko Olina.',
   },
   '/maui': {
     title: 'Private chef Maui — from $150/pp | myCHEF',
@@ -126,17 +126,18 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'Multi-day villa chef packages and the kamaʻāina weekly line for resident households.',
   },
   '/oahu/catering': {
-    title: 'Oʻahu catering and events — Honolulu to Ko Olina | myCHEF',
-    description: 'Receptions, retreats and production catering in Waikīkī, Kahala, Ko Olina and Kailua, 10 to 75 guests.',
-  },
-  '/oahu/wedding-catering': {
-    title: 'Oʻahu wedding catering — Gold Coast weekend chefs | myCHEF',
+    title: 'Oahu catering — from $125/pp | myCHEF',
     description:
-      'Wedding weekends in Kahala, Ko Olina and windward estates. Published starting prices. One culinary team.',
+      'Oahu catering from $125/pp (720/mo — the largest Hawaii keyword we publish). Buffet or plated, wedding catering Oahu, Honolulu to Ko Olina.',
   },
   '/oahu/weddings': {
-    title: 'Oʻahu wedding catering — Gold Coast weekend chefs | myCHEF',
-    description: 'Wedding weekends in Kahala, Ko Olina and Kailua estates. Starting prices published.',
+    title: 'Wedding catering Oahu — from $125/pp | myCHEF',
+    description: 'Wedding catering Oahu (140/mo). Kahala, Ko Olina and Kailua estates. Starting prices published.',
+  },
+  '/oahu/wedding-catering': {
+    title: 'Wedding catering Oahu — Gold Coast weekend chefs | myCHEF',
+    description:
+      'Wedding catering Oahu from $125/pp plus staffing. Kahala, Ko Olina and windward estates. One culinary team.',
   },
   '/oahu/bar': {
     title: 'Oʻahu mobile bar — villa cocktails from Waikīkī to Ko Olina | myCHEF',
@@ -184,8 +185,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Private chef Maui cost: $150–$250/pp CORE, groceries at cost on Stay Chef, 20% service, GET up to 4.712%. Published, line by line.',
   },
   '/maui/catering': {
-    title: 'Maui catering — villa receptions & retreats | myCHEF',
-    description: 'Staffed catering on Maui for 10–75 guests. Grazing, coursed, wedding week. From $150/pp.',
+    title: 'Maui catering — from $150/pp | myCHEF',
+    description:
+      'Maui catering from $150/pp (480/mo). Buffet or plated, villa and wedding catering in Wailea, West Maui and Kīhei. Published prices and menus.',
   },
   '/kauai/private-chef': {
     title: 'Private chef Kauai — from $150/pp | myCHEF',

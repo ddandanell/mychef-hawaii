@@ -21,7 +21,7 @@ const hubFaqs = [
   },
   {
     q: 'How much does a private chef cost in Hawaii?',
-    a: 'Oʻahu CORE $125–$190/pp (private chef oahu 90/mo). Maui $150–$250/pp (private chef maui 260/mo). Kauaʻi the same Maui-class band (private chef kauai 210/mo). Kauai catering is an equal door at 210/mo. Big Island CORE $150–$225, from $125/pp at ENTRY. 20% service + Hawaiʻi GET up to 4.712% once on the quote. Groceries at cost on Stay Chef.',
+    a: 'Oʻahu CORE $125–$190/pp (private chef oahu 90/mo). Oahu catering is the larger door at 720/mo. Maui chef $150–$250/pp (260/mo) with Maui catering at 480/mo. Kauaʻi chef and Kauai catering both 210/mo. Big Island CORE $150–$225. 20% service + Hawaiʻi GET up to 4.712% once on the quote. Groceries at cost on Stay Chef.',
   },
   {
     q: "What's included?",
@@ -132,7 +132,28 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-sand py-20">
+      <section className="bg-sand py-16 lg:py-20">
+        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-ink-soft">Two doors</p>
+          <h2 className="mt-4 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-ink">
+            Private chef and Hawaii catering.
+          </h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            <Link to="/private-chef" className="border border-stone bg-white p-6">
+              <p className="font-display text-2xl font-medium text-ink">Private chef Hawaii</p>
+              <p className="mt-2 text-ink-soft">from $125 per guest · villa dinner · 50/mo</p>
+            </Link>
+            <Link to="/catering" className="border border-ink bg-white p-6">
+              <p className="font-display text-2xl font-medium text-ink">Hawaii catering</p>
+              <p className="mt-2 text-ink-soft">
+                210/mo statewide. Oahu catering 720 · Maui catering 480 · Kauai catering 210. Buffet or plated.
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-ivory py-20">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Named packages</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium text-ink">Date Night to wedding week</h2>

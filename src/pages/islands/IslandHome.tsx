@@ -65,17 +65,48 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
         >
           <p className="mt-6 max-w-[62ch] text-[1.125rem] leading-[1.6] text-ivory/90">{offer.lede}</p>
           <div className="mt-6 flex flex-wrap items-center gap-2.5">
-            <CostChip label="CORE dinner" band={`from $${offer.fromPp}/pp`} index={0} />
-            <CostChip label="Stay Chef" band={`${formatFrom(offer.dayFrom)}/day`} index={1} />
-            {islandId === 'kauai' ? (
-              <CostChip label="Kauai catering" band="from $150/pp" index={2} />
-            ) : null}
+            <CostChip label="Private chef" band={`from $${offer.fromPp}/pp`} index={0} />
+            <CostChip
+              label={islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
+              band={`from $${offer.fromPp}/pp`}
+              index={1}
+            />
+            <CostChip label="Stay Chef" band={`${formatFrom(offer.dayFrom)}/day`} index={2} />
           </div>
           <div className="mt-8">
             <DualCta island={islandId} intent="a private chef" size="lg" />
           </div>
         </motion.div>
       </HeroFrame>
+
+      <section className="bg-ivory py-16 lg:py-20">
+        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Two doors</p>
+          <h2 className="mt-4 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-medium text-ink">
+            Private chef and catering. Equal products.
+          </h2>
+          <div className="mt-10 grid gap-4 md:grid-cols-2">
+            <Link to={href('/private-chef')} className="border border-stone bg-white p-6 hover:border-clay/50">
+              <p className="font-display text-2xl font-medium text-ink">{offer.h1}</p>
+              <p className="mt-2 text-ink-soft">from ${offer.fromPp} per guest · villa dinner</p>
+            </Link>
+            <Link to={href('/catering')} className="border border-ink bg-white p-6">
+              <p className="font-display text-2xl font-medium text-ink">
+                {islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
+              </p>
+              <p className="mt-2 text-ink-soft">
+                {islandId === 'oahu'
+                  ? '720 searches/mo — the largest Hawaii keyword we publish. Buffet or plated.'
+                  : islandId === 'maui'
+                    ? '480 searches/mo — larger than private chef Maui. Buffet or plated.'
+                    : islandId === 'kauai'
+                      ? '210 searches/mo — equal to private chef Kauai. Menu, prices, wedding.'
+                      : 'Staffed events, buffet or plated, published prices.'}
+              </p>
+            </Link>
+          </div>
+        </div>
+      </section>
 
       <section className="bg-sand py-16 lg:py-20">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
@@ -115,12 +146,12 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
               </Link>
             ))}
           </div>
-          {islandId === 'kauai' ? (
+          {islandId === 'oahu' || islandId === 'maui' || islandId === 'kauai' ? (
             <p className="mt-10 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft">
               <Link to={href('/catering')} className="font-medium text-clay underline underline-offset-4">
-                Kauai catering
+                {islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : 'Kauai catering'}
               </Link>{' '}
-              searches at 210/mo — equal to private chef Kauai. Menu, prices, wedding, buffet vs plated. Not a stub.
+              is a money page on this host — menu, prices, buffet vs plated, wedding. Not a stub.
             </p>
           ) : null}
           <div className="mt-8 flex flex-wrap gap-4 text-sm">
@@ -128,7 +159,7 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
               Private chef
             </Link>
             <Link to={href('/catering')} className="font-medium text-clay underline underline-offset-4">
-              {islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
+              {islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : islandId === 'kauai' ? 'Kauai catering' : 'Catering'}
             </Link>
             <Link to={href('/bar')} className="font-medium text-clay underline underline-offset-4">
               Bar
