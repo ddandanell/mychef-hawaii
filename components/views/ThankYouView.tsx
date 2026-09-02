@@ -49,7 +49,7 @@ export default function ThankYouView() {
   };
 
   const input =
-    'w-full border border-line bg-paper px-4 py-3 text-[1rem] text-ink placeholder:text-mute/50 rounded-[2px] focus:outline-none focus:ring-1 focus:ring-ink';
+    'w-full border border-line bg-paper px-4 py-3 text-[1rem] text-ink placeholder:text-mute rounded-[2px] focus:outline-none focus:ring-1 focus:ring-ink';
 
   return (
     <>
@@ -138,7 +138,7 @@ export default function ThankYouView() {
                   <button type="submit" className="inline-flex h-12 items-center bg-ink px-6 text-[14px] font-medium text-paper rounded-[2px]">
                     Add these details
                   </button>
-                  <button type="button" onClick={() => setDone('skipped')} className="text-sm font-medium text-mute underline underline-offset-4">
+                  <button type="button" onClick={() => setDone('skipped')} className="text-sm font-medium text-ink underline underline-offset-4">
                     No thanks, I’m done
                   </button>
                 </div>

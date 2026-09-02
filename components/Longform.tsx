@@ -43,7 +43,7 @@ export function LongFaq({ items, title = 'Questions' }: { items: CopyFaq[]; titl
           {items.map((f, i) => (
             <Accordion.Item key={f.q} value={`lf-${i}`} className="border-b border-line">
               <Accordion.Header>
-                <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left">
+                <Accordion.Trigger className="group flex min-h-12 w-full items-center justify-between gap-4 py-5 text-left">
                   <span className="font-display text-[1.25rem] font-light text-ink">{f.q}</span>
                   <span className="text-[14px] text-mute group-data-[state=open]:hidden">+</span>
                   <span className="hidden text-[14px] text-mute group-data-[state=open]:inline">–</span>

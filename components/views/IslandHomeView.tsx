@@ -110,7 +110,7 @@ export default function IslandHomeView({
           {islandOrder
             .filter((id) => id !== islandId)
             .map((id) => (
-              <HostLink key={id} island={id} className="text-mute underline underline-offset-4 hover:text-ink">
+              <HostLink key={id} island={id} className="text-ink underline underline-offset-4">
                 {islands[id].name}
               </HostLink>
             ))}

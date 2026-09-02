@@ -67,7 +67,7 @@ export function EnquireCta({
 }) {
   return (
     <CtaLink href={quotePath(island ?? undefined)} variant={variant} className={className}>
-      Enquire
+      {primaryCtaLabel(island)}
     </CtaLink>
   );
 }

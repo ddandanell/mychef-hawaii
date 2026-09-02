@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import type { FormEvent, ReactNode } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import HostLink from '@/components/HostLink';
+import TypePanel from '@/components/TypePanel';
 import { useIsland } from '@/components/IslandProvider';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { cn } from '@/lib/utils';
@@ -108,7 +109,7 @@ function Field({
 
 const inputClass = (invalid: boolean) =>
   cn(
-    'w-full border bg-paper px-4 py-3 text-[1rem] text-ink placeholder:text-mute/50 rounded-[2px]',
+    'w-full border bg-paper px-4 py-3 text-[1rem] text-ink placeholder:text-mute rounded-[2px]',
     'focus:outline-none focus:ring-1 focus:ring-ink',
     invalid ? 'border-ink' : 'border-line',
   );
@@ -267,7 +268,7 @@ export default function QuoteForm() {
                   }}
                   className={cn(
                     'inline-flex h-10 items-center border px-4 text-sm font-medium rounded-[2px]',
-                    flexible ? 'border-ink bg-ink text-paper' : 'border-line bg-paper text-mute',
+                    flexible ? 'border-ink bg-ink text-paper' : 'border-line bg-paper text-ink',
                   )}
                 >
                   My dates are flexible
@@ -304,7 +305,7 @@ export default function QuoteForm() {
                   setService(e.target.value as ServiceValue | '');
                   setErrors((p) => ({ ...p, service: '' }));
                 }}
-                className={cn(inputClass(Boolean(errors.service)), 'appearance-none', !service && 'text-mute/60')}
+                className={cn(inputClass(Boolean(errors.service)), 'appearance-none', !service && 'text-mute')}
               >
                 <option value="" disabled>
                   Choose a service
@@ -391,7 +392,7 @@ export default function QuoteForm() {
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="relative p-8">
-            <div className="bg-paper px-6 py-8 text-ink">
+            <TypePanel>
               <p className="text-[13px] text-mute">{inquiry ? 'Opening' : 'Request a quote'}</p>
               <p className="mt-4 font-display text-[2rem] font-light leading-[1.15] text-ink">
                 {inquiry ? 'Join the inquiry list.' : 'Five fields. A human reply.'}
@@ -401,7 +402,7 @@ export default function QuoteForm() {
                 <li>Itemised written quote — service charge and tax on their own lines.</li>
                 <li>No account. No spam. One honest follow-up, ever.</li>
               </ul>
-            </div>
+            </TypePanel>
           </div>
         </div>
       </aside>
