@@ -52,7 +52,7 @@ export function PrimaryCta({ island, className }: { island: IslandMeta; classNam
         className,
       )}
     >
-      {inquiry ? 'Enquire for dates' : 'Enquire'}
+      {inquiry ? 'Join the inquiry list' : 'Request a quote'}
     </Link>
   );
 }

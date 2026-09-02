@@ -74,10 +74,11 @@ function Header() {
         <Reveal delay={0.5} y={24}>
           <p className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink">
             Four island departments. Each island is its own host — its own chefs,
-            zones and pricing. All four book now. Kauaʻi is a real market — not a waitlist.
+            zones and pricing. Oʻahu and Maui take quotes. Kauaʻi and Hawaiʻi Island
+            are inquiry-stage.
           </p>
         </Reveal>
-        <p className="mt-8 text-[12px] text-ink-soft">Booking now — {live.join(' · ')}</p>
+        <p className="mt-8 text-[12px] text-ink-soft">Request a quote — {live.join(' · ')}</p>
       </div>
     </section>
   );
@@ -119,18 +120,18 @@ const bands: Band[] = [
   },
   {
     id: 'kauai',
-    eyebrow: 'Kauaʻi — Booking now',
+    eyebrow: 'Kauaʻi — Inquiry',
     role:
-      'Private chef Kauai from $150 a guest. North Shore estates, Poʻipū retreats, weddings to ~75 guests. A real bookable market.',
+      'Private chef Kauai from $150 a guest. North Shore estates, Poʻipū retreats, weddings to ~75 guests. Both shores, inquiry stage.',
     coverage: 'Princeville/Hanalei (North) · Poʻipū/Kōloa (South) · Līhuʻe base · Haʻena quote-only',
     honestLine:
-      'Kauaʻi searches almost as hard as Maui. We book both shores. WhatsApp the dates.',
+      'Join the inquiry list with shore and dates. Far-North needs 72-hour notice.',
     cta: 'Private chef Kauai — from $150 a guest',
     alt: 'Garden estate outdoor table under mature trees on Kauaʻi, desaturated greens, linen tablecloth',
   },
   {
     id: 'bigisland',
-    eyebrow: 'Hawaiʻi Island (Big Island) — Booking now',
+    eyebrow: 'Hawaiʻi Island (Big Island) — Inquiry',
     role:
       'Private chef Big Island and Kona from $125 a guest. Kohala Coast first — seven luxury resort communities within a 30-minute west-side radius.',
     coverage: 'Zones A–D published · Kona–Kohala base · Hilo/Volcano quote-only (2.5–3 hr drive)',
@@ -222,8 +223,9 @@ function AsymmetryExplainer() {
         </Reveal>
         <Reveal delay={0.12}>
           <p className="mt-6 text-[1.0625rem] leading-[1.65] text-ivory/85 lg:text-[1.125rem]">
-            Kauaʻi searches almost as hard as Maui. We book it. Hawaiʻi Island is west-side first — we will not
-            pretend Hilo is a same-day add-on from Kona. Published prices, WhatsApp, written quote.
+            Oʻahu and Maui take written quotes. Kauaʻi and Hawaiʻi Island are inquiry-stage. Hawaiʻi Island is
+            west-side first — we will not pretend Hilo is a same-day add-on from Kona. Published prices,
+            WhatsApp, written quote.
           </p>
         </Reveal>
         <Reveal delay={0.22}>

@@ -192,7 +192,7 @@ export const privateChefLongform: Record<IslandId, { sections: CopySection[]; fa
       },
       {
         q: 'Is Kauaʻi a waitlist?',
-        a: 'No. We book Kauaʻi. Tell us the shore and the dates. One crew, one night — or send us to /weddings if it is a week.',
+        a: 'Kauaʻi is inquiry-stage. Join the inquiry list with the shore and the dates. One crew, one night — or send us to /weddings if it is a week.',
       },
       {
         q: 'Villa dinner or a staffed event?',

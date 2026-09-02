@@ -61,7 +61,7 @@ export default function Weddings() {
           <div className="max-w-[680px]">
             <p className="text-[12px] text-ivory/80">Wedding week</p>
             <h1 className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
-              Wedding catering Hawaii.
+              Wedding catering Hawaii — one team for the whole week.
             </h1>
             <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ivory/90">
               Welcome dinner to recovery brunch. Guest lists we staff: dinners for two to fifteen, receptions
@@ -72,7 +72,7 @@ export default function Weddings() {
                 to="/quote?service=wedding-week"
                 className="inline-flex h-12 items-center bg-[#F6F1E8] px-6 text-sm font-medium text-ink"
               >
-                Enquire
+                Request a quote
               </Link>
             </div>
           </div>

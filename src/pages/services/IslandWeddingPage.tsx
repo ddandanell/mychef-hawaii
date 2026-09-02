@@ -41,7 +41,7 @@ const COPY: Record<
   { h1: string; lede: string; eyebrow: string; places: string; peak: string; hero: { file: string; alt: string } }
 > = {
   maui: {
-    h1: 'Wedding catering Maui.',
+    h1: 'Wedding catering Maui — one team for the week.',
     lede:
       'One culinary team from the welcome dinner to the recovery brunch — private estate formats for 10 to 75 guests across Wailea, Kāʻanapali, Kapalua, Makena and Upcountry.',
     eyebrow: 'myCHEF Maui — Wedding weeks',
@@ -50,9 +50,9 @@ const COPY: Record<
     hero: photos.wedding,
   },
   oahu: {
-    h1: 'Wedding catering Oahu.',
+    h1: 'Wedding catering Oahu — one kitchen for the weekend.',
     lede:
-      'Wedding catering Oahu: celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. One team, written quote, published starting prices.',
+      'Wedding catering Oahu: celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. One kitchen, written quote, published starting prices.',
     eyebrow: 'myCHEF Oʻahu — Wedding weekends',
     places: 'Kahala / Gold Coast, Ko Olina, Kailua estates, Waikīkī residences',
     peak: 'Year-round · December–March pressure',
@@ -61,7 +61,7 @@ const COPY: Record<
   kauai: {
     h1: 'Kauai wedding catering — both shores.',
     lede:
-      'Kauai wedding catering in Princeville, Hanalei and Poʻipū — formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. From $175 a guest plus staffing. Book now.',
+      'Kauai wedding catering in Princeville, Hanalei and Poʻipū — formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. From $175 a guest plus staffing. Inquiry stage.',
     eyebrow: 'myCHEF Kauaʻi — Estate weddings',
     places: 'Princeville, Hanalei, Poʻipū, Kōloa',
     peak: 'North Shore winters book early',
@@ -149,7 +149,7 @@ export default function IslandWeddingPage() {
           chips={chips}
           island={id}
           whatsappIntent="a wedding week"
-          primary={{ label: 'Get a wedding quote', to: `/quote?island=${id}&service=wedding-week` }}
+          primary={{ label: 'Request a quote', to: `/quote?island=${id}&service=wedding-week` }}
           secondary={{ label: 'See the week ↓', to: '#the-week' }}
         />
       )}

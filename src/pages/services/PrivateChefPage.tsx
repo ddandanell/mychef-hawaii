@@ -124,7 +124,7 @@ const content: Record<IslandId, PrivateChefContent> = {
     faqs: [
       {
         q: 'Is Kauaʻi a waitlist island?',
-        a: 'No. We book Kauaʻi. Tell us the shore and the dates. Far-North (Hāʻena) needs 72-hour notice and a weather/road clause — we publish that instead of pretending the Hanalei bridge never closes.',
+        a: 'Kauaʻi is inquiry-stage. Join the inquiry list with the shore and the dates. Far-North (Hāʻena) needs 72-hour notice and a weather/road clause — we publish that instead of pretending the Hanalei bridge never closes.',
       },
       {
         q: 'Princeville or Poʻipū — does the price change?',

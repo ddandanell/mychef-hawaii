@@ -168,7 +168,7 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
       },
       {
         q: 'Is Kauaʻi a waitlist?',
-        a: 'No. We book Kauaʻi. Tell us the shore and the dates. We will not pencil two overlapping estate weeks. North Shore winters move first.',
+        a: 'Kauaʻi is inquiry-stage. Join the inquiry list with the shore and the dates. We will not pencil two overlapping estate weeks. North Shore winters move first.',
       },
     ],
   },

@@ -10,7 +10,7 @@ import { cn } from '@/lib/utils';
 
 export function InquiryCta({
   to,
-  children = 'Enquire for dates',
+  children = 'Join the inquiry list',
   className,
 }: {
   to: string;

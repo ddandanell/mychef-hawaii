@@ -154,7 +154,7 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
         </div>
       </section>
 
-      <QuoteTeaserBand headline={inquiry ? 'Enquire for dates.' : `${offer.h1} — from $${offer.fromPp} a guest.`} />
+      <QuoteTeaserBand headline={inquiry ? 'Join the inquiry list.' : 'Request a quote.'} />
     </>
   );
 }

@@ -31,10 +31,10 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
   oahu: {
     keyword: 'oahu catering',
     volume: CATERING_VOLUMES['oahu catering'],
-    h1: 'Oahu catering.',
-    title: 'Oahu Catering | Staffed Villa Events — myCHEF',
+    h1: 'Oahu catering — staffed events from Honolulu to Ko Olina.',
+    title: 'Oahu Catering | Honolulu to Ko Olina Events | myCHEF',
     description:
-      'Oahu catering from $125 a guest. Buffet or plated, villa and wedding catering, Honolulu to Ko Olina. WhatsApp for a quote.',
+      'Oahu catering from $125 a guest. Staffed events from Honolulu to Ko Olina. Buffet or plated. Request a quote.',
     lede:
       'Oahu catering is the staffed-event door: buffet or plated, villa, retreat, wedding. Published prices and a written menu. Honolulu to Ko Olina.',
     fromPp: 125,
@@ -56,19 +56,19 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
       },
       {
         q: 'Wedding catering Oahu?',
-        a: 'Yes — 140 searches a month. Estate and residence formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. See /weddings.',
+        a: 'Yes. Estate and residence formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. See /weddings.',
       },
     ],
   },
   maui: {
     keyword: 'maui catering',
     volume: CATERING_VOLUMES['maui catering'],
-    h1: 'Maui catering.',
-    title: 'Maui Catering | Staffed Villa Events — myCHEF',
+    h1: 'Maui catering — staffed villa events, not drop-off.',
+    title: 'Maui Catering | Villa Receptions and Events | myCHEF',
     description:
-      'Maui catering from $150 a guest. Buffet or plated, villa and wedding catering in Wailea, West Maui and Kīhei. Published prices and menus. WhatsApp for a quote.',
+      'Maui catering from $150 a guest. Staffed villa events, not drop-off. Buffet or plated. Request a quote.',
     lede:
-      'Maui catering is the staffed-room door on this island. Same team as a villa dinner. Buffet or plated. Published $150–$250 a guest. Not a named-chef marketplace.',
+      'Maui catering is the staffed-room door on this island — not drop-off. Same team as a villa dinner. Buffet or plated. Published $150–$250 a guest.',
     fromPp: 150,
     weddingFrom: 150,
     places: 'Wailea, Kāʻanapali, Lahaina / West Maui, Kīhei, Kapalua',
@@ -95,12 +95,12 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
   kauai: {
     keyword: 'kauai catering',
     volume: SEARCH_VOLUMES['kauai catering'],
-    h1: 'Kauai catering.',
-    title: 'Kauai Catering | Staffed Villa Events — myCHEF',
+    h1: 'Kauai catering — both shores, inquiry stage.',
+    title: 'Kauai Catering | Estate Events — Inquiry | myCHEF',
     description:
-      'Kauai catering from $150 a guest. Buffet vs plated, published menu, wedding catering from $175 a guest. Princeville, Poʻipū, Hanalei.',
+      'Kauai catering from $150 a guest. Estate events on both shores. Inquiry stage. Buffet or plated.',
     lede:
-      'Kauai catering is the staffed-event door on this island — published prices, a sample menu, buffet or plated. Villa dinners live on the home.',
+      'Kauai catering is the staffed-event door on both shores — inquiry stage. Published prices, a sample menu, buffet or plated. Villa dinners live on the home.',
     fromPp: 150,
     weddingFrom: 175,
     places: 'Princeville, Poʻipū, Hanalei, Kapaʻa',
@@ -153,12 +153,12 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
 export const HUB_CATERING = {
   keyword: 'hawaii catering',
   volume: CATERING_VOLUMES['hawaii catering'],
-  h1: 'Hawaii catering.',
-  title: 'Hawaii Catering | Staffed Villa Events — myCHEF',
+  h1: 'Hawaii catering — villas and estates, not ballrooms.',
+  title: 'Hawaii Catering | Staffed Villa Events 10–75 | myCHEF',
   description:
-    'Hawaii catering for villa and estate events. Buffet or plated. Oahu, Maui, Kauaʻi, Big Island. Published starting prices. WhatsApp for a quote.',
+    'Hawaii catering for villa and estate events of 10–75 guests. Buffet or plated. Oahu, Maui, Kauaʻi, Big Island. Not ballrooms. Request a quote.',
   lede:
-    'Staffed villa events on four islands. Buffet or plated. Published starting prices. Open the island page for the house you booked.',
+    'Staffed villa and estate events of 10–75 guests on four islands — not ballrooms. Buffet or plated. Published starting prices. Open the island page for the house you booked.',
   faqs: [
     {
       q: 'How much is Hawaii catering?',

@@ -160,7 +160,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
       {
         h2: 'A private chef on Kauaʻi',
         paras: [
-          'Kauaʻi is a two-shore island with one kitchen standard. We book it. Tell us which shore and which dates. Signature dinners sit at $150–$250 a guest — a Maui-class band earned by a thinner supplier bench and a longer shop, not by a waitlist story. Date Night is a fixed evening at $650–$950. Stay Chef starts from $1,100 a day with groceries at cost and receipts. Tips are yours to give or not; they never hide inside the per-guest number.',
+          'Kauaʻi is a two-shore island with one kitchen standard, inquiry stage. Tell us which shore and which dates. Signature dinners sit at $150–$250 a guest — a Maui-class band earned by a thinner supplier bench and a longer shop, not by a waitlist story. Date Night is a fixed evening at $650–$950. Stay Chef starts from $1,100 a day with groceries at cost and receipts. Tips are yours to give or not; they never hide inside the per-guest number.',
           'The booking is myCHEF Hawaii, not a named cook you swipe. We assign the crew to the house. Eight at a Princeville table is not seventy on a Poʻipū lawn. Staffed rooms live on /catering. Estate wedding formats — welcome, rehearsal, reception, recovery brunch as separate lines — start from $175 a guest plus staffing on /weddings. The card is on /pricing. The written total comes from /quote.',
           'Līhuʻe and Kapaʻa are the included base. Princeville, Hanalei, and Poʻipū carry a published zone line so the drive is a map, not a surprise on the fish. Far-North Hāʻena needs 72-hour notice and a weather-and-road clause. Closures reschedule rather than forfeit. That clause is on the quote before any deposit. Anahola and Kalāheo sit between those belts and are quoted with the menu, not treated as a third hero shore.',
         ],
@@ -216,7 +216,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
       },
       {
         q: 'Do you actually book Kauaʻi?',
-        a: 'Yes. Tell us the shore and the dates on /quote or WhatsApp. This is not a waitlist island.',
+        a: 'Kauaʻi is inquiry-stage. Join the inquiry list with the shore and the dates on /quote or WhatsApp.',
       },
       {
         q: 'Vacation rental kitchens?',

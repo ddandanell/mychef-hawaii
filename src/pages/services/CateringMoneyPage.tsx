@@ -7,7 +7,7 @@ import { cateringLongform } from '@/data/longformCatering';
 import Reveal from '@/components/Reveal';
 import { useIsland } from '@/context/IslandContext';
 import { cateringOffers } from '@/data/catering';
-import type { IslandId } from '@/data/islands';
+import { primaryCtaLabel, type IslandId } from '@/data/islands';
 import { photos } from '@/data/photos';
 import {
   FEE_DISCLOSURE,
@@ -97,7 +97,7 @@ export default function CateringMoneyPage() {
             </span>
           </>
         }
-        primary={{ label: 'Get a catering quote', to: `/quote?island=${id}&service=catering` }}
+        primary={{ label: primaryCtaLabel(id), to: `/quote?island=${id}&service=catering` }}
         secondary={{ label: 'Prices & menu ↓', to: '#prices' }}
       />
 
@@ -223,14 +223,14 @@ export default function CateringMoneyPage() {
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <ServiceFaq
             items={[...offer.faqs, ...long.faqs]}
-            title={`${offer.h1} prices, menu, wedding.`}
+            title={`${island.name} catering — prices, menu, wedding.`}
             intro="Real answers — then WhatsApp."
           />
         </div>
       </section>
 
       <QuoteTeaserBand
-        headline={`${offer.h1} — from $${offer.fromPp} a guest. Quote in writing.`}
+        headline={island.state === 'inquiry' ? 'Join the inquiry list.' : 'Request a quote.'}
         note={`WhatsApp or quote · ${island.name} · typical reply in Hawaii business hours`}
       />
       <JsonLd

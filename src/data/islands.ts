@@ -28,7 +28,7 @@ export const islands: Record<IslandId, IslandMeta> = {
     basePath: '/oahu',
     selectorImage: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
     selectorCta: 'Private chef Oahu — from $125/pp',
-    stateLabel: 'Booking now',
+    stateLabel: 'Request a quote',
   },
   maui: {
     id: 'maui',
@@ -40,32 +40,40 @@ export const islands: Record<IslandId, IslandMeta> = {
     basePath: '/maui',
     selectorImage: '/photos/maui-wailea-kitchen-plating.jpg',
     selectorCta: 'Private chef Maui — from $150/pp',
-    stateLabel: 'Booking now',
+    stateLabel: 'Request a quote',
   },
   kauai: {
     id: 'kauai',
     name: 'Kauaʻi',
     shortName: 'Kauaʻi',
-    state: 'live',
+    state: 'inquiry',
     hue: '#4F5E52',
-    role: 'Private chef and Kauai catering. Princeville, Poʻipū, Hanalei.',
+    role: 'Private chef Kauai and Kauai catering. Both shores, inquiry stage.',
     basePath: '/kauai',
     selectorImage: '/photos/kauai-chef-plating-seared-fish-mountains.jpg',
-    selectorCta: 'Private chef Kauai — from $150/pp',
-    stateLabel: 'Booking now',
+    selectorCta: 'Private chef Kauai — inquiry',
+    stateLabel: 'Inquiry',
   },
   bigisland: {
     id: 'bigisland',
     name: 'Hawaiʻi Island',
     shortName: 'Hawaiʻi Island',
-    state: 'live',
+    state: 'inquiry',
     hue: '#5A4034',
-    role: 'Kona and the Kohala Coast — west-side villas first.',
+    role: 'Kona and the Kohala Coast — west-side villas first. Inquiry stage.',
     basePath: '/bigisland',
     selectorImage: '/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg',
-    selectorCta: 'Private chef Big Island — from $125/pp',
-    stateLabel: 'Booking now',
+    selectorCta: 'Private chef Big Island — inquiry',
+    stateLabel: 'Inquiry',
   },
 };
 
 export const islandOrder: IslandId[] = ['oahu', 'maui', 'kauai', 'bigisland'];
+
+export function isInquiryIsland(id?: IslandId | null): boolean {
+  return Boolean(id && islands[id].state === 'inquiry');
+}
+
+export function primaryCtaLabel(id?: IslandId | null): string {
+  return isInquiryIsland(id) ? 'Join the inquiry list' : 'Request a quote';
+}

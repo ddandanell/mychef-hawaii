@@ -6,6 +6,8 @@ import {
   HUB_COMMERCIAL_PATHS,
   ISLAND_COMMERCIAL_PATHS,
 } from '../src/data/commercialGraph';
+import { HUB_CATERING, cateringOffers } from '../src/data/catering';
+import { islandOffers } from '../src/data/offers';
 import { resolveDocumentSeo, sitemapLocs } from '../src/lib/seo';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -62,5 +64,49 @@ try {
   /* already gone */
 }
 
+const LOCKED_TITLES: Record<string, string> = {
+  'hub:/': 'Private Chef Hawaii | Four Island Villa Chefs | myCHEF',
+  'hub:/catering': 'Hawaii Catering | Staffed Villa Events 10–75 | myCHEF',
+  'hub:/weddings': 'Wedding Catering Hawaii | Wedding-Week Chefs | myCHEF',
+  'oahu:/': 'Private Chef Oahu | Villa and Household Chefs | myCHEF',
+  'oahu:/catering': 'Oahu Catering | Honolulu to Ko Olina Events | myCHEF',
+  'oahu:/weddings': 'Wedding Catering Oahu | Gold Coast Weekends | myCHEF',
+  'maui:/': 'Private Chef Maui | In-Villa Dinners and Weeks | myCHEF',
+  'maui:/catering': 'Maui Catering | Villa Receptions and Events | myCHEF',
+  'maui:/weddings': 'Wedding Catering Maui | Wedding-Week Chefs | myCHEF',
+  'kauai:/': 'Private Chef Kauai | Both Shores — Inquiry | myCHEF',
+  'kauai:/catering': 'Kauai Catering | Estate Events — Inquiry | myCHEF',
+  'bigisland:/': 'Private Chef Big Island | Kona–Kohala Inquiry | myCHEF',
+};
+
 writeFileSync(join(publicDir, 'seo-map.json'), JSON.stringify(map));
+
+const mismatches = Object.entries(LOCKED_TITLES).filter(([key, expected]) => map[key]?.title !== expected);
+if (mismatches.length) {
+  throw new Error(
+    `Locked money titles drifted:\n${mismatches
+      .map(([key, expected]) => `  ${key}: got ${JSON.stringify(map[key]?.title)} expected ${JSON.stringify(expected)}`)
+      .join('\n')}`,
+  );
+}
+
+const LOCKED_H1: Array<[string, string]> = [
+  [islandOffers.oahu.h1, 'Private Chef Oahu — in your villa, in your home.'],
+  [islandOffers.maui.h1, 'A private chef’s table — in your own Maui villa.'],
+  [islandOffers.kauai.h1, 'Private chef Kauai — both shores, inquiry stage.'],
+  [islandOffers.bigisland.h1, 'Private chef Big Island — the Kohala Coast first.'],
+  [cateringOffers.oahu.h1, 'Oahu catering — staffed events from Honolulu to Ko Olina.'],
+  [cateringOffers.maui.h1, 'Maui catering — staffed villa events, not drop-off.'],
+  [cateringOffers.kauai.h1, 'Kauai catering — both shores, inquiry stage.'],
+  [HUB_CATERING.h1, 'Hawaii catering — villas and estates, not ballrooms.'],
+];
+const h1Miss = LOCKED_H1.filter(([got, expected]) => got !== expected);
+if (h1Miss.length) {
+  throw new Error(
+    `Locked money H1s drifted:\n${h1Miss
+      .map(([got, expected]) => `  got ${JSON.stringify(got)} expected ${JSON.stringify(expected)}`)
+      .join('\n')}`,
+  );
+}
+
 console.log(`seo-map ${Object.keys(map).length} entries, commercial sitemaps written`);

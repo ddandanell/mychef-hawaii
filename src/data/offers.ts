@@ -80,12 +80,12 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   maui: {
     keyword: 'private chef maui',
     volume: 260,
-    h1: 'Private chef Maui.',
-    title: 'Private Chef Maui | Villa Chefs — myCHEF',
+    h1: 'A private chef’s table — in your own Maui villa.',
+    title: 'Private Chef Maui | In-Villa Dinners and Weeks | myCHEF',
     description:
-      'Private chef Maui from $150 a guest. Wailea, Kīhei and West Maui named in coverage — not as their own URLs. Maui catering is the larger door on /catering.',
+      'Private chef Maui from $150 a guest. In-villa dinners and weeks in Wailea, Kīhei and West Maui. Maui catering is the larger door on /catering. Request a quote.',
     lede:
-      'A chef in your Wailea, Kapalua or Kāʻanapali villa. Maui catering sits next to it at 480 searches a month. Published prices and a written menu beat a named-chef SERP.',
+      'A chef in your Wailea, Kapalua or Kāʻanapali villa. Published prices and a written menu. Staffed receptions live on /catering.',
     fromPp: 150,
     dayFrom: 1050,
     heroPhoto: 'mauiKitchen',
@@ -131,10 +131,10 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   oahu: {
     keyword: 'private chef oahu',
     volume: 90,
-    h1: 'Private chef Oahu.',
-    title: 'Private Chef Oahu | Villa Chefs — myCHEF',
+    h1: 'Private Chef Oahu — in your villa, in your home.',
+    title: 'Private Chef Oahu | Villa and Household Chefs | myCHEF',
     description:
-      'Private chef Oahu from $125 a guest. Honolulu and personal chef on this same page — no /honolulu. Villa dinners. Oahu catering is the larger door on /catering.',
+      'Private chef Oahu from $125 a guest. Honolulu and personal chef on this same page — no /honolulu. Villa dinners and household chefs. Request a quote.',
     lede:
       'Private chef Oahu and Honolulu — villa dinners from $125 a guest. Staffed events for a larger list live on /catering. Same team: we shop, cook, serve and clean.',
     fromPp: 125,
@@ -174,12 +174,12 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   kauai: {
     keyword: 'private chef kauai',
     volume: 210,
-    h1: 'Private chef Kauai.',
-    title: 'Private Chef Kauai | Villa Chefs — myCHEF',
+    h1: 'Private chef Kauai — both shores, inquiry stage.',
+    title: 'Private Chef Kauai | Both Shores — Inquiry | myCHEF',
     description:
-      'Private chef Kauai from $150 a guest. Princeville, Poʻipū and Hanalei named in coverage. Kauai catering is an equal door on /catering.',
+      'Private chef Kauai from $150 a guest. Princeville, Poʻipū and Hanalei named in coverage. Both shores, inquiry stage.',
     lede:
-      'Private chef Kauai and Kauai catering search at the same volume — 210 a month each. Two money doors, one team: villa dinners and staffed events in Princeville, Poʻipū and Hanalei. From $150/pp.',
+      'Private chef Kauai on both shores — Princeville, Poʻipū and Hanalei. Villa dinners and staffed events, inquiry stage. From $150 a guest.',
     fromPp: 150,
     dayFrom: 1100,
     heroPhoto: 'kauaiChef',
@@ -196,7 +196,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
       },
       {
         q: 'Do you actually book Kauaʻi, or is this a waitlist?',
-        a: 'We book Kauaʻi. Tell us the shore and the dates. Far-North (Hāʻena) needs 72-hour notice and a weather/road clause — we publish that instead of pretending the Hanalei bridge never closes.',
+        a: 'Kauaʻi is inquiry-stage. Join the inquiry list with the shore and the dates. Far-North (Hāʻena) needs 72-hour notice and a weather/road clause — we publish that instead of pretending the Hanalei bridge never closes.',
       },
       {
         q: 'Princeville or Poʻipū — does the price change?',
@@ -219,10 +219,10 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
   bigisland: {
     keyword: 'private chef big island',
     volume: 70,
-    h1: 'Private chef Big Island.',
-    title: 'Private Chef Big Island | Villa Chefs — myCHEF',
+    h1: 'Private chef Big Island — the Kohala Coast first.',
+    title: 'Private Chef Big Island | Kona–Kohala Inquiry | myCHEF',
     description:
-      'Private chef Big Island from $125 a guest. Kona is covered on this same page — no /kona. Kohala Coast, Waikoloa and Kailua-Kona villa dinners.',
+      'Private chef Big Island from $125 a guest. Kona–Kohala first — no /kona. Inquiry stage. Kohala Coast, Waikoloa and Kailua-Kona villa dinners.',
     lede:
       'Kona and the Kohala Coast first — seven resort communities in one west-side radius. Hilo and Volcano are quote-only; we will not fake a same-day round trip.',
     fromPp: 125,
@@ -487,9 +487,9 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
       h1: 'Private chef Princeville Kauai',
       title: 'Private chef Princeville Kauai — from $150/pp | myCHEF',
       description:
-        'Private chef Princeville Kauai from $150/pp. North Shore estate dinners, villa weeks and Kauai catering. Book now.',
+        'Private chef Princeville Kauai from $150/pp. North Shore estate dinners, villa weeks and Kauai catering. Inquiry stage.',
       lede:
-        'Private chef Princeville is the North Shore search. We book it. CORE $150–$250/pp — Maui-class prices. Kauai catering for the same estates.',
+        'Private chef Princeville is the North Shore search. Inquiry stage. CORE $150–$250/pp — Maui-class prices. Kauai catering for the same estates.',
       body: [
         'Winter surf season: ask early. Far-North (Hāʻena) inherits the Hanalei-bridge weather clause — reschedule rather than forfeit.',
         'Need a reception, not a dinner? Kauai catering — buffet or plated, wedding week, published prices — is a peer door on this host.',
