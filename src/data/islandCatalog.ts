@@ -1,8 +1,6 @@
 import type { IslandId } from './islands';
 import { islands } from './islands';
-import { areasFor } from './areas';
-import { articlesFor } from './editorial';
-import { moneyNeighborhoods } from './offers';
+import { ISLAND_COMMERCIAL_PATHS } from './commercialGraph';
 import { zoneMap } from './zoneMap';
 
 export type CatalogKind =
@@ -58,9 +56,6 @@ const MENU_SLUGS = ['three-course', 'family-style-menu', 'breakfast', 'lunch'];
 function entry(island: IslandId, path: string, kind: CatalogKind, label: string, extra: string): CatalogEntry {
   const n = islands[island].name;
   const z = zoneMap[island];
-  const areas = areasFor(island)
-    .map((a) => a.name)
-    .join(', ');
   return {
     path,
     kind,
@@ -70,9 +65,8 @@ function entry(island: IslandId, path: string, kind: CatalogKind, label: string,
     body: [
       `${label} on ${n} is its own commercial cell — not a find-and-replace of a sibling island. ${islands[island].role}`,
       `${z.headline} ${z.honestyLine}`,
-      `Published areas on this host: ${areas}. Neighborhoods are folders here, never new subdomains.`,
       `${n} is booking now. WhatsApp or the quote form — typical reply in Hawaii business hours. Travel fees are published.`,
-      'Same company as myCHEF Bali and Dubai. Hawaii prices, Hawaii kitchens. We do not invent guest reviews or chef names.',
+      'Hawaiʻi guest reviews: none yet. We do not invent guest reviews or chef names.',
       `Starting prices for private chef dinners, catering and the villa day rate are published on /pricing. Quote confirmed in writing.`,
     ],
   };
@@ -153,37 +147,9 @@ export function getCatalog(island: IslandId, path: string): CatalogEntry | undef
   return catalogFor(island).find((c) => c.path === clean);
 }
 
-/** All indexable paths on one island host, for sitemap / counts. */
-export function allIslandPaths(island: IslandId): string[] {
-  const paths = new Set<string>([
-    '/',
-    '/private-chef',
-    '/vacation-chef',
-    '/wedding-catering',
-    '/weddings',
-    '/bar',
-    '/mobile-bar',
-    '/pricing',
-    '/catering',
-    '/events',
-    '/locations',
-    '/journal',
-    '/blog',
-    '/quote',
-    '/sitemap',
-  ]);
-  moneyNeighborhoods[island].forEach((n) => {
-    paths.add(`/${n.slug}`);
-    paths.add(`/locations/${n.slug}`);
-    paths.add(`/private-chef/${n.slug}`);
-  });
-  areasFor(island).forEach((a) => {
-    paths.add(`/locations/${a.slug}`);
-    paths.add(`/private-chef/${a.slug}`);
-  });
-  catalogFor(island).forEach((c) => paths.add(c.path));
-  articlesFor(island).forEach((a) => paths.add(`/${a.kind}/${a.slug}`));
-  return [...paths];
+/** Advertised indexable paths on one island host. Commercial cells only. */
+export function allIslandPaths(_island: IslandId): string[] {
+  return [...ISLAND_COMMERCIAL_PATHS];
 }
 
 export function islandPageCount(island: IslandId): number {

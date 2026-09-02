@@ -24,20 +24,12 @@ function localPath(host: string, pathname: string, island: string | null): strin
   return p.startsWith('/') ? p : `/${p}`;
 }
 
-function canonical(host: string, island: string | null, path: string): string {
-  const h = host.split(':')[0] ?? host;
-  const proto = h.includes('localhost') ? 'http' : 'https';
-  const apex = h.endsWith('.vercel.app') || h.endsWith('.now.sh');
+function canonical(island: string | null, path: string): string {
   const clean = path.startsWith('/') ? path : `/${path}`;
-  if (island && !apex) {
-    const root = h.includes('.') ? h.split('.').slice(1).join('.') : h;
-    const origin = islandFromHost(h) ? `${proto}://${h}` : `${proto}://${island}.${root}`;
-    return `${origin}${clean === '/' ? '/' : clean}`;
+  if (island) {
+    return `https://${island}.mychef-hawaii.com${clean === '/' ? '/' : clean}`;
   }
-  if (island && apex) {
-    return `${proto}://${h}${clean === '/' ? `/${island}` : `/${island}${clean}`}`;
-  }
-  return `${proto}://${h}${clean === '/' ? '/' : clean}`;
+  return `https://mychef-hawaii.com${clean === '/' ? '/' : clean}`;
 }
 
 export async function GET(request: Request) {
@@ -64,7 +56,7 @@ export async function GET(request: Request) {
   const description =
     rec?.description ??
     'Private chefs, private dining, catering and events across Oʻahu, Maui, Kauaʻi and Hawaiʻi Island.';
-  const canon = canonical(host, island, local);
+  const canon = canonical(island, local);
 
   const extra = [
     `<link rel="canonical" href="${esc(canon)}" />`,

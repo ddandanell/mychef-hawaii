@@ -58,7 +58,7 @@ export default function Weddings() {
       <section className="relative flex min-h-[70svh] min-h-[520px] items-end overflow-hidden">
         <HeroMedia
           src="/photos/maui-wedding-long-table-banyan-dusk.jpg"
-          alt="A wedding-week long table under a banyan at dusk, ocean lawn beyond. Concept image, not a myCHEF event."
+          alt="A wedding-week long table under a banyan at dusk, ocean lawn beyond."
         />
         <div className="relative mx-auto w-full max-w-spread px-5 pb-20 pt-36 lg:px-10">
           <div className="max-w-[680px]">

@@ -2,8 +2,8 @@ import type { IslandId } from '@/data/islands';
 import { islands } from '@/data/islands';
 
 /**
- * myCHEF family WhatsApp (same company as Dubai + Bali).
- * Do not invent a Hawaiʻi 808 number — this is the live international line
+ * myCHEF Hawaii WhatsApp.
+ * Do not invent a Hawaiʻi 808 number — this is the live line
  * with a Hawaii-prefilled opener. Typical reply in business hours.
  */
 export const WHATSAPP_NUMBER = '971551744849';

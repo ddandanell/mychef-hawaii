@@ -47,7 +47,7 @@ const content: Record<IslandId, PrivateChefContent> = {
     path: '/maui/private-chef',
     h1: 'Private chef Maui',
     heroImage: '/photos/maui-wailea-kitchen-plating.jpg',
-    heroAlt: 'Chef’s hands finishing seared fish in a Wailea villa kitchen. Campaign still, not a documented event.',
+    heroAlt: 'Chef’s hands finishing seared fish in a Wailea villa kitchen.',
     bandTiers: [
       { tier: 'CORE', label: 'Core myCHEF' },
       { tier: 'ULTRA', label: "Chef's table" },
@@ -88,7 +88,7 @@ const content: Record<IslandId, PrivateChefContent> = {
     path: '/oahu/private-chef',
     h1: 'Private chef Oʻahu',
     heroImage: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
-    heroAlt: 'Plated private-chef dinner on an Oʻahu Gold Coast lānai at dusk. Campaign still, not a documented event.',
+    heroAlt: 'Plated private-chef dinner on an Oʻahu Gold Coast lānai at dusk.',
     bandTiers: [
       { tier: 'ENTRY', label: 'Entry' },
       { tier: 'CORE', label: 'Core myCHEF' },

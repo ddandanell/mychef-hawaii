@@ -8,8 +8,8 @@ import StatusChip from '@/components/StatusChip';
 import { useIsland } from '@/context/IslandContext';
 import { islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
-import { areasFor, getArea } from '@/data/areas';
-import { getLocation, locationsFor } from '@/data/locations';
+import { getArea } from '@/data/areas';
+import { getLocation } from '@/data/locations';
 import { getMoneyNeighborhood } from '@/data/offers';
 import NeighborhoodMoneyPage from '@/pages/locations/NeighborhoodMoneyPage';
 import {
@@ -44,7 +44,6 @@ export default function LocationPage() {
   if (!islandId || !slug) return <NotFound />;
   if (!loc && area) {
     const island = islands[islandId];
-    const others = areasFor(islandId).filter((a) => a.slug !== area.slug);
     const chip = zoneChip[area.zoneClass];
     return (
       <>
@@ -69,30 +68,33 @@ export default function LocationPage() {
             <div>
               <SectionHead eyebrow="Logistics" title="Published, not discovered." />
               <p className="mt-6 text-[1.0625rem] leading-[1.65] text-ink-soft">{area.logistics}</p>
-              <Link to={href('/locations')} className="mt-6 inline-block text-sm font-medium text-clay">
-                All {island.name} areas
+              <Link to={href('/private-chef')} className="mt-6 inline-block text-sm font-medium text-clay">
+                Private chef — {island.name}
               </Link>
             </div>
           </div>
         </section>
-        {others.length > 0 && (
-          <section className="bg-sand py-16">
+        <section className="bg-sand py-16">
             <div className="mx-auto max-w-container px-5 lg:px-10">
-              <SectionHead eyebrow={island.name} title="Other areas on this island." />
+              <SectionHead eyebrow={island.name} title="Also on this island." />
               <div className="mt-8 flex flex-wrap gap-2">
-                {others.map((a) => (
+                {[
+                  { to: href('/private-chef'), label: 'Private chef' },
+                  { to: href('/catering'), label: 'Catering' },
+                  { to: href('/weddings'), label: 'Weddings' },
+                  { to: href('/pricing'), label: 'Pricing' },
+                ].map((l) => (
                   <Link
-                    key={a.slug}
-                    to={href(`/locations/${a.slug}`)}
-                    className="inline-flex rounded-full border border-stone bg-white px-4 py-2 text-sm text-ink hover:border-clay/40"
+                    key={l.to}
+                    to={l.to}
+                    className="inline-flex border border-stone bg-white px-4 py-2 text-sm text-ink hover:border-clay/40"
                   >
-                    {a.name}
+                    {l.label}
                   </Link>
                 ))}
               </div>
             </div>
           </section>
-        )}
         <QuoteTeaserBand />
       </>
     );
@@ -100,7 +102,6 @@ export default function LocationPage() {
   if (!loc) return <NotFound />;
 
   const island = islands[islandId];
-  const siblings = locationsFor(islandId).filter((l) => l.slug !== loc.slug);
   const crumbs = [
     { label: 'Hawaii', to: toHub('/') },
     { label: island.name, to: href('/') },
@@ -213,24 +214,27 @@ export default function LocationPage() {
 
       <FaqSection heading={`Asked in ${loc.name}.`} faqs={loc.faqs} bg="bg-sand" />
 
-      {siblings.length > 0 && (
-        <section className="bg-ivory py-20 lg:py-28">
-          <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-            <SectionHead eyebrow={island.name} title="Other areas on this island." />
-            <Reveal stagger className="mt-10 flex flex-wrap gap-3">
-              {siblings.map((s) => (
-                <Link
-                  key={s.slug}
-                  to={href(`/locations/${s.slug}`)}
-                  className="inline-flex items-center rounded-full border border-stone bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-clay/50"
-                >
-                  {s.name}
-                </Link>
-              ))}
-            </Reveal>
-          </div>
-        </section>
-      )}
+      <section className="bg-ivory py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+          <SectionHead eyebrow={island.name} title="Also on this island." />
+          <Reveal stagger className="mt-10 flex flex-wrap gap-3">
+            {[
+              { to: href('/private-chef'), label: 'Private chef' },
+              { to: href('/catering'), label: 'Catering' },
+              { to: href('/weddings'), label: 'Weddings' },
+              { to: href('/pricing'), label: 'Pricing' },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="inline-flex items-center border border-stone bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-clay/50"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </Reveal>
+        </div>
+      </section>
 
       <QuoteTeaserBand
         headline={inquiry ? `Tell us your dates in ${loc.name}.` : `Cook in ${loc.name}.`}

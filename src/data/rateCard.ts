@@ -3,7 +3,7 @@ import type { IslandId } from './islands';
 /**
  * Canonical rate card — the single source of truth for every price shown
  * on the site (anti-drift rule). Core offers are published starting prices
- * in USD, Hawaii labor (not a Bali IDR conversion). Quotes are confirmed
+ * in USD, Hawaii labor. Quotes are confirmed
  * in writing; the fee stack is always disclosed as its own lines.
  */
 
@@ -183,7 +183,7 @@ export interface OtherOffer {
 
 /**
  * Beyond-the-dinner published starting prices. Derived from the dinner bands
- * and the existing orientation — not a 1:1 Bali conversion.
+ * and the existing orientation.
  */
 export const otherOffers: OtherOffer[] = [
   {

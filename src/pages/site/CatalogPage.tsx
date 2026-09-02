@@ -78,11 +78,11 @@ export default function CatalogPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             {[
               { to: '/private-chef', label: 'Private chef' },
-              { to: '/vacation-chef', label: 'Vacation chef' },
-              { to: '/wedding-catering', label: 'Weddings' },
-              { to: '/bar', label: 'Mobile bar' },
+              { to: '/catering', label: 'Catering' },
+              { to: '/weddings', label: 'Weddings' },
+              { to: '/bar', label: 'Bar' },
               { to: '/pricing', label: 'Pricing' },
-              { to: '/locations', label: 'Areas' },
+              { to: '/quote', label: 'Quote' },
             ].map((l) => (
               <Link
                 key={l.to}
@@ -100,9 +100,7 @@ export default function CatalogPage() {
   );
 }
 
-/** Catch-all: catalog cell or a real 404. */
+/** Catch-all: real 404. Catalog stubs are not published. */
 export function CatalogOrNotFound() {
-  const { islandId, localPath } = useIsland();
-  if (!islandId || !getCatalog(islandId, localPath)) return <NotFound />;
-  return <CatalogPage />;
+  return <NotFound />;
 }

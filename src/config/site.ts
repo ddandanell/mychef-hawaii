@@ -79,3 +79,23 @@ export function isProductionApex(hostname: string): boolean {
   const h = hostname.split(':')[0]?.toLowerCase() ?? '';
   return h === PRODUCTION_ROOT || h === `www.${PRODUCTION_ROOT}` || h.endsWith(`.${PRODUCTION_ROOT}`);
 }
+
+/**
+ * Canonical origin for SEO. Always purchased hosts — never *.vercel.app,
+ * never mychefhawaii.com. Localhost keeps the request host.
+ */
+export function canonicalOrigin(island: IslandId | 'root', hostname?: string): string {
+  const h = (hostname ?? currentLoc().hostname).split(':')[0]?.toLowerCase() ?? '';
+  if (h === 'localhost' || h.endsWith('.localhost') || h.startsWith('127.')) {
+    return originFor(island);
+  }
+  if (island === 'root') return `https://${PRODUCTION_ROOT}`;
+  return `https://${island}.${PRODUCTION_ROOT}`;
+}
+
+/** Canonical URL for a path. Use this for <link rel="canonical"> and og:url. */
+export function canonicalUrl(island: IslandId | 'root', path = '/', hostname?: string): string {
+  const clean = path.startsWith('/') ? path : `/${path}`;
+  const origin = canonicalOrigin(island, hostname);
+  return `${origin}${clean === '/' ? '/' : clean}`;
+}

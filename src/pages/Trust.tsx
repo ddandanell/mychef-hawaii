@@ -208,8 +208,8 @@ const policyCards = [
     body: 'Reviews live on third-party platforms (Google, wedding platforms) where you can verify them, not in a carousel we control.',
   },
   {
-    title: 'Labeled history',
-    body: 'International testimonials, when shown, always carry their geography. Bali praise is Bali praise.',
+    title: 'Hawaii reviews only',
+    body: 'We do not publish guest reviews until they are from verified Hawaiʻi events.',
   },
 ];
 
@@ -372,53 +372,10 @@ function Vetting() {
               className="aspect-[4/5] w-full scale-[1.15] object-cover"
             />
           </div>
-          <figcaption className="mt-3 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink-soft">
-            Concept image — not a myCHEF Hawaiʻi event. Final photography pending.
+          <figcaption className="mt-3 text-[12px] text-ink-soft">
+            Plated course.
           </figcaption>
         </figure>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Section 5 — The family (geography-labeled) ---------------- */
-
-const family = [
-  { market: 'Bali', line: "est. 2015 — the family's first kitchen" },
-  { market: 'Dubai', line: "the family's Middle East kitchen" },
-  { market: 'Cape Town', line: "the family's Southern Africa kitchen" },
-];
-
-function Family() {
-  return (
-    <section className="bg-ivory py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">The Family</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            International, and labeled that way.
-          </h2>
-        </Reveal>
-        <Reveal stagger staggerDelay={0.1} className="mt-12 grid gap-5 sm:grid-cols-3">
-          {family.map((f) => (
-            <div
-              key={f.market}
-              className="rounded-[14px] border border-stone bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1 lg:p-8"
-            >
-              <h3 className="font-display text-[1.625rem] font-medium leading-[1.2] text-ink">{f.market}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{f.line}</p>
-              <div className="mt-5">
-                <StatusChip kind="verified">Verified — International</StatusChip>
-              </div>
-            </div>
-          ))}
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mt-10 max-w-[65ch] font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ink-soft">
-            Each market keeps its own team, its own reviews, its own licenses. Shared standards, separate
-            operations.
-          </p>
-        </Reveal>
       </div>
     </section>
   );
@@ -445,7 +402,6 @@ export default function Trust() {
       <ProofRegisterSection />
       <ReviewPolicy />
       <Vetting />
-      <Family />
       <QuoteTeaserBand headline="Honesty is the whole pitch. Taste the rest." />
     </>
   );

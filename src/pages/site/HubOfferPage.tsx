@@ -18,7 +18,7 @@ export default function HubOfferPage({
     'private-chef': {
       h1: 'Private chef Hawaii',
       lede:
-        'A chef in your villa kitchen — Oʻahu from $125/pp, Maui and Kauaʻi from $150/pp, Big Island from $125/pp. We shop, cook, serve and clean. Same company as Bali and Dubai.',
+        'A chef in your villa kitchen — Oʻahu from $125/pp, Maui and Kauaʻi from $150/pp, Big Island from $125/pp. We shop, cook, serve and clean.',
       intent: 'a private chef',
       service: 'private-chef' as const,
       path: '/private-chef',

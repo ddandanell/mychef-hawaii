@@ -206,7 +206,7 @@ function PrivateChefBlock() {
       bg="sand"
       image={photos.mauiKitchen.file}
       alt={photos.mauiKitchen.alt}
-      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
+      caption=""
     >
       <BlockTitle>The signature in-villa dinner.</BlockTitle>
       <BlockBody>
@@ -246,7 +246,7 @@ function PrivateDiningBlock() {
       bg="ivory"
       image={photos.kapaluaTwo.file}
       alt={photos.kapaluaTwo.alt}
-      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
+      caption=""
     >
       <BlockTitle>Celebrations and dinners-for-two.</BlockTitle>
       <BlockBody>
@@ -316,7 +316,7 @@ function BarBlock() {
       bg="ivory"
       image={photos.bar.file}
       alt={photos.bar.alt}
-      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
+      caption=""
     >
       <BlockTitle>A bartender on the terrace.</BlockTitle>
       <BlockBody>
@@ -427,8 +427,8 @@ function WeddingBand() {
           </Link>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="mt-10 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ivory/50">
-            Concept image — campaign still, not a documented myCHEF Hawaiʻi event.
+          <p className="mt-10 text-[12px] text-ivory/50">
+            Wedding-week table.
           </p>
         </Reveal>
       </div>

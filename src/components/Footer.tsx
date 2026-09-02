@@ -51,18 +51,31 @@ export default function Footer() {
           <nav aria-label="Company">
             <h3 className="text-[12px] text-ivory/50">Company</h3>
             <ul className="mt-4 space-y-2.5">
-              {[
-                { label: 'Chefs', path: '/private-chef' },
-                { label: 'Catering', path: '/catering' },
-                { label: 'Weddings', path: '/weddings' },
-                { label: 'Bar', path: '/bar' },
-                { label: 'Pricing', path: '/pricing' },
-                { label: 'Quote', path: quoteTo },
-                { label: 'Legal', path: '/legal' },
-              ].map((l) => (
-                <li key={l.path}>
-                  {l.path.startsWith('/quote') && islandId ? (
-                    <Link to={l.path} className="text-sm text-ivory/80 hover:text-ivory">
+              {(islandId
+                ? [
+                    { label: 'Chefs', path: '/private-chef' },
+                    { label: 'Catering', path: '/catering' },
+                    { label: 'Weddings', path: '/weddings' },
+                    { label: 'Bar', path: '/bar' },
+                    { label: 'Pricing', path: '/pricing' },
+                    { label: 'Quote', path: quoteTo },
+                    { label: 'Legal', path: '/legal' },
+                  ]
+                : [
+                    { label: 'Chefs', path: '/private-chef' },
+                    { label: 'Catering', path: '/catering' },
+                    { label: 'Weddings', path: '/weddings' },
+                    { label: 'Bar', path: '/bar' },
+                    { label: 'Pricing', path: '/pricing' },
+                    { label: 'Quote', path: quoteTo },
+                    { label: 'Trust', path: '/trust' },
+                    { label: 'Legal', path: '/legal' },
+                    { label: 'How it works', path: '/how-it-works' },
+                  ]
+              ).map((l) => (
+                <li key={l.label}>
+                  {islandId ? (
+                    <Link to={l.path.startsWith('/quote') ? l.path : href(l.path)} className="text-sm text-ivory/80 hover:text-ivory">
                       {l.label}
                     </Link>
                   ) : (
@@ -81,15 +94,7 @@ export default function Footer() {
           <Link to={href('/legal')} className="underline underline-offset-2">
             Legal
           </Link>
-          . © {new Date().getFullYear()} myCHEF Hawaii. Bali and Dubai:{' '}
-          <a href="https://mychef-bali.com" className="underline underline-offset-2">
-            Bali
-          </a>
-          {' · '}
-          <a href="https://mychef-dubai.com" className="underline underline-offset-2">
-            Dubai
-          </a>
-          .
+          . © {new Date().getFullYear()} myCHEF Hawaii.
         </p>
       </div>
     </footer>

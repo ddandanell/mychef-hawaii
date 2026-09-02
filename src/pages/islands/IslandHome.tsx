@@ -151,29 +151,21 @@ export default function IslandHome({ islandId }: { islandId: IslandId }) {
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Where we cook</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] text-ink">
-            Neighborhoods on {island.name}
+            Villa kitchens on {island.name}
           </h2>
           <p className="mt-4 max-w-[65ch] text-ink-soft">
-            Folders on this island site — not new hosts. Villa, Airbnb and vacation-rental kitchens with a real cooktop.
+            We cook in villa, Airbnb and vacation-rental kitchens with a real cooktop
+            {offer.neighborhoods.length
+              ? ` — including ${offer.neighborhoods.map((n) => n.name).join(', ')}`
+              : ''}
+            . Hotel rooms without kitchens are declined.
           </p>
-          <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {offer.neighborhoods.map((n) => (
-              <Link
-                key={n.slug}
-                to={href(`/${n.slug}`)}
-                className="rounded-[14px] border border-stone bg-white px-5 py-4 transition-colors hover:border-clay/50"
-              >
-                <p className="font-display text-xl font-medium text-ink">{n.name}</p>
-                <p className="mt-1 text-sm text-clay">Private chef {n.name} →</p>
-              </Link>
-            ))}
-          </div>
           {islandId === 'oahu' || islandId === 'maui' || islandId === 'kauai' ? (
-            <p className="mt-10 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft">
+            <p className="mt-6 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft">
               <Link to={href('/catering')} className="font-medium text-clay underline underline-offset-4">
                 {islandId === 'oahu' ? 'Oahu catering' : islandId === 'maui' ? 'Maui catering' : 'Kauai catering'}
               </Link>{' '}
-              is a money page on this host — menu, prices, buffet vs plated, wedding. Not a stub.
+              is a money page on this host — menu, prices, buffet vs plated, wedding.
             </p>
           ) : null}
           <div className="mt-8 flex flex-wrap gap-4 text-sm">

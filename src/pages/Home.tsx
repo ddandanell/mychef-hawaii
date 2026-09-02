@@ -29,7 +29,7 @@ const hubFaqs = [
   },
   {
     q: 'Do you have Hawaii guest reviews?',
-    a: 'Not yet — and we will not invent them. We are the same company as myCHEF Bali and Dubai. Proof here is published prices, sample menus, cleanup, and a written quote.',
+    a: 'Not yet — and we will not invent them. Proof here is published prices, sample menus, cleanup, and a written quote.',
   },
   {
     q: 'Airbnb / vacation rental kitchens?',
@@ -85,7 +85,7 @@ export default function Home() {
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             <p className="mt-6 max-w-[60ch] text-[1.125rem] leading-[1.6] text-ivory/90">
-              We shop, cook, serve and clean. Same company as myCHEF Bali and Dubai. WhatsApp for a quote — typical
+              We shop, cook, serve and clean. WhatsApp for a quote — typical
               reply in Hawaii business hours.
             </p>
             <div className="mt-8">

@@ -10,7 +10,7 @@ import { HeroEyebrow, HeroFrame, HeroH1, PrimaryCta, SectionHead } from '@/pages
 import LocationPage from '@/pages/locations/LocationPage';
 import NotFound from '@/pages/NotFound';
 
-/** mychef.id-style /private-chef/{area} cell. Uses full location doc when one exists. */
+/** /private-chef/{area} cell. Uses full location doc when one exists. */
 export default function AreaChefPage() {
   const { slug } = useParams();
   const { island, islandId } = useIsland();
@@ -48,8 +48,8 @@ export default function AreaChefPage() {
           <div>
             <SectionHead eyebrow="Logistics" title="Published, not discovered." />
             <p className="mt-6 text-[1.0625rem] leading-[1.65] text-ink-soft">{area.logistics}</p>
-            <Link to="/locations" className="mt-6 inline-block text-sm font-medium text-clay">
-              All {island.name} areas
+            <Link to="/private-chef" className="mt-6 inline-block text-sm font-medium text-clay">
+              Private chef — {island.name}
             </Link>
           </div>
         </div>

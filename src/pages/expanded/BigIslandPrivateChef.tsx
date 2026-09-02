@@ -70,7 +70,7 @@ export default function BigIslandPrivateChef() {
         title="A private chef for the Kona–Kohala coast."
         lede="The signature dinner, planned for the island’s luxury corridor: your chef designs the menu with you, shops the west-side supply bench that day, cooks in your villa kitchen, serves, and leaves it cleaner than they found it. It activates with the Kona–Kohala launch — and dated inquiries set the launch clock."
         image="/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg"
-        imageAlt="Whole grilled fish and tropical fruit on Kohala lava rock at golden hour. Campaign still, not a documented event."
+        imageAlt="Whole grilled fish and tropical fruit on Kohala lava rock at golden hour."
         chips={
           <>
             {core ? (

@@ -15,7 +15,7 @@ export interface ProofClaim {
 
 export const proofRegister: ProofClaim[] = [
   {
-    claim: 'Operating internationally since 2015 — Bali, Dubai, Cape Town.',
+    claim: 'Operating internationally since 2015. Hawaiʻi is a new market — reviews here come after verified events.',
     status: 'VERIFIED',
     label: 'VERIFIED — INTERNATIONAL',
   },

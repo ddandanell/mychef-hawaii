@@ -1,6 +1,6 @@
 /**
- * Canonical photography map. Every still is a campaign / concept image —
- * never captioned as a documented myCHEF Hawaiʻi event.
+ * Canonical photography map. Alts describe the place and the dish — never
+ * a “concept image” disclaimer on the page.
  */
 
 export const CONCEPT = '';

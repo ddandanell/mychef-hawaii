@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router';
 import { cn } from '@/lib/utils';
 
 /** Mute words only — no pills. Honesty lives on /trust and /legal. */
@@ -19,7 +20,15 @@ interface StatusChipProps {
   onDark?: boolean;
 }
 
+function isHonestyPage(pathname: string): boolean {
+  const p = pathname.replace(/\/$/, '') || '/';
+  const local = p.replace(/^\/(oahu|maui|kauai|bigisland)(?=\/|$)/, '') || '/';
+  return local === '/trust' || local === '/legal';
+}
+
 export default function StatusChip({ children, className, onDark }: StatusChipProps) {
+  const { pathname } = useLocation();
+  if (!isHonestyPage(pathname)) return null;
   return (
     <span
       className={cn(

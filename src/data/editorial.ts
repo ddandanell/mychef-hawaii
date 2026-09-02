@@ -160,7 +160,6 @@ const extraBlogSlugs: { slug: string; topic: string }[] = [
   { slug: 'fish-species', topic: 'fish named as food, not as décor' },
   { slug: 'coffee-labeling', topic: 'coffee origin labeling — Act 198 from 2027' },
   { slug: 'no-fake-reviews', topic: 'why there are no Hawaiʻi star ratings yet' },
-  { slug: 'international-family', topic: 'the international family, geography-labeled' },
 ];
 
 export function articlesFor(island: IslandId): Article[] {

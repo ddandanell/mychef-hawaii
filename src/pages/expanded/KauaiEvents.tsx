@@ -79,7 +79,7 @@ export default function KauaiEvents() {
         title="Fifteen to seventy-five guests. Kauaʻi’s unserved band."
         lede="The local chef ceiling is 15 guests; the resorts start making sense at 75. Between them sits the island’s real event market — estate weddings, retreat weeks, celebration feasts — with nobody staffed to serve it. That gap is the planned flagship, and your dated inquiry is the evidence that launches it."
         image="/photos/maui-wedding-long-table-banyan-dusk.jpg"
-        imageAlt="A wedding-week long table under a banyan at dusk. Campaign still, not a documented event."
+        imageAlt="A wedding-week long table under a banyan at dusk."
         chips={
           <>
             <PlainChip onDark>1,660 Kauaʻi weddings in 2024 (official) · peaks Sep / Oct / May</PlainChip>

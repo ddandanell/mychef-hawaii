@@ -1,14 +1,13 @@
 import {
   ISLAND_HOSTS,
   PRODUCTION_ROOT,
+  canonicalUrl,
   detectIslandFromHost,
-  locFromHost,
-  siteUrl,
-  usesIslandSubdomains,
 } from '../config/site';
+import { HUB_COMMERCIAL_PATHS, ISLAND_COMMERCIAL_PATHS } from '../data/commercialGraph';
 import { getArea } from '../data/areas';
 import { getArticle } from '../data/editorial';
-import { allIslandPaths, getCatalog } from '../data/islandCatalog';
+import { getCatalog } from '../data/islandCatalog';
 import { islands, type IslandId } from '../data/islands';
 import { getLocation } from '../data/locations';
 import { getMoneyNeighborhood, islandOffers } from '../data/offers';
@@ -27,29 +26,7 @@ export interface DocumentSeo {
   islandId: IslandId | null;
 }
 
-const HUB_PATHS = [
-  '/',
-  '/islands',
-  '/services',
-  '/how-it-works',
-  '/pricing',
-  '/trust',
-  '/legal',
-  '/quote',
-  '/thank-you',
-  '/weddings',
-  '/bar',
-  '/mobile-bar',
-  '/corporate',
-  '/gatherings',
-  '/private-chef',
-  '/catering',
-  '/vacation-chef',
-  '/areas',
-  '/journal',
-  '/blog',
-  '/sitemap',
-];
+const HUB_PATHS = [...HUB_COMMERCIAL_PATHS];
 
 function cleanPath(pathname: string): string {
   const p = pathname.replace(/\/$/, '') || '/';
@@ -144,7 +121,6 @@ function orgJsonLd(name: string, url: string) {
 
 export function resolveDocumentSeo(hostname: string, pathname: string): DocumentSeo {
   const host = hostname.split(':')[0] ?? hostname;
-  const loc = locFromHost(host);
   const path = cleanPath(pathname);
   const fromHost = detectIslandFromHost(host);
   const pathSeg = path.split('/').filter(Boolean)[0];
@@ -215,7 +191,7 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
         description = `Coverage on ${island.name}: published zones, not statewide fiction.`;
       } else if (localPath === '/sitemap') {
         title = `Sitemap — myCHEF ${island.name}`;
-        description = `${allIslandPaths(islandId).length} pages on the ${island.name} site.`;
+        description = `Commercial pages on the ${island.name} site.`;
       } else {
         const mapped = metaForPath(path, islandId, hostMode);
         title = mapped.title;
@@ -228,8 +204,10 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     description = mapped.description;
   }
 
-  const canonical = islandId ? siteUrl(islandId, localPath, loc) : siteUrl('root', path, loc);
-  const origin = islandId ? siteUrl(islandId, '/', loc).replace(/\/$/, '') : siteUrl('root', '/', loc).replace(/\/$/, '');
+  const canonical = islandId ? canonicalUrl(islandId, localPath, host) : canonicalUrl('root', path, host);
+  const origin = islandId
+    ? canonicalUrl(islandId, '/', host).replace(/\/$/, '')
+    : canonicalUrl('root', '/', host).replace(/\/$/, '');
   const jsonLd: Record<string, unknown>[] = [
     orgJsonLd(islandId ? `myCHEF ${islands[islandId].name}` : 'myCHEF Hawaii', origin || `https://${PRODUCTION_ROOT}`),
     {
@@ -284,38 +262,28 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
 
 export function sitemapLocs(hostname: string): { loc: string; changefreq: string; priority: string }[] {
   const host = hostname.split(':')[0] ?? hostname;
-  const loc = locFromHost(host);
   const fromHost = detectIslandFromHost(host);
-  const sub = usesIslandSubdomains(host);
 
   if (fromHost) {
-    return allIslandPaths(fromHost).map((p) => ({
-      loc: siteUrl(fromHost, p, loc),
+    return ISLAND_COMMERCIAL_PATHS.map((p) => ({
+      loc: canonicalUrl(fromHost, p, host),
       changefreq: p === '/' ? 'weekly' : 'monthly',
-      priority: p === '/' ? '1.0' : p.startsWith('/blog') || p.startsWith('/journal') ? '0.6' : '0.8',
+      priority: p === '/' ? '1.0' : '0.8',
     }));
   }
 
   const rows: { loc: string; changefreq: string; priority: string }[] = HUB_PATHS.map((p) => ({
-    loc: siteUrl('root', p, loc),
+    loc: canonicalUrl('root', p, host),
     changefreq: p === '/' ? 'weekly' : 'monthly',
     priority: p === '/' ? '1.0' : '0.7',
   }));
 
   for (const id of ISLAND_HOSTS) {
-    if (sub) {
+    for (const p of ISLAND_COMMERCIAL_PATHS) {
       rows.push({
-        loc: siteUrl(id, '/', loc),
-        changefreq: 'weekly',
-        priority: '0.9',
-      });
-    } else {
-      allIslandPaths(id).forEach((p) => {
-        rows.push({
-          loc: siteUrl(id, p, loc),
-          changefreq: p === '/' ? 'weekly' : 'monthly',
-          priority: p === '/' ? '0.9' : '0.6',
-        });
+        loc: canonicalUrl(id, p, host),
+        changefreq: p === '/' ? 'weekly' : 'monthly',
+        priority: p === '/' ? '0.9' : '0.8',
       });
     }
   }
@@ -324,9 +292,8 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
 
 export function islandSitemapIndex(hostname: string): string[] {
   const host = hostname.split(':')[0] ?? hostname;
-  if (detectIslandFromHost(host) || !usesIslandSubdomains(host)) return [];
-  const loc = locFromHost(host);
-  return ISLAND_HOSTS.map((id) => `${siteUrl(id, '/', loc).replace(/\/$/, '')}/sitemap.xml`);
+  if (detectIslandFromHost(host)) return [];
+  return ISLAND_HOSTS.map((id) => `${canonicalUrl(id, '/', host).replace(/\/$/, '')}/sitemap.xml`);
 }
 
 

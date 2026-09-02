@@ -1,38 +1,17 @@
-import { mkdirSync, writeFileSync } from 'node:fs';
+import { mkdirSync, writeFileSync, unlinkSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { ISLAND_HOSTS, PRODUCTION_ROOT } from '../src/config/site';
-import { allIslandPaths } from '../src/data/islandCatalog';
+import {
+  HUB_COMMERCIAL_PATHS,
+  ISLAND_COMMERCIAL_PATHS,
+} from '../src/data/commercialGraph';
 import { resolveDocumentSeo, sitemapLocs } from '../src/lib/seo';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const publicDir = join(root, 'public');
 const sitemapDir = join(publicDir, 'sitemaps');
 mkdirSync(sitemapDir, { recursive: true });
-
-const HUB_PATHS = [
-  '/',
-  '/islands',
-  '/services',
-  '/how-it-works',
-  '/pricing',
-  '/trust',
-  '/legal',
-  '/quote',
-  '/thank-you',
-  '/weddings',
-  '/bar',
-  '/mobile-bar',
-  '/corporate',
-  '/gatherings',
-  '/private-chef',
-  '/catering',
-  '/vacation-chef',
-  '/areas',
-  '/journal',
-  '/blog',
-  '/sitemap',
-];
 
 type SeoEntry = { title: string; description: string; island: string | null; path: string };
 const map: Record<string, SeoEntry> = {};
@@ -65,21 +44,22 @@ function record(host: string, path: string) {
   map[key] = { title: seo.title, description: seo.description, island, path };
 }
 
-HUB_PATHS.forEach((p) => record(PRODUCTION_ROOT, p));
+HUB_COMMERCIAL_PATHS.forEach((p) => record(PRODUCTION_ROOT, p));
 ISLAND_HOSTS.forEach((id) => {
   const host = `${id}.${PRODUCTION_ROOT}`;
-  allIslandPaths(id).forEach((p) => record(host, p));
+  ISLAND_COMMERCIAL_PATHS.forEach((p) => record(host, p));
   writeFileSync(join(sitemapDir, `${id}.xml`), urlset(host));
 });
 
-const index = `<?xml version="1.0" encoding="UTF-8"?>
-<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${ISLAND_HOSTS.map((id) => `  <sitemap><loc>https://${id}.${PRODUCTION_ROOT}/sitemap.xml</loc></sitemap>`).join('\n')}
-  <sitemap><loc>https://${PRODUCTION_ROOT}/sitemaps/hub.xml</loc></sitemap>
-</sitemapindex>
-`;
-writeFileSync(join(sitemapDir, 'index.xml'), index);
 writeFileSync(join(sitemapDir, 'hub.xml'), urlset(PRODUCTION_ROOT));
-writeFileSync(join(sitemapDir, 'vercel.xml'), urlset('mychef-hawaii.vercel.app'));
+writeFileSync(join(sitemapDir, 'index.xml'), urlset(PRODUCTION_ROOT));
+
+const vercelXml = join(sitemapDir, 'vercel.xml');
+try {
+  unlinkSync(vercelXml);
+} catch {
+  /* already gone */
+}
+
 writeFileSync(join(publicDir, 'seo-map.json'), JSON.stringify(map));
-console.log(`seo-map ${Object.keys(map).length} entries, sitemaps written`);
+console.log(`seo-map ${Object.keys(map).length} entries, commercial sitemaps written`);

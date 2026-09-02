@@ -621,8 +621,8 @@ export default function Quote() {
               className="absolute inset-0"
               style={{ backgroundImage: 'linear-gradient(to top, rgba(24,19,12,0.85), rgba(24,19,12,0.2) 55%, rgba(24,19,12,0.1))' }}
             />
-            <p className="absolute right-10 top-10 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ivory/60">
-              Concept image — not a myCHEF Hawaiʻi event. Final photography pending.
+            <p className="absolute right-10 top-10 text-[12px] text-ivory/60">
+              Menu card.
             </p>
             <div className="relative p-10">
               <ReassuranceContent inquiry={inquiry} islandName={inquiry ? islands[island].name : null} />

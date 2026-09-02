@@ -83,8 +83,8 @@ export default function NeighborhoodMoneyPage({ slug: slugProp }: { slug?: strin
               </p>
             ))}
             <p className="mt-6 text-sm text-ink-soft">
-              Same company as myCHEF Bali and Dubai. Hawaii prices. We shop, cook, serve and clean. Villa / Airbnb /
-              vacation-rental kitchens with a real cooktop.
+              Hawaii prices. We shop, cook, serve and clean. Villa / Airbnb / vacation-rental kitchens with a real
+              cooktop. Hawaiʻi guest reviews: none yet.
             </p>
             <div className="mt-8">
               <DualCtaLight island={islandId} intent={`a private chef in ${page.name}`} />
@@ -93,13 +93,18 @@ export default function NeighborhoodMoneyPage({ slug: slugProp }: { slug?: strin
           <div>
             <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Also on {island.name}</p>
             <div className="mt-4 flex flex-col gap-2">
-              {offer.neighborhoods
-                .filter((n) => n.slug !== slug)
-                .map((n) => (
-                  <Link key={n.slug} to={href(`/${n.slug}`)} className="text-sm text-clay underline underline-offset-4">
-                    Private chef {n.name}
-                  </Link>
-                ))}
+              <Link to={href('/private-chef')} className="text-sm text-clay underline underline-offset-4">
+                Private chef
+              </Link>
+              <Link to={href('/catering')} className="text-sm text-clay underline underline-offset-4">
+                Catering
+              </Link>
+              <Link to={href('/weddings')} className="text-sm text-clay underline underline-offset-4">
+                Weddings
+              </Link>
+              <Link to={href('/pricing')} className="text-sm text-clay underline underline-offset-4">
+                Pricing
+              </Link>
             </div>
             <div className="mt-8 flex flex-wrap gap-3">
               <Link to={href('/private-chef')} className="text-sm text-ink underline underline-offset-4">

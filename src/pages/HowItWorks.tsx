@@ -198,11 +198,11 @@ function FiveSteps() {
 const settingImages = [
   {
     src: '/photos/plated-fish-lanai-dusk.jpg',
-    alt: 'Seared fish on dark ceramic on a lava-stone lānai at dusk — campaign still, not a documented event',
+    alt: 'Seared fish on dark ceramic on a lava-stone lānai at dusk',
   },
   {
     src: '/photos/gatherings-garden-table-dusk.jpg',
-    alt: 'A long garden table with family-style fish and candles at dusk — campaign still, not a documented event',
+    alt: 'A long garden table with family-style fish and candles at dusk',
   },
 ];
 
@@ -232,8 +232,8 @@ function Setting() {
                   className="aspect-[4/5] h-full w-full object-cover"
                 />
               </div>
-              <figcaption className="mt-3 font-mono text-[0.625rem] uppercase leading-4 tracking-[0.1em] text-ink-soft">
-                Concept image — campaign still, not a documented myCHEF Hawaiʻi event.
+              <figcaption className="mt-3 text-[12px] text-ink-soft">
+                Villa table.
               </figcaption>
             </figure>
           ))}
@@ -245,114 +245,46 @@ function Setting() {
 
 /* ---------------- Section 3 — Logistics we publish (zone honesty) ---------------- */
 
-const logisticsFacts: { text: string; chip?: 'published' }[] = [
+const logisticsFacts: { text: string }[] = [
   { text: 'Team arrives ~3 hrs pre-service' },
-  { text: 'Zone B/C surcharge or quote-only — per island zone map', chip: 'published' },
-  { text: '72-hr minimum notice for far zones' },
+  { text: 'Farther kitchens carry a published travel surcharge or are quote-only' },
+  { text: '72-hr minimum notice for far kitchens' },
   { text: 'No flat statewide coverage — inter-island is quote-only' },
 ];
 
-function ZoneDiagram() {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const rings = el.querySelectorAll('circle');
-    rings.forEach((r) => {
-      const len = 2 * Math.PI * Number(r.getAttribute('r'));
-      gsap.set(r, { strokeDasharray: len, strokeDashoffset: len });
-    });
-    const tween = gsap.to(rings, {
-      strokeDashoffset: 0,
-      ease: 'none',
-      stagger: 0.15,
-      scrollTrigger: { trigger: el, start: 'top 85%', end: 'bottom 45%', scrub: true },
-    });
-    return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
-    };
-  }, []);
-
-  return (
-    <div ref={ref} className="mx-auto w-full max-w-[380px]">
-      <svg viewBox="0 0 400 400" fill="none" aria-hidden="true" className="w-full">
-        <circle cx="200" cy="200" r="60" stroke="#3C5648" strokeWidth="1.5" />
-        <circle cx="200" cy="200" r="110" stroke="#9C7A33" strokeWidth="1.5" />
-        <circle cx="200" cy="200" r="160" stroke="#E3D9C8" strokeWidth="1.5" />
-        <text x="200" y="205" textAnchor="middle" fill="#221D15" fontSize="15" fontFamily="'JetBrains Mono', monospace">
-          ZONE A
-        </text>
-        <text x="200" y="105" textAnchor="middle" fill="#9C7A33" fontSize="13" fontFamily="'JetBrains Mono', monospace">
-          ZONE B
-        </text>
-        <text x="200" y="55" textAnchor="middle" fill="#5C5344" fontSize="13" fontFamily="'JetBrains Mono', monospace">
-          ZONE C
-        </text>
-      </svg>
-      <div className="mt-6 space-y-2 font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">
-        <p>
-          <span className="text-moss">Zone A</span> — base, included
-        </p>
-        <p className="flex flex-wrap items-center gap-2">
-          <span className="text-brass">Zone B</span> — surcharge <StatusChip kind="published">Published</StatusChip>
-        </p>
-        <p>
-          <span className="text-ink-soft">Zone C</span> — quote-only
-        </p>
-      </div>
-    </div>
-  );
-}
-
 function Logistics() {
-  // Per-island zone honesty, derived from the canonical zone map.
   const zoneSummaries = islandOrder.map((id) => {
     const z = zoneMap[id];
     const count = (cls: string) => z.zones.filter((zone) => zone.class === cls).length;
     return {
       name: islands[id].name,
-      summary: `${count('base')} base · ${count('surcharge')} surcharge · ${count('quote-only')} quote-only`,
+      summary: `${count('base')} included · ${count('surcharge')} travel surcharge · ${count('quote-only')} quote-only`,
     };
   });
 
   return (
     <section className="bg-sand py-20 lg:py-28">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <div>
-            <Reveal>
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Zone Honesty</p>
-              <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-                Drive times are real costs. We publish them.
-              </h2>
-            </Reveal>
-            <Reveal stagger staggerDelay={0.09} className="mt-10 grid gap-5 sm:grid-cols-2">
-              {logisticsFacts.map((f) => (
-                <div key={f.text} className="rounded-[14px] border border-stone bg-white p-5">
-                  <p className="font-mono text-[0.75rem] uppercase leading-5 tracking-[0.08em] text-ink">
-                    {f.text}
-                  </p>
-                  {f.chip ? (
-                    <span className="mt-3 inline-block">
-                      <StatusChip kind={f.chip}>Published</StatusChip>
-                    </span>
-                  ) : null}
-                </div>
-              ))}
-            </Reveal>
-            <Reveal delay={0.15} className="mt-8 space-y-2">
-              {zoneSummaries.map((z) => (
-                <p key={z.name} className="font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ink-soft">
-                  <span className="text-ink">{z.name}</span> — {z.summary}
-                </p>
-              ))}
-            </Reveal>
-          </div>
-          <Reveal delay={0.1}>
-            <ZoneDiagram />
+        <div className="max-w-3xl">
+          <Reveal>
+            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Travel</p>
+            <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
+              Drive times are real costs. We publish them.
+            </h2>
+          </Reveal>
+          <Reveal stagger staggerDelay={0.09} className="mt-10 grid gap-5 sm:grid-cols-2">
+            {logisticsFacts.map((f) => (
+              <div key={f.text} className="border border-stone bg-white p-5">
+                <p className="text-[1.0625rem] leading-6 text-ink">{f.text}</p>
+              </div>
+            ))}
+          </Reveal>
+          <Reveal delay={0.15} className="mt-8 space-y-2">
+            {zoneSummaries.map((z) => (
+              <p key={z.name} className="text-sm text-ink-soft">
+                <span className="text-ink">{z.name}</span> — {z.summary}
+              </p>
+            ))}
           </Reveal>
         </div>
       </div>

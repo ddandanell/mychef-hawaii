@@ -534,7 +534,7 @@ function CompareAndPackages() {
                 </tr>
                 <tr className="border-b border-stone">
                   <td className="py-4 pr-4 font-medium text-ink">Who cooks</td>
-                  <td className="py-4 pr-4">One named chef team. Same company as Bali + Dubai.</td>
+                  <td className="py-4 pr-4">One named chef team. We shop, cook, serve and clean.</td>
                   <td className="py-4 pr-4">Whoever is on the line that night.</td>
                   <td className="py-4">A marketplace of many chefs. You pick from a grid.</td>
                 </tr>

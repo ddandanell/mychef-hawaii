@@ -193,7 +193,7 @@ export default function BarPage() {
           <div>
             <SectionIntro
               eyebrow="Stacked with the kitchen"
-              title="Bar + chef, like Bali — priced for Hawaiʻi."
+              title="Bar + chef, stacked on one quote."
               body="Most tables book the bartender next to the dinner. Wedding weeks add a welcome pour. The quote itemises both so nothing is buried in a menu price."
             />
             <div className="mt-8 flex flex-wrap gap-3">

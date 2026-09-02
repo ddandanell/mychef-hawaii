@@ -13,7 +13,6 @@ import StatusChip from '@/components/StatusChip';
 import type { ChipKind } from '@/components/StatusChip';
 import WordMask from '@/components/WordMask';
 import type { IslandId, IslandMeta } from '@/data/islands';
-import { islands } from '@/data/islands';
 import { zoneMap } from '@/data/zoneMap';
 import type { Zone, ZoneClass } from '@/data/zoneMap';
 import { cn } from '@/lib/utils';
@@ -312,73 +311,6 @@ function zoneStroke(cls: ZoneClass, dark: boolean): string {
   return dark ? 'rgba(251,248,241,0.45)' : '#5C5344';
 }
 
-/** Parameterized abstract zone diagram — concentric rings, never a literal map. */
-function ZoneDiagram({ islandId, dark, reverse }: { islandId: IslandId; dark: boolean; reverse: boolean }) {
-  const ref = useRef<SVGSVGElement>(null);
-  const { zones } = zoneMap[islandId];
-  const rings: { code: string; cls: ZoneClass }[] = [];
-  zones.forEach((z) => {
-    if (!rings.some((r) => r.code === z.code)) rings.push({ code: z.code, cls: z.class });
-  });
-
-  useEffect(() => {
-    const svg = ref.current;
-    if (!svg) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const paths = Array.from(svg.querySelectorAll('path'));
-    paths.forEach((p) => {
-      const len = p.getTotalLength();
-      gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
-    });
-    const targets = reverse ? [...paths].reverse() : paths;
-    const tween = gsap.to(targets, {
-      strokeDashoffset: 0,
-      ease: 'none',
-      stagger: 0.15,
-      scrollTrigger: { trigger: svg, start: 'top 85%', end: 'bottom 45%', scrub: true },
-    });
-    return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
-    };
-  }, [reverse]);
-
-  const cx = 170;
-  const cy = 170;
-
-  return (
-    <svg
-      ref={ref}
-      viewBox="0 0 340 340"
-      role="img"
-      aria-label={`${islands[islandId].name} coverage zones: ${rings
-        .map((r) => `Zone ${r.code} ${zoneClassLabel[r.cls]}`)
-        .join(', ')}`}
-      className="mx-auto w-full max-w-[380px]"
-    >
-      {rings.map((r, i) => {
-        const radius = 62 + i * 30;
-        const d = `M ${cx} ${cy - radius} A ${radius} ${radius} 0 1 1 ${cx} ${cy + radius} A ${radius} ${radius} 0 1 1 ${cx} ${cy - radius} Z`;
-        return (
-          <g key={r.code}>
-            <path d={d} fill="none" stroke={zoneStroke(r.cls, dark)} strokeWidth={1.5} />
-            <text
-              x={cx}
-              y={cy - radius + 16}
-              textAnchor="middle"
-              fill={dark ? 'rgba(251,248,241,0.75)' : '#5C5344'}
-              style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, letterSpacing: 2 }}
-            >
-              {`ZONE ${r.code}`}
-            </text>
-          </g>
-        );
-      })}
-      <circle cx={cx} cy={cy} r={4} fill={islands[islandId].hue} />
-    </svg>
-  );
-}
-
 function ZoneRow({ zone, dark }: { zone: Zone; dark: boolean }) {
   return (
     <div className={cn('flex gap-4 border-b pb-5', dark ? 'border-white/10' : 'border-stone')}>
@@ -420,8 +352,6 @@ function ZoneRow({ zone, dark }: { zone: Zone; dark: boolean }) {
 export function ZoneModule({
   islandId,
   dark = false,
-  flip = false,
-  reverse = false,
   eyebrow = 'Coverage — honestly zoned',
   intro,
   chipRow,
@@ -446,11 +376,8 @@ export function ZoneModule({
         dark ? 'grain-dark relative overflow-hidden bg-ink' : 'bg-sand',
       )}
     >
-      <div className="relative mx-auto grid w-full max-w-container items-center gap-12 px-5 lg:grid-cols-2 lg:gap-16 lg:px-10">
-        <Reveal className={cn(flip && 'lg:order-2')}>
-          <ZoneDiagram islandId={islandId} dark={dark} reverse={reverse} />
-        </Reveal>
-        <div className={cn(flip && 'lg:order-1')}>
+      <div className="relative mx-auto max-w-container px-5 lg:px-10">
+        <div>
           <SectionHead eyebrow={eyebrow} title={data.headline} intro={intro} dark={dark} />
           {chipRow && (
             <Reveal delay={0.1} className="mt-6 flex flex-wrap items-center gap-2">

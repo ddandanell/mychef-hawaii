@@ -72,7 +72,7 @@ export default function KauaiPrivateChef() {
         title="A private chef on your shore."
         lede="Signature in-villa dinners planned as a dual-node service — a South Shore base around Poʻipū and Kōloa, a North Shore pod for Princeville and Hanalei estates. It activates when the inquiry list proves the demand. Tell us your dates and your shore."
         image="/photos/kauai-chef-plating-seared-fish-mountains.jpg"
-        imageAlt="Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond. Campaign still, not a documented event."
+        imageAlt="Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond."
         chips={
           <>
             {core ? (
@@ -122,7 +122,7 @@ export default function KauaiPrivateChef() {
           <Reveal className="overflow-hidden rounded-[14px]">
             <img
               src="/photos/maui-kapalua-dinner-for-two.jpg"
-              alt="Dinner for two on a Kapalua lānai at blue hour. Campaign still, not a documented event."
+              alt="Dinner for two on a Kapalua lānai at blue hour."
               loading="lazy"
               className="aspect-[4/5] w-full object-cover"
             />
