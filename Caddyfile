@@ -1,4 +1,4 @@
-# Wildcard for island departments. Vite stays on :3000.
+# Wildcard for island departments. Next.js stays on :3000.
 # Caddy on :80 so http://oahu.localhost/ (no port) also works.
 #
 #   caddy run --config Caddyfile
