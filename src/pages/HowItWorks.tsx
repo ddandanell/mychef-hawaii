@@ -50,7 +50,7 @@ const steps = [
     n: '01',
     title: 'Enquire — two minutes.',
     body: 'Five fields: island, dates, party size, service, and how to reach you. Every field tells you why we ask it. No account, no phone-tag obligation.',
-    chips: [] as { kind: 'bde' | 'rpr'; label: string }[],
+    chips: [] as { kind: 'published' | 'rpr'; label: string }[],
   },
   {
     n: '02',
@@ -61,9 +61,9 @@ const steps = [
   {
     n: '03',
     title: 'The written quote.',
-    body: 'Itemised: per-person or fixed price, minimums, staffing, travel-zone fees if any, service charge and tax posture — all labeled until professional sign-off.',
+    body: 'Itemised: per-person or fixed price, minimums, staffing, travel-zone fees if any, service charge and tax — starting prices are published; the quote confirms the night.',
     chips: [
-      { kind: 'bde' as const, label: 'BDE' },
+      { kind: 'published' as const, label: 'Published' },
       { kind: 'rpr' as const, label: 'RPR' },
     ],
   },
@@ -197,12 +197,12 @@ function FiveSteps() {
 
 const settingImages = [
   {
-    src: '/assets/private-dining-room.jpg',
-    alt: 'A private dining room set for a coursed dinner — the in-villa service setting',
+    src: '/photos/plated-fish-lanai-dusk.jpg',
+    alt: 'Seared fish on dark ceramic on a lava-stone lānai at dusk — campaign still, not a documented event',
   },
   {
-    src: '/assets/celebration-table.jpg',
-    alt: 'A celebration table styled for a milestone dinner — candles, linen and full table service',
+    src: '/photos/gatherings-garden-table-dusk.jpg',
+    alt: 'A long garden table with family-style fish and candles at dusk — campaign still, not a documented event',
   },
 ];
 
@@ -233,7 +233,7 @@ function Setting() {
                 />
               </div>
               <figcaption className="mt-3 font-mono text-[0.625rem] uppercase leading-4 tracking-[0.1em] text-ink-soft">
-                Concept image — not a myCHEF Hawaiʻi event. Final photography pending.
+                Concept image — campaign still, not a documented myCHEF Hawaiʻi event.
               </figcaption>
             </figure>
           ))}
@@ -245,9 +245,9 @@ function Setting() {
 
 /* ---------------- Section 3 — Logistics we publish (zone honesty) ---------------- */
 
-const logisticsFacts: { text: string; chip?: 'bde' }[] = [
+const logisticsFacts: { text: string; chip?: 'published' }[] = [
   { text: 'Team arrives ~3 hrs pre-service' },
-  { text: 'Zone B/C surcharge or quote-only — per island zone map', chip: 'bde' },
+  { text: 'Zone B/C surcharge or quote-only — per island zone map', chip: 'published' },
   { text: '72-hr minimum notice for far zones' },
   { text: 'No flat statewide coverage — inter-island is quote-only' },
 ];
@@ -297,7 +297,7 @@ function ZoneDiagram() {
           <span className="text-moss">Zone A</span> — base, included
         </p>
         <p className="flex flex-wrap items-center gap-2">
-          <span className="text-brass">Zone B</span> — surcharge <StatusChip kind="bde">BDE</StatusChip>
+          <span className="text-brass">Zone B</span> — surcharge <StatusChip kind="published">Published</StatusChip>
         </p>
         <p>
           <span className="text-ink-soft">Zone C</span> — quote-only
@@ -337,7 +337,7 @@ function Logistics() {
                   </p>
                   {f.chip ? (
                     <span className="mt-3 inline-block">
-                      <StatusChip kind={f.chip}>BDE</StatusChip>
+                      <StatusChip kind={f.chip}>Published</StatusChip>
                     </span>
                   ) : null}
                 </div>

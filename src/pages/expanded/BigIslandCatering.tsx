@@ -1,7 +1,7 @@
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { FaqSection, SectionHead, ZoneModule } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
@@ -52,7 +52,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'What do Big Island wedding budgets look like?',
-    a: 'Typical destination-wedding budgets on the island run $20,000–$30,000 including the catering share (market reference, labeled). Estate venues in coffee country list from roughly $15,376 for 50 guests (directory rate, labeled). Our own event pricing publishes with the rate card at launch, labeled BUSINESS DECISION REQUIRED until then.',
+    a: 'Typical destination-wedding budgets on the island run $20,000–$30,000 including the catering share (market reference, labeled). Estate venues in coffee country list from roughly $15,376 for 50 guests (directory rate, labeled). Our wedding catering starts from $150 per person plus staffing — published now, books when the west-side team launches.',
   },
   {
     q: 'Can you cater an east-side wedding — Hilo or Volcano?',
@@ -71,7 +71,7 @@ const faqs: Faq[] = [
 export default function BigIslandCatering() {
   useHashScroll();
   const { island } = usePageIsland('bigisland');
-  const staffingOffer = otherOffers.find((o) => o.offer === 'Event staffing');
+  const staffingOffer = getOtherOffer('event-staffing');
 
   return (
     <>
@@ -138,7 +138,7 @@ export default function BigIslandCatering() {
           <Reveal stagger staggerDelay={0.07}>
             {[
               staffingOffer
-                ? { label: `Staffing — ${staffingOffer.orientation}`, bde: true }
+                ? { label: `Staffing — ${formatOtherOffer(staffingOffer, 'bigisland')}`, bde: true }
                 : { label: 'Staffing — hourly, itemised on the quote', bde: true },
               { label: 'Commissary access — Kona kitchen from $37.50/hr (directory rate, labeled)', bde: false },
               { label: 'Estate venues from ~$15,376 / 50 guests — directory rate, labeled', bde: false },
@@ -151,7 +151,7 @@ export default function BigIslandCatering() {
                 <span className="font-mono text-[0.75rem] uppercase leading-5 tracking-[0.1em] text-ink">
                   {row.label}
                 </span>
-                {row.bde ? <StatusChip kind="bde">BDE</StatusChip> : null}
+                {row.bde ? <StatusChip kind="published">Published</StatusChip> : null}
               </div>
             ))}
             <div className="pt-4">

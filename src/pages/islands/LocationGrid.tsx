@@ -55,7 +55,7 @@ export default function LocationGrid({
               <div className="flex flex-1 flex-col p-4 lg:p-5">
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{loc.name}</h3>
-                  <StatusChip kind={loc.zoneClass === 'base' ? 'policy' : loc.zoneClass === 'surcharge' ? 'bde' : 'pending'}>
+                  <StatusChip kind={loc.zoneClass === 'base' ? 'policy' : loc.zoneClass === 'surcharge' ? 'published' : 'pending'}>
                     {zoneLabel[loc.zoneClass]}
                   </StatusChip>
                 </div>

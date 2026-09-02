@@ -35,7 +35,7 @@ export default function Corporate() {
     <>
       <section className="relative flex min-h-[70svh] min-h-[520px] items-end overflow-hidden">
         <HeroMedia
-          src="/photos/craft-fire.jpg"
+          src="/photos/live-fire-grill-lanai-fish.jpg"
           alt="Hands at a volcanic-stone grill station — concept image, not a myCHEF event"
         />
         <div className="relative mx-auto w-full max-w-spread px-5 pb-20 pt-36 lg:px-10">

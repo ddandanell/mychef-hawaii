@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
+import { photos } from '@/data/photos';
 import { proofRegister } from '@/data/proofRegister';
 import {
   CostChip,
@@ -72,50 +73,56 @@ function Hero() {
 
 function Services() {
   const { href } = usePageIsland('maui');
-  const dinnerTwo = otherOffers.find((o) => o.offer.startsWith('Dinner for two'));
-  const vacation = otherOffers.find((o) => o.offer.startsWith('Vacation chef'));
-  const dinnerTwoBand = dinnerTwo ? dinnerTwo.orientation.split('·')[0].trim() : '';
+  const dinnerTwo = getOtherOffer('dinner-for-two');
+  const vacation = getOtherOffer('vacation-chef');
 
   return (
-    <section className="bg-ivory py-20 lg:py-28">
+    <section className="bg-ivory py-24 lg:py-32">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
         <SectionHead eyebrow="Signature services" title="What Maui books most." />
         <Reveal stagger className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
           <ServiceCard
             title="Signature in-villa dinner"
             desc="Multi-course, 4–15 guests, your table."
-            img="/photos/svc-private-chef-maui.jpg"
+            img={photos.mauiKitchen.file}
             to={href('/private-chef')}
             band={`${tierBand('maui', 'CORE')}/pp`}
           />
           <ServiceCard
             title="Private chef's table"
             desc="Our halo: a coursed tasting at your villa, beyond any resort communal table."
-            img="/photos/loc-wailea.jpg"
+            img={photos.wailea.file}
             to={href('/private-chef#chefs-table')}
             band={`${tierBand('maui', 'ULTRA')}/pp`}
           />
           <ServiceCard
             title="Dinner for two"
             desc="Proposals, anniversaries, honeymoons — fixed-price intimacy."
-            img="/assets/dinner-for-two.jpg"
+            img={photos.kapaluaTwo.file}
             to={href('/private-chef#for-two')}
-            band={dinnerTwoBand}
+            band={formatOtherOffer(dinnerTwo, 'maui')}
           />
           <ServiceCard
             title="Wedding week"
             desc="Welcome dinner to recovery brunch — one team all week."
-            img="/photos/home/hub-weddings.jpg"
+            img={photos.wedding.file}
             to={href('/wedding-catering')}
             stat="≈2,500 Maui weddings/yr (2024, official)"
+          />
+          <ServiceCard
+            title="Mobile bar"
+            desc="Cocktails on the terrace — stacked with dinner or booked alone."
+            img={photos.bar.file}
+            to={href('/bar')}
+            band="from $800 / 4 hr"
           />
           <ServiceCard
             wide
             title="Multi-day & retreat full-board"
             desc="A chef for your whole stay — villa provisioning, full-board days and retreat service across the resort corridors."
-            img="/photos/vacation-chef.jpg"
+            img={photos.vacation.file}
             to={href('/vacation-chef')}
-            band={vacation ? vacation.orientation : ''}
+            band={formatOtherOffer(vacation, 'maui')}
           />
         </Reveal>
       </div>
@@ -134,8 +141,8 @@ function Sourcing() {
           <figure>
             <div className="overflow-hidden rounded-[14px]">
               <img
-                src="/photos/farmers-market.jpg"
-                alt="Hawaii produce stall — concept image of the sourcing bench, not a myCHEF event"
+                src={photos.produce.file}
+                alt={photos.produce.alt}
                 loading="lazy"
                 className="aspect-[16/10] h-full w-full object-cover"
               />

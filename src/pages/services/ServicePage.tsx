@@ -31,7 +31,7 @@ export function JsonLd({ data }: { data: unknown }) {
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data) }} />;
 }
 
-/** Service + BreadcrumbList schema. Bands stay out of OfferCatalog until BDE clears (launch posture: Service only). */
+/** Service + BreadcrumbList schema. Published starting prices live on the rate card, not in OfferCatalog. */
 export function serviceJsonLd({
   name,
   description,
@@ -82,11 +82,11 @@ export function useHashScroll() {
 
 /* ---------------- Chips ---------------- */
 
-/** A price/model line with its governing status chip always adjacent (design.md §8.3). */
+/** A published price/model line. Legal chips (CPA / attorney) stay optional. */
 export function BandChip({
   label,
-  chipLabel = 'BDE',
-  kind = 'bde',
+  chipLabel,
+  kind = 'published',
   onDark,
 }: {
   label: string;
@@ -104,9 +104,11 @@ export function BandChip({
       >
         {label}
       </span>
-      <StatusChip kind={kind} onDark={onDark}>
-        {chipLabel}
-      </StatusChip>
+      {chipLabel ? (
+        <StatusChip kind={kind} onDark={onDark}>
+          {chipLabel}
+        </StatusChip>
+      ) : null}
     </span>
   );
 }
@@ -310,14 +312,14 @@ export function ZoneStrip({ islandId }: { islandId: IslandId }) {
     rows.push({
       label: 'Surcharge — published',
       value: surcharge.map((z) => (z.driveTime ? `${z.name} (${z.driveTime})` : z.name)).join(' · '),
-      bde: surcharge.some((z) => z.feeChip === 'BDE'),
+      bde: surcharge.some((z) => z.feeChip === 'PUBLISHED'),
     });
   }
   if (quoteOnly.length) {
     rows.push({
       label: 'Quote-only — extended drive',
       value: quoteOnly.map((z) => z.name).join(' · '),
-      bde: quoteOnly.some((z) => z.feeChip === 'BDE'),
+      bde: quoteOnly.some((z) => z.feeChip === 'PUBLISHED'),
     });
   }
 
@@ -333,7 +335,7 @@ export function ZoneStrip({ islandId }: { islandId: IslandId }) {
             <span className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft">{row.label}</span>
             <span className="flex flex-wrap items-center justify-end gap-2">
               <span className="text-sm text-ink">{row.value}</span>
-              {row.bde ? <StatusChip kind="bde">BDE</StatusChip> : null}
+              {row.bde ? <StatusChip kind="published">Quoted with the menu</StatusChip> : null}
             </span>
           </div>
         ))}

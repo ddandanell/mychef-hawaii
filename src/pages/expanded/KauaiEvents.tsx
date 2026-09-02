@@ -2,7 +2,7 @@ import { Link } from 'react-router';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { FaqSection, SectionHead, ZoneModule } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
@@ -57,7 +57,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'Can our concierge, planner or villa agency refer us?',
-    a: 'Yes — and that channel is the point: Kauaʻi’s highest-value bookings are referred, not searched, so the launch itself is gated on referral agreements. Agencies refer through a published, honest process; commission terms are set at launch, never hidden, and labeled BUSINESS DECISION REQUIRED until then. Use the partner intake below.',
+    a: 'Yes — and that channel is the point: Kauaʻi’s highest-value bookings are referred, not searched, so the launch itself is gated on referral agreements. Agencies refer through a published, honest process; commission terms are set at launch and never hidden. Use the partner intake below.',
   },
   {
     q: 'When does Kauaʻi event catering actually launch?',
@@ -68,7 +68,7 @@ const faqs: Faq[] = [
 export default function KauaiEvents() {
   useHashScroll();
   const { island } = usePageIsland('kauai');
-  const staffingOffer = otherOffers.find((o) => o.offer === 'Event staffing');
+  const staffingOffer = getOtherOffer('event-staffing');
 
   return (
     <>
@@ -78,8 +78,8 @@ export default function KauaiEvents() {
         service="Weddings & Events — planned service, activates at launch"
         title="Fifteen to seventy-five guests. Kauaʻi’s unserved band."
         lede="The local chef ceiling is 15 guests; the resorts start making sense at 75. Between them sits the island’s real event market — estate weddings, retreat weeks, celebration feasts — with nobody staffed to serve it. That gap is the planned flagship, and your dated inquiry is the evidence that launches it."
-        image="/photos/home/hub-weddings.jpg"
-        imageAlt="Long wedding reception table in a private estate garden with ivory florals and brass candlelight"
+        image="/photos/maui-wedding-long-table-banyan-dusk.jpg"
+        imageAlt="A wedding-week long table under a banyan at dusk. Campaign still, not a documented event."
         chips={
           <>
             <PlainChip onDark>1,660 Kauaʻi weddings in 2024 (official) · peaks Sep / Oct / May</PlainChip>
@@ -117,7 +117,7 @@ export default function KauaiEvents() {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-8 flex flex-wrap items-center gap-2">
-              {staffingOffer ? <BandChip label={`Staffing — ${staffingOffer.orientation}`} /> : null}
+              {staffingOffer ? <BandChip label={`Staffing — ${formatOtherOffer(staffingOffer, 'kauai')}`} /> : null}
             </div>
           </Reveal>
         </div>
@@ -173,8 +173,7 @@ export default function KauaiEvents() {
             <p className="mx-auto mt-6 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft lg:text-[1.125rem]">
               Kauaʻi’s highest-value bookings arrive through concierges, planners and villa agencies — which is why
               the launch is gated on signed referral agreements. Agencies refer through a published, honest
-              process: commission terms are set at launch, never hidden, and labeled BUSINESS DECISION REQUIRED
-              until then.
+              process: commission terms are set at launch and never hidden.
             </p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <InquiryCta to="/quote?island=kauai&source=concierge">Partner intake — concierge & agencies</InquiryCta>
@@ -193,7 +192,7 @@ export default function KauaiEvents() {
       <ZoneModule
         islandId="kauai"
         eyebrow="Coverage — honestly zoned"
-        intro="Events follow the published zone map: Līhuʻe and Kapaʻa are the included base, Princeville/Hanalei and Poʻipū carry a published surcharge, and Haʻena and the far North are quote-only with 72-hour notice. The incumbent norm — a flat $50–$75/day driving fee and a five-person South Shore minimum — is competitor-published and labeled; our zone fees are labeled BUSINESS DECISION REQUIRED until launch."
+        intro="Events follow the published zone map: Līhuʻe and Kapaʻa are the included base, Princeville/Hanalei and Poʻipū carry a published surcharge, and Haʻena and the far North are quote-only with 72-hour notice. The incumbent norm — a flat $50–$75/day driving fee and a five-person South Shore minimum — is competitor-published and labeled; our zone fees are published on the rate card."
       />
 
       <FaqSection

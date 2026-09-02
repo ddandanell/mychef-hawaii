@@ -29,7 +29,7 @@ export default function Footer() {
               <span aria-hidden="true" className="ml-0.5 inline-block h-2 w-2 rounded-full bg-clay align-super" />
             </span>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ivory/70">
-              Private chefs, private dining, catering and events — quiet luxury, honestly labeled.
+              Private chefs, catering, weddings and a mobile bar — quiet luxury, published starting prices.
             </p>
             <p className="mt-5 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ivory/50">
               Part of the myCHEF family
@@ -75,6 +75,7 @@ export default function Footer() {
               {[
                 { label: 'Services', path: '/services' },
                 { label: 'Weddings', path: '/weddings' },
+                { label: 'Bar', path: '/bar' },
                 { label: 'Gatherings', path: '/corporate' },
                 { label: 'How it works', path: '/how-it-works' },
                 { label: 'Pricing', path: '/pricing' },
@@ -102,9 +103,10 @@ export default function Footer() {
                 {[
                   { label: 'Private chef', path: '/private-chef' },
                   { label: 'Vacation chef', path: '/vacation-chef' },
+                  { label: 'Weddings', path: '/wedding-catering' },
+                  { label: 'Bar', path: '/bar' },
                   { label: 'Areas', path: '/locations' },
-                  { label: 'Journal', path: '/journal' },
-                  { label: 'Blog', path: '/blog' },
+                  { label: 'Pricing', path: '/pricing' },
                   { label: 'Sitemap', path: '/sitemap' },
                 ].map((l) => (
                   <li key={l.path}>
@@ -119,18 +121,17 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 space-y-2 border-t border-white/10 pt-6 font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ivory/50">
-          <p>Hawaii is launching — reviews publish only after verified events.</p>
+          <p>Starting prices are published. Your written quote is the confirmed, itemised total.</p>
           <p>All times Hawaii Standard Time (HST).</p>
           <p>
-            Pricing shown is indicative planning orientation; terms subject to professional review. See{' '}
+            20% service charge and GET up to 4.712% appear as their own lines. See{' '}
             <Link to="/legal" className="text-brass underline-offset-2 hover:underline">
               /legal
             </Link>
             .
           </p>
           <p>
-            Photography on this preview is labeled concept imagery — not photographs of myCHEF Hawaiʻi events.
-            Final owned photography ships at launch.
+            Photography is campaign stills — concept images, not photographs of documented myCHEF Hawaiʻi events.
           </p>
           <p className="pt-2 text-ivory/40">© {new Date().getFullYear()} myCHEF Hawaii</p>
         </div>

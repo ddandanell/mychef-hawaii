@@ -21,6 +21,8 @@ const HUB_PATHS = [
   '/quote',
   '/thank-you',
   '/weddings',
+  '/bar',
+  '/mobile-bar',
   '/corporate',
   '/journal',
   '/blog',

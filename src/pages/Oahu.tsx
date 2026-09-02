@@ -5,7 +5,8 @@ import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
 import WordMask from '@/components/WordMask';
-import { getTiers, otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer, getTiers } from '@/data/rateCard';
+import { photos } from '@/data/photos';
 import { proofRegister } from '@/data/proofRegister';
 import {
   CostChip,
@@ -101,7 +102,7 @@ function TwoDoors() {
               eyebrow="Visiting?"
               title="Celebration weeks, fully cheffed."
               body="Celebration dinners, multi-day villa service and wedding weekends in the resort corridors. Arrive to a stocked fridge and a chef who knows your dates."
-              img="/photos/svc-private-chef-oahu.jpg"
+              img={photos.oahuDinner.file}
               cta={
                 <Link
                   to={href('/private-chef')}
@@ -118,8 +119,8 @@ function TwoDoors() {
               eyebrow="Live here?"
               title="The kamaʻāina line."
               body="Weekly meal prep and standing chef service for households from Kahala to Hawaiʻi Kai. Fixed weekly fee + groceries at cost."
-              img="/photos/vacation-chef.jpg"
-              chips={<StatusChip kind="bde" onDark>BDE</StatusChip>}
+              img={photos.vacation.file}
+              chips={<StatusChip kind="published" onDark>Published</StatusChip>}
               cta={
                 <Link
                   to={href('/vacation-chef')}
@@ -145,37 +146,49 @@ function Services() {
   const entry = tiers.find((t) => t.tier === 'ENTRY');
   const core = tiers.find((t) => t.tier === 'CORE');
   const tierSpan = entry && core ? `$${entry.band[0]}–$${core.band[1]}` : '';
-  const weekly = otherOffers.find((o) => o.offer.startsWith('Weekly meal prep'));
+  const weekly = getOtherOffer('weekly-meal-prep');
 
   return (
-    <section className="bg-ivory pb-20 lg:pb-28">
+    <section className="bg-ivory pb-24 lg:pb-32">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <SectionHead eyebrow="Services on Oʻahu" title="Four ways we cook here." />
-        <Reveal stagger className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+        <SectionHead eyebrow="Services on Oʻahu" title="How we cook here." />
+        <Reveal stagger className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-3 lg:gap-6">
           <ServiceCard
             title="Celebration & villa dinners"
             desc="Multi-course in-villa dinners, by tier — from set menus to the chef's-table halo."
-            img="/photos/svc-private-chef-oahu.jpg"
+            img={photos.oahuDinner.file}
             to={href('/private-chef')}
             band={`${tierSpan}/pp by tier`}
           />
           <ServiceCard
             title="Multi-day resort-villa packages"
             desc="3–7 day stays, Ko Olina to the North Shore — provisioning, full-board days, one team."
-            img="/photos/vacation-chef.jpg"
+            img={photos.vacation.file}
             to={href('/vacation-chef')}
           />
           <ServiceCard
             title="Kamaʻāina weekly meals"
             desc="Fixed weekly fee + groceries at cost — a standing chef night for resident households."
-            img="/assets/farmers-market.jpg"
+            img={photos.produce.file}
             to={href('/vacation-chef#weekly')}
-            band={weekly ? weekly.orientation : ''}
+            band={formatOtherOffer(weekly, 'oahu')}
+          />
+          <ServiceCard
+            title="Wedding weekends"
+            desc="Gold Coast and Ko Olina weekend stacks — one kitchen, one quote."
+            img={photos.oahuEstate.file}
+            to={href('/wedding-catering')}
+          />
+          <ServiceCard
+            title="Mobile bar"
+            desc="Cocktails on the lānai — stacked with dinner or booked alone."
+            img={photos.bar.file}
+            to={href('/bar')}
           />
           <ServiceCard
             title="Catering & events"
             desc="Receptions, retreats, film and production crews, 10–75 guests."
-            img="/craft-fire.jpg"
+            img={photos.catering.file}
             to={href('/catering')}
           />
         </Reveal>
@@ -217,11 +230,11 @@ const faqs: Faq[] = [
   },
   {
     q: 'Which areas carry travel fees?',
-    a: 'Only the North Shore / Turtle Bay corridor — 60–90+ minutes from town — carries a published surcharge, labeled BUSINESS DECISION REQUIRED until the rate card is approved. Waikīkī, Kahala/Gold Coast, Ko Olina and Kailua/Lanikai are base zones with no travel fee.',
+    a: 'Only the North Shore / Turtle Bay corridor — 60–90+ minutes from town — carries a published surcharge on the written quote. Waikīkī, Kahala/Gold Coast, Ko Olina and Kailua/Lanikai are base zones with no travel fee.',
   },
   {
     q: 'Is there a minimum for weekly household service?',
-    a: 'The kamaʻāina line runs on a 4-week minimum posture — labeled BUSINESS DECISION REQUIRED — with a fixed weekly fee and groceries at cost. Your quote itemises everything before you commit.',
+    a: 'The kamaʻāina line runs on a 4-week minimum, with a published starting weekly fee and groceries at cost. Your quote itemises everything before you commit.',
   },
 ];
 

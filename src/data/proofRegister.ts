@@ -25,9 +25,9 @@ export const proofRegister: ProofClaim[] = [
     label: 'NOT AVAILABLE — BY DESIGN',
   },
   {
-    claim: 'Every price on this site is labeled planning orientation until our rate card is approved.',
-    status: 'PENDING',
-    label: 'BUSINESS DECISION REQUIRED',
+    claim: 'Starting prices are published. Your written quote is the confirmed, itemised total.',
+    status: 'VERIFIED',
+    label: 'PUBLISHED — STARTING PRICES',
   },
   {
     claim: 'Hawaiʻi operating history, local awards or local press.',

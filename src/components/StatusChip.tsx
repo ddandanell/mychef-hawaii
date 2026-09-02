@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 
 export type ChipKind =
   | 'verified'
+  | 'published'
   | 'bde'
   | 'rpr'
   | 'pending'
@@ -18,6 +19,7 @@ export type ChipKind =
 
 const styles: Record<ChipKind, string> = {
   verified: 'bg-moss text-white border-transparent',
+  published: 'bg-moss/12 text-moss border-moss/35',
   bde: 'bg-transparent text-brass border-brass',
   rpr: 'bg-transparent text-brass border-brass',
   pending: 'bg-stone text-ink-soft border-transparent',

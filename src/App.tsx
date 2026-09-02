@@ -16,6 +16,7 @@ import Legal from '@/pages/Legal';
 import Quote from '@/pages/Quote';
 import ThankYou from '@/pages/ThankYou';
 import Weddings from '@/pages/Weddings';
+import Bar from '@/pages/Bar';
 import Corporate from '@/pages/Corporate';
 import HubEditorial from '@/pages/site/HubEditorial';
 import NetworkSitemap from '@/pages/site/NetworkSitemap';
@@ -60,6 +61,8 @@ function HubRoutes() {
         <Route path="/quote" element={<Quote />} />
         <Route path="/thank-you" element={<ThankYou />} />
         <Route path="/weddings" element={<Weddings />} />
+        <Route path="/bar" element={<Bar />} />
+        <Route path="/mobile-bar" element={<Bar />} />
         <Route path="/corporate" element={<Corporate />} />
         <Route path="/journal" element={<HubEditorial kind="journal" />} />
         <Route path="/blog" element={<HubEditorial kind="blog" />} />

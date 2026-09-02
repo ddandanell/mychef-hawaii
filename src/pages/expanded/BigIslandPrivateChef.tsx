@@ -40,7 +40,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'What will a private chef dinner on the Big Island cost?',
-    a: 'Two honest reference points: the platform-published band on the island runs roughly $106–$169 per person (competitor-published, labeled), and our indicative core posture is $150–$225 per person, labeled BUSINESS DECISION REQUIRED until the rate card activates at launch. We publish numbers as orientation before we ever put them on an invoice.',
+    a: 'Two honest reference points: the platform-published band on the island runs roughly $106–$169 per person (competitor-published, labeled), and our published CORE band is $150–$225 per person. Quotes are confirmed in writing; Hawaiʻi Island stays inquiry-stage until a staffed west-side team launches.',
   },
   {
     q: 'We’re staying in Hilo or Volcano — will a chef come to us?',
@@ -69,8 +69,8 @@ export default function BigIslandPrivateChef() {
         service="Private Chef — planned service, activates at launch"
         title="A private chef for the Kona–Kohala coast."
         lede="The signature dinner, planned for the island’s luxury corridor: your chef designs the menu with you, shops the west-side supply bench that day, cooks in your villa kitchen, serves, and leaves it cleaner than they found it. It activates with the Kona–Kohala launch — and dated inquiries set the launch clock."
-        image="/photos/loc-kona.jpg"
-        imageAlt="Close-up of chef hands tweezing a garnish onto a muted ceramic plate"
+        image="/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg"
+        imageAlt="Whole grilled fish and tropical fruit on Kohala lava rock at golden hour. Campaign still, not a documented event."
         chips={
           <>
             {core ? (
@@ -140,8 +140,8 @@ export default function BigIslandPrivateChef() {
           </div>
           <Reveal delay={0.1} className="overflow-hidden rounded-[14px]">
             <img
-              src="/assets/farmers-market.jpg"
-              alt="Island produce — avocado, citrus, greens and fish on ice — styled on a wooden table"
+              src="/photos/hawaii-produce-fish-sourcing-still.jpg"
+              alt="Hawaii produce and whole fish on a villa kitchen board — sourcing still, not a named farm."
               loading="lazy"
               className="aspect-[16/10] h-full w-full object-cover"
             />

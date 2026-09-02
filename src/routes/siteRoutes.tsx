@@ -9,7 +9,6 @@ import MauiPrivateChef from '@/pages/services/MauiPrivateChef';
 import OahuPrivateChef from '@/pages/services/OahuPrivateChef';
 import MauiVacationChef from '@/pages/services/MauiVacationChef';
 import OahuVacationChef from '@/pages/services/OahuVacationChef';
-import MauiWeddingCatering from '@/pages/services/MauiWeddingCatering';
 import OahuCatering from '@/pages/services/OahuCatering';
 import BigIslandPrivateChef from '@/pages/expanded/BigIslandPrivateChef';
 import BigIslandVacationChef from '@/pages/expanded/BigIslandVacationChef';
@@ -27,6 +26,9 @@ import { CatalogOrNotFound } from '@/pages/site/CatalogPage';
 import HtmlSitemap from '@/pages/site/HtmlSitemap';
 import JournalIndex from '@/pages/site/JournalIndex';
 import LocationHub from '@/pages/site/LocationHub';
+import BarPage from '@/pages/services/BarPage';
+import IslandWeddingPage from '@/pages/services/IslandWeddingPage';
+import Pricing from '@/pages/Pricing';
 
 const HOME: Record<IslandId, ComponentType> = {
   oahu: Oahu,
@@ -49,9 +51,10 @@ const VAC: Record<IslandId, ComponentType> = {
   bigisland: BigIslandVacationChef,
 };
 
+/** Island-specific extra leaves (catering / events). Wedding + bar are shared. */
 const THIRD: Record<IslandId, { path: string; Page: ComponentType }[]> = {
   oahu: [{ path: 'catering', Page: OahuCatering }],
-  maui: [{ path: 'wedding-catering', Page: MauiWeddingCatering }],
+  maui: [],
   kauai: [{ path: 'events', Page: KauaiEvents }],
   bigisland: [{ path: 'catering', Page: BigIslandCatering }],
 };
@@ -69,6 +72,11 @@ export function islandLeaves(id: IslandId, prefix = '') {
       <Route path={root} element={<Home />} />
       <Route path={p('/private-chef')} element={<Chef />} />
       <Route path={p('/vacation-chef')} element={<Vac />} />
+      <Route path={p('/wedding-catering')} element={<IslandWeddingPage />} />
+      <Route path={p('/weddings')} element={<IslandWeddingPage />} />
+      <Route path={p('/bar')} element={<BarPage />} />
+      <Route path={p('/mobile-bar')} element={<BarPage />} />
+      <Route path={p('/pricing')} element={<Pricing />} />
       {THIRD[id].map(({ path, Page }) => (
         <Route key={path} path={p(`/${path}`)} element={<Page />} />
       ))}

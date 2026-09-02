@@ -24,7 +24,8 @@ gsap.registerPlugin(ScrollTrigger);
 function feeChipKind(chip: string): ChipKind {
   if (chip.startsWith('VERIFIED')) return 'verified';
   if (chip.startsWith('RPR')) return 'rpr';
-  return 'bde';
+  if (chip.startsWith('PUBLISHED')) return 'published';
+  return 'published';
 }
 
 /* ---------------- Section 1 — Header ---------------- */
@@ -85,7 +86,8 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
           <StatusChip kind="verified">Verified — Policy</StatusChip>
         </P>
         <P>
-          Indicative website bands are planning orientation only. <StatusChip kind="bde">BDE</StatusChip>
+          Indicative website bands are published starting prices. Your written quote confirms the night.{' '}
+          <StatusChip kind="published">Published</StatusChip>
         </P>
         <div className="mt-6 rounded-[14px] border border-stone bg-white p-5 lg:p-6">
           <p className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink">
@@ -114,7 +116,7 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
           the event and headcount lock at 14–21 days.
         </P>
         <ChipRow>
-          <StatusChip kind="bde">Market norm — Labeled</StatusChip>
+          <StatusChip kind="published">Market norm — labeled</StatusChip>
           <StatusChip kind="rpr">RPR</StatusChip>
         </ChipRow>
         <P>No Hawaiʻi catering-deposit statute governs this; final terms are attorney-drafted.</P>
@@ -183,7 +185,7 @@ const policySections: { id: string; num: string; title: string; body: ReactNode 
           quotes will state which, in writing.
         </P>
         <ChipRow>
-          <StatusChip kind="bde">Market norm — Labeled</StatusChip>
+          <StatusChip kind="published">Market norm — labeled</StatusChip>
           <StatusChip kind="rpr">RPR — Attorney</StatusChip>
         </ChipRow>
         <P>Gratuity beyond that is always voluntary.</P>
@@ -340,9 +342,9 @@ const labelExplainers = [
     body: "Checked against an official or primary source, with period labels (e.g., 'CY2025, preliminary').",
   },
   {
-    chip: 'bde' as ChipKind,
-    label: 'BDE / RPR',
-    body: "A real business or professional decision still open. We'd rather show you the seam than hide it.",
+    chip: 'published' as ChipKind,
+    label: 'Published',
+    body: 'Starting prices from the rate card. Your written quote is the contract; service charge and GET stay on their own lines.',
   },
   {
     chip: 'pending' as ChipKind,
