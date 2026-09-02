@@ -1,7 +1,7 @@
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { FaqSection, SectionHead } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
@@ -29,7 +29,7 @@ const dayRows = [
   {
     label: 'Morning',
     text: 'Coffee, fruit, a proper breakfast before the coast — 100% Kona, labeled honestly or not named at all.',
-    image: '/assets/farmers-market.jpg',
+    image: '/photos/hawaii-produce-fish-sourcing-still.jpg',
     alt: 'Island produce — avocado, citrus, greens and fish on ice — styled on a wooden table',
   },
   {
@@ -41,7 +41,7 @@ const dayRows = [
   {
     label: 'Evening',
     text: 'The dressed dinner on the terrace — the night-in that beats the resort reservation.',
-    image: '/assets/private-dining-room.jpg',
+    image: '/photos/plated-fish-lanai-dusk.jpg',
     alt: "Server's hands setting wine glasses on a private dining table in warm dusk light",
   },
 ];
@@ -53,7 +53,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'What does a multi-day chef cost on the Big Island?',
-    a: 'Multi-day service is priced per person per day plus groceries at cost, inside a verified market envelope of $179–$300+ per person per day (competitor-published, labeled). Our island posture is labeled BUSINESS DECISION REQUIRED until the rate card activates at launch.',
+    a: 'Multi-day service is priced per person per day plus groceries at cost, inside a verified market envelope of $179–$300+ per person per day (competitor-published, labeled). Our Hawaiʻi Island starting price is published from $199 per person per day and activates with the west-side launch.',
   },
   {
     q: 'Can one chef hold a dietary framework for a whole week?',
@@ -72,7 +72,7 @@ const faqs: Faq[] = [
 export default function BigIslandVacationChef() {
   useHashScroll();
   const { island } = usePageIsland('bigisland');
-  const vacationOffer = otherOffers.find((o) => o.offer === 'Vacation chef / multi-day');
+  const vacationOffer = getOtherOffer('vacation-chef');
 
   return (
     <>
@@ -87,7 +87,7 @@ export default function BigIslandVacationChef() {
         imageAlt="A chef plating a casual but refined family lunch on a villa kitchen island in daytime warmth"
         chips={
           <>
-            {vacationOffer ? <BandChip onDark label={`Multi-day — ${vacationOffer.orientation}`} /> : null}
+            {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, 'bigisland')}`} /> : null}
             <PlainChip onDark>3/5/7-night formats — planned</PlainChip>
             <StatusChip kind="planned" onDark>
               Planned
@@ -150,7 +150,7 @@ export default function BigIslandVacationChef() {
                 <span className="font-mono text-[0.75rem] uppercase leading-5 tracking-[0.1em] text-ink">
                   {row.label}
                 </span>
-                {row.bde ? <StatusChip kind="bde">BDE</StatusChip> : null}
+                {row.bde ? <StatusChip kind="published">Published</StatusChip> : null}
               </div>
             ))}
           </Reveal>

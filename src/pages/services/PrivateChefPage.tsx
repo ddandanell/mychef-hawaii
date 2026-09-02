@@ -7,7 +7,7 @@ import Contours from '@/components/Contours';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { formatBand, getTiers, otherOffers } from '@/data/rateCard';
+import { formatBand, formatOtherOffer, getOtherOffer, getTiers } from '@/data/rateCard';
 import type { RateTier } from '@/data/rateCard';
 import {
   BandChip,
@@ -44,8 +44,8 @@ const content: Record<LiveIslandId, PrivateChefContent> = {
     islandName: 'Maui',
     path: '/maui/private-chef',
     h1: 'Your private chef on Maui.',
-    heroImage: '/photos/svc-private-chef-maui.jpg',
-    heroAlt: 'A private chef finishes seared fish with herbs in a Maui villa kitchen, ocean in the window. Concept image, not a myCHEF event.',
+    heroImage: '/photos/maui-wailea-kitchen-plating.jpg',
+    heroAlt: 'Chef’s hands finishing seared fish in a Wailea villa kitchen. Campaign still, not a documented event.',
     bandTiers: [
       { tier: 'CORE', label: 'Core myCHEF' },
       { tier: 'ULTRA', label: "Chef's table" },
@@ -73,8 +73,8 @@ const content: Record<LiveIslandId, PrivateChefContent> = {
     islandName: 'Oʻahu',
     path: '/oahu/private-chef',
     h1: 'Your private chef on Oʻahu.',
-    heroImage: '/photos/svc-private-chef-oahu.jpg',
-    heroAlt: 'A private chef cooks fish and greens at an Oʻahu estate range while the dining table is set beyond. Concept image, not a myCHEF event.',
+    heroImage: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
+    heroAlt: 'Plated private-chef dinner on an Oʻahu Gold Coast lānai at dusk. Campaign still, not a documented event.',
     bandTiers: [
       { tier: 'ENTRY', label: 'Entry' },
       { tier: 'CORE', label: 'Core myCHEF' },
@@ -249,12 +249,8 @@ function MenusDietary() {
 
 function MauiExtras() {
   const ultra = getTiers('maui').find((t) => t.tier === 'ULTRA');
-  const dinnerTwo = otherOffers.find((o) => o.offer === 'Dinner for two / elopement');
-  const mauiPosture =
-    dinnerTwo?.orientation
-      .split('·')
-      .map((s) => s.trim())
-      .find((s) => /maui/i.test(s)) ?? dinnerTwo?.orientation ?? '';
+  const dinnerTwo = getOtherOffer('dinner-for-two');
+  const mauiPosture = formatOtherOffer(dinnerTwo, 'maui');
 
   return (
     <>

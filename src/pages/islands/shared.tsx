@@ -68,7 +68,7 @@ export function HeroEyebrow({ island, alias }: { island: IslandMeta; alias?: str
   );
 }
 
-/** Hero cost-orientation chip: a rate-card band + adjacent BDE chip. */
+/** Hero published-price chip: a rate-card figure, no BDE. */
 export function CostChip({ label, band, index = 0 }: { label: string; band: string; index?: number }) {
   return (
     <motion.span
@@ -80,7 +80,6 @@ export function CostChip({ label, band, index = 0 }: { label: string; band: stri
       <span className="text-[0.8125rem] text-ivory/90">
         {label} {band}
       </span>
-      <StatusChip kind="bde">BDE</StatusChip>
     </motion.span>
   );
 }
@@ -194,7 +193,7 @@ export interface ServiceCardProps {
   desc: string;
   img: string;
   to?: string;
-  /** Indicative band line (from rateCard / otherOffers) — rendered with a BDE chip */
+  /** Published starting-price line from rateCard */
   band?: string;
   /** Labeled market stat line (mono) */
   stat?: string;
@@ -222,7 +221,6 @@ export function ServiceCard({ title, desc, img, to, band, stat, planned, wide }:
         {band && (
           <p className="mt-3 flex flex-wrap items-center gap-2 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-ink">
             <span>{band}</span>
-            <StatusChip kind="bde">BDE</StatusChip>
           </p>
         )}
         {stat && (
@@ -404,7 +402,11 @@ function ZoneRow({ zone, dark }: { zone: Zone; dark: boolean }) {
           >
             {zoneClassLabel[zone.class]}
           </span>
-          {zone.feeChip === 'BDE' && <StatusChip kind="bde" onDark={dark}>BDE</StatusChip>}
+          {zone.feeChip === 'PUBLISHED' && (
+            <StatusChip kind="published" onDark={dark}>
+              Published
+            </StatusChip>
+          )}
         </div>
         <p className={cn('mt-1.5 text-sm leading-relaxed', dark ? 'text-ivory/75' : 'text-ink-soft')}>{zone.note}</p>
         {zone.driveTime && (

@@ -1,7 +1,7 @@
 import { mkdirSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { ISLAND_HOSTS, PRODUCTION_ROOT, locFromHost } from '../src/config/site';
+import { ISLAND_HOSTS, PRODUCTION_ROOT } from '../src/config/site';
 import { allIslandPaths } from '../src/data/islandCatalog';
 import { resolveDocumentSeo, sitemapLocs } from '../src/lib/seo';
 
@@ -21,6 +21,8 @@ const HUB_PATHS = [
   '/quote',
   '/thank-you',
   '/weddings',
+  '/bar',
+  '/mobile-bar',
   '/corporate',
   '/journal',
   '/blog',

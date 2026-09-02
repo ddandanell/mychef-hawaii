@@ -71,7 +71,7 @@ export const locations: LocationRecord[] = [
     lede:
       'Kahala and the Gold Coast are Oʻahu’s household-entertaining belt: residents who host, and visitors in houses with real dining rooms. This is where the kamaʻāina weekly line and celebration dinners overlap.',
     body: [
-      'The kitchens here are usually the real thing — which is why this corridor supports both a one-night celebration and a standing weekly chef. Groceries for the kamaʻāina line are billed at cost; the weekly fee is a planning-orientation figure labeled BUSINESS DECISION REQUIRED until the rate card is approved.',
+      'The kitchens here are usually the real thing — which is why this corridor supports both a one-night celebration and a standing weekly chef. Groceries for the kamaʻāina line are billed at cost; the weekly fee is a published starting price from the rate card.',
       'We do not claim named-house partnerships. If you have a property manager or a household we should coordinate with, put that on the quote form.',
     ],
     fit: 'Resident households, celebration dinners, 4-week minimum posture on weekly service.',
@@ -159,7 +159,7 @@ export const locations: LocationRecord[] = [
     heroAlt: 'A chef grills fish on an Oʻahu North Shore lanai with winter swell and ironwood trees beyond. Concept image, not a myCHEF event.',
     h1: 'The North Shore fee is on the website, not the invoice.',
     lede:
-      'Turtle Bay and the North Shore are 60–90+ minutes from town. That drive is a published surcharge — labeled BUSINESS DECISION REQUIRED until the rate card is approved — and surf-season dates book early.',
+      'Turtle Bay and the North Shore are 60–90+ minutes from town. That drive is a published surcharge from the rate card — and surf-season dates book early.',
     body: [
       'This is the only Oʻahu corridor that is not a base zone. The surcharge exists because the chef day is a different shape: earlier departure, less same-day stacking, surf-season congestion.',
       'We would rather lose a booking than bury a travel fee. Your written quote shows the zone line before you commit.',
@@ -170,7 +170,7 @@ export const locations: LocationRecord[] = [
     faqs: [
       {
         q: 'How much is the North Shore travel fee?',
-        a: 'It is a published surcharge labeled BUSINESS DECISION REQUIRED until the rate card is approved. It appears as its own line on your written quote — never as a surprise on the night.',
+        a: 'It is a published surcharge from the rate card. It appears as its own line on your written quote — never as a surprise on the night.',
       },
       {
         q: 'Can you do a same-day town dinner and a North Shore dinner?',
@@ -262,7 +262,7 @@ export const locations: LocationRecord[] = [
     faqs: [
       {
         q: 'Can you do a dinner-for-two here?',
-        a: 'Yes — it is a fixed-price intimacy product, planning-orientation from $500+ on Maui, labeled BUSINESS DECISION REQUIRED until the rate card is approved.',
+        a: 'Yes — it is a fixed-price intimacy product, from $500+ on Maui, published on the rate card. Quote confirmed in writing.',
       },
       {
         q: 'Do you handle wine?',
@@ -311,7 +311,7 @@ export const locations: LocationRecord[] = [
     heroAlt: 'A chef cuts island vegetables in a misty Upcountry Maui kitchen, Haleakalā pasture and jacaranda beyond. Concept image, not a myCHEF event.',
     h1: 'Upcountry is a map, not a surprise fee.',
     lede:
-      'Elevation and drive time make Upcountry a surcharge zone. The fee is labeled BUSINESS DECISION REQUIRED and it appears on the quote. Farm names appear on menus only after written verification — Hawaiʻi still imports most of its food.',
+      'Elevation and drive time make Upcountry a surcharge zone. The published fee appears on the quote. Farm names appear on menus only after written verification — Hawaiʻi still imports most of its food.',
     body: [
       'Paia and Haiku are a further North Shore module: quote-only, rendered on the island homepage rather than as their own destination page. If that is where you are, say so on the form and we quote the drive with the menu.',
       'Sourcing honesty is the Upcountry story: island produce where it is genuinely better, named farms only with verification, no “everything is local” theatre.',
@@ -375,7 +375,7 @@ export const locations: LocationRecord[] = [
     lede:
       'Poʻipū and Kōloa are sunnier, steadier, and closer to Līhuʻe than the North Shore. Arrival-night dinners and provisioning for week-long stays are the planned lead — still inquiry-framed until we launch.',
     body: [
-      'Incumbent operators on Kauaʻi often publish a flat daily driving fee. We think zone pricing should be a map: Līhuʻe/Kapaʻa as base, both shores as surcharge, Haʻena quote-only. Our own zone fees remain BUSINESS DECISION REQUIRED.',
+      'Incumbent operators on Kauaʻi often publish a flat daily driving fee. We think zone pricing should be a map: Līhuʻe/Kapaʻa as base, both shores as surcharge, Haʻena quote-only. Our zone fees are published on the rate card.',
       'Concierge and villa-agency referrals are welcome through the partner intake on the quote form. Commission terms will be labeled at launch, never hidden.',
     ],
     fit: 'Retreat houses, arrival-night dinners, wedding-week events to about 75 guests — planned.',
@@ -384,7 +384,7 @@ export const locations: LocationRecord[] = [
     faqs: [
       {
         q: 'Is the South Shore cheaper than the North?',
-        a: 'It is closer to the planned Līhuʻe base, which is why the zone map exists. Final shore fees are BUSINESS DECISION REQUIRED until launch.',
+        a: 'It is closer to the planned Līhuʻe base, which is why the zone map exists. Shore surcharges are published; Kauaʻi stays inquiry-stage until a staffed team launches.',
       },
       {
         q: 'Can our concierge send guests?',

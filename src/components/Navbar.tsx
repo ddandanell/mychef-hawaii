@@ -17,8 +17,8 @@ const rootLinks = [
   { label: 'Services', to: '/services' },
   { label: 'Islands', to: '/islands' },
   { label: 'Weddings', to: '/weddings' },
+  { label: 'Bar', to: '/bar' },
   { label: 'Pricing', to: '/pricing' },
-  { label: 'Trust', to: '/trust' },
 ];
 
 function Wordmark({ islandName }: { islandName?: string }) {
@@ -145,28 +145,18 @@ export default function Navbar() {
   }, []);
 
   const islandLinks = island
-    ? state === 'live'
-      ? [
-          { label: 'Private Chef', to: href('/private-chef') },
-          { label: 'Vacation Chef', to: href('/vacation-chef') },
-          island.id === 'maui'
-            ? { label: 'Weddings', to: href('/wedding-catering') }
+    ? [
+        { label: 'Private Chef', to: href('/private-chef') },
+        { label: 'Vacation Chef', to: href('/vacation-chef') },
+        { label: 'Weddings', to: href('/wedding-catering') },
+        { label: 'Bar', to: href('/bar') },
+        island.id === 'kauai'
+          ? { label: 'Events', to: href('/events') }
+          : island.id === 'maui'
+            ? { label: 'Pricing', to: href('/pricing') }
             : { label: 'Catering', to: href('/catering') },
-          { label: 'Areas', to: href('/locations') },
-          { label: 'Journal', to: href('/journal') },
-          { label: 'Blog', to: href('/blog') },
-        ]
-      : [
-          { label: 'Overview', to: href('/') },
-          { label: 'Private Chef', to: href('/private-chef') },
-          { label: 'Vacation Chef', to: href('/vacation-chef') },
-          island.id === 'kauai'
-            ? { label: 'Events', to: href('/events') }
-            : { label: 'Catering', to: href('/catering') },
-          { label: 'Areas', to: href('/locations') },
-          { label: 'Journal', to: href('/journal') },
-          { label: 'Blog', to: href('/blog') },
-        ]
+        { label: 'Areas', to: href('/locations') },
+      ]
     : [...rootLinks, { label: 'Journal', to: '/journal' }];
 
   const homeTarget = href('/');

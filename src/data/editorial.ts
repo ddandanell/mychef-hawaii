@@ -37,11 +37,11 @@ function journalSeeds(id: IslandId): Omit<Article, 'kind'>[] {
     {
       slug: 'how-much-does-a-private-chef-cost',
       title: `How much does a private chef cost on ${isl.name}?`,
-      description: `Planning-orientation bands for ${isl.name}. Labeled BUSINESS DECISION REQUIRED until the rate card is approved.`,
+      description: `Published private chef prices on ${isl.name} — dinner bands, villa day rate and catering starting prices.`,
       h1: `What a private chef costs on ${isl.name}.`,
-      lede: `Indicative CORE band ${band}, labeled BUSINESS DECISION REQUIRED. Your written quote is itemised. We do not hide travel in the menu price.${inquiry}`,
+      lede: `Published CORE band ${band}. Your written quote is itemised. We do not hide travel in the menu price.${inquiry}`,
       sections: [
-        { heading: 'The band, labeled', body: `CORE on ${isl.name} sits at ${band} as planning orientation. ENTRY and PREMIUM sit on /private-chef-cost. None of these figures are a contract until the rate card is approved.` },
+        { heading: 'The published band', body: `CORE on ${isl.name} sits at ${band}. ENTRY, PREMIUM and the villa day rate live on /private-chef-cost and /pricing. Quotes are confirmed in writing.` },
         { heading: 'What is included', body: 'Menu design, shopping, cooking, table service, cleanup. Alcohol, rentals and venue fees are always separate lines.' },
         { heading: 'Zones', body: `${z.headline} ${z.honestyLine}` },
       ],
@@ -111,7 +111,7 @@ function journalSeeds(id: IslandId): Omit<Article, 'kind'>[] {
       description: `Multi-day chef service for villa stays on ${isl.name}.`,
       h1: `A chef for the stay, not a single dinner dropped in.`,
       lede: `Provisioning, full-board days, one team. ${isl.role}${inquiry}`,
-      sections: [{ heading: 'Packages', body: '3 / 5 / 7-day postures are planning orientation (BDE) until the rate card is approved. Groceries at cost.' }],
+      sections: [{ heading: 'Packages', body: '3 / 5 / 7-day vacation-chef postures are published starting prices. Groceries at cost.' }],
     },
     {
       slug: 'how-far-ahead-to-book',
@@ -170,7 +170,7 @@ export function articlesFor(island: IslandId): Article[] {
     kind: 'blog' as const,
     slug: b.slug,
     title: `${b.topic[0].toUpperCase()}${b.topic.slice(1)} on ${isl.name}`,
-    description: `${b.topic} — ${isl.name} private chef notes. Planning orientation, no fabricated events.`,
+    description: `${b.topic} — ${isl.name} private chef and catering notes. Published operations, no fabricated events.`,
     h1: `${b.topic[0].toUpperCase()}${b.topic.slice(1)}.`,
     lede: `On ${isl.name}, ${b.topic} is a real operational question, not a blog mood. ${isl.role} ${isl.state === 'inquiry' ? 'Inquiry-stage: dated inquiries only.' : 'Live island: written quotes.'}`,
     sections: [
@@ -188,7 +188,7 @@ export function articlesFor(island: IslandId): Article[] {
     sections: [
       { heading: 'Fit', body: a.fit },
       { heading: 'Logistics', body: a.logistics },
-      { heading: 'Zone', body: `${a.zoneClass === 'base' ? 'Base zone — included.' : a.zoneClass === 'surcharge' ? 'Surcharge zone, labeled BUSINESS DECISION REQUIRED.' : 'Quote-only — we do not publish a flat fee.'}` },
+      { heading: 'Zone', body: `${a.zoneClass === 'base' ? 'Base zone — included.' : a.zoneClass === 'surcharge' ? 'Surcharge zone — published travel fee on the quote.' : 'Quote-only — we do not publish a flat fee.'}` },
     ],
   }));
   return [...journal, ...blogs, ...areaNotes];

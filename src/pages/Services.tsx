@@ -8,7 +8,8 @@ import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
 import WordMask from '@/components/WordMask';
-import { otherOffers, rateCard } from '@/data/rateCard';
+import { getOtherOffer, rateCard } from '@/data/rateCard';
+import { photos } from '@/data/photos';
 import { cn } from '@/lib/utils';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -16,8 +17,7 @@ gsap.registerPlugin(ScrollTrigger);
 /**
  * /services — statewide service-category hub (services.md). Explains the
  * four service lines at brand level and routes every transactional intent
- * to island pages. Never quotes island prices itself — posture lines only,
- * rendered from the canonical rate card data with BDE chips adjacent.
+ * to island pages. Starting prices render from the canonical rate card.
  * Schema: ItemList of Service (overview only).
  */
 
@@ -196,17 +196,17 @@ function Header() {
 const entryBands = rateCard.filter((e) => e.offer === 'signature-dinner' && e.tier === 'ENTRY');
 const entryLo = Math.min(...entryBands.map((e) => e.band[0]));
 const entryHi = Math.max(...entryBands.map((e) => e.band[1]));
-const vacationOffer = otherOffers.find((o) => o.offer.startsWith('Vacation chef'));
-const dinnerForTwoOffer = otherOffers.find((o) => o.offer.startsWith('Dinner for two'));
+const vacationOffer = getOtherOffer('vacation-chef');
+const dinnerForTwoOffer = getOtherOffer('dinner-for-two');
 
 function PrivateChefBlock() {
   return (
     <ServiceBlock
       anchor="private-chef"
       bg="sand"
-      image="/photos/svc-private-chef-maui.jpg"
-      alt="A chef plating a coursed dish at a private in-villa dinner service"
-      caption="Concept image — not a myCHEF Hawaiʻi event. Final photography pending."
+      image={photos.mauiKitchen.file}
+      alt={photos.mauiKitchen.alt}
+      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
     >
       <BlockTitle>The signature in-villa dinner.</BlockTitle>
       <BlockBody>
@@ -221,7 +221,7 @@ function PrivateChefBlock() {
       </span>
       <span className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-ink">
         From ${entryLo}–${entryHi}/person depending on island and tier
-        <StatusChip kind="bde">BDE</StatusChip>
+        <StatusChip kind="published">Published</StatusChip>
         <Link to="/pricing" className="inline-flex items-center gap-1 font-medium text-clay hover:text-clay-deep">
           island pricing
           <ArrowRight className="h-4 w-4" />
@@ -244,9 +244,9 @@ function PrivateDiningBlock() {
       anchor="private-dining"
       flip
       bg="ivory"
-      image="/assets/dinner-for-two.jpg"
-      alt="A candlelit private table set for two, styled for an intimate celebration dinner"
-      caption="Concept image — not a myCHEF Hawaiʻi event. Final photography pending."
+      image={photos.kapaluaTwo.file}
+      alt={photos.kapaluaTwo.alt}
+      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
     >
       <BlockTitle>Celebrations and dinners-for-two.</BlockTitle>
       <BlockBody>
@@ -255,8 +255,8 @@ function PrivateDiningBlock() {
       </BlockBody>
       <span className="mt-6 flex flex-wrap items-center gap-2">
         <span className="inline-flex items-center gap-2 rounded-full border border-stone bg-white/70 px-3 py-1.5 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-          Dinners-for-two from $500+ posture
-          <StatusChip kind="bde">BDE</StatusChip>
+          Dinners-for-two {dinnerForTwoOffer.orientation}
+          <StatusChip kind="published">Published</StatusChip>
         </span>
         <span className="inline-flex items-center rounded-full border border-stone bg-white/70 px-3 py-1.5 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
           2–12 guests
@@ -267,7 +267,7 @@ function PrivateDiningBlock() {
       </span>
       {dinnerForTwoOffer ? (
         <span className="mt-4 block font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.08em] text-ink-soft">
-          Orientation: {dinnerForTwoOffer.orientation} <StatusChip kind="bde" className="ml-1">BDE</StatusChip>
+          Starting prices: {dinnerForTwoOffer.orientation} <StatusChip kind="published" className="ml-1">Published</StatusChip>
         </span>
       ) : null}
       <span className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -286,8 +286,8 @@ function CateringBlock() {
     <ServiceBlock
       anchor="catering"
       bg="sand"
-      image="/craft-fire.jpg"
-      alt="A chef working a live fire station at dusk, warm ember tones against a deep neutral background"
+      image={photos.catering.file}
+      alt={photos.catering.alt}
     >
       <BlockTitle>Gatherings from 10 to 75.</BlockTitle>
       <BlockBody>
@@ -299,9 +299,38 @@ function CateringBlock() {
       </span>
       <span className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
         <IslandCta to="/oahu/catering">Oʻahu catering</IslandCta>
+        <IslandCta to="/maui/wedding-catering">Maui wedding catering</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.08em] text-ink-soft">
         Maui events via the wedding-week team · Neighbor islands: inquiry
+      </span>
+    </ServiceBlock>
+  );
+}
+
+function BarBlock() {
+  return (
+    <ServiceBlock
+      anchor="bar"
+      flip
+      bg="ivory"
+      image={photos.bar.file}
+      alt={photos.bar.alt}
+      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
+    >
+      <BlockTitle>A bartender on the terrace.</BlockTitle>
+      <BlockBody>
+        Mobile cocktail hour — stacked with a private chef night or booked alone. Four-hour villa packages
+        with bartender and setup; spirits billed at cost or BYO.
+      </BlockBody>
+      <span className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-ink">
+        Packages from $650 Oʻahu · $800 Maui · $850 Kauaʻi · $725 Hawaiʻi Island
+        <StatusChip kind="published">Published</StatusChip>
+      </span>
+      <span className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <IslandCta to="/maui/bar">Maui mobile bar</IslandCta>
+        <IslandCta to="/oahu/bar">Oʻahu mobile bar</IslandCta>
+        <IslandCta to="/bar">All islands</IslandCta>
       </span>
     </ServiceBlock>
   );
@@ -311,10 +340,9 @@ function VacationChefBlock() {
   return (
     <ServiceBlock
       anchor="vacation-chef"
-      flip
-      bg="ivory"
-      image="/photos/vacation-chef.jpg"
-      alt="A chef plating a casual-but-refined family lunch on a villa kitchen island"
+      bg="sand"
+      image={photos.vacation.file}
+      alt={photos.vacation.alt}
     >
       <BlockTitle>A chef for your whole stay.</BlockTitle>
       <BlockBody>
@@ -324,7 +352,7 @@ function VacationChefBlock() {
       {vacationOffer ? (
         <span className="mt-6 flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-ink">
           Multi-day — {vacationOffer.orientation}
-          <StatusChip kind="bde">BDE</StatusChip>
+          <StatusChip kind="published">Published</StatusChip>
         </span>
       ) : null}
       <span className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
@@ -369,8 +397,8 @@ function WeddingBand() {
       <div className="absolute inset-0">
         <img
           ref={imgRef}
-          src="/photos/home/hub-weddings.jpg"
-          alt="A styled wedding reception table at a private estate, set for a wedding-week celebration"
+          src={photos.wedding.file}
+          alt={photos.wedding.alt}
           loading="lazy"
           className="h-[120%] w-full object-cover"
         />
@@ -400,7 +428,7 @@ function WeddingBand() {
         </Reveal>
         <Reveal delay={0.3}>
           <p className="mt-10 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ivory/50">
-            Concept image — not a myCHEF Hawaiʻi event. Final photography pending.
+            Concept image — campaign still, not a documented myCHEF Hawaiʻi event.
           </p>
         </Reveal>
       </div>
@@ -465,6 +493,7 @@ export default function Services() {
               { name: 'Private Chef — the signature in-villa dinner', anchor: '#private-chef' },
               { name: 'Private Dining — celebrations and dinners-for-two', anchor: '#private-dining' },
               { name: 'Catering & Events — gatherings from 10 to 75', anchor: '#catering' },
+              { name: 'Mobile bar — villa cocktails', anchor: '#bar' },
               { name: 'Vacation Chef — a chef for your whole stay', anchor: '#vacation-chef' },
             ].map((s, i) => ({
               '@type': 'ListItem',
@@ -478,6 +507,7 @@ export default function Services() {
       <PrivateChefBlock />
       <PrivateDiningBlock />
       <CateringBlock />
+      <BarBlock />
       <VacationChefBlock />
       <WeddingBand />
       <HowToBookStrip />

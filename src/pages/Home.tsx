@@ -15,7 +15,8 @@ import HostLink from '@/components/HostLink';
 import { PRODUCTION_ROOT } from '@/config/site';
 import { islandOrder, islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
-import { getTiers, formatBand } from '@/data/rateCard';
+import { getTiers, formatBand, formatFrom, getDayRate } from '@/data/rateCard';
+import { photos } from '@/data/photos';
 import { homeTrustRows } from '@/data/proofRegister';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -26,9 +27,9 @@ function Hero() {
   return (
     <section className="relative flex min-h-[100svh] min-h-[640px] items-end overflow-hidden">
       <HeroMedia
-        src="/photos/home/hero.jpg"
+        src={photos.hubHero.file}
         overlay="dusk"
-        alt="Plated seared fish on a volcanic-stone villa lānai at dusk, Pacific beyond the railing."
+        alt={photos.hubHero.alt}
       />
       <div className="relative mx-auto w-full max-w-spread px-5 pb-24 pt-40 lg:px-10">
         <div className="max-w-[640px]">
@@ -81,7 +82,7 @@ function Hero() {
           transition={{ duration: 0.5, delay: 1.1 }}
           className="mt-14 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ivory/60"
         >
-          All times HST · Indicative pricing — see /pricing
+          All times HST · Published starting prices — see /pricing
         </motion.p>
       </div>
       <motion.div
@@ -104,22 +105,10 @@ function Hero() {
 
 /** Homepage-only selector photos (dim12 §6.1 / P24-08 roles). Other routes keep their own assets. */
 const homeIslandPhotos: Record<IslandId, { src: string; alt: string }> = {
-  oahu: {
-    src: '/photos/home/sel-oahu.jpg',
-    alt: 'Oʻahu household table set for a fish lunch, Gold Coast garden and ocean through the sliders.',
-  },
-  maui: {
-    src: '/photos/home/sel-maui.jpg',
-    alt: 'Chef’s hands finishing seared fish on dark ceramic in a Maui villa kitchen.',
-  },
-  kauai: {
-    src: '/photos/home/sel-kauai.jpg',
-    alt: 'Two grilled-fish plates on a wet stone table against misted Kauaʻi mountains.',
-  },
-  bigisland: {
-    src: '/photos/home/sel-bigisland.jpg',
-    alt: 'Whole snapper and coffee cherries on lava rock with the Kohala Coast behind.',
-  },
+  oahu: { src: photos.waikiki.file, alt: photos.waikiki.alt },
+  maui: { src: photos.bar.file, alt: photos.bar.alt },
+  kauai: { src: photos.kauaiChef.file, alt: photos.kauaiChef.alt },
+  bigisland: { src: photos.kohalaFish.file, alt: photos.kohalaFish.alt },
 };
 
 function IslandSelector() {
@@ -195,29 +184,36 @@ const services = [
   {
     title: 'Private Chef',
     desc: 'A chef designs, shops, cooks, serves and cleans — in your villa or home.',
-    img: '/photos/home/svc-chef.jpg',
-    alt: 'Private chef searing fish in a villa kitchen.',
+    img: photos.chefTeam.file,
+    alt: photos.chefTeam.alt,
     to: '/services#private-chef',
   },
   {
     title: 'Private Dining',
     desc: 'Celebration dinners and dinners-for-two, coursed and served.',
-    img: '/photos/home/svc-dining.jpg',
-    alt: 'Two plated fish courses on linen with candlelight and a dusk ocean window.',
+    img: photos.oahuDinner.file,
+    alt: photos.oahuDinner.alt,
     to: '/services#private-dining',
   },
   {
-    title: 'Catering & Events',
-    desc: 'Receptions, retreats and gatherings from 10 to 75 guests.',
-    img: '/photos/home/svc-catering.jpg',
-    alt: 'A chef team plates identical event dishes under a tent beside a Hawaiian lawn and ocean. Concept image, not a myCHEF event.',
-    to: '/corporate',
+    title: 'Catering & Weddings',
+    desc: 'Receptions, wedding weeks and gatherings from 10 to 75 guests.',
+    img: photos.wedding.file,
+    alt: photos.wedding.alt,
+    to: '/weddings',
+  },
+  {
+    title: 'Mobile Bar',
+    desc: 'A bartender on the terrace — stacked with dinner or booked alone.',
+    img: photos.bar.file,
+    alt: photos.bar.alt,
+    to: '/bar',
   },
   {
     title: 'Vacation Chef',
     desc: 'Multi-day and weekly chef service for villa stays and households.',
-    img: '/photos/home/svc-vacation.jpg',
-    alt: 'A vacation chef plates morning fruit and eggs while a family breakfasts by the pool. Concept image, not a myCHEF event.',
+    img: photos.vacation.file,
+    alt: photos.vacation.alt,
     to: '/services#vacation-chef',
   },
 ];
@@ -229,10 +225,10 @@ function ServicesStrip() {
         <Reveal className="max-w-2xl">
           <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">What We Do</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            Four ways to dine privately.
+            Five ways to dine privately.
           </h2>
         </Reveal>
-        <Reveal stagger className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
+        <Reveal stagger className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-6">
           {services.map((s) => (
             <Link
               key={s.title}
@@ -280,17 +276,17 @@ function StatewideHubs() {
         <Reveal className="max-w-2xl">
           <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Statewide hubs</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            Two more ways in — then we send you to an island.
+            Then we send you to an island.
           </h2>
         </Reveal>
-        <Reveal stagger className="mt-12 grid gap-6 lg:grid-cols-2">
+        <Reveal stagger className="mt-12 grid gap-6 lg:grid-cols-3">
           <Link
             to="/weddings"
             className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-[14px] shadow-soft"
           >
             <img
-              src="/photos/home/hub-weddings.jpg"
-              alt="A wedding-week long table under a banyan at dusk, guests eating while chefs plate. Concept image, not a myCHEF event."
+              src={photos.wedding.file}
+              alt={photos.wedding.alt}
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div
@@ -317,12 +313,43 @@ function StatewideHubs() {
             </div>
           </Link>
           <Link
+            to="/bar"
+            className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-[14px] shadow-soft"
+          >
+            <img
+              src={photos.bar.file}
+              alt={photos.bar.alt}
+              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            />
+            <div
+              aria-hidden="true"
+              className="absolute inset-0"
+              style={{
+                backgroundImage:
+                  'linear-gradient(180deg, rgba(26,21,16,0.1) 0%, rgba(26,21,16,0.55) 50%, rgba(26,21,16,0.82) 100%)',
+              }}
+            />
+            <div className="relative p-6 lg:p-8">
+              <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Mobile bar</p>
+              <h3 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.25rem)] font-medium leading-[1.15] text-ivory">
+                Cocktails on the terrace.
+              </h3>
+              <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-ivory/85">
+                A bartender stacked with the chef — published starting prices on every island host.
+              </p>
+              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brass">
+                Bar hub
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </div>
+          </Link>
+          <Link
             to="/corporate"
             className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-[14px] shadow-soft"
           >
             <img
-              src="/photos/home/hub-gatherings.jpg"
-              alt="Long outdoor Hawaiian garden table with family-style fish, vegetables and candles at dusk."
+              src={photos.gatherings.file}
+              alt={photos.gatherings.alt}
               className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
             />
             <div
@@ -380,7 +407,7 @@ function TrustStrip() {
   }, []);
 
   const chipKind = (label: string) =>
-    label.startsWith('VERIFIED') ? 'verified' : label.startsWith('NOT AVAILABLE') ? 'not-available' : 'bde';
+    label.startsWith('VERIFIED') ? 'verified' : label.startsWith('NOT AVAILABLE') ? 'not-available' : label.startsWith('PUBLISHED') ? 'published' : 'policy';
 
   return (
     <section className="grain-dark relative overflow-hidden bg-ink py-20 lg:py-28">
@@ -476,61 +503,57 @@ function HowItWorksTeaser() {
 function PricingOrientation() {
   const cards = (['oahu', 'maui'] as const).map((id) => {
     const core = getTiers(id).find((t) => t.tier === 'CORE')!;
-    return { island: islands[id], core };
+    const day = getDayRate(id);
+    return { island: islands[id], core, day };
   });
 
   return (
-    <section className="bg-sand py-20 lg:py-28">
+    <section className="bg-sand py-24 lg:py-32">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Indicative Pricing</p>
+          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Published starting prices</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
             What a private chef costs in Hawaiʻi.
           </h2>
         </Reveal>
         <Reveal stagger staggerDelay={0.1} className="mt-12 grid gap-6 md:grid-cols-2">
-          {cards.map(({ island, core }) => (
-            <div key={island.id} className="rounded-[14px] border-2 border-clay/60 bg-white p-6 shadow-soft lg:p-8">
+          {cards.map(({ island, core, day }) => (
+            <div key={island.id} className="rounded-[18px] border-2 border-clay/60 bg-white p-6 shadow-soft lg:p-8">
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft">
-                {island.name} · Signature in-villa dinner — CORE
+                {island.name} · Signature dinner — CORE
               </p>
               <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-2">
                 <span className="font-display text-5xl font-semibold tracking-tight text-ink">
                   {formatBand(core)}
                 </span>
                 <span className="font-mono text-[0.75rem] uppercase tracking-[0.1em] text-ink-soft">/person</span>
-                <StatusChip kind="bde">BDE</StatusChip>
-              </div>
-              {/* brass range bar drawing under the price */}
-              <div className="mt-4 h-1 w-full overflow-hidden rounded-full bg-stone">
-                <div className="h-full w-2/3 rounded-full bg-brass" />
               </div>
               <p className="mt-4 text-sm text-ink-soft">
-                Minimums apply · {island.name} zones
+                Villa day rate {formatFrom(day.from)} · chef + assistant · groceries at cost
               </p>
             </div>
           ))}
         </Reveal>
         <Reveal delay={0.15} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
           <span className="inline-flex items-center gap-2">
-            20% service charge — convention <StatusChip kind="rpr">RPR</StatusChip>
+            20% service charge <StatusChip kind="rpr">Attorney</StatusChip>
           </span>
           <span className="inline-flex items-center gap-2">
-            GET up to 4.7120% <StatusChip kind="rpr">CPA Review</StatusChip>
+            GET up to 4.7120% <StatusChip kind="rpr">CPA</StatusChip>
           </span>
           <span className="inline-flex items-center gap-2">
-            50% deposit — market norm <StatusChip kind="rpr">RPR</StatusChip>
+            50% deposit <StatusChip kind="policy">Policy</StatusChip>
           </span>
         </Reveal>
         <Reveal delay={0.25} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <p className="text-sm italic text-ink-soft">
-            Planning orientation only — final quotes are itemised and confirmed in writing.
+          <p className="text-sm text-ink-soft">
+            Starting prices. Quote confirmed in writing.
           </p>
           <Link
             to="/pricing"
             className="inline-flex items-center gap-1.5 text-sm font-medium text-clay transition-colors hover:text-clay-deep"
           >
-            See pricing orientation
+            See the full rate card
             <ArrowRight className="h-4 w-4" />
           </Link>
         </Reveal>
@@ -548,7 +571,7 @@ const faqs = [
   },
   {
     q: 'How much does a private chef cost in Hawaiʻi?',
-    a: 'Indicative planning bands: Oʻahu $95–$190+ per person, Maui $125–$250+ per person, by tier. Every band is labeled BUSINESS DECISION REQUIRED until our rate card is approved; your final quote is itemised in writing.',
+    a: 'Published starting prices: Oʻahu CORE $125–$190 per person, Maui CORE $150–$250, plus villa day rates from $850 Oʻahu / $1,050 Maui. Your written quote is the confirmed total. 20% service and GET up to 4.712% are their own lines.',
   },
   {
     q: "What's included?",

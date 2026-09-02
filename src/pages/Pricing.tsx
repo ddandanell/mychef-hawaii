@@ -14,7 +14,7 @@ import WordMask from '@/components/WordMask';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
-import { feeStack, formatBand, getTiers, otherOffers } from '@/data/rateCard';
+import { feeStack, formatBand, formatDayRate, formatMobileBarPackage, formatOtherOffer, getDayRate, getMobileBar, getTiers, otherOffers } from '@/data/rateCard';
 import type { FeeStackRow, RateTier } from '@/data/rateCard';
 import { cn } from '@/lib/utils';
 
@@ -35,7 +35,7 @@ const TIER_LABEL: Record<RateTier, string> = {
 };
 
 const feeChipKind: Record<FeeStackRow['chip'], ChipKind> = {
-  BDE: 'bde',
+  PUBLISHED: 'published',
   'RPR — ATTORNEY': 'rpr',
   'RPR — CPA': 'rpr',
   RPR: 'rpr',
@@ -53,18 +53,18 @@ function Header() {
           initial={{ y: '-100%', opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="rounded-[14px] border border-brass px-5 py-4"
+          className="rounded-[14px] border border-moss/40 bg-moss/5 px-5 py-4"
         >
-          <p className="font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-brass">
-            Planning orientation — All figures below are indicative bands pending final rate-card approval{' '}
-            <StatusChip kind="bde" className="mx-1">BDE</StatusChip> Tax and service-charge display mechanics are
-            under CPA/attorney review <StatusChip kind="rpr" className="mx-1">RPR</StatusChip> Final quotes are
-            always itemised in writing.
+          <p className="font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-moss">
+            Published starting prices — quote confirmed in writing.{' '}
+            <StatusChip kind="published" className="mx-1">Starting</StatusChip> 20% service charge{' '}
+            <StatusChip kind="rpr" className="mx-1">Attorney</StatusChip> GET up to 4.712%{' '}
+            <StatusChip kind="rpr" className="mx-1">CPA</StatusChip> 50% deposit locks the date. Gratuity is voluntary.
           </p>
         </motion.div>
         <p className="mt-10 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Pricing</p>
         <h1 className="mt-4 max-w-3xl font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
-          <WordMask text="Honest numbers, labeled honestly." delay={0.35} />
+          <WordMask text="Published starting prices. Quote in writing." delay={0.35} />
         </h1>
         <motion.p
           initial={{ opacity: 0, y: 24 }}
@@ -73,7 +73,7 @@ function Header() {
           className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink"
         >
           One architecture, four island rate cards — because a Maui villa dinner and an Oʻahu condo dinner are
-          different economics. Every band below is a planning range, not a retail price.
+          different economics. Starting prices below; your written quote is the confirmed total.
         </motion.p>
       </div>
     </section>
@@ -99,7 +99,7 @@ function RateCardTabs() {
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
         <Reveal>
           <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">
-            Signature In-Villa Dinner — Per-Person Bands
+            Signature In-Villa Dinner — Published Per-Person Bands
           </p>
         </Reveal>
 
@@ -146,7 +146,7 @@ function RateCardTabs() {
               <div className="mb-6 flex flex-wrap items-center gap-3">
                 <StatusChip kind="inquiry">Inquiry stage</StatusChip>
                 <p className="font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">
-                  Rate card activates when the island launches.
+                  Starting prices published now — booking opens with the island team.
                 </p>
               </div>
             )}
@@ -182,7 +182,6 @@ function RateCardTabs() {
                       <span className="font-display text-[2rem] font-semibold leading-none tracking-[-0.01em] text-ink">
                         {formatBand(entry)}
                       </span>
-                      <StatusChip kind="bde">BDE</StatusChip>
                     </div>
                     <p className="mt-2 font-mono text-[0.6875rem] uppercase leading-4 tracking-[0.08em] text-ink-soft">
                       {entry.model}
@@ -211,14 +210,64 @@ function RateCardTabs() {
   );
 }
 
+/* ---------------- Day rate + mobile bar ---------------- */
+
+function DayRateAndBar() {
+  const [params] = useSearchParams();
+  const { islandId } = useIsland();
+  const paramIsland = params.get('island');
+  const active: IslandId =
+    islandOrder.find((id) => id === paramIsland) ??
+    (islandId && islandOrder.includes(islandId) ? islandId : 'oahu');
+  const day = getDayRate(active);
+  const bar = getMobileBar(active);
+
+  return (
+    <section className="bg-ivory pb-20 lg:pb-28">
+      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+        <Reveal className="max-w-2xl">
+          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Villa day rate · Mobile bar</p>
+          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
+            Chef for the day. Cocktails on the terrace.
+          </h2>
+        </Reveal>
+        <Reveal stagger className="mt-12 grid gap-6 md:grid-cols-2">
+          {islandOrder.map((id) => {
+            const d = getDayRate(id);
+            const b = getMobileBar(id);
+            const isl = islands[id];
+            return (
+              <article key={id} className="rounded-[18px] border border-stone bg-white p-6 shadow-soft lg:p-8">
+                <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft">{isl.name}</p>
+                <p className="mt-4 font-display text-4xl font-semibold tracking-tight text-ink">{formatDayRate(id)}</p>
+                <p className="mt-2 text-sm text-ink-soft">{d.model}</p>
+                <p className="mt-6 font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-clay">Mobile bar</p>
+                <p className="mt-2 font-display text-2xl font-semibold text-ink">{formatMobileBarPackage(id)}</p>
+                <p className="mt-1 text-sm text-ink-soft">
+                  or ${b.perGuest[0]}–${b.perGuest[1]}/guest
+                </p>
+              </article>
+            );
+          })}
+        </Reveal>
+        <p className="mt-8 max-w-[65ch] text-sm text-ink-soft">
+          {day.includes} Active island shown in tabs above: {islands[active].name}. Bar {bar.note}
+        </p>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- Section 3 — Beyond the dinner ---------------- */
 
 function OtherModels() {
+  const { islandId } = useIsland();
+  const active: IslandId = islandId && islandOrder.includes(islandId) ? islandId : 'oahu';
   return (
     <section className="bg-sand py-20 lg:py-28">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Other Pricing Models</p>
+          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Other published offers</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
             Beyond the dinner.
           </h2>
@@ -233,17 +282,16 @@ function OtherModels() {
               <p className="font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.08em] text-ink-soft">
                 {row.model}
               </p>
-              <p className="text-[0.9375rem] leading-relaxed text-ink-soft">
-                <span className="text-ink">{row.orientation}</span>{' '}
-                <StatusChip kind="bde" className="ml-1 align-middle">BDE</StatusChip>
+              <p className="text-[0.9375rem] leading-relaxed text-ink">
+                {formatOtherOffer(row, active)}
+                <span className="mt-1 block text-sm text-ink-soft">{row.orientation}</span>
               </p>
             </div>
           ))}
         </Reveal>
         <Reveal delay={0.15}>
           <p className="mt-8 max-w-3xl font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ink-soft">
-            Labeled figures are market signals from published competitor/platform sources with dates, never neutral
-            “market prices”. Our final rates are set from our own cost stack.
+            Starting prices. Quote confirmed in writing. Groceries at cost on day-rate and vacation-chef days.
           </p>
         </Reveal>
       </div>
@@ -372,25 +420,25 @@ function FeeStack() {
 
 const faqs = [
   {
-    q: 'Why bands instead of exact prices?',
-    a: 'Because a private-chef quote depends on your menu, your date and your kitchen. A band is an honest planning range; your written quote is always exact and itemised before you commit to anything.',
+    q: 'Are these the real prices?',
+    a: 'These are published starting prices — the same architecture as our Bali and Dubai sites. Your written quote is the confirmed, itemised total for your menu, date and kitchen.',
   },
   {
-    q: 'Why do small parties cost more per head?',
-    a: 'The chef’s time, shopping and travel are largely fixed costs. Spread across two guests instead of eight, the per-person figure rises — so small parties are quoted as fixed-price products rather than stretched per-person bands. Ask us; we’ll show the math.',
+    q: 'Why bands instead of a single number?',
+    a: 'A private-chef quote depends on your menu, your date and your kitchen. A band is an honest starting range; the quote is always exact before you deposit.',
   },
   {
     q: 'What’s included — and what isn’t?',
-    a: 'Menu design, shopping, cooking, tableside service and kitchen cleanup are inside the band. Groceries for multi-day service are billed at cost. Service charge, GET and any travel-zone fee appear as their own labeled lines — never folded in silently.',
+    a: 'Menu design, shopping, cooking, tableside service and kitchen cleanup are inside the dinner band. Day-rate and vacation-chef groceries are billed at cost. Service charge, GET and any travel-zone fee appear as their own lines.',
   },
   {
-    q: 'How do deposits and cancellations work?',
-    a: 'A 50% deposit locks your date (market norm, RPR-labeled). The full cancellation posture lives on our legal page — plain language, labeled the same way as everything else here.',
+    q: 'How do deposits work?',
+    a: 'A 50% deposit locks your date. The full cancellation posture lives on our legal page.',
     link: { to: '/legal', label: 'Read the terms posture →' },
   },
   {
-    q: 'Why do you publish competitor-labeled price signals?',
-    a: 'Because you were going to compare anyway. Labeled signals — with sources and dates — are more honest than pretending a single neutral “market price” exists. Our own rates are set from our own cost stack.',
+    q: 'Do you have a mobile bar?',
+    a: 'Yes — a first-class offer on every island host, with published starting prices. Stack it with a chef night or a wedding week.',
   },
 ];
 
@@ -443,6 +491,7 @@ export default function Pricing() {
     <>
       <Header />
       <RateCardTabs />
+      <DayRateAndBar />
       <OtherModels />
       <FeeStack />
       <PricingFaq />

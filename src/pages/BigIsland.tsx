@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
+import { photos } from '@/data/photos';
 import { proofRegister } from '@/data/proofRegister';
 import {
   FaqSection,
@@ -77,29 +78,36 @@ function Planned() {
             planned
             title="Kona/Kohala villa dinners"
             desc="Signature multi-course dinners in corridor villas — indicative band pending rate-card activation."
-            img="/photos/loc-kona.jpg"
+            img={photos.konaKitchen.file}
             to="/bigisland/private-chef"
-            band={`${tierBand('bigisland', 'CORE')}/pp indicative`}
+            band={`${tierBand('bigisland', 'CORE')}/pp starting`}
           />
           <ServiceCard
             planned
             title="Sourcing-led tasting menus"
             desc="Built on the state's deepest farm-and-ranch bench — see the sourcing story below."
-            img="/assets/seafood-market.jpg"
+            img={photos.produce.file}
             to="/bigisland/private-chef"
           />
           <ServiceCard
             planned
             title="Estate weddings"
             desc="Kohala estates, wedding-week format — welcome dinner to recovery brunch, one team."
-            img="/photos/home/hub-weddings.jpg"
-            to="/bigisland/catering"
+            img={photos.wedding.file}
+            to="/bigisland/wedding-catering"
+          />
+          <ServiceCard
+            planned
+            title="Mobile bar"
+            desc="Sunset pours on Kona–Kohala terraces. Published starting prices; inquiry until launch."
+            img={photos.bar.file}
+            to="/bigisland/bar"
           />
           <ServiceCard
             planned
             title="Multi-day villa residencies"
             desc="A chef for the whole stay, for Kohala/Waimea corridor weeks."
-            img="/photos/vacation-chef.jpg"
+            img={photos.vacation.file}
             to="/bigisland/vacation-chef"
           />
         </Reveal>
@@ -142,8 +150,8 @@ function SourcingStory() {
             <figure>
               <div className="overflow-hidden rounded-[14px]">
                 <img
-                  src="/photos/seafood-market.jpg"
-                  alt="Fish on ice — concept image of a Hawaiʻi fish-market stall, not a myCHEF event"
+                  src={photos.kohalaFish.file}
+                  alt={photos.kohalaFish.alt}
                   loading="lazy"
                   className="aspect-[16/10] h-full w-full object-cover"
                 />
@@ -204,7 +212,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'Is there a minimum spend on the east side?',
-    a: 'East-side events carry a minimum-spend posture because of dedicated staffing and drive time — the figure is labeled BUSINESS DECISION REQUIRED until the rate card activates, and it appears on your written quote, not the invoice.',
+    a: 'East-side events carry a published surcharge and dedicated staffing because of the drive — the figure appears on your written quote, not the invoice.',
   },
   {
     q: 'When will you launch on Hawaiʻi Island?',

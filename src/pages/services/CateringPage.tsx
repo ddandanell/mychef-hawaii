@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { zoneMap } from '@/data/zoneMap';
 import {
   BandChip,
@@ -40,7 +40,7 @@ const formats: { title: string; text: string; band?: string; image?: string }[] 
   {
     title: 'Live stations',
     text: 'Fire, smoke and a chef working the pass in front of your guests.',
-    image: '/craft-fire.jpg',
+    image: '/photos/live-fire-grill-lanai-fish.jpg',
   },
 ];
 
@@ -217,22 +217,22 @@ function EventTabs() {
 /* ---------------- Section 4 — Staffing & logistics ---------------- */
 
 function StaffingLogistics() {
-  const staffingOffer = otherOffers.find((o) => o.offer === 'Event staffing');
-  const rates = staffingOffer ? Array.from(staffingOffer.orientation.matchAll(/\$\d+\/hr/g), (m) => m[0]) : [];
+  const staffingOffer = getOtherOffer('event-staffing');
+  const rates = staffingOffer ? Array.from(formatOtherOffer(staffingOffer, 'oahu').matchAll(/\$\d+/g), (m) => m[0]) : [];
   const surchargeZone = zoneMap.oahu.zones.find((z) => z.class === 'surcharge');
 
-  const specRows: { label: string; bde: boolean }[] = [];
+  const specRows: { label: string; published: boolean }[] = [];
   if (staffingOffer && rates[0]) {
-    specRows.push({ label: `Servers from ${rates[0]} — ${staffingOffer.model}, retail convention, labeled`, bde: true });
+    specRows.push({ label: `Servers from ${rates[0]}/hr — ${staffingOffer.model}`, published: true });
   }
   if (staffingOffer && rates[1]) {
-    specRows.push({ label: `Sous-chef & service leads from ${rates[1]} — labeled`, bde: true });
+    specRows.push({ label: `Sous-chef & service leads from ${rates[1]}/hr`, published: true });
   }
-  specRows.push({ label: 'Rentals ~$10/set/day — market reference, labeled', bde: true });
+  specRows.push({ label: 'Rentals ~$10/set/day — market reference, labeled', published: false });
   if (surchargeZone) {
     specRows.push({
       label: `${surchargeZone.name}${surchargeZone.driveTime ? ` (${surchargeZone.driveTime})` : ''} — published surcharge`,
-      bde: surchargeZone.feeChip === 'BDE',
+      published: surchargeZone.feeChip === 'PUBLISHED',
     });
   }
 
@@ -253,7 +253,7 @@ function StaffingLogistics() {
               <span className="font-mono text-[0.75rem] uppercase leading-5 tracking-[0.1em] text-ink">
                 {row.label}
               </span>
-              {row.bde ? <StatusChip kind="bde">BDE</StatusChip> : null}
+              {row.published ? <StatusChip kind="published">Published</StatusChip> : null}
             </div>
           ))}
         </Reveal>

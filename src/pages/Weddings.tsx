@@ -6,6 +6,7 @@ import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
 import WordMask from '@/components/WordMask';
 import { islands } from '@/data/islands';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 
 /**
  * Statewide weddings hub — root-owned. Routes island-modified wedding
@@ -19,34 +20,34 @@ const islandsWeddings = [
     body: 'Primary wedding island: welcome dinner, rehearsal, reception and recovery brunch with one team. Peak months September, October and May, plus December–March villa pressure.',
     to: '/maui/wedding-catering',
     cta: 'Maui wedding catering',
-    img: '/photos/home/hub-weddings.jpg',
+    img: '/photos/maui-wedding-long-table-banyan-dusk.jpg',
     chip: 'Booking now',
   },
   {
     id: 'oahu' as const,
     title: 'Oʻahu wedding weekends',
     body: 'Celebration dinners and weekend stacks in the resort corridors — not a convention-centre product. Ko Olina, Kahala and windward estates are the usual rooms.',
-    to: '/oahu/catering',
-    cta: 'Oʻahu catering',
-    img: '/photos/loc-kahala.jpg',
+    to: '/oahu/wedding-catering',
+    cta: 'Oʻahu wedding catering',
+    img: '/photos/oahu-gold-coast-estate-dinner.jpg',
     chip: 'Booking now',
   },
   {
     id: 'kauai' as const,
     title: 'Kauaʻi estate weddings',
     body: '1,660 non-resident marriages in 2024 (official). Estate formats to about 75 guests, both shores. Inquiry-stage — your dates help set the launch.',
-    to: '/kauai/events',
+    to: '/kauai/wedding-catering',
     cta: 'Join the Kauaʻi list',
-    img: '/photos/loc-kauai-north.jpg',
+    img: '/photos/kauai-north-terrace-mist.jpg',
     chip: 'Inquiry stage',
   },
   {
     id: 'bigisland' as const,
     title: 'Hawaiʻi Island estate weeks',
     body: 'Kohala estates, wedding-week format, gated until a west-side team exists. Inquiry only; no local-entity claim.',
-    to: '/bigisland/catering',
+    to: '/bigisland/wedding-catering',
     cta: 'Join the Big Island list',
-    img: '/photos/loc-kohala.jpg',
+    img: '/photos/kohala-lava-coast-table.jpg',
     chip: 'Inquiry stage',
   },
 ];
@@ -56,8 +57,8 @@ export default function Weddings() {
     <>
       <section className="relative flex min-h-[70svh] min-h-[520px] items-end overflow-hidden">
         <HeroMedia
-          src="/photos/home/hub-weddings.jpg"
-          alt="A wedding-week long table under a banyan at dusk, guests eating while chefs plate. Concept image, not a myCHEF event."
+          src="/photos/maui-wedding-long-table-banyan-dusk.jpg"
+          alt="A wedding-week long table under a banyan at dusk, ocean lawn beyond. Concept image, not a myCHEF event."
         />
         <div className="relative mx-auto w-full max-w-spread px-5 pb-20 pt-36 lg:px-10">
           <div className="max-w-[680px]">
@@ -120,6 +121,9 @@ export default function Weddings() {
                       <StatusChip kind={isl.state === 'live' ? 'verified' : 'inquiry'}>{row.chip}</StatusChip>
                     </div>
                     <p className="mt-3 flex-1 text-sm leading-relaxed text-ink-soft">{row.body}</p>
+                    <p className="mt-3 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink">
+                      Wedding catering {formatOtherOffer(getOtherOffer('wedding'), row.id)}
+                    </p>
                     <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clay">
                       {row.cta}
                       <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

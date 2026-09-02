@@ -24,6 +24,7 @@ const SERVICES = [
   { value: 'dinner-for-two', label: 'Dinner for two' },
   { value: 'wedding-week', label: 'Wedding week' },
   { value: 'catering-events', label: 'Catering & events' },
+  { value: 'mobile-bar', label: 'Mobile bar / cocktails' },
   { value: 'vacation-chef', label: 'Vacation chef (multi-day)' },
   { value: 'weekly-household', label: 'Weekly household service' },
   { value: 'something-else', label: 'Something else' },
@@ -608,7 +609,7 @@ export default function Quote() {
         <aside className="relative hidden lg:block">
           <div className="sticky top-0 flex h-[100dvh] items-end overflow-hidden">
             <img
-              src="/photos/menu-card.jpg"
+              src="/photos/villa-table-menu-card-detail.jpg"
               alt="A handwritten menu card on linen — every myCHEF menu is proposed in writing before you commit"
               className="absolute inset-0 h-full w-full object-cover"
             />

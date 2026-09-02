@@ -2,7 +2,7 @@ import { ConciergeBell, Flame, NotebookPen, ShoppingBasket, Sparkles } from 'luc
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { getTiers, formatBand, otherOffers } from '@/data/rateCard';
+import { getTiers, formatBand, formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { FaqSection, ZoneModule } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
@@ -41,11 +41,11 @@ const faqs: Faq[] = [
   },
   {
     q: 'What will a private chef dinner on Kauaʻi cost?',
-    a: 'Market bands run $118–$250 per person (competitor-published, labeled); the local leader publishes $200–$250 per person and caps at 15 guests. Our indicative posture is $175–$250 per person, labeled BUSINESS DECISION REQUIRED until the rate card activates — the transparent rate card nobody local publishes today.',
+    a: 'Market bands run $118–$250 per person (competitor-published, labeled); the local leader publishes $200–$250 per person and caps at 15 guests. Our published CORE band is $175–$250 per person — the transparent rate card nobody local published until now. Inquiry-stage until a staffed team launches.',
   },
   {
     q: 'North Shore or South Shore — does it change the dinner?',
-    a: 'The plan is dual-node: a South Shore base plus a North Shore pod, which undercuts the incumbent flat driving fees on reliability. Princeville/Hanalei and Poʻipū carry a published surcharge (value BDE); Haʻena and the far North are quote-only with 72-hour notice and a Hanalei-bridge weather clause — closures reschedule rather than forfeit.',
+    a: 'The plan is dual-node: a South Shore base plus a North Shore pod, which undercuts the incumbent flat driving fees on reliability. Princeville/Hanalei and Poʻipū carry a published surcharge; Haʻena and the far North are quote-only with 72-hour notice and a Hanalei-bridge weather clause — closures reschedule rather than forfeit.',
   },
   {
     q: 'Is island food more expensive on Kauaʻi?',
@@ -53,15 +53,15 @@ const faqs: Faq[] = [
   },
   {
     q: 'Can you do a dinner for two — a proposal or elopement?',
-    a: 'That format is planned as a fixed-price architecture at $650–$950 (labeled BUSINESS DECISION REQUIRED), against a platform two-guest band of $210 per person (competitor-published, labeled). Beach-ceremony limits push celebrations into villas and estates — which is exactly where a private chef belongs.',
+    a: 'That format is a published fixed-price architecture at $650–$950, against a platform two-guest band of $210 per person (competitor-published, labeled). Beach-ceremony limits push celebrations into villas and estates — which is exactly where a private chef belongs.',
   },
 ];
 
 export default function KauaiPrivateChef() {
   const { island } = usePageIsland('kauai');
   const core = getTiers('kauai').find((t) => t.tier === 'CORE');
-  const dinnerTwo = otherOffers.find((o) => o.offer.startsWith('Dinner for two'));
-  const dinnerTwoKauai = dinnerTwo?.orientation.split('·')[1]?.trim() ?? '';
+  const dinnerTwo = getOtherOffer('dinner-for-two');
+  const dinnerTwoKauai = formatOtherOffer(dinnerTwo, 'kauai');
 
   return (
     <>
@@ -71,8 +71,8 @@ export default function KauaiPrivateChef() {
         service="Private Chef — planned service, activates at launch"
         title="A private chef on your shore."
         lede="Signature in-villa dinners planned as a dual-node service — a South Shore base around Poʻipū and Kōloa, a North Shore pod for Princeville and Hanalei estates. It activates when the inquiry list proves the demand. Tell us your dates and your shore."
-        image="/photos/loc-kauai-north.jpg"
-        imageAlt="Close-up of chef hands tweezing a garnish onto a muted ceramic plate"
+        image="/photos/kauai-chef-plating-seared-fish-mountains.jpg"
+        imageAlt="Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond. Campaign still, not a documented event."
         chips={
           <>
             {core ? (
@@ -121,8 +121,8 @@ export default function KauaiPrivateChef() {
         <div className="mx-auto grid w-full max-w-container items-center gap-10 px-5 lg:grid-cols-2 lg:px-10">
           <Reveal className="overflow-hidden rounded-[14px]">
             <img
-              src="/assets/dinner-for-two.jpg"
-              alt="An intimate table for two on a private lanai with a single candle in muted evening light"
+              src="/photos/maui-kapalua-dinner-for-two.jpg"
+              alt="Dinner for two on a Kapalua lānai at blue hour. Campaign still, not a documented event."
               loading="lazy"
               className="aspect-[4/5] w-full object-cover"
             />
@@ -159,7 +159,7 @@ export default function KauaiPrivateChef() {
                 Incumbent fees — competitor-labeled
               </StatusChip>
               <span className="inline-flex items-center gap-2 text-[0.8125rem] text-ivory/85">
-                Our zone fees <StatusChip kind="bde" onDark>BDE</StatusChip>
+                Our zone fees <StatusChip kind="published" onDark>Published</StatusChip>
               </span>
               <span className="inline-flex items-center gap-2 text-[0.8125rem] text-ivory/85">
                 Bridge/weather clause{' '}

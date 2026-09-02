@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
-import { otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import {
   BandChip,
   JsonLd,
@@ -51,7 +51,7 @@ const dayRows = [
   {
     label: 'Morning',
     text: 'Coffee, fruit, a proper breakfast before the beach.',
-    image: '/craft-ingredients.jpg',
+    image: '/photos/hawaii-produce-fish-sourcing-still.jpg',
     alt: 'Island produce — avocado, citrus, greens and fish on ice — styled on a wooden table',
   },
   {
@@ -63,7 +63,7 @@ const dayRows = [
   {
     label: 'Evening',
     text: 'The dressed dinner — the night-in that beats the reservation.',
-    image: '/craft-service.jpg',
+    image: '/photos/bartender-terrace-service.jpg',
     alt: "Server's hands setting wine glasses on a private dining table in warm dusk light",
   },
 ];
@@ -123,8 +123,8 @@ function DayStory() {
 
 /* ---------------- Section 3 — How multi-day pricing works ---------------- */
 
-function PricingModel({ islandName }: { islandName: string }) {
-  const vacationOffer = otherOffers.find((o) => o.offer === 'Vacation chef / multi-day');
+function PricingModel({ island, islandName }: { island: LiveIslandId; islandName: string }) {
+  const vacationOffer = getOtherOffer('vacation-chef');
   return (
     <section id="pricing-model" className="bg-sand py-20 lg:py-28">
       <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-2 lg:px-10">
@@ -141,7 +141,7 @@ function PricingModel({ islandName }: { islandName: string }) {
             <div className="mt-6 space-y-4">
               {vacationOffer ? (
                 <div className="border-b border-stone pb-4">
-                  <BandChip label={`Per-person/day band — ${vacationOffer.orientation}`} />
+                  <BandChip label={`Per-person/day — ${formatOtherOffer(vacationOffer, island)}`} />
                 </div>
               ) : null}
               <p className="border-b border-stone pb-4 font-mono text-[0.75rem] uppercase leading-5 tracking-[0.1em] text-ink">
@@ -164,7 +164,7 @@ function PricingModel({ islandName }: { islandName: string }) {
 /* ---------------- Section 4 — Island module ---------------- */
 
 function OahuWeekly() {
-  const weeklyOffer = otherOffers.find((o) => o.offer === 'Weekly meal prep (kamaʻāina line)');
+  const weeklyOffer = getOtherOffer('weekly-meal-prep');
   return (
     <section id="weekly" className="bg-ivory py-20 lg:py-28">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
@@ -177,7 +177,7 @@ function OahuWeekly() {
           {weeklyOffer ? (
             <>
               <BandChip label={`Standing weekly service — ${weeklyOffer.model}`} />
-              <BandChip label={`Structure — ${weeklyOffer.orientation}`} />
+              <BandChip label={`Structure — ${formatOtherOffer(weeklyOffer, 'oahu')}`} />
             </>
           ) : null}
           <BandChip label="4-week minimum posture" />
@@ -218,7 +218,7 @@ function MauiRetreats() {
 /* ---------------- Section 5 — Practicalities ---------------- */
 
 function Practicalities() {
-  const staffingOffer = otherOffers.find((o) => o.offer === 'Event staffing');
+  const staffingOffer = getOtherOffer('event-staffing');
   const tiles: { title: string; body: React.ReactNode }[] = [
     {
       title: 'Villa kitchen',
@@ -231,7 +231,7 @@ function Practicalities() {
     {
       title: 'Staffing add-ons',
       body: staffingOffer ? (
-        <BandChip label={`Servers — ${staffingOffer.orientation}`} />
+        <BandChip label={`Servers — ${formatOtherOffer(staffingOffer, 'oahu')}`} />
       ) : (
         'Servers available by the hour, labeled on your quote.'
       ),
@@ -263,8 +263,8 @@ function Practicalities() {
 export default function VacationChefPage({ island }: { island: LiveIslandId }) {
   useHashScroll();
   const c = content[island];
-  const vacationOffer = otherOffers.find((o) => o.offer === 'Vacation chef / multi-day');
-  const weeklyOffer = otherOffers.find((o) => o.offer === 'Weekly meal prep (kamaʻāina line)');
+  const vacationOffer = getOtherOffer('vacation-chef');
+  const weeklyOffer = getOtherOffer('weekly-meal-prep');
   const crumbs = [
     { label: 'Home', to: '/' },
     { label: c.islandName, to: `/${island}` },
@@ -278,13 +278,13 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
         eyebrow={`Vacation Chef — ${c.islandName}`}
         title={c.h1}
         lede="Breakfast through dinner, provisioning managed, menus that evolve across the stay. Up to three meals a day; groceries at cost, always itemised."
-        image="/photos/vacation-chef.jpg"
-        imageAlt="A vacation chef plates morning fruit and eggs in a villa kitchen while a family breakfasts by the pool. Concept image, not a myCHEF event."
+        image="/photos/vacation-chef-morning-breakfast-pool.jpg"
+        imageAlt="A vacation chef plating morning fruit and eggs by a villa pool. Campaign still, not a documented event."
         chips={
           <>
-            {vacationOffer ? <BandChip onDark label={`Multi-day — ${vacationOffer.orientation}`} /> : null}
+            {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, island)}`} /> : null}
             {island === 'oahu' && weeklyOffer ? (
-              <BandChip onDark label={`Weekly household — ${weeklyOffer.model}; ${weeklyOffer.orientation}`} />
+              <BandChip onDark label={`Weekly household — ${formatOtherOffer(weeklyOffer, 'oahu')}`} />
             ) : null}
           </>
         }
@@ -292,7 +292,7 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
         secondary={{ label: 'How multi-day pricing works ↓', to: '#pricing-model' }}
       />
       <DayStory />
-      <PricingModel islandName={c.islandName} />
+      <PricingModel island={island} islandName={c.islandName} />
       {island === 'oahu' ? <OahuWeekly /> : <MauiRetreats />}
       <Practicalities />
       <section className="bg-ivory py-20 lg:py-28">

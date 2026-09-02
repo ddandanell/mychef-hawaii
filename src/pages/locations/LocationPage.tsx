@@ -25,7 +25,7 @@ const ISLAND_IDS: IslandId[] = ['oahu', 'maui', 'bigisland', 'kauai'];
 
 const zoneChip = {
   base: { kind: 'policy' as const, label: 'Base zone — included' },
-  surcharge: { kind: 'bde' as const, label: 'Surcharge zone — BDE' },
+  surcharge: { kind: 'published' as const, label: 'Surcharge zone — published' },
   'quote-only': { kind: 'pending' as const, label: 'Quote-only' },
 };
 

@@ -11,7 +11,9 @@ import { getArticle } from '../data/editorial';
 import { allIslandPaths, getCatalog } from '../data/islandCatalog';
 import { islands, type IslandId } from '../data/islands';
 import { getLocation } from '../data/locations';
-import { metaForPath } from '../data/pageMeta';
+import { lookupPageMeta, metaForPath } from '../data/pageMeta';
+import { photos } from '../data/photos';
+import { formatBand, getDayRate, getMobileBar, getOtherOffer, getTiers } from '../data/rateCard';
 
 export interface DocumentSeo {
   title: string;
@@ -35,6 +37,8 @@ const HUB_PATHS = [
   '/quote',
   '/thank-you',
   '/weddings',
+  '/bar',
+  '/mobile-bar',
   '/corporate',
   '/journal',
   '/blog',
@@ -47,8 +51,78 @@ function cleanPath(pathname: string): string {
 }
 
 function ogImageFor(islandId: IslandId | null, origin: string): string {
-  if (!islandId) return `${origin}/photos/home/hero.jpg`;
+  if (!islandId) return `${origin}${photos.hubHero.file}`;
   return `${origin}${islands[islandId].selectorImage}`;
+}
+
+function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
+  const ids: IslandId[] = islandId ? [islandId] : ['oahu', 'maui', 'kauai', 'bigisland'];
+  const items = ids.flatMap((id) => {
+    const n = islands[id].name;
+    const core = getTiers(id).find((t) => t.tier === 'CORE');
+    const day = getDayRate(id);
+    const bar = getMobileBar(id);
+    const wedding = getOtherOffer('wedding').byIsland[id];
+    return [
+      {
+        '@type': 'Offer',
+        name: `Private chef dinner — ${n}`,
+        itemOffered: { '@type': 'Service', name: `Private chef — ${n}`, serviceType: 'Private chef' },
+        priceSpecification: core
+          ? {
+              '@type': 'PriceSpecification',
+              priceCurrency: 'USD',
+              minPrice: core.band[0],
+              maxPrice: core.band[1],
+              unitText: 'USD per person',
+            }
+          : undefined,
+        description: core ? `Signature in-villa dinner ${formatBand(core)} per person on ${n}.` : undefined,
+      },
+      {
+        '@type': 'Offer',
+        name: `Villa chef day rate — ${n}`,
+        itemOffered: { '@type': 'Service', name: `Vacation chef — ${n}`, serviceType: 'Personal chef' },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'USD',
+          minPrice: day.from,
+          unitText: 'USD per day',
+        },
+      },
+      {
+        '@type': 'Offer',
+        name: `Wedding catering — ${n}`,
+        itemOffered: { '@type': 'Service', name: `Wedding catering — ${n}`, serviceType: 'Catering' },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'USD',
+          minPrice: wedding.from,
+          unitText: 'USD per person',
+        },
+      },
+      {
+        '@type': 'Offer',
+        name: `Mobile bar — ${n}`,
+        itemOffered: { '@type': 'Service', name: `Mobile bar — ${n}`, serviceType: 'Bartending' },
+        priceSpecification: {
+          '@type': 'PriceSpecification',
+          priceCurrency: 'USD',
+          minPrice: bar.packageFrom,
+          unitText: 'USD per 4-hour package',
+        },
+      },
+    ];
+  });
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: islandId
+      ? `myCHEF ${islands[islandId].name} private chef and catering prices`
+      : 'myCHEF Hawaii private chef and catering prices',
+    url: origin,
+    itemListElement: items,
+  };
 }
 
 function orgJsonLd(name: string, url: string) {
@@ -105,25 +179,31 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (area) {
       title = `Private chef ${area.name} — myCHEF ${island.name}`;
       description = area.blurb;
-    } else if (catalog) {
-      title = catalog.title;
-      description = catalog.lede;
-    } else if (localPath === '/journal') {
-      title = `Journal — myCHEF ${island.name}`;
-      description = `Island journal for ${island.name}. ${island.role}`;
-    } else if (localPath === '/blog') {
-      title = `Blog — myCHEF ${island.name}`;
-      description = `Guides and notes for private chef service on ${island.name}.`;
-    } else if (localPath === '/locations') {
-      title = `Service areas — myCHEF ${island.name}`;
-      description = `Coverage on ${island.name}: published zones, not statewide fiction.`;
-    } else if (localPath === '/sitemap') {
-      title = `Sitemap — myCHEF ${island.name}`;
-      description = `${allIslandPaths(islandId).length} pages on the ${island.name} site.`;
     } else {
-      const mapped = metaForPath(path, islandId, hostMode);
-      title = mapped.title;
-      description = mapped.description;
+      const explicit = lookupPageMeta(path, islandId, hostMode);
+      if (explicit) {
+        title = explicit.title;
+        description = explicit.description;
+      } else if (catalog) {
+        title = catalog.title;
+        description = catalog.lede;
+      } else if (localPath === '/journal') {
+        title = `Journal — myCHEF ${island.name}`;
+        description = `Island journal for ${island.name}. ${island.role}`;
+      } else if (localPath === '/blog') {
+        title = `Blog — myCHEF ${island.name}`;
+        description = `Guides and notes for private chef service on ${island.name}.`;
+      } else if (localPath === '/locations') {
+        title = `Service areas — myCHEF ${island.name}`;
+        description = `Coverage on ${island.name}: published zones, not statewide fiction.`;
+      } else if (localPath === '/sitemap') {
+        title = `Sitemap — myCHEF ${island.name}`;
+        description = `${allIslandPaths(islandId).length} pages on the ${island.name} site.`;
+      } else {
+        const mapped = metaForPath(path, islandId, hostMode);
+        title = mapped.title;
+        description = mapped.description;
+      }
     }
   } else {
     const mapped = metaForPath(path);
@@ -154,6 +234,23 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       areaServed: { '@type': 'AdministrativeArea', name: islands[islandId].name },
       serviceType: 'Private chef',
     });
+  }
+
+  const priced =
+    localPath === '/' ||
+    localPath === '/pricing' ||
+    localPath === '/services' ||
+    localPath === '/bar' ||
+    localPath === '/mobile-bar' ||
+    localPath === '/weddings' ||
+    localPath === '/wedding-catering' ||
+    localPath === '/private-chef' ||
+    localPath === '/vacation-chef' ||
+    localPath === '/catering' ||
+    localPath === '/events' ||
+    (!islandId && ['/', '/pricing', '/services', '/bar', '/mobile-bar', '/weddings', '/corporate'].includes(path));
+  if (priced) {
+    jsonLd.push(offerCatalogJsonLd(origin || `https://${PRODUCTION_ROOT}`, islandId));
   }
 
   return {

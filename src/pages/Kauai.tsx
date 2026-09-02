@@ -4,7 +4,8 @@ import { ArrowRight } from 'lucide-react';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
+import { photos } from '@/data/photos';
 import {
   CostChip,
   FaqSection,
@@ -81,7 +82,7 @@ function ShoreChooser() {
               eyebrow="North Shore"
               title="Princeville · Hanalei"
               body="Estate weddings, retreat weeks and the island's signature villa inventory. Surf-season winters book early; far-North events carry a weather clause (see zones)."
-              img="/assets/celebration-table.jpg"
+              img={photos.kauaiNorth.file}
               cta={
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
@@ -106,7 +107,7 @@ function ShoreChooser() {
               eyebrow="South Shore"
               title="Poʻipū · Kōloa"
               body="Sunnier, steadier, closer to the Līhuʻe base — arrivals-night dinners and provisioning for week-long stays."
-              img="/photos/loc-kauai-south.jpg"
+              img={photos.kauaiSouth.file}
               cta={
                 <div className="flex flex-wrap items-center gap-4">
                   <Link
@@ -148,7 +149,7 @@ function ZoneTrust() {
             Incumbent fees — competitor-labeled
           </StatusChip>
           <span className="inline-flex items-center gap-2 text-[0.8125rem] text-ivory/85">
-            Our zone fees <StatusChip kind="bde" onDark>BDE</StatusChip>
+            Our zone fees <StatusChip kind="published" onDark>Published</StatusChip>
           </span>
           <span className="inline-flex items-center gap-2 text-[0.8125rem] text-ivory/85">
             Bridge/weather clause{' '}
@@ -165,8 +166,7 @@ function ZoneTrust() {
 /* ---------------- Section 4 — What's planned ---------------- */
 
 function Planned() {
-  const dinnerTwo = otherOffers.find((o) => o.offer.startsWith('Dinner for two'));
-  const dinnerTwoKauai = dinnerTwo?.orientation.split('·')[1]?.trim() ?? '';
+  const dinnerTwoKauai = formatOtherOffer(getOtherOffer('dinner-for-two'), 'kauai');
 
   return (
     <section className="bg-sand py-20 lg:py-28">
@@ -181,37 +181,36 @@ function Planned() {
             planned
             title="In-villa dinners"
             desc="Market bands $118–$250/pp, competitor-labeled — our posture sits at the signature tier."
-            img="/photos/loc-kauai-north.jpg"
+            img={photos.kauaiChef.file}
             to="/kauai/private-chef"
-            band={`Our posture ${tierBand('kauai', 'CORE')}/pp`}
+            band={`${tierBand('kauai', 'CORE')}/pp`}
           />
           <ServiceCard
             planned
             title="Wedding weeks to ~75"
             desc="Estate formats, one team across the week — welcome dinner to recovery brunch."
-            img="/photos/home/hub-weddings.jpg"
-            to="/kauai/events"
+            img={photos.wedding.file}
+            to="/kauai/wedding-catering"
             stat="1,660 Kauaʻi weddings in 2024 (official)"
           />
           <ServiceCard
             planned
             title="Arrival-night dinner + provisioning"
             desc="Land late, eat well, fridge stocked — the first evening handled before you unpack."
-            img="/photos/loc-kauai-south.jpg"
+            img={photos.kauaiSouth.file}
             to="/kauai/private-chef"
           />
           <ServiceCard
             planned
             title="Retreat & wellness full-board"
             desc="Multi-day chef service for retreat houses — full-board days, one team."
-            img="/photos/vacation-chef.jpg"
+            img={photos.vacation.file}
             to="/kauai/vacation-chef"
           />
         </Reveal>
         {dinnerTwoKauai && (
           <Reveal delay={0.15} className="mt-8 flex flex-wrap items-center gap-2 font-mono text-[0.75rem] uppercase tracking-[0.08em] text-ink">
             <span>Dinners-for-two: {dinnerTwoKauai}</span>
-            <StatusChip kind="bde">BDE</StatusChip>
           </Reveal>
         )}
       </div>
@@ -265,7 +264,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'Can our concierge or villa agency refer guests?',
-    a: 'Yes — agencies can refer through a published, honest process. Commission terms are set at launch and never hidden; they will be labeled BUSINESS DECISION REQUIRED until then. Use the partner intake link above.',
+    a: 'Yes — agencies can refer through a published, honest process. Commission terms are set at launch and never hidden. Use the partner intake link above.',
   },
   {
     q: 'When will you launch on Kauaʻi?',

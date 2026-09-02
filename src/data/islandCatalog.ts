@@ -23,13 +23,13 @@ export interface CatalogEntry {
 }
 
 const SERVICE_PATHS: { path: string; label: string; lede: (n: string) => string }[] = [
-  { path: '/private-chef-cost', label: 'Private chef cost', lede: (n) => `Planning-orientation bands for ${n}. BUSINESS DECISION REQUIRED until the rate card is approved.` },
+  { path: '/private-chef-cost', label: 'Private chef cost', lede: (n) => `Published starting prices for ${n} — dinner bands, villa day rate and fee stack. Quote confirmed in writing.` },
   { path: '/personal-chef', label: 'Personal chef / kamaʻāina line', lede: (n) => `Weekly household service on ${n}. Resident line — not a tourist one-off.` },
   { path: '/meal-prep', label: 'Meal prep', lede: (n) => `Volume meal prep on ${n} is gated until utilization is proven. Inquiry only.` },
   { path: '/cooking-classes', label: 'Cooking classes', lede: (n) => `Experience product on ${n} publishes only with a real instructor bench — otherwise it stays a page that says so.` },
   { path: '/omakase-at-home', label: 'Omakase at home', lede: (n) => `Premium tasting at home on ${n}. Menu/IP and sourcing verification are launch gates.` },
   { path: '/chefs-table', label: "Chef's table", lede: (n) => `Private chef's table in your ${n} villa — not a resort communal table.` },
-  { path: '/honeymoon-dinners', label: 'Honeymoon dinners', lede: (n) => `Dinner-for-two posture on ${n}. Planning orientation, BDE-labeled.` },
+  { path: '/honeymoon-dinners', label: 'Honeymoon dinners', lede: (n) => `Dinner-for-two on ${n}. Published starting price; quote confirmed in writing.` },
   { path: '/rehearsal-dinners', label: 'Rehearsal dinners', lede: (n) => `Wedding-week SKU on ${n}: rehearsal, welcome, day-after as separate lines.` },
   { path: '/retreat-catering', label: 'Retreat catering', lede: (n) => `Full-board retreat days on ${n}. Dietary capability is table stakes, claimed only when true.` },
   { path: '/corporate-catering', label: 'Corporate catering', lede: (n) => `Offsites and executive dinners on ${n}. Not HCC citywides (closed through 2027).` },
@@ -38,7 +38,7 @@ const SERVICE_PATHS: { path: string; label: string; lede: (n: string) => string 
   { path: '/kids-menus', label: 'Kids at the table', lede: (n) => `Children’s plates on ${n} are planned with the adults’ menu, not an afterthought.` },
   { path: '/dietary', label: 'Dietary', lede: (n) => `Vegan, gluten-free, allergy-aware — designed in advance on ${n}.` },
   { path: '/how-it-works', label: 'How it works', lede: (n) => `Same network process. ${n} changes the drive times, which we publish.` },
-  { path: '/pricing', label: 'Pricing orientation', lede: (n) => `${n} bands from the canonical rate card. BDE-labeled.` },
+  { path: '/pricing', label: 'Pricing', lede: (n) => `${n} starting prices from the canonical rate card — dinner, day rate, bar, wedding.` },
   { path: '/catering', label: 'Catering', lede: (n) => `Staffed catering on ${n}. Drop-off is a different product. Guest counts we staff are published.` },
   { path: '/events', label: 'Events', lede: (n) => `Estate and villa events on ${n}. Receptions about 10–75; larger formats are quoted.` },
   { path: '/about', label: 'About this island department', lede: (n) => `myCHEF ${n} is a department of the Hawaii network — own chefs, zones and inquiry vs live posture.` },
@@ -64,7 +64,7 @@ function entry(island: IslandId, path: string, kind: CatalogKind, label: string,
   return {
     path,
     kind,
-    title: `${label} — myCHEF ${n}`,
+    title: `${label} | Private chef & catering — myCHEF ${n}`,
     h1: label,
     lede: extra,
     body: [
@@ -75,6 +75,7 @@ function entry(island: IslandId, path: string, kind: CatalogKind, label: string,
         ? `${n} is inquiry-stage. Dated inquiries, not a booking button, until a staffed insured team exists.`
         : `${n} is booking now on live corridors. Quotes are written. Travel fees are published.`,
       'No fabricated reviews, chef names, licenses or partnerships appear here. Preview photography is concept illustration.',
+      `Starting prices for private chef dinners, catering and the villa day rate are published on /pricing. Quote confirmed in writing.`,
     ],
   };
 }
@@ -160,7 +161,11 @@ export function allIslandPaths(island: IslandId): string[] {
     '/',
     '/private-chef',
     '/vacation-chef',
-    island === 'maui' ? '/wedding-catering' : '/catering',
+    '/wedding-catering',
+    '/weddings',
+    '/bar',
+    '/mobile-bar',
+    '/pricing',
     island === 'kauai' ? '/events' : '/catering',
     '/locations',
     '/journal',

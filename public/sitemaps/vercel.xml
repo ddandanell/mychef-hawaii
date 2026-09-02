@@ -51,6 +51,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mychef-hawaii.vercel.app/bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/mobile-bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mychef-hawaii.vercel.app/corporate</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -82,6 +92,31 @@
   </url>
   <url>
     <loc>https://mychef-hawaii.vercel.app/oahu/vacation-chef</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/oahu/wedding-catering</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/oahu/weddings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/oahu/bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/oahu/mobile-bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/oahu/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -307,11 +342,6 @@
   </url>
   <url>
     <loc>https://mychef-hawaii.vercel.app/oahu/how-it-works</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mychef-hawaii.vercel.app/oahu/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -781,6 +811,26 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://mychef-hawaii.vercel.app/maui/weddings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/maui/bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/maui/mobile-bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/maui/pricing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mychef-hawaii.vercel.app/maui/catering</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -1002,11 +1052,6 @@
   </url>
   <url>
     <loc>https://mychef-hawaii.vercel.app/maui/how-it-works</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mychef-hawaii.vercel.app/maui/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1471,7 +1516,27 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mychef-hawaii.vercel.app/kauai/catering</loc>
+    <loc>https://mychef-hawaii.vercel.app/kauai/wedding-catering</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/kauai/weddings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/kauai/bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/kauai/mobile-bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/kauai/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -1701,7 +1766,7 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://mychef-hawaii.vercel.app/kauai/pricing</loc>
+    <loc>https://mychef-hawaii.vercel.app/kauai/catering</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -2161,6 +2226,31 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://mychef-hawaii.vercel.app/bigisland/wedding-catering</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/bigisland/weddings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/bigisland/bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/bigisland/mobile-bar</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.vercel.app/bigisland/pricing</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mychef-hawaii.vercel.app/bigisland/catering</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -2382,11 +2472,6 @@
   </url>
   <url>
     <loc>https://mychef-hawaii.vercel.app/bigisland/how-it-works</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://mychef-hawaii.vercel.app/bigisland/pricing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>

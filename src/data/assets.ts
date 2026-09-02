@@ -1,141 +1,152 @@
+import { CONCEPT, photos } from './photos';
+
 /**
- * Researched photography asset library (expand-assets).
- *
- * These are licensed-pool research candidates converted to optimized
- * progressive JPEGs. They are placeholders for art direction and layout:
- * every entry must be replaced with owned/licensed final photography
- * before any paid public launch (see `licensePosture`).
+ * Photography asset library — campaign stills generated for this site.
+ * Honest caption rule: never described as a documented myCHEF Hawaiʻi event.
  */
 
 export interface AssetEntry {
-  /** Path under /public */
   file: string;
-  /** Accessible alt text */
   alt: string;
-  /** Platform the research candidate was sourced from */
   source: string;
-  /** Licensing posture — binding for launch */
   licensePosture: string;
-  /** Cultural-veto (design.md §9.5) verification note */
   culturalCheck: string;
 }
 
 const LICENSE_POSTURE =
-  'campaign still generated for layout; concept image, not a documented myCHEF event; replace with owned photography before paid claims';
+  'campaign still generated for layout; concept image, not a documented myCHEF event';
+
+const SOURCE = 'Generated campaign still for myCHEF Hawaii';
 
 export const assets: Record<string, AssetEntry> = {
   heroPrivateChef: {
-    file: '/photos/svc-private-chef-maui.jpg',
-    alt: 'A private chef finishes seared fish in a Maui villa kitchen. Concept image, not a myCHEF event.',
-    source: 'Stock photo search result (research download)',
+    file: photos.mauiKitchen.file,
+    alt: photos.mauiKitchen.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: working professional shown hands-first, no posed face; no tiki/hula/lei/sunset imagery; no sacred terminology.',
+    culturalCheck: 'Pass: hands-first working chef; no tiki/hula/lei product styling.',
   },
   foodPlating: {
-    file: '/photos/svc-private-chef-maui.jpg',
-    alt: 'Close-up of seared fish being finished on a ceramic plate in a villa kitchen. Concept image, not a myCHEF event.',
-    source: 'Stock photo search result (research download)',
+    file: photos.kauaiChef.file,
+    alt: photos.kauaiChef.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: editorial food photography, muted palette, hands as professionals; no tropical clichés.',
+    culturalCheck: 'Pass: editorial plating; mountains as place, not sacred-site tourism.',
   },
   privateDiningRoom: {
-    file: '/assets/private-dining-room.jpg',
-    alt: 'Long private dining table set in a warm, wood-toned dining room',
-    source: 'Stock photo search result (research download)',
+    file: photos.oahuEstate.file,
+    alt: photos.oahuEstate.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: interior hospitality scene, no people, no cultural props or clichés.',
+    culturalCheck: 'Pass: estate interior/lawn; no cultural props.',
   },
   villaModern: {
-    file: '/assets/villa-modern.jpg',
-    alt: 'Modern luxury villa interior with open kitchen and ocean view',
-    source: 'Stock photo search result (research download)',
+    file: photos.oahuEstate.file,
+    alt: photos.oahuEstate.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: architecture/interior only; no venue named or implied as partner; no sunset cliché.',
+    culturalCheck: 'Pass: architecture and table; no venue named as partner.',
   },
   beachTable: {
-    file: '/assets/beach-table.jpg',
-    alt: 'Dining table set on a quiet beach in soft daylight, calm water behind',
-    source: 'Stock photo search result (research download)',
+    file: photos.kailua.file,
+    alt: photos.kailua.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: no sunset silhouette, no tiki/torch/lei styling; simple table setting in natural light.',
+    culturalCheck: 'Pass: windward house table, not a staged beach luau.',
   },
   weddingReception: {
-    file: '/assets/wedding-reception.jpg',
-    alt: 'Elegant wedding reception table with ivory florals and taper candles',
-    source: 'Stock photo search result (research download)',
+    file: photos.wedding.file,
+    alt: photos.wedding.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: elegant not tropical-kitsch; no leis or tiki décor; no identifiable guests facing camera.',
+    culturalCheck: 'Pass: estate long table; no tiki décor.',
   },
   weddingGarden: {
-    file: '/photos/home/hub-weddings.jpg',
-    alt: 'A wedding-week long table under a banyan at dusk, guests eating while chefs plate. Concept image, not a myCHEF event.',
-    source: 'Stock photo search result (research download)',
+    file: photos.wedding.file,
+    alt: photos.wedding.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: private-estate garden feel, muted warm palette; no Hawaiian sacred-site or cultural imagery.',
+    culturalCheck: 'Pass: private-estate garden; no Hawaiian sacred-site imagery.',
   },
   weddingCandles: {
-    file: '/assets/wedding-candles.jpg',
-    alt: 'Taper candles and white flowers on a wedding dinner table',
-    source: 'Stock photo search result (research download)',
+    file: photos.weddingDetail.file,
+    alt: photos.weddingDetail.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: candlelit tabletop detail, no people, no cultural props.',
+    culturalCheck: 'Pass: tabletop detail, no people, no cultural props.',
   },
   seafoodMarket: {
-    file: '/assets/seafood-market.jpg',
-    alt: 'Fresh fish and crabs on ice at a seafood market',
-    source: 'Stock photo search result (research download)',
+    file: photos.produce.file,
+    alt: photos.produce.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: sourcing/provenance subject matter; no vendor faces; no farm or producer named (§9.5 compliant).',
+    culturalCheck: 'Pass: ingredient still; no vendor faces; no farm named.',
   },
   farmersMarket: {
-    file: '/assets/farmers-market.jpg',
-    alt: 'Colorful produce stand with tomatoes and vegetables at a farmers market',
-    source: 'Stock photo search result (research download)',
+    file: photos.produce.file,
+    alt: photos.produce.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: produce only, no identifiable people; no farm/producer names claimed.',
+    culturalCheck: 'Pass: produce only; no producer names claimed.',
   },
   tropicalFruit: {
-    file: '/assets/tropical-fruit.jpg',
-    alt: 'Market stall displaying fresh tropical fruit',
-    source: 'Stock photo search result (research download)',
+    file: photos.produce.file,
+    alt: photos.produce.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: ingredient-focused editorial still; not used as generic "tropical paradise" décor.',
+    culturalCheck: 'Pass: ingredient still, not generic tropical décor.',
   },
   dinnerForTwo: {
-    file: '/photos/loc-kapalua.jpg',
-    alt: 'A couple at a twilight dinner-for-two in Kapalua, northwest Maui. Concept image, not a myCHEF event.',
-    source: 'Stock photo search result (research download)',
+    file: photos.kapaluaTwo.file,
+    alt: photos.kapaluaTwo.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: no sunset silhouette; quiet refined evening scene without people facing camera.',
+    culturalCheck: 'Pass: quiet evening table; no posed celebrity couple.',
   },
   celebrationTable: {
-    file: '/assets/celebration-table.jpg',
-    alt: 'Long candlelit celebration dinner table set for a group',
-    source: 'Stock photo search result (research download)',
+    file: photos.gatherings.file,
+    alt: photos.gatherings.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: table setting only, no posed guests; no tropical-kitsch décor.',
+    culturalCheck: 'Pass: gathering table, not tropical-kitsch décor.',
   },
   menuCard: {
-    file: '/assets/menu-card.jpg',
-    alt: 'Printed menu card in a stand on a formally set dining table',
-    source: 'Stock photo search result (research download)',
+    file: photos.menu.file,
+    alt: photos.menu.alt,
+    source: SOURCE,
     licensePosture: LICENSE_POSTURE,
-    culturalCheck:
-      'Pass: paper-goods detail shot; menu text is generic placeholder, no venue or chef named.',
+    culturalCheck: 'Pass: paper-goods detail; no venue or chef named.',
+  },
+  mobileBar: {
+    file: photos.bar.file,
+    alt: photos.bar.alt,
+    source: SOURCE,
+    licensePosture: LICENSE_POSTURE,
+    culturalCheck: 'Pass: villa terrace bar; coupe glasses, not tiki mugs.',
+  },
+  vacationChef: {
+    file: photos.vacation.file,
+    alt: photos.vacation.alt,
+    source: SOURCE,
+    licensePosture: LICENSE_POSTURE,
+    culturalCheck: 'Pass: morning household service; no fake family portraits.',
+  },
+  catering: {
+    file: photos.catering.file,
+    alt: photos.catering.alt,
+    source: SOURCE,
+    licensePosture: LICENSE_POSTURE,
+    culturalCheck: 'Pass: working chef team; no named venue.',
+  },
+  kohala: {
+    file: photos.kohalaFish.file,
+    alt: photos.kohalaFish.alt,
+    source: SOURCE,
+    licensePosture: LICENSE_POSTURE,
+    culturalCheck: 'Pass: lava-coast food still; no sacred terminology.',
   },
 };
 
 export type AssetKey = keyof typeof assets;
+
+void CONCEPT;

@@ -1,7 +1,7 @@
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { otherOffers } from '@/data/rateCard';
+import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { FaqSection, SectionHead } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
@@ -29,7 +29,7 @@ const dayRows = [
   {
     label: 'Morning',
     text: 'Coffee, fruit, a proper breakfast before the beach — the fridge already stocked from arrival night.',
-    image: '/assets/farmers-market.jpg',
+    image: '/photos/hawaii-produce-fish-sourcing-still.jpg',
     alt: 'Island produce — avocado, citrus, greens and fish on ice — styled on a wooden table',
   },
   {
@@ -41,7 +41,7 @@ const dayRows = [
   {
     label: 'Evening',
     text: 'The dressed dinner — North Shore estate or South Shore lanai, the night-in that beats the reservation.',
-    image: '/assets/private-dining-room.jpg',
+    image: '/photos/plated-fish-lanai-dusk.jpg',
     alt: "Server's hands setting wine glasses on a private dining table in warm dusk light",
   },
 ];
@@ -53,7 +53,7 @@ const faqs: Faq[] = [
   },
   {
     q: 'What does a multi-day chef cost on Kauaʻi?',
-    a: 'Multi-day service prices per person per day plus groceries at cost, inside a verified market envelope of $179–$300+ per person per day (competitor-published, labeled). Our island posture is labeled BUSINESS DECISION REQUIRED until the rate card activates at launch.',
+    a: 'Multi-day service prices per person per day plus groceries at cost, inside a verified market envelope of $179–$300+ per person per day (competitor-published, labeled). Our Kauaʻi starting price is published from $250 per person per day and activates with the island launch.',
   },
   {
     q: 'We’re staying on the far North — Haʻena side. Does multi-day work there?',
@@ -72,7 +72,7 @@ const faqs: Faq[] = [
 export default function KauaiVacationChef() {
   useHashScroll();
   const { island } = usePageIsland('kauai');
-  const vacationOffer = otherOffers.find((o) => o.offer === 'Vacation chef / multi-day');
+  const vacationOffer = getOtherOffer('vacation-chef');
 
   return (
     <>
@@ -86,7 +86,7 @@ export default function KauaiVacationChef() {
         imageAlt="A chef plating a casual but refined family lunch on a villa kitchen island in daytime warmth"
         chips={
           <>
-            {vacationOffer ? <BandChip onDark label={`Multi-day — ${vacationOffer.orientation}`} /> : null}
+            {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, 'kauai')}`} /> : null}
             <PlainChip onDark>3-day anchor · 7+ day stays</PlainChip>
             <StatusChip kind="planned" onDark>
               Planned
@@ -188,7 +188,7 @@ export default function KauaiVacationChef() {
                 <span className="font-mono text-[0.75rem] uppercase leading-5 tracking-[0.1em] text-ink">
                   {row.label}
                 </span>
-                {row.bde ? <StatusChip kind="bde">BDE</StatusChip> : null}
+                {row.bde ? <StatusChip kind="published">Published</StatusChip> : null}
               </div>
             ))}
           </Reveal>
