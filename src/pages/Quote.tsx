@@ -20,7 +20,10 @@ import { cn } from '@/lib/utils';
  */
 
 const SERVICES = [
-  { value: 'signature-dinner', label: 'Signature in-villa dinner' },
+    { value: 'date-night', label: 'Date Night (2)' },
+    { value: 'family-feast', label: 'Family Feast (6–8)' },
+    { value: 'celebration', label: 'Celebration (8–12)' },
+    { value: 'signature-dinner', label: 'Signature in-villa dinner' },
   { value: 'dinner-for-two', label: 'Dinner for two' },
   { value: 'wedding-week', label: 'Wedding week' },
   { value: 'catering-events', label: 'Catering & events' },
@@ -56,7 +59,7 @@ const CHANNEL_FIELD: Record<Channel, { label: string; type: 'email' | 'tel'; pla
 };
 
 const reassuranceRows = [
-  { icon: UserRound, text: 'Reply from a real coordinator — typically within one business day, HST.' },
+  { icon: UserRound, text: 'Reply from a real coordinator — typically within Hawaii business hours.' },
   { icon: ReceiptText, text: 'Itemised written quote — service charge and tax on their own lines.' },
   { icon: ShieldCheck, text: 'No account. No spam. One honest follow-up, ever.' },
 ];

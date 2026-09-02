@@ -11,6 +11,7 @@ import { getArticle } from '../data/editorial';
 import { allIslandPaths, getCatalog } from '../data/islandCatalog';
 import { islands, type IslandId } from '../data/islands';
 import { getLocation } from '../data/locations';
+import { getMoneyNeighborhood, islandOffers } from '../data/offers';
 import { lookupPageMeta, metaForPath } from '../data/pageMeta';
 import { photos } from '../data/photos';
 import { formatBand, getDayRate, getMobileBar, getOtherOffer, getTiers } from '../data/rateCard';
@@ -40,6 +41,11 @@ const HUB_PATHS = [
   '/bar',
   '/mobile-bar',
   '/corporate',
+  '/gatherings',
+  '/private-chef',
+  '/catering',
+  '/vacation-chef',
+  '/areas',
   '/journal',
   '/blog',
   '/sitemap',
@@ -158,6 +164,11 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     const locRec = localPath.startsWith('/locations/')
       ? getLocation(islandId, localPath.slice('/locations/'.length))
       : undefined;
+    const moneySlug = localPath.startsWith('/') && !localPath.slice(1).includes('/') ? localPath.slice(1) : '';
+    const money = moneySlug ? getMoneyNeighborhood(islandId, moneySlug) : undefined;
+    const locMoney =
+      localPath.startsWith('/locations/') ? getMoneyNeighborhood(islandId, localPath.slice('/locations/'.length)) : undefined;
+    const moneyPage = money ?? locMoney;
     const areaSlug = localPath.startsWith('/private-chef/')
       ? localPath.slice('/private-chef/'.length)
       : localPath.startsWith('/locations/')
@@ -173,6 +184,12 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       title = article.title;
       description = article.description;
       ogType = 'article';
+    } else if (moneyPage) {
+      title = moneyPage.title;
+      description = moneyPage.description;
+    } else if (localPath === '/') {
+      title = islandOffers[islandId].title;
+      description = islandOffers[islandId].description;
     } else if (locRec) {
       title = `${locRec.name} private chef — myCHEF ${island.name}`;
       description = locRec.lede;
@@ -225,7 +242,7 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     },
   ];
 
-  if (islandId && islands[islandId].state === 'live') {
+  if (islandId) {
     jsonLd.push({
       '@context': 'https://schema.org',
       '@type': 'FoodService',

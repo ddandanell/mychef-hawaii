@@ -3,8 +3,7 @@
  * never captioned as a documented myCHEF Hawaiʻi event.
  */
 
-export const CONCEPT =
-  'Campaign still — concept image, not a documented myCHEF Hawaiʻi event.';
+export const CONCEPT = '';
 
 export const photos = {
   hubHero: {

@@ -2,22 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router';
 import { AnimatePresence, motion } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import { DualCtaCompact } from '@/components/DualCta';
 import { goToHost } from '@/components/HostLink';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
+import { islandOffers } from '@/data/offers';
 import { cn } from '@/lib/utils';
 
-/**
- * Navbar (design.md §8.1) — sticky, all pages.
- * Positioning contract: sticky top-0 z-50 in normal flow; no page needs
- * offset bookkeeping. No phone number in the header (launch gate).
- */
-
-const rootLinks = [
-  { label: 'Services', to: '/services' },
-  { label: 'Islands', to: '/islands' },
-  { label: 'Weddings', to: '/weddings' },
+const hubLinks = [
+  { label: 'Chefs', to: '/private-chef' },
+  { label: 'Catering', to: '/catering' },
   { label: 'Bar', to: '/bar' },
+  { label: 'Weddings', to: '/weddings' },
   { label: 'Pricing', to: '/pricing' },
 ];
 
@@ -32,15 +28,6 @@ function Wordmark({ islandName }: { islandName?: string }) {
         {islandName ?? 'Hawaii'}
       </span>
     </span>
-  );
-}
-
-function StateDot({ state }: { state: 'live' | 'inquiry' }) {
-  return (
-    <span
-      aria-hidden="true"
-      className={cn('inline-block h-1.5 w-1.5 rounded-full', state === 'live' ? 'bg-moss' : 'bg-brass')}
-    />
   );
 }
 
@@ -66,7 +53,7 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
         aria-haspopup="listbox"
         className="inline-flex items-center gap-2 rounded-full border border-stone bg-white/70 px-3.5 py-1.5 font-mono text-[0.75rem] uppercase tracking-[0.12em] text-ink transition-colors hover:border-clay/50"
       >
-        {island ? <StateDot state={island.state} /> : null}
+        <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
         {island ? island.shortName : 'Hawaiʻi'}
         <ChevronDown className={cn('h-3.5 w-3.5 transition-transform', open && 'rotate-180')} />
       </button>
@@ -78,7 +65,7 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
             exit={{ opacity: 0, y: -6 }}
             transition={{ duration: 0.2 }}
             role="listbox"
-            className="absolute right-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-[14px] border border-stone bg-white shadow-soft"
+            className="absolute right-0 top-full z-50 mt-2 w-80 overflow-hidden rounded-[14px] border border-stone bg-white shadow-soft"
           >
             <button
               type="button"
@@ -94,11 +81,12 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
               <span aria-hidden="true" className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-clay" />
               <span className="-mt-0.5 flex-1">
                 <span className="block font-display text-base font-medium text-ink">All Hawaiʻi</span>
-                <span className="block text-xs text-ink-soft">Statewide hub</span>
+                <span className="block text-xs text-ink-soft">Private chef Hawaii — from $125/pp</span>
               </span>
             </button>
             {islandOrder.map((id) => {
               const isl = islands[id];
+              const o = islandOffers[id];
               return (
                 <button
                   key={id}
@@ -112,18 +100,18 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
                   }}
                   className="flex w-full items-start gap-3 px-4 py-3 text-left transition-colors hover:bg-sand"
                 >
-                  <StateDot state={isl.state} />
+                  <span aria-hidden="true" className="mt-1.5 inline-block h-1.5 w-1.5 rounded-full bg-moss" />
                   <span className="-mt-0.5 flex-1">
                     <span className="block font-display text-base font-medium text-ink">{isl.name}</span>
                     <span className="block text-xs text-ink-soft">
-                      {isl.state === 'live' ? 'Booking now' : 'Inquiry list'}
+                      {o.h1} — from ${o.fromPp}/pp
                     </span>
                   </span>
                 </button>
               );
             })}
             <div className="border-t border-stone px-4 py-2.5 font-mono text-[0.625rem] uppercase tracking-[0.14em] text-ink-soft">
-              Two islands live · two inquiry-stage
+              Four islands booking now
             </div>
           </motion.div>
         )}
@@ -133,7 +121,7 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 export default function Navbar() {
-  const { island, href, state } = useIsland();
+  const { island, href, islandId } = useIsland();
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -146,21 +134,16 @@ export default function Navbar() {
 
   const islandLinks = island
     ? [
-        { label: 'Private Chef', to: href('/private-chef') },
-        { label: 'Vacation Chef', to: href('/vacation-chef') },
-        { label: 'Weddings', to: href('/wedding-catering') },
+        { label: 'Chefs', to: href('/private-chef') },
+        { label: 'Catering', to: href('/catering') },
         { label: 'Bar', to: href('/bar') },
-        island.id === 'kauai'
-          ? { label: 'Events', to: href('/events') }
-          : island.id === 'maui'
-            ? { label: 'Pricing', to: href('/pricing') }
-            : { label: 'Catering', to: href('/catering') },
-        { label: 'Areas', to: href('/locations') },
+        { label: 'Weddings', to: href('/weddings') },
+        { label: 'Pricing', to: href('/pricing') },
+        { label: 'Quote', to: href('/quote') },
       ]
-    : [...rootLinks, { label: 'Journal', to: '/journal' }];
+    : [...hubLinks, { label: 'Quote', to: '/quote' }];
 
   const homeTarget = href('/');
-  const ctaLabel = state === 'inquiry' ? 'Join the Inquiry List' : 'Request a Quote';
 
   return (
     <header
@@ -180,7 +163,7 @@ export default function Navbar() {
           <Wordmark islandName={island?.shortName} />
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-8 lg:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-7 lg:flex">
           {islandLinks.map((l) => (
             <Link
               key={l.label}
@@ -194,18 +177,7 @@ export default function Navbar() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <IslandSwitcher />
-          <Link
-            to={href('/quote')}
-            className={cn(
-              'inline-flex items-center rounded-full px-5 py-2.5 text-sm font-medium transition-all duration-200',
-              'focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-clay',
-              state === 'inquiry'
-                ? 'border border-brass text-brass hover:bg-brass/10'
-                : 'bg-clay text-white hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]',
-            )}
-          >
-            {ctaLabel}
-          </Link>
+          <DualCtaCompact island={islandId ?? undefined} />
         </div>
 
         <button
@@ -231,7 +203,7 @@ export default function Navbar() {
               <IslandSwitcher onNavigate={() => setDrawerOpen(false)} />
             </div>
             <nav aria-label="Mobile" className="flex flex-1 flex-col gap-1 overflow-y-auto px-5 py-6">
-              {[...islandLinks, { label: 'Islands', to: '/islands' }, { label: 'Trust', to: '/trust' }].map((l, i) => (
+              {islandLinks.map((l, i) => (
                 <motion.div
                   key={l.label + l.to}
                   initial={{ opacity: 0, y: 12 }}
@@ -249,16 +221,7 @@ export default function Navbar() {
               ))}
             </nav>
             <div className="border-t border-stone p-5">
-              <Link
-                to={href('/quote')}
-                onClick={() => setDrawerOpen(false)}
-                className={cn(
-                  'flex w-full items-center justify-center rounded-full px-5 py-3.5 text-base font-medium',
-                  state === 'inquiry' ? 'border border-brass text-brass' : 'bg-clay text-white',
-                )}
-              >
-                {ctaLabel}
-              </Link>
+              <DualCtaCompact island={islandId ?? undefined} />
             </div>
           </motion.div>
         )}

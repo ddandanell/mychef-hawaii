@@ -35,20 +35,20 @@ const islandsWeddings = [
   {
     id: 'kauai' as const,
     title: 'Kauaʻi estate weddings',
-    body: '1,660 non-resident marriages in 2024 (official). Estate formats to about 75 guests, both shores. Inquiry-stage — your dates help set the launch.',
+    body: '1,660 non-resident marriages in 2024 (official). Estate formats to about 75 guests, both shores. Book now — from $150/pp.',
     to: '/kauai/wedding-catering',
-    cta: 'Join the Kauaʻi list',
+    cta: 'Kauaʻi wedding catering',
     img: '/photos/kauai-north-terrace-mist.jpg',
-    chip: 'Inquiry stage',
+    chip: 'Booking now',
   },
   {
     id: 'bigisland' as const,
     title: 'Hawaiʻi Island estate weeks',
-    body: 'Kohala estates, wedding-week format, gated until a west-side team exists. Inquiry only; no local-entity claim.',
+    body: 'Kohala estates, wedding-week format, west side first. Published starting prices. WhatsApp the date.',
     to: '/bigisland/wedding-catering',
-    cta: 'Join the Big Island list',
+    cta: 'Big Island wedding catering',
     img: '/photos/kohala-lava-coast-table.jpg',
-    chip: 'Inquiry stage',
+    chip: 'Booking now',
   },
 ];
 
@@ -70,7 +70,7 @@ export default function Weddings() {
             </h1>
             <p className="mt-6 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ivory/90 lg:text-[1.125rem]">
               Welcome dinner to recovery brunch. This page routes you to the island that will actually cook —
-              Maui first, Oʻahu for weekends, Kauaʻi and Hawaiʻi Island on the inquiry list.
+              Maui, Oʻahu, Kauaʻi and Hawaiʻi Island. All four book now.
             </p>
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <Link

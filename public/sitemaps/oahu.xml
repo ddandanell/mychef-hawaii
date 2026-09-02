@@ -46,6 +46,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://oahu.mychef-hawaii.com/events</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://oahu.mychef-hawaii.com/locations</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -71,6 +76,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://oahu.mychef-hawaii.com/honolulu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/locations/honolulu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/private-chef/honolulu</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/waikiki</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://oahu.mychef-hawaii.com/locations/waikiki</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -81,22 +106,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://oahu.mychef-hawaii.com/locations/kahala</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oahu.mychef-hawaii.com/private-chef/kahala</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oahu.mychef-hawaii.com/locations/ko-olina</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oahu.mychef-hawaii.com/private-chef/ko-olina</loc>
+    <loc>https://oahu.mychef-hawaii.com/kailua</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -111,12 +121,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://oahu.mychef-hawaii.com/locations/lanikai</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oahu.mychef-hawaii.com/private-chef/lanikai</loc>
+    <loc>https://oahu.mychef-hawaii.com/north-shore</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -127,6 +132,46 @@
   </url>
   <url>
     <loc>https://oahu.mychef-hawaii.com/private-chef/north-shore</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/kahala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/locations/kahala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/private-chef/kahala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/ko-olina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/locations/ko-olina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/private-chef/ko-olina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/locations/lanikai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://oahu.mychef-hawaii.com/private-chef/lanikai</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -262,11 +307,6 @@
   </url>
   <url>
     <loc>https://oahu.mychef-hawaii.com/how-it-works</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://oahu.mychef-hawaii.com/events</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

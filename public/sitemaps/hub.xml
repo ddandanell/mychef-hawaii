@@ -66,6 +66,31 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mychef-hawaii.com/gatherings</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.com/private-chef</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.com/catering</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.com/vacation-chef</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://mychef-hawaii.com/areas</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://mychef-hawaii.com/journal</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

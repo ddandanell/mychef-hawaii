@@ -19,7 +19,9 @@ import {
   serviceJsonLd,
   useHashScroll,
 } from '@/pages/services/ServicePage';
-import type { LiveIslandId, ServiceFaqItem } from '@/pages/services/ServicePage';
+import type { IslandId } from '@/data/islands';
+import { islands } from '@/data/islands';
+import type { ServiceFaqItem } from '@/pages/services/ServicePage';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -39,11 +41,11 @@ interface PrivateChefContent {
   faqs: ServiceFaqItem[];
 }
 
-const content: Record<LiveIslandId, PrivateChefContent> = {
+const content: Record<IslandId, PrivateChefContent> = {
   maui: {
     islandName: 'Maui',
     path: '/maui/private-chef',
-    h1: 'Your private chef on Maui.',
+    h1: 'Private chef Maui',
     heroImage: '/photos/maui-wailea-kitchen-plating.jpg',
     heroAlt: 'Chef’s hands finishing seared fish in a Wailea villa kitchen. Campaign still, not a documented event.',
     bandTiers: [
@@ -72,7 +74,7 @@ const content: Record<LiveIslandId, PrivateChefContent> = {
   oahu: {
     islandName: 'Oʻahu',
     path: '/oahu/private-chef',
-    h1: 'Your private chef on Oʻahu.',
+    h1: 'Private chef Oʻahu',
     heroImage: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
     heroAlt: 'Plated private-chef dinner on an Oʻahu Gold Coast lānai at dusk. Campaign still, not a documented event.',
     bandTiers: [
@@ -95,6 +97,64 @@ const content: Record<LiveIslandId, PrivateChefContent> = {
       {
         q: 'Do you serve residents, not just visitors?',
         a: 'Yes — the kamaʻāina weekly line is a standing weekly chef service for Oʻahu households, from Kahala to Hawaiʻi Kai. It has its own anchor on the vacation chef page, under #weekly.',
+      },
+    ],
+  },
+  kauai: {
+    islandName: 'Kauaʻi',
+    path: '/kauai/private-chef',
+    h1: 'Private chef Kauaʻi',
+    heroImage: '/photos/kauai-chef-plating-seared-fish-mountains.jpg',
+    heroAlt: 'Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond.',
+    bandTiers: [
+      { tier: 'CORE', label: 'Core myCHEF' },
+      { tier: 'ENTRY', label: 'Entry' },
+    ],
+    faqs: [
+      {
+        q: 'Is Kauaʻi a waitlist island?',
+        a: 'No. We book Kauaʻi. Tell us the shore and the dates. Far-North (Hāʻena) needs 72-hour notice and a weather/road clause — we publish that instead of pretending the Hanalei bridge never closes.',
+      },
+      {
+        q: 'Princeville or Poʻipū — does the price change?',
+        a: 'Menu bands are the Kauaʻi card — CORE $150–$250 per person, Maui-class. Drive time is a published zone line, not a hidden markup on the fish.',
+      },
+      {
+        q: 'Do you cook in a vacation rental?',
+        a: 'Yes, when there is a real kitchen. Hotel rooms without cooktops are declined or redesigned. WhatsApp the property type.',
+      },
+      {
+        q: 'Can you staff a small wedding?',
+        a: 'Estate formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines.',
+      },
+    ],
+  },
+  bigisland: {
+    islandName: 'Hawaiʻi Island',
+    path: '/bigisland/private-chef',
+    h1: 'Private chef Big Island',
+    heroImage: '/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg',
+    heroAlt: 'Whole grilled fish and tropical fruit on Kohala lava rock at golden hour.',
+    bandTiers: [
+      { tier: 'CORE', label: 'Core myCHEF' },
+      { tier: 'ENTRY', label: 'Entry' },
+    ],
+    faqs: [
+      {
+        q: 'How much is a private chef in Kona?',
+        a: 'CORE dinners start at $150–$225 per person. ENTRY from $110. Stay Chef from $950/day. Written quote before you commit.',
+      },
+      {
+        q: 'Can you cover Hilo from Kona?',
+        a: 'Not in one day. East side is 2.5–3 hours — dedicated staffing, quoted honestly. West-side villas are the default.',
+      },
+      {
+        q: 'Do you take Ironman week?',
+        a: 'Yes, with compressed availability. Flag those dates early on WhatsApp.',
+      },
+      {
+        q: 'Airbnb kitchens?',
+        a: 'Yes, when they actually cook. We shop Kona-side the day of service and leave the kitchen clean.',
       },
     ],
   },
@@ -294,7 +354,7 @@ function MauiExtras() {
                 />
               </div>
               <figcaption className="mt-3 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink-soft">
-                Concept image — not a myCHEF Hawaiʻi event. Final photography pending.
+                Date Night — cooked in the villa.
               </figcaption>
             </figure>
           </Reveal>
@@ -361,15 +421,30 @@ function OahuExtras() {
   );
 }
 
+function NeighborExtras({ island }: { island: IslandId }) {
+  const n = islands[island].name;
+  return (
+    <section className="bg-sand py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+        <SectionIntro
+          eyebrow={`${n} — how we cook it`}
+          title="Villa kitchens. Published prices. No waitlist."
+          body="Family week, one dinner, or a wedding-week stack. Cleanup included. Groceries at cost on Stay Chef. WhatsApp the dates."
+        />
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- Page ---------------- */
 
-export default function PrivateChefPage({ island }: { island: LiveIslandId }) {
+export default function PrivateChefPage({ island }: { island: IslandId }) {
   useHashScroll();
   const c = content[island];
   const tiers = getTiers(island);
   const crumbs = [
     { label: 'Home', to: '/' },
-    { label: c.islandName, to: `/${island}` },
+    { label: c.islandName, to: '/' },
     { label: 'Private Chef' },
   ];
 
@@ -382,19 +457,21 @@ export default function PrivateChefPage({ island }: { island: LiveIslandId }) {
         lede="Your chef designs the menu with you, shops that day, arrives three hours before service, cooks, serves, and leaves the kitchen cleaner than they found it."
         image={c.heroImage}
         imageAlt={c.heroAlt}
+        island={island}
+        whatsappIntent="a private chef"
         chips={c.bandTiers.map(({ tier, label }) => {
           const entry = tiers.find((t) => t.tier === tier);
           return entry ? (
             <BandChip key={tier} onDark label={`${label} ${formatBand(entry)}/pp`} />
           ) : null;
         })}
-        primary={{ label: 'Request a Quote', to: `/quote?island=${island}&service=private-chef` }}
-        secondary={{ label: 'See pricing orientation →', to: '/pricing' }}
+        primary={{ label: 'Get a quote', to: `/quote?island=${island}&service=private-chef` }}
+        secondary={{ label: 'See pricing →', to: '/pricing' }}
       />
       <Inclusions />
       <EveningTimeline />
       <MenusDietary />
-      {island === 'maui' ? <MauiExtras /> : <OahuExtras />}
+      {island === 'maui' ? <MauiExtras /> : island === 'oahu' ? <OahuExtras /> : <NeighborExtras island={island} />}
       <section className="bg-sand py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <ZoneStrip islandId={island} />

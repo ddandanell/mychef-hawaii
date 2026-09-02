@@ -2,6 +2,7 @@ import type { IslandId } from './islands';
 import { islands } from './islands';
 import { areasFor } from './areas';
 import { articlesFor } from './editorial';
+import { moneyNeighborhoods } from './offers';
 import { zoneMap } from './zoneMap';
 
 export type CatalogKind =
@@ -60,7 +61,6 @@ function entry(island: IslandId, path: string, kind: CatalogKind, label: string,
   const areas = areasFor(island)
     .map((a) => a.name)
     .join(', ');
-  const inquiry = islands[island].state === 'inquiry';
   return {
     path,
     kind,
@@ -71,10 +71,8 @@ function entry(island: IslandId, path: string, kind: CatalogKind, label: string,
       `${label} on ${n} is its own commercial cell — not a find-and-replace of a sibling island. ${islands[island].role}`,
       `${z.headline} ${z.honestyLine}`,
       `Published areas on this host: ${areas}. Neighborhoods are folders here, never new subdomains.`,
-      inquiry
-        ? `${n} is inquiry-stage. Dated inquiries, not a booking button, until a staffed insured team exists.`
-        : `${n} is booking now on live corridors. Quotes are written. Travel fees are published.`,
-      'No fabricated reviews, chef names, licenses or partnerships appear here. Preview photography is concept illustration.',
+      `${n} is booking now. WhatsApp or the quote form — typical reply in Hawaii business hours. Travel fees are published.`,
+      'Same company as myCHEF Bali and Dubai. Hawaii prices, Hawaii kitchens. We do not invent guest reviews or chef names.',
       `Starting prices for private chef dinners, catering and the villa day rate are published on /pricing. Quote confirmed in writing.`,
     ],
   };
@@ -95,9 +93,9 @@ const UNIQUE: Record<IslandId, { path: string; label: string; lede: string }[]> 
   ],
   kauai: [
     { path: '/hanalei-bridge', label: 'Hanalei bridge clause', lede: 'Far-North events inherit the weather/road clause. 72-hour notice. Reschedule rather than forfeit.' },
-    { path: '/north-shore', label: 'Kauaʻi North Shore', lede: 'Princeville, Hanalei, Hāʻena. Inquiry-stage. Surf-season winters book early — when we launch.' },
-    { path: '/south-shore', label: 'Kauaʻi South Shore', lede: 'Poʻipū and Kōloa. Shorter drive from Līhuʻe than the North. Still inquiry-stage.' },
-    { path: '/inquiry-list', label: 'Inquiry list', lede: 'Kauaʻi does not have a booking button. Dated inquiries set the launch sequence.' },
+    { path: '/north-shore', label: 'Kauaʻi North Shore', lede: 'Princeville, Hanalei, Hāʻena. Surf-season winters book early. Private chef Kauai from $150/pp.' },
+    { path: '/south-shore', label: 'Kauaʻi South Shore', lede: 'Poʻipū and Kōloa. Shorter drive from Līhuʻe than the North. Same Maui-class starting prices.' },
+    { path: '/wedding-week', label: 'Kauaʻi wedding week', lede: 'Estate formats to about 75 guests. Welcome, rehearsal, reception as separate lines. Book now.' },
   ],
   bigisland: [
     { path: '/kohala-corridor', label: 'Kona–Kohala corridor', lede: 'Seven resort communities inside a 30-minute west-side radius. The island is 4,000 square miles; we will not pretend to cover it.' },
@@ -166,13 +164,19 @@ export function allIslandPaths(island: IslandId): string[] {
     '/bar',
     '/mobile-bar',
     '/pricing',
-    island === 'kauai' ? '/events' : '/catering',
+    '/catering',
+    '/events',
     '/locations',
     '/journal',
     '/blog',
     '/quote',
     '/sitemap',
   ]);
+  moneyNeighborhoods[island].forEach((n) => {
+    paths.add(`/${n.slug}`);
+    paths.add(`/locations/${n.slug}`);
+    paths.add(`/private-chef/${n.slug}`);
+  });
   areasFor(island).forEach((a) => {
     paths.add(`/locations/${a.slug}`);
     paths.add(`/private-chef/${a.slug}`);

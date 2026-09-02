@@ -11,7 +11,8 @@ import {
   serviceJsonLd,
   useHashScroll,
 } from '@/pages/services/ServicePage';
-import type { LiveIslandId, ServiceFaqItem } from '@/pages/services/ServicePage';
+import type { IslandId } from '@/data/islands';
+import type { ServiceFaqItem } from '@/pages/services/ServicePage';
 
 /**
  * Vacation Chef — multi-day villa residency + weekly household service
@@ -26,7 +27,7 @@ interface VacationChefContent {
   leadTimeFaq: ServiceFaqItem;
 }
 
-const content: Record<LiveIslandId, VacationChefContent> = {
+const content: Record<IslandId, VacationChefContent> = {
   maui: {
     islandName: 'Maui',
     path: '/maui/vacation-chef',
@@ -43,6 +44,24 @@ const content: Record<LiveIslandId, VacationChefContent> = {
     leadTimeFaq: {
       q: 'What about summer and the holidays?',
       a: 'Summer family travel and the December holidays are Oʻahu’s tightest windows for multi-day service. Weekly household plans are year-round and less seasonal — the standing calendar fills first, so start the conversation early.',
+    },
+  },
+  kauai: {
+    islandName: 'Kauaʻi',
+    path: '/kauai/vacation-chef',
+    h1: 'A chef for your Kauaʻi week.',
+    leadTimeFaq: {
+      q: 'Princeville winters vs Poʻipū weeks?',
+      a: 'North Shore surf season books first. South Shore is steadier. Stay Chef from $1,100/day. WhatsApp the house and the dates — Kauaʻi is bookable now.',
+    },
+  },
+  bigisland: {
+    islandName: 'Hawaiʻi Island',
+    path: '/bigisland/vacation-chef',
+    h1: 'A chef for the Kohala week.',
+    leadTimeFaq: {
+      q: 'Ironman and event weeks?',
+      a: 'Those weeks compress west-side availability. Flag them early. Stay Chef from $950/day. Hilo is not a same-day add-on from Kona.',
     },
   },
 };
@@ -123,7 +142,7 @@ function DayStory() {
 
 /* ---------------- Section 3 — How multi-day pricing works ---------------- */
 
-function PricingModel({ island, islandName }: { island: LiveIslandId; islandName: string }) {
+function PricingModel({ island, islandName }: { island: IslandId; islandName: string }) {
   const vacationOffer = getOtherOffer('vacation-chef');
   return (
     <section id="pricing-model" className="bg-sand py-20 lg:py-28">
@@ -260,14 +279,14 @@ function Practicalities() {
 
 /* ---------------- Page ---------------- */
 
-export default function VacationChefPage({ island }: { island: LiveIslandId }) {
+export default function VacationChefPage({ island }: { island: IslandId }) {
   useHashScroll();
   const c = content[island];
   const vacationOffer = getOtherOffer('vacation-chef');
   const weeklyOffer = getOtherOffer('weekly-meal-prep');
   const crumbs = [
     { label: 'Home', to: '/' },
-    { label: c.islandName, to: `/${island}` },
+    { label: c.islandName, to: '/' },
     { label: 'Vacation Chef' },
   ];
 
@@ -279,7 +298,9 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
         title={c.h1}
         lede="Breakfast through dinner, provisioning managed, menus that evolve across the stay. Up to three meals a day; groceries at cost, always itemised."
         image="/photos/vacation-chef-morning-breakfast-pool.jpg"
-        imageAlt="A vacation chef plating morning fruit and eggs by a villa pool. Campaign still, not a documented event."
+        imageAlt="A vacation chef plating morning fruit and eggs by a villa pool."
+        island={island}
+        whatsappIntent="a vacation chef for the week"
         chips={
           <>
             {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, island)}`} /> : null}
@@ -288,7 +309,7 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
             ) : null}
           </>
         }
-        primary={{ label: 'Check availability', to: `/quote?island=${island}&service=vacation-chef` }}
+        primary={{ label: 'Get a quote', to: `/quote?island=${island}&service=vacation-chef` }}
         secondary={{ label: 'How multi-day pricing works ↓', to: '#pricing-model' }}
       />
       <DayStory />

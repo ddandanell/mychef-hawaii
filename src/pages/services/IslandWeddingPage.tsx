@@ -69,19 +69,19 @@ const COPY: Record<
   kauai: {
     h1: 'Estate weddings on both Kauaʻi shores.',
     lede:
-      'Princeville, Hanalei and Poʻipū — formats to about 75 guests. Inquiry-stage until a staffed island team exists. Starting prices are published so you can plan the week.',
+      'Princeville, Hanalei and Poʻipū — formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. Book now. Maui-class starting prices from $150/pp.',
     eyebrow: 'myCHEF Kauaʻi — Estate weddings',
     places: 'Princeville, Hanalei, Poʻipū, Kōloa',
-    peak: 'North Shore winters book early — when we launch',
+    peak: 'North Shore winters book early',
     hero: photos.kauaiNorth,
   },
   bigisland: {
-    h1: 'Kohala estate weeks, when the west side launches.',
+    h1: 'Kohala estate wedding weeks.',
     lede:
-      'Kona–Kohala corridor first: Mauna Kea resort belt, Waikoloa, the lava coast. Dated inquiries, not a booking button, until the west-side team is insured and staffed.',
+      'Kona–Kohala corridor: Mauna Kea resort belt, Waikoloa, the lava coast. One culinary team for the week. Published starting prices. WhatsApp the date.',
     eyebrow: 'myCHEF Hawaiʻi Island — Estate weeks',
     places: 'Kohala Coast, Waikoloa, Mauna Kea, Kona',
-    peak: 'Inquiry list · west side first',
+    peak: 'West side first · Ironman weeks flag early',
     hero: photos.kohalaTable,
   },
 };
@@ -155,7 +155,9 @@ export default function IslandWeddingPage() {
           image={copy.hero.file}
           imageAlt={copy.hero.alt}
           chips={chips}
-          primary={{ label: 'Request a wedding quote', to: `/quote?island=${id}&service=wedding-week` }}
+          island={id}
+          whatsappIntent="a wedding week"
+          primary={{ label: 'Get a wedding quote', to: `/quote?island=${id}&service=wedding-week` }}
           secondary={{ label: 'See the week ↓', to: '#the-week' }}
         />
       )}

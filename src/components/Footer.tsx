@@ -1,20 +1,15 @@
 import { Link } from 'react-router';
 import Contours from '@/components/Contours';
 import HostLink from '@/components/HostLink';
-import StatusChip from '@/components/StatusChip';
+import { DualCta } from '@/components/DualCta';
 import { PRODUCTION_ROOT } from '@/config/site';
 import { useIsland } from '@/context/IslandContext';
-import { islandOrder, islands } from '@/data/islands';
+import { islandOrder } from '@/data/islands';
+import { islandOffers } from '@/data/offers';
 
-/**
- * Footer (design.md §8.9) — ink background, contour motif band on top edge.
- * No fabricated license numbers, addresses, or phone numbers.
- */
 export default function Footer() {
-  const { state, islandId, href, island } = useIsland();
-  const inquiry = state === 'inquiry';
+  const { islandId, href, island } = useIsland();
   const quoteTo = islandId ? href(`/quote?island=${islandId}`) : '/quote';
-  const quoteLabel = inquiry ? 'Join the Inquiry List' : 'Request a Quote';
 
   return (
     <footer className="grain-dark relative bg-ink text-ivory">
@@ -24,41 +19,32 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-container px-5 pb-10 lg:px-10">
         <div className={`grid gap-10 border-t border-white/10 pt-12 ${islandId ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
           <div>
-            <span className="font-display text-2xl font-semibold tracking-tight text-ivory">
+            <Link to={href('/')} className="font-display text-2xl font-semibold tracking-tight text-ivory">
               my<span className="text-clay">CHEF</span>
               <span aria-hidden="true" className="ml-0.5 inline-block h-2 w-2 rounded-full bg-clay align-super" />
-            </span>
+            </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ivory/70">
-              Private chefs, catering, weddings and a mobile bar — quiet luxury, published starting prices.
+              Private chefs in your villa. Oʻahu, Maui, Kauaʻi, Hawaiʻi Island. Same company as Bali and Dubai.
             </p>
-            <p className="mt-5 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ivory/50">
-              Part of the myCHEF family
-            </p>
-            <ul className="mt-2 space-y-1.5">
-              {['Bali', 'Dubai', 'Cape Town'].map((geo) => (
-                <li key={geo} className="flex items-center gap-2 text-sm text-ivory/70">
-                  {geo} <StatusChip kind="verified">Verified — International</StatusChip>
-                </li>
-              ))}
-            </ul>
+            <div className="mt-5">
+              <DualCta island={islandId ?? undefined} />
+            </div>
           </div>
 
           <nav aria-label="Islands">
             <h3 className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Islands</h3>
             <ul className="mt-4 space-y-2.5">
               {islandOrder.map((id) => {
-                const isl = islands[id];
+                const o = islandOffers[id];
                 return (
                   <li key={id}>
                     <HostLink
                       island={id}
-                      className="inline-flex items-center gap-2 text-sm text-ivory/80 transition-colors hover:text-ivory"
+                      className="inline-flex flex-col text-sm text-ivory/80 transition-colors hover:text-ivory"
                     >
-                      <span
-                        aria-hidden="true"
-                        className={isl.state === 'live' ? 'h-1.5 w-1.5 rounded-full bg-moss' : 'h-1.5 w-1.5 rounded-full bg-brass'}
-                      />
-                      {isl.name}
+                      <span>
+                        {o.h1} — from ${o.fromPp}/pp
+                      </span>
                       <span className="font-mono text-[0.625rem] uppercase tracking-[0.08em] text-ivory/40">
                         {id}.{PRODUCTION_ROOT}
                       </span>
@@ -73,14 +59,13 @@ export default function Footer() {
             <h3 className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Hawaii hub</h3>
             <ul className="mt-4 space-y-2.5">
               {[
-                { label: 'Services', path: '/services' },
+                { label: 'Chefs', path: '/private-chef' },
+                { label: 'Catering', path: '/catering' },
                 { label: 'Weddings', path: '/weddings' },
                 { label: 'Bar', path: '/bar' },
-                { label: 'Gatherings', path: '/corporate' },
-                { label: 'How it works', path: '/how-it-works' },
                 { label: 'Pricing', path: '/pricing' },
-                { label: 'Journal', path: '/journal' },
-                { label: 'Trust', path: '/trust' },
+                { label: 'How it works', path: '/how-it-works' },
+                { label: 'Quote', path: '/quote' },
                 { label: 'Legal', path: '/legal' },
               ].map((l) => (
                 <li key={l.path}>
@@ -91,7 +76,7 @@ export default function Footer() {
               ))}
               <li>
                 <Link to={quoteTo} className="text-sm text-ivory/80 transition-colors hover:text-ivory">
-                  {quoteLabel}
+                  Get a quote
                 </Link>
               </li>
             </ul>
@@ -101,17 +86,24 @@ export default function Footer() {
               <h3 className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">This island</h3>
               <ul className="mt-4 space-y-2.5">
                 {[
-                  { label: 'Private chef', path: '/private-chef' },
-                  { label: 'Vacation chef', path: '/vacation-chef' },
-                  { label: 'Weddings', path: '/wedding-catering' },
+                  { label: 'Chefs', path: '/private-chef' },
+                  { label: 'Catering', path: '/catering' },
                   { label: 'Bar', path: '/bar' },
-                  { label: 'Areas', path: '/locations' },
+                  { label: 'Weddings', path: '/weddings' },
                   { label: 'Pricing', path: '/pricing' },
+                  { label: 'Quote', path: '/quote' },
                   { label: 'Sitemap', path: '/sitemap' },
                 ].map((l) => (
                   <li key={l.path}>
                     <Link to={href(l.path)} className="text-sm text-ivory/80 transition-colors hover:text-ivory">
                       {l.label}
+                    </Link>
+                  </li>
+                ))}
+                {islandOffers[islandId].neighborhoods.map((n) => (
+                  <li key={n.slug}>
+                    <Link to={href(`/${n.slug}`)} className="text-sm text-ivory/80 transition-colors hover:text-ivory">
+                      {n.name}
                     </Link>
                   </li>
                 ))}
@@ -121,18 +113,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 space-y-2 border-t border-white/10 pt-6 font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ivory/50">
-          <p>Starting prices are published. Your written quote is the confirmed, itemised total.</p>
-          <p>All times Hawaii Standard Time (HST).</p>
-          <p>
-            20% service charge and GET up to 4.712% appear as their own lines. See{' '}
-            <Link to="/legal" className="text-brass underline-offset-2 hover:underline">
-              /legal
-            </Link>
-            .
-          </p>
-          <p>
-            Photography is campaign stills — concept images, not photographs of documented myCHEF Hawaiʻi events.
-          </p>
+          <p>Starting prices published. Written quote is the confirmed total.</p>
+          <p>20% service + Hawaiʻi GET up to 4.712% — once, on the quote. 50% deposit locks the date.</p>
+          <p>All times Hawaii Standard Time (HST). Typical WhatsApp reply in business hours.</p>
           <p className="pt-2 text-ivory/40">© {new Date().getFullYear()} myCHEF Hawaii</p>
         </div>
       </div>

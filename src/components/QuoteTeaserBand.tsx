@@ -1,25 +1,21 @@
 import { useEffect, useRef } from 'react';
-import { Link } from 'react-router';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Contours from '@/components/Contours';
+import { DualCta } from '@/components/DualCta';
 import Reveal from '@/components/Reveal';
 import { useIsland } from '@/context/IslandContext';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/**
- * Quote Teaser Band (design.md §8.8) — dark ink section, contour SVG
- * drawing on scroll. Used near the foot of every page except /quote.
- */
 export default function QuoteTeaserBand({
   headline = "Tell us where you're dining.",
-  note = 'Oʻahu & Maui booking now · Kauaʻi & Hawaiʻi Island inquiry list',
+  note = 'WhatsApp or quote · typical reply in Hawaii business hours',
 }: {
   headline?: string;
   note?: string;
 }) {
-  const { state, islandId } = useIsland();
+  const { islandId } = useIsland();
   const contourRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,9 +39,6 @@ export default function QuoteTeaserBand({
     };
   }, []);
 
-  const inquiry = state === 'inquiry';
-  const quoteTo = islandId ? `/quote?island=${islandId}` : '/quote';
-
   return (
     <section className="grain-dark relative overflow-hidden bg-ink py-20 lg:py-28">
       <div ref={contourRef} aria-hidden="true" className="absolute inset-0">
@@ -57,23 +50,8 @@ export default function QuoteTeaserBand({
             {headline}
           </h2>
         </Reveal>
-        <Reveal delay={0.15} className="mt-8 flex flex-wrap items-center gap-4">
-          <Link
-            to={quoteTo}
-            className={
-              inquiry
-                ? 'inline-flex items-center rounded-full bg-brass px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:brightness-110 active:scale-[0.97]'
-                : 'inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]'
-            }
-          >
-            {inquiry ? 'Join the Inquiry List' : 'Request a Quote'}
-          </Link>
-          <Link
-            to="/quote?channel=callback"
-            className="text-sm font-medium text-ivory/85 underline decoration-brass/60 underline-offset-4 transition-colors hover:text-ivory"
-          >
-            Request a callback
-          </Link>
+        <Reveal delay={0.15} className="mt-8">
+          <DualCta island={islandId ?? undefined} size="lg" />
         </Reveal>
         <Reveal delay={0.25}>
           <p className="mt-8 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ivory/50">{note}</p>

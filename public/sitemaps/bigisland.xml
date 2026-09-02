@@ -46,6 +46,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://bigisland.mychef-hawaii.com/events</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://bigisland.mychef-hawaii.com/locations</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -71,6 +76,66 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://bigisland.mychef-hawaii.com/kona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/locations/kona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/private-chef/kona</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/waimea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/locations/waimea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/private-chef/waimea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/waikoloa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/locations/waikoloa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/private-chef/waikoloa</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/kohala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/locations/kohala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bigisland.mychef-hawaii.com/private-chef/kohala</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://bigisland.mychef-hawaii.com/locations/kailua-kona</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -91,16 +156,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://bigisland.mychef-hawaii.com/locations/waikoloa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bigisland.mychef-hawaii.com/private-chef/waikoloa</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://bigisland.mychef-hawaii.com/locations/mauna-lani</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -117,16 +172,6 @@
   </url>
   <url>
     <loc>https://bigisland.mychef-hawaii.com/private-chef/mauna-kea</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bigisland.mychef-hawaii.com/locations/waimea</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bigisland.mychef-hawaii.com/private-chef/waimea</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -262,11 +307,6 @@
   </url>
   <url>
     <loc>https://bigisland.mychef-hawaii.com/how-it-works</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://bigisland.mychef-hawaii.com/events</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

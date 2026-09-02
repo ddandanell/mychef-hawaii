@@ -6,6 +6,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDown } from 'lucide-react';
 import Contours from '@/components/Contours';
+import { DualCtaLight } from '@/components/DualCta';
+import { PackageGrid } from '@/components/PackageGrid';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
@@ -56,10 +58,8 @@ function Header() {
           className="rounded-[14px] border border-moss/40 bg-moss/5 px-5 py-4"
         >
           <p className="font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-moss">
-            Published starting prices — quote confirmed in writing.{' '}
-            <StatusChip kind="published" className="mx-1">Starting</StatusChip> 20% service charge{' '}
-            <StatusChip kind="rpr" className="mx-1">Attorney</StatusChip> GET up to 4.712%{' '}
-            <StatusChip kind="rpr" className="mx-1">CPA</StatusChip> 50% deposit locks the date. Gratuity is voluntary.
+            Published starting prices — quote confirmed in writing. 20% service + Hawaiʻi GET up to 4.712% once on
+            the quote. 50% deposit locks the date. Gratuity is voluntary.
           </p>
         </motion.div>
         <p className="mt-10 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Pricing</p>
@@ -72,8 +72,9 @@ function Header() {
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.8 }}
           className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink"
         >
-          One architecture, four island rate cards — because a Maui villa dinner and an Oʻahu condo dinner are
-          different economics. Starting prices below; your written quote is the confirmed total.
+          One architecture, four island rate cards. We publish starting prices and a named chef team — not a
+          marketplace of fifty random chefs. Same $125–$250 band as the per-person platforms; your written quote is
+          the confirmed total.
         </motion.p>
       </div>
     </section>
@@ -92,7 +93,6 @@ function RateCardTabs() {
   const [active, setActive] = useState<IslandId>(initial);
 
   const tiers = useMemo(() => getTiers(active), [active]);
-  const isl = islands[active];
 
   return (
     <section className="bg-ivory pb-20 lg:pb-28">
@@ -142,14 +142,6 @@ function RateCardTabs() {
             transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
             className="mt-10"
           >
-            {isl.state === 'inquiry' && (
-              <div className="mb-6 flex flex-wrap items-center gap-3">
-                <StatusChip kind="inquiry">Inquiry stage</StatusChip>
-                <p className="font-mono text-[0.6875rem] uppercase tracking-[0.1em] text-ink-soft">
-                  Starting prices published now — booking opens with the island team.
-                </p>
-              </div>
-            )}
             <motion.div
               initial="hidden"
               animate="show"
@@ -196,7 +188,7 @@ function RateCardTabs() {
                       to={`/quote?island=${active}&service=signature-dinner`}
                       className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium text-clay transition-colors hover:text-clay-deep"
                     >
-                      {isl.state === 'inquiry' ? 'Join the inquiry list' : 'Request this tier'}
+                      Get a quote
                       <span aria-hidden="true">→</span>
                     </Link>
                   </motion.article>
@@ -486,10 +478,74 @@ function PricingFaq() {
   );
 }
 
+function CompareAndPackages() {
+  const { islandId } = useIsland();
+  const id = islandId && islandOrder.includes(islandId) ? islandId : 'maui';
+  return (
+    <>
+      <section className="bg-sand py-16 lg:py-24">
+        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">How we sit in the market</p>
+          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium text-ink">
+            Villa chef vs restaurant week vs per-person platforms
+          </h2>
+          <div className="mt-10 overflow-x-auto">
+            <table className="w-full min-w-[640px] text-left text-sm">
+              <thead>
+                <tr className="border-b border-stone font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-soft">
+                  <th className="py-3 pr-4"> </th>
+                  <th className="py-3 pr-4">myCHEF Hawaii</th>
+                  <th className="py-3 pr-4">Restaurant week</th>
+                  <th className="py-3">Per-person chef platforms</th>
+                </tr>
+              </thead>
+              <tbody className="text-ink-soft">
+                <tr className="border-b border-stone">
+                  <td className="py-4 pr-4 font-medium text-ink">Price</td>
+                  <td className="py-4 pr-4">Published $125–$250/pp CORE. Named packages.</td>
+                  <td className="py-4 pr-4">$80–$200+/cover plus tax, tip, taxis, kids, babysitter.</td>
+                  <td className="py-4">Public Maui bands ~$123–$171/pp. Similar Honolulu/Kauaʻi ~$140/pp.</td>
+                </tr>
+                <tr className="border-b border-stone">
+                  <td className="py-4 pr-4 font-medium text-ink">Who cooks</td>
+                  <td className="py-4 pr-4">One named chef team. Same company as Bali + Dubai.</td>
+                  <td className="py-4 pr-4">Whoever is on the line that night.</td>
+                  <td className="py-4">A marketplace of many chefs. You pick from a grid.</td>
+                </tr>
+                <tr className="border-b border-stone">
+                  <td className="py-4 pr-4 font-medium text-ink">Where</td>
+                  <td className="py-4 pr-4">Your villa / Airbnb kitchen. Cleanup included.</td>
+                  <td className="py-4 pr-4">Their dining room. Reservations, parking, bedtime.</td>
+                  <td className="py-4">Your kitchen. Drinks usually not included.</td>
+                </tr>
+                <tr>
+                  <td className="py-4 pr-4 font-medium text-ink">Next step</td>
+                  <td className="py-4 pr-4">WhatsApp + written quote. Typical reply in business hours.</td>
+                  <td className="py-4 pr-4">OpenTable.</td>
+                  <td className="py-4">Browse chefs, then book.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="mt-6 max-w-[65ch] text-sm text-ink-soft">
+            We do not invent competitor names on this page. The mechanic is the point: we are in the same dollar band,
+            with published starting prices and one team — not fifty profiles.
+          </p>
+          <div className="mt-8">
+            <DualCtaLight island={islandId ?? undefined} intent="a private chef quote" />
+          </div>
+        </div>
+      </section>
+      <PackageGrid island={id} heading="Named packages" />
+    </>
+  );
+}
+
 export default function Pricing() {
   return (
     <>
       <Header />
+      <CompareAndPackages />
       <RateCardTabs />
       <DayRateAndBar />
       <OtherModels />

@@ -11,7 +11,8 @@ import {
   formatOtherOffer,
   getOtherOffer,
 } from '@/data/rateCard';
-import { PrimaryCta, SectionHead } from '@/pages/islands/shared';
+import { DualCtaLight } from '@/components/DualCta';
+import { SectionHead } from '@/pages/islands/shared';
 import NotFound from '@/pages/NotFound';
 import type { IslandId } from '@/data/islands';
 
@@ -60,13 +61,13 @@ export default function CatalogPage() {
               </ul>
             </div>
             <div className="mt-10">
-              <PrimaryCta island={island} />
+              <DualCtaLight island={islandId} intent={page.h1} />
             </div>
           </div>
           <figure className="overflow-hidden rounded-[14px] shadow-soft">
             <img src={hero.file} alt={hero.alt} className="aspect-[4/5] w-full object-cover" />
             <figcaption className="mt-3 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink-soft">
-              Campaign still — not a documented myCHEF Hawaiʻi event.
+              {island.name} — private chef & catering
             </figcaption>
           </figure>
         </div>

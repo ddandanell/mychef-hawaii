@@ -46,6 +46,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://maui.mychef-hawaii.com/events</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://maui.mychef-hawaii.com/locations</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -71,12 +76,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://maui.mychef-hawaii.com/wailea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://maui.mychef-hawaii.com/locations/wailea</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://maui.mychef-hawaii.com/private-chef/wailea</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maui.mychef-hawaii.com/kaanapali</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -91,12 +106,52 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://maui.mychef-hawaii.com/lahaina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maui.mychef-hawaii.com/locations/lahaina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maui.mychef-hawaii.com/private-chef/lahaina</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maui.mychef-hawaii.com/kihei</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maui.mychef-hawaii.com/locations/kihei</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maui.mychef-hawaii.com/private-chef/kihei</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maui.mychef-hawaii.com/kapalua</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://maui.mychef-hawaii.com/locations/kapalua</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://maui.mychef-hawaii.com/private-chef/kapalua</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://maui.mychef-hawaii.com/makena</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -117,16 +172,6 @@
   </url>
   <url>
     <loc>https://maui.mychef-hawaii.com/private-chef/upcountry</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://maui.mychef-hawaii.com/locations/kihei</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://maui.mychef-hawaii.com/private-chef/kihei</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -262,11 +307,6 @@
   </url>
   <url>
     <loc>https://maui.mychef-hawaii.com/how-it-works</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://maui.mychef-hawaii.com/events</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -437,11 +477,6 @@
   </url>
   <url>
     <loc>https://maui.mychef-hawaii.com/menus/lunch</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://maui.mychef-hawaii.com/lahaina</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

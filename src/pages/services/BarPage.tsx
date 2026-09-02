@@ -50,14 +50,14 @@ const COPY: Record<
   kauai: {
     h1: 'Estate cocktails on both Kauaʻi shores.',
     lede:
-      'Princeville, Hanalei and Poʻipū — a bartender on the terrace when the island team launches. Dated inquiries set the sequence. Starting prices are published now.',
+      'Princeville, Hanalei and Poʻipū — a bartender on the terrace. Stack with a Kauaʻi chef night or book the hour. Starting prices published.',
     hero: photos.kauaiNorth,
     places: 'Princeville, Hanalei, Poʻipū, Kōloa',
   },
   bigisland: {
     h1: 'Sunset pours on the Kohala Coast.',
     lede:
-      'Lava-coast terraces in the Kona–Kohala corridor. Inquiry-stage until a west-side team is staffed. The rate is published so you can plan.',
+      'Lava-coast terraces in the Kona–Kohala corridor. Bartender add-on or a 4-hour mobile-bar package. The rate is published so you can plan.',
     hero: photos.kohalaFish,
     places: 'Kohala Coast, Waikoloa, Mauna Kea resort belt, Kona',
   },
@@ -135,7 +135,9 @@ export default function BarPage() {
           image={copy.hero.file}
           imageAlt={copy.hero.alt}
           chips={heroChips}
-          primary={{ label: 'Request a bar quote', to: `/quote?island=${id}&service=mobile-bar` }}
+          island={id}
+          whatsappIntent="a mobile bar"
+          primary={{ label: 'Get a bar quote', to: `/quote?island=${id}&service=mobile-bar` }}
           secondary={{ label: 'See the package ↓', to: '#package' }}
         />
       )}

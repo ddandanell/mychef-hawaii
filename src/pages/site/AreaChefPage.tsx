@@ -4,6 +4,8 @@ import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import { useIsland } from '@/context/IslandContext';
 import { getArea } from '@/data/areas';
 import { getLocation } from '@/data/locations';
+import { getMoneyNeighborhood } from '@/data/offers';
+import NeighborhoodMoneyPage from '@/pages/locations/NeighborhoodMoneyPage';
 import { HeroEyebrow, HeroFrame, HeroH1, PrimaryCta, SectionHead } from '@/pages/islands/shared';
 import LocationPage from '@/pages/locations/LocationPage';
 import NotFound from '@/pages/NotFound';
@@ -13,6 +15,7 @@ export default function AreaChefPage() {
   const { slug } = useParams();
   const { island, islandId } = useIsland();
   if (!island || !islandId || !slug) return <NotFound />;
+  if (getMoneyNeighborhood(islandId, slug)) return <NeighborhoodMoneyPage />;
   const loc = getLocation(islandId, slug);
   if (loc) return <LocationPage />;
 

@@ -4,6 +4,7 @@ import { Link, useLocation } from 'react-router';
 import { motion } from 'framer-motion';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDown } from 'lucide-react';
+import { DualCta } from '@/components/DualCta';
 import HeroMedia from '@/components/HeroMedia';
 import HostLink from '@/components/HostLink';
 import Reveal from '@/components/Reveal';
@@ -22,8 +23,6 @@ import { cn } from '@/lib/utils';
  * objects (rateCard / zoneMap / proofRegister) — nothing here hard-codes a
  * price, zone, or proof claim.
  */
-
-export type LiveIslandId = Extract<IslandId, 'maui' | 'oahu'>;
 
 /* ---------------- JSON-LD ---------------- */
 
@@ -181,6 +180,8 @@ export function ServiceHero({
   primary,
   secondary,
   fullHeight = false,
+  island,
+  whatsappIntent,
 }: {
   crumbs: Crumb[];
   eyebrow: string;
@@ -192,6 +193,8 @@ export function ServiceHero({
   primary: HeroCta;
   secondary: HeroCta;
   fullHeight?: boolean;
+  island?: IslandId;
+  whatsappIntent?: string;
 }) {
   return (
     <section
@@ -223,12 +226,16 @@ export function ServiceHero({
             </p>
             {chips ? <div className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3">{chips}</div> : null}
             <div className="mt-8 flex flex-wrap items-center gap-5">
-              <Link
-                to={primary.to}
-                className="inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-clay active:scale-[0.97]"
-              >
-                {primary.label}
-              </Link>
+              {island ? (
+                <DualCta island={island} intent={whatsappIntent ?? title} />
+              ) : (
+                <Link
+                  to={primary.to}
+                  className="inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-clay active:scale-[0.97]"
+                >
+                  {primary.label}
+                </Link>
+              )}
               {secondary.to.startsWith('#') ? (
                 <a
                   href={secondary.to}

@@ -29,7 +29,7 @@ export default function LocationGrid({
   const island = islands[islandId];
   const { href, islandId: ctxId } = useIsland();
   const pathFor = (slug: string) =>
-    ctxId === islandId ? href(`/locations/${slug}`) : `${island.basePath}/locations/${slug}`;
+    ctxId === islandId ? href(`/${slug}`) : `${island.basePath}/${slug}`;
   const rows = locationsFor(islandId);
   if (!rows.length) return null;
 

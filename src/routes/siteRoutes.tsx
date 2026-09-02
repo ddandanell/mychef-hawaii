@@ -1,22 +1,22 @@
 import type { ComponentType } from 'react';
 import { Route } from 'react-router';
 import type { IslandId } from '@/data/islands';
+import { moneyNeighborhoods } from '@/data/offers';
 import Maui from '@/pages/Maui';
 import Oahu from '@/pages/Oahu';
 import BigIsland from '@/pages/BigIsland';
 import Kauai from '@/pages/Kauai';
 import MauiPrivateChef from '@/pages/services/MauiPrivateChef';
 import OahuPrivateChef from '@/pages/services/OahuPrivateChef';
+import KauaiPrivateChef from '@/pages/services/KauaiPrivateChef';
+import BigIslandPrivateChef from '@/pages/services/BigIslandPrivateChef';
 import MauiVacationChef from '@/pages/services/MauiVacationChef';
 import OahuVacationChef from '@/pages/services/OahuVacationChef';
-import OahuCatering from '@/pages/services/OahuCatering';
-import BigIslandPrivateChef from '@/pages/expanded/BigIslandPrivateChef';
-import BigIslandVacationChef from '@/pages/expanded/BigIslandVacationChef';
-import BigIslandCatering from '@/pages/expanded/BigIslandCatering';
-import KauaiPrivateChef from '@/pages/expanded/KauaiPrivateChef';
-import KauaiVacationChef from '@/pages/expanded/KauaiVacationChef';
-import KauaiEvents from '@/pages/expanded/KauaiEvents';
+import KauaiVacationChef from '@/pages/services/KauaiVacationChef';
+import BigIslandVacationChef from '@/pages/services/BigIslandVacationChef';
+import IslandCatering from '@/pages/services/IslandCatering';
 import LocationPage from '@/pages/locations/LocationPage';
+import NeighborhoodMoneyPage from '@/pages/locations/NeighborhoodMoneyPage';
 import Quote from '@/pages/Quote';
 import ThankYou from '@/pages/ThankYou';
 import Legal from '@/pages/Legal';
@@ -51,14 +51,6 @@ const VAC: Record<IslandId, ComponentType> = {
   bigisland: BigIslandVacationChef,
 };
 
-/** Island-specific extra leaves (catering / events). Wedding + bar are shared. */
-const THIRD: Record<IslandId, { path: string; Page: ComponentType }[]> = {
-  oahu: [{ path: 'catering', Page: OahuCatering }],
-  maui: [],
-  kauai: [{ path: 'events', Page: KauaiEvents }],
-  bigisland: [{ path: 'catering', Page: BigIslandCatering }],
-};
-
 /** Shared leaves for one island department (paths relative to that host or prefix). */
 export function islandLeaves(id: IslandId, prefix = '') {
   const Home = HOME[id];
@@ -72,17 +64,19 @@ export function islandLeaves(id: IslandId, prefix = '') {
       <Route path={root} element={<Home />} />
       <Route path={p('/private-chef')} element={<Chef />} />
       <Route path={p('/vacation-chef')} element={<Vac />} />
+      <Route path={p('/catering')} element={<IslandCatering />} />
+      <Route path={p('/events')} element={<IslandCatering />} />
       <Route path={p('/wedding-catering')} element={<IslandWeddingPage />} />
       <Route path={p('/weddings')} element={<IslandWeddingPage />} />
       <Route path={p('/bar')} element={<BarPage />} />
       <Route path={p('/mobile-bar')} element={<BarPage />} />
       <Route path={p('/pricing')} element={<Pricing />} />
-      {THIRD[id].map(({ path, Page }) => (
-        <Route key={path} path={p(`/${path}`)} element={<Page />} />
-      ))}
       <Route path={p('/locations')} element={<LocationHub />} />
       <Route path={p('/locations/:slug')} element={<LocationPage />} />
       <Route path={p('/private-chef/:slug')} element={<AreaChefPage />} />
+      {moneyNeighborhoods[id].map((n) => (
+        <Route key={n.slug} path={p(`/${n.slug}`)} element={<NeighborhoodMoneyPage />} />
+      ))}
       <Route path={p('/journal')} element={<JournalIndex kind="journal" />} />
       <Route path={p('/blog')} element={<JournalIndex kind="blog" />} />
       <Route path={p('/journal/:slug')} element={<ArticlePage kind="journal" />} />

@@ -77,8 +77,6 @@ function Hero({
   guests: string | null;
   shore: string | null;
 }) {
-  const inquiry = island ? islands[island].state === 'inquiry' : false;
-
   const shoreLabel = shore === 'north' ? 'North Shore' : shore === 'south' ? 'South Shore' : null;
   const contextParts = [
     island ? islands[island].name : null,
@@ -125,17 +123,8 @@ function Hero({
           transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 1.1 }}
           className="mx-auto mt-6 max-w-[52ch] text-[1.0625rem] leading-[1.65] text-ink-soft"
         >
-          {inquiry && island ? (
-            <>
-              You’re on the {islands[island].name} inquiry list. Every dated enquiry directly shapes when we open —
-              we’ll be in touch with honest timing.
-            </>
-          ) : (
-            <>
-              A coordinator will reply within one business day, Hawaii Standard Time. If your dates are close,
-              callback requests get priority routing.
-            </>
-          )}
+              A coordinator will reply in Hawaii business hours. WhatsApp if you want a faster thread. If your dates
+              are close, callback requests get priority routing.
         </motion.p>
       </div>
     </section>

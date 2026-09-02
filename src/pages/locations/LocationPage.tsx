@@ -10,6 +10,8 @@ import { islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
 import { areasFor, getArea } from '@/data/areas';
 import { getLocation, locationsFor } from '@/data/locations';
+import { getMoneyNeighborhood } from '@/data/offers';
+import NeighborhoodMoneyPage from '@/pages/locations/NeighborhoodMoneyPage';
 import {
   FaqSection,
   HeroEyebrow,
@@ -33,6 +35,9 @@ export default function LocationPage() {
   const { island: islandParam, slug } = useParams();
   const { islandId: ctxIsland, href, toHub } = useIsland();
   const islandId = ISLAND_IDS.find((id) => id === islandParam) ?? ctxIsland;
+  if (islandId && slug && getMoneyNeighborhood(islandId, slug)) {
+    return <NeighborhoodMoneyPage />;
+  }
   const loc = islandId && slug ? getLocation(islandId, slug) : undefined;
   const area = islandId && slug ? getArea(islandId, slug) : undefined;
 

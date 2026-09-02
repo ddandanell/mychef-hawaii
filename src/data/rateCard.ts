@@ -51,15 +51,15 @@ export const rateCard: RateCardEntry[] = [
   { island: 'maui', offer: 'signature-dinner', tier: 'PREMIUM', band: [250, 350], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'maui', offer: 'signature-dinner', tier: 'ULTRA', band: [300, 450], highPlus: true, model: "per person · private chef's table", minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
 
-  // Hawaiʻi Island (inquiry) — published now, books when the west-side team launches
+  // Hawaiʻi Island — west-side first; CORE already specified $150–$225
   { island: 'bigisland', offer: 'signature-dinner', tier: 'ENTRY', band: [110, 140], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'bigisland', offer: 'signature-dinner', tier: 'CORE', band: [150, 225], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'bigisland', offer: 'signature-dinner', tier: 'PREMIUM', band: [225, 325], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'bigisland', offer: 'signature-dinner', tier: 'ULTRA', band: [325, 325], highPlus: true, model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
 
-  // Kauaʻi (inquiry)
-  { island: 'kauai', offer: 'signature-dinner', tier: 'ENTRY', band: [120, 150], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
-  { island: 'kauai', offer: 'signature-dinner', tier: 'CORE', band: [175, 250], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
+  // Kauaʻi — Maui-class CORE ($150–$250). Not a waitlist island.
+  { island: 'kauai', offer: 'signature-dinner', tier: 'ENTRY', band: [125, 150], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
+  { island: 'kauai', offer: 'signature-dinner', tier: 'CORE', band: [150, 250], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'kauai', offer: 'signature-dinner', tier: 'PREMIUM', band: [250, 350], model: PER_PERSON, minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
   { island: 'kauai', offer: 'signature-dinner', tier: 'ULTRA', band: [350, 350], highPlus: true, model: 'per person · North Shore estate product', minimumParty: 6, minimumSpendNote: MIN_PARTY, status: PUBLISHED },
 ];

@@ -4,6 +4,11 @@ import { AnimatePresence, motion } from 'framer-motion';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
+import { useIsland } from '@/context/IslandContext';
+import type { IslandId } from '@/data/islands';
+import { islands } from '@/data/islands';
+import { islandOffers } from '@/data/offers';
+import { photos } from '@/data/photos';
 import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { zoneMap } from '@/data/zoneMap';
 import {
@@ -153,7 +158,7 @@ function Formats() {
 
 /* ---------------- Section 3 — Event types (Framer Motion tabs) ---------------- */
 
-function EventTabs() {
+function EventTabs({ island }: { island: IslandId }) {
   const [active, setActive] = useState(0);
   const tab = eventTabs[active];
   return (
@@ -201,7 +206,7 @@ function EventTabs() {
                 ))}
               </div>
               <Link
-                to="/quote?island=oahu&service=catering"
+                to={`/quote?island=${island}&service=catering`}
                 className="mt-7 inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]"
               >
                 {tab.cta}
@@ -216,10 +221,10 @@ function EventTabs() {
 
 /* ---------------- Section 4 — Staffing & logistics ---------------- */
 
-function StaffingLogistics() {
+function StaffingLogistics({ island }: { island: IslandId }) {
   const staffingOffer = getOtherOffer('event-staffing');
-  const rates = staffingOffer ? Array.from(formatOtherOffer(staffingOffer, 'oahu').matchAll(/\$\d+/g), (m) => m[0]) : [];
-  const surchargeZone = zoneMap.oahu.zones.find((z) => z.class === 'surcharge');
+  const rates = staffingOffer ? Array.from(formatOtherOffer(staffingOffer, island).matchAll(/\$\d+/g), (m) => m[0]) : [];
+  const surchargeZone = zoneMap[island].zones.find((z) => z.class === 'surcharge');
 
   const specRows: { label: string; published: boolean }[] = [];
   if (staffingOffer && rates[0]) {
@@ -266,9 +271,13 @@ function StaffingLogistics() {
 
 export default function CateringPage() {
   useHashScroll();
+  const { islandId } = useIsland();
+  const id = (islandId ?? 'oahu') as IslandId;
+  const island = islands[id];
+  const offer = islandOffers[id];
   const crumbs = [
     { label: 'Home', to: '/' },
-    { label: 'Oʻahu', to: '/oahu' },
+    { label: island.name, to: '/' },
     { label: 'Catering' },
   ];
 
@@ -276,42 +285,44 @@ export default function CateringPage() {
     <>
       <ServiceHero
         crumbs={crumbs}
-        eyebrow="myCHEF Oʻahu — Catering & Events"
-        title="Catering that shows up like a kitchen brigade."
-        lede="Staffed events for 10–75 guests across Oʻahu — estate receptions, retreat weeks, office and production catering. Published staffing ratios, itemised quotes, zone fees on the website before they’re on an invoice."
-        image="/photos/svc-catering.jpg"
-        imageAlt="A chef team plates identical event dishes under a tent beside a Hawaiian lawn and ocean. Concept image, not a myCHEF event."
+        eyebrow={`myCHEF ${island.name} — Catering & Events`}
+        title={`Private catering on ${island.name}.`}
+        lede={`Staffed events for 10–75 guests across ${island.name} — estate receptions, retreat weeks, celebrations. CORE dinners ${offer.fromPp === 125 ? 'from $125/pp' : `from $${offer.fromPp}/pp`}. Grazing, pūpū, buffet, coursed, live stations.`}
+        image={photos.catering.file}
+        imageAlt={photos.catering.alt}
+        island={id}
+        whatsappIntent="catering"
         chips={
           <>
             <PlainChip onDark>10–75 guests</PlainChip>
             <PlainChip onDark>Grazing · Pūpū · Buffet · Coursed · Live stations</PlainChip>
           </>
         }
-        primary={{ label: 'Request an event quote', to: '/quote?island=oahu&service=catering' }}
+        primary={{ label: 'Get a quote', to: `/quote?island=${id}&service=catering` }}
         secondary={{ label: 'Formats ↓', to: '#formats' }}
       />
       <Formats />
-      <EventTabs />
-      <StaffingLogistics />
+      <EventTabs island={id} />
+      <StaffingLogistics island={id} />
       <section className="bg-sand py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <ServiceFaq
             items={faqs}
             title="Asked before every event."
-            intro="Real pre-booking answers — anything else, ask in the quote form and we reply in writing."
+            intro="Real pre-booking answers — anything else, WhatsApp or the quote form."
           />
         </div>
       </section>
       <QuoteTeaserBand
         headline="Ten guests or seventy-five — the quote is itemised either way."
-        note="Quote opens with Oʻahu pre-selected · All times HST"
+        note={`WhatsApp or quote · ${island.name} · typical reply in Hawaii business hours`}
       />
       <JsonLd
         data={serviceJsonLd({
-          name: 'Catering & events — Oʻahu',
-          description: 'Staffed events for 10–75 guests across Oʻahu — estate receptions, retreat weeks, office and production catering.',
-          islandName: 'Oʻahu',
-          path: '/oahu/catering',
+          name: `Catering & events — ${island.name}`,
+          description: `Staffed events for 10–75 guests across ${island.name}.`,
+          islandName: island.name,
+          path: `/${id}/catering`,
           crumbs: crumbs.map((x) => x.label),
         })}
       />

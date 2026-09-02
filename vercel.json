@@ -5,7 +5,7 @@
   "trailingSlash": false,
   "rewrites": [
     { "source": "/robots.txt", "destination": "/api/robots" },
-    { "source": "/sitemap.xml", "destination": "/sitemaps/hub.xml" },
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
     { "source": "/((?!api/|assets/|photos/|sitemaps/|seo-map\\.json).*)", "destination": "/index.html" }
   ],
   "headers": [

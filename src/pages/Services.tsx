@@ -102,7 +102,7 @@ function AvailabilityRow() {
       </span>
       <span className="inline-flex items-center gap-2">
         <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-brass" />
-        Kauaʻi &amp; Hawaiʻi Island — inquiry stage
+        Kauaʻi &amp; Hawaiʻi Island — booking now
       </span>
     </span>
   );
@@ -232,7 +232,7 @@ function PrivateChefBlock() {
         <IslandCta to="/oahu/private-chef">Oʻahu private chef</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-        Kauaʻi &amp; Hawaiʻi Island: inquiry list
+        Kauaʻi &amp; Hawaiʻi Island: booking now
       </span>
     </ServiceBlock>
   );
@@ -275,7 +275,7 @@ function PrivateDiningBlock() {
         <IslandCta to="/oahu/private-chef">Oʻahu celebrations</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-        Kauaʻi &amp; Hawaiʻi Island: inquiry list
+        Kauaʻi &amp; Hawaiʻi Island: booking now
       </span>
     </ServiceBlock>
   );
@@ -302,7 +302,7 @@ function CateringBlock() {
         <IslandCta to="/maui/wedding-catering">Maui wedding catering</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.08em] text-ink-soft">
-        Maui events via the wedding-week team · Neighbor islands: inquiry
+        Neighbor islands: booking now
       </span>
     </ServiceBlock>
   );
@@ -360,7 +360,7 @@ function VacationChefBlock() {
         <IslandCta to="/oahu/vacation-chef">Oʻahu vacation chef</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-        Kauaʻi &amp; Hawaiʻi Island: inquiry list
+        Kauaʻi &amp; Hawaiʻi Island: booking now
       </span>
     </ServiceBlock>
   );
