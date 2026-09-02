@@ -3,5 +3,8 @@
   "framework": "nextjs",
   "buildCommand": "next build",
   "installCommand": "npm ci",
-  "trailingSlash": false
+  "devCommand": "next dev",
+  "outputDirectory": null,
+  "trailingSlash": false,
+  "public": true
 }
