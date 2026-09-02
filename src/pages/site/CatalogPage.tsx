@@ -11,7 +11,8 @@ import {
   formatOtherOffer,
   getOtherOffer,
 } from '@/data/rateCard';
-import { PrimaryCta, SectionHead } from '@/pages/islands/shared';
+import { DualCtaLight } from '@/components/DualCta';
+import { SectionHead } from '@/pages/islands/shared';
 import NotFound from '@/pages/NotFound';
 import type { IslandId } from '@/data/islands';
 
@@ -36,7 +37,7 @@ export default function CatalogPage() {
       <section className="bg-ivory py-16 lg:py-24">
         <div className="mx-auto grid w-full max-w-container items-start gap-10 px-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16 lg:px-10">
           <div>
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">
+            <p className="text-[12px] text-ink-soft">
               {island.name} · private chef & catering · {page.kind}
             </p>
             <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.1] text-ink">
@@ -48,7 +49,7 @@ export default function CatalogPage() {
                 {p}
               </p>
             ))}
-            <div className="mt-8 rounded-[14px] border border-stone bg-white p-5">
+            <div className="mt-8 border border-stone bg-white p-5">
               <p className="font-mono text-[0.6875rem] uppercase tracking-[0.12em] text-ink-soft">
                 Published starting prices — {island.name}
               </p>
@@ -60,13 +61,13 @@ export default function CatalogPage() {
               </ul>
             </div>
             <div className="mt-10">
-              <PrimaryCta island={island} />
+              <DualCtaLight island={islandId} intent={page.h1} />
             </div>
           </div>
-          <figure className="overflow-hidden rounded-[14px] shadow-soft">
+          <figure className="overflow-hidden ">
             <img src={hero.file} alt={hero.alt} className="aspect-[4/5] w-full object-cover" />
             <figcaption className="mt-3 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink-soft">
-              Campaign still — not a documented myCHEF Hawaiʻi event.
+              {island.name} — private chef & catering
             </figcaption>
           </figure>
         </div>
@@ -77,11 +78,11 @@ export default function CatalogPage() {
           <div className="mt-8 flex flex-wrap gap-3">
             {[
               { to: '/private-chef', label: 'Private chef' },
-              { to: '/vacation-chef', label: 'Vacation chef' },
-              { to: '/wedding-catering', label: 'Weddings' },
-              { to: '/bar', label: 'Mobile bar' },
+              { to: '/catering', label: 'Catering' },
+              { to: '/weddings', label: 'Weddings' },
+              { to: '/bar', label: 'Bar' },
               { to: '/pricing', label: 'Pricing' },
-              { to: '/locations', label: 'Areas' },
+              { to: '/quote', label: 'Quote' },
             ].map((l) => (
               <Link
                 key={l.to}
@@ -99,9 +100,7 @@ export default function CatalogPage() {
   );
 }
 
-/** Catch-all: catalog cell or a real 404. */
+/** Catch-all: real 404. Catalog stubs are not published. */
 export function CatalogOrNotFound() {
-  const { islandId, localPath } = useIsland();
-  if (!islandId || !getCatalog(islandId, localPath)) return <NotFound />;
-  return <CatalogPage />;
+  return <NotFound />;
 }

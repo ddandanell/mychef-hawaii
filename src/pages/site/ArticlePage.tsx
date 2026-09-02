@@ -19,7 +19,7 @@ export default function ArticlePage({ kind }: { kind: 'journal' | 'blog' }) {
       <PageMeta title={article.title} description={article.description} />
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[720px] px-5 lg:px-10">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">
+          <p className="text-[12px] text-ink-soft">
             {kind} · {island.name}
           </p>
           <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.02em] text-ink">

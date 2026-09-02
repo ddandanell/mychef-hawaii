@@ -70,13 +70,13 @@ export default function BigIslandPrivateChef() {
         title="A private chef for the Kona–Kohala coast."
         lede="The signature dinner, planned for the island’s luxury corridor: your chef designs the menu with you, shops the west-side supply bench that day, cooks in your villa kitchen, serves, and leaves it cleaner than they found it. It activates with the Kona–Kohala launch — and dated inquiries set the launch clock."
         image="/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg"
-        imageAlt="Whole grilled fish and tropical fruit on Kohala lava rock at golden hour. Campaign still, not a documented event."
+        imageAlt="Whole grilled fish and tropical fruit on Kohala lava rock at golden hour."
         chips={
           <>
             {core ? (
-              <BandChip onDark label={`Indicative core ${formatBand(core)}/pp — activates at launch`} />
+              <BandChip onDark label={`Indicative core ${formatBand(core)} a guest — activates at launch`} />
             ) : null}
-            <PlainChip onDark>Platform band ~$106–$169/pp — competitor-labeled</PlainChip>
+            <PlainChip onDark>Platform band ~$106–$169 a guest — competitor-labeled</PlainChip>
             <StatusChip kind="planned" onDark>
               Planned
             </StatusChip>
@@ -98,7 +98,7 @@ export default function BigIslandPrivateChef() {
             {inclusions.map((tile) => (
               <div
                 key={tile.title}
-                className="rounded-[14px] border border-stone bg-white p-5 shadow-soft transition-all duration-300 hover:-translate-y-1"
+                className="border border-stone bg-white p-5 transition-all duration-300 "
               >
                 <tile.icon aria-hidden="true" className="h-6 w-6 text-clay" strokeWidth={1.5} />
                 <h3 className="mt-4 font-display text-[1.125rem] font-medium leading-[1.2] text-ink">{tile.title}</h3>
@@ -138,7 +138,7 @@ export default function BigIslandPrivateChef() {
               </p>
             </Reveal>
           </div>
-          <Reveal delay={0.1} className="overflow-hidden rounded-[14px]">
+          <Reveal delay={0.1} className="overflow-hidden ">
             <img
               src="/photos/hawaii-produce-fish-sourcing-still.jpg"
               alt="Hawaii produce and whole fish on a villa kitchen board — sourcing still, not a named farm."
@@ -158,21 +158,21 @@ export default function BigIslandPrivateChef() {
             body="The island’s luxury villas cluster along one west-side corridor — Hualālai, Kūkiʻo, Kohanaiki, Waikōloa, Mauna Lani, the Mauna Kea area and the Kona Village stretch — which is exactly why the launch starts there. One service radius, no pretending to cover 4,000 square miles."
           />
           <Reveal stagger staggerDelay={0.07} className="mt-12 grid gap-4 md:grid-cols-3 lg:gap-6">
-            <div className="rounded-[14px] border border-stone bg-white p-6 shadow-soft">
+            <div className="border border-stone bg-white p-6 ">
               <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">Corridor villas</h3>
               <p className="mt-3 text-[1.0625rem] leading-[1.65] text-ink-soft">
                 Kailua-Kona, Keauhou and the Kohala resorts are the base zone — travel included, the highest job
                 density, and the deepest short-stay villa supply on the island.
               </p>
             </div>
-            <div className="rounded-[14px] border border-stone bg-white p-6 shadow-soft">
+            <div className="border border-stone bg-white p-6 ">
               <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">Venue verification</h3>
               <p className="mt-3 text-[1.0625rem] leading-[1.65] text-ink-soft">
                 Partner properties must be registered, resort-zoned or NUC-holding under Hawaiʻi County’s
                 short-term-rental rules — verification is a channel gate, not a courtesy.
               </p>
             </div>
-            <div className="rounded-[14px] border border-stone bg-white p-6 shadow-soft">
+            <div className="border border-stone bg-white p-6 ">
               <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">The club tier</h3>
               <p className="mt-3 text-[1.0625rem] leading-[1.65] text-ink-soft">
                 Hualālai, Kūkiʻo and Kohanaiki full-stay residencies are referral-gated — reached through

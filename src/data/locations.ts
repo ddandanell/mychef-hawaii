@@ -36,7 +36,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-waikiki.jpg',
-    heroAlt: 'A private chef plates seared fish in a Waikīkī high-rise residence kitchen overlooking the Ala Wai canal. Concept image, not a myCHEF event.',
+    heroAlt: 'A private chef plates seared fish in a Waikīkī high-rise residence kitchen overlooking the Ala Wai canal',
     h1: 'A chef in a Waikīkī kitchen — when the suite actually has one.',
     lede:
       'Most Waikīkī hotel rooms cannot host a private chef. We cook in resort residences and apartments with real kitchens — and we design bring-equipment menus when the kitchen is a galley.',
@@ -66,7 +66,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-kahala.jpg',
-    heroAlt: 'A chef serves plated fish to a couple at dusk on a Kahala Gold Coast lawn, Diamond Head on the horizon. Concept image, not a myCHEF event.',
+    heroAlt: 'A chef serves plated fish to a couple at dusk on a Kahala Gold Coast lawn, Diamond Head on the horizon',
     h1: 'Estate evenings along the Gold Coast.',
     lede:
       'Kahala and the Gold Coast are Oʻahu’s household-entertaining belt: residents who host, and visitors in houses with real dining rooms. This is where the kamaʻāina weekly line and celebration dinners overlap.',
@@ -96,7 +96,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-ko-olina.jpg',
-    heroAlt: 'A private chef preps mango, tomatoes and a whole fish in a Ko Olina villa kitchen opening to a calm west-side lagoon. Concept image, not a myCHEF event.',
+    heroAlt: 'A private chef preps mango, tomatoes and a whole fish in a Ko Olina villa kitchen opening to a calm west-side lagoon',
     h1: 'The west-side villa week, fully cheffed.',
     lede:
       'Ko Olina holds Oʻahu’s deepest legal short-stay villa pool. Multi-day packages — provisioning, full-board days, one team — are the product this corridor was built for.',
@@ -126,7 +126,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-kailua.jpg',
-    heroAlt: 'A family shares a beach-house dinner in Kailua with the Mokulua islets offshore; a chef finishes plates at the pass. Concept image, not a myCHEF event.',
+    heroAlt: 'A family shares a beach-house dinner in Kailua with the Mokulua islets offshore; a chef finishes plates at the pass',
     h1: 'Windward stays are measured in weeks, not nights.',
     lede:
       'Kailua and Lanikai are a 30-day-estate market. That rule shapes the product: multi-day packages for longer stays, not one-off dinner drop-ins into a weekend rental that the law no longer allows.',
@@ -156,7 +156,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'surcharge',
     zoneCode: 'B',
     hero: '/photos/loc-north-shore.jpg',
-    heroAlt: 'A chef grills fish on an Oʻahu North Shore lanai with winter swell and ironwood trees beyond. Concept image, not a myCHEF event.',
+    heroAlt: 'A chef grills fish on an Oʻahu North Shore lanai with winter swell and ironwood trees beyond',
     h1: 'The North Shore fee is on the website, not the invoice.',
     lede:
       'Turtle Bay and the North Shore are 60–90+ minutes from town. That drive is a published surcharge from the rate card — and surf-season dates book early.',
@@ -188,7 +188,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-wailea.jpg',
-    heroAlt: 'A chef finishes a tasting-menu plate at a Wailea villa counter while guests watch; Molokini sits on the south Maui horizon. Concept image, not a myCHEF event.',
+    heroAlt: 'A chef finishes a tasting-menu plate at a Wailea villa counter while guests watch; Molokini sits on the south Maui horizon',
     h1: 'The private chef’s table — in a Wailea villa.',
     lede:
       'Wailea is Maui’s signature corridor: hotel-zoned resort residences with kitchens, December peaks, and the dinner format we built the island around. We cook at your table, not at a communal resort chef’s table.',
@@ -218,7 +218,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-kaanapali.jpg',
-    heroAlt: 'Friends share a sunset dinner on a Kāʻanapali villa deck while a chef plates nearby; west Maui light and a lava headland. Concept image, not a myCHEF event.',
+    heroAlt: 'Friends share a sunset dinner on a Kāʻanapali villa deck while a chef plates nearby; west Maui light and a lava headland',
     h1: 'West Maui, named honestly: Kāʻanapali.',
     lede:
       'Kāʻanapali is a base-zone resort-residence corridor. We market West Maui as Kāʻanapali, Nāpili and Kapalua — never as a Lahaina luxury-dining destination.',
@@ -248,7 +248,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-kapalua.jpg',
-    heroAlt: 'A couple at a twilight dinner-for-two in Kapalua, ironwoods and a rocky northwest Maui bay beyond. Concept image, not a myCHEF event.',
+    heroAlt: 'A couple at a twilight dinner-for-two in Kapalua, ironwoods and a rocky northwest Maui bay beyond',
     h1: 'Kapalua tables, cooked in-house.',
     lede:
       'Kapalua is base-zone Maui at the northwest end of the resort belt: estates and residences where the chef’s table is the point of the evening, not an add-on to a restaurant reservation.',
@@ -278,7 +278,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-makena.jpg',
-    heroAlt: 'A chef carries plated dishes to a lava-stone table in Makena, with Puʻu Ōlaʻi cinder cone behind. Concept image, not a myCHEF event.',
+    heroAlt: 'A chef carries plated dishes to a lava-stone table in Makena, with Puʻu Ōlaʻi cinder cone behind',
     h1: 'South of Wailea, still a base zone.',
     lede:
       'Makena sits just south of the Wailea resort-residence belt. Same base-zone rules, quieter inventory, same signature-dinner product.',
@@ -308,7 +308,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'surcharge',
     zoneCode: 'B',
     hero: '/photos/loc-upcountry.jpg',
-    heroAlt: 'A chef cuts island vegetables in a misty Upcountry Maui kitchen, Haleakalā pasture and jacaranda beyond. Concept image, not a myCHEF event.',
+    heroAlt: 'A chef cuts island vegetables in a misty Upcountry Maui kitchen, Haleakalā pasture and jacaranda beyond',
     h1: 'Upcountry is a map, not a surprise fee.',
     lede:
       'Elevation and drive time make Upcountry a surcharge zone. The published fee appears on the quote. Farm names appear on menus only after written verification — Hawaiʻi still imports most of its food.',
@@ -340,7 +340,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'surcharge',
     zoneCode: 'B',
     hero: '/photos/loc-kauai-north.jpg',
-    heroAlt: 'A chef plates fish on a rainy Princeville terrace above the Hanalei valley. Concept image for an inquiry-stage corridor, not a myCHEF event.',
+    heroAlt: 'A chef plates fish on a rainy Princeville terrace above the Hanalei valley',
     h1: 'North Shore estates — on the inquiry list.',
     lede:
       'Princeville and Hanalei are Kauaʻi’s signature villa and estate inventory. myCHEF is not booking here yet. Dated inquiries — with your shore named — are the evidence that sets the launch sequence.',
@@ -370,7 +370,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'surcharge',
     zoneCode: 'B',
     hero: '/photos/loc-kauai-south.jpg',
-    heroAlt: 'A chef prepares a whole fish and tropical fruit in a Poʻipū villa kitchen, kiawe and pale south-shore cliffs beyond. Concept image, not a myCHEF event.',
+    heroAlt: 'A chef prepares a whole fish and tropical fruit in a Poʻipū villa kitchen, kiawe and pale south-shore cliffs beyond',
     h1: 'South Shore weeks, closer to the Līhuʻe base.',
     lede:
       'Poʻipū and Kōloa are sunnier, steadier, and closer to Līhuʻe than the North Shore. Arrival-night dinners and provisioning for week-long stays are the planned lead — still inquiry-framed until we launch.',
@@ -402,7 +402,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-kona.jpg',
-    heroAlt: 'A chef sears fish in a Kona villa kitchen looking over dry lava coast and coffee slopes. Concept image for an inquiry-stage corridor, not a myCHEF event.',
+    heroAlt: 'A chef sears fish in a Kona villa kitchen looking over dry lava coast and coffee slopes',
     h1: 'Kona first — when the west-side team exists.',
     lede:
       'Kailua-Kona and Keauhou sit at the south end of the planned base corridor. Hawaiʻi Island (the Big Island) is inquiry-stage: tell us your dates. There is no booking button, and no local-entity claim.',
@@ -432,7 +432,7 @@ export const locations: LocationRecord[] = [
     zoneClass: 'base',
     zoneCode: 'A',
     hero: '/photos/loc-kohala.jpg',
-    heroAlt: 'Guests dine at a Kohala lava-stone table while a chef works the pass; Mauna Kea inland, white sand and ocean beside. Concept image, not a myCHEF event.',
+    heroAlt: 'Guests dine at a Kohala lava-stone table while a chef works the pass; Mauna Kea inland, white sand and ocean beside',
     h1: 'The Kohala corridor is the whole opening move.',
     lede:
       'Seven resort communities, one 30-minute service radius, the island’s highest villa ADRs. If myCHEF launches on Hawaiʻi Island, it launches here — and your dated inquiry is the evidence.',

@@ -1,644 +1,67 @@
-import { useEffect, useRef } from 'react';
 import { Link } from 'react-router';
-import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import * as Accordion from '@radix-ui/react-accordion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
-import Contours from '@/components/Contours';
-import HeroMedia from '@/components/HeroMedia';
-import QuoteTeaserBand from '@/components/QuoteTeaserBand';
-import Reveal from '@/components/Reveal';
-import StatusChip from '@/components/StatusChip';
-import WordMask from '@/components/WordMask';
+import { DualCta } from '@/components/DualCta';
 import HostLink from '@/components/HostLink';
-import { PRODUCTION_ROOT } from '@/config/site';
+import HeroMedia from '@/components/HeroMedia';
+import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
+import QuoteTeaserBand from '@/components/QuoteTeaserBand';
+import { hubHomeFaqs, hubHomeSections } from '@/data/longformHub';
 import { islandOrder, islands } from '@/data/islands';
-import type { IslandId } from '@/data/islands';
-import { getTiers, formatBand, formatFrom, getDayRate } from '@/data/rateCard';
+import { islandOffers } from '@/data/offers';
 import { photos } from '@/data/photos';
-import { homeTrustRows } from '@/data/proofRegister';
 
-gsap.registerPlugin(ScrollTrigger);
-
-/* ---------------- Section 1 — Hero ---------------- */
-
-function Hero() {
-  return (
-    <section className="relative flex min-h-[100svh] min-h-[640px] items-end overflow-hidden">
-      <HeroMedia
-        src={photos.hubHero.file}
-        overlay="dusk"
-        alt={photos.hubHero.alt}
-      />
-      <div className="relative mx-auto w-full max-w-spread px-5 pb-24 pt-40 lg:px-10">
-        <div className="max-w-[640px]">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass"
-          >
-            Private Chefs · Catering · Events — Hawaii
-          </motion.p>
-          <h1 className="mt-5 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-white">
-            <WordMask text="A private chef, in your villa, on your island." delay={0.2} />
-          </h1>
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
-          >
-            <p className="mt-6 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ivory/90 lg:text-[1.125rem]">
-              myCHEF brings its international private-chef team to Hawaiʻi — in-villa dinners, wedding weeks,
-              catering and multi-day chef service across Oʻahu, Maui, Kauaʻi and Hawaiʻi Island.
-            </p>
-            <div className="mt-5 flex flex-wrap items-center gap-x-3 gap-y-2">
-              <span className="text-sm text-ivory/85">
-                Part of the myCHEF family, operating since 2015 — internationally
-              </span>
-              <StatusChip kind="verified">Verified — International</StatusChip>
-              <StatusChip kind="inquiry">Hawaii Launching Now</StatusChip>
-            </div>
-            <div className="mt-8 flex flex-wrap items-center gap-5">
-              <Link
-                to="/quote"
-                className="inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-clay active:scale-[0.97]"
-              >
-                Request a Quote
-              </Link>
-              <a
-                href="#islands"
-                className="text-sm font-medium text-ivory/90 underline decoration-brass/60 underline-offset-4 transition-colors hover:text-white"
-              >
-                Choose your island ↓
-              </a>
-            </div>
-          </motion.div>
-        </div>
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.1 }}
-          className="mt-14 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ivory/60"
-        >
-          All times HST · Published starting prices — see /pricing
-        </motion.p>
-      </div>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.4 }}
-        className="absolute bottom-8 right-5 hidden flex-col items-center gap-3 lg:right-10 md:flex"
-        aria-hidden="true"
-      >
-        <span className="scroll-cue-pulse font-mono text-[0.625rem] uppercase tracking-[0.18em] text-ivory/70 [writing-mode:vertical-lr]">
-          Where are you dining?
-        </span>
-        <span className="scroll-cue-pulse block h-12 w-px bg-ivory/50" />
-      </motion.div>
-    </section>
-  );
-}
-
-/* ---------------- Section 2 — Island Selector ---------------- */
-
-/** Homepage-only selector photos (dim12 §6.1 / P24-08 roles). Other routes keep their own assets. */
-const homeIslandPhotos: Record<IslandId, { src: string; alt: string }> = {
-  oahu: { src: photos.waikiki.file, alt: photos.waikiki.alt },
-  maui: { src: photos.bar.file, alt: photos.bar.alt },
-  kauai: { src: photos.kauaiChef.file, alt: photos.kauaiChef.alt },
-  bigisland: { src: photos.kohalaFish.file, alt: photos.kohalaFish.alt },
-};
-
-function IslandSelector() {
-  return (
-    <section id="islands" className="relative overflow-hidden bg-ivory py-20 lg:py-28">
-      <Contours className="absolute -right-24 -top-16 h-96 w-[520px] opacity-[0.06]" stroke="#A34A28" />
-      <div className="relative mx-auto w-full max-w-container px-5 lg:px-10">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">One hub · four island sites</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            Where in Hawaiʻi are you dining?
-          </h2>
-          <p className="mx-auto mt-4 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft">
-            This is {PRODUCTION_ROOT}. Each island is its own department on a subdomain — own chefs, zones,
-            journal and pricing.
-          </p>
-        </Reveal>
-        <Reveal stagger className="mt-12 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-6">
-          {islandOrder.map((id) => {
-            const isl = islands[id];
-            return (
-              <HostLink
-                key={id}
-                island={id}
-                className="group flex flex-col overflow-hidden rounded-[14px] border border-stone bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <img
-                    src={homeIslandPhotos[id].src}
-                    alt={homeIslandPhotos[id].alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-4 lg:p-5">
-                  <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{isl.name}</h3>
-                  <p className="mt-1.5 flex-1 text-sm leading-relaxed text-ink-soft">{isl.role}</p>
-                  <div className="mt-4 flex items-center gap-2">
-                    <span
-                      aria-hidden="true"
-                      className={`dot-pop inline-block h-2 w-2 rounded-full ${isl.state === 'live' ? 'bg-moss' : 'bg-brass'}`}
-                    />
-                    <span className="font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-                      {isl.stateLabel}
-                    </span>
-                  </div>
-                  <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-clay">
-                    {isl.selectorCta}
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
-                  <span className="mt-1 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ink-soft">
-                    {id}.{PRODUCTION_ROOT}
-                  </span>
-                </div>
-              </HostLink>
-            );
-          })}
-        </Reveal>
-        <Reveal delay={0.2}>
-          <p className="mx-auto mt-10 max-w-xl text-center font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ink-soft">
-            Two islands are booking now. Two open as demand confirms — we publish coverage honestly, never
-            aspirationally.
-          </p>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Section 3 — Services Strip ---------------- */
-
-const services = [
+const hubFaqs = [
   {
-    title: 'Private Chef',
-    desc: 'A chef designs, shops, cooks, serves and cleans — in your villa or home.',
-    img: photos.chefTeam.file,
-    alt: photos.chefTeam.alt,
-    to: '/services#private-chef',
+    q: 'Which islands do you cook?',
+    a: 'Oʻahu, Maui, Kauaʻi and Hawaiʻi Island. Each island has published starting prices.',
   },
   {
-    title: 'Private Dining',
-    desc: 'Celebration dinners and dinners-for-two, coursed and served.',
-    img: photos.oahuDinner.file,
-    alt: photos.oahuDinner.alt,
-    to: '/services#private-dining',
-  },
-  {
-    title: 'Catering & Weddings',
-    desc: 'Receptions, wedding weeks and gatherings from 10 to 75 guests.',
-    img: photos.wedding.file,
-    alt: photos.wedding.alt,
-    to: '/weddings',
-  },
-  {
-    title: 'Mobile Bar',
-    desc: 'A bartender on the terrace — stacked with dinner or booked alone.',
-    img: photos.bar.file,
-    alt: photos.bar.alt,
-    to: '/bar',
-  },
-  {
-    title: 'Vacation Chef',
-    desc: 'Multi-day and weekly chef service for villa stays and households.',
-    img: photos.vacation.file,
-    alt: photos.vacation.alt,
-    to: '/services#vacation-chef',
-  },
-];
-
-function ServicesStrip() {
-  return (
-    <section className="bg-sand py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">What We Do</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            Five ways to dine privately.
-          </h2>
-        </Reveal>
-        <Reveal stagger className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5 lg:gap-6">
-          {services.map((s) => (
-            <Link
-              key={s.title}
-              to={s.to}
-              className="group relative flex flex-col overflow-hidden rounded-[14px] bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
-            >
-              <Contours
-                stroke="#E3D9C8"
-                strokeWidth={1}
-                className="absolute -right-10 -top-10 z-10 h-40 w-52 opacity-40"
-              />
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={s.img}
-                  alt={s.alt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-                />
-              </div>
-              <div className="flex flex-1 flex-col p-4 lg:p-5">
-                <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{s.title}</h3>
-                <p className="mt-1.5 flex-1 text-sm leading-relaxed text-ink-soft">{s.desc}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clay">
-                  Explore
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
-                <p className="mt-3 border-t border-stone pt-3 font-mono text-[0.625rem] uppercase leading-4 tracking-[0.08em] text-ink-soft">
-                  Available on Oʻahu &amp; Maui · Inquiry on Kauaʻi &amp; Hawaiʻi Island
-                </p>
-              </div>
-            </Link>
-          ))}
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Statewide hubs — weddings + gatherings ---------------- */
-
-function StatewideHubs() {
-  return (
-    <section className="bg-ivory py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Statewide hubs</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            Then we send you to an island.
-          </h2>
-        </Reveal>
-        <Reveal stagger className="mt-12 grid gap-6 lg:grid-cols-3">
-          <Link
-            to="/weddings"
-            className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-[14px] shadow-soft"
-          >
-            <img
-              src={photos.wedding.file}
-              alt={photos.wedding.alt}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  'linear-gradient(180deg, rgba(26,21,16,0.15) 0%, rgba(26,21,16,0.72) 55%, rgba(26,21,16,0.88) 100%)',
-              }}
-            />
-            <div className="relative p-6 lg:p-8">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Weddings</p>
-              <h3 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.25rem)] font-medium leading-[1.15] text-ivory">
-                One team for the wedding week.
-              </h3>
-              <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-ivory/80">
-                Welcome dinner to recovery brunch. Maui leads; Oʻahu hosts weekends; Kauaʻi and Hawaiʻi Island take dated
-                inquiries.
-              </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brass">
-                Wedding hub
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-            </div>
-          </Link>
-          <Link
-            to="/bar"
-            className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-[14px] shadow-soft"
-          >
-            <img
-              src={photos.bar.file}
-              alt={photos.bar.alt}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  'linear-gradient(180deg, rgba(26,21,16,0.1) 0%, rgba(26,21,16,0.55) 50%, rgba(26,21,16,0.82) 100%)',
-              }}
-            />
-            <div className="relative p-6 lg:p-8">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Mobile bar</p>
-              <h3 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.25rem)] font-medium leading-[1.15] text-ivory">
-                Cocktails on the terrace.
-              </h3>
-              <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-ivory/85">
-                A bartender stacked with the chef — published starting prices on every island host.
-              </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brass">
-                Bar hub
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-            </div>
-          </Link>
-          <Link
-            to="/corporate"
-            className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-[14px] shadow-soft"
-          >
-            <img
-              src={photos.gatherings.file}
-              alt={photos.gatherings.alt}
-              className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-            />
-            <div
-              aria-hidden="true"
-              className="absolute inset-0"
-              style={{
-                backgroundImage:
-                  'linear-gradient(180deg, rgba(26,21,16,0.1) 0%, rgba(26,21,16,0.55) 50%, rgba(26,21,16,0.82) 100%)',
-              }}
-            />
-            <div className="relative p-6 lg:p-8">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Gatherings</p>
-              <h3 className="mt-3 font-display text-[clamp(1.75rem,3vw,2.25rem)] font-medium leading-[1.15] text-ivory">
-                Retreats, crews, private rooms.
-              </h3>
-              <p className="mt-3 max-w-[52ch] text-sm leading-relaxed text-ivory/85">
-                Not a convention-centre play while citywides are closed. We staff 10–75 in villas and production days.
-              </p>
-              <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-medium text-brass">
-                Gatherings hub
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-              </span>
-            </div>
-          </Link>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Section 4 — Trust Strip / Honesty Register ---------------- */
-
-function TrustStrip() {
-  const contourRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const el = contourRef.current;
-    if (!el) return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    const paths = el.querySelectorAll('path');
-    paths.forEach((p) => {
-      const len = p.getTotalLength();
-      gsap.set(p, { strokeDasharray: len, strokeDashoffset: len });
-    });
-    const tween = gsap.to(paths, {
-      strokeDashoffset: 0,
-      ease: 'none',
-      stagger: 0.04,
-      scrollTrigger: { trigger: el, start: 'top 85%', end: '+=150%', scrub: true },
-    });
-    return () => {
-      tween.scrollTrigger?.kill();
-      tween.kill();
-    };
-  }, []);
-
-  const chipKind = (label: string) =>
-    label.startsWith('VERIFIED') ? 'verified' : label.startsWith('NOT AVAILABLE') ? 'not-available' : label.startsWith('PUBLISHED') ? 'published' : 'policy';
-
-  return (
-    <section className="grain-dark relative overflow-hidden bg-ink py-20 lg:py-28">
-      <div ref={contourRef} aria-hidden="true" className="absolute inset-0">
-        <Contours stroke="#9C7A33" strokeWidth={1} className="absolute -left-40 top-0 h-[640px] w-[860px] opacity-25" />
-      </div>
-      <div className="relative mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-2 lg:gap-16 lg:px-10">
-        <Reveal>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Our Proof Policy</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ivory">
-            New to Hawaiʻi. Honest about it.
-          </h2>
-          <Link
-            to="/trust"
-            className="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-brass transition-colors hover:text-ivory"
-          >
-            Read our trust standards
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
-        <Reveal stagger className="space-y-6">
-          {homeTrustRows.map((row) => (
-            <div key={row.label} className="border-b border-white/10 pb-6">
-              <p className="text-[1.0625rem] leading-[1.65] text-ivory/85">{row.claim}</p>
-              <div className="mt-3">
-                <StatusChip kind={chipKind(row.label)} onDark>
-                  {row.label}
-                </StatusChip>
-              </div>
-            </div>
-          ))}
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Section 5 — How It Works (teaser) ---------------- */
-
-const steps = [
-  { n: '01', title: 'Enquire', desc: 'Five fields, two minutes, no account.' },
-  { n: '02', title: 'Menu design', desc: 'Your chef proposes menus around your tastes and dietary needs.' },
-  {
-    n: '03',
-    title: 'The event',
-    desc: 'We shop, arrive early, cook, serve — and leave the kitchen cleaner than we found it.',
-  },
-  { n: '04', title: 'Follow-up', desc: "One honest, unincentivized review request. That's all we'll ever ask." },
-];
-
-function HowItWorksTeaser() {
-  return (
-    <section className="bg-ivory py-20 lg:py-28">
-      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <Reveal className="mx-auto max-w-2xl text-center">
-          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            From enquiry to empty dishwasher.
-          </h2>
-        </Reveal>
-        <Reveal stagger staggerDelay={0.12} className="relative mt-14 grid gap-10 md:grid-cols-4 md:gap-6">
-          <span
-            aria-hidden="true"
-            className="absolute left-[7px] top-2 h-[calc(100%-16px)] w-px bg-stone md:left-0 md:top-[7px] md:h-px md:w-full"
-          />
-          {steps.map((s) => (
-            <div key={s.n} className="relative pl-8 md:pl-0 md:pt-8">
-              <span
-                aria-hidden="true"
-                className="absolute left-0 top-1 h-[15px] w-[15px] rounded-full border-2 border-brass bg-ivory md:left-0 md:top-0"
-              />
-              <p className="font-display text-3xl font-semibold text-brass">{s.n}</p>
-              <h3 className="mt-2 font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-ink-soft">{s.desc}</p>
-            </div>
-          ))}
-        </Reveal>
-        <Reveal delay={0.2} className="mt-12 text-center">
-          <Link
-            to="/how-it-works"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-clay transition-colors hover:text-clay-deep"
-          >
-            The full process
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Section 6 — Pricing Orientation ---------------- */
-
-function PricingOrientation() {
-  const cards = (['oahu', 'maui'] as const).map((id) => {
-    const core = getTiers(id).find((t) => t.tier === 'CORE')!;
-    const day = getDayRate(id);
-    return { island: islands[id], core, day };
-  });
-
-  return (
-    <section className="bg-sand py-24 lg:py-32">
-      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Published starting prices</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            What a private chef costs in Hawaiʻi.
-          </h2>
-        </Reveal>
-        <Reveal stagger staggerDelay={0.1} className="mt-12 grid gap-6 md:grid-cols-2">
-          {cards.map(({ island, core, day }) => (
-            <div key={island.id} className="rounded-[18px] border-2 border-clay/60 bg-white p-6 shadow-soft lg:p-8">
-              <p className="font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ink-soft">
-                {island.name} · Signature dinner — CORE
-              </p>
-              <div className="mt-4 flex flex-wrap items-baseline gap-x-3 gap-y-2">
-                <span className="font-display text-5xl font-semibold tracking-tight text-ink">
-                  {formatBand(core)}
-                </span>
-                <span className="font-mono text-[0.75rem] uppercase tracking-[0.1em] text-ink-soft">/person</span>
-              </div>
-              <p className="mt-4 text-sm text-ink-soft">
-                Villa day rate {formatFrom(day.from)} · chef + assistant · groceries at cost
-              </p>
-            </div>
-          ))}
-        </Reveal>
-        <Reveal delay={0.15} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-          <span className="inline-flex items-center gap-2">
-            20% service charge <StatusChip kind="rpr">Attorney</StatusChip>
-          </span>
-          <span className="inline-flex items-center gap-2">
-            GET up to 4.7120% <StatusChip kind="rpr">CPA</StatusChip>
-          </span>
-          <span className="inline-flex items-center gap-2">
-            50% deposit <StatusChip kind="policy">Policy</StatusChip>
-          </span>
-        </Reveal>
-        <Reveal delay={0.25} className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
-          <p className="text-sm text-ink-soft">
-            Starting prices. Quote confirmed in writing.
-          </p>
-          <Link
-            to="/pricing"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-clay transition-colors hover:text-clay-deep"
-          >
-            See the full rate card
-            <ArrowRight className="h-4 w-4" />
-          </Link>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------- Section 7 — FAQ ---------------- */
-
-const faqs = [
-  {
-    q: 'Which islands do you serve?',
-    a: 'We are live on Oʻahu and Maui. Kauaʻi and Hawaiʻi Island are inquiry-stage — tell us your dates and your inquiry helps set the launch sequence. We do not claim flat statewide coverage.',
-  },
-  {
-    q: 'How much does a private chef cost in Hawaiʻi?',
-    a: 'Published starting prices: Oʻahu CORE $125–$190 per person, Maui CORE $150–$250, plus villa day rates from $850 Oʻahu / $1,050 Maui. Your written quote is the confirmed total. 20% service and GET up to 4.712% are their own lines.',
+    q: 'How much does a private chef cost in Hawaii?',
+    a: 'Signature dinner from $125 a guest on Oʻahu, $150 on Maui and Kauaʻi. Stay Chef day rates from $850. Service 20% and Hawaiʻi GET are added once on the written quote.',
   },
   {
     q: "What's included?",
-    a: 'Menu design, shopping, cooking, table service and cleanup. Alcohol, rentals and venue fees are excluded and always quoted separately.',
+    a: 'Menu design, shopping, cooking in your villa, table service and a clean kitchen. Drinks BYO or quoted. Bartender add-on on the bar page.',
   },
   {
-    q: 'Do you have reviews?',
-    a: 'Not yet in Hawaiʻi — and we say so. Reviews publish only after verified events, are never bought and never incentivized. Our international family history (Bali, Dubai, Cape Town, since 2015) is labeled VERIFIED — INTERNATIONAL.',
+    q: 'Do you have Hawaii guest reviews?',
+    a: 'Not yet — and we will not invent them. Proof here is published prices, sample menus, cleanup, and a written quote.',
   },
   {
-    q: 'How far ahead should I book?',
-    a: 'December–March and wedding peaks (September/October/May) book early — enquire as soon as you have dates. Far-zone events carry a 72-hour minimum notice.',
+    q: 'Airbnb / vacation rental kitchens?',
+    a: 'Yes, when there is a real cooktop. Hotel rooms without kitchens are declined.',
   },
 ];
 
-function FaqSection() {
-  return (
-    <section className="bg-ivory py-20 lg:py-28">
-      <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-5 lg:px-10">
-        <Reveal className="lg:col-span-2">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Questions</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
-            Asked everywhere we launch.
-          </h2>
-          <p className="mt-4 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ink-soft">
-            Statewide answers — island-specific detail lives on each island page.
-          </p>
-        </Reveal>
-        <Reveal stagger staggerDelay={0.07} className="lg:col-span-3">
-          <Accordion.Root type="single" collapsible className="w-full">
-            {faqs.map((f, i) => (
-              <Accordion.Item key={f.q} value={`item-${i}`} className="border-b border-stone">
-                <Accordion.Header>
-                  <Accordion.Trigger className="group flex w-full items-center justify-between gap-4 py-5 text-left">
-                    <span className="font-display text-[1.25rem] font-medium leading-[1.2] text-ink">
-                      {f.q}
-                    </span>
-                    <ChevronDown className="h-5 w-5 shrink-0 text-clay transition-transform duration-300 group-data-[state=open]:rotate-180" />
-                  </Accordion.Trigger>
-                </Accordion.Header>
-                <Accordion.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                  <p className="pb-6 pr-8 text-[1.0625rem] leading-[1.65] text-ink-soft">{f.a}</p>
-                </Accordion.Content>
-              </Accordion.Item>
-            ))}
-          </Accordion.Root>
-        </Reveal>
-      </div>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: faqs.map((f) => ({
-              '@type': 'Question',
-              name: f.q,
-              acceptedAnswer: { '@type': 'Answer', text: f.a },
-            })),
-          }),
-        }}
-      />
-    </section>
-  );
-}
-
-/* ---------------- Page ---------------- */
+const CHAPTERS = [
+  {
+    to: '/private-chef',
+    title: 'Private chef',
+    line: 'A dinner in your villa. We shop, cook, serve and clean.',
+    img: photos.mauiKitchen.file,
+    alt: photos.mauiKitchen.alt,
+  },
+  {
+    to: '/catering',
+    title: 'Catering',
+    line: 'Staffed villa events. Buffet or plated. Ten to seventy-five guests.',
+    img: photos.catering.file,
+    alt: photos.catering.alt,
+  },
+  {
+    to: '/weddings',
+    title: 'Wedding week',
+    line: 'Welcome dinner to recovery brunch. One team for the week.',
+    img: '/photos/maui-wedding-long-table-banyan-dusk.jpg',
+    alt: 'A wedding-week long table under a banyan at dusk, ocean lawn beyond.',
+  },
+  {
+    to: '/bar',
+    title: 'Bar',
+    line: 'Cocktails on the terrace, stacked with dinner or on its own.',
+    img: photos.bar.file,
+    alt: photos.bar.alt,
+  },
+];
 
 export default function Home() {
   return (
@@ -649,30 +72,95 @@ export default function Home() {
           __html: JSON.stringify([
             {
               '@context': 'https://schema.org',
-              '@type': 'Organization',
-              '@id': '#org',
+              '@type': 'FoodService',
               name: 'myCHEF Hawaii',
               description:
-                'Private chefs, private dining, catering and events across Oʻahu, Maui, Kauaʻi and Hawaiʻi Island. Part of the international myCHEF family.',
-              parentOrganization: { '@type': 'Organization', name: 'myCHEF (international)' },
+                'Private chef Hawaii from $125 a guest. In-villa dinners, catering, weddings and bar on Oʻahu, Maui, Kauaʻi and Hawaiʻi Island.',
+              areaServed: 'Hawaiʻi',
+              parentOrganization: { '@type': 'Organization', name: 'myCHEF' },
             },
             {
               '@context': 'https://schema.org',
-              '@type': 'WebSite',
-              name: 'myCHEF Hawaii',
+              '@type': 'FAQPage',
+              mainEntity: hubFaqs.map((f) => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
             },
           ]),
         }}
       />
-      <Hero />
-      <IslandSelector />
-      <ServicesStrip />
-      <StatewideHubs />
-      <TrustStrip />
-      <HowItWorksTeaser />
-      <PricingOrientation />
-      <FaqSection />
-      <QuoteTeaserBand />
+
+      <section className="relative -mt-16 flex min-h-[100svh] min-h-[640px] items-end overflow-hidden">
+        <HeroMedia src={photos.hubHero.file} alt={photos.hubHero.alt} />
+        <div className="relative mx-auto w-full max-w-spread px-5 pb-24 pt-40 lg:px-10">
+          <h1 className="max-w-3xl font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-white">
+            Private Chef Hawaii — in your villa, on your island.
+          </h1>
+          <p className="mt-5 max-w-[40ch] text-[17px] leading-[1.55] text-white/90">
+            We shop, cook, serve and clean on Oʻahu, Maui, Kauaʻi and Hawaiʻi Island.
+          </p>
+          <p className="mt-4 text-[17px] text-white/80">Signature dinner from $125 a guest, Oʻahu.</p>
+          <div className="mt-8">
+            <DualCta intent="a private chef in Hawaii" size="lg" />
+          </div>
+        </div>
+      </section>
+
+      <section id="islands" className="bg-ivory">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4">
+          {islandOrder.map((id) => {
+            const isl = islands[id];
+            const o = islandOffers[id];
+            return (
+              <HostLink key={id} island={id} className="group relative block min-h-[420px] overflow-hidden">
+                <img src={isl.selectorImage} alt={isl.name} className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/70 to-transparent" />
+                <div className="relative flex min-h-[420px] flex-col justify-end p-6">
+                  <h2 className="font-display text-[1.75rem] font-light text-white">{isl.name}</h2>
+                  <p className="mt-1 text-[15px] text-white/85">
+                    {isl.state === 'inquiry' ? 'Opening. ' : ''}
+                    From ${o.fromPp} a guest.
+                  </p>
+                </div>
+              </HostLink>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="bg-ivory">
+        {CHAPTERS.map((c) => (
+          <Link key={c.to} to={c.to} className="grid border-t border-stone lg:grid-cols-2">
+            <div className="aspect-[4/3] lg:aspect-auto lg:min-h-[420px]">
+              <img src={c.img} alt={c.alt} className="h-full w-full object-cover" />
+            </div>
+            <div className="flex flex-col justify-center px-5 py-12 lg:px-12">
+              <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink">{c.title}</h2>
+              <p className="mt-3 max-w-[40ch] text-[17px] leading-relaxed text-ink-soft">{c.line}</p>
+            </div>
+          </Link>
+        ))}
+      </section>
+
+      <section className="border-t border-stone bg-ivory py-20">
+        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+          <p className="max-w-[50ch] font-display text-[clamp(1.75rem,3vw,2.25rem)] font-light leading-[1.25] text-ink">
+            Signature dinner from $125 a guest on Oʻahu, $150 on Maui and Kauaʻi. The written quote is the confirmed
+            total.
+          </p>
+          <Link to="/pricing" className="mt-6 inline-block text-sm text-ink underline underline-offset-4">
+            What a night costs
+          </Link>
+        </div>
+      </section>
+
+      <Longform sections={hubHomeSections} />
+      <SiblingCluster current="home" />
+      <LongFaq items={[...hubFaqs, ...hubHomeFaqs]} />
+
+      <QuoteTeaserBand headline="Request a quote." />
     </>
   );
 }

@@ -1,140 +1,97 @@
 import { Link } from 'react-router';
-import Contours from '@/components/Contours';
 import HostLink from '@/components/HostLink';
-import StatusChip from '@/components/StatusChip';
-import { PRODUCTION_ROOT } from '@/config/site';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
+import { quotePath } from '@/lib/paths';
 
-/**
- * Footer (design.md §8.9) — ink background, contour motif band on top edge.
- * No fabricated license numbers, addresses, or phone numbers.
- */
 export default function Footer() {
-  const { state, islandId, href, island } = useIsland();
-  const inquiry = state === 'inquiry';
-  const quoteTo = islandId ? href(`/quote?island=${islandId}`) : '/quote';
-  const quoteLabel = inquiry ? 'Join the Inquiry List' : 'Request a Quote';
+  const { islandId, href } = useIsland();
+  const quoteTo = quotePath(islandId ?? undefined);
 
   return (
-    <footer className="grain-dark relative bg-ink text-ivory">
-      <div className="relative h-24 overflow-hidden" aria-hidden="true">
-        <Contours stroke="#9C7A33" strokeWidth={1} className="absolute -top-10 left-1/2 h-64 w-[900px] -translate-x-1/2 opacity-25" />
-      </div>
-      <div className="mx-auto w-full max-w-container px-5 pb-10 lg:px-10">
-        <div className={`grid gap-10 border-t border-white/10 pt-12 ${islandId ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
+    <footer className="bg-ink text-ivory">
+      <div className="mx-auto w-full max-w-container px-5 py-16 lg:px-10">
+        <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <span className="font-display text-2xl font-semibold tracking-tight text-ivory">
-              my<span className="text-clay">CHEF</span>
-              <span aria-hidden="true" className="ml-0.5 inline-block h-2 w-2 rounded-full bg-clay align-super" />
-            </span>
-            <p className="mt-3 max-w-xs text-sm leading-relaxed text-ivory/70">
-              Private chefs, catering, weddings and a mobile bar — quiet luxury, published starting prices.
+            <Link to={href('/')} className="font-display text-2xl font-light tracking-tight text-ivory">
+              myCHEF
+            </Link>
+            <p className="mt-4 max-w-xs text-[17px] leading-relaxed text-ivory/75">
+              A chef in your villa. Oʻahu, Maui, Kauaʻi, Hawaiʻi Island.
             </p>
-            <p className="mt-5 font-mono text-[0.6875rem] uppercase tracking-[0.14em] text-ivory/50">
-              Part of the myCHEF family
-            </p>
-            <ul className="mt-2 space-y-1.5">
-              {['Bali', 'Dubai', 'Cape Town'].map((geo) => (
-                <li key={geo} className="flex items-center gap-2 text-sm text-ivory/70">
-                  {geo} <StatusChip kind="verified">Verified — International</StatusChip>
-                </li>
-              ))}
-            </ul>
           </div>
 
           <nav aria-label="Islands">
-            <h3 className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Islands</h3>
-            <ul className="mt-4 space-y-2.5">
-              {islandOrder.map((id) => {
-                const isl = islands[id];
-                return (
-                  <li key={id}>
-                    <HostLink
-                      island={id}
-                      className="inline-flex items-center gap-2 text-sm text-ivory/80 transition-colors hover:text-ivory"
-                    >
-                      <span
-                        aria-hidden="true"
-                        className={isl.state === 'live' ? 'h-1.5 w-1.5 rounded-full bg-moss' : 'h-1.5 w-1.5 rounded-full bg-brass'}
-                      />
-                      {isl.name}
-                      <span className="font-mono text-[0.625rem] uppercase tracking-[0.08em] text-ivory/40">
-                        {id}.{PRODUCTION_ROOT}
-                      </span>
-                    </HostLink>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-
-          <nav aria-label="Company">
-            <h3 className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Hawaii hub</h3>
-            <ul className="mt-4 space-y-2.5">
-              {[
-                { label: 'Services', path: '/services' },
-                { label: 'Weddings', path: '/weddings' },
-                { label: 'Bar', path: '/bar' },
-                { label: 'Gatherings', path: '/corporate' },
-                { label: 'How it works', path: '/how-it-works' },
-                { label: 'Pricing', path: '/pricing' },
-                { label: 'Journal', path: '/journal' },
-                { label: 'Trust', path: '/trust' },
-                { label: 'Legal', path: '/legal' },
-              ].map((l) => (
-                <li key={l.path}>
-                  <HostLink island="root" path={l.path} className="text-sm text-ivory/80 transition-colors hover:text-ivory">
-                    {l.label}
+            <p className="text-[12px] text-ivory/50">Islands</p>
+            <ul className="mt-4 space-y-2">
+              {islandOrder.map((id) => (
+                <li key={id}>
+                  <HostLink island={id} className="text-sm text-ivory/80 hover:text-ivory">
+                    {islands[id].name}
                   </HostLink>
                 </li>
               ))}
               <li>
-                <Link to={quoteTo} className="text-sm text-ivory/80 transition-colors hover:text-ivory">
-                  {quoteLabel}
-                </Link>
+                <HostLink island="root" className="text-sm text-ivory/80 hover:text-ivory">
+                  All Hawaiʻi
+                </HostLink>
               </li>
             </ul>
           </nav>
-          {islandId && island ? (
-            <nav aria-label={`${island.name} department`}>
-              <h3 className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">This island</h3>
-              <ul className="mt-4 space-y-2.5">
-                {[
-                  { label: 'Private chef', path: '/private-chef' },
-                  { label: 'Vacation chef', path: '/vacation-chef' },
-                  { label: 'Weddings', path: '/wedding-catering' },
-                  { label: 'Bar', path: '/bar' },
-                  { label: 'Areas', path: '/locations' },
-                  { label: 'Pricing', path: '/pricing' },
-                  { label: 'Sitemap', path: '/sitemap' },
-                ].map((l) => (
-                  <li key={l.path}>
-                    <Link to={href(l.path)} className="text-sm text-ivory/80 transition-colors hover:text-ivory">
+
+          <nav aria-label="Company">
+            <p className="text-[12px] text-ivory/50">Company</p>
+            <ul className="mt-4 space-y-2">
+              {(islandId
+                ? [
+                    { label: 'Chefs', path: '/private-chef' },
+                    { label: 'Catering', path: '/catering' },
+                    { label: 'Weddings', path: '/weddings' },
+                    { label: 'Bar', path: '/bar' },
+                    { label: 'Pricing', path: '/pricing' },
+                    { label: 'About', path: '/about' },
+                    { label: 'Quote', path: quoteTo },
+                    { label: 'Legal', path: '/legal' },
+                  ]
+                : [
+                    { label: 'Chefs', path: '/private-chef' },
+                    { label: 'Catering', path: '/catering' },
+                    { label: 'Weddings', path: '/weddings' },
+                    { label: 'Bar', path: '/bar' },
+                    { label: 'Pricing', path: '/pricing' },
+                    { label: 'About', path: '/about' },
+                    { label: 'Quote', path: quoteTo },
+                    { label: 'Trust', path: '/trust' },
+                    { label: 'Legal', path: '/legal' },
+                    { label: 'How it works', path: '/how-it-works' },
+                  ]
+              ).map((l) => (
+                <li key={l.label}>
+                  {islandId && l.path !== '/about' ? (
+                    <Link
+                      to={href(l.path)}
+                      className="text-sm text-ivory/80 hover:text-ivory"
+                    >
                       {l.label}
                     </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          ) : null}
+                  ) : (
+                    <HostLink island="root" path={l.path} className="text-sm text-ivory/80 hover:text-ivory">
+                      {l.label}
+                    </HostLink>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
 
-        <div className="mt-12 space-y-2 border-t border-white/10 pt-6 font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.1em] text-ivory/50">
-          <p>Starting prices are published. Your written quote is the confirmed, itemised total.</p>
-          <p>All times Hawaii Standard Time (HST).</p>
-          <p>
-            20% service charge and GET up to 4.712% appear as their own lines. See{' '}
-            <Link to="/legal" className="text-brass underline-offset-2 hover:underline">
-              /legal
-            </Link>
-            .
-          </p>
-          <p>
-            Photography is campaign stills — concept images, not photographs of documented myCHEF Hawaiʻi events.
-          </p>
-          <p className="pt-2 text-ivory/40">© {new Date().getFullYear()} myCHEF Hawaii</p>
-        </div>
+        <p className="mt-12 border-t border-white/10 pt-6 text-[12px] leading-relaxed text-ivory/50">
+          Signature dinner from $125 a guest on Oʻahu. Written quote is the confirmed total.{' '}
+          <Link to={href('/legal')} className="underline underline-offset-2">
+            Legal
+          </Link>
+          . © {new Date().getFullYear()} myCHEF Hawaii.
+        </p>
       </div>
     </footer>
   );

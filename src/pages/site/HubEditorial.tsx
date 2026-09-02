@@ -16,7 +16,7 @@ export default function HubEditorial({ kind }: { kind: 'journal' | 'blog' }) {
       />
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">
+          <p className="text-[12px] text-ink-soft">
             Statewide directory
           </p>
           <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-medium leading-[1.1] text-ink">
@@ -35,7 +35,7 @@ export default function HubEditorial({ kind }: { kind: 'journal' | 'blog' }) {
                   key={id}
                   island={id}
                   path={`/${kind}`}
-                  className="rounded-[14px] border border-stone bg-white p-5 shadow-soft transition-colors hover:border-clay/40"
+                  className="border border-stone bg-white p-5 transition-colors hover:border-clay/40"
                 >
                   <p className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-clay">
                     {isl.name}

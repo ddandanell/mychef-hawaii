@@ -108,7 +108,7 @@ export default function BigIslandVacationChef() {
                 key={row.label}
                 className={`grid items-center gap-8 lg:grid-cols-2 ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
               >
-                <Reveal className="overflow-hidden rounded-[14px]">
+                <Reveal className="overflow-hidden ">
                   <img
                     src={row.image}
                     alt={row.alt}
@@ -117,7 +117,7 @@ export default function BigIslandVacationChef() {
                   />
                 </Reveal>
                 <Reveal delay={0.1}>
-                  <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">{row.label}</p>
+                  <p className="text-[12px] text-ink-soft">{row.label}</p>
                   <p className="mt-3 max-w-[50ch] font-display text-[1.625rem] font-medium leading-[1.3] text-ink">
                     {row.text}
                   </p>

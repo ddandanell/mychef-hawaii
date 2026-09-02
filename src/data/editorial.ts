@@ -103,7 +103,7 @@ function journalSeeds(id: IslandId): Omit<Article, 'kind'>[] {
       description: z.honestyLine,
       h1: z.headline,
       lede: `${z.honestyLine} Areas: ${areaNames}.`,
-      sections: z.zones.map((zone) => ({ heading: `${zone.name} — Zone ${zone.code}`, body: `${zone.note}${zone.driveTime ? ` Drive: ${zone.driveTime}.` : ''}` })),
+      sections: z.zones.map((zone) => ({ heading: zone.name, body: `${zone.note}${zone.driveTime ? ` Drive: ${zone.driveTime}.` : ''}` })),
     },
     {
       slug: 'vacation-chef-week',
@@ -160,7 +160,6 @@ const extraBlogSlugs: { slug: string; topic: string }[] = [
   { slug: 'fish-species', topic: 'fish named as food, not as décor' },
   { slug: 'coffee-labeling', topic: 'coffee origin labeling — Act 198 from 2027' },
   { slug: 'no-fake-reviews', topic: 'why there are no Hawaiʻi star ratings yet' },
-  { slug: 'international-family', topic: 'the international family, geography-labeled' },
 ];
 
 export function articlesFor(island: IslandId): Article[] {

@@ -1,8 +1,5 @@
-import { Link } from 'react-router';
-import { ArrowRight } from 'lucide-react';
 import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
-import { useIsland } from '@/context/IslandContext';
 import type { IslandId } from '@/data/islands';
 import { islands } from '@/data/islands';
 import { locationsFor } from '@/data/locations';
@@ -15,6 +12,10 @@ const zoneLabel: Record<ZoneClass, string> = {
   'quote-only': 'Quote-only',
 };
 
+/**
+ * Place names only — neighborhood URLs are deferred (301 to the island home).
+ * Do not link /wailea, /honolulu, /kona, or any other doorway slug.
+ */
 export default function LocationGrid({
   islandId,
   eyebrow = 'Where we cook',
@@ -27,9 +28,6 @@ export default function LocationGrid({
   intro?: string;
 }) {
   const island = islands[islandId];
-  const { href, islandId: ctxId } = useIsland();
-  const pathFor = (slug: string) =>
-    ctxId === islandId ? href(`/locations/${slug}`) : `${island.basePath}/locations/${slug}`;
   const rows = locationsFor(islandId);
   if (!rows.length) return null;
 
@@ -39,18 +37,9 @@ export default function LocationGrid({
         <SectionHead eyebrow={eyebrow} title={title} intro={intro} />
         <Reveal stagger className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {rows.map((loc) => (
-            <Link
-              key={loc.slug}
-              to={pathFor(loc.slug)}
-              className="group flex flex-col overflow-hidden rounded-[14px] border border-stone bg-white shadow-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_2px_4px_rgba(34,29,21,.06),0_20px_44px_-12px_rgba(34,29,21,.2)]"
-            >
+            <article key={loc.slug} className="flex flex-col overflow-hidden border border-stone bg-white">
               <div className="aspect-[16/10] overflow-hidden">
-                <img
-                  src={loc.hero}
-                  alt={loc.heroAlt}
-                  loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]"
-                />
+                <img src={loc.hero} alt={loc.heroAlt} loading="lazy" className="h-full w-full object-cover" />
               </div>
               <div className="flex flex-1 flex-col p-4 lg:p-5">
                 <div className="flex flex-wrap items-center gap-2">
@@ -60,12 +49,9 @@ export default function LocationGrid({
                   </StatusChip>
                 </div>
                 <p className="mt-1.5 flex-1 text-sm leading-relaxed text-ink-soft">{loc.area}</p>
-                <span className="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-clay">
-                  {loc.name} page
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </span>
+                <p className="mt-4 text-sm text-ink-soft">Covered on the {island.name} home — not its own URL.</p>
               </div>
-            </Link>
+            </article>
           ))}
         </Reveal>
       </div>

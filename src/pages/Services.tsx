@@ -59,7 +59,7 @@ function ClipImage({
 
   return (
     <figure className={className}>
-      <div ref={ref} className="overflow-hidden rounded-[14px] shadow-soft">
+      <div ref={ref} className="overflow-hidden ">
         <img
           src={src}
           alt={alt}
@@ -95,15 +95,8 @@ function MonoChips({ items }: { items: string[] }) {
 
 function AvailabilityRow() {
   return (
-    <span className="flex flex-wrap gap-x-4 gap-y-2 font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-      <span className="inline-flex items-center gap-2">
-        <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-moss" />
-        Oʻahu &amp; Maui — booking now
-      </span>
-      <span className="inline-flex items-center gap-2">
-        <span aria-hidden="true" className="inline-block h-1.5 w-1.5 rounded-full bg-brass" />
-        Kauaʻi &amp; Hawaiʻi Island — inquiry stage
-      </span>
+    <span className="text-[12px] text-ink-soft">
+      Oʻahu, Maui, Kauaʻi and Hawaiʻi Island — booking now
     </span>
   );
 }
@@ -171,7 +164,7 @@ function Header() {
   return (
     <section className="bg-ivory py-20 lg:py-28">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Services</p>
+        <p className="text-[12px] text-ink-soft">Services</p>
         <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
           <WordMask text="Private dining, four ways." delay={0.15} />
         </h1>
@@ -206,7 +199,7 @@ function PrivateChefBlock() {
       bg="sand"
       image={photos.mauiKitchen.file}
       alt={photos.mauiKitchen.alt}
-      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
+      caption=""
     >
       <BlockTitle>The signature in-villa dinner.</BlockTitle>
       <BlockBody>
@@ -232,7 +225,7 @@ function PrivateChefBlock() {
         <IslandCta to="/oahu/private-chef">Oʻahu private chef</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-        Kauaʻi &amp; Hawaiʻi Island: inquiry list
+        Kauaʻi &amp; Hawaiʻi Island: booking now
       </span>
     </ServiceBlock>
   );
@@ -246,7 +239,7 @@ function PrivateDiningBlock() {
       bg="ivory"
       image={photos.kapaluaTwo.file}
       alt={photos.kapaluaTwo.alt}
-      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
+      caption=""
     >
       <BlockTitle>Celebrations and dinners-for-two.</BlockTitle>
       <BlockBody>
@@ -275,7 +268,7 @@ function PrivateDiningBlock() {
         <IslandCta to="/oahu/private-chef">Oʻahu celebrations</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-        Kauaʻi &amp; Hawaiʻi Island: inquiry list
+        Kauaʻi &amp; Hawaiʻi Island: booking now
       </span>
     </ServiceBlock>
   );
@@ -302,7 +295,7 @@ function CateringBlock() {
         <IslandCta to="/maui/wedding-catering">Maui wedding catering</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase leading-5 tracking-[0.08em] text-ink-soft">
-        Maui events via the wedding-week team · Neighbor islands: inquiry
+        Neighbor islands: booking now
       </span>
     </ServiceBlock>
   );
@@ -316,7 +309,7 @@ function BarBlock() {
       bg="ivory"
       image={photos.bar.file}
       alt={photos.bar.alt}
-      caption="Campaign still — not a documented myCHEF Hawaiʻi event."
+      caption=""
     >
       <BlockTitle>A bartender on the terrace.</BlockTitle>
       <BlockBody>
@@ -360,7 +353,7 @@ function VacationChefBlock() {
         <IslandCta to="/oahu/vacation-chef">Oʻahu vacation chef</IslandCta>
       </span>
       <span className="mt-4 block font-mono text-[0.6875rem] uppercase tracking-[0.08em] text-ink-soft">
-        Kauaʻi &amp; Hawaiʻi Island: inquiry list
+        Kauaʻi &amp; Hawaiʻi Island: booking now
       </span>
     </ServiceBlock>
   );
@@ -406,7 +399,7 @@ function WeddingBand() {
       </div>
       <div className="relative mx-auto w-full max-w-[720px] px-5 py-24 text-center lg:py-36">
         <Reveal>
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">Weddings</p>
+          <p className="text-[12px] text-ink-soft">Weddings</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ivory">
             The wedding week, not just the wedding night.
           </h2>
@@ -420,15 +413,15 @@ function WeddingBand() {
         <Reveal delay={0.22}>
           <Link
             to="/maui/wedding-catering"
-            className="mt-8 inline-flex items-center gap-1.5 rounded-full bg-ivory px-6 py-3 text-sm font-medium text-ink transition-all duration-200 hover:-translate-y-px hover:bg-white active:scale-[0.97]"
+            className="mt-8 inline-flex items-center gap-1.5 rounded-full bg-ivory px-6 py-3 text-sm font-medium text-ink transition-all duration-200 hover:bg-white active:scale-[0.97]"
           >
             Maui wedding catering
             <ArrowRight className="h-4 w-4" />
           </Link>
         </Reveal>
         <Reveal delay={0.3}>
-          <p className="mt-10 font-mono text-[0.625rem] uppercase tracking-[0.1em] text-ivory/50">
-            Concept image — campaign still, not a documented myCHEF Hawaiʻi event.
+          <p className="mt-10 text-[12px] text-ivory/50">
+            Wedding-week table.
           </p>
         </Reveal>
       </div>
@@ -449,7 +442,7 @@ function HowToBookStrip() {
     <section className="bg-ivory py-20 lg:py-28">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
         <Reveal className="max-w-2xl">
-          <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">How to Book</p>
+          <p className="text-[12px] text-ink-soft">How to Book</p>
           <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
             Three steps to the table.
           </h2>

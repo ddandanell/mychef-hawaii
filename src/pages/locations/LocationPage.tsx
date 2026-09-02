@@ -4,12 +4,13 @@ import { ArrowRight } from 'lucide-react';
 import PageMeta from '@/components/PageMeta';
 import QuoteTeaserBand from '@/components/QuoteTeaserBand';
 import Reveal from '@/components/Reveal';
-import StatusChip from '@/components/StatusChip';
 import { useIsland } from '@/context/IslandContext';
 import { islands } from '@/data/islands';
 import type { IslandId } from '@/data/islands';
-import { areasFor, getArea } from '@/data/areas';
-import { getLocation, locationsFor } from '@/data/locations';
+import { getArea } from '@/data/areas';
+import { getLocation } from '@/data/locations';
+import { getMoneyNeighborhood } from '@/data/offers';
+import NeighborhoodMoneyPage from '@/pages/locations/NeighborhoodMoneyPage';
 import {
   FaqSection,
   HeroEyebrow,
@@ -33,20 +34,22 @@ export default function LocationPage() {
   const { island: islandParam, slug } = useParams();
   const { islandId: ctxIsland, href, toHub } = useIsland();
   const islandId = ISLAND_IDS.find((id) => id === islandParam) ?? ctxIsland;
+  if (islandId && slug && getMoneyNeighborhood(islandId, slug)) {
+    return <NeighborhoodMoneyPage />;
+  }
   const loc = islandId && slug ? getLocation(islandId, slug) : undefined;
   const area = islandId && slug ? getArea(islandId, slug) : undefined;
 
   if (!islandId || !slug) return <NotFound />;
   if (!loc && area) {
     const island = islands[islandId];
-    const others = areasFor(islandId).filter((a) => a.slug !== area.slug);
     const chip = zoneChip[area.zoneClass];
     return (
       <>
         <PageMeta title={`Private chef ${area.name} — myCHEF ${island.name}`} description={area.blurb} />
         <HeroFrame island={island}>
           <HeroEyebrow island={island} />
-          <p className="mt-3 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ivory/70">
+          <p className="mt-3 text-[12px] text-ivory/70">
             {area.name} · {chip.label}
           </p>
           <HeroH1 text={`A chef in ${area.name}.`} />
@@ -64,30 +67,33 @@ export default function LocationPage() {
             <div>
               <SectionHead eyebrow="Logistics" title="Published, not discovered." />
               <p className="mt-6 text-[1.0625rem] leading-[1.65] text-ink-soft">{area.logistics}</p>
-              <Link to={href('/locations')} className="mt-6 inline-block text-sm font-medium text-clay">
-                All {island.name} areas
+              <Link to={href('/private-chef')} className="mt-6 inline-block text-sm font-medium text-clay">
+                Private chef — {island.name}
               </Link>
             </div>
           </div>
         </section>
-        {others.length > 0 && (
-          <section className="bg-sand py-16">
+        <section className="bg-sand py-16">
             <div className="mx-auto max-w-container px-5 lg:px-10">
-              <SectionHead eyebrow={island.name} title="Other areas on this island." />
+              <SectionHead eyebrow={island.name} title="Also on this island." />
               <div className="mt-8 flex flex-wrap gap-2">
-                {others.map((a) => (
+                {[
+                  { to: href('/private-chef'), label: 'Private chef' },
+                  { to: href('/catering'), label: 'Catering' },
+                  { to: href('/weddings'), label: 'Weddings' },
+                  { to: href('/pricing'), label: 'Pricing' },
+                ].map((l) => (
                   <Link
-                    key={a.slug}
-                    to={href(`/locations/${a.slug}`)}
-                    className="inline-flex rounded-full border border-stone bg-white px-4 py-2 text-sm text-ink hover:border-clay/40"
+                    key={l.to}
+                    to={l.to}
+                    className="inline-flex border border-stone bg-white px-4 py-2 text-sm text-ink hover:border-clay/40"
                   >
-                    {a.name}
+                    {l.label}
                   </Link>
                 ))}
               </div>
             </div>
           </section>
-        )}
         <QuoteTeaserBand />
       </>
     );
@@ -95,14 +101,12 @@ export default function LocationPage() {
   if (!loc) return <NotFound />;
 
   const island = islands[islandId];
-  const siblings = locationsFor(islandId).filter((l) => l.slug !== loc.slug);
   const crumbs = [
     { label: 'Hawaii', to: toHub('/') },
     { label: island.name, to: href('/') },
     { label: loc.name, to: href(`/locations/${loc.slug}`) },
   ];
   const inquiry = island.state === 'inquiry';
-  const chip = zoneChip[loc.zoneClass];
 
   return (
     <>
@@ -137,9 +141,7 @@ export default function LocationPage() {
           <div className="mt-5">
             <HeroEyebrow island={island} />
           </div>
-          <p className="mt-3 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-ivory/70">
-            {loc.area} · Zone {loc.zoneCode}
-          </p>
+          <p className="mt-3 text-[12px] text-ivory/70">{loc.area}</p>
         </motion.div>
         <HeroH1 text={loc.h1} />
         <motion.div
@@ -150,26 +152,14 @@ export default function LocationPage() {
           <p className="mt-6 max-w-[65ch] text-[1.0625rem] leading-[1.65] text-ivory/90 lg:text-[1.125rem]">
             {loc.lede}
           </p>
-          <div className="mt-6">
-            <StatusChip kind={chip.kind} onDark>
-              {chip.label}
-            </StatusChip>
-          </div>
           <div className="mt-8 flex flex-wrap items-center gap-5">
             <Link
               to={loc.quoteQuery}
-              className={
-                inquiry
-                  ? 'inline-flex items-center rounded-full bg-brass px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:brightness-110 active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-brass'
-                  : 'inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[3px] focus-visible:outline-clay'
-              }
+              className="inline-flex h-12 items-center bg-[#F6F1E8] px-6 text-sm font-medium text-ink"
             >
-              {inquiry ? 'Join the Inquiry List' : 'Request a Quote'}
+              {inquiry ? 'Join the inquiry list' : 'Request a quote'}
             </Link>
-            <Link
-              to={href('/')}
-              className="text-sm font-medium text-ivory/90 underline decoration-brass/60 underline-offset-4 transition-colors hover:text-white"
-            >
+            <Link to="/" className="text-sm text-ivory/90 underline underline-offset-4">
               {island.name} home
             </Link>
           </div>
@@ -189,10 +179,10 @@ export default function LocationPage() {
             </Reveal>
           </div>
           <Reveal delay={0.12}>
-            <div className="rounded-[14px] border border-stone bg-sand p-6 lg:p-8">
-              <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Fit</p>
+            <div className="border border-stone bg-sand p-6 lg:p-8">
+              <p className="text-[12px] text-ink-soft">Fit</p>
               <p className="mt-3 text-[1.0625rem] leading-[1.65] text-ink">{loc.fit}</p>
-              <p className="mt-8 font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Logistics</p>
+              <p className="mt-8 text-[12px] text-ink-soft">Logistics</p>
               <p className="mt-3 text-[1.0625rem] leading-[1.65] text-ink">{loc.logistics}</p>
               <Link
                 to={loc.quoteQuery}
@@ -208,24 +198,27 @@ export default function LocationPage() {
 
       <FaqSection heading={`Asked in ${loc.name}.`} faqs={loc.faqs} bg="bg-sand" />
 
-      {siblings.length > 0 && (
-        <section className="bg-ivory py-20 lg:py-28">
-          <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-            <SectionHead eyebrow={island.name} title="Other areas on this island." />
-            <Reveal stagger className="mt-10 flex flex-wrap gap-3">
-              {siblings.map((s) => (
-                <Link
-                  key={s.slug}
-                  to={href(`/locations/${s.slug}`)}
-                  className="inline-flex items-center rounded-full border border-stone bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-clay/50"
-                >
-                  {s.name}
-                </Link>
-              ))}
-            </Reveal>
-          </div>
-        </section>
-      )}
+      <section className="bg-ivory py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+          <SectionHead eyebrow={island.name} title="Also on this island." />
+          <Reveal stagger className="mt-10 flex flex-wrap gap-3">
+            {[
+              { to: href('/private-chef'), label: 'Private chef' },
+              { to: href('/catering'), label: 'Catering' },
+              { to: href('/weddings'), label: 'Weddings' },
+              { to: href('/pricing'), label: 'Pricing' },
+            ].map((l) => (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="inline-flex items-center border border-stone bg-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:border-clay/50"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </Reveal>
+        </div>
+      </section>
 
       <QuoteTeaserBand
         headline={inquiry ? `Tell us your dates in ${loc.name}.` : `Cook in ${loc.name}.`}

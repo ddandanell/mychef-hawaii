@@ -1,4 +1,3 @@
-import Contours from '@/components/Contours';
 import HostLink from '@/components/HostLink';
 import { useIsland } from '@/context/IslandContext';
 import { islandOrder, islands } from '@/data/islands';
@@ -8,9 +7,8 @@ export default function NotFound() {
   const { island } = useIsland();
   return (
     <section className="relative overflow-hidden bg-ivory py-24 lg:py-32">
-      <Contours className="absolute -left-24 -bottom-16 h-96 w-[520px] opacity-[0.06]" stroke="#A34A28" />
       <div className="relative mx-auto w-full max-w-container px-5 lg:px-10">
-        <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">404 — Page not found</p>
+        <p className="text-[12px] text-ink-soft">404 — Page not found</p>
         <h1 className="mt-4 max-w-2xl font-display text-[clamp(2.5rem,6vw,4.5rem)] font-medium leading-[1.05] tracking-[-0.02em] text-ink">
           This table isn&apos;t set.
         </h1>
@@ -21,7 +19,7 @@ export default function NotFound() {
         <div className="mt-8 flex flex-wrap gap-3">
           <HostLink
             island={island ? island.id : 'root'}
-            className="inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]"
+            className="inline-flex h-12 items-center bg-ink px-6 text-sm font-medium text-[#F6F1E8]"
           >
             {island ? `${island.name} home` : 'Home'}
           </HostLink>

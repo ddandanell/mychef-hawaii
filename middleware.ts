@@ -1,7 +1,15 @@
-import { next, rewrite } from '@vercel/functions';
+import { next } from '@vercel/functions';
 
 const PRODUCTION_ROOT = 'mychef-hawaii.com';
 const ISLANDS = ['oahu', 'maui', 'kauai', 'bigisland'] as const;
+
+/** Deferred neighborhood slugs — 301 to the island home. Not their own URLs. */
+const DEFERRED: Record<(typeof ISLANDS)[number], readonly string[]> = {
+  oahu: ['honolulu', 'waikiki', 'kailua', 'north-shore', 'kahala', 'ko-olina'],
+  maui: ['wailea', 'kaanapali', 'lahaina', 'kihei', 'kapalua', 'makena'],
+  kauai: ['princeville', 'poipu', 'hanalei', 'kapaa'],
+  bigisland: ['kona', 'waimea', 'waikoloa', 'kohala'],
+};
 
 function firstLabel(hostname: string): string {
   return hostname.split(':')[0]?.split('.')[0]?.toLowerCase() ?? '';
@@ -12,10 +20,58 @@ function isApexNetwork(hostname: string): boolean {
   return h === PRODUCTION_ROOT || h === `www.${PRODUCTION_ROOT}` || h.endsWith(`.${PRODUCTION_ROOT}`);
 }
 
+type MapHost = 'hub' | (typeof ISLANDS)[number];
+const MASTER: { host: MapHost; path: string }[] = [
+  { host: 'hub', path: '/' },
+  { host: 'hub', path: '/catering' },
+  { host: 'hub', path: '/weddings' },
+  { host: 'hub', path: '/about' },
+  { host: 'oahu', path: '/' },
+  { host: 'oahu', path: '/catering' },
+  { host: 'oahu', path: '/weddings' },
+  { host: 'maui', path: '/' },
+  { host: 'maui', path: '/catering' },
+  { host: 'maui', path: '/weddings' },
+  { host: 'kauai', path: '/' },
+  { host: 'kauai', path: '/catering' },
+  { host: 'bigisland', path: '/' },
+];
+
+function xmlEscape(s: string): string {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+}
+
+function loc(host: MapHost, path: string): string {
+  const hostname = host === 'hub' ? PRODUCTION_ROOT : `${host}.${PRODUCTION_ROOT}`;
+  const clean = path.startsWith('/') ? path : `/${path}`;
+  return `https://${hostname}${clean === '/' ? '/' : clean}`;
+}
+
+function urlEntry(href: string, priority: string): string {
+  return `  <url>\n    <loc>${xmlEscape(href)}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>${priority}</priority>\n  </url>`;
+}
+
+function urlset(rows: { host: MapHost; path: string }[]): string {
+  const entries = rows.map((r) =>
+    urlEntry(
+      loc(r.host, r.path),
+      r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8',
+    ),
+  );
+  return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${entries.join('\n')}\n</urlset>\n`;
+}
+
+function sitemapXml(hostname: string): string {
+  const first = hostname.split(':')[0]?.split('.')[0]?.toLowerCase() ?? '';
+  const island = (ISLANDS as readonly string[]).includes(first) ? (first as (typeof ISLANDS)[number]) : null;
+  return island ? urlset(MASTER.filter((r) => r.host === island)) : urlset(MASTER);
+}
+
 function isStaticAsset(pathname: string): boolean {
   if (pathname === '/index.html') return true;
   if (pathname.startsWith('/assets/')) return true;
   if (pathname.startsWith('/photos/')) return true;
+  if (pathname.startsWith('/about/') && /\.[a-zA-Z0-9]+$/.test(pathname)) return true;
   if (pathname.startsWith('/api/')) return true;
   if (pathname.startsWith('/_vercel/')) return true;
   if (pathname === '/seo-map.json') return true;
@@ -54,21 +110,51 @@ export default function middleware(request: Request) {
     }
   }
 
-  if (path === '/sitemap.xml' || path === '/sitemap-hub.xml') {
-    if (host.endsWith('.vercel.app') || host.endsWith('.now.sh')) {
-      url.pathname = '/sitemaps/vercel.xml';
-    } else if ((host === PRODUCTION_ROOT || host === `www.${PRODUCTION_ROOT}`) && path === '/sitemap.xml') {
-      url.pathname = '/sitemaps/index.xml';
-    } else if (host.endsWith(`.${PRODUCTION_ROOT}`) && (ISLANDS as readonly string[]).includes(label)) {
-      url.pathname = `/sitemaps/${label}.xml`;
-    } else {
-      url.pathname = '/sitemaps/hub.xml';
+  // Island host: doorway / neighborhood slugs collapse to the island home.
+  if (host.endsWith(`.${PRODUCTION_ROOT}`) && (ISLANDS as readonly string[]).includes(label)) {
+    const segs = path.split('/').filter(Boolean);
+    const first = segs[0] ?? '';
+    const deferred = DEFERRED[label as (typeof ISLANDS)[number]];
+    if (first && deferred?.includes(first) && segs.length === 1) {
+      const dest = new URL('/', `https://${label}.${PRODUCTION_ROOT}`);
+      dest.search = url.search;
+      return Response.redirect(dest, 301);
     }
-    return rewrite(url);
+    if (first === 'locations') {
+      const dest = new URL('/', `https://${label}.${PRODUCTION_ROOT}`);
+      dest.search = url.search;
+      return Response.redirect(dest, 301);
+    }
+    if (first === 'private-chef' && segs.length > 1) {
+      const dest = new URL('/private-chef', `https://${label}.${PRODUCTION_ROOT}`);
+      dest.search = url.search;
+      return Response.redirect(dest, 301);
+    }
+  }
+
+  // Serve sitemap + robots here. A hop to /api/sitemap 500s when that
+  // function is missing or fails to boot — live robots.txt points at this URL.
+  if (path === '/sitemap.xml' || path === '/sitemap-hub.xml') {
+    return new Response(sitemapXml(host), {
+      status: 200,
+      headers: {
+        'content-type': 'application/xml; charset=utf-8',
+        'cache-control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      },
+    });
   }
   if (path === '/robots.txt') {
-    url.pathname = '/api/robots';
-    return rewrite(url);
+    const originHost =
+      (ISLANDS as readonly string[]).includes(label) ? `${label}.${PRODUCTION_ROOT}` : PRODUCTION_ROOT;
+    const origin = `https://${originHost}`;
+    const body = `User-agent: *\nAllow: /\n\nHost: ${origin}\nSitemap: ${origin}/sitemap.xml\n`;
+    return new Response(body, {
+      status: 200,
+      headers: {
+        'content-type': 'text/plain; charset=utf-8',
+        'cache-control': 'public, s-maxage=3600',
+      },
+    });
   }
 
   return next();

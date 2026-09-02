@@ -79,7 +79,7 @@ export default function KauaiEvents() {
         title="Fifteen to seventy-five guests. Kauaʻi’s unserved band."
         lede="The local chef ceiling is 15 guests; the resorts start making sense at 75. Between them sits the island’s real event market — estate weddings, retreat weeks, celebration feasts — with nobody staffed to serve it. That gap is the planned flagship, and your dated inquiry is the evidence that launches it."
         image="/photos/maui-wedding-long-table-banyan-dusk.jpg"
-        imageAlt="A wedding-week long table under a banyan at dusk. Campaign still, not a documented event."
+        imageAlt="A wedding-week long table under a banyan at dusk."
         chips={
           <>
             <PlainChip onDark>1,660 Kauaʻi weddings in 2024 (official) · peaks Sep / Oct / May</PlainChip>
@@ -105,7 +105,7 @@ export default function KauaiEvents() {
             {segments.map((s) => (
               <div
                 key={s.title}
-                className="rounded-[14px] border border-stone bg-white p-6 shadow-soft transition-all duration-300 hover:-translate-y-1"
+                className="border border-stone bg-white p-6 transition-all duration-300 "
               >
                 <div className="flex flex-wrap items-center gap-2">
                   <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{s.title}</h3>
@@ -131,7 +131,7 @@ export default function KauaiEvents() {
             title="Priced, staffed retreat catering."
             body="The island’s retreat niche is held by an incumbent that publishes no prices across four pages. The planned answer: per-person-per-day retreat catering with dietary frameworks (vegan, gluten-free, protocol-driven) held across the whole stay — priced on the quote, staffed on the day."
           />
-          <Reveal delay={0.1} className="overflow-hidden rounded-[14px]">
+          <Reveal delay={0.1} className="overflow-hidden ">
             <img
               src="/photos/island-kauai.jpg"
               alt="Garden estate outdoor table under mature trees with a linen tablecloth in soft overcast light"
@@ -166,7 +166,7 @@ export default function KauaiEvents() {
       <section className="bg-ivory py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[720px] px-5 text-center lg:px-10">
           <Reveal>
-            <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-clay">Concierge & planners</p>
+            <p className="text-[12px] text-ink-soft">Concierge & planners</p>
             <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-medium leading-[1.1] tracking-[-0.015em] text-ink">
               Referred, not searched.
             </h2>

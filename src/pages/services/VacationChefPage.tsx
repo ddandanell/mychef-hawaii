@@ -11,7 +11,8 @@ import {
   serviceJsonLd,
   useHashScroll,
 } from '@/pages/services/ServicePage';
-import type { LiveIslandId, ServiceFaqItem } from '@/pages/services/ServicePage';
+import type { IslandId } from '@/data/islands';
+import type { ServiceFaqItem } from '@/pages/services/ServicePage';
 
 /**
  * Vacation Chef — multi-day villa residency + weekly household service
@@ -26,7 +27,7 @@ interface VacationChefContent {
   leadTimeFaq: ServiceFaqItem;
 }
 
-const content: Record<LiveIslandId, VacationChefContent> = {
+const content: Record<IslandId, VacationChefContent> = {
   maui: {
     islandName: 'Maui',
     path: '/maui/vacation-chef',
@@ -43,6 +44,24 @@ const content: Record<LiveIslandId, VacationChefContent> = {
     leadTimeFaq: {
       q: 'What about summer and the holidays?',
       a: 'Summer family travel and the December holidays are Oʻahu’s tightest windows for multi-day service. Weekly household plans are year-round and less seasonal — the standing calendar fills first, so start the conversation early.',
+    },
+  },
+  kauai: {
+    islandName: 'Kauaʻi',
+    path: '/kauai/vacation-chef',
+    h1: 'A chef for your Kauaʻi week.',
+    leadTimeFaq: {
+      q: 'Princeville winters vs Poʻipū weeks?',
+      a: 'North Shore surf season books first. South Shore is steadier. Stay Chef from $1,100/day. WhatsApp the house and the dates — Kauaʻi is bookable now.',
+    },
+  },
+  bigisland: {
+    islandName: 'Hawaiʻi Island',
+    path: '/bigisland/vacation-chef',
+    h1: 'A chef for the Kohala week.',
+    leadTimeFaq: {
+      q: 'Ironman and event weeks?',
+      a: 'Those weeks compress west-side availability. Flag them early. Stay Chef from $950/day. Hilo is not a same-day add-on from Kona.',
     },
   },
 };
@@ -99,7 +118,7 @@ function DayStory() {
               key={row.label}
               className={`grid items-center gap-8 lg:grid-cols-2 ${i % 2 === 1 ? 'lg:[&>*:first-child]:order-2' : ''}`}
             >
-              <Reveal className="overflow-hidden rounded-[14px]">
+              <Reveal className="overflow-hidden ">
                 <img
                   src={row.image}
                   alt={row.alt}
@@ -108,7 +127,7 @@ function DayStory() {
                 />
               </Reveal>
               <Reveal delay={0.1}>
-                <p className="font-mono text-[0.75rem] uppercase tracking-[0.18em] text-brass">{row.label}</p>
+                <p className="text-[12px] text-ink-soft">{row.label}</p>
                 <p className="mt-3 max-w-[50ch] font-display text-[1.625rem] font-medium leading-[1.3] text-ink">
                   {row.text}
                 </p>
@@ -123,7 +142,7 @@ function DayStory() {
 
 /* ---------------- Section 3 — How multi-day pricing works ---------------- */
 
-function PricingModel({ island, islandName }: { island: LiveIslandId; islandName: string }) {
+function PricingModel({ island, islandName }: { island: IslandId; islandName: string }) {
   const vacationOffer = getOtherOffer('vacation-chef');
   return (
     <section id="pricing-model" className="bg-sand py-20 lg:py-28">
@@ -134,7 +153,7 @@ function PricingModel({ island, islandName }: { island: LiveIslandId; islandName
           body="An all-day chef can’t stack events — multi-day is priced for utilization, which is why per-day beats per-dinner across a stay."
         />
         <Reveal delay={0.1}>
-          <div className="rounded-[14px] border border-stone bg-white p-6 shadow-soft lg:p-8">
+          <div className="border border-stone bg-white p-6 lg:p-8">
             <p className="font-mono text-[0.75rem] uppercase tracking-[0.14em] text-ink-soft">
               Worked example — 8 guests · 5 days · {islandName}
             </p>
@@ -183,7 +202,7 @@ function OahuWeekly() {
           <BandChip label="4-week minimum posture" />
           <Link
             to="/quote?island=oahu&service=weekly"
-            className="mt-2 inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]"
+            className="mt-2 inline-flex h-12 items-center bg-ink px-6 text-sm font-medium text-[#F6F1E8]"
           >
             Start a household plan
           </Link>
@@ -205,7 +224,7 @@ function MauiRetreats() {
         <Reveal delay={0.15} className="mt-8">
           <Link
             to="/quote?island=maui&service=vacation-chef"
-            className="inline-flex items-center rounded-full bg-clay px-6 py-3 text-sm font-medium text-white transition-all duration-200 hover:-translate-y-px hover:bg-clay-deep active:scale-[0.97]"
+            className="inline-flex h-12 items-center bg-ink px-6 text-sm font-medium text-[#F6F1E8]"
           >
             Plan a retreat week
           </Link>
@@ -247,7 +266,7 @@ function Practicalities() {
         <SectionIntro eyebrow="Practicalities" title="The unglamorous parts, answered." />
         <Reveal stagger staggerDelay={0.07} className="mt-12 grid gap-4 md:grid-cols-2 lg:gap-6">
           {tiles.map((t) => (
-            <div key={t.title} className="rounded-[14px] border border-stone bg-white p-6 shadow-soft">
+            <div key={t.title} className="border border-stone bg-white p-6 ">
               <h3 className="font-display text-[1.375rem] font-medium leading-[1.2] text-ink">{t.title}</h3>
               <div className="mt-3 text-[1.0625rem] leading-[1.65] text-ink-soft">{t.body}</div>
             </div>
@@ -260,14 +279,14 @@ function Practicalities() {
 
 /* ---------------- Page ---------------- */
 
-export default function VacationChefPage({ island }: { island: LiveIslandId }) {
+export default function VacationChefPage({ island }: { island: IslandId }) {
   useHashScroll();
   const c = content[island];
   const vacationOffer = getOtherOffer('vacation-chef');
   const weeklyOffer = getOtherOffer('weekly-meal-prep');
   const crumbs = [
     { label: 'Home', to: '/' },
-    { label: c.islandName, to: `/${island}` },
+    { label: c.islandName, to: '/' },
     { label: 'Vacation Chef' },
   ];
 
@@ -279,7 +298,9 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
         title={c.h1}
         lede="Breakfast through dinner, provisioning managed, menus that evolve across the stay. Up to three meals a day; groceries at cost, always itemised."
         image="/photos/vacation-chef-morning-breakfast-pool.jpg"
-        imageAlt="A vacation chef plating morning fruit and eggs by a villa pool. Campaign still, not a documented event."
+        imageAlt="A vacation chef plating morning fruit and eggs by a villa pool."
+        island={island}
+        whatsappIntent="a vacation chef for the week"
         chips={
           <>
             {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, island)}`} /> : null}
@@ -288,7 +309,7 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
             ) : null}
           </>
         }
-        primary={{ label: 'Check availability', to: `/quote?island=${island}&service=vacation-chef` }}
+        primary={{ label: 'Get a quote', to: `/quote?island=${island}&service=vacation-chef` }}
         secondary={{ label: 'How multi-day pricing works ↓', to: '#pricing-model' }}
       />
       <DayStory />
