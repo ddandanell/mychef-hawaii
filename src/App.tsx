@@ -1,5 +1,5 @@
 import { Component, Fragment, type ReactNode } from 'react';
-import { Routes, Route } from 'react-router';
+import { Navigate, Routes, Route } from 'react-router';
 import Layout from '@/components/Layout';
 import { detectIslandFromHost } from '@/config/site';
 import { IslandProvider } from '@/context/IslandContext';
@@ -52,6 +52,7 @@ function HubRoutes() {
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/overview" element={<Navigate to="/" replace />} />
         <Route path="/islands" element={<Islands />} />
         <Route path="/services" element={<Services />} />
         <Route path="/how-it-works" element={<HowItWorks />} />

@@ -38,7 +38,7 @@ export const islands: Record<IslandId, IslandMeta> = {
     hue: '#C4A056',
     role: 'Luxury villa dining and wedding weeks — our primary island.',
     basePath: '/maui',
-    selectorImage: '/photos/maui-wailea-kitchen-plating.jpg',
+    selectorImage: '/photos/maui-villa-terrace-cocktail-bar.jpg',
     selectorCta: 'Enter the Maui site',
     stateLabel: 'Booking now',
   },

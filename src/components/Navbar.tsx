@@ -9,8 +9,8 @@ import { cn } from '@/lib/utils';
 
 /**
  * Navbar (design.md §8.1) — sticky, all pages.
- * Positioning contract: sticky top-0 z-50 in normal flow; no page needs
- * offset bookkeeping. No phone number in the header (launch gate).
+ * Wordmark always goes to this host's front page: hub `/`, island subdomain `/`,
+ * path clone `/oahu` (never `/overview`, never the hub from an island host).
  */
 
 const rootLinks = [
@@ -133,7 +133,7 @@ function IslandSwitcher({ onNavigate }: { onNavigate?: () => void }) {
 }
 
 export default function Navbar() {
-  const { island, href, state } = useIsland();
+  const { island, href, state, homePath } = useIsland();
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
@@ -159,7 +159,6 @@ export default function Navbar() {
       ]
     : [...rootLinks, { label: 'Journal', to: '/journal' }];
 
-  const homeTarget = href('/');
   const ctaLabel = state === 'inquiry' ? 'Join the Inquiry List' : 'Request a Quote';
 
   return (
@@ -176,7 +175,7 @@ export default function Navbar() {
           scrolled ? 'h-[60px]' : 'h-[72px]',
         )}
       >
-        <Link to={homeTarget} aria-label={island ? `myCHEF ${island.name} home` : 'myCHEF Hawaii home'} className="shrink-0">
+        <Link to={homePath} aria-label={island ? `myCHEF ${island.name} home` : 'myCHEF Hawaii home'} className="shrink-0">
           <Wordmark islandName={island?.shortName} />
         </Link>
 

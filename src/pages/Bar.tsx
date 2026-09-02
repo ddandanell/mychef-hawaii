@@ -30,8 +30,8 @@ const islandsBar: {
     id: 'oahu',
     title: 'Oʻahu terrace bar',
     body: 'Waikīkī residences, Kahala lawns, Ko Olina villas and Kailua houses. Cocktail hour stacked with a chef night, or booked alone.',
-    img: photos.oahuDinner.file,
-    alt: photos.oahuDinner.alt,
+    img: photos.bar.file,
+    alt: photos.bar.alt,
   },
   {
     id: 'maui',
@@ -44,15 +44,15 @@ const islandsBar: {
     id: 'kauai',
     title: 'Kauaʻi estate cocktails',
     body: 'Princeville, Hanalei and Poʻipū. Inquiry-stage — your dates help staff the island team.',
-    img: photos.kauaiNorth.file,
-    alt: photos.kauaiNorth.alt,
+    img: photos.bar.file,
+    alt: photos.bar.alt,
   },
   {
     id: 'bigisland',
     title: 'Kohala Coast pours',
     body: 'Kona–Kohala first. Sunset bar on lava-coast terraces when the west-side team launches.',
-    img: photos.kohalaFish.file,
-    alt: photos.kohalaFish.alt,
+    img: photos.bar.file,
+    alt: photos.bar.alt,
   },
 ];
 

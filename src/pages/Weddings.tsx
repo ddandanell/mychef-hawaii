@@ -29,7 +29,7 @@ const islandsWeddings = [
     body: 'Celebration dinners and weekend stacks in the resort corridors — not a convention-centre product. Ko Olina, Kahala and windward estates are the usual rooms.',
     to: '/oahu/wedding-catering',
     cta: 'Oʻahu wedding catering',
-    img: '/photos/oahu-gold-coast-estate-dinner.jpg',
+    img: '/photos/hawaii-plated-catering-tent-sunset.jpg',
     chip: 'Booking now',
   },
   {
@@ -38,7 +38,7 @@ const islandsWeddings = [
     body: '1,660 non-resident marriages in 2024 (official). Estate formats to about 75 guests, both shores. Inquiry-stage — your dates help set the launch.',
     to: '/kauai/wedding-catering',
     cta: 'Join the Kauaʻi list',
-    img: '/photos/kauai-north-terrace-mist.jpg',
+    img: '/photos/kauai-chef-plating-seared-fish-mountains.jpg',
     chip: 'Inquiry stage',
   },
   {
@@ -47,7 +47,7 @@ const islandsWeddings = [
     body: 'Kohala estates, wedding-week format, gated until a west-side team exists. Inquiry only; no local-entity claim.',
     to: '/bigisland/wedding-catering',
     cta: 'Join the Big Island list',
-    img: '/photos/kohala-lava-coast-table.jpg',
+    img: '/photos/kohala-grilled-whole-fish-lava-golden-hour.jpg',
     chip: 'Inquiry stage',
   },
 ];

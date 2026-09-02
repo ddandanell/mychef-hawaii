@@ -197,12 +197,12 @@ function FiveSteps() {
 
 const settingImages = [
   {
-    src: '/photos/plated-fish-lanai-dusk.jpg',
-    alt: 'Seared fish on dark ceramic on a lava-stone lānai at dusk — campaign still, not a documented event',
+    src: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
+    alt: 'Seared fish on a villa lānai at dusk — campaign still, not a documented event',
   },
   {
-    src: '/photos/gatherings-garden-table-dusk.jpg',
-    alt: 'A long garden table with family-style fish and candles at dusk — campaign still, not a documented event',
+    src: '/photos/hawaii-plated-catering-tent-sunset.jpg',
+    alt: 'Plated long table under a tent on a Hawaiian lawn at sunset — campaign still, not a documented event',
   },
 ];
 

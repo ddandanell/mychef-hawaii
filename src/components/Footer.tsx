@@ -11,7 +11,7 @@ import { islandOrder, islands } from '@/data/islands';
  * No fabricated license numbers, addresses, or phone numbers.
  */
 export default function Footer() {
-  const { state, islandId, href, island } = useIsland();
+  const { state, islandId, href, island, homePath } = useIsland();
   const inquiry = state === 'inquiry';
   const quoteTo = islandId ? href(`/quote?island=${islandId}`) : '/quote';
   const quoteLabel = inquiry ? 'Join the Inquiry List' : 'Request a Quote';
@@ -24,10 +24,12 @@ export default function Footer() {
       <div className="mx-auto w-full max-w-container px-5 pb-10 lg:px-10">
         <div className={`grid gap-10 border-t border-white/10 pt-12 ${islandId ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
           <div>
-            <span className="font-display text-2xl font-semibold tracking-tight text-ivory">
-              my<span className="text-clay">CHEF</span>
-              <span aria-hidden="true" className="ml-0.5 inline-block h-2 w-2 rounded-full bg-clay align-super" />
-            </span>
+            <Link to={homePath} aria-label={island ? `myCHEF ${island.name} home` : 'myCHEF Hawaii home'} className="inline-block">
+              <span className="font-display text-2xl font-semibold tracking-tight text-ivory">
+                my<span className="text-clay">CHEF</span>
+                <span aria-hidden="true" className="ml-0.5 inline-block h-2 w-2 rounded-full bg-clay align-super" />
+              </span>
+            </Link>
             <p className="mt-3 max-w-xs text-sm leading-relaxed text-ivory/70">
               Private chefs, catering, weddings and a mobile bar — quiet luxury, published starting prices.
             </p>

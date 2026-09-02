@@ -10,6 +10,7 @@ import {
   ServiceHero,
   serviceJsonLd,
   useHashScroll,
+  useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
 import type { LiveIslandId, ServiceFaqItem } from '@/pages/services/ServicePage';
 
@@ -51,20 +52,20 @@ const dayRows = [
   {
     label: 'Morning',
     text: 'Coffee, fruit, a proper breakfast before the beach.',
-    image: '/photos/hawaii-produce-fish-sourcing-still.jpg',
-    alt: 'Island produce — avocado, citrus, greens and fish on ice — styled on a wooden table',
+    image: '/photos/oahu-vacation-chef-pool-breakfast.jpg',
+    alt: 'Vacation-chef breakfast by the pool — tropical fruit, omelette, croissants',
   },
   {
     label: 'Midday',
     text: 'Pool lunches, kids fed early, nobody cooks.',
-    image: '/photos/vacation-chef.jpg',
-    alt: 'A chef plating a casual but refined family lunch on a villa kitchen island',
+    image: '/photos/oahu-vacation-chef-pool-breakfast.jpg',
+    alt: 'Poolside tropical breakfast — fruit, omelette and palms. Campaign still, not a documented event.',
   },
   {
     label: 'Evening',
     text: 'The dressed dinner — the night-in that beats the reservation.',
-    image: '/photos/bartender-terrace-service.jpg',
-    alt: "Server's hands setting wine glasses on a private dining table in warm dusk light",
+    image: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
+    alt: 'Plated villa dinner at dusk — seared fish and candlelight. Campaign still, not a documented event.',
   },
 ];
 
@@ -265,11 +266,7 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
   const c = content[island];
   const vacationOffer = getOtherOffer('vacation-chef');
   const weeklyOffer = getOtherOffer('weekly-meal-prep');
-  const crumbs = [
-    { label: 'Home', to: '/' },
-    { label: c.islandName, to: `/${island}` },
-    { label: 'Vacation Chef' },
-  ];
+  const crumbs = useHostHomeCrumbs('Vacation Chef');
 
   return (
     <>
@@ -278,8 +275,8 @@ export default function VacationChefPage({ island }: { island: LiveIslandId }) {
         eyebrow={`Vacation Chef — ${c.islandName}`}
         title={c.h1}
         lede="Breakfast through dinner, provisioning managed, menus that evolve across the stay. Up to three meals a day; groceries at cost, always itemised."
-        image="/photos/vacation-chef-morning-breakfast-pool.jpg"
-        imageAlt="A vacation chef plating morning fruit and eggs by a villa pool. Campaign still, not a documented event."
+        image="/photos/oahu-vacation-chef-pool-breakfast.jpg"
+        imageAlt="Oʻahu vacation-chef breakfast by the pool — tropical fruit, omelette, croissants. Campaign still, not a documented event."
         chips={
           <>
             {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, island)}`} /> : null}

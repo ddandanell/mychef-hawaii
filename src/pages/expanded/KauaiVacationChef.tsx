@@ -5,7 +5,7 @@ import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { FaqSection, SectionHead } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
-import { BandChip, PlainChip, SectionIntro, ZoneStrip, useHashScroll } from '@/pages/services/ServicePage';
+import { BandChip, PlainChip, SectionIntro, ZoneStrip, useHashScroll, useHostHomeCrumbs } from '@/pages/services/ServicePage';
 import { InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
 
 /**
@@ -16,33 +16,26 @@ import { InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
  * "now serving", no LocalBusiness schema.
  */
 
-const islandName = 'Kauaʻi';
 const path = '/kauai/vacation-chef';
-
-const crumbs = [
-  { label: 'Home', to: '/' },
-  { label: islandName, to: '/kauai' },
-  { label: 'Vacation Chef' },
-];
 
 const dayRows = [
   {
     label: 'Morning',
     text: 'Coffee, fruit, a proper breakfast before the beach — the fridge already stocked from arrival night.',
-    image: '/photos/hawaii-produce-fish-sourcing-still.jpg',
-    alt: 'Island produce — avocado, citrus, greens and fish on ice — styled on a wooden table',
+    image: '/photos/oahu-vacation-chef-pool-breakfast.jpg',
+    alt: 'Vacation-chef breakfast by the pool — tropical fruit, omelette, croissants',
   },
   {
     label: 'Midday',
     text: 'Pool lunches, kids fed early, nobody watches the clock or the stove.',
-    image: '/photos/vacation-chef.jpg',
-    alt: 'A chef plating a casual but refined family lunch on a villa kitchen island',
+    image: '/photos/oahu-vacation-chef-pool-breakfast.jpg',
+    alt: 'Poolside tropical breakfast — fruit, omelette and palms. Campaign still, not a documented event.',
   },
   {
     label: 'Evening',
     text: 'The dressed dinner — North Shore estate or South Shore lanai, the night-in that beats the reservation.',
-    image: '/photos/plated-fish-lanai-dusk.jpg',
-    alt: "Server's hands setting wine glasses on a private dining table in warm dusk light",
+    image: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
+    alt: 'Plated villa dinner at dusk — seared fish and candlelight. Campaign still, not a documented event.',
   },
 ];
 
@@ -73,6 +66,7 @@ export default function KauaiVacationChef() {
   useHashScroll();
   const { island } = usePageIsland('kauai');
   const vacationOffer = getOtherOffer('vacation-chef');
+  const crumbs = useHostHomeCrumbs('Vacation Chef');
 
   return (
     <>
@@ -82,8 +76,8 @@ export default function KauaiVacationChef() {
         service="Vacation Chef — planned service, activates at launch"
         title="A chef for the whole Kauaʻi week."
         lede="Kauaʻi stays average over a week — so the planned format fits the trip: a 3-day anchor package, arrival-night dinner with provisioning, and full-board weeks for retreat houses. It activates when the inquiry list proves the demand; your dates are that proof."
-        image="/photos/vacation-chef.jpg"
-        imageAlt="A chef plating a casual but refined family lunch on a villa kitchen island in daytime warmth"
+        image="/photos/oahu-vacation-chef-pool-breakfast.jpg"
+        imageAlt="Oʻahu vacation-chef breakfast by the pool — tropical fruit, omelette, croissants. Campaign still, not a documented event."
         chips={
           <>
             {vacationOffer ? <BandChip onDark label={`Multi-day — ${formatOtherOffer(vacationOffer, 'kauai')}`} /> : null}
@@ -137,8 +131,8 @@ export default function KauaiVacationChef() {
           />
           <Reveal delay={0.1} className="overflow-hidden rounded-[14px]">
             <img
-              src="/photos/island-kauai.jpg"
-              alt="Garden estate outdoor table under mature trees with a linen tablecloth in soft overcast light"
+              src="/photos/kauai-chef-plating-seared-fish-mountains.jpg"
+              alt="Chef’s hands finishing seared fish, misted mountains beyond. Campaign still, not a documented event."
               loading="lazy"
               className="aspect-[4/3] w-full object-cover"
             />

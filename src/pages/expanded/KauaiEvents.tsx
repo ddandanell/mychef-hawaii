@@ -6,7 +6,7 @@ import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { FaqSection, SectionHead, ZoneModule } from '@/pages/islands/shared';
 import type { Faq } from '@/pages/islands/shared';
 import { usePageIsland } from '@/pages/islands/utils';
-import { BandChip, PlainChip, SectionIntro, useHashScroll } from '@/pages/services/ServicePage';
+import { BandChip, PlainChip, SectionIntro, useHashScroll, useHostHomeCrumbs } from '@/pages/services/ServicePage';
 import { InquiryCta, InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/shared';
 
 /**
@@ -18,14 +18,7 @@ import { InquiryCta, InquiryHero, InquiryPageJsonLd } from '@/pages/expanded/sha
  * "now serving", no LocalBusiness schema.
  */
 
-const islandName = 'Kauaʻi';
 const path = '/kauai/events';
-
-const crumbs = [
-  { label: 'Home', to: '/' },
-  { label: islandName, to: '/kauai' },
-  { label: 'Events' },
-];
 
 const segments = [
   {
@@ -69,6 +62,7 @@ export default function KauaiEvents() {
   useHashScroll();
   const { island } = usePageIsland('kauai');
   const staffingOffer = getOtherOffer('event-staffing');
+  const crumbs = useHostHomeCrumbs('Events');
 
   return (
     <>
@@ -133,8 +127,8 @@ export default function KauaiEvents() {
           />
           <Reveal delay={0.1} className="overflow-hidden rounded-[14px]">
             <img
-              src="/photos/island-kauai.jpg"
-              alt="Garden estate outdoor table under mature trees with a linen tablecloth in soft overcast light"
+              src="/photos/kauai-chef-plating-seared-fish-mountains.jpg"
+              alt="Chef’s hands finishing seared fish, misted mountains beyond. Campaign still, not a documented event."
               loading="lazy"
               className="aspect-[4/3] w-full object-cover"
             />

@@ -10,6 +10,7 @@ import Reveal from '@/components/Reveal';
 import StatusChip from '@/components/StatusChip';
 import type { ChipKind } from '@/components/StatusChip';
 import WordMask from '@/components/WordMask';
+import { useIsland } from '@/context/IslandContext';
 import type { IslandId } from '@/data/islands';
 import { islands } from '@/data/islands';
 import { zoneMap } from '@/data/zoneMap';
@@ -132,6 +133,15 @@ export function PlainChip({ children, onDark }: { children: ReactNode; onDark?: 
 export interface Crumb {
   label: string;
   to?: string;
+}
+
+/** This host's home, then the current page. Never labeled Overview; never the hub from an island host. */
+export function useHostHomeCrumbs(pageLabel: string): Crumb[] {
+  const { island, homePath } = useIsland();
+  return [
+    { label: island?.name ?? 'Hawaii', to: homePath },
+    { label: pageLabel },
+  ];
 }
 
 export function Breadcrumb({ items, onDark }: { items: Crumb[]; onDark?: boolean }) {

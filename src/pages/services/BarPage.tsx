@@ -25,6 +25,7 @@ import {
   serviceJsonLd,
   ZoneStrip,
   useHashScroll,
+  useHostHomeCrumbs,
 } from '@/pages/services/ServicePage';
 import type { ServiceFaqItem } from '@/pages/services/ServicePage';
 import { InquiryCta, InquiryHero } from '@/pages/expanded/shared';
@@ -51,14 +52,14 @@ const COPY: Record<
     h1: 'Estate cocktails on both Kauaʻi shores.',
     lede:
       'Princeville, Hanalei and Poʻipū — a bartender on the terrace when the island team launches. Dated inquiries set the sequence. Starting prices are published now.',
-    hero: photos.kauaiNorth,
+    hero: photos.bar,
     places: 'Princeville, Hanalei, Poʻipū, Kōloa',
   },
   bigisland: {
     h1: 'Sunset pours on the Kohala Coast.',
     lede:
       'Lava-coast terraces in the Kona–Kohala corridor. Inquiry-stage until a west-side team is staffed. The rate is published so you can plan.',
-    hero: photos.kohalaFish,
+    hero: photos.bar,
     places: 'Kohala Coast, Waikoloa, Mauna Kea resort belt, Kona',
   },
 };
@@ -93,11 +94,7 @@ export default function BarPage() {
   const copy = COPY[id];
   const bar = getMobileBar(id);
   const inquiry = island.state === 'inquiry';
-  const crumbs = [
-    { label: 'Home', to: href('/') },
-    { label: island.name, to: href('/') },
-    { label: 'Bar' },
-  ];
+  const crumbs = useHostHomeCrumbs('Bar');
 
   const heroChips = (
     <>
