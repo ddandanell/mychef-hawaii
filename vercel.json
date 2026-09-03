@@ -1,18 +1,9 @@
 {
-  "framework": "vite",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "trailingSlash": false,
-  "rewrites": [
-    { "source": "/((?!api/|assets/|photos/|sitemaps/|sitemap\\.xml|robots\\.txt|seo-map\\.json).*)", "destination": "/index.html" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
-      ]
-    }
-  ]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "buildCommand": "next build",
+  "installCommand": "npm ci",
+  "devCommand": "next dev",
+  "outputDirectory": null,
+  "trailingSlash": false
 }

@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-paper: #f6f1e8;
+  --color-sand: #ede6d8;
+  --color-line: #ddd4c6;
+  --color-ink: #1c1916;
+  --color-mute: #5c564e;
+  --color-on-ink: #e4dcd0;
+  --color-ivory: #f6f1e8;
+  --color-stone: #ddd4c6;
+  --color-ink-soft: #5c564e;
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Palatino, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-none: 0px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+
+  --max-width-container: 1200px;
+  --max-width-spread: 1360px;
+
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 200ms;
+  --duration-normal: 450ms;
+  --duration-slow: 800ms;
+  --duration-cinematic: 1200ms;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 300;
+}
+
+::selection {
+  background: rgba(28, 25, 22, 0.12);
+}
+
+@utility text-balance {
+  text-wrap: balance;
+}
+
+@utility max-w-container {
+  max-width: 1200px;
+}
+
+@utility max-w-spread {
+  max-width: 1360px;
+}
