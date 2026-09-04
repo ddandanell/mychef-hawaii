@@ -96,6 +96,9 @@ export function middleware(request: NextRequest) {
   if (islandHost && isIsland(islandHost)) {
     requestHeaders.set('x-island', islandHost);
     requestHeaders.set('x-host-mode', '1');
+    if (path === '/sitemap.xml' || path === '/robots.txt') {
+      return NextResponse.next({ request: { headers: requestHeaders } });
+    }
     const alreadyPrefixed = path === `/${islandHost}` || path.startsWith(`/${islandHost}/`);
     if (!alreadyPrefixed) {
       const rewriteUrl = url.clone();

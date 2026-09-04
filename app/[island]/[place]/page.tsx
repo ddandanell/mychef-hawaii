@@ -25,6 +25,7 @@ const RESERVED_PLACE_SLUGS = new Set([
   'private-chef',
   'quote',
   'sitemap',
+  'sitemap.xml',
   'thank-you',
   'vacation-chef',
   'wedding',
