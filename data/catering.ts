@@ -42,7 +42,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     fromPp: 125,
     weddingFrom: 125,
     places: 'Honolulu, Waikīkī residences, Kahala, Kailua, Ko Olina',
-    photo: 'oahuHero',
+    photo: 'cateringOahu',
     faqs: [
       {
         q: 'How much is Oahu catering?',
@@ -74,7 +74,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     fromPp: 150,
     weddingFrom: 150,
     places: 'Wailea, Kāʻanapali, Lahaina / West Maui, Kīhei, Kapalua',
-    photo: 'mauiHero',
+    photo: 'cateringMaui',
     faqs: [
       {
         q: 'How much is Maui catering?',
@@ -106,7 +106,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     fromPp: 150,
     weddingFrom: 175,
     places: 'Princeville, Poʻipū, Hanalei, Kapaʻa',
-    photo: 'kauaiHero',
+    photo: 'cateringKauai',
     faqs: [
       {
         q: 'How much is Kauai catering?',
@@ -138,7 +138,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     fromPp: 125,
     weddingFrom: 150,
     places: 'Kohala Coast, Waikoloa, Kailua-Kona',
-    photo: 'bigislandHero',
+    photo: 'cateringBigisland',
     faqs: [
       {
         q: 'How much is catering on the Big Island?',

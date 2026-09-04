@@ -8,7 +8,7 @@ import HostLink from '@/components/HostLink';
 import { MobileDisclosure, NavMenu, type NavTarget } from '@/components/NavMenu';
 import { useIsland } from '@/components/IslandProvider';
 import { islandOrder, islands } from '@/data/islands';
-import { SERVICE_AREAS } from '@/data/serviceAreas';
+import { moneyNeighborhoods } from '@/data/offers';
 import { DURATION, EASE_STANDARD } from '@/lib/motion';
 
 const CHEF_ITEMS: NavTarget[] = [
@@ -32,12 +32,15 @@ const WEDDING_ITEMS: NavTarget[] = [
   { label: 'Oʻahu', island: 'oahu', path: '/weddings' },
   { label: 'Maui', island: 'maui', path: '/weddings' },
   { label: 'Kauaʻi', island: 'kauai', path: '/weddings', note: 'Inquiry' },
+  { label: 'Hawaiʻi Island', island: 'bigisland', path: '/weddings', note: 'Inquiry' },
 ];
 
 const BAR_ITEMS: NavTarget[] = [
   { label: 'Hawaii', island: 'root', path: '/bar' },
   { label: 'Oʻahu', island: 'oahu', path: '/bar' },
   { label: 'Maui', island: 'maui', path: '/bar' },
+  { label: 'Kauaʻi', island: 'kauai', path: '/bar', note: 'Inquiry' },
+  { label: 'Hawaiʻi Island', island: 'bigisland', path: '/bar', note: 'Inquiry' },
 ];
 
 const ISLAND_SWITCH: NavTarget[] = [
@@ -50,10 +53,10 @@ const ISLAND_SWITCH: NavTarget[] = [
 ];
 
 function areaItems(islandId: (typeof islandOrder)[number]): NavTarget[] {
-  return SERVICE_AREAS[islandId].corridors.map((c) => ({
-    label: c.name,
+  return moneyNeighborhoods[islandId].map((hood) => ({
+    label: hood.name,
     island: islandId,
-    path: `/#${c.id}`,
+    path: `/${hood.slug}`,
   }));
 }
 
@@ -94,6 +97,14 @@ export default function SiteHeader() {
           >
             myCHEF
           </HostLink>
+          {islandId ? (
+            <HostLink
+              island={islandId}
+              className="hidden text-[12px] uppercase tracking-[0.16em] text-mute sm:inline"
+            >
+              {islands[islandId].name}
+            </HostLink>
+          ) : null}
           {islandId ? (
             <div className="hidden lg:block">
               <NavMenu label="Islands" items={ISLAND_SWITCH} />

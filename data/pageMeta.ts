@@ -1,7 +1,7 @@
 /**
  * Unique titles and descriptions per master-map URL.
- * One primary keyword per URL. Neighborhood doorway titles stay unused —
- * those slugs 301 to the island home.
+ * One primary keyword per URL. Neighborhood doorway titles live on
+ * moneyNeighborhoods (data/offers.ts) and win in resolveDocumentSeo.
  */
 
 export interface PageMetaRecord {
@@ -106,7 +106,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/oahu': {
     title: 'Private Chef Oahu | Villa and Household Chefs | myCHEF',
     description:
-      'Private chef Oahu from $125 a guest. Honolulu and personal chef on this same page — no /honolulu. Villa dinners and household chefs. Request a quote.',
+      'Private chef Oahu from $125 a guest. Named corridors — Honolulu, Waikīkī, Kahala, Kailua, Ko Olina, North Shore. Villa dinners and household chefs. Request a quote.',
   },
   '/maui': {
     title: 'Private Chef Maui | In-Villa Dinners and Weeks | myCHEF',
@@ -121,7 +121,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/bigisland': {
     title: 'Private Chef Big Island | Kona–Kohala Inquiry | myCHEF',
     description:
-      'Private chef Big Island from $125 a guest. Kona–Kohala first — no /kona. Inquiry stage. WhatsApp the dates.',
+      'Private chef Big Island from $125 a guest. Named corridors — Kona, Waikoloa, Waimea, Kohala Coast. Inquiry stage. WhatsApp the dates.',
   },
   '/oahu/private-chef': {
     title: 'Personal chef Oahu villas & vacation rentals | myCHEF',

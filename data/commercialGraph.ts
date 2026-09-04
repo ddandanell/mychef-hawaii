@@ -1,7 +1,8 @@
 /**
- * Locked master map — 12 money URLs plus hub /about.
- * Supporting /private-chef /bar /pricing /quote stay live, unadvertised.
- * No neighborhood or blog URLs.
+ * Locked master map — island money URLs plus hub /about.
+ * Neighborhood corridors are live on each island host and listed in XML
+ * sitemaps (see moneyNeighborhoods). Supporting /private-chef /bar /pricing
+ * /quote stay live, unadvertised.
  */
 
 export const PRODUCTION_ROOT = 'mychef-hawaii.com';
@@ -30,7 +31,10 @@ export const MASTER_MAP: readonly MasterLoc[] = [
   { host: 'maui', path: '/weddings' },
   { host: 'kauai', path: '/' },
   { host: 'kauai', path: '/catering' },
+  { host: 'kauai', path: '/weddings' },
   { host: 'bigisland', path: '/' },
+  { host: 'bigisland', path: '/catering' },
+  { host: 'bigisland', path: '/weddings' },
 ] as const;
 
 /** Supporting paths — live, not in XML sitemap, titles must not compete. */

@@ -54,28 +54,28 @@ const ISLAND_COPY: Record<
     lede:
       'One culinary team from the welcome dinner to the recovery brunch — private estate formats for 10 to 75 guests across Wailea, Kāʻanapali, Kapalua, Makena and Upcountry.',
     eyebrow: 'myCHEF Maui — Wedding weeks',
-    hero: photos.weddingHero,
+    hero: photos.weddingMaui,
   },
   oahu: {
     h1: 'Wedding catering Oahu — one kitchen for the weekend.',
     lede:
       'Wedding catering Oahu: celebration dinners and weekend stacks in Kahala, Ko Olina and windward estates. One kitchen, written quote, published starting prices.',
     eyebrow: 'myCHEF Oʻahu — Wedding weekends',
-    hero: photos.weddingHero,
+    hero: photos.weddingOahu,
   },
   kauai: {
     h1: 'Kauai wedding catering — both shores.',
     lede:
       'Kauai wedding catering in Princeville, Hanalei and Poʻipū — formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. From $175 a guest plus staffing. Inquiry stage.',
     eyebrow: 'myCHEF Kauaʻi — Estate weddings',
-    hero: photos.weddingHero,
+    hero: photos.weddingKauai,
   },
   bigisland: {
     h1: 'Wedding catering Big Island.',
     lede:
       'Kona–Kohala corridor: Mauna Kea resort belt, Waikoloa, the lava coast. One culinary team for the week. Published starting prices.',
     eyebrow: 'myCHEF Hawaiʻi Island — Estate weeks',
-    hero: photos.weddingHero,
+    hero: photos.weddingBigisland,
   },
 };
 

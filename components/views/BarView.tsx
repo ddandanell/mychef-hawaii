@@ -20,22 +20,22 @@ const COPY: Record<IslandId, { h1: string; lede: string; hero: { file: string; a
   oahu: {
     h1: 'A cocktail bar on your lānai — Waikīkī to Ko Olina.',
     lede: 'Bartender, citrus, ice and glassware on the terrace. Stack it with an Oʻahu chef night or book the hour alone.',
-    hero: photos.barHero,
+    hero: photos.barOahu,
   },
   maui: {
     h1: 'Mobile bar for villa nights and wedding weeks.',
     lede: 'Welcome pours, rehearsal-night cocktails and a terrace hour in Wailea, Kapalua, Kāʻanapali and Makena.',
-    hero: photos.barHero,
+    hero: photos.barMaui,
   },
   kauai: {
     h1: 'Estate cocktails on both Kauaʻi shores.',
     lede: 'Princeville, Hanalei and Poʻipū — a bartender on the terrace. Starting prices published.',
-    hero: photos.barHero,
+    hero: photos.barKauai,
   },
   bigisland: {
     h1: 'Sunset pours on the Kohala Coast.',
     lede: 'Lava-coast terraces in the Kona–Kohala corridor. Bartender add-on or a 4-hour mobile-bar package.',
-    hero: photos.barHero,
+    hero: photos.barBigisland,
   },
 };
 

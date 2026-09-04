@@ -14,7 +14,8 @@
     "seo:ping": "node scripts/dataforseo.mjs ping",
     "seo:volumes": "node scripts/dataforseo.mjs volumes",
     "seo:related": "node scripts/dataforseo.mjs related",
-    "seo:snapshot": "node scripts/dataforseo.mjs snapshot"
+    "seo:snapshot": "node scripts/dataforseo.mjs snapshot",
+    "seo:audit": "node scripts/unique-audit.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",

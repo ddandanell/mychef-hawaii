@@ -1,5 +1,6 @@
 import HostLink from '@/components/HostLink';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
+import { moneyNeighborhoods } from '@/data/offers';
 import { LOCATIONS_LEDE, SERVICE_AREAS } from '@/data/serviceAreas';
 import { cn } from '@/lib/utils';
 
@@ -44,15 +45,22 @@ export function LocationsBlock({
                 <p className={cn('mt-2 max-w-[70ch] text-[17px] leading-relaxed', ink ? 'text-on-ink' : 'text-mute')}>
                   {area.line}
                 </p>
-                {anchored ? (
-                  <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                    {area.corridors.map((c) => (
-                      <li key={c.id} id={c.id} className={cn('scroll-mt-24', ink ? 'text-paper' : 'text-ink')}>
-                        {c.name}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+                <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                  {moneyNeighborhoods[id].map((hood) => (
+                    <li key={hood.slug} id={anchored ? hood.slug : undefined} className="scroll-mt-24">
+                      <HostLink
+                        island={id}
+                        path={`/${hood.slug}`}
+                        className={cn(
+                          'underline-offset-4 hover:underline',
+                          ink ? 'text-paper' : 'text-ink',
+                        )}
+                      >
+                        {hood.name}
+                      </HostLink>
+                    </li>
+                  ))}
+                </ul>
               </li>
             );
           })}

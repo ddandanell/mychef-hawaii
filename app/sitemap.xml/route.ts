@@ -1,5 +1,6 @@
 import { PRODUCTION_ROOT, detectIslandFromHost } from '@/lib/site';
-import { MASTER_MAP, masterHostName, type MasterHost } from '@/data/commercialGraph';
+import { MASTER_MAP, masterHostName, type MasterHost, type IslandSitemapHost } from '@/data/commercialGraph';
+import { moneyNeighborhoods } from '@/data/offers';
 
 function xmlEscape(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -11,10 +12,20 @@ function loc(host: MasterHost, path: string): string {
   return `https://${hostname}${clean === '/' ? '/' : clean}`;
 }
 
-function urlset(rows: { host: MasterHost; path: string }[]): string {
+function neighborhoodRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
+  return moneyNeighborhoods[island].map((hood) => ({
+    host: island,
+    path: `/${hood.slug}`,
+    priority: '0.7',
+  }));
+}
+
+function urlset(rows: { host: MasterHost; path: string; priority?: string }[]): string {
   const entries = rows.map((r) => {
     const href = loc(r.host, r.path);
-    const priority = r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8';
+    const priority =
+      r.priority ??
+      (r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8');
     const changefreq = r.path === '/' ? 'weekly' : 'monthly';
     return `  <url>
     <loc>${xmlEscape(href)}</loc>
@@ -34,9 +45,12 @@ export async function GET(request: Request) {
     .split(':')[0]
     .toLowerCase();
   const island = detectIslandFromHost(host);
+  const corridors = island
+    ? neighborhoodRows(island)
+    : (['oahu', 'maui', 'kauai', 'bigisland'] as const).flatMap(neighborhoodRows);
   const rows = island
-    ? MASTER_MAP.filter((r) => r.host === island)
-    : [...MASTER_MAP];
+    ? [...MASTER_MAP.filter((r) => r.host === island), ...corridors]
+    : [...MASTER_MAP, ...corridors];
   return new Response(urlset(rows), {
     status: 200,
     headers: {

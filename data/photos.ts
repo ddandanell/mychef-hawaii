@@ -27,13 +27,61 @@ export const photos = {
     file: '/photos/heroes/hero-catering.png',
     alt: `A staffed lawn reception in Hawaiʻi — seafood and fruit on ice, string lights, guests on the grass at sunset.`,
   },
+  cateringOahu: {
+    file: '/photos/heroes/hero-catering-oahu.png',
+    alt: `A chef brigade plates identical seared-fish courses on a Kahala Gold Coast lawn at dusk, Diamond Head on the horizon.`,
+  },
+  cateringMaui: {
+    file: '/photos/heroes/hero-catering-maui.png',
+    alt: `Staffed Wailea lawn catering at sunset — identical event plates, Pacific and a faint Molokini crescent.`,
+  },
+  cateringKauai: {
+    file: '/photos/heroes/hero-catering-kauai.png',
+    alt: `Kauaʻi estate catering on a wet North Shore stone terrace, misted mountains, identical plated fish.`,
+  },
+  cateringBigisland: {
+    file: '/photos/heroes/hero-catering-bigisland.png',
+    alt: `Kohala Coast catering on a lava terrace in hard sun — kanpachi plates, Mauna Kea in the distance.`,
+  },
   weddingHero: {
     file: '/photos/heroes/hero-weddings.png',
     alt: `A long wedding-week table on a Hawaiian ocean lawn — candles, orchids, guests toasting at sunset.`,
   },
+  weddingOahu: {
+    file: '/photos/heroes/hero-weddings-oahu.png',
+    alt: `Gold Coast wedding-week long table at dusk — candles, ivory linen, Diamond Head on the horizon.`,
+  },
+  weddingMaui: {
+    file: '/photos/heroes/hero-weddings-maui.png',
+    alt: `Maui wedding-week long table under a banyan at dusk on a Wailea ocean lawn.`,
+  },
+  weddingKauai: {
+    file: '/photos/heroes/hero-weddings-kauai.png',
+    alt: `Kauaʻi wedding-week estate table looking into a misted valley of fluted mountains at golden hour.`,
+  },
+  weddingBigisland: {
+    file: '/photos/heroes/hero-weddings-bigisland.png',
+    alt: `Kohala wedding-week table on a lava-coast terrace at sunset, Mauna Loa on the horizon.`,
+  },
   barHero: {
     file: '/photos/heroes/hero-bar.png',
     alt: `A bartender straining a citrus cocktail over crushed ice on a villa bar cart, Hawaiian sunset beyond.`,
+  },
+  barOahu: {
+    file: '/photos/heroes/hero-bar-oahu.png',
+    alt: `A bartender straining a citrus cocktail on a Kahala Gold Coast lānai at dusk.`,
+  },
+  barMaui: {
+    file: '/photos/heroes/hero-bar-maui.png',
+    alt: `Maui villa terrace cocktail bar at west sunset in Wailea, Pacific beyond.`,
+  },
+  barKauai: {
+    file: '/photos/heroes/hero-bar-kauai.png',
+    alt: `Kauaʻi estate terrace bar at blue hour, misted mountains behind, citrus cocktail in a coupe.`,
+  },
+  barBigisland: {
+    file: '/photos/heroes/hero-bar-bigisland.png',
+    alt: `Kohala Coast sunset bar on a lava terrace, citrus cocktail, Mauna Kea distant.`,
   },
   oahuDinner: {
     file: '/photos/oahu-villa-lanai-plated-dinner-dusk.jpg',
@@ -154,6 +202,38 @@ export const photos = {
   menu: {
     file: '/photos/villa-table-menu-card-detail.jpg',
     alt: `A menu card on ivory linen beside a plated fish course.`,
+  },
+  locHonolulu: {
+    file: '/photos/loc-honolulu.png',
+    alt: `A chef plating sesame ahi in a Honolulu residence kitchen, town towers and the canal beyond.`,
+  },
+  locKahala: {
+    file: '/photos/loc-kahala.png',
+    alt: `A Gold Coast Kahala estate table at dusk — plated fish, brass candles, Diamond Head on the horizon.`,
+  },
+  locLahaina: {
+    file: '/photos/loc-lahaina.png',
+    alt: `West Maui villa kitchen opening to a deck — family-style grilled fish, volcanic headland and Lānaʻi across the channel.`,
+  },
+  locKihei: {
+    file: '/photos/loc-kihei.png',
+    alt: `A Kihei vacation-home table: seared fish for the adults, kids’ plates beside, South Maui residences through the sliders.`,
+  },
+  locHanalei: {
+    file: '/photos/loc-hanalei.png',
+    alt: `A chef carrying plated fish across a wet Hanalei stone terrace, misted fluted mountains beyond.`,
+  },
+  locKapaa: {
+    file: '/photos/loc-kapaa.png',
+    alt: `East-side Kapaʻa town-house dinner — family feast, coconut palms, a quieter Kauaʻi residential street.`,
+  },
+  locWaimea: {
+    file: '/photos/loc-waimea.png',
+    alt: `Waimea ranch-country kitchen in cool mist — searing fish, pasture and Mauna Kea in cloud, no ocean.`,
+  },
+  locWaikoloa: {
+    file: '/photos/loc-waikoloa.png',
+    alt: `Waikoloa resort-residence kitchen in hard Kohala sun — plated kanpachi, lava terrace, Mauna Kea faint.`,
   },
 } as const;
 

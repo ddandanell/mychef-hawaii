@@ -9,7 +9,12 @@ export default function TypePanel({
   className?: string;
 }) {
   return (
-    <div className={cn('bg-paper px-6 py-8 text-ink sm:px-8 sm:py-10', className)}>
+    <div
+      className={cn(
+        'border-t border-brass/45 bg-paper px-7 py-10 text-ink shadow-[inset_0_1px_0_0_rgba(28,25,22,0.06)] sm:px-10 sm:py-12',
+        className,
+      )}
+    >
       {children}
     </div>
   );
