@@ -1543,6 +1543,54 @@ export const photos = {
     file: '/photos/blog-shoot-bigisland.png',
     alt: `Identical plated meals on a Kona lava-stone island, blank cream cards, hard sun.`,
   },
+  blogProposalOahu: {
+    file: '/photos/blog-proposal-oahu.png',
+    alt: `A Kahala lānai table set for two, empty ivory plates, unlit brass candleholders at dusk.`,
+  },
+  blogProposalMaui: {
+    file: '/photos/blog-proposal-maui.png',
+    alt: `A Wailea lānai table set for two, empty ivory plates, unlit brass candleholders at west sunset.`,
+  },
+  blogProposalKauai: {
+    file: '/photos/blog-proposal-kauai.png',
+    alt: `A Princeville terrace table set for two, empty ivory plates, rain on glass.`,
+  },
+  blogProposalBigisland: {
+    file: '/photos/blog-proposal-bigisland.png',
+    alt: `A Kohala lava-terrace table set for two, empty ivory plates, hard sun.`,
+  },
+  blogEstateOahu: {
+    file: '/photos/blog-estate-oahu.png',
+    alt: `Stacked canvas coolers beside a closed koa Gold Coast gate at dusk, no logos.`,
+  },
+  blogEstateMaui: {
+    file: '/photos/blog-estate-maui.png',
+    alt: `Stacked canvas coolers beside a closed Wailea wooden gate at west sunset, no logos.`,
+  },
+  blogEstateKauai: {
+    file: '/photos/blog-estate-kauai.png',
+    alt: `Stacked canvas coolers beside a closed Princeville gate on wet stone, no logos.`,
+  },
+  blogEstateBigisland: {
+    file: '/photos/blog-estate-bigisland.png',
+    alt: `Stacked canvas coolers beside a closed west-side lava-rock gate in hard sun, no logos.`,
+  },
+  blogShoulderOahu: {
+    file: '/photos/blog-shoulder-oahu.png',
+    alt: `An empty Kahala lānai table in soft morning light, folded sand linen, unused ivory plates.`,
+  },
+  blogShoulderMaui: {
+    file: '/photos/blog-shoulder-maui.png',
+    alt: `An empty Wailea lānai table in softer morning light, folded sand linen, unused ivory plates.`,
+  },
+  blogShoulderKauai: {
+    file: '/photos/blog-shoulder-kauai.png',
+    alt: `An empty Princeville terrace table in grey light, folded sand linen, unused ivory plates.`,
+  },
+  blogShoulderBigisland: {
+    file: '/photos/blog-shoulder-bigisland.png',
+    alt: `An empty west-side lava-terrace table in softer morning light, folded sand linen.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

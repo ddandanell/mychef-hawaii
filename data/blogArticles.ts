@@ -448,6 +448,99 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'proposal-dinners',
+      name: 'Proposal dinners',
+      h1: 'Oahu proposal dinners — Kahala tables for two, not a restaurant hold.',
+      title: 'Oahu proposal dinners — Kahala tables for two, not a restaurant hold | myCHEF',
+      description:
+        'Oahu proposal dinners in a house kitchen. Distinct from /honeymoon-dinners and /fine-dining/romantic-dinner.',
+      lede:
+        '/honeymoon-dinners is two seats after the wedding. /fine-dining/romantic-dinner is the course stack. This blog note is the ask — in a Kahala dining room, not a restaurant hold.',
+      photo: 'blogProposalOahu',
+      body: [
+        'A proposal is two seats in a kitchen we can actually staff. We do not hold a restaurant table. We do not stage a public ask on a Waikīkī lawn.',
+        'Honeymoon nights sit on /honeymoon-dinners. The romantic-dinner SKU is /fine-dining/romantic-dinner. This article is the shorter proposal note beside them.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one table for two in the house.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /honeymoon-dinners?',
+          a: 'That page is two seats after the wedding. This piece is the shorter proposal note.',
+        },
+        {
+          q: 'Can you hold a restaurant table?',
+          a: 'No. We cook in the house. Open /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/honeymoon-dinners', label: 'Honeymoon dinners' },
+        { path: '/fine-dining/romantic-dinner', label: 'Romantic dinner SKU' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'estate-logistics',
+      name: 'Estate logistics',
+      h1: 'Oahu estate logistics — Gold Coast driveways, generators, and the gate.',
+      title: 'Oahu estate logistics — Gold Coast driveways, generators, and the gate | myCHEF',
+      description:
+        'Oahu estate logistics: driveways, generators, gates. Distinct from /blog/condo-load-in and /coverage.',
+      lede:
+        '/blog/condo-load-in is the tower. /coverage is the zone map. This blog note is the house — the Gold Coast driveway, the generator, the gate code in writing.',
+      photo: 'blogEstateOahu',
+      body: [
+        'Estate nights need a driveway we can actually use, a gate code, and whether a generator will run the range. We do not discover those at 4 p.m.',
+        'Towers sit on /blog/condo-load-in. Gold Coast rooms sit on /gold-coast. Send the access packet on /quote.',
+        'A house without a functioning cooktop is still declined. Logistics do not invent a kitchen.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/condo-load-in?',
+          a: 'That note is the tower. This piece is the shorter estate-driveway note.',
+        },
+        {
+          q: 'Same as /coverage?',
+          a: 'That page is where we cook. This piece is how we reach the house.',
+        },
+      ],
+      related: [
+        { path: '/blog/condo-load-in', label: 'Condo load-in' },
+        { path: '/gold-coast', label: 'Gold Coast houses' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'shoulder-season',
+      name: 'Shoulder season',
+      h1: 'Oahu shoulder dates — April and November still need a written kitchen.',
+      title: 'Oahu shoulder dates — April and November still need a written kitchen | myCHEF',
+      description:
+        'Oahu shoulder dates are not automatic availability. Distinct from /journal/how-far-ahead-to-book.',
+      lede:
+        '/journal/how-far-ahead-to-book is the peak calendar. This blog note is April and November — quieter months that still need a Gold Coast kitchen in writing, not a last-minute yes.',
+      photo: 'blogShoulderOahu',
+      body: [
+        'Shoulder months are quieter, not empty. A Kahala house in April still needs a cooktop, a count, and a written quote. We do not invent a last-minute roster because the calendar looks open.',
+        'Peak months stay on /journal/how-far-ahead-to-book. Convention weeks stay on /conventions. This article is the quieter window beside them.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is why a shoulder night is still a written kitchen.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /journal/how-far-ahead-to-book?',
+          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note.',
+        },
+        {
+          q: 'Are April nights walk-in?',
+          a: 'No. Send /quote. We still write the kitchen.',
+        },
+      ],
+      related: [
+        { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   maui: [
     {
@@ -884,6 +977,99 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'proposal-dinners',
+      name: 'Proposal dinners',
+      h1: 'Maui proposal dinners — Wailea tables for two, not a restaurant hold.',
+      title: 'Maui proposal dinners — Wailea tables for two, not a restaurant hold | myCHEF',
+      description:
+        'Maui proposal dinners in a villa kitchen. Distinct from /honeymoon-dinners and /fine-dining/romantic-dinner.',
+      lede:
+        '/honeymoon-dinners is two seats after the wedding. /fine-dining/romantic-dinner is the course stack. This blog note is the ask — on a Wailea lānai, not a restaurant hold.',
+      photo: 'blogProposalMaui',
+      body: [
+        'A proposal is two seats in a kitchen we can actually staff. We do not hold a restaurant table. We do not stage a public ask on a resort lawn.',
+        'Honeymoon nights sit on /honeymoon-dinners. The romantic-dinner SKU is /fine-dining/romantic-dinner. This article is the shorter proposal note beside them.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is one table for two in the house.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /honeymoon-dinners?',
+          a: 'That page is two seats after the wedding. This piece is the shorter proposal note.',
+        },
+        {
+          q: 'Can you hold a restaurant table?',
+          a: 'No. We cook in the house. Open /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/honeymoon-dinners', label: 'Honeymoon dinners' },
+        { path: '/fine-dining/romantic-dinner', label: 'Romantic dinner SKU' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'estate-logistics',
+      name: 'Estate logistics',
+      h1: 'Maui estate logistics — Wailea driveways, generators, and the gate.',
+      title: 'Maui estate logistics — Wailea driveways, generators, and the gate | myCHEF',
+      description:
+        'Maui estate logistics: driveways, generators, gates. Distinct from /blog/condo-load-in and /coverage.',
+      lede:
+        '/blog/condo-load-in is the tower. /coverage is the zone map. This blog note is the house — the Wailea driveway, the generator, the gate code in writing.',
+      photo: 'blogEstateMaui',
+      body: [
+        'Estate nights need a driveway we can actually use, a gate code, and whether a generator will run the range. We do not discover those at 4 p.m.',
+        'Towers sit on /blog/condo-load-in. South Maui rooms sit on /south-maui. Send the access packet on /quote.',
+        'A house without a functioning cooktop is still declined. Logistics do not invent a kitchen.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/condo-load-in?',
+          a: 'That note is the tower. This piece is the shorter estate-driveway note.',
+        },
+        {
+          q: 'Same as /coverage?',
+          a: 'That page is where we cook. This piece is how we reach the house.',
+        },
+      ],
+      related: [
+        { path: '/blog/condo-load-in', label: 'Condo load-in' },
+        { path: '/south-maui', label: 'South Maui' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'shoulder-season',
+      name: 'Shoulder season',
+      h1: 'Maui shoulder dates — April and November still need a written kitchen.',
+      title: 'Maui shoulder dates — April and November still need a written kitchen | myCHEF',
+      description:
+        'Maui shoulder dates are not automatic availability. Distinct from /journal/how-far-ahead-to-book.',
+      lede:
+        '/journal/how-far-ahead-to-book is the peak calendar. This blog note is April and November — quieter months that still need a Wailea kitchen in writing, not a last-minute yes.',
+      photo: 'blogShoulderMaui',
+      body: [
+        'Shoulder months are quieter, not empty. A Wailea house in April still needs a cooktop, a count, and a written quote. We do not invent a last-minute roster because the calendar looks open.',
+        'Peak months stay on /journal/how-far-ahead-to-book. Wedding-week houses stay on /wedding-week. This article is the quieter window beside them.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is why a shoulder night is still a written kitchen.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /journal/how-far-ahead-to-book?',
+          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note.',
+        },
+        {
+          q: 'Are April nights walk-in?',
+          a: 'No. Send /quote. We still write the kitchen.',
+        },
+      ],
+      related: [
+        { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   kauai: [
     {
@@ -1258,6 +1444,99 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
+    {
+      slug: 'proposal-dinners',
+      name: 'Proposal dinners',
+      h1: 'Kauai proposal dinners — inquiry tables for two, not a restaurant hold.',
+      title: 'Kauai proposal dinners — inquiry tables for two, not a restaurant hold | myCHEF',
+      description:
+        'Kauai proposal dinners in an estate kitchen, at inquiry. Distinct from /honeymoon-dinners and /fine-dining/romantic-dinner.',
+      lede:
+        '/honeymoon-dinners is two seats after the wedding — when we can staff. /fine-dining/romantic-dinner is the course stack. This blog note is the ask — on a Princeville terrace, not a restaurant hold.',
+      photo: 'blogProposalKauai',
+      body: [
+        'A proposal is two seats in a kitchen we can actually staff. Inquiry until we can. We do not hold a restaurant table. We do not stage a public ask on a resort lawn.',
+        'Honeymoon nights sit on /honeymoon-dinners. The romantic-dinner SKU is /fine-dining/romantic-dinner. This article is the shorter proposal note beside them — at inquiry.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one table for two in the house — when we can staff.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /honeymoon-dinners?',
+          a: 'That page is two seats after the wedding. This piece is the shorter proposal note — at inquiry.',
+        },
+        {
+          q: 'Can you hold a restaurant table?',
+          a: 'No. We cook in the house, when we can staff. Open /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/honeymoon-dinners', label: 'Honeymoon dinners' },
+        { path: '/fine-dining/romantic-dinner', label: 'Romantic dinner SKU' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'estate-logistics',
+      name: 'Estate logistics',
+      h1: 'Kauai estate logistics — inquiry gates, generators, and the driveway.',
+      title: 'Kauai estate logistics — inquiry gates, generators, and the driveway | myCHEF',
+      description:
+        'Kauai estate logistics at inquiry: driveways, generators, gates. Distinct from /blog/condo-load-in and /coverage.',
+      lede:
+        '/blog/condo-load-in is the tower. /coverage is the zone map. This blog note is the house — the Princeville driveway, the generator, the gate code in the inquiry reply.',
+      photo: 'blogEstateKauai',
+      body: [
+        'Estate nights need a driveway we can actually use, a gate code, and whether a generator will run the range. We write those in the inquiry reply. A band is not a Book-now button.',
+        'Towers sit on /blog/condo-load-in. Far-North nights inherit /hanalei-bridge. Send the access packet on /quote.',
+        'A house without a functioning cooktop is still declined. Logistics do not invent a kitchen.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/condo-load-in?',
+          a: 'That note is the tower. This piece is the shorter estate-driveway note — at inquiry.',
+        },
+        {
+          q: 'Same as /coverage?',
+          a: 'That page is where we cook. This piece is how we reach the house.',
+        },
+      ],
+      related: [
+        { path: '/blog/condo-load-in', label: 'Condo load-in' },
+        { path: '/hanalei-bridge', label: 'Hanalei bridge' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'shoulder-season',
+      name: 'Shoulder season',
+      h1: 'Kauai shoulder dates — inquiry months still need a written kitchen.',
+      title: 'Kauai shoulder dates — inquiry months still need a written kitchen | myCHEF',
+      description:
+        'Kauai shoulder dates are not automatic availability. Distinct from /journal/how-far-ahead-to-book.',
+      lede:
+        '/journal/how-far-ahead-to-book is the peak calendar at inquiry. This blog note is the quieter months — they still need a Princeville kitchen in writing, not a last-minute yes.',
+      photo: 'blogShoulderKauai',
+      body: [
+        'Shoulder months are quieter, not empty. A Princeville house in April still needs a cooktop, a count, and an inquiry reply. We do not invent a last-minute roster because the calendar looks open.',
+        'Peak months stay on /journal/how-far-ahead-to-book. Far-North weather stays on /hanalei-bridge. This article is the quieter window beside them — at inquiry.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is why a shoulder night is still a written kitchen.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /journal/how-far-ahead-to-book?',
+          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note — at inquiry.',
+        },
+        {
+          q: 'Are April nights walk-in?',
+          a: 'No. Send /quote. We still write the kitchen, when we can staff.',
+        },
+      ],
+      related: [
+        { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
   ],
   bigisland: [
     {
@@ -1629,6 +1908,99 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/catering', label: 'Catering' },
         { path: '/east-side', label: 'East side' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'proposal-dinners',
+      name: 'Proposal dinners',
+      h1: 'Hawaiʻi Island proposal dinners — west-side tables for two, not a restaurant hold.',
+      title: 'Hawaiʻi Island proposal dinners — west-side tables for two, not a restaurant hold | myCHEF',
+      description:
+        'West-side proposal dinners in a house kitchen, at inquiry. Distinct from /honeymoon-dinners and /fine-dining/romantic-dinner.',
+      lede:
+        '/honeymoon-dinners is two seats after the wedding — when we can staff. /fine-dining/romantic-dinner is the course stack. This blog note is the ask — on a Kohala lava terrace, not a restaurant hold.',
+      photo: 'blogProposalBigisland',
+      body: [
+        'A proposal is two seats in a kitchen we can actually staff. Inquiry until we can. We do not hold a restaurant table. East side is a dedicated day — /east-side.',
+        'Honeymoon nights sit on /honeymoon-dinners. The romantic-dinner SKU is /fine-dining/romantic-dinner. This article is the shorter proposal note beside them — at inquiry.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one table for two in a west-side house — when we can staff.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /honeymoon-dinners?',
+          a: 'That page is two seats after the wedding. This piece is the shorter proposal note — at inquiry.',
+        },
+        {
+          q: 'Can you hold a restaurant table?',
+          a: 'No. We cook in the house, when we can staff. Open /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/honeymoon-dinners', label: 'Honeymoon dinners' },
+        { path: '/fine-dining/romantic-dinner', label: 'Romantic dinner SKU' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'estate-logistics',
+      name: 'Estate logistics',
+      h1: 'Hawaiʻi Island estate logistics — west-side gates, generators, and the driveway.',
+      title: 'Hawaiʻi Island estate logistics — west-side gates, generators, and the driveway | myCHEF',
+      description:
+        'West-side estate logistics at inquiry: driveways, generators, gates. Distinct from /blog/condo-load-in and /coverage.',
+      lede:
+        '/blog/condo-load-in is the tower. /coverage is the zone map. This blog note is the house — the Kona driveway, the generator, the gate code in the inquiry reply.',
+      photo: 'blogEstateBigisland',
+      body: [
+        'Estate nights need a driveway we can actually use, a gate code, and whether a generator will run the range. We write those in the inquiry reply. A band is not a Book-now button.',
+        'Towers sit on /blog/condo-load-in. East side is a dedicated crossing — /east-side. Send the access packet on /quote.',
+        'A house without a functioning cooktop is still declined. Logistics do not invent a kitchen.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/condo-load-in?',
+          a: 'That note is the tower. This piece is the shorter estate-driveway note — at inquiry.',
+        },
+        {
+          q: 'Same as /coverage?',
+          a: 'That page is where we cook. This piece is how we reach the house.',
+        },
+      ],
+      related: [
+        { path: '/blog/condo-load-in', label: 'Condo load-in' },
+        { path: '/east-side', label: 'East side' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'shoulder-season',
+      name: 'Shoulder season',
+      h1: 'Hawaiʻi Island shoulder dates — west-side months still need a written kitchen.',
+      title: 'Hawaiʻi Island shoulder dates — west-side months still need a written kitchen | myCHEF',
+      description:
+        'West-side shoulder dates are not automatic availability. Distinct from /journal/how-far-ahead-to-book.',
+      lede:
+        '/journal/how-far-ahead-to-book is the peak calendar at inquiry. This blog note is the quieter months — they still need a Kona kitchen in writing, not a last-minute yes.',
+      photo: 'blogShoulderBigisland',
+      body: [
+        'Shoulder months are quieter, not empty. A Kona house in April still needs a cooktop, a count, and an inquiry reply. We do not invent a last-minute roster because the calendar looks open.',
+        'Peak months stay on /journal/how-far-ahead-to-book. Ironman weeks stay on /ironman-weeks. East side stays a dedicated day — /east-side.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is why a shoulder night is still a written kitchen.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /journal/how-far-ahead-to-book?',
+          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note — at inquiry.',
+        },
+        {
+          q: 'Are April nights walk-in?',
+          a: 'No. Send /quote. We still write the kitchen, when we can staff.',
+        },
+      ],
+      related: [
+        { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
+        { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },

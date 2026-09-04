@@ -134,13 +134,22 @@ Still no zip on this machine. Wave 14 uniquifies four more operational blog seed
 - Unique `/blog/photoshoot-catering` — residence kitchens, not a craft-service tent. Distinct from `/catering`.
 - New Grok stills for every Wave 14 URL. Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry.
 
-## Wave 15 — zip execution
+## Wave 15 — unique proposal, estate, and shoulder blog notes (this branch)
+
+Still no zip on this machine. Wave 15 uniquifies three more operational blog seeds on every island host:
+
+- Unique `/blog/proposal-dinners` — tables for two in the house, not a restaurant hold. Distinct from `/honeymoon-dinners` and `/fine-dining/romantic-dinner`.
+- Unique `/blog/estate-logistics` — driveways, generators, gates. Distinct from `/blog/condo-load-in` and `/coverage`.
+- Unique `/blog/shoulder-season` — quieter months still need a written kitchen. Distinct from `/journal/how-far-ahead-to-book`.
+- New Grok stills for every Wave 15 URL. Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry.
+
+## Wave 16 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 16 — automation that stays on
+## Wave 17 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.
