@@ -175,6 +175,25 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Five fields for an Oahu villa dinner or staffed room. Name the corridor and the kitchen. A written quote follows.',
   },
+  '/oahu/legal': {
+    title: 'Oahu booking notes — quotes, GET, Gold Coast kitchens | myCHEF',
+    description:
+      'Oahu booking notes: written quote, 50% deposit, 20% service, GET up to 4.712%. Gold Coast kitchens are the product. Hotel suites without a cooktop are declined.',
+  },
+  '/oahu/thank-you': {
+    title: 'Oahu enquiry received | myCHEF',
+    description: 'The Oahu coordinator has the corridor, the kitchen note, and the dates. Reply in Hawaii business hours.',
+  },
+  '/oahu/journal': {
+    title: 'Oahu private chef journal | myCHEF',
+    description:
+      'Oahu host journal: Honolulu, Waikīkī, Kailua, North Shore, Kahala, Ko Olina. Not the hub digest. Statewide Hawaii catering stays off this title.',
+  },
+  '/oahu/blog': {
+    title: 'Oahu private chef blog | myCHEF',
+    description:
+      'Shorter Oahu host posts for Honolulu kitchens and booking questions. Not the journal. Not a statewide feed.',
+  },
   '/maui/private-chef': {
     title: 'Personal chef Maui villas & vacation rentals | myCHEF',
     description:
@@ -222,6 +241,25 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     title: 'Maui quote form — shore, kitchen, written total | myCHEF',
     description:
       'Five fields for a Maui villa dinner or staffed room. Name the shore and the kitchen. Saturday West Maui traffic is planned in.',
+  },
+  '/maui/legal': {
+    title: 'Maui booking notes — quotes, GET, West Maui travel | myCHEF',
+    description:
+      'Maui booking notes: written quote, 50% deposit, 20% service, GET up to 4.712%. Saturday West Maui traffic is planned into arrival. Lahaina is a town, not a mystery fee.',
+  },
+  '/maui/thank-you': {
+    title: 'Maui enquiry received | myCHEF',
+    description: 'The Maui coordinator has the shore, the kitchen note, and the dates. Saturday West Maui traffic is planned into the reply.',
+  },
+  '/maui/journal': {
+    title: 'Maui private chef journal | myCHEF',
+    description:
+      'Maui host journal: South Maui, West Maui, wedding-week houses. Not Oahu, Kauaʻi, or Hawaiʻi Island. Not the hub directory.',
+  },
+  '/maui/blog': {
+    title: 'Maui private chef blog | myCHEF',
+    description:
+      'Shorter Maui host posts beside Wailea and Kāʻanapali nights. Not the journal. Not a statewide feed.',
   },
   '/maui/catering': {
     title: 'Maui Catering | Villa Receptions and Events | myCHEF',
@@ -279,6 +317,25 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Inquiry form for Kauai estate dinners. Name the shore. Hanalei-bridge weather is a clause. We will not fake a live Book-now button.',
   },
+  '/kauai/legal': {
+    title: 'Kauai booking notes — quotes, GET, Hanalei-bridge weather | myCHEF',
+    description:
+      'Kauai booking notes at inquiry: written quote when we can staff, 50% deposit, GET up to 4.712%. Hanalei-bridge closures reschedule rather than forfeit. We will not fake a live roster.',
+  },
+  '/kauai/thank-you': {
+    title: 'Kauai inquiry received | myCHEF',
+    description: 'The Kauai inquiry list has the shore and the dates. We write back with what we can staff. Hanalei-bridge weather is a clause.',
+  },
+  '/kauai/journal': {
+    title: 'Kauai private chef journal | myCHEF',
+    description:
+      'Kauai host journal at inquiry: Princeville, Hanalei, Kapaʻa, Poʻipū. Not a staffed calendar. Not the hub directory.',
+  },
+  '/kauai/blog': {
+    title: 'Kauai private chef blog | myCHEF',
+    description:
+      'Shorter Kauai host posts at inquiry. Princeville and Poʻipū named. Not a live roster. Not the journal.',
+  },
   '/bigisland/private-chef': {
     title: 'Personal chef Big Island villas & vacation rentals | myCHEF',
     description: 'Personal chef for Big Island and Kona villas. In-home dinner, Stay Chef weeks. WhatsApp for a quote.',
@@ -326,6 +383,25 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     title: 'Hawaiʻi Island inquiry form — west side, written reply | myCHEF',
     description:
       'Inquiry form for west-side Hawaiʻi Island dinners. East side is a different day. We will not fake a live Book-now button.',
+  },
+  '/bigisland/legal': {
+    title: 'Hawaiʻi Island booking notes — quotes, GET, east-side days | myCHEF',
+    description:
+      'Hawaiʻi Island booking notes at inquiry: written quote when we can staff, 50% deposit, GET up to 4.712%. West side first. East side is a dedicated day, never a west-side round trip.',
+  },
+  '/bigisland/thank-you': {
+    title: 'Hawaiʻi Island inquiry received | myCHEF',
+    description: 'The west-side inquiry list has the address and the dates. East side is a different day. We write back with what we can staff.',
+  },
+  '/bigisland/journal': {
+    title: 'Hawaiʻi Island private chef journal | myCHEF',
+    description:
+      'Hawaiʻi Island host journal: Kona, Waikoloa, Waimea, Kohala. West side first. Hilo is a different day. Not the hub directory.',
+  },
+  '/bigisland/blog': {
+    title: 'Hawaiʻi Island private chef blog | myCHEF',
+    description:
+      'Shorter Hawaiʻi Island host posts. West side first. East side is a different day. Not the journal.',
   },
 };
 

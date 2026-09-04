@@ -30,7 +30,11 @@ function neighborhoodRows(island: IslandSitemapHost): { host: MasterHost; path: 
 }
 
 function supportRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
-  return [...SUPPORT_PATHS, '/about', '/events'].map((path) => ({ host: island, path, priority: '0.6' }));
+  return [...SUPPORT_PATHS, '/about', '/events', '/legal', '/journal', '/blog'].map((path) => ({
+    host: island,
+    path,
+    priority: '0.6',
+  }));
 }
 
 function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {

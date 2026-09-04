@@ -74,13 +74,22 @@ Still no zip on this machine. Wave 8 uniquifies the live conversion URLs that st
 - Unique `/pricing` documents on every island host — unique stills and FAQs around the canonical rate card. Distinct from `/private-chef-cost`. Titles stay “What a night costs on …”.
 - Scheduled `seo:snapshot` GitHub Action (weekly, plus workflow_dispatch). Requires `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` secrets. Uploads the snapshot as an artifact; does not commit secrets.
 
-## Wave 9 — zip execution
+## Wave 9 — unique legal, thank-you, journal, and blog (this branch)
+
+Still no zip on this machine. Wave 9 uniquifies the remaining cloned island documents:
+
+- Unique `/legal` on every island host — GET and service-charge law stay statewide; weather, travel, and kitchen clauses are local. Titles never use money keywords. Distinct from `/private-chef-cost` and `/pricing`. Hub `/legal` stays the statewide notes.
+- Unique `/thank-you` on every island host — noindex, unique H1, lede, next links, Grok still. Hub keeps the statewide mahalo page.
+- Unique `/journal` and `/blog` index documents on every island host — unique H1, lede, still. Article lists stay island-specific. Hub directories stay statewide.
+- New Grok stills for every Wave 9 URL.
+
+## Wave 10 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 10 — automation that stays on
+## Wave 11 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

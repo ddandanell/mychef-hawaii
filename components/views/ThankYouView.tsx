@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { islands, type IslandId } from '@/data/islands';
 import { useIsland } from '@/components/IslandProvider';
+import { islandThanks } from '@/data/islandThanks';
+import { photos } from '@/data/photos';
 import { cn } from '@/lib/utils';
 
 const SERVICE_LABELS: Record<string, string> = {
@@ -24,7 +26,9 @@ const BUDGET_POSTURES = ['Entry', 'Core', 'Premium', 'Guide me'];
 
 export default function ThankYouView() {
   const params = useSearchParams();
-  const { href } = useIsland();
+  const { href, islandId: hostIsland } = useIsland();
+  const copy = hostIsland ? islandThanks[hostIsland] : null;
+  const photo = copy ? photos[copy.photo] : null;
   const islandParam = params.get('island');
   const island = islandParam && islandParam in islands ? (islandParam as IslandId) : null;
   const svc = params.get('service');
@@ -57,19 +61,23 @@ export default function ThankYouView() {
         <div className="mx-auto w-full max-w-[640px] px-5 text-center lg:px-0">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/photos/thank-you.jpg"
-            alt="A folded linen napkin and a sprig of rosemary on a stone counter in soft window light"
+            src={photo?.file ?? '/photos/thank-you.jpg'}
+            alt={
+              photo?.alt ??
+              'A folded linen napkin and a sprig of rosemary on a stone counter in soft window light'
+            }
             className="aspect-[16/9] w-full object-cover"
           />
-          <h1 className="mt-10 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] text-ink">
-            Mahalo — we’ve got it.
+          {copy ? <p className="mt-10 text-[12px] text-mute">{copy.kicker}</p> : null}
+          <h1 className="mt-4 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] text-ink">
+            {copy?.h1 ?? 'Mahalo — we’ve got it.'}
           </h1>
           {contextParts.length ? (
             <p className="mt-4 text-sm text-mute">{contextParts.join(' · ')}</p>
           ) : null}
           <p className="mx-auto mt-6 max-w-[52ch] text-[17px] leading-[1.65] text-mute">
-            A coordinator will reply in Hawaii business hours. WhatsApp if you want a faster thread. If your dates are
-            close, callback requests get priority routing.
+            {copy?.lede ??
+              'A coordinator will reply in Hawaii business hours. WhatsApp if you want a faster thread. If your dates are close, callback requests get priority routing.'}
           </p>
         </div>
       </section>
@@ -150,11 +158,14 @@ export default function ThankYouView() {
 
       <section className="bg-paper py-20">
         <div className="mx-auto w-full max-w-3xl px-5 lg:px-10">
-          {[
-            { to: href('/pricing'), label: 'See pricing orientation' },
-            { to: '/how-it-works', label: 'How the event day works' },
-            { to: '/trust', label: 'Our honesty register' },
-          ].map((l) => (
+          {(copy
+            ? copy.next.map((l) => ({ to: href(l.path), label: l.label }))
+            : [
+                { to: href('/pricing'), label: 'See pricing orientation' },
+                { to: '/how-it-works', label: 'How the event day works' },
+                { to: '/trust', label: 'Our honesty register' },
+              ]
+          ).map((l) => (
             <Link key={l.to} href={l.to} className="flex items-center justify-between border-b border-line py-5 first:border-t">
               <span className="font-display text-[1.25rem] font-light text-ink">{l.label}</span>
             </Link>

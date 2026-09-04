@@ -2,11 +2,13 @@ import Link from 'next/link';
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
+import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import Photo from '@/components/Photo';
 import TypePanel from '@/components/TypePanel';
 import QuoteTeaser from '@/components/QuoteTeaser';
-import { islandOrder, islands } from '@/data/islands';
+import { LongFaq, Longform } from '@/components/Longform';
+import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { feeStack } from '@/data/rateCard';
 import { proofRegister } from '@/data/proofRegister';
 import { articlesFor } from '@/data/editorial';
@@ -21,6 +23,10 @@ import { staffingPages } from '@/data/staffingPages';
 import { menuSkuPages } from '@/data/menuSkus';
 import { helpArticles } from '@/data/helpArticles';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
+import { islandLegal } from '@/data/islandLegal';
+import { islandJournal } from '@/data/islandJournal';
+import { islandBlog } from '@/data/islandBlog';
+import { photos } from '@/data/photos';
 
 export function HowItWorksView() {
   const steps = [
@@ -87,57 +93,86 @@ export function TrustView() {
   );
 }
 
-export function LegalView() {
-  const sections = [
-    {
-      num: '01',
-      title: 'Quotes & booking',
-      body: 'Every booking is confirmed by an itemised written quote: menu price, staffing, travel-zone fees, service charge and tax posture — each on its own line. Indicative website bands are published starting prices. Your written quote confirms the night.',
-    },
-    {
-      num: '02',
-      title: 'Deposits',
-      body: 'A deposit locks your date; the Hawaiʻi market norm is 50%, with final balance due 7–14 days before the event and headcount lock at 14–21 days. Deposit windows are proposed until counsel drafts the booking terms.',
-    },
-    {
-      num: '03',
-      title: 'Cancellation & weather',
-      body: 'Proposed tiers: 28+ days partial refund posture; 14–28 days deposit retained; under 7 days full balance posture. Force-majeure (road closures, flood advisories, Hanalei bridge) reschedules rather than forfeits, where safe. Pending attorney review.',
-    },
-    {
-      num: '04',
-      title: 'Taxes (GET)',
-      body: 'Hawaiʻi’s General Excise Tax is a tax on our gross income. If passed on visibly, the maximum rate is 4.7120% including county surcharge — identical on all four islands, valid through December 31, 2030 — always shown as its own line. We will never display the obsolete 4.166% figure.',
-    },
-    {
-      num: '05',
-      title: 'Service charge & gratuity',
-      body: 'Where a service charge applies (20% is the market convention), Hawaiʻi law (HRS §481B-14 posture) requires it be distributed to employees as tip income or its retention clearly disclosed. Gratuity beyond that is always voluntary.',
-    },
-    {
-      num: '06',
-      title: 'Licensing, insurance & food safety',
-      body: 'Operating structure, food-handler certification pathway and insurance certificates publish here when issued and verifiable. We do not display license numbers or certificates we don’t hold.',
-    },
-    {
-      num: '07',
-      title: 'Privacy & accessibility',
-      body: 'We collect only what the quote form asks, use it only to serve your enquiry, never sell it. Built to WCAG 2.2 AA: contrast-checked, keyboard-navigable, reduced-motion respected.',
-    },
-  ];
+const HUB_LEGAL_SECTIONS = [
+  {
+    num: '01',
+    title: 'Quotes & booking',
+    body: 'Every booking is confirmed by an itemised written quote: menu price, staffing, travel-zone fees, service charge and tax posture — each on its own line. Indicative website bands are published starting prices. Your written quote confirms the night.',
+  },
+  {
+    num: '02',
+    title: 'Deposits',
+    body: 'A deposit locks your date; the Hawaiʻi market norm is 50%, with final balance due 7–14 days before the event and headcount lock at 14–21 days. Deposit windows are proposed until counsel drafts the booking terms.',
+  },
+  {
+    num: '03',
+    title: 'Cancellation & weather',
+    body: 'Proposed tiers: 28+ days partial refund posture; 14–28 days deposit retained; under 7 days full balance posture. Force-majeure (road closures, flood advisories, Hanalei bridge) reschedules rather than forfeits, where safe. Pending attorney review.',
+  },
+  {
+    num: '04',
+    title: 'Taxes (GET)',
+    body: 'Hawaiʻi’s General Excise Tax is a tax on our gross income. If passed on visibly, the maximum rate is 4.7120% including county surcharge — identical on all four islands, valid through December 31, 2030 — always shown as its own line. We will never display the obsolete 4.166% figure.',
+  },
+  {
+    num: '05',
+    title: 'Service charge & gratuity',
+    body: 'Where a service charge applies (20% is the market convention), Hawaiʻi law (HRS §481B-14 posture) requires it be distributed to employees as tip income or its retention clearly disclosed. Gratuity beyond that is always voluntary.',
+  },
+  {
+    num: '06',
+    title: 'Licensing, insurance & food safety',
+    body: 'Operating structure, food-handler certification pathway and insurance certificates publish here when issued and verifiable. We do not display license numbers or certificates we don’t hold.',
+  },
+  {
+    num: '07',
+    title: 'Privacy & accessibility',
+    body: 'We collect only what the quote form asks, use it only to serve your enquiry, never sell it. Built to WCAG 2.2 AA: contrast-checked, keyboard-navigable, reduced-motion respected.',
+  },
+];
+
+export function LegalView({ islandId }: { islandId?: IslandId | null } = {}) {
+  const copy = islandId ? islandLegal[islandId] : null;
+  const photo = copy ? photos[copy.photo] : null;
+  const sections = copy?.sections ?? HUB_LEGAL_SECTIONS;
   return (
     <>
-      <section className="bg-paper pt-20 lg:pt-28">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">Policies</p>
-          <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink">
-            The fine print, in large type.
-          </h1>
-          <p className="mt-6 max-w-[68ch] text-[1.25rem] leading-[1.55] text-ink">
-            Everything that governs a myCHEF Hawaii booking, written to be read.
-          </p>
-        </div>
-      </section>
+      {copy && photo ? (
+        <>
+          <JsonLd
+            data={{
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: copy.faqs.map((f) => ({
+                '@type': 'Question',
+                name: f.q,
+                acceptedAnswer: { '@type': 'Answer', text: f.a },
+              })),
+            }}
+          />
+          <Hero src={photo.file} alt={photo.alt}>
+            <p className="text-[13px] text-mute">{copy.kicker}</p>
+            <LineReveal
+              text={copy.h1}
+              className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+            />
+            <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+          </Hero>
+        </>
+      ) : (
+        <section className="bg-paper pt-20 lg:pt-28">
+          <div className="mx-auto max-w-container px-5 lg:px-10">
+            <p className="text-[12px] text-mute">Policies</p>
+            <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink">
+              The fine print, in large type.
+            </h1>
+            <p className="mt-6 max-w-[68ch] text-[1.25rem] leading-[1.55] text-ink">
+              Everything that governs a myCHEF Hawaii booking, written to be read.
+            </p>
+          </div>
+        </section>
+      )}
+      {copy ? <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} /> : null}
       <section className="bg-paper py-20">
         <div className="mx-auto max-w-3xl space-y-16 px-5 lg:px-10">
           {sections.map((s) => (
@@ -158,6 +193,7 @@ export function LegalView() {
           ))}
         </div>
       </section>
+      {copy ? <LongFaq items={copy.faqs} title="Before you deposit." /> : null}
     </>
   );
 }
@@ -282,23 +318,33 @@ export function IslandEditorialView({
   kind: 'journal' | 'blog';
 }) {
   const list = articlesFor(islandId).filter((a) => a.kind === kind);
+  const copy = kind === 'journal' ? islandJournal[islandId] : islandBlog[islandId];
+  const photo = photos[copy.photo];
   return (
-    <section className="bg-paper py-20">
-      <div className="mx-auto max-w-container px-5 lg:px-10">
-        <p className="text-[12px] text-mute">{islands[islandId].name}</p>
-        <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-light text-ink">
-          {kind === 'journal' ? 'Journal' : 'Blog'}
-        </h1>
-        <ul className="mt-10 space-y-6">
-          {list.map((a) => (
-            <li key={a.slug} className="border-t border-line pt-6">
-              <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
-              <p className="mt-2 text-mute">{a.description}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    <>
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
+          <ul className="mt-10 space-y-6">
+            {list.map((a) => (
+              <li key={a.slug} className="border-t border-line pt-6">
+                <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
+                <p className="mt-2 text-mute">{a.description}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    </>
   );
 }
 
@@ -309,7 +355,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events'] as const).map((path) => ({ host: id, path })),
+      ...(['/about', '/events', '/legal', '/journal', '/blog'] as const).map((path) => ({ host: id, path })),
       ...uniqueCells[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
       ...islandServices[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
       ...occasionPages[id].map((cell) => ({ host: id, path: `/events/${cell.slug}` as const })),

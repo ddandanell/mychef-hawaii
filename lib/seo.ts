@@ -21,6 +21,10 @@ import { getMenuSkuPage, menuSkuPages } from '@/data/menuSkus';
 import { getHelpArticle, helpArticles } from '@/data/helpArticles';
 import { islandQuote } from '@/data/islandQuote';
 import { islandPricing } from '@/data/islandPricing';
+import { islandLegal } from '@/data/islandLegal';
+import { islandThanks } from '@/data/islandThanks';
+import { islandJournal } from '@/data/islandJournal';
+import { islandBlog } from '@/data/islandBlog';
 import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
@@ -113,6 +117,10 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     }
     if (localPath === '/quote') return `${origin}${photos[islandQuote[islandId].photo].file}`;
     if (localPath === '/pricing') return `${origin}${photos[islandPricing[islandId].photo].file}`;
+    if (localPath === '/legal') return `${origin}${photos[islandLegal[islandId].photo].file}`;
+    if (localPath === '/thank-you') return `${origin}${photos[islandThanks[islandId].photo].file}`;
+    if (localPath === '/journal') return `${origin}${photos[islandJournal[islandId].photo].file}`;
+    if (localPath === '/blog') return `${origin}${photos[islandBlog[islandId].photo].file}`;
   }
   if (!islandId) return `${origin}${photos.hubHero.file}`;
   return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;
@@ -286,6 +294,18 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (islandPricing[islandId] && localPath === '/pricing') {
       title = islandPricing[islandId].title;
       description = islandPricing[islandId].description;
+    } else if (islandLegal[islandId] && localPath === '/legal') {
+      title = islandLegal[islandId].title;
+      description = islandLegal[islandId].description;
+    } else if (islandThanks[islandId] && localPath === '/thank-you') {
+      title = islandThanks[islandId].title;
+      description = islandThanks[islandId].description;
+    } else if (islandJournal[islandId] && localPath === '/journal') {
+      title = islandJournal[islandId].title;
+      description = islandJournal[islandId].description;
+    } else if (islandBlog[islandId] && localPath === '/blog') {
+      title = islandBlog[islandId].title;
+      description = islandBlog[islandId].description;
     } else if (getIslandSupport(islandId, localPath)) {
       const support = getIslandSupport(islandId, localPath)!;
       title = support.title;
@@ -351,12 +371,6 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       } else if (catalog) {
         title = catalog.title;
         description = catalog.lede;
-      } else if (localPath === '/journal') {
-        title = `Journal — myCHEF ${island.name}`;
-        description = `Island journal for ${island.name}. ${island.role}`;
-      } else if (localPath === '/blog') {
-        title = `Blog — myCHEF ${island.name}`;
-        description = `Guides and notes for private chef service on ${island.name}.`;
       } else if (localPath === '/locations') {
         title = `Service areas — myCHEF ${island.name}`;
         description = `Coverage on ${island.name}: published zones, not statewide fiction.`;
@@ -437,7 +451,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.7',
     })),
-    ...(['/about', '/events', ...SUPPORT_PATHS] as const).map((path) => ({
+    ...(['/about', '/events', '/legal', '/journal', '/blog', ...SUPPORT_PATHS] as const).map((path) => ({
       loc: `https://${masterHostName(island)}${path}`,
       changefreq: 'monthly',
       priority: '0.6',

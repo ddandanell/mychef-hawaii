@@ -1143,6 +1143,70 @@ export const photos = {
     file: '/photos/pricing-bigisland.png',
     alt: `A printed west-side rate card on a Kohala lava-stone table — dinner bands, hard sun.`,
   },
+  legalOahu: {
+    file: '/photos/legal-oahu.png',
+    alt: `Cream booking notes and a brass pen on a Kahala Gold Coast kitchen counter at dusk, Diamond Head faint through the sliders.`,
+  },
+  legalMaui: {
+    file: '/photos/legal-maui.png',
+    alt: `Cream booking notes on a Wailea lānai table at west sunset, brass pen, Pacific beyond.`,
+  },
+  legalKauai: {
+    file: '/photos/legal-kauai.png',
+    alt: `Cream booking notes on a Princeville stone counter, wet glass, misted fluted mountains.`,
+  },
+  legalBigisland: {
+    file: '/photos/legal-bigisland.png',
+    alt: `Cream booking notes on a Kohala lava-stone counter in hard sun, Mauna Kea faint in the distance.`,
+  },
+  thanksOahu: {
+    file: '/photos/thanks-oahu.png',
+    alt: `Folded ivory linen and a handwritten confirmation card on a Kahala kitchen stone at dusk, rosemary sprig, Diamond Head faint.`,
+  },
+  thanksMaui: {
+    file: '/photos/thanks-maui.png',
+    alt: `Folded ivory linen and a confirmation card on a Wailea lānai table at dusk, Pacific beyond.`,
+  },
+  thanksKauai: {
+    file: '/photos/thanks-kauai.png',
+    alt: `Folded ivory linen and an inquiry card on a wet Princeville counter, mountain mist through the glass.`,
+  },
+  thanksBigisland: {
+    file: '/photos/thanks-bigisland.png',
+    alt: `Folded ivory linen and an inquiry card on a Kona lava-terrace table in hard sun, Mauna Kea faint.`,
+  },
+  journalOahu: {
+    file: '/photos/journal-oahu.png',
+    alt: `An open cloth-bound journal and brass pen on a Kahala dining table at dusk, plated fish behind, Diamond Head faint.`,
+  },
+  journalMaui: {
+    file: '/photos/journal-maui.png',
+    alt: `An open cloth-bound journal on a Wailea kitchen island in late afternoon, Molokini faint beyond the lānai.`,
+  },
+  journalKauai: {
+    file: '/photos/journal-kauai.png',
+    alt: `An open cloth-bound journal on a North Shore Kauaʻi stone table, rain on the glass, misted peaks.`,
+  },
+  journalBigisland: {
+    file: '/photos/journal-bigisland.png',
+    alt: `An open cloth-bound journal on a Kohala lava table in hard sun, coffee cherries nearby.`,
+  },
+  blogOahu: {
+    file: '/photos/blog-oahu.png',
+    alt: `Short note cards stacked on a Kahala kitchen counter in overcast morning light, brass clip, no theatrical props.`,
+  },
+  blogMaui: {
+    file: '/photos/blog-maui.png',
+    alt: `Short note cards on a Kāʻanapali deck table at west sunset, brass clip, Lānaʻi faint on the horizon.`,
+  },
+  blogKauai: {
+    file: '/photos/blog-kauai.png',
+    alt: `Short note cards on a Poʻipū kitchen counter in morning sun, kiawe and pale south-shore cliffs beyond.`,
+  },
+  blogBigisland: {
+    file: '/photos/blog-bigisland.png',
+    alt: `Short note cards on a Kona window-kitchen counter, seared-fish pan, dry lava and coffee slope beyond.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
