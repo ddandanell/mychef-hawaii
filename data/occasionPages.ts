@@ -1,6 +1,6 @@
 import type { IslandId } from './islands';
-import type { PhotoKey } from './photos';
 import { SEARCH_VOLUMES } from './offers';
+import { OCCASION_EXTRA_SLUGS, occasionExtras } from './occasionExtras';
 import type { UniqueCell } from './uniqueCells';
 
 /**
@@ -8,7 +8,7 @@ import type { UniqueCell } from './uniqueCells';
  * Do not put money catering keywords in titles.
  */
 
-export const OCCASION_SLUGS = ['birthdays', 'welcome-dinners', 'retreats'] as const;
+export const OCCASION_SLUGS = ['birthdays', 'welcome-dinners', 'retreats', ...OCCASION_EXTRA_SLUGS] as const;
 export type OccasionSlug = (typeof OCCASION_SLUGS)[number];
 
 export interface OccasionPage extends UniqueCell {
@@ -107,6 +107,7 @@ export const occasionPages: Record<IslandId, OccasionPage[]> = {
         { path: '/vacation-chef', label: 'Vacation chef' },
       ],
     },
+    ...occasionExtras.oahu,
   ],
   maui: [
     {
@@ -199,6 +200,7 @@ export const occasionPages: Record<IslandId, OccasionPage[]> = {
         { path: '/south-maui', label: 'South Maui' },
       ],
     },
+    ...occasionExtras.maui,
   ],
   kauai: [
     {
@@ -291,6 +293,7 @@ export const occasionPages: Record<IslandId, OccasionPage[]> = {
         { path: '/vacation-chef', label: 'Vacation chef' },
       ],
     },
+    ...occasionExtras.kauai,
   ],
   bigisland: [
     {
@@ -383,6 +386,7 @@ export const occasionPages: Record<IslandId, OccasionPage[]> = {
         { path: '/vacation-chef', label: 'Vacation chef' },
       ],
     },
+    ...occasionExtras.bigisland,
   ],
 };
 

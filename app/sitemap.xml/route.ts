@@ -4,6 +4,7 @@ import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
 import { islandServices } from '@/data/islandServices';
 import { occasionPages } from '@/data/occasionPages';
+import { cateringFormats } from '@/data/cateringFormats';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 function xmlEscape(s: string): string {
@@ -33,6 +34,7 @@ function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: st
     ...uniqueCells[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.55' })),
     ...islandServices[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.5' })),
     ...occasionPages[island].map((cell) => ({ host: island, path: `/events/${cell.slug}`, priority: '0.5' })),
+    ...cateringFormats[island].map((cell) => ({ host: island, path: `/catering/${cell.slug}`, priority: '0.5' })),
   ];
 }
 

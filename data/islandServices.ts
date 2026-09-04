@@ -1,6 +1,6 @@
 import type { IslandId } from './islands';
-import type { PhotoKey } from './photos';
 import { SEARCH_VOLUMES } from './offers';
+import { gatedServices } from './gatedServices';
 import type { UniqueCell } from './uniqueCells';
 
 /**
@@ -191,6 +191,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
         { path: '/vacation-chef', label: 'Vacation chef' },
       ],
     },
+    ...gatedServices.oahu,
   ],
   maui: [
     {
@@ -373,6 +374,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
         { path: '/vacation-chef', label: 'Vacation chef' },
       ],
     },
+    ...gatedServices.maui,
   ],
   kauai: [
     {
@@ -555,6 +557,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
         { path: '/vacation-chef', label: 'Vacation chef' },
       ],
     },
+    ...gatedServices.kauai,
   ],
   bigisland: [
     {
@@ -737,6 +740,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
         { path: '/vacation-chef', label: 'Vacation chef' },
       ],
     },
+    ...gatedServices.bigisland,
   ],
 };
 

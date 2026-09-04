@@ -12,6 +12,8 @@ import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { photos } from '@/data/photos';
 import { FEE_DISCLOSURE, STAFFING, formatFrom, formatOtherOffer, getOtherOffer, getTiers } from '@/data/rateCard';
 import { islandHref } from '@/lib/paths';
+import { cateringFormats } from '@/data/cateringFormats';
+import Link from 'next/link';
 
 /** Darker third of each island still — not a second catering frame, not a scrim. */
 const CATERING_CROP: Record<IslandId, string> = {
@@ -158,7 +160,7 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
         </div>
       </Hero>
 
-      <Formats />
+      <Formats islandId={islandId} href={href} />
 
       <section id="prices" className="bg-sand py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
@@ -208,23 +210,48 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
   );
 }
 
-function Formats() {
+function Formats({
+  islandId,
+  href,
+}: {
+  islandId?: IslandId;
+  href?: (path: string) => string;
+}) {
+  const islandItems = islandId ? cateringFormats[islandId] : null;
   return (
     <section className="bg-paper py-16 lg:py-24">
       <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-light text-ink">Buffet or plated</h2>
+        <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-light text-ink">
+          {islandItems ? 'Formats as their own documents' : 'Buffet or plated'}
+        </h2>
         <p className="mt-4 max-w-[65ch] text-[17px] leading-[1.65] text-mute">
-          The food band is the island CORE card — from $125 a guest on Oʻahu, $150 on Maui and Kauaʻi. Staffing changes
-          with the format.
+          {islandItems
+            ? 'Each format is its own URL so it cannot steal the catering title. Drop-off is not staffed service.'
+            : 'The food band is the island CORE card — from $125 a guest on Oʻahu, $150 on Maui and Kauaʻi. Staffing changes with the format.'}
         </p>
         <div className="mt-12 grid gap-4 md:grid-cols-2">
-          {formats.map((f) => (
-            <article key={f.title} className="border border-line bg-paper p-6">
-              <h3 className="font-display text-[1.375rem] font-light text-ink">{f.title}</h3>
-              <p className="mt-3 text-[17px] leading-[1.65] text-mute">{f.text}</p>
-              <p className="mt-4 text-[12px] text-mute">{f.when}</p>
-            </article>
-          ))}
+          {islandItems
+            ? islandItems.map((f) => (
+                <article key={f.slug} className="border border-line bg-paper p-6">
+                  <h3 className="font-display text-[1.375rem] font-light text-ink">
+                    {href ? (
+                      <Link href={href(`/catering/${f.slug}`)} className="underline-offset-4 hover:underline">
+                        {f.name}
+                      </Link>
+                    ) : (
+                      f.name
+                    )}
+                  </h3>
+                  <p className="mt-3 text-[17px] leading-[1.65] text-mute">{f.lede}</p>
+                </article>
+              ))
+            : formats.map((f) => (
+                <article key={f.title} className="border border-line bg-paper p-6">
+                  <h3 className="font-display text-[1.375rem] font-light text-ink">{f.title}</h3>
+                  <p className="mt-3 text-[17px] leading-[1.65] text-mute">{f.text}</p>
+                  <p className="mt-4 text-[12px] text-mute">{f.when}</p>
+                </article>
+              ))}
         </div>
       </div>
     </section>

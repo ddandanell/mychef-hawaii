@@ -15,6 +15,7 @@ import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
 import { islandServices } from '@/data/islandServices';
 import { occasionPages } from '@/data/occasionPages';
+import { cateringFormats } from '@/data/cateringFormats';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 export function HowItWorksView() {
@@ -308,6 +309,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
       ...uniqueCells[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
       ...islandServices[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
       ...occasionPages[id].map((cell) => ({ host: id, path: `/events/${cell.slug}` as const })),
+      ...cateringFormats[id].map((cell) => ({ host: id, path: `/catering/${cell.slug}` as const })),
     ]),
   ];
   return (

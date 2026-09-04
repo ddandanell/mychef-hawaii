@@ -39,13 +39,22 @@ Still no zip on this machine. Wave 4 ships the catalog service and occasion cell
 - Unique `/events/birthdays`, `/events/welcome-dinners`, `/events/retreats` on every island host, linked from `/events`.
 - New Grok stills for every Wave 4 URL.
 
-## Wave 5 — zip execution
+## Wave 5 — remaining occasions, gated services, catering formats (this branch)
+
+Still no zip on this machine. Wave 5 ships the next catalog slice that does not cannibalize money keywords:
+
+- Unique `/events/anniversaries`, `/events/corporate-events`, `/events/villa-parties`, `/events/brunch` on every island host, linked from `/events`.
+- Unique `/rehearsal-dinners`, `/meal-prep`, `/cooking-classes`, `/omakase-at-home`, `/corporate-catering`, `/retreat-catering` on every island host. Meal prep and classes stay honesty/gated pages.
+- Unique `/catering/bbq|plated|family-style|buffet|grazing|drop-off` on every island host. Titles are format documents (“Plated villa service on Oahu”), never “Oahu catering plated”. Drop-off is explicitly not staffed service.
+- New Grok stills for every Wave 5 URL.
+
+## Wave 6 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
-- Schema, FAQ, and sample-menu expansions the zip specifies beyond Wave 3.
+- Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 6 — automation that stays on
+## Wave 7 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` against DataForSEO when credentials are in GitHub Actions secrets (`DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD`). Do not commit secrets.

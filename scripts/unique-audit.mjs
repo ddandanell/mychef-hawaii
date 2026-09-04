@@ -141,8 +141,9 @@ const cateringSrc = read('data/catering.ts');
 const eventsSrc = read('data/events.ts');
 const supportSrc = read('data/islandSupport.ts');
 const cellsSrc = read('data/uniqueCells.ts');
-const servicesSrc = read('data/islandServices.ts');
-const occasionsSrc = read('data/occasionPages.ts');
+const servicesSrc = read('data/islandServices.ts') + '\n' + read('data/gatedServices.ts');
+const occasionsSrc = read('data/occasionPages.ts') + '\n' + read('data/occasionExtras.ts');
+const formatsSrc = read('data/cateringFormats.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
 const hoods = neighborhoods(offersSrc);
@@ -156,6 +157,7 @@ const menus = supportBlocks(supportSrc, 'islandMenus');
 const cells = uniqueCellMeta(cellsSrc);
 const services = uniqueCellMeta(servicesSrc);
 const occasions = uniqueCellMeta(occasionsSrc);
+const formats = uniqueCellMeta(formatsSrc);
 
 const errors = [];
 
@@ -167,8 +169,9 @@ if (coverage.length !== 4) errors.push(`Expected 4 coverage pages, found ${cover
 if (how.length !== 4) errors.push(`Expected 4 how-it-works pages, found ${how.length}`);
 if (menus.length !== 4) errors.push(`Expected 4 menus pages, found ${menus.length}`);
 if (cells.length < 15) errors.push(`Expected ≥15 unique cells, found ${cells.length}`);
-if (services.length < 24) errors.push(`Expected ≥24 island service pages, found ${services.length}`);
-if (occasions.length < 12) errors.push(`Expected ≥12 occasion pages, found ${occasions.length}`);
+if (services.length < 48) errors.push(`Expected ≥48 island service pages, found ${services.length}`);
+if (occasions.length < 28) errors.push(`Expected ≥28 occasion pages, found ${occasions.length}`);
+if (formats.length < 24) errors.push(`Expected ≥24 catering format pages, found ${formats.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -197,6 +200,9 @@ errors.push(...dupes(services.map((h) => files[h.photo] || h.photo), 'service he
 errors.push(...dupes(occasions.map((h) => h.title), 'occasion title'));
 errors.push(...dupes(occasions.map((h) => h.h1), 'occasion H1'));
 errors.push(...dupes(occasions.map((h) => files[h.photo] || h.photo), 'occasion hero file'));
+errors.push(...dupes(formats.map((h) => h.title), 'format title'));
+errors.push(...dupes(formats.map((h) => h.h1), 'format H1'));
+errors.push(...dupes(formats.map((h) => files[h.photo] || h.photo), 'format hero file'));
 
 const allTitles = [
   ...hoods.map((h) => h.title),
@@ -210,6 +216,7 @@ const allTitles = [
   ...cells.map((h) => h.title),
   ...services.map((h) => h.title),
   ...occasions.map((h) => h.title),
+  ...formats.map((h) => h.title),
 ];
 errors.push(...dupes(allTitles, 'cross-type title'));
 
@@ -244,7 +251,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -255,7 +262,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -308,5 +315,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats.`,
 );
