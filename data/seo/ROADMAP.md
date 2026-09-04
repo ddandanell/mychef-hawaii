@@ -161,13 +161,24 @@ Still no zip on this machine. Wave 17 ships live `/blog/dining-in-{area}` notes 
 
 Those slugs are not live `/{slug}` corridor URLs. Notes stay distinct from the nearest dinner door, `/coverage`, `/east-side`, `/gold-coast`, `/west-maui`, `/hanalei-bridge`, and `/coffee-act-198`. Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 17 URL.
 
-## Wave 18 — zip execution
+## Wave 18 — remaining non-money dining-in notes (this branch)
+
+Still no zip on this machine. Wave 18 finishes live `/blog/dining-in-{area}` notes for every remaining `areas.ts` cell:
+
+- Oʻahu: Downtown, Kāneʻohe, ʻEwa
+- Maui: Makawao, Waikapū, Haleakalā / Kula
+- Kauaʻi: Waimea, Hanapēpē, Anahola, ʻEleʻele
+- Hawaiʻi Island: Kailua-Kona, Mauna Lani, Mauna Kea resort, Kaʻū, Honokaʻa, Puakō
+
+Kauaʻi `/blog/dining-in-waimea` is west-side distance from Līhuʻe, not the Hawaiʻi Island ranch note. Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 18 URL.
+
+## Wave 19 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 19 — automation that stays on
+## Wave 20 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

@@ -1671,6 +1671,70 @@ export const photos = {
     file: '/photos/din-holualoa.png',
     alt: `A Hōlualoa mauka kitchen, unused ivory plates, unmarked coffee cherries in a clay bowl.`,
   },
+  dinDowntown: {
+    file: '/photos/din-downtown.png',
+    alt: `A Downtown Honolulu pied-à-terre kitchen at dusk, unused ivory plates, city loading alley.`,
+  },
+  dinKaneohe: {
+    file: '/photos/din-kaneohe.png',
+    alt: `A Kāneʻohe windward household kitchen at dusk, unused ivory plates, moss-green through a window.`,
+  },
+  dinEwa: {
+    file: '/photos/din-ewa.png',
+    alt: `An ʻEwa leeward household kitchen at dusk, unused ivory plates, west-side residential.`,
+  },
+  dinMakawao: {
+    file: '/photos/din-makawao.png',
+    alt: `A Makawao Upcountry town kitchen in misty light, unused ivory plates, moss-green pasture.`,
+  },
+  dinWaikapu: {
+    file: '/photos/din-waikapu.png',
+    alt: `A Waikapū central-valley estate kitchen, unused ivory plates, dry valley light.`,
+  },
+  dinHaleakala: {
+    file: '/photos/din-haleakala.png',
+    alt: `A Kula high-elevation kitchen in cooler light, unused ivory plates, moss-green slope.`,
+  },
+  dinKauaiWaimea: {
+    file: '/photos/din-kauai-waimea.png',
+    alt: `A west Kauaʻi Waimea estate kitchen, unused ivory plates, dry west light, not ranch country.`,
+  },
+  dinHanapepe: {
+    file: '/photos/din-hanapepe.png',
+    alt: `A Hanapēpē west-side town house kitchen, unused ivory plates, quiet residential street.`,
+  },
+  dinAnahola: {
+    file: '/photos/din-anahola.png',
+    alt: `An Anahola east-north coast kitchen, unused ivory plates, moss-green through a window.`,
+  },
+  dinEleele: {
+    file: '/photos/din-eleele.png',
+    alt: `An ʻEleʻele south-west residential kitchen, unused ivory plates, hillside houses.`,
+  },
+  dinKailuaKona: {
+    file: '/photos/din-kailua-kona.png',
+    alt: `A Kailua-Kona town kitchen in hard sun, unused ivory plates, lava-stone detail.`,
+  },
+  dinMaunaLani: {
+    file: '/photos/din-mauna-lani.png',
+    alt: `A Mauna Lani resort-residence kitchen in hard sun, unused ivory plates, lava-stone backsplash.`,
+  },
+  dinMaunaKea: {
+    file: '/photos/din-mauna-kea.png',
+    alt: `A Mauna Kea resort-belt kitchen in hard sun, unused ivory plates, lava terrace, not the summit.`,
+  },
+  dinKau: {
+    file: '/photos/din-kau.png',
+    alt: `A Kaʻū south-side estate kitchen, unused ivory plates, unmarked coffee cherries in a clay bowl.`,
+  },
+  dinHonokaa: {
+    file: '/photos/din-honokaa.png',
+    alt: `A Honokaʻa Hāmākua kitchen, unused ivory plates, moss-green windward coast through a window.`,
+  },
+  dinPuako: {
+    file: '/photos/din-puako.png',
+    alt: `A Puakō Kohala Coast kitchen in hard sun, unused ivory plates, lava-stone residential.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

@@ -665,6 +665,99 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'dining-in-downtown',
+      name: 'Dining downtown',
+      h1: 'Downtown notes — pied-à-terre ranges, not an HCC takeover.',
+      title: 'Downtown Honolulu kitchen notes — pied-à-terre ranges, not HCC | myCHEF',
+      description:
+        'Short downtown Honolulu notes: compact kitchens, loading, not restaurant takeovers. Distinct from /honolulu and /conventions.',
+      lede:
+        '/honolulu is the town dinner door. /conventions says HCC citywides are closed. This blog note is the pied-à-terre range — parking and loading, not a restaurant we do not own.',
+      photo: 'dinDowntown',
+      body: [
+        'Pied-à-terre kitchens and private dining rooms — not restaurant takeovers. Parking and loading are the constraint, not distance. Small celebrations and executive dinners off HCC.',
+        'There is no /downtown corridor URL. HCC citywides stay closed through 2027 — /conventions. A unit without a cooktop is declined.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one downtown table in the house.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /honolulu?',
+          a: 'That URL is the dinner door. This piece is the shorter downtown kitchen note.',
+        },
+        {
+          q: 'Can you take over a restaurant?',
+          a: 'No. Open /conventions and /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/honolulu', label: 'Honolulu dinner door' },
+        { path: '/conventions', label: 'Conventions' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'dining-in-kaneohe',
+      name: 'Dining in Kāneʻohe',
+      h1: 'Kāneʻohe notes — quieter windward town, published surcharge.',
+      title: 'Kāneʻohe kitchen notes — quieter windward town, published surcharge | myCHEF',
+      description:
+        'Short Kāneʻohe notes: quieter than Kailua, still a drive. Distinct from /kailua and /blog/dining-in-kailua.',
+      lede:
+        '/kailua is the windward dinner door. This blog note is Kāneʻohe — quieter town, published surcharge, not a second 30-day beach-house page.',
+      photo: 'dinKaneohe',
+      body: [
+        'Windward town — quieter than Kailua, still a drive from town. Published surcharge, quoted with the menu. Household dinners and multi-day stays.',
+        'There is no /kaneohe corridor URL. /kailua stays the 30-day dinner door. A cooktop is still required.',
+        'Send the address on /quote. We will not hide the drive inside the menu.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /kailua?',
+          a: 'That URL is the dinner door. This piece is the quieter town next to it.',
+        },
+        {
+          q: 'Is the drive included?',
+          a: 'No. It prints as a surcharge line. Open /coverage.',
+        },
+      ],
+      related: [
+        { path: '/kailua', label: 'Kailua dinner door' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'dining-in-ewa',
+      name: 'Dining in ʻEwa',
+      h1: 'ʻEwa notes — leeward households, Ko Olina provisioning.',
+      title: 'ʻEwa kitchen notes — leeward households, Ko Olina provisioning | myCHEF',
+      description:
+        'Short ʻEwa / Kapolei notes: leeward residential, west-side base. Distinct from /ko-olina.',
+      lede:
+        '/ko-olina is the villa dinner door. This blog note is ʻEwa and Kapolei — resident households and west-side overflow, not a resort-residence clone.',
+      photo: 'dinEwa',
+      body: [
+        'Leeward residential. Closer to Ko Olina provisioning than to Waikīkī. West-side base. No town surcharge. Resident households and west-side villa overflow.',
+        'There is no /ewa corridor URL. /ko-olina stays the short-stay villa door. A cooktop is still required.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one leeward household table.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /ko-olina?',
+          a: 'That URL is the villa dinner door. This piece is the shorter leeward household note.',
+        },
+        {
+          q: 'Is /ewa a dinner door?',
+          a: 'No. Open /ko-olina or /quote.',
+        },
+      ],
+      related: [
+        { path: '/ko-olina', label: 'Ko Olina dinner door' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   maui: [
     {
@@ -1318,6 +1411,99 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'dining-in-makawao',
+      name: 'Dining in Makawao',
+      h1: 'Makawao notes — Upcountry town, not the elevation cell.',
+      title: 'Makawao kitchen notes — Upcountry town, not the elevation cell | myCHEF',
+      description:
+        'Short Makawao notes: Upcountry town, elevation surcharge. Distinct from /blog/dining-in-upcountry.',
+      lede:
+        '/blog/dining-in-upcountry is the elevation drive. This blog note is Makawao town — retreat houses and estate tables, weather that can turn on outdoor setups.',
+      photo: 'dinMakawao',
+      body: [
+        'Upcountry town. Elevation surcharge applies. Weather can turn on outdoor setups. Retreat houses and estate tables that justify the drive.',
+        'There is no /makawao corridor URL. Named farms only after written verification. A cooktop is still required.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is one Makawao table.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/dining-in-upcountry?',
+          a: 'That note is the elevation cell. This piece is the town kitchen.',
+        },
+        {
+          q: 'Is /makawao a dinner door?',
+          a: 'No. Open /coverage, then /quote.',
+        },
+      ],
+      related: [
+        { path: '/blog/dining-in-upcountry', label: 'Upcountry kitchen notes' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'dining-in-waikapu',
+      name: 'Dining in Waikapū',
+      h1: 'Waikapū notes — central valley estates, not a resort corridor.',
+      title: 'Waikapū kitchen notes — central valley estates, not a resort corridor | myCHEF',
+      description:
+        'Short Waikapū notes: central valley, surcharge from Wailea/West. Distinct from /wailea.',
+      lede:
+        '/wailea is the South Maui dinner door. This blog note is Waikapū — private estates, not visitor condos, drive time printed as a line.',
+      photo: 'dinWaikapu',
+      body: [
+        'Central valley — not a resort corridor. Surcharge for drive time from Wailea or West Maui. Private estates, not visitor condos.',
+        'There is no /waikapu corridor URL. We will not stack a Wailea lunch with a Waikapū dinner as one chef day without writing it.',
+        'A cooktop is still required. Send the address on /quote.',
+      ],
+      faqs: [
+        {
+          q: 'Is /waikapu a dinner door?',
+          a: 'No. Open /wailea for South Maui, then /quote for the valley.',
+        },
+        {
+          q: 'Is the drive included?',
+          a: 'No. It prints as a surcharge. Open /coverage.',
+        },
+      ],
+      related: [
+        { path: '/wailea', label: 'Wailea dinner door' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'dining-in-haleakala',
+      name: 'Dining in Kula',
+      h1: 'Haleakalā notes — Kula elevation, temperature changes the chef day.',
+      title: 'Haleakalā kitchen notes — Kula elevation, temperature changes the chef day | myCHEF',
+      description:
+        'Short Haleakalā / Kula notes: high elevation, surcharge. Distinct from /blog/dining-in-upcountry.',
+      lede:
+        '/blog/dining-in-upcountry is the broader elevation cell. This blog note is Kula — temperature and drive both change the chef day, named farms only after verification.',
+      photo: 'dinHaleakala',
+      body: [
+        'High elevation. Surcharge. Temperature and drive both change the chef day. Retreat and estate dinners. Named farms only with verification.',
+        'There is no /haleakala corridor URL. We will not print a farm name we have not verified — /blog/sourcing-honesty.',
+        'A cooktop is still required. Outdoor setups inherit a wet-weather backup. Send the address on /quote.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/dining-in-upcountry?',
+          a: 'That note is the elevation cell. This piece is the Kula kitchen.',
+        },
+        {
+          q: 'Is /haleakala a dinner door?',
+          a: 'No. Open /coverage, then /quote.',
+        },
+      ],
+      related: [
+        { path: '/blog/dining-in-upcountry', label: 'Upcountry kitchen notes' },
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   kauai: [
     {
@@ -1905,6 +2091,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       ],
       related: [
         { path: '/poipu', label: 'Poʻipū dinner door' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-waimea',
+      name: 'Dining in Waimea, Kauaʻi',
+      h1: 'Kauai Waimea notes — west-side distance from Līhuʻe, inquiry.',
+      title: 'Kauai Waimea kitchen notes — west-side distance from Līhuʻe, inquiry | myCHEF',
+      description:
+        'Short Kauai Waimea notes at inquiry: west-side distance, extended surcharge. Distinct from Hawaiʻi Island /blog/dining-in-waimea.',
+      lede:
+        '/coverage is the zone map at inquiry. This blog note is west Kauaʻi Waimea — distance from Līhuʻe is the story, not Kamuela ranch country.',
+      photo: 'dinKauaiWaimea',
+      body: [
+        'West side. Distance from Līhuʻe is the story. Extended surcharge. Advance notice. West-side estates. Inquiry until we can staff.',
+        'There is no /waimea corridor URL on this host. This is not the Hawaiʻi Island ranch note. A cooktop is still required.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one west-side inquiry table.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as the Hawaiʻi Island Waimea note?',
+          a: 'No. That host is ranch elevation. This piece is west Kauaʻi distance from Līhuʻe.',
+        },
+        {
+          q: 'Is /waimea a dinner door here?',
+          a: 'No. Open /coverage, then /quote.',
+        },
+      ],
+      related: [
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/poipu', label: 'Poʻipū dinner door' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-hanapepe',
+      name: 'Dining in Hanapēpē',
+      h1: 'Hanapēpē notes — west-side town houses, inquiry.',
+      title: 'Hanapēpē kitchen notes — west-side town houses, inquiry | myCHEF',
+      description:
+        'Short Hanapēpē notes at inquiry: west-side town, not a visitor-villa cluster. Distinct from /blog/dining-in-waimea on this host.',
+      lede:
+        'This blog note is Hanapēpē — a west-side town, private houses, quoted surcharge. Not a visitor-villa cluster. Inquiry until we can staff.',
+      photo: 'dinHanapepe',
+      body: [
+        'West-side town. Not a visitor-villa cluster. Surcharge, quoted. Private houses. Inquiry until we can staff.',
+        'There is no /hanapepe corridor URL. We will not sell this as a North Shore estate page. A cooktop is still required.',
+        'Send the address on /quote. A band is not a Book-now button.',
+      ],
+      faqs: [
+        {
+          q: 'Is /hanapepe a dinner door?',
+          a: 'No. Open /coverage, then /quote.',
+        },
+        {
+          q: 'Same as Kauai Waimea notes?',
+          a: 'That piece is west-side distance. This piece is the town house.',
+        },
+      ],
+      related: [
+        { path: '/blog/dining-in-waimea', label: 'Kauai Waimea notes' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-anahola',
+      name: 'Dining in Anahola',
+      h1: 'Anahola notes — east-north coast, quieter than Kapaʻa.',
+      title: 'Anahola kitchen notes — east-north coast, quieter than Kapaʻa | myCHEF',
+      description:
+        'Short Anahola notes at inquiry: quieter than Kapaʻa, still a drive. Distinct from /kapaa.',
+      lede:
+        '/kapaa is the east-side dinner door at inquiry. This blog note is Anahola — quieter coast, surcharge, household dinners when we can staff.',
+      photo: 'dinAnahola',
+      body: [
+        'East-north coast. Quieter than Kapaʻa, still a drive from Līhuʻe staging. Surcharge at launch, quoted with the menu. Household dinners. Inquiry until we can staff.',
+        'There is no /anahola corridor URL. /kapaa stays the east-side dinner door. A cooktop is still required.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one east-north inquiry table.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /kapaa?',
+          a: 'That URL is the dinner door. This piece is the quieter coast next to it.',
+        },
+        {
+          q: 'Is /anahola live?',
+          a: 'No corridor URL. Inquiry. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/kapaa', label: 'Kapaʻa dinner door' },
+        { path: '/blog/dining-in-kapaa', label: 'Kapaʻa kitchen notes' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-eleele',
+      name: 'Dining in ʻEleʻele',
+      h1: 'ʻEleʻele notes — between Kalāheo and the west side, inquiry.',
+      title: 'ʻEleʻele kitchen notes — between Kalāheo and the west side, inquiry | myCHEF',
+      description:
+        'Short ʻEleʻele notes at inquiry: south-west residential. Distinct from /blog/dining-in-kalaheo.',
+      lede:
+        '/blog/dining-in-kalaheo is the south-west town note. This blog note is ʻEleʻele — further toward the west side, surcharge, advance notice.',
+      photo: 'dinEleele',
+      body: [
+        'South-west residential. Between Kalāheo and the west side. Surcharge. Advance notice. Private houses. Inquiry until we can staff.',
+        'There is no /eleele corridor URL. We will not pretend this is a South Shore villa page. A cooktop is still required.',
+        'Send the address on /quote. A band is not a Book-now button.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/dining-in-kalaheo?',
+          a: 'That note is Kalāheo. This piece is further west.',
+        },
+        {
+          q: 'Is /eleele a dinner door?',
+          a: 'No. Open /coverage, then /quote.',
+        },
+      ],
+      related: [
+        { path: '/blog/dining-in-kalaheo', label: 'Kalāheo kitchen notes' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Inquiry form' },
       ],
@@ -2497,6 +2807,192 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/kona', label: 'Kona dinner door' },
         { path: '/coffee-act-198', label: 'Coffee Act 198' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-kailua-kona',
+      name: 'Dining in Kailua-Kona',
+      h1: 'Kailua-Kona notes — town at the south end of the corridor, inquiry.',
+      title: 'Kailua-Kona kitchen notes — town at the south end of the corridor | myCHEF',
+      description:
+        'Short Kailua-Kona town notes at inquiry. Distinct from /kona and /blog/dining-in-kona.',
+      lede:
+        '/kona is the dinner door at inquiry. /blog/dining-in-kona is the west-side room. This blog note is town itself — south end of the planned corridor, Ironman weeks compress availability.',
+      photo: 'dinKailuaKona',
+      body: [
+        'West-side town at the south end of the planned corridor. Planned base zone. Event weeks compress availability — /ironman-weeks. Inquiry until we can staff.',
+        'There is no /kailua-kona corridor URL. /kona stays the dinner door. East side stays a dedicated day — /east-side.',
+        'A cooktop is still required. A band is not a Book-now button. Send the address on /quote.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /kona?',
+          a: 'That URL is the dinner door. This piece is the shorter town kitchen note.',
+        },
+        {
+          q: 'Same as /blog/dining-in-kona?',
+          a: 'That note is the west-side room. This piece is town at the south end.',
+        },
+      ],
+      related: [
+        { path: '/kona', label: 'Kona dinner door' },
+        { path: '/ironman-weeks', label: 'Ironman weeks' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-mauna-lani',
+      name: 'Dining at Mauna Lani',
+      h1: 'Mauna Lani notes — Kohala community, not a second island.',
+      title: 'Mauna Lani kitchen notes — Kohala community, not a second island | myCHEF',
+      description:
+        'Short Mauna Lani notes at inquiry: same corridor, not a separate island claim. Distinct from /waikoloa and /blog/dining-in-kohala.',
+      lede:
+        '/waikoloa is a live dinner door at inquiry. /blog/dining-in-kohala is the 30-minute radius. This blog note is Mauna Lani — same west-side corridor, not a second island.',
+      photo: 'dinMaunaLani',
+      body: [
+        'Kohala resort community. Same corridor, not a separate island claim. Base zone. Estate and resort-residence dinners. Inquiry until we can staff.',
+        'There is no /mauna-lani corridor URL. /kohala stays the named dinner door. East side stays /east-side.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one Mauna Lani inquiry table.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /waikoloa?',
+          a: 'That URL is a dinner door. This piece is the neighbouring community kitchen note.',
+        },
+        {
+          q: 'Is this a different island?',
+          a: 'No. Same west-side corridor. Open /kohala-corridor.',
+        },
+      ],
+      related: [
+        { path: '/waikoloa', label: 'Waikoloa dinner door' },
+        { path: '/blog/dining-in-kohala', label: 'Kohala kitchen notes' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-mauna-kea',
+      name: 'Dining at Mauna Kea resort',
+      h1: 'Mauna Kea resort notes — the belt, not the summit.',
+      title: 'Mauna Kea resort kitchen notes — the belt, not the summit | myCHEF',
+      description:
+        'Short Mauna Kea resort notes at inquiry: North Kohala belt, not the mountain. Distinct from /kohala.',
+      lede:
+        '/kohala is the dinner door at inquiry. This blog note is the Mauna Kea resort community — named for the belt, not the summit. We do not cook at the peak.',
+      photo: 'dinMaunaKea',
+      body: [
+        'North Kohala resort belt. Corridor, not the mountain. Base zone. Villa dinners. Inquiry until we can staff.',
+        'There is no /mauna-kea corridor URL. We will not sell a summit dinner. /kohala stays the named door.',
+        'A cooktop is still required. East side is a different day — /east-side.',
+      ],
+      faqs: [
+        {
+          q: 'Do you cook at the summit?',
+          a: 'No. The resort belt. Open /kohala.',
+        },
+        {
+          q: 'Same as /blog/dining-in-kohala?',
+          a: 'That note is the radius. This piece is the named resort community.',
+        },
+      ],
+      related: [
+        { path: '/kohala', label: 'Kohala dinner door' },
+        { path: '/blog/dining-in-kohala', label: 'Kohala kitchen notes' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-kau',
+      name: 'Dining in Kaʻū',
+      h1: 'Kaʻū notes — south-side estates, named coffee follows Act 198.',
+      title: 'Kaʻū kitchen notes — south-side estates, named coffee follows Act 198 | myCHEF',
+      description:
+        'Short Kaʻū / South notes at inquiry: extended surcharge. Distinct from /coffee-act-198 and /blog/dining-in-holualoa.',
+      lede:
+        '/coffee-act-198 is the origin rule. /blog/dining-in-holualoa is mauka of Kona. This blog note is Kaʻū — south point direction, named coffee only with origin labeling.',
+      photo: 'dinKau',
+      body: [
+        'South point direction. Extended surcharge, advance notice. South-side estates. Named Kaʻū coffee follows Act 198 from 2027. Inquiry until we can staff.',
+        'There is no /kau corridor URL. We do not invent a farm brand for the south. Open /coffee-act-198 for the rule.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one south-side inquiry table.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /coffee-act-198?',
+          a: 'That page is the origin rule. This piece is the shorter Kaʻū kitchen note.',
+        },
+        {
+          q: 'Same as /blog/dining-in-holualoa?',
+          a: 'That note is mauka of Kona. This piece is the south.',
+        },
+      ],
+      related: [
+        { path: '/coffee-act-198', label: 'Coffee Act 198' },
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-honokaa',
+      name: 'Dining in Honokaʻa',
+      h1: 'Honokaʻa notes — Hāmākua coast, named producers only after verification.',
+      title: 'Honokaʻa kitchen notes — Hāmākua coast, verified producers only | myCHEF',
+      description:
+        'Short Honokaʻa / Hāmākua notes at inquiry: surcharge, named producers only after verification. Distinct from /east-side.',
+      lede:
+        '/east-side is the Hilo crossing. This blog note is Honokaʻa — Hāmākua coast, surcharge, mushrooms as a sourcing story not a farm claim without verification.',
+      photo: 'dinHonokaa',
+      body: [
+        'Hāmākua coast. Surcharge. Named producers only after written verification. Estate dinners. Inquiry until we can staff.',
+        'There is no /honokaa corridor URL. This is not a same-day Kona add-on and not a Hilo day unless we quote it that way — /east-side.',
+        'A cooktop is still required. Send the address on /quote.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /east-side?',
+          a: 'That page is the Hilo crossing. This piece is the Hāmākua kitchen note.',
+        },
+        {
+          q: 'Will you print a farm name?',
+          a: 'Only after written verification. Open /blog/sourcing-honesty.',
+        },
+      ],
+      related: [
+        { path: '/east-side', label: 'East side' },
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'dining-in-puako',
+      name: 'Dining in Puakō',
+      h1: 'Puakō notes — between Waikoloa and Mauna Lani, inquiry.',
+      title: 'Puakō kitchen notes — between Waikoloa and Mauna Lani, inquiry | myCHEF',
+      description:
+        'Short Puakō notes at inquiry: Kohala coast residential. Distinct from /waikoloa and /blog/dining-in-mauna-lani.',
+      lede:
+        '/waikoloa is a live dinner door at inquiry. This blog note is Puakō — residential between Waikoloa and Mauna Lani, still inside the 30-minute corridor.',
+      photo: 'dinPuako',
+      body: [
+        'Kohala coast residential between Waikoloa and Mauna Lani. Base zone inside the 30-minute corridor. Villa weeks. Inquiry until we can staff.',
+        'There is no /puako corridor URL. /waikoloa stays a dinner door. East side stays a dedicated day — /east-side.',
+        'A cooktop is still required. A band is not a Book-now button. Send the address on /quote.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /waikoloa?',
+          a: 'That URL is a dinner door. This piece is the residential stretch next to it.',
+        },
+        {
+          q: 'Is /puako a dinner door?',
+          a: 'No. Open /waikoloa or /quote.',
+        },
+      ],
+      related: [
+        { path: '/waikoloa', label: 'Waikoloa dinner door' },
+        { path: '/kohala', label: 'Kohala dinner door' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
