@@ -1335,6 +1335,22 @@ export const photos = {
     file: '/photos/jnl-book-bigisland.png',
     alt: `A blank cream card and brass pen on a Kohala lava-terrace table in hard sun.`,
   },
+  jnlVsOahu: {
+    file: '/photos/jnl-vs-oahu.png',
+    alt: `A Kahala house dining table at dusk, empty ivory plates, residential street through the window.`,
+  },
+  jnlVsMaui: {
+    file: '/photos/jnl-vs-maui.png',
+    alt: `A Wailea villa dining table at west sunset, empty ivory plates, house kitchen beyond.`,
+  },
+  jnlVsKauai: {
+    file: '/photos/jnl-vs-kauai.png',
+    alt: `A Princeville estate dining table, rain on glass, empty ivory plates, moss-green foliage.`,
+  },
+  jnlVsBigisland: {
+    file: '/photos/jnl-vs-bigisland.png',
+    alt: `A west-side house dining table on a lava terrace, empty ivory plates, hard sun.`,
+  },
   dinHonolulu: {
     file: '/photos/din-honolulu.png',
     alt: `A small ivory table on a Honolulu lānai at dusk, blank cream card, Diamond Head faint.`,

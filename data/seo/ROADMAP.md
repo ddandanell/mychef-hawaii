@@ -143,7 +143,14 @@ Still no zip on this machine. Wave 15 uniquifies three more operational blog see
 - Unique `/blog/shoulder-season` — quieter months still need a written kitchen. Distinct from `/journal/how-far-ahead-to-book`.
 - New Grok stills for every Wave 15 URL. Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry.
 
-## Wave 16 — zip execution
+## Wave 16 — unique chef-versus-restaurant journal notes (this branch)
+
+Still no zip on this machine. Wave 16 uniquifies the last journal seed that does not cannibalize a live URL:
+
+- Unique `/journal/private-chef-vs-restaurant` — the table is the house, not a restaurant hold. Distinct from `/private-chef`, `/honeymoon-dinners`, and `/what-we-dont-do`.
+- New Grok stills for every Wave 16 URL. Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry.
+
+## Wave 17 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.

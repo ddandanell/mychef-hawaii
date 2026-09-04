@@ -15,6 +15,7 @@ export const JOURNAL_ARTICLE_SLUGS = [
   'dietary-needs',
   'what-is-included',
   'how-far-ahead-to-book',
+  'private-chef-vs-restaurant',
 ] as const;
 export type JournalArticleSlug = (typeof JOURNAL_ARTICLE_SLUGS)[number];
 
@@ -210,6 +211,37 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'private-chef-vs-restaurant',
+      name: 'Chef versus a restaurant',
+      h1: 'Oahu chef versus a restaurant — the table is the house.',
+      title: 'Oahu chef versus a restaurant — the table is the house | myCHEF',
+      description:
+        'In-villa Oahu service compared with going out. Distinct from /private-chef and /honeymoon-dinners.',
+      lede:
+        '/private-chef is what a night includes. /honeymoon-dinners is two seats. This journal piece is the other product — a restaurant reservation — and why we will not pretend we are one.',
+      photo: 'jnlVsOahu',
+      body: [
+        'A restaurant is a room you do not have. We cook in a Kahala or Ko Olina kitchen, then leave it cleaner than we found it. If you want a dining room we do not own, book a restaurant.',
+        'We do not hold restaurant tables. We do not walk a party into a hotel restaurant as a “chef night.” Open /what-we-dont-do.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is why the table stays in the house.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /private-chef?',
+          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product.',
+        },
+        {
+          q: 'Can you book us a restaurant?',
+          a: 'No. We cook in the house. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/private-chef', label: 'What’s included' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   maui: [
     {
@@ -395,6 +427,37 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       related: [
         { path: '/coverage', label: 'Coverage' },
         { path: '/wedding-week', label: 'Wedding-week houses' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'private-chef-vs-restaurant',
+      name: 'Chef versus a restaurant',
+      h1: 'Maui chef versus a restaurant — the table is the villa.',
+      title: 'Maui chef versus a restaurant — the table is the villa | myCHEF',
+      description:
+        'In-villa Maui service compared with going out. Distinct from /private-chef and /honeymoon-dinners.',
+      lede:
+        '/private-chef is what a night includes. /honeymoon-dinners is two seats. This journal piece is the other product — a restaurant reservation — and why we will not pretend we are one.',
+      photo: 'jnlVsMaui',
+      body: [
+        'A restaurant is a room you do not have. We cook in a Wailea or Kapalua kitchen, then leave it cleaner than we found it. If you want a dining room we do not own, book a restaurant.',
+        'We do not hold restaurant tables. We do not walk a party into a resort restaurant as a “chef night.” Open /what-we-dont-do.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is why the table stays in the house.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /private-chef?',
+          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product.',
+        },
+        {
+          q: 'Can you book us a restaurant?',
+          a: 'No. We cook in the house. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/private-chef', label: 'What’s included' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
         { path: '/quote', label: 'Quote form' },
       ],
     },
@@ -586,6 +649,37 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
+    {
+      slug: 'private-chef-vs-restaurant',
+      name: 'Chef versus a restaurant',
+      h1: 'Kauai chef versus a restaurant — the table is the estate.',
+      title: 'Kauai chef versus a restaurant — the table is the estate | myCHEF',
+      description:
+        'In-estate Kauai service at inquiry compared with going out. Distinct from /private-chef and /honeymoon-dinners.',
+      lede:
+        '/private-chef is what a night includes — when we can staff. /honeymoon-dinners is two seats. This journal piece is the other product — a restaurant reservation — and why an inquiry draft will not pretend we are one.',
+      photo: 'jnlVsKauai',
+      body: [
+        'A restaurant is a room you do not have. We cook in a Princeville or Poʻipū kitchen, then leave it cleaner than we found it — when we can staff. If you want a dining room we do not own, book a restaurant.',
+        'We do not hold restaurant tables. We do not walk a party into a resort restaurant as a “chef night.” Open /what-we-dont-do. A band is not a Book-now button.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is why the table stays in the house — at inquiry.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /private-chef?',
+          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product — at inquiry.',
+        },
+        {
+          q: 'Can you book us a restaurant?',
+          a: 'No. We cook in the house, when we can staff. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/private-chef', label: 'What’s included' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
   ],
   bigisland: [
     {
@@ -771,6 +865,37 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       related: [
         { path: '/coverage', label: 'Coverage' },
         { path: '/ironman-weeks', label: 'Ironman weeks' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'private-chef-vs-restaurant',
+      name: 'Chef versus a restaurant',
+      h1: 'Hawaiʻi Island chef versus a restaurant — the table is the west-side house.',
+      title: 'Hawaiʻi Island chef versus a restaurant — the table is the west-side house | myCHEF',
+      description:
+        'West-side in-house service at inquiry compared with going out. Distinct from /private-chef and /honeymoon-dinners.',
+      lede:
+        '/private-chef is what a night includes — when we can staff. /honeymoon-dinners is two seats. This journal piece is the other product — a restaurant reservation — and why an inquiry draft will not pretend we are one.',
+      photo: 'jnlVsBigisland',
+      body: [
+        'A restaurant is a room you do not have. We cook in a Kona or Waikoloa kitchen, then leave it cleaner than we found it — when we can staff. If you want a dining room we do not own, book a restaurant. East side is a dedicated day — /east-side.',
+        'We do not hold restaurant tables. We do not walk a party into a resort restaurant as a “chef night.” Open /what-we-dont-do. A band is not a Book-now button.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is why the table stays in the house — at inquiry.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /private-chef?',
+          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product — at inquiry.',
+        },
+        {
+          q: 'Can you book us a restaurant?',
+          a: 'No. We cook in the house, when we can staff. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/private-chef', label: 'What’s included' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
