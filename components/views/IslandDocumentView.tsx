@@ -15,6 +15,7 @@ import { islandHref } from '@/lib/paths';
 import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
 import { menuSkuPages } from '@/data/menuSkus';
+import { helpArticles } from '@/data/helpArticles';
 
 function FaqSchema({ faqs }: { faqs: { q: string; a: string }[] }) {
   return (
@@ -38,12 +39,14 @@ export function IslandSupportView({
   copy,
   showZones,
   showMenu,
+  showHelp,
 }: {
   islandId: IslandId;
   hostMode: boolean;
   copy: IslandSupportPage;
   showZones?: boolean;
   showMenu?: boolean;
+  showHelp?: boolean;
 }) {
   const island = islands[islandId];
   const photo = photos[copy.photo];
@@ -143,6 +146,30 @@ export function IslandSupportView({
                 {sku.name}
               </HostLink>
             ))}
+          </div>
+        </nav>
+      ) : null}
+
+      {showHelp ? (
+        <nav aria-label="Help articles on this island" className="border-t border-line bg-sand py-10">
+          <div className="mx-auto flex w-full max-w-container flex-wrap gap-x-6 gap-y-2 px-5 text-sm lg:px-10">
+            {helpArticles[islandId].map((article) => (
+              <HostLink
+                key={article.slug}
+                island={islandId}
+                path={`/help/${article.slug}`}
+                className="text-ink underline underline-offset-4"
+              >
+                {article.name}
+              </HostLink>
+            ))}
+            <HostLink
+              island={islandId}
+              path="/private-chef-cost"
+              className="text-ink underline underline-offset-4"
+            >
+              Fee stack
+            </HostLink>
           </div>
         </nav>
       ) : null}

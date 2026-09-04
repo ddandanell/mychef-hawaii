@@ -58,14 +58,21 @@ Still no zip on this machine. Wave 6 ships the next catalog slice that does not 
 - Unique `/personal-chef` on every island host as the resident household line. Does not steal `/private-chef` titles or “private chef {island}” money keywords. Oʻahu sits beside `/kamaaina`.
 - New Grok stills for every Wave 6 URL.
 
-## Wave 7 — zip execution
+## Wave 7 — help articles and fee stack (this branch)
+
+Still no zip on this machine. Wave 7 ships the remaining catalog stand-in that does not cannibalize money keywords:
+
+- Unique `/help/getting-started`, `/help/menu-guide`, `/help/wedding-guide`, `/help/corporate-guide`, `/help/managing-booking` on every island host. Distinct from `/faq`, `/how-it-works`, `/weddings`, `/corporate-catering`, `/events/corporate-events`, and `/quote`.
+- Unique `/private-chef-cost` on every island host as the fee-stack explainer. Distinct from `/pricing` (“What a night costs…”). Titles never use “private chef {island}”.
+- New Grok stills for every Wave 7 URL.
+
+## Wave 8 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
-- Remaining catalog stand-in: help articles (`/help/*`), `/private-chef-cost` (distinct from `/pricing` if the zip wants both).
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 8 — automation that stays on
+## Wave 9 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` against DataForSEO when credentials are in GitHub Actions secrets (`DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD`). Do not commit secrets.

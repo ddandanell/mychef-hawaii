@@ -18,6 +18,7 @@ import { getCateringFormat, cateringFormats } from '@/data/cateringFormats';
 import { getFineDiningPage, fineDiningPages } from '@/data/fineDining';
 import { getStaffingPage, staffingPages } from '@/data/staffingPages';
 import { getMenuSkuPage, menuSkuPages } from '@/data/menuSkus';
+import { getHelpArticle, helpArticles } from '@/data/helpArticles';
 import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
@@ -67,6 +68,9 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     const skuSlug = /^\/menus\/([^/]+)$/.exec(localPath)?.[1];
     const sku = skuSlug ? getMenuSkuPage(islandId, skuSlug) : undefined;
     if (sku) return `${origin}${photos[sku.photo].file}`;
+    const helpSlug = /^\/help\/([^/]+)$/.exec(localPath)?.[1];
+    const help = helpSlug ? getHelpArticle(islandId, helpSlug) : undefined;
+    if (help) return `${origin}${photos[help.photo].file}`;
     const support = getIslandSupport(islandId, localPath);
     if (support) return `${origin}${photos[support.photo].file}`;
     if (localPath === '/events') return `${origin}${photos[eventOffers[islandId].photo].file}`;
@@ -316,6 +320,13 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       const sku = getMenuSkuPage(islandId, localPath.slice('/menus/'.length))!;
       title = sku.title;
       description = sku.description;
+    } else if (
+      /^\/help\/[^/]+$/.test(localPath) &&
+      getHelpArticle(islandId, localPath.slice('/help/'.length))
+    ) {
+      const help = getHelpArticle(islandId, localPath.slice('/help/'.length))!;
+      title = help.title;
+      description = help.description;
     } else if (locRec) {
       title = `${locRec.name} private chef — myCHEF ${island.name}`;
       description = locRec.lede;
@@ -375,6 +386,7 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
   const priced =
     localPath === '/' ||
     localPath === '/pricing' ||
+    localPath === '/private-chef-cost' ||
     localPath === '/services' ||
     localPath === '/bar' ||
     localPath === '/mobile-bar' ||
@@ -454,6 +466,11 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       loc: `https://${masterHostName(island)}/menus/${cell.slug}`,
       changefreq: 'monthly',
       priority: '0.45',
+    })),
+    ...helpArticles[island].map((cell) => ({
+      loc: `https://${masterHostName(island)}/help/${cell.slug}`,
+      changefreq: 'monthly',
+      priority: '0.4',
     })),
   ]);
   return [

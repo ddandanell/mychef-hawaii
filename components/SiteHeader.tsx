@@ -132,9 +132,11 @@ export default function SiteHeader() {
                 label="Guide"
                 items={[
                   { label: 'FAQ', island: islandId, path: '/faq' },
+                  { label: 'Getting started', island: islandId, path: '/help/getting-started' },
                   { label: 'Coverage', island: islandId, path: '/coverage' },
                   { label: 'How it works', island: islandId, path: '/how-it-works' },
                   { label: 'Menus', island: islandId, path: '/menus' },
+                  { label: 'Fee stack', island: islandId, path: '/private-chef-cost' },
                   { label: 'What we will not claim', island: islandId, path: '/what-we-dont-do' },
                   { label: 'About', island: islandId, path: '/about' },
                 ]}
@@ -224,9 +226,11 @@ export default function SiteHeader() {
                     {(
                       [
                         { label: 'FAQ', path: '/faq' },
+                        { label: 'Getting started', path: '/help/getting-started' },
                         { label: 'Coverage', path: '/coverage' },
                         { label: 'How it works', path: '/how-it-works' },
                         { label: 'Menus', path: '/menus' },
+                        { label: 'Fee stack', path: '/private-chef-cost' },
                         { label: 'What we will not claim', path: '/what-we-dont-do' },
                         { label: 'About', path: '/about' },
                       ] as const

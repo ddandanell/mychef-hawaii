@@ -1015,6 +1015,102 @@ export const photos = {
     file: '/photos/svc-personal-bigisland.png',
     alt: `A Kona town household kitchen on a weekday — used fridge, coffee slopes, not a resort villa.`,
   },
+  helpStartOahu: {
+    file: '/photos/help-start-oahu.png',
+    alt: `A Kahala kitchen counter with a handwritten quote sheet, Diamond Head faint through the sliders.`,
+  },
+  helpStartMaui: {
+    file: '/photos/help-start-maui.png',
+    alt: `A Wailea villa kitchen counter with a quote sheet, Molokini faint beyond the lānai.`,
+  },
+  helpStartKauai: {
+    file: '/photos/help-start-kauai.png',
+    alt: `A Princeville estate kitchen counter with a quote sheet, misted mountains through wet glass.`,
+  },
+  helpStartBigisland: {
+    file: '/photos/help-start-bigisland.png',
+    alt: `A Kona lava-terrace kitchen with a quote sheet on the counter, Mauna Kea faint in hard sun.`,
+  },
+  helpMenuOahu: {
+    file: '/photos/help-menu-oahu.png',
+    alt: `Honolulu fish on ice and a pencil menu draft on a Kahala cutting board, Diamond Head faint.`,
+  },
+  helpMenuMaui: {
+    file: '/photos/help-menu-maui.png',
+    alt: `A Wailea kitchen pass with a pencil menu draft and whole fish, Pacific beyond.`,
+  },
+  helpMenuKauai: {
+    file: '/photos/help-menu-kauai.png',
+    alt: `A Poʻipū kitchen with a pencil menu draft, whole fish, pale cliffs and kiawe.`,
+  },
+  helpMenuBigisland: {
+    file: '/photos/help-menu-bigisland.png',
+    alt: `A Kohala kitchen with a pencil menu draft, kanpachi on ice, lava and hard sun.`,
+  },
+  helpWeddingOahu: {
+    file: '/photos/help-wedding-oahu.png',
+    alt: `A long Gold Coast wedding-week table being set at dusk, ivory linen, Diamond Head on the horizon.`,
+  },
+  helpWeddingMaui: {
+    file: '/photos/help-wedding-maui.png',
+    alt: `A Wailea wedding-week long table under a banyan at dusk, candles, Pacific beyond.`,
+  },
+  helpWeddingKauai: {
+    file: '/photos/help-wedding-kauai.png',
+    alt: `A Kauaʻi estate wedding-week table looking into a misted valley at golden hour.`,
+  },
+  helpWeddingBigisland: {
+    file: '/photos/help-wedding-bigisland.png',
+    alt: `A Kohala wedding-week table on a lava terrace at sunset, Mauna Loa on the horizon.`,
+  },
+  helpCorporateOahu: {
+    file: '/photos/help-corporate-oahu.png',
+    alt: `An executive dinner for eight in a Kahala dining room — plated fish, no ballroom, Diamond Head faint.`,
+  },
+  helpCorporateMaui: {
+    file: '/photos/help-corporate-maui.png',
+    alt: `An executive dinner in a Wailea villa dining room — plated fish, laptops closed, Molokini faint.`,
+  },
+  helpCorporateKauai: {
+    file: '/photos/help-corporate-kauai.png',
+    alt: `An executive dinner on a Princeville estate table — plated fish, misted mountains, inquiry-stage house.`,
+  },
+  helpCorporateBigisland: {
+    file: '/photos/help-corporate-bigisland.png',
+    alt: `An executive dinner on a Waikoloa lava terrace — plated kanpachi, hard sun, not a Hilo ballroom.`,
+  },
+  helpBookingOahu: {
+    file: '/photos/help-booking-oahu.png',
+    alt: `A brass clip holding a signed Oahu quote on a Kahala counter, keys and a date card.`,
+  },
+  helpBookingMaui: {
+    file: '/photos/help-booking-maui.png',
+    alt: `A brass clip holding a signed Maui quote on a Wailea counter, villa keys, west light.`,
+  },
+  helpBookingKauai: {
+    file: '/photos/help-booking-kauai.png',
+    alt: `A brass clip holding a signed Kauai inquiry quote on a Princeville counter, wet glass, mountains.`,
+  },
+  helpBookingBigisland: {
+    file: '/photos/help-booking-bigisland.png',
+    alt: `A brass clip holding a signed west-side quote on a Kona counter, lava stone, hard sun.`,
+  },
+  svcCostOahu: {
+    file: '/photos/svc-cost-oahu.png',
+    alt: `An itemised Oahu fee stack on cream paper beside a brass pen on a Kahala kitchen counter.`,
+  },
+  svcCostMaui: {
+    file: '/photos/svc-cost-maui.png',
+    alt: `An itemised Maui fee stack on cream paper on a Wailea lānai table, Pacific beyond.`,
+  },
+  svcCostKauai: {
+    file: '/photos/svc-cost-kauai.png',
+    alt: `An itemised Kauai fee stack on cream paper on a Princeville counter, misted mountains.`,
+  },
+  svcCostBigisland: {
+    file: '/photos/svc-cost-bigisland.png',
+    alt: `An itemised Hawaiʻi Island fee stack on cream paper on a Kohala lava-stone counter, hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

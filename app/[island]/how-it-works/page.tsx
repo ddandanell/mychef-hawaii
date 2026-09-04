@@ -9,5 +9,7 @@ export function generateMetadata({ params }: { params: Promise<{ island: string 
 
 export default async function Page({ params }: { params: Promise<{ island: string }> }) {
   const { islandId, hostMode } = await islandProps(params);
-  return <IslandSupportView islandId={islandId} hostMode={hostMode} copy={islandHow[islandId]} />;
+  return (
+    <IslandSupportView islandId={islandId} hostMode={hostMode} copy={islandHow[islandId]} showHelp />
+  );
 }

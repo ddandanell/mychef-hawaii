@@ -22,6 +22,7 @@ const RESERVED_PLACE_SLUGS = new Set([
   'events',
   'faq',
   'fine-dining',
+  'help',
   'how-it-works',
   'journal',
   'legal',

@@ -19,6 +19,7 @@ import { cateringFormats } from '@/data/cateringFormats';
 import { fineDiningPages } from '@/data/fineDining';
 import { staffingPages } from '@/data/staffingPages';
 import { menuSkuPages } from '@/data/menuSkus';
+import { helpArticles } from '@/data/helpArticles';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 export function HowItWorksView() {
@@ -316,6 +317,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
       ...fineDiningPages[id].map((cell) => ({ host: id, path: `/fine-dining/${cell.slug}` as const })),
       ...staffingPages[id].map((cell) => ({ host: id, path: `/staffing/${cell.slug}` as const })),
       ...menuSkuPages[id].map((cell) => ({ host: id, path: `/menus/${cell.slug}` as const })),
+      ...helpArticles[id].map((cell) => ({ host: id, path: `/help/${cell.slug}` as const })),
     ]),
   ];
   return (
