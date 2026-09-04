@@ -61,6 +61,18 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
       } as const;
       return `${origin}${photos[key[islandId]].file}`;
     }
+    if (localPath === '/catering') {
+      const key = { oahu: 'cateringOahu', maui: 'cateringMaui', kauai: 'cateringKauai', bigisland: 'cateringBigisland' } as const;
+      return `${origin}${photos[key[islandId]].file}`;
+    }
+    if (localPath === '/weddings' || localPath === '/wedding-catering') {
+      const key = { oahu: 'weddingOahu', maui: 'weddingMaui', kauai: 'weddingKauai', bigisland: 'weddingBigisland' } as const;
+      return `${origin}${photos[key[islandId]].file}`;
+    }
+    if (localPath === '/bar') {
+      const key = { oahu: 'barOahu', maui: 'barMaui', kauai: 'barKauai', bigisland: 'barBigisland' } as const;
+      return `${origin}${photos[key[islandId]].file}`;
+    }
     if (localPath === '/mobile-bar') {
       const key = {
         oahu: 'mobileBarOahu',
