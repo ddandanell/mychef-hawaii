@@ -104,13 +104,23 @@ Still no zip on this machine. Wave 11 uniquifies four more cloned journal seeds 
 
 Skipped for cannibalization: `/journal/wedding-week` (Maui/Kauaʻi already have `/wedding-week` cells), `/journal/vacation-chef-week` (overlaps `/vacation-chef`), `/journal/travel-zones` (overlaps `/coverage`).
 
-## Wave 12 — zip execution
+## Wave 12 — unique dining-in blog notes (this branch)
+
+Still no zip on this machine. Wave 12 ships live `/blog/dining-in-{corridor}` notes for every money neighborhood (20 URLs):
+
+- Distinct from `/{slug}` corridor pages, `/locations`, `/coverage`, and Maui/Kauaʻi `/wedding-week` cells.
+- Titles never use money keywords and never steal corridor titles.
+- Kauaʻi `/blog/dining-in-hanalei` is the URL the host check already expected.
+- Island `/blog` indexes now link live pieces only (same pattern as `/journal`).
+- New Grok stills for every Wave 12 URL.
+
+## Wave 13 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 13 — automation that stays on
+## Wave 14 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

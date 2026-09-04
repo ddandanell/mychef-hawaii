@@ -157,6 +157,7 @@ const blogSrc = read('data/islandBlog.ts');
 const locationsSrc = read('data/islandLocations.ts');
 const sitemapDocSrc = read('data/islandSitemap.ts');
 const journalArticleSrc = read('data/journalArticles.ts');
+const blogArticleSrc = read('data/blogArticles.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
 const hoods = neighborhoods(offersSrc);
@@ -184,6 +185,7 @@ const blogDocs = supportBlocks(blogSrc, 'islandBlog');
 const locationDocs = supportBlocks(locationsSrc, 'islandLocations');
 const sitemapDocs = supportBlocks(sitemapDocSrc, 'islandSitemap');
 const journalPieces = uniqueCellMeta(journalArticleSrc);
+const blogPieces = uniqueCellMeta(blogArticleSrc);
 
 const errors = [];
 
@@ -211,6 +213,7 @@ if (blogDocs.length !== 4) errors.push(`Expected 4 island blog pages, found ${bl
 if (locationDocs.length !== 4) errors.push(`Expected 4 island locations pages, found ${locationDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
 if (journalPieces.length !== 24) errors.push(`Expected 24 journal articles, found ${journalPieces.length}`);
+if (blogPieces.length !== 20) errors.push(`Expected 20 blog articles, found ${blogPieces.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -281,6 +284,9 @@ errors.push(...dupes(sitemapDocs.map((h) => files[h.photo] || h.photo), 'sitemap
 errors.push(...dupes(journalPieces.map((h) => h.title), 'journal-article title'));
 errors.push(...dupes(journalPieces.map((h) => h.h1), 'journal-article H1'));
 errors.push(...dupes(journalPieces.map((h) => files[h.photo] || h.photo), 'journal-article hero file'));
+errors.push(...dupes(blogPieces.map((h) => h.title), 'blog-article title'));
+errors.push(...dupes(blogPieces.map((h) => h.h1), 'blog-article H1'));
+errors.push(...dupes(blogPieces.map((h) => files[h.photo] || h.photo), 'blog-article hero file'));
 
 const allTitles = [
   ...hoods.map((h) => h.title),
@@ -308,6 +314,7 @@ const allTitles = [
   ...locationDocs.map((h) => h.title),
   ...sitemapDocs.map((h) => h.title),
   ...journalPieces.map((h) => h.title),
+  ...blogPieces.map((h) => h.title),
 ];
 errors.push(...dupes(allTitles, 'cross-type title'));
 
@@ -342,7 +349,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...sitemapDocs, ...journalPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -353,7 +360,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...sitemapDocs, ...journalPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -406,5 +413,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
 );

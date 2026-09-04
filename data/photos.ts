@@ -1335,6 +1335,86 @@ export const photos = {
     file: '/photos/jnl-book-bigisland.png',
     alt: `A blank cream card and brass pen on a Kohala lava-terrace table in hard sun.`,
   },
+  dinHonolulu: {
+    file: '/photos/din-honolulu.png',
+    alt: `A small ivory table on a Honolulu lānai at dusk, blank cream card, Diamond Head faint.`,
+  },
+  dinWaikiki: {
+    file: '/photos/din-waikiki.png',
+    alt: `A compact Waikīkī tower-residence cooktop at blue hour, blank cream card, city lights.`,
+  },
+  dinKailua: {
+    file: '/photos/din-kailua.png',
+    alt: `A Kailua windward kitchen counter in late light, blank cream card, residential lawn beyond.`,
+  },
+  dinNorthShore: {
+    file: '/photos/din-north-shore.png',
+    alt: `An Oahu North Shore villa counter, blank cream card, ironwoods and a distant coastline.`,
+  },
+  dinKahala: {
+    file: '/photos/din-kahala.png',
+    alt: `A Kahala Gold Coast dining table at dusk, blank place cards, Diamond Head faint.`,
+  },
+  dinKoOlina: {
+    file: '/photos/din-ko-olina.png',
+    alt: `A Ko Olina villa kitchen island, grocery tote and blank cream card, lagoon palms beyond.`,
+  },
+  dinWailea: {
+    file: '/photos/din-wailea.png',
+    alt: `A Wailea lānai table at west sunset, blank cream card, Pacific and faint Molokini.`,
+  },
+  dinKaanapali: {
+    file: '/photos/din-kaanapali.png',
+    alt: `A Kāʻanapali villa kitchen in late light, blank cream card, West Maui Pacific beyond.`,
+  },
+  dinLahaina: {
+    file: '/photos/din-lahaina.png',
+    alt: `A West Maui villa kitchen counter, blank cream card, hills and Pacific beyond the sliders.`,
+  },
+  dinKihei: {
+    file: '/photos/din-kihei.png',
+    alt: `A Kīhei vacation-home cooktop, family plates and a blank cream card, residential South Maui light.`,
+  },
+  dinKapalua: {
+    file: '/photos/din-kapalua.png',
+    alt: `Two ivory place settings on a Kapalua estate table at dusk, blank cream cards, northwest coast.`,
+  },
+  dinMakena: {
+    file: '/photos/din-makena.png',
+    alt: `A Makena lānai table south of Wailea, blank cream card and folded linen, quieter coast.`,
+  },
+  dinPrinceville: {
+    file: '/photos/din-princeville.png',
+    alt: `A Princeville estate kitchen in wet light, blank cream card, misted fluted mountains.`,
+  },
+  dinPoipu: {
+    file: '/photos/din-poipu.png',
+    alt: `A Poʻipū villa kitchen in clearer South Shore light, blank cream card, dry ridge beyond.`,
+  },
+  dinHanalei: {
+    file: '/photos/din-hanalei.png',
+    alt: `A Hanalei kitchen counter in rain light, blank cream card, valley mist through the glass.`,
+  },
+  dinKapaa: {
+    file: '/photos/din-kapaa.png',
+    alt: `A Kapaʻa east-side household kitchen, blank cream card, residential trees through the window.`,
+  },
+  dinKona: {
+    file: '/photos/din-kona.png',
+    alt: `A Kona lava-stone kitchen in hard sun, blank cream card, Mauna Kea faint.`,
+  },
+  dinWaimea: {
+    file: '/photos/din-waimea.png',
+    alt: `A Waimea ranch-country kitchen, blank cream card, pasture and a pale volcanic slope.`,
+  },
+  dinWaikoloa: {
+    file: '/photos/din-waikoloa.png',
+    alt: `A Waikoloa lava-stone kitchen island, blank cream card, black lava in hard sun.`,
+  },
+  dinKohala: {
+    file: '/photos/din-kohala.png',
+    alt: `A Kohala Coast lava-stone counter, blank cream card, dry lava field in hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

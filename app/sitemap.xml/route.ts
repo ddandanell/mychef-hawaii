@@ -10,6 +10,7 @@ import { staffingPages } from '@/data/staffingPages';
 import { menuSkuPages } from '@/data/menuSkus';
 import { helpArticles } from '@/data/helpArticles';
 import { journalArticles } from '@/data/journalArticles';
+import { blogArticles } from '@/data/blogArticles';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 function xmlEscape(s: string): string {
@@ -49,6 +50,7 @@ function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: st
     ...menuSkuPages[island].map((cell) => ({ host: island, path: `/menus/${cell.slug}`, priority: '0.45' })),
     ...helpArticles[island].map((cell) => ({ host: island, path: `/help/${cell.slug}`, priority: '0.4' })),
     ...journalArticles[island].map((cell) => ({ host: island, path: `/journal/${cell.slug}`, priority: '0.35' })),
+    ...blogArticles[island].map((cell) => ({ host: island, path: `/blog/${cell.slug}`, priority: '0.35' })),
   ];
 }
 

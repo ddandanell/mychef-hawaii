@@ -29,6 +29,7 @@ import { islandBlog } from '@/data/islandBlog';
 import { islandLocations } from '@/data/islandLocations';
 import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
+import { blogArticles } from '@/data/blogArticles';
 import { photos } from '@/data/photos';
 
 export function HowItWorksView() {
@@ -320,7 +321,6 @@ export function IslandEditorialView({
   islandId: (typeof islandOrder)[number];
   kind: 'journal' | 'blog';
 }) {
-  const list = articlesFor(islandId).filter((a) => a.kind === kind);
   const copy = kind === 'journal' ? islandJournal[islandId] : islandBlog[islandId];
   const photo = photos[copy.photo];
   return (
@@ -347,10 +347,12 @@ export function IslandEditorialView({
                     </HostLink>
                   </li>
                 ))
-              : list.map((a) => (
+              : blogArticles[islandId].map((a) => (
                   <li key={a.slug} className="border-t border-line pt-6">
-                    <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
-                    <p className="mt-2 text-mute">{a.description}</p>
+                    <HostLink island={islandId} path={`/blog/${a.slug}`} className="block">
+                      <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
+                      <p className="mt-2 text-mute">{a.description}</p>
+                    </HostLink>
                   </li>
                 ))}
           </ul>
@@ -382,6 +384,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
       ...menuSkuPages[id].map((cell) => ({ host: id, path: `/menus/${cell.slug}` as const })),
       ...helpArticles[id].map((cell) => ({ host: id, path: `/help/${cell.slug}` as const })),
       ...journalArticles[id].map((cell) => ({ host: id, path: `/journal/${cell.slug}` as const })),
+      ...blogArticles[id].map((cell) => ({ host: id, path: `/blog/${cell.slug}` as const })),
     ]),
   ];
   return (

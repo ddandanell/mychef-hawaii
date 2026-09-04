@@ -28,6 +28,7 @@ import { islandBlog } from '@/data/islandBlog';
 import { islandLocations } from '@/data/islandLocations';
 import { islandSitemap } from '@/data/islandSitemap';
 import { getJournalArticle, journalArticles } from '@/data/journalArticles';
+import { getBlogArticle, blogArticles } from '@/data/blogArticles';
 import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
@@ -129,6 +130,9 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     const journalSlug = /^\/journal\/([^/]+)$/.exec(localPath)?.[1];
     const journalPiece = journalSlug ? getJournalArticle(islandId, journalSlug) : undefined;
     if (journalPiece) return `${origin}${photos[journalPiece.photo].file}`;
+    const blogSlug = /^\/blog\/([^/]+)$/.exec(localPath)?.[1];
+    const blogPiece = blogSlug ? getBlogArticle(islandId, blogSlug) : undefined;
+    if (blogPiece) return `${origin}${photos[blogPiece.photo].file}`;
   }
   if (!islandId) return `${origin}${photos.hubHero.file}`;
   return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;
@@ -276,6 +280,8 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     const journalMatch = localPath.match(/^\/(journal|blog)\/([^/]+)$/);
     const journalPiece =
       journalMatch?.[1] === 'journal' ? getJournalArticle(islandId, journalMatch[2]) : undefined;
+    const blogPiece =
+      journalMatch?.[1] === 'blog' ? getBlogArticle(islandId, journalMatch[2]) : undefined;
     const article = journalMatch
       ? getArticle(islandId, journalMatch[1] as 'journal' | 'blog', journalMatch[2])
       : undefined;
@@ -285,6 +291,10 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     if (journalPiece) {
       title = journalPiece.title;
       description = journalPiece.description;
+      ogType = 'article';
+    } else if (blogPiece) {
+      title = blogPiece.title;
+      description = blogPiece.description;
       ogType = 'article';
     } else if (article) {
       title = article.title;
@@ -512,6 +522,11 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
     })),
     ...journalArticles[island].map((cell) => ({
       loc: `https://${masterHostName(island)}/journal/${cell.slug}`,
+      changefreq: 'monthly',
+      priority: '0.35',
+    })),
+    ...blogArticles[island].map((cell) => ({
+      loc: `https://${masterHostName(island)}/blog/${cell.slug}`,
       changefreq: 'monthly',
       priority: '0.35',
     })),
