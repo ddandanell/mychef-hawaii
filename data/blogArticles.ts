@@ -324,6 +324,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'cleanup-standard',
+      name: 'Cleanup standard',
+      h1: 'Oahu cleanup — Kahala kitchens left cleaner than we found them.',
+      title: 'Oahu cleanup — Kahala kitchens left cleaner than we found them | myCHEF',
+      description:
+        'Oahu cleanup standard: shop, cook, serve, leave the kitchen cleaner. Distinct from /private-chef and /journal/what-is-included.',
+      lede:
+        '/private-chef is what a night includes. This blog note is the last hour — the Kahala sink, the Ko Olina island, left cleaner than we found them.',
+      photo: 'blogCleanupOahu',
+      body: [
+        'Cleanup is in. We do not leave a Gold Coast kitchen as we found it. That is the standard, not an add-on.',
+        'Rentals and venue fees still print as their own lines. Cleanup is not a rental. Open /journal/what-is-included for the split.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one dinner’s last hour.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /private-chef?',
+          a: 'That page is the inclusion document. This piece is the shorter cleanup note.',
+        },
+        {
+          q: 'Is cleanup extra?',
+          a: 'No. It is in. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/private-chef', label: 'What’s included' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'condo-load-in',
+      name: 'Condo load-in',
+      h1: 'Oahu condo load-in — freight elevators and quiet hours in writing.',
+      title: 'Oahu condo load-in — freight elevators and quiet hours in writing | myCHEF',
+      description:
+        'Oahu condo load-in: freight elevators, COIs, quiet hours. Distinct from /waikiki and /blog/dining-in-waikiki.',
+      lede:
+        '/waikiki is the dinner door. /blog/dining-in-waikiki is the cooktop note. This blog note is the load-in — written before anyone rolls a kit through a tower.',
+      photo: 'blogCondoOahu',
+      body: [
+        'Freight elevators, COIs, and quiet hours are handled in advance on towers. We do not discover building rules at 4 p.m.',
+        'Hotel rooms without a cooktop are still declined. A tower residence with a range is the product. Send the building type on /quote.',
+        'Kakaʻako and downtown pied-à-terres inherit the same load-in honesty. Compact kitchens get a menu that fits the range.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /waikiki?',
+          a: 'That URL is the dinner door. This piece is the short load-in note.',
+        },
+        {
+          q: 'Do you need a COI?',
+          a: 'When the building requires one, we handle it in writing before the night.',
+        },
+      ],
+      related: [
+        { path: '/waikiki', label: 'Waikīkī dinner door' },
+        { path: '/blog/dining-in-waikiki', label: 'Waikīkī kitchen notes' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'family-reunions',
+      name: 'Family reunions',
+      h1: 'Oahu family reunions — Gold Coast houses, not a ballroom.',
+      title: 'Oahu family reunions — Gold Coast houses, not a ballroom | myCHEF',
+      description:
+        'Oahu family reunions in houses we actually staff. Distinct from /events, /guest-counts, and /conventions.',
+      lede:
+        '/events is the occasion door. /guest-counts is the honesty page. This blog note is a family week in a Kahala or Ko Olina house — not HCC, not a ballroom.',
+      photo: 'blogReunionOahu',
+      body: [
+        'Dinners 2–15, receptions about 10–75. Larger formats are quoted, not promised. HCC citywides are closed and are not our product — /conventions.',
+        'Kids’ plates are planned with the adults’ menu — /kids-menus. Multi-day weeks sit on /vacation-chef.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one family table in the house.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /events?',
+          a: 'That page is the occasion door. This piece is the shorter family-reunion note.',
+        },
+        {
+          q: 'Can you staff a ballroom reunion?',
+          a: 'No. We staff houses. Open /guest-counts.',
+        },
+      ],
+      related: [
+        { path: '/events', label: 'Events' },
+        { path: '/guest-counts', label: 'Guest counts' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'photoshoot-catering',
+      name: 'Production meals',
+      h1: 'Oahu production meals — residences, not a craft-service tent.',
+      title: 'Oahu production meals — residences, not a craft-service tent | myCHEF',
+      description:
+        'Oahu crew and production meals in residences with kitchens. Distinct from /catering and /conventions.',
+      lede:
+        '/catering is the staffed-room product. /conventions says HCC is closed. This blog note is crew meals in a house — identical plates, a kitchen, not a tent.',
+      photo: 'blogShootOahu',
+      body: [
+        'Film and stills crews in residences are the same staffed-room product as a villa event. We do not staff craft-service tents or convention holds.',
+        'Identical plates, one dietary note on the quote — /dietary. Guest counts we staff stay published — /guest-counts.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is production food in a Kahala kitchen.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /catering?',
+          a: 'That page is the staffed-room door. This piece is the shorter production-meal note.',
+        },
+        {
+          q: 'Can you run craft service on a lot?',
+          a: 'No. Residences with kitchens. Open /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/catering', label: 'Catering' },
+        { path: '/conventions', label: 'Conventions' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   maui: [
     {
@@ -636,6 +760,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'cleanup-standard',
+      name: 'Cleanup standard',
+      h1: 'Maui cleanup — Wailea kitchens left cleaner than we found them.',
+      title: 'Maui cleanup — Wailea kitchens left cleaner than we found them | myCHEF',
+      description:
+        'Maui cleanup standard: shop, cook, serve, leave the kitchen cleaner. Distinct from /private-chef and /journal/what-is-included.',
+      lede:
+        '/private-chef is what a night includes. This blog note is the last hour — the Wailea island, the Kapalua galley, left cleaner than we found them.',
+      photo: 'blogCleanupMaui',
+      body: [
+        'Cleanup is in. We do not leave a South Maui kitchen as we found it. That is the standard, not an add-on.',
+        'Rentals and venue fees still print as their own lines. Cleanup is not a rental. Open /journal/what-is-included for the split.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is one dinner’s last hour.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /private-chef?',
+          a: 'That page is the inclusion document. This piece is the shorter cleanup note.',
+        },
+        {
+          q: 'Is cleanup extra?',
+          a: 'No. It is in. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/private-chef', label: 'What’s included' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'condo-load-in',
+      name: 'Condo load-in',
+      h1: 'Maui condo load-in — South Maui quiet hours in writing.',
+      title: 'Maui condo load-in — South Maui quiet hours in writing | myCHEF',
+      description:
+        'Maui condo load-in: freight elevators, COIs, quiet hours. Distinct from /kihei, /wailea, and /blog/dining-in-kihei.',
+      lede:
+        '/kihei is the dinner door. /blog/dining-in-kihei is the cooktop note. This blog note is the load-in — written before anyone rolls a kit through a South Maui tower.',
+      photo: 'blogCondoMaui',
+      body: [
+        'Freight elevators, COIs, and quiet hours are handled in advance on towers. We do not discover building rules at 4 p.m.',
+        'Hotel rooms without a cooktop are still declined. A tower residence with a range is the product. Send the building type on /quote.',
+        'West Maui stacks inherit the same load-in honesty — /west-maui. Compact kitchens get a menu that fits the range.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /kihei?',
+          a: 'That URL is the dinner door. This piece is the short load-in note.',
+        },
+        {
+          q: 'Do you need a COI?',
+          a: 'When the building requires one, we handle it in writing before the night.',
+        },
+      ],
+      related: [
+        { path: '/kihei', label: 'Kīhei dinner door' },
+        { path: '/blog/dining-in-kihei', label: 'Kīhei kitchen notes' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'family-reunions',
+      name: 'Family reunions',
+      h1: 'Maui family reunions — South Maui houses, not a ballroom.',
+      title: 'Maui family reunions — South Maui houses, not a ballroom | myCHEF',
+      description:
+        'Maui family reunions in houses we actually staff. Distinct from /events, /guest-counts, and /south-maui.',
+      lede:
+        '/events is the occasion door. /guest-counts is the honesty page. This blog note is a family week in a Wailea or Kīhei house — not a resort ballroom.',
+      photo: 'blogReunionMaui',
+      body: [
+        'Dinners 2–15, receptions about 10–75. Larger formats are quoted, not promised. Resort ballrooms are not our product — /south-maui.',
+        'Kids’ plates are planned with the adults’ menu — /kids-menus. Multi-day weeks sit on /vacation-chef.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is one family table in the house.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /events?',
+          a: 'That page is the occasion door. This piece is the shorter family-reunion note.',
+        },
+        {
+          q: 'Can you staff a ballroom reunion?',
+          a: 'No. We staff houses. Open /guest-counts.',
+        },
+      ],
+      related: [
+        { path: '/events', label: 'Events' },
+        { path: '/guest-counts', label: 'Guest counts' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'photoshoot-catering',
+      name: 'Production meals',
+      h1: 'Maui production meals — villas, not a craft-service tent.',
+      title: 'Maui production meals — villas, not a craft-service tent | myCHEF',
+      description:
+        'Maui crew and production meals in villas with kitchens. Distinct from /catering and /south-maui.',
+      lede:
+        '/catering is the staffed-room product. This blog note is crew meals in a Wailea villa — identical plates, a kitchen, not a tent on the lawn.',
+      photo: 'blogShootMaui',
+      body: [
+        'Film and stills crews in villas are the same staffed-room product as a family event. We do not staff craft-service tents or resort holds.',
+        'Identical plates, one dietary note on the quote — /dietary. Guest counts we staff stay published — /guest-counts.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is production food in a Wailea kitchen.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /catering?',
+          a: 'That page is the staffed-room door. This piece is the shorter production-meal note.',
+        },
+        {
+          q: 'Can you run craft service on a lot?',
+          a: 'No. Villas with kitchens. Open /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/catering', label: 'Catering' },
+        { path: '/south-maui', label: 'South Maui' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   kauai: [
     {
@@ -886,6 +1134,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
+    {
+      slug: 'cleanup-standard',
+      name: 'Cleanup standard',
+      h1: 'Kauai cleanup — inquiry kitchens left cleaner than we found them.',
+      title: 'Kauai cleanup — inquiry kitchens left cleaner than we found them | myCHEF',
+      description:
+        'Kauai cleanup standard at inquiry: shop, cook, serve, leave the kitchen cleaner. Distinct from /private-chef and /journal/what-is-included.',
+      lede:
+        '/private-chef is what a night includes — when we can staff. This blog note is the last hour in a Princeville or Poʻipū kitchen, left cleaner than we found it.',
+      photo: 'blogCleanupKauai',
+      body: [
+        'Cleanup is in. We do not leave an inquiry kitchen as we found it. That is the standard, not an add-on. Inquiry until we can staff.',
+        'Rentals and venue fees still print as their own lines. Cleanup is not a rental. Open /journal/what-is-included for the split.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one dinner’s last hour — at inquiry.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /private-chef?',
+          a: 'That page is the inclusion document. This piece is the shorter cleanup note — at inquiry.',
+        },
+        {
+          q: 'Is cleanup extra?',
+          a: 'No. It is in, when we can staff. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/private-chef', label: 'What’s included' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'condo-load-in',
+      name: 'Condo load-in',
+      h1: 'Kauai condo load-in — inquiry towers, quiet hours in writing.',
+      title: 'Kauai condo load-in — inquiry towers, quiet hours in writing | myCHEF',
+      description:
+        'Kauai condo load-in at inquiry: freight elevators, COIs, quiet hours. Distinct from /poipu and /blog/dining-in-poipu.',
+      lede:
+        '/poipu is the dinner door at inquiry. /blog/dining-in-poipu is the cooktop note. This blog note is the load-in — written before anyone rolls a kit through a South Shore tower.',
+      photo: 'blogCondoKauai',
+      body: [
+        'Freight elevators, COIs, and quiet hours are handled in the inquiry reply. We do not discover building rules at 4 p.m. A band is not a Book-now button.',
+        'Hotel rooms without a cooktop are still declined. A tower residence with a range is the product. Send the building type on /quote.',
+        'North Shore stacks inherit the same load-in honesty — /princeville. Compact kitchens get a menu that fits the range.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /poipu?',
+          a: 'That URL is the dinner door. This piece is the short load-in note — at inquiry.',
+        },
+        {
+          q: 'Do you need a COI?',
+          a: 'When the building requires one, we handle it in writing before we can staff.',
+        },
+      ],
+      related: [
+        { path: '/poipu', label: 'Poʻipū dinner door' },
+        { path: '/blog/dining-in-poipu', label: 'Poʻipū kitchen notes' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'family-reunions',
+      name: 'Family reunions',
+      h1: 'Kauai family reunions — inquiry estates, not a ballroom.',
+      title: 'Kauai family reunions — inquiry estates, not a ballroom | myCHEF',
+      description:
+        'Kauai family reunions in estates we can actually staff. Distinct from /events, /guest-counts, and /wedding-week.',
+      lede:
+        '/events is the occasion door at inquiry. /guest-counts is the honesty page. This blog note is a family week in a Princeville or Poʻipū house — not a resort ballroom.',
+      photo: 'blogReunionKauai',
+      body: [
+        'Dinners 2–15, receptions about 10–75. Larger formats are quoted, not promised. Inquiry until we can staff. Resort ballrooms are not our product.',
+        'Kids’ plates are planned with the adults’ menu — /kids-menus. Multi-day weeks sit on /vacation-chef. Far-North weeks inherit /hanalei-bridge.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one family table in the house — at inquiry.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /events?',
+          a: 'That page is the occasion door. This piece is the shorter family-reunion note — at inquiry.',
+        },
+        {
+          q: 'Can you staff a ballroom reunion?',
+          a: 'No. We staff houses, when we can staff. Open /guest-counts.',
+        },
+      ],
+      related: [
+        { path: '/events', label: 'Events' },
+        { path: '/guest-counts', label: 'Guest counts' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'photoshoot-catering',
+      name: 'Production meals',
+      h1: 'Kauai production meals — inquiry estates, not a craft-service tent.',
+      title: 'Kauai production meals — inquiry estates, not a craft-service tent | myCHEF',
+      description:
+        'Kauai crew and production meals in estates with kitchens, at inquiry. Distinct from /catering.',
+      lede:
+        '/catering is the staffed-room product at inquiry. This blog note is crew meals in a Princeville estate — identical plates, a kitchen, not a tent.',
+      photo: 'blogShootKauai',
+      body: [
+        'Film and stills crews in estates are the same staffed-room product as a family event — when we can staff. We do not staff craft-service tents.',
+        'Identical plates, one dietary note on the quote — /dietary. Guest counts we staff stay published — /guest-counts. A band is not a Book-now button.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is production food in an inquiry kitchen.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /catering?',
+          a: 'That page is the staffed-room door. This piece is the shorter production-meal note — at inquiry.',
+        },
+        {
+          q: 'Can you run craft service on a lot?',
+          a: 'No. Estates with kitchens, when we can staff. Open /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/catering', label: 'Catering' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
   ],
   bigisland: [
     {
@@ -1133,6 +1505,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/what-we-dont-do', label: 'What we will not claim' },
         { path: '/coffee-act-198', label: 'Coffee Act 198' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'cleanup-standard',
+      name: 'Cleanup standard',
+      h1: 'Hawaiʻi Island cleanup — west-side kitchens left cleaner than we found them.',
+      title: 'Hawaiʻi Island cleanup — west-side kitchens left cleaner than we found them | myCHEF',
+      description:
+        'West-side cleanup standard at inquiry: shop, cook, serve, leave the kitchen cleaner. Distinct from /private-chef and /journal/what-is-included.',
+      lede:
+        '/private-chef is what a night includes — when we can staff. This blog note is the last hour in a Kona or Waikoloa kitchen, left cleaner than we found it.',
+      photo: 'blogCleanupBigisland',
+      body: [
+        'Cleanup is in. We do not leave a west-side kitchen as we found it. That is the standard, not an add-on. Inquiry until we can staff.',
+        'Rentals and venue fees still print as their own lines. Cleanup is not a rental. Open /journal/what-is-included for the split. East side is a different day — /east-side.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one dinner’s last hour — at inquiry.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /private-chef?',
+          a: 'That page is the inclusion document. This piece is the shorter cleanup note — at inquiry.',
+        },
+        {
+          q: 'Is cleanup extra?',
+          a: 'No. It is in, when we can staff. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/private-chef', label: 'What’s included' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'condo-load-in',
+      name: 'Condo load-in',
+      h1: 'Hawaiʻi Island condo load-in — west-side towers, quiet hours in writing.',
+      title: 'Hawaiʻi Island condo load-in — west-side towers, quiet hours in writing | myCHEF',
+      description:
+        'West-side condo load-in at inquiry: freight elevators, COIs, quiet hours. Distinct from /waikoloa and /blog/dining-in-waikoloa.',
+      lede:
+        '/waikoloa is the dinner door at inquiry. /blog/dining-in-waikoloa is the cooktop note. This blog note is the load-in — written before anyone rolls a kit through a west-side tower.',
+      photo: 'blogCondoBigisland',
+      body: [
+        'Freight elevators, COIs, and quiet hours are handled in the inquiry reply. We do not discover building rules at 4 p.m. A band is not a Book-now button.',
+        'Hotel rooms without a cooktop are still declined. A tower residence with a range is the product. Send the building type on /quote.',
+        'Kona stacks inherit the same load-in honesty — /kona. Compact kitchens get a menu that fits the range. East side is a dedicated crossing — /east-side.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /waikoloa?',
+          a: 'That URL is the dinner door. This piece is the short load-in note — at inquiry.',
+        },
+        {
+          q: 'Do you need a COI?',
+          a: 'When the building requires one, we handle it in writing before we can staff.',
+        },
+      ],
+      related: [
+        { path: '/waikoloa', label: 'Waikoloa dinner door' },
+        { path: '/blog/dining-in-waikoloa', label: 'Waikoloa kitchen notes' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'family-reunions',
+      name: 'Family reunions',
+      h1: 'Hawaiʻi Island family reunions — west-side houses, not a ballroom.',
+      title: 'Hawaiʻi Island family reunions — west-side houses, not a ballroom | myCHEF',
+      description:
+        'West-side family reunions in houses we can actually staff. Distinct from /events, /guest-counts, and /east-side.',
+      lede:
+        '/events is the occasion door at inquiry. /guest-counts is the honesty page. This blog note is a family week in a Kona or Waikoloa house — not a resort ballroom, not a same-day Hilo add-on.',
+      photo: 'blogReunionBigisland',
+      body: [
+        'Dinners 2–15, receptions about 10–75. Larger formats are quoted, not promised. Inquiry until we can staff. Resort ballrooms are not our product.',
+        'Kids’ plates are planned with the adults’ menu — /kids-menus. Multi-day weeks sit on /vacation-chef. Event weeks compress availability — /ironman-weeks.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one family table in the house — at inquiry.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /events?',
+          a: 'That page is the occasion door. This piece is the shorter family-reunion note — at inquiry.',
+        },
+        {
+          q: 'Can you staff a ballroom reunion?',
+          a: 'No. We staff houses, when we can staff. Open /guest-counts.',
+        },
+      ],
+      related: [
+        { path: '/events', label: 'Events' },
+        { path: '/guest-counts', label: 'Guest counts' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'photoshoot-catering',
+      name: 'Production meals',
+      h1: 'Hawaiʻi Island production meals — west-side houses, not a craft-service tent.',
+      title: 'Hawaiʻi Island production meals — west-side houses, not a craft-service tent | myCHEF',
+      description:
+        'West-side crew and production meals in houses with kitchens, at inquiry. Distinct from /catering and /east-side.',
+      lede:
+        '/catering is the staffed-room product at inquiry. This blog note is crew meals in a Kona house — identical plates, a kitchen, not a tent on lava.',
+      photo: 'blogShootBigisland',
+      body: [
+        'Film and stills crews in west-side houses are the same staffed-room product as a family event — when we can staff. We do not staff craft-service tents.',
+        'Identical plates, one dietary note on the quote — /dietary. Guest counts we staff stay published — /guest-counts. East side is a dedicated day — /east-side.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is production food in a west-side kitchen — at inquiry.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /catering?',
+          a: 'That page is the staffed-room door. This piece is the shorter production-meal note — at inquiry.',
+        },
+        {
+          q: 'Can you run craft service on a lot?',
+          a: 'No. Houses with kitchens, when we can staff. Open /what-we-dont-do.',
+        },
+      ],
+      related: [
+        { path: '/catering', label: 'Catering' },
+        { path: '/east-side', label: 'East side' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },

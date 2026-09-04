@@ -1479,6 +1479,70 @@ export const photos = {
     file: '/photos/blog-source-bigisland.png',
     alt: `Whole fish on ice and coffee cherries on a Kona lava-stone counter in hard sun.`,
   },
+  blogCleanupOahu: {
+    file: '/photos/blog-cleanup-oahu.png',
+    alt: `Stacked plates and folded sand linen on a Kahala kitchen island after service at dusk.`,
+  },
+  blogCleanupMaui: {
+    file: '/photos/blog-cleanup-maui.png',
+    alt: `Stacked plates and folded sand linen on a Wailea kitchen counter after service at west sunset.`,
+  },
+  blogCleanupKauai: {
+    file: '/photos/blog-cleanup-kauai.png',
+    alt: `Stacked plates and folded sand linen on a wet Princeville kitchen counter after service.`,
+  },
+  blogCleanupBigisland: {
+    file: '/photos/blog-cleanup-bigisland.png',
+    alt: `Stacked plates and folded sand linen on a Kona lava-stone kitchen after service in hard sun.`,
+  },
+  blogCondoOahu: {
+    file: '/photos/blog-condo-oahu.png',
+    alt: `Stacked coolers in a Waikīkī tower hallway at dusk, freight-elevator doors, no logos.`,
+  },
+  blogCondoMaui: {
+    file: '/photos/blog-condo-maui.png',
+    alt: `Stacked coolers in a South Maui condo hallway at west sunset, no logos.`,
+  },
+  blogCondoKauai: {
+    file: '/photos/blog-condo-kauai.png',
+    alt: `Stacked coolers in a Princeville tower hallway, wet glass, no logos.`,
+  },
+  blogCondoBigisland: {
+    file: '/photos/blog-condo-bigisland.png',
+    alt: `Stacked coolers in a Waikoloa tower hallway in hard sun, no logos.`,
+  },
+  blogReunionOahu: {
+    file: '/photos/blog-reunion-oahu.png',
+    alt: `A long Kahala dining table set for a family, empty ivory plates, dusk.`,
+  },
+  blogReunionMaui: {
+    file: '/photos/blog-reunion-maui.png',
+    alt: `A long Wailea dining table set for a family, empty ivory plates, west sunset.`,
+  },
+  blogReunionKauai: {
+    file: '/photos/blog-reunion-kauai.png',
+    alt: `A long Princeville dining table set for a family, empty ivory plates, wet glass.`,
+  },
+  blogReunionBigisland: {
+    file: '/photos/blog-reunion-bigisland.png',
+    alt: `A long west-side dining table set for a family, empty ivory plates, hard sun.`,
+  },
+  blogShootOahu: {
+    file: '/photos/blog-shoot-oahu.png',
+    alt: `Identical plated meals on a Kahala kitchen island, blank cream cards, dusk.`,
+  },
+  blogShootMaui: {
+    file: '/photos/blog-shoot-maui.png',
+    alt: `Identical plated meals on a Wailea kitchen island, blank cream cards, west sunset.`,
+  },
+  blogShootKauai: {
+    file: '/photos/blog-shoot-kauai.png',
+    alt: `Identical plated meals on a Princeville kitchen island, blank cream cards, wet light.`,
+  },
+  blogShootBigisland: {
+    file: '/photos/blog-shoot-bigisland.png',
+    alt: `Identical plated meals on a Kona lava-stone island, blank cream cards, hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
