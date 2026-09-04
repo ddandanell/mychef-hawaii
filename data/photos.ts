@@ -1271,6 +1271,70 @@ export const photos = {
     file: '/photos/jnl-hire-bigisland.png',
     alt: `A five-field inquiry card on a Kona window-kitchen counter, coffee slope and dry lava in hard sun.`,
   },
+  jnlKitchenOahu: {
+    file: '/photos/jnl-kitchen-oahu.png',
+    alt: `A chef at a Kahala Gold Coast villa cooktop at dusk, koa cabinets, Diamond Head faint through the sliders.`,
+  },
+  jnlKitchenMaui: {
+    file: '/photos/jnl-kitchen-maui.png',
+    alt: `A chef plating at a Wailea villa cooktop, volcanic-stone backsplash, Pacific at west sunset.`,
+  },
+  jnlKitchenKauai: {
+    file: '/photos/jnl-kitchen-kauai.png',
+    alt: `A chef at a Princeville estate range, rain on the glass, misted fluted mountains beyond.`,
+  },
+  jnlKitchenBigisland: {
+    file: '/photos/jnl-kitchen-bigisland.png',
+    alt: `A chef at a Kona lava-stone villa cooktop in hard sun, Mauna Kea faint through the window.`,
+  },
+  jnlDietOahu: {
+    file: '/photos/jnl-diet-oahu.png',
+    alt: `Blank cream paper and clay bowls of fish and herbs on a Kahala kitchen island at dusk.`,
+  },
+  jnlDietMaui: {
+    file: '/photos/jnl-diet-maui.png',
+    alt: `Blank cream paper and clay herb bowls on a Wailea lānai kitchen counter, Pacific beyond.`,
+  },
+  jnlDietKauai: {
+    file: '/photos/jnl-diet-kauai.png',
+    alt: `Blank cream paper and citrus on a wet Princeville counter, misted mountains through the rain.`,
+  },
+  jnlDietBigisland: {
+    file: '/photos/jnl-diet-bigisland.png',
+    alt: `Blank cream paper and clay bowls on a Kohala lava-stone counter in hard sun.`,
+  },
+  jnlInclOahu: {
+    file: '/photos/jnl-incl-oahu.png',
+    alt: `Grocery tote, ivory plates, and sand linen on a Kahala kitchen island at dusk.`,
+  },
+  jnlInclMaui: {
+    file: '/photos/jnl-incl-maui.png',
+    alt: `Grocery tote, ivory plates, and sand linen on a Wailea villa counter at west sunset.`,
+  },
+  jnlInclKauai: {
+    file: '/photos/jnl-incl-kauai.png',
+    alt: `Grocery tote, ivory plates, and sand linen on a wet Princeville stone counter.`,
+  },
+  jnlInclBigisland: {
+    file: '/photos/jnl-incl-bigisland.png',
+    alt: `Grocery tote, ivory plates, and sand linen on a Kona lava-stone counter in hard sun.`,
+  },
+  jnlBookOahu: {
+    file: '/photos/jnl-book-oahu.png',
+    alt: `A blank cream card and brass pen on a Kahala dining table at dusk, Diamond Head faint.`,
+  },
+  jnlBookMaui: {
+    file: '/photos/jnl-book-maui.png',
+    alt: `A blank cream card and brass pen on a Wailea lānai table, Pacific at west sunset.`,
+  },
+  jnlBookKauai: {
+    file: '/photos/jnl-book-kauai.png',
+    alt: `A blank cream card and brass pen on a wet Princeville stone table, mountain mist.`,
+  },
+  jnlBookBigisland: {
+    file: '/photos/jnl-book-bigisland.png',
+    alt: `A blank cream card and brass pen on a Kohala lava-terrace table in hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

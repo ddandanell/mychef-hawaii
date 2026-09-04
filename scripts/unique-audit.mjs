@@ -210,7 +210,7 @@ if (journalDocs.length !== 4) errors.push(`Expected 4 island journal pages, foun
 if (blogDocs.length !== 4) errors.push(`Expected 4 island blog pages, found ${blogDocs.length}`);
 if (locationDocs.length !== 4) errors.push(`Expected 4 island locations pages, found ${locationDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
-if (journalPieces.length !== 8) errors.push(`Expected 8 journal articles, found ${journalPieces.length}`);
+if (journalPieces.length !== 24) errors.push(`Expected 24 journal articles, found ${journalPieces.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));

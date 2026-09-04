@@ -92,13 +92,25 @@ Still no zip on this machine. Wave 10 ships the next unique-page slice:
 - First live journal articles on every island host: `/journal/how-much-does-a-private-chef-cost` and `/journal/how-to-hire-a-private-chef`. Distinct from `/pricing`, `/private-chef-cost`, `/quote`, and `/help/getting-started`.
 - New Grok stills for every Wave 10 URL.
 
-## Wave 11 — zip execution
+## Wave 11 — more unique journal articles (this branch)
+
+Still no zip on this machine. Wave 11 uniquifies four more cloned journal seeds on every island host:
+
+- Unique `/journal/villa-kitchens` — kitchen constraint. Distinct from `/private-chef` and `/short-stay`.
+- Unique `/journal/dietary-needs` — how an allergy lands on the draft. Distinct from `/dietary`.
+- Unique `/journal/what-is-included` — in vs own-line. Distinct from `/private-chef` and `/pricing`.
+- Unique `/journal/how-far-ahead-to-book` — peak calendar. Distinct from `/coverage` and `/quote`.
+- New Grok stills for every Wave 11 URL. Titles never use money keywords.
+
+Skipped for cannibalization: `/journal/wedding-week` (Maui/Kauaʻi already have `/wedding-week` cells), `/journal/vacation-chef-week` (overlaps `/vacation-chef`), `/journal/travel-zones` (overlaps `/coverage`).
+
+## Wave 12 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 12 — automation that stays on
+## Wave 13 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.
