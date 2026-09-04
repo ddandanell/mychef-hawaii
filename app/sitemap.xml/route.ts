@@ -2,6 +2,8 @@ import { PRODUCTION_ROOT, detectIslandFromHost } from '@/lib/site';
 import { MASTER_MAP, masterHostName, type MasterHost, type IslandSitemapHost } from '@/data/commercialGraph';
 import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
+import { islandServices } from '@/data/islandServices';
+import { occasionPages } from '@/data/occasionPages';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 function xmlEscape(s: string): string {
@@ -27,7 +29,11 @@ function supportRows(island: IslandSitemapHost): { host: MasterHost; path: strin
 }
 
 function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
-  return uniqueCells[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.55' }));
+  return [
+    ...uniqueCells[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.55' })),
+    ...islandServices[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.5' })),
+    ...occasionPages[island].map((cell) => ({ host: island, path: `/events/${cell.slug}`, priority: '0.5' })),
+  ];
 }
 
 function urlset(rows: { host: MasterHost; path: string; priority?: string }[]): string {

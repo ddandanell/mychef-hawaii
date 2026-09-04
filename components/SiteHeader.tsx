@@ -135,6 +135,7 @@ export default function SiteHeader() {
                   { label: 'Coverage', island: islandId, path: '/coverage' },
                   { label: 'How it works', island: islandId, path: '/how-it-works' },
                   { label: 'Menus', island: islandId, path: '/menus' },
+                  { label: 'What we will not claim', island: islandId, path: '/what-we-dont-do' },
                   { label: 'About', island: islandId, path: '/about' },
                 ]}
               />
@@ -226,6 +227,7 @@ export default function SiteHeader() {
                         { label: 'Coverage', path: '/coverage' },
                         { label: 'How it works', path: '/how-it-works' },
                         { label: 'Menus', path: '/menus' },
+                        { label: 'What we will not claim', path: '/what-we-dont-do' },
                         { label: 'About', path: '/about' },
                       ] as const
                     ).map((item) => (

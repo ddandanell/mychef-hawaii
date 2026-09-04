@@ -423,6 +423,150 @@ export const photos = {
     file: '/photos/cell-east-side.png',
     alt: `A rainy Hilo house kitchen — ʻōhiʻa and ferns outside, east-side mist, not west-side lava.`,
   },
+  svcHonestyOahu: {
+    file: '/photos/svc-honesty-oahu.png',
+    alt: `A Kahala kitchen at dusk — a written quote on the island, no invented reviews, Diamond Head faint.`,
+  },
+  svcHonestyMaui: {
+    file: '/photos/svc-honesty-maui.png',
+    alt: `A Wailea kitchen looking past the house toward a distant resort — we cook villas, not ballrooms.`,
+  },
+  svcHonestyKauai: {
+    file: '/photos/svc-honesty-kauai.png',
+    alt: `An empty Princeville kitchen in rain, misted mountains — inquiry, not a fake live roster.`,
+  },
+  svcHonestyBigisland: {
+    file: '/photos/svc-honesty-bigisland.png',
+    alt: `A Kona kitchen in hard sun — west-side lava in the window, the east side not claimed.`,
+  },
+  svcCountsOahu: {
+    file: '/photos/svc-counts-oahu.png',
+    alt: `A Kahala dining room set for twelve — ivory linen, brass, Diamond Head through the sliders.`,
+  },
+  svcCountsMaui: {
+    file: '/photos/svc-counts-maui.png',
+    alt: `A Wailea lawn long table with identical plated fish for a small staffed guest list.`,
+  },
+  svcCountsKauai: {
+    file: '/photos/svc-counts-kauai.png',
+    alt: `A Kauaʻi estate table on a wet North Shore terrace — inquiry-scale, misted mountains.`,
+  },
+  svcCountsBigisland: {
+    file: '/photos/svc-counts-bigisland.png',
+    alt: `A Kohala lava terrace table set for eight — plated kanpachi, Mauna Kea faint.`,
+  },
+  svcDietaryOahu: {
+    file: '/photos/svc-dietary-oahu.png',
+    alt: `A separate gluten-free board in a Kahala kitchen, miso-glazed catch, Diamond Head faint.`,
+  },
+  svcDietaryMaui: {
+    file: '/photos/svc-dietary-maui.png',
+    alt: `Vegan tasting plates on a Wailea open-kitchen counter, Molokini faint.`,
+  },
+  svcDietaryKauai: {
+    file: '/photos/svc-dietary-kauai.png',
+    alt: `A Poʻipū kitchen plating a vegetable course, pool and pale cliffs beyond.`,
+  },
+  svcDietaryBigisland: {
+    file: '/photos/svc-dietary-bigisland.png',
+    alt: `Dairy-free kanpachi crudo in a Kona kitchen, coffee cherries on a separate board.`,
+  },
+  svcHoneymoonOahu: {
+    file: '/photos/svc-honeymoon-oahu.png',
+    alt: `Two seats only on a Kahala lānai at dusk — plated ahi, brass candles, Diamond Head.`,
+  },
+  svcHoneymoonMaui: {
+    file: '/photos/svc-honeymoon-maui.png',
+    alt: `Dinner for two on a Kapalua lānai at blue hour — two plated fish, northwest bay.`,
+  },
+  svcHoneymoonKauai: {
+    file: '/photos/svc-honeymoon-kauai.png',
+    alt: `Two seats on a Princeville terrace at golden hour — plated fish, misted mountains.`,
+  },
+  svcHoneymoonBigisland: {
+    file: '/photos/svc-honeymoon-bigisland.png',
+    alt: `Two seats on a Kohala lava terrace at sunset — plated kanpachi for two, Mauna Kea faint.`,
+  },
+  svcChefsTableOahu: {
+    file: '/photos/svc-chefstable-oahu.png',
+    alt: `Guests at a Kahala kitchen island watching a chef finish seared ahi — not a restaurant pass.`,
+  },
+  svcChefsTableMaui: {
+    file: '/photos/svc-chefstable-maui.png',
+    alt: `A couple at a Wailea open-kitchen counter watching tasting plates, Molokini faint.`,
+  },
+  svcChefsTableKauai: {
+    file: '/photos/svc-chefstable-kauai.png',
+    alt: `Guests at a Princeville kitchen counter, seared fish, misted mountains through the window.`,
+  },
+  svcChefsTableBigisland: {
+    file: '/photos/svc-chefstable-bigisland.png',
+    alt: `Guests at a Kona kitchen counter watching a sear, lava and coffee slopes beyond.`,
+  },
+  svcKidsOahu: {
+    file: '/photos/svc-kids-oahu.png',
+    alt: `A Kailua family table — adult fish plates beside kids’ plates, Mokulua through the sliders.`,
+  },
+  svcKidsMaui: {
+    file: '/photos/svc-kids-maui.png',
+    alt: `A Kīhei vacation-home table — grilled fish for adults, kids’ plates beside.`,
+  },
+  svcKidsKauai: {
+    file: '/photos/svc-kids-kauai.png',
+    alt: `An east-side Kapaʻa family feast — kids’ plates beside adult fish, a residential street.`,
+  },
+  svcKidsBigisland: {
+    file: '/photos/svc-kids-bigisland.png',
+    alt: `A Waikoloa family table — kanpachi for adults, kids’ plates, lava terrace.`,
+  },
+  occBirthdayOahu: {
+    file: '/photos/occ-birthday-oahu.png',
+    alt: `A Kahala house birthday — plated fish, a simple dessert, about ten guests, Diamond Head.`,
+  },
+  occBirthdayMaui: {
+    file: '/photos/occ-birthday-maui.png',
+    alt: `A Wailea lawn birthday — dessert course on a long table, a small staffed list, Pacific.`,
+  },
+  occBirthdayKauai: {
+    file: '/photos/occ-birthday-kauai.png',
+    alt: `A Kauaʻi North Shore birthday terrace — plated dessert and fish, misted mountains.`,
+  },
+  occBirthdayBigisland: {
+    file: '/photos/occ-birthday-bigisland.png',
+    alt: `A Kohala lava-terrace birthday — kanpachi and a simple dessert, eight guests.`,
+  },
+  occWelcomeOahu: {
+    file: '/photos/occ-welcome-oahu.png',
+    alt: `First-night grazing in a Ko Olina villa — family-style fish, guests still arriving, lagoon.`,
+  },
+  occWelcomeMaui: {
+    file: '/photos/occ-welcome-maui.png',
+    alt: `First-night grazing on a Wailea lānai — family-style fish, guests in travel clothes.`,
+  },
+  occWelcomeKauai: {
+    file: '/photos/occ-welcome-kauai.png',
+    alt: `First-night family-style fish in a Poʻipū kitchen — pool and pale cliffs, guests arriving.`,
+  },
+  occWelcomeBigisland: {
+    file: '/photos/occ-welcome-bigisland.png',
+    alt: `First-night family-style fish in a Kona kitchen — guests arriving, lava beyond the window.`,
+  },
+  occRetreatOahu: {
+    file: '/photos/occ-retreat-oahu.png',
+    alt: `A Ko Olina retreat morning — breakfast fruit and eggs, a small offsite table, lagoon.`,
+  },
+  occRetreatMaui: {
+    file: '/photos/occ-retreat-maui.png',
+    alt: `A Wailea retreat morning — stocked fridge, breakfast plates, a small table by the pool.`,
+  },
+  occRetreatKauai: {
+    file: '/photos/occ-retreat-kauai.png',
+    alt: `A Poʻipū retreat morning — breakfast plating, a small offsite table, pale cliffs.`,
+  },
+  occRetreatBigisland: {
+    file: '/photos/occ-retreat-bigisland.png',
+    alt: `A Kohala retreat morning — breakfast fish, a small west-side offsite table, Mauna Kea faint.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

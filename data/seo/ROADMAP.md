@@ -31,13 +31,21 @@ The blueprint zip is still not on this machine. Wave 3 ships the catalog cells t
 - Hub `/corporate` and `/gatherings` no longer share a title.
 - New Grok stills for every Wave 3 URL.
 
-## Wave 4 — zip execution
+## Wave 4 — honesty, dinner SKUs, occasion cells (this branch)
+
+Still no zip on this machine. Wave 4 ships the catalog service and occasion cells that do not cannibalize money keywords:
+
+- Unique `/what-we-dont-do`, `/guest-counts`, `/dietary`, `/honeymoon-dinners`, `/chefs-table`, `/kids-menus` on every island host.
+- Unique `/events/birthdays`, `/events/welcome-dinners`, `/events/retreats` on every island host, linked from `/events`.
+- New Grok stills for every Wave 4 URL.
+
+## Wave 5 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond Wave 3.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 5 — automation that stays on
+## Wave 6 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` against DataForSEO when credentials are in GitHub Actions secrets (`DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD`). Do not commit secrets.

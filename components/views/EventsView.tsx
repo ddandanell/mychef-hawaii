@@ -5,9 +5,11 @@ import LineReveal from '@/components/LineReveal';
 import { LongFaq, SiblingCluster } from '@/components/Longform';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { eventOffers } from '@/data/events';
+import { occasionPages } from '@/data/occasionPages';
 import { islands, type IslandId } from '@/data/islands';
 import { photos } from '@/data/photos';
 import { islandHref } from '@/lib/paths';
+import Link from 'next/link';
 
 export function IslandEventsView({ islandId, hostMode }: { islandId: IslandId; hostMode: boolean }) {
   const offer = eventOffers[islandId];
@@ -45,10 +47,14 @@ export function IslandEventsView({ islandId, hostMode }: { islandId: IslandId; h
 
       <section className="border-t border-line bg-paper py-20 lg:py-28">
         <div className="mx-auto grid w-full max-w-container gap-12 px-5 md:grid-cols-3 lg:px-10">
-          {offer.occasions.map((item) => (
-            <article key={item.title}>
-              <h2 className="font-display text-[1.75rem] font-light text-ink">{item.title}</h2>
-              <p className="mt-4 text-[17px] leading-[1.7] text-mute">{item.text}</p>
+          {occasionPages[islandId].map((page) => (
+            <article key={page.slug}>
+              <h2 className="font-display text-[1.75rem] font-light text-ink">
+                <Link href={href(`/events/${page.slug}`)} className="underline-offset-4 hover:underline">
+                  {page.name}
+                </Link>
+              </h2>
+              <p className="mt-4 text-[17px] leading-[1.7] text-mute">{page.lede}</p>
             </article>
           ))}
         </div>

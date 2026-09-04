@@ -141,6 +141,8 @@ const cateringSrc = read('data/catering.ts');
 const eventsSrc = read('data/events.ts');
 const supportSrc = read('data/islandSupport.ts');
 const cellsSrc = read('data/uniqueCells.ts');
+const servicesSrc = read('data/islandServices.ts');
+const occasionsSrc = read('data/occasionPages.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
 const hoods = neighborhoods(offersSrc);
@@ -152,6 +154,8 @@ const coverage = supportBlocks(supportSrc, 'islandCoverage');
 const how = supportBlocks(supportSrc, 'islandHow');
 const menus = supportBlocks(supportSrc, 'islandMenus');
 const cells = uniqueCellMeta(cellsSrc);
+const services = uniqueCellMeta(servicesSrc);
+const occasions = uniqueCellMeta(occasionsSrc);
 
 const errors = [];
 
@@ -163,6 +167,8 @@ if (coverage.length !== 4) errors.push(`Expected 4 coverage pages, found ${cover
 if (how.length !== 4) errors.push(`Expected 4 how-it-works pages, found ${how.length}`);
 if (menus.length !== 4) errors.push(`Expected 4 menus pages, found ${menus.length}`);
 if (cells.length < 15) errors.push(`Expected ≥15 unique cells, found ${cells.length}`);
+if (services.length < 24) errors.push(`Expected ≥24 island service pages, found ${services.length}`);
+if (occasions.length < 12) errors.push(`Expected ≥12 occasion pages, found ${occasions.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -185,6 +191,12 @@ errors.push(...dupes(menus.map((h) => files[h.photo] || h.photo), 'menus hero fi
 errors.push(...dupes(cells.map((h) => h.title), 'unique-cell title'));
 errors.push(...dupes(cells.map((h) => h.h1), 'unique-cell H1'));
 errors.push(...dupes(cells.map((h) => files[h.photo] || h.photo), 'unique-cell hero file'));
+errors.push(...dupes(services.map((h) => h.title), 'service title'));
+errors.push(...dupes(services.map((h) => h.h1), 'service H1'));
+errors.push(...dupes(services.map((h) => files[h.photo] || h.photo), 'service hero file'));
+errors.push(...dupes(occasions.map((h) => h.title), 'occasion title'));
+errors.push(...dupes(occasions.map((h) => h.h1), 'occasion H1'));
+errors.push(...dupes(occasions.map((h) => files[h.photo] || h.photo), 'occasion hero file'));
 
 const allTitles = [
   ...hoods.map((h) => h.title),
@@ -196,6 +208,8 @@ const allTitles = [
   ...how.map((h) => h.title),
   ...menus.map((h) => h.title),
   ...cells.map((h) => h.title),
+  ...services.map((h) => h.title),
+  ...occasions.map((h) => h.title),
 ];
 errors.push(...dupes(allTitles, 'cross-type title'));
 
@@ -230,7 +244,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -241,7 +255,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells]) {
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -271,13 +285,20 @@ for (const key of [
 const mw = middlewareCorridors(middlewareSrc);
 const slugs = offerSlugsByIsland(offersSrc);
 const cellSlugs = uniqueCellSlugsByIsland(cellsSrc);
+const serviceSlugs = uniqueCellSlugsByIsland(servicesSrc);
 for (const island of ISLANDS) {
   const a = [...(mw[island] || [])].sort().join(',');
   const b = [...(slugs[island] || [])].sort().join(',');
   if (a !== b) errors.push(`middleware CORRIDORS.${island} !== moneyNeighborhoods (${a} vs ${b})`);
   const hoodSet = new Set(slugs[island] || []);
+  const taken = new Set(hoodSet);
   for (const slug of cellSlugs[island] || []) {
-    if (hoodSet.has(slug)) errors.push(`unique cell /${slug} collides with neighborhood on ${island}`);
+    if (taken.has(slug)) errors.push(`unique cell /${slug} collides on ${island}`);
+    taken.add(slug);
+  }
+  for (const slug of serviceSlugs[island] || []) {
+    if (taken.has(slug)) errors.push(`service /${slug} collides on ${island}`);
+    taken.add(slug);
   }
 }
 
@@ -287,5 +308,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions.`,
 );

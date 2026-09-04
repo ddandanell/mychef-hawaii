@@ -12,6 +12,8 @@ import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { getLocation } from '@/data/locations';
 import { getMoneyNeighborhood, islandOffers, moneyNeighborhoods } from '@/data/offers';
 import { getUniqueCell, uniqueCells } from '@/data/uniqueCells';
+import { getIslandService, islandServices } from '@/data/islandServices';
+import { getOccasionPage, occasionPages } from '@/data/occasionPages';
 import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
@@ -44,6 +46,11 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     if (hood) return `${origin}${photos[hood.photo].file}`;
     const cell = slug ? getUniqueCell(islandId, slug) : undefined;
     if (cell) return `${origin}${photos[cell.photo].file}`;
+    const service = slug ? getIslandService(islandId, slug) : undefined;
+    if (service) return `${origin}${photos[service.photo].file}`;
+    const occasionSlug = /^\/events\/([^/]+)$/.exec(localPath)?.[1];
+    const occasion = occasionSlug ? getOccasionPage(islandId, occasionSlug) : undefined;
+    if (occasion) return `${origin}${photos[occasion.photo].file}`;
     const support = getIslandSupport(islandId, localPath);
     if (support) return `${origin}${photos[support.photo].file}`;
     if (localPath === '/events') return `${origin}${photos[eventOffers[islandId].photo].file}`;
@@ -257,6 +264,14 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       const cell = getUniqueCell(islandId, placeSlug)!;
       title = cell.title;
       description = cell.description;
+    } else if (placeSlug && getIslandService(islandId, placeSlug)) {
+      const service = getIslandService(islandId, placeSlug)!;
+      title = service.title;
+      description = service.description;
+    } else if (/^\/events\/[^/]+$/.test(localPath) && getOccasionPage(islandId, localPath.slice('/events/'.length))) {
+      const occasion = getOccasionPage(islandId, localPath.slice('/events/'.length))!;
+      title = occasion.title;
+      description = occasion.description;
     } else if (locRec) {
       title = `${locRec.name} private chef — myCHEF ${island.name}`;
       description = locRec.lede;
@@ -365,6 +380,16 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       loc: `https://${masterHostName(island)}/${cell.slug}`,
       changefreq: 'monthly',
       priority: '0.55',
+    })),
+    ...islandServices[island].map((cell) => ({
+      loc: `https://${masterHostName(island)}/${cell.slug}`,
+      changefreq: 'monthly',
+      priority: '0.5',
+    })),
+    ...occasionPages[island].map((cell) => ({
+      loc: `https://${masterHostName(island)}/events/${cell.slug}`,
+      changefreq: 'monthly',
+      priority: '0.5',
     })),
   ]);
   return [
