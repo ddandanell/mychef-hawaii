@@ -1415,6 +1415,70 @@ export const photos = {
     file: '/photos/din-kohala.png',
     alt: `A Kohala Coast lava-stone counter, blank cream card, dry lava field in hard sun.`,
   },
+  blogGroceryOahu: {
+    file: '/photos/blog-grocery-oahu.png',
+    alt: `A canvas grocery tote and blank receipt paper on a Kahala kitchen island at dusk.`,
+  },
+  blogGroceryMaui: {
+    file: '/photos/blog-grocery-maui.png',
+    alt: `A canvas grocery tote and blank receipt paper on a Wailea kitchen counter at west sunset.`,
+  },
+  blogGroceryKauai: {
+    file: '/photos/blog-grocery-kauai.png',
+    alt: `A canvas grocery tote and blank receipt paper on a wet Princeville counter.`,
+  },
+  blogGroceryBigisland: {
+    file: '/photos/blog-grocery-bigisland.png',
+    alt: `A canvas grocery tote and blank receipt paper on a Kona lava-stone counter in hard sun.`,
+  },
+  blogWineOahu: {
+    file: '/photos/blog-wine-oahu.png',
+    alt: `Unlabelled bottles and empty ivory coupes on a Kahala lānai table at dusk.`,
+  },
+  blogWineMaui: {
+    file: '/photos/blog-wine-maui.png',
+    alt: `Unlabelled bottles and empty ivory coupes on a Wailea lānai table at west sunset.`,
+  },
+  blogWineKauai: {
+    file: '/photos/blog-wine-kauai.png',
+    alt: `Unlabelled bottles and empty ivory coupes on a wet Princeville stone table.`,
+  },
+  blogWineBigisland: {
+    file: '/photos/blog-wine-bigisland.png',
+    alt: `Unlabelled bottles and empty ivory coupes on a Kohala lava-terrace table in hard sun.`,
+  },
+  blogWeatherOahu: {
+    file: '/photos/blog-weather-oahu.png',
+    alt: `Folded sand linen beside an ivory Kahala outdoor table at dusk, covered dining room beyond.`,
+  },
+  blogWeatherMaui: {
+    file: '/photos/blog-weather-maui.png',
+    alt: `Folded sand linen on a Wailea outdoor table at west sunset, covered dining room beyond.`,
+  },
+  blogWeatherKauai: {
+    file: '/photos/blog-weather-kauai.png',
+    alt: `Folded sand linen on a wet Princeville terrace, rain on glass, covered table beyond.`,
+  },
+  blogWeatherBigisland: {
+    file: '/photos/blog-weather-bigisland.png',
+    alt: `Folded sand linen on a Kohala lava-terrace table in hard sun, covered room beyond.`,
+  },
+  blogSourceOahu: {
+    file: '/photos/blog-source-oahu.png',
+    alt: `Whole fish on ice and unmarked citrus on a Kahala kitchen counter at dusk.`,
+  },
+  blogSourceMaui: {
+    file: '/photos/blog-source-maui.png',
+    alt: `Whole fish on ice and unmarked citrus on a Wailea kitchen counter at west sunset.`,
+  },
+  blogSourceKauai: {
+    file: '/photos/blog-source-kauai.png',
+    alt: `Whole fish on ice and unmarked citrus on a wet Princeville kitchen counter.`,
+  },
+  blogSourceBigisland: {
+    file: '/photos/blog-source-bigisland.png',
+    alt: `Whole fish on ice and coffee cherries on a Kona lava-stone counter in hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

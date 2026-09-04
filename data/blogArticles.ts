@@ -200,6 +200,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/vacation-chef', label: 'Vacation chef weeks' },
       ],
     },
+    {
+      slug: 'grocery-at-cost',
+      name: 'Groceries at cost',
+      h1: 'Oahu grocery line — shopped the day of, billed at cost.',
+      title: 'Oahu groceries billed at cost — receipts on the quote | myCHEF',
+      description:
+        'Oahu groceries print at cost with receipts. Distinct from /pricing and /journal/what-is-included.',
+      lede:
+        '/pricing is the tariff. /journal/what-is-included is the written split. This blog note is the grocery line — shopped that day, billed at cost, never a hidden markup.',
+      photo: 'blogGroceryOahu',
+      body: [
+        'We shop the day of service. Groceries print at cost with receipts. They are not swallowed by the CORE band on a Kahala or Ko Olina night.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one dinner’s shop, itemised.`,
+        'Alcohol is a different line — /blog/wine-and-alcohol. The written quote is the contract.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /pricing?',
+          a: 'That page is the rate card. This piece is how groceries print beside it.',
+        },
+        {
+          q: 'Is there a grocery markup?',
+          a: 'No. Cost plus receipts. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/pricing', label: 'Oahu rate card' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'wine-and-alcohol',
+      name: 'Wine and alcohol',
+      h1: 'Oahu wine and spirits — Kahala pours as their own line.',
+      title: 'Oahu wine and spirits — Kahala pours as their own line | myCHEF',
+      description:
+        'Oahu wine, beer, and spirits never hide inside the dinner band. Distinct from /bar and /private-chef.',
+      lede:
+        '/bar is the bartender add-on. /mobile-bar is the 4-hour package. This blog note is the bottle line — yours, or quoted separately.',
+      photo: 'blogWineOahu',
+      body: [
+        'Bring your own, or we quote a separate pour. Wine, beer, and spirits never hide inside the CORE band on a Gold Coast night.',
+        'A bartender is /staffing/bartenders or /bar. This piece is the alcohol line on the quote, not the person pouring it.',
+        `Private chef Oahu (${SEARCH_VOLUMES['private chef oahu']}) stays on this host’s home. This article does not steal that title.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /bar?',
+          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line.',
+        },
+        {
+          q: 'Can you bury wine in the menu price?',
+          a: 'No. Open /journal/what-is-included.',
+        },
+      ],
+      related: [
+        { path: '/bar', label: 'Bartender add-on' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'weather-backup',
+      name: 'Wet-weather backup',
+      h1: 'Oahu lawn tables get a covered backup in writing.',
+      title: 'Oahu lawn tables get a covered backup in writing | myCHEF',
+      description:
+        'Oahu outdoor tables get a written wet-weather backup before the day. Distinct from /coverage and /legal.',
+      lede:
+        '/coverage is the zone map. /legal holds the weather clause. This blog note is the covered room we name before anyone sets a Kahala lawn table.',
+      photo: 'blogWeatherOahu',
+      body: [
+        'Outdoor tables on the Gold Coast and Ko Olina lawns always have a written indoor backup. We do not discover rain at 4 p.m.',
+        'North Shore wind is part of the dedicated-day plan — /north-shore. The backup is a room, not a tent we do not own.',
+        'Send the address type on /quote. If the house has no covered fallback, we say so before a deposit.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /coverage?',
+          a: 'That page is where we cook. This piece is the short outdoor-backup note.',
+        },
+        {
+          q: 'Same as /legal?',
+          a: 'That page is the booking notes. This piece is the kitchen note beside it.',
+        },
+      ],
+      related: [
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/gold-coast', label: 'Gold Coast houses' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'sourcing-honesty',
+      name: 'Sourcing honesty',
+      h1: 'Oahu sourcing — most food still arrives by ship. We say so.',
+      title: 'Oahu sourcing honesty — most food still arrives by ship | myCHEF',
+      description:
+        'Oahu sourcing honesty: Hawaiʻi still imports most of its food. Named farms only after written verification. Distinct from /what-we-dont-do.',
+      lede:
+        '/what-we-dont-do is the claim list. /menus is the process. This blog note is why we will not print a farm name we have not verified.',
+      photo: 'blogSourceOahu',
+      body: [
+        'Hawaiʻi still imports most of its food. We cook what the shop and the boat actually hold that day. We do not invent a “farm-to-table” brand.',
+        'Named farms only after written verification. Fish is named as food, not décor. The sample on /menus is an example, not a standing carte.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is how an Oahu draft stays honest.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /what-we-dont-do?',
+          a: 'That page is the claim list. This piece is the shorter sourcing note.',
+        },
+        {
+          q: 'Will you print a farm name on the menu?',
+          a: 'Only after written verification. Otherwise the ingredient is named as food.',
+        },
+      ],
+      related: [
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/menus', label: 'How a menu is written' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   maui: [
     {
@@ -388,6 +512,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'grocery-at-cost',
+      name: 'Groceries at cost',
+      h1: 'Maui grocery line — South Maui shop, billed at cost.',
+      title: 'Maui groceries billed at cost — receipts on the quote | myCHEF',
+      description:
+        'Maui groceries print at cost with receipts. Distinct from /pricing and /journal/what-is-included.',
+      lede:
+        '/pricing is the tariff. /journal/what-is-included is the written split. This blog note is the grocery line — shopped that day in Kihei or Wailea, billed at cost.',
+      photo: 'blogGroceryMaui',
+      body: [
+        'We shop the day of service. Groceries print at cost with receipts. They are not swallowed by the CORE band on a Wailea or Kapalua night.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is one villa shop, itemised.`,
+        'Alcohol is a different line — /blog/wine-and-alcohol. Saturday West Maui arrival is planned, not hidden — /west-maui.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /pricing?',
+          a: 'That page is the rate card. This piece is how groceries print beside it.',
+        },
+        {
+          q: 'Is there a grocery markup?',
+          a: 'No. Cost plus receipts. Open /quote.',
+        },
+      ],
+      related: [
+        { path: '/pricing', label: 'Maui rate card' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'wine-and-alcohol',
+      name: 'Wine and alcohol',
+      h1: 'Maui wine and spirits — Wailea pours as their own line.',
+      title: 'Maui wine and spirits — Wailea pours as their own line | myCHEF',
+      description:
+        'Maui wine, beer, and spirits never hide inside the dinner band. Distinct from /bar and /private-chef.',
+      lede:
+        '/bar is the bartender add-on. /mobile-bar is the 4-hour package. This blog note is the bottle line — yours, or quoted separately.',
+      photo: 'blogWineMaui',
+      body: [
+        'Bring your own, or we quote a separate pour. Wine, beer, and spirits never hide inside the CORE band on a Wailea night.',
+        'A bartender is /staffing/bartenders or /bar. This piece is the alcohol line on the quote, not the person pouring it.',
+        `Private chef Maui (${SEARCH_VOLUMES['private chef maui']}) stays on this host’s home. This article does not steal that title.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /bar?',
+          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line.',
+        },
+        {
+          q: 'Can you bury wine in the menu price?',
+          a: 'No. Open /journal/what-is-included.',
+        },
+      ],
+      related: [
+        { path: '/bar', label: 'Bartender add-on' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'weather-backup',
+      name: 'Wet-weather backup',
+      h1: 'Maui lānai tables get a covered backup in writing.',
+      title: 'Maui lānai tables get a covered backup in writing | myCHEF',
+      description:
+        'Maui outdoor tables get a written wet-weather backup before the day. Distinct from /coverage and /makena.',
+      lede:
+        '/coverage is the zone map. /makena names the quieter inventory. This blog note is the covered room we write before anyone sets a Wailea lawn table.',
+      photo: 'blogWeatherMaui',
+      body: [
+        'Outdoor tables on South Maui and West Maui always have a written indoor backup. We do not discover rain at 4 p.m.',
+        'Makena outdoor setups inherit the same rule — /makena. The backup is a room, not a tent we do not own.',
+        'Send the address type on /quote. If the house has no covered fallback, we say so before a deposit.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /coverage?',
+          a: 'That page is where we cook. This piece is the short outdoor-backup note.',
+        },
+        {
+          q: 'Same as /makena?',
+          a: 'That page is the corridor. This piece is the shorter weather note beside it.',
+        },
+      ],
+      related: [
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/makena', label: 'Makena dinner door' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'sourcing-honesty',
+      name: 'Sourcing honesty',
+      h1: 'Maui sourcing — most food still arrives by ship. We say so.',
+      title: 'Maui sourcing honesty — most food still arrives by ship | myCHEF',
+      description:
+        'Maui sourcing honesty: Hawaiʻi still imports most of its food. Named farms only after written verification. Distinct from /what-we-dont-do.',
+      lede:
+        '/what-we-dont-do is the claim list. /menus is the process. This blog note is why we will not print a Upcountry farm name we have not verified.',
+      photo: 'blogSourceMaui',
+      body: [
+        'Hawaiʻi still imports most of its food. We cook what the shop and the boat actually hold that day. We do not invent a “farm-to-table” brand for Wailea.',
+        'Named farms only after written verification. Fish is named as food, not décor. Upcountry is a surcharge zone even when the draft names a producer — /coverage.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is how a Maui draft stays honest.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /what-we-dont-do?',
+          a: 'That page is the claim list. This piece is the shorter sourcing note.',
+        },
+        {
+          q: 'Will you print a farm name on the menu?',
+          a: 'Only after written verification. Otherwise the ingredient is named as food.',
+        },
+      ],
+      related: [
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/menus', label: 'How a menu is written' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   kauai: [
     {
@@ -514,6 +762,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
+    {
+      slug: 'grocery-at-cost',
+      name: 'Groceries at cost',
+      h1: 'Kauai grocery line — both shores, billed at cost when we staff.',
+      title: 'Kauai groceries billed at cost — inquiry receipts | myCHEF',
+      description:
+        'Kauai groceries print at cost with receipts when we can staff. Distinct from /pricing and /journal/what-is-included.',
+      lede:
+        '/pricing is the tariff. /journal/what-is-included is the written split. This blog note is the grocery line on an inquiry quote — billed at cost, never a hidden markup.',
+      photo: 'blogGroceryKauai',
+      body: [
+        'When we can staff, we shop the day of service. Groceries print at cost with receipts. They are not swallowed by the band on a Princeville or Poʻipū night.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one inquiry shop, itemised.`,
+        'A closed Hanalei bridge can move the shop as well as the night — /hanalei-bridge. Alcohol is a different line — /blog/wine-and-alcohol.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /pricing?',
+          a: 'That page is the rate card. This piece is how groceries print beside it — at inquiry.',
+        },
+        {
+          q: 'Are the receipts live if you cannot staff?',
+          a: 'No shop until we can staff. Send the date on /quote.',
+        },
+      ],
+      related: [
+        { path: '/pricing', label: 'Kauai rate card' },
+        { path: '/hanalei-bridge', label: 'Hanalei bridge' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'wine-and-alcohol',
+      name: 'Wine and alcohol',
+      h1: 'Kauai wine and spirits — inquiry pours as their own line.',
+      title: 'Kauai wine and spirits — inquiry pours as their own line | myCHEF',
+      description:
+        'Kauai wine, beer, and spirits never hide inside the dinner band. Distinct from /bar and /private-chef.',
+      lede:
+        '/bar is the bartender add-on. /mobile-bar is the 4-hour package. This blog note is the bottle line on an inquiry quote.',
+      photo: 'blogWineKauai',
+      body: [
+        'Bring your own, or we quote a separate pour when we can staff. Wine, beer, and spirits never hide inside the band on a Princeville night.',
+        'A bartender is /staffing/bartenders or /bar. This piece is the alcohol line, not the person pouring it. Inquiry stage.',
+        `Private chef Kauai (${SEARCH_VOLUMES['private chef kauai']}) stays on this host’s home. This article does not steal that title.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /bar?',
+          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line — even at inquiry.',
+        },
+        {
+          q: 'Can you bury wine in the menu price?',
+          a: 'No. Open /journal/what-is-included.',
+        },
+      ],
+      related: [
+        { path: '/bar', label: 'Bartender add-on' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'weather-backup',
+      name: 'Wet-weather backup',
+      h1: 'Kauai outdoor tables get a covered backup — and the bridge clause.',
+      title: 'Kauai outdoor tables get a covered backup in writing | myCHEF',
+      description:
+        'Kauai outdoor tables get a written wet-weather backup. Far-North inherits the bridge clause. Distinct from /hanalei-bridge and /coverage.',
+      lede:
+        '/coverage is the zone map. /hanalei-bridge is the 72-hour clause. This blog note is the covered room we name before anyone sets an estate table.',
+      photo: 'blogWeatherKauai',
+      body: [
+        'Outdoor tables on both shores always have a written indoor backup. Far-North events also inherit /hanalei-bridge — reschedule rather than forfeit.',
+        'We do not discover rain at 4 p.m. A closed bridge moves the night; it does not eat the deposit. Inquiry until we can staff.',
+        'Send the address type on /quote. If the house has no covered fallback, we say so in the inquiry reply.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /hanalei-bridge?',
+          a: 'That page is the road clause. This piece is the shorter outdoor-backup note.',
+        },
+        {
+          q: 'Same as /coverage?',
+          a: 'That page is where we cook. This piece is the weather backup beside it.',
+        },
+      ],
+      related: [
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/hanalei-bridge', label: 'Hanalei bridge' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'sourcing-honesty',
+      name: 'Sourcing honesty',
+      h1: 'Kauai sourcing — most food still arrives by ship. We say so.',
+      title: 'Kauai sourcing honesty — most food still arrives by ship | myCHEF',
+      description:
+        'Kauai sourcing honesty at inquiry: Hawaiʻi still imports most of its food. Named farms only after written verification. Distinct from /what-we-dont-do.',
+      lede:
+        '/what-we-dont-do is the claim list. /menus is the process. This blog note is why an inquiry draft will not print a farm name we have not verified.',
+      photo: 'blogSourceKauai',
+      body: [
+        'Hawaiʻi still imports most of its food. We cook what the shop and the boat actually hold that day — when we can staff. We do not invent a “farm-to-table” brand for Princeville.',
+        'Named farms only after written verification. Fish is named as food, not décor. A theatrical luau menu is declined.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is how a Kauai inquiry draft stays honest.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /what-we-dont-do?',
+          a: 'That page is the claim list. This piece is the shorter sourcing note — at inquiry.',
+        },
+        {
+          q: 'Will you print a farm name on the menu?',
+          a: 'Only after written verification. Otherwise the ingredient is named as food.',
+        },
+      ],
+      related: [
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/menus', label: 'How a menu is written' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
   ],
   bigisland: [
     {
@@ -637,6 +1009,130 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/kohala', label: 'Kohala dinner door' },
         { path: '/kohala-corridor', label: 'Kohala corridor' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'grocery-at-cost',
+      name: 'Groceries at cost',
+      h1: 'West-side grocery line — Kona shop, billed at cost.',
+      title: 'Hawaiʻi Island groceries billed at cost — west-side receipts | myCHEF',
+      description:
+        'West-side groceries print at cost with receipts when we can staff. East side is a different day. Distinct from /pricing.',
+      lede:
+        '/pricing is the tariff. /journal/what-is-included is the written split. This blog note is the grocery line on a west-side inquiry quote — Hilo is never implied.',
+      photo: 'blogGroceryBigisland',
+      body: [
+        'When we can staff, we shop the day of service on the west side. Groceries print at cost with receipts. They are not swallowed by the band on a Kona or Waikoloa night.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one west-side shop, itemised.`,
+        'East-side provisioning is a dedicated day — /east-side. Alcohol is a different line — /blog/wine-and-alcohol.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /pricing?',
+          a: 'That page is the rate card. This piece is how west-side groceries print beside it.',
+        },
+        {
+          q: 'Can a Kona shop cover Hilo?',
+          a: 'Not the same day. Open /east-side.',
+        },
+      ],
+      related: [
+        { path: '/pricing', label: 'West-side rate card' },
+        { path: '/east-side', label: 'East side' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'wine-and-alcohol',
+      name: 'Wine and alcohol',
+      h1: 'West-side wine and spirits — Kona pours as their own line.',
+      title: 'Hawaiʻi Island wine and spirits — west-side pours as their own line | myCHEF',
+      description:
+        'West-side wine, beer, and spirits never hide inside the dinner band. Distinct from /bar and /private-chef.',
+      lede:
+        '/bar is the bartender add-on. /mobile-bar is the 4-hour package. This blog note is the bottle line on a west-side inquiry quote.',
+      photo: 'blogWineBigisland',
+      body: [
+        'Bring your own, or we quote a separate pour when we can staff. Wine, beer, and spirits never hide inside the band on a Kona night.',
+        'A bartender is /staffing/bartenders or /bar. This piece is the alcohol line, not the person pouring it. Inquiry, west-side first.',
+        `Private chef Kona (${SEARCH_VOLUMES['private chef kona']}) stays a dinner door. This article does not steal that title.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /bar?',
+          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line — even at inquiry.',
+        },
+        {
+          q: 'Can you bury wine in the menu price?',
+          a: 'No. Open /journal/what-is-included.',
+        },
+      ],
+      related: [
+        { path: '/bar', label: 'Bartender add-on' },
+        { path: '/journal/what-is-included', label: 'What prints as a line' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'weather-backup',
+      name: 'Wet-weather backup',
+      h1: 'West-side outdoor tables get a covered backup in writing.',
+      title: 'Hawaiʻi Island outdoor tables get a covered backup in writing | myCHEF',
+      description:
+        'West-side outdoor tables get a written wind and sun backup. East side is a different day. Distinct from /coverage.',
+      lede:
+        '/coverage is the zone map. /east-side is a dedicated crossing. This blog note is the covered room we name before anyone sets a Kohala lava-terrace table.',
+      photo: 'blogWeatherBigisland',
+      body: [
+        'Outdoor tables on the west side always have a written indoor backup. Hard sun and afternoon wind are the usual reason — not a surprise at 4 p.m.',
+        'East side is a dedicated day, not a same-day Kona–Hilo fantasy — /east-side. The backup is a room, not a tent we do not own.',
+        'Send the address type on /quote. If the house has no covered fallback, we say so in the inquiry reply.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /coverage?',
+          a: 'That page is where we cook. This piece is the short outdoor-backup note.',
+        },
+        {
+          q: 'Does a Kona backup cover Hilo weather?',
+          a: 'No. Open /east-side. We quote a dedicated crossing.',
+        },
+      ],
+      related: [
+        { path: '/coverage', label: 'Coverage' },
+        { path: '/east-side', label: 'East side' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'sourcing-honesty',
+      name: 'Sourcing honesty',
+      h1: 'West-side sourcing — most food still arrives by ship. We say so.',
+      title: 'Hawaiʻi Island sourcing honesty — most food still arrives by ship | myCHEF',
+      description:
+        'West-side sourcing honesty: Hawaiʻi still imports most of its food. Named Kona coffee follows Act 198. Distinct from /coffee-act-198.',
+      lede:
+        '/what-we-dont-do is the claim list. /coffee-act-198 is the origin rule. This blog note is why an inquiry draft will not print a farm name we have not verified.',
+      photo: 'blogSourceBigisland',
+      body: [
+        'Hawaiʻi still imports most of its food. We cook what the west-side shop actually holds that day — when we can staff. We do not invent a “farm-to-table” brand for Waikoloa.',
+        'Named Kona and Kaʻū coffee follow Act 198 from 2027 — /coffee-act-198. Fish is named as food, not décor.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is how a west-side inquiry draft stays honest.`,
+      ],
+      faqs: [
+        {
+          q: 'Same as /coffee-act-198?',
+          a: 'That page is the origin rule. This piece is the shorter sourcing note beside it.',
+        },
+        {
+          q: 'Will you print a farm name on the menu?',
+          a: 'Only after written verification. Otherwise the ingredient is named as food.',
+        },
+      ],
+      related: [
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/coffee-act-198', label: 'Coffee Act 198' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },

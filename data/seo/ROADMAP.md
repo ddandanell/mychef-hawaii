@@ -114,13 +114,23 @@ Still no zip on this machine. Wave 12 ships live `/blog/dining-in-{corridor}` no
 - Island `/blog` indexes now link live pieces only (same pattern as `/journal`).
 - New Grok stills for every Wave 12 URL.
 
-## Wave 13 — zip execution
+## Wave 13 — unique grocery, wine, weather, and sourcing blog notes (this branch)
+
+Still no zip on this machine. Wave 13 uniquifies four operational blog seeds on every island host:
+
+- Unique `/blog/grocery-at-cost` — receipts, not a markup. Distinct from `/pricing` and `/journal/what-is-included`.
+- Unique `/blog/wine-and-alcohol` — bottles as their own line. Distinct from `/bar` and `/mobile-bar`.
+- Unique `/blog/weather-backup` — written outdoor backup. Distinct from `/coverage`, `/legal`, and `/hanalei-bridge`.
+- Unique `/blog/sourcing-honesty` — Hawaiʻi still imports most of its food. Distinct from `/what-we-dont-do` and `/coffee-act-198`.
+- New Grok stills for every Wave 13 URL. Titles never use money keywords.
+
+## Wave 14 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 14 — automation that stays on
+## Wave 15 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.
