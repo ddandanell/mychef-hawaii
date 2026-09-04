@@ -235,6 +235,70 @@ export const photos = {
     file: '/photos/loc-waikoloa.png',
     alt: `Waikoloa resort-residence kitchen in hard Kohala sun — plated kanpachi, lava terrace, Mauna Kea faint.`,
   },
+  eventsOahu: {
+    file: '/photos/heroes/hero-events-oahu.png',
+    alt: `A staffed Kahala lawn gathering at dusk — passed plates, a long table, Diamond Head on the horizon.`,
+  },
+  eventsMaui: {
+    file: '/photos/heroes/hero-events-maui.png',
+    alt: `A Wailea villa lawn gathering at sunset — family-style fish, a small staffed guest list, Pacific beyond.`,
+  },
+  eventsKauai: {
+    file: '/photos/heroes/hero-events-kauai.png',
+    alt: `A Kauaʻi estate gathering on a wet North Shore terrace, misted mountains, a long set table.`,
+  },
+  eventsBigisland: {
+    file: '/photos/heroes/hero-events-bigisland.png',
+    alt: `A Kohala lava-terrace gathering in hard sun — plated kanpachi, a small staffed retreat, Mauna Kea faint.`,
+  },
+  vacationOahu: {
+    file: '/photos/heroes/hero-vacation-oahu.png',
+    alt: `A vacation chef plating morning fruit and eggs in a Ko Olina villa kitchen opening to a west-side lagoon.`,
+  },
+  vacationMaui: {
+    file: '/photos/heroes/hero-vacation-maui.png',
+    alt: `A Maui vacation chef packing a stocked fridge and plating breakfast fruit beside a Wailea pool.`,
+  },
+  vacationKauai: {
+    file: '/photos/heroes/hero-vacation-kauai.png',
+    alt: `A Kauaʻi vacation chef plating breakfast in a Poʻipū kitchen opening to a pool and pale south-shore cliffs.`,
+  },
+  vacationBigisland: {
+    file: '/photos/heroes/hero-vacation-bigisland.png',
+    alt: `A Kohala vacation chef searing breakfast fish, coffee cherries on the board, Mauna Kea faint.`,
+  },
+  chefOahu: {
+    file: '/photos/heroes/hero-chef-oahu.png',
+    alt: `A personal chef plating sesame ahi in an Oʻahu Gold Coast estate kitchen, koa and brass, no skyline.`,
+  },
+  chefMaui: {
+    file: '/photos/heroes/hero-chef-maui.png',
+    alt: `A personal chef finishing seared fish in a Wailea villa kitchen, ocean window, Molokini faint.`,
+  },
+  chefKauai: {
+    file: '/photos/heroes/hero-chef-kauai.png',
+    alt: `A personal chef plating seared fish in a Kauaʻi villa kitchen, misted mountains through the window.`,
+  },
+  chefBigisland: {
+    file: '/photos/heroes/hero-chef-bigisland.png',
+    alt: `A personal chef searing fish in a Kona villa kitchen, coffee slopes and dry lava beyond the window.`,
+  },
+  mobileBarOahu: {
+    file: '/photos/heroes/hero-mobilebar-oahu.png',
+    alt: `A 4-hour mobile bar cart on a Kahala lānai at dusk — ice, citrus, coupe glasses, bartender building a round.`,
+  },
+  mobileBarMaui: {
+    file: '/photos/heroes/hero-mobilebar-maui.png',
+    alt: `A 4-hour mobile bar package on a Wailea terrace at west sunset — full cart, ice, citrus, Pacific beyond.`,
+  },
+  mobileBarKauai: {
+    file: '/photos/heroes/hero-mobilebar-kauai.png',
+    alt: `A 4-hour mobile bar cart on a Kauaʻi estate terrace at blue hour, misted mountains behind.`,
+  },
+  mobileBarBigisland: {
+    file: '/photos/heroes/hero-mobilebar-bigisland.png',
+    alt: `A 4-hour mobile bar cart on a Kohala lava terrace at sunset, Mauna Kea faint.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

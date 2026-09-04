@@ -6,26 +6,31 @@ import QuoteTeaser from '@/components/QuoteTeaser';
 import HostLink from '@/components/HostLink';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { islandOffers } from '@/data/offers';
+import type { PhotoKey } from '@/data/photos';
 import { photos } from '@/data/photos';
 import { formatDayRate, getDayRate } from '@/data/rateCard';
 import { islandHref } from '@/lib/paths';
 
-const VAC: Record<IslandId, { h1: string; lede: string }> = {
+const VAC: Record<IslandId, { h1: string; lede: string; photo: PhotoKey }> = {
   maui: {
     h1: 'A chef for your whole Maui stay.',
     lede: 'Stay Chef day rates from $1,050. Groceries at cost. Arrival-night dinner, a stocked fridge, full-board days when the house actually cooks.',
+    photo: 'vacationMaui',
   },
   oahu: {
     h1: 'A chef for the week — or every week.',
     lede: 'Stay Chef from $850 a day on Oʻahu. The kamaʻāina weekly line from $300 a week plus groceries at cost. Same crew, different rhythm.',
+    photo: 'vacationOahu',
   },
   kauai: {
     h1: 'A chef for your Kauaʻi week.',
     lede: 'Stay Chef from $1,100 a day. Princeville, Poʻipū, Hanalei. Inquiry stage. Groceries billed at cost with receipts.',
+    photo: 'vacationKauai',
   },
   bigisland: {
     h1: 'A chef for the Kohala week.',
     lede: 'Stay Chef from $950 a day. West-side first — Kona and the Kohala Coast. Inquiry stage.',
+    photo: 'vacationBigisland',
   },
 };
 
@@ -91,7 +96,7 @@ export function IslandVacationView({ islandId, hostMode }: { islandId: IslandId;
 
   return (
     <>
-      <Hero src={photos.vacation.file} alt={photos.vacation.alt} min="short">
+      <Hero src={photos[copy.photo].file} alt={photos[copy.photo].alt} min="short">
         <p className="text-[13px] text-mute">{islands[islandId].name}</p>
         <LineReveal
           text={copy.h1}

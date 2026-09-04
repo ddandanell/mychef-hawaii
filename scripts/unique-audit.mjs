@@ -103,16 +103,19 @@ function dupes(values, label) {
 const offersSrc = read('data/offers.ts');
 const photosSrc = read('data/photos.ts');
 const cateringSrc = read('data/catering.ts');
+const eventsSrc = read('data/events.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
 const hoods = neighborhoods(offersSrc);
 const homes = islandOfferMeta(offersSrc);
 const catering = cateringMeta(cateringSrc);
+const events = cateringMeta(eventsSrc);
 
 const errors = [];
 
 if (hoods.length < 20) errors.push(`Expected ≥20 money neighborhoods, found ${hoods.length}`);
 if (homes.length !== 4) errors.push(`Expected 4 island homes, found ${homes.length}`);
+if (events.length !== 4) errors.push(`Expected 4 event offers, found ${events.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -120,6 +123,14 @@ errors.push(...dupes(hoods.map((h) => files[h.photo] || h.photo), 'neighborhood 
 errors.push(...dupes(homes.map((h) => h.title), 'island home title'));
 errors.push(...dupes(catering.map((h) => h.title), 'catering title'));
 errors.push(...dupes(catering.map((h) => files[h.photo] || h.photo), 'catering hero file'));
+errors.push(...dupes(events.map((h) => h.title), 'events title'));
+errors.push(...dupes(events.map((h) => h.h1), 'events H1'));
+errors.push(...dupes(events.map((h) => files[h.photo] || h.photo), 'events hero file'));
+
+const cateringTitles = new Set(catering.map((h) => h.title));
+for (const row of events) {
+  if (cateringTitles.has(row.title)) errors.push(`events title collides with catering: ${row.title}`);
+}
 
 const homeTitles = new Set(homes.map((h) => h.title));
 for (const hood of hoods) {
@@ -139,6 +150,35 @@ for (const row of catering) {
   }
 }
 
+for (const row of events) {
+  const file = files[row.photo];
+  if (!file) errors.push(`unknown events photo key ${row.photo}`);
+  else if (!existsSync(join(ROOT, 'public', file.replace(/^\//, '')))) {
+    errors.push(`missing events photo ${file}`);
+  }
+}
+
+for (const key of [
+  'vacationOahu',
+  'vacationMaui',
+  'vacationKauai',
+  'vacationBigisland',
+  'chefOahu',
+  'chefMaui',
+  'chefKauai',
+  'chefBigisland',
+  'mobileBarOahu',
+  'mobileBarMaui',
+  'mobileBarKauai',
+  'mobileBarBigisland',
+]) {
+  const file = files[key];
+  if (!file) errors.push(`missing photo key ${key}`);
+  else if (!existsSync(join(ROOT, 'public', file.replace(/^\//, '')))) {
+    errors.push(`missing photo file ${file}`);
+  }
+}
+
 const mw = middlewareCorridors(middlewareSrc);
 const slugs = offerSlugsByIsland(offersSrc);
 for (const island of ISLANDS) {
@@ -153,5 +193,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} unique corridor pages, ${homes.length} island homes, ${catering.length} catering heroes.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events.`,
 );

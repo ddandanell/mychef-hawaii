@@ -20,6 +20,10 @@ function neighborhoodRows(island: IslandSitemapHost): { host: MasterHost; path: 
   }));
 }
 
+function supportRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
+  return ['/about', '/events'].map((path) => ({ host: island, path, priority: '0.6' }));
+}
+
 function urlset(rows: { host: MasterHost; path: string; priority?: string }[]): string {
   const entries = rows.map((r) => {
     const href = loc(r.host, r.path);
@@ -45,12 +49,15 @@ export async function GET(request: Request) {
     .split(':')[0]
     .toLowerCase();
   const island = detectIslandFromHost(host);
-  const corridors = island
-    ? neighborhoodRows(island)
-    : (['oahu', 'maui', 'kauai', 'bigisland'] as const).flatMap(neighborhoodRows);
+  const extras = island
+    ? [...neighborhoodRows(island), ...supportRows(island)]
+    : (['oahu', 'maui', 'kauai', 'bigisland'] as const).flatMap((id) => [
+        ...neighborhoodRows(id),
+        ...supportRows(id),
+      ]);
   const rows = island
-    ? [...MASTER_MAP.filter((r) => r.host === island), ...corridors]
-    : [...MASTER_MAP, ...corridors];
+    ? [...MASTER_MAP.filter((r) => r.host === island), ...extras]
+    : [...MASTER_MAP, ...extras];
   return new Response(urlset(rows), {
     status: 200,
     headers: {

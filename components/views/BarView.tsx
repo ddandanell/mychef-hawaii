@@ -91,6 +91,110 @@ export function HubBarView() {
   );
 }
 
+const PACKAGE: Record<IslandId, { h1: string; lede: string; hero: { file: string; alt: string } }> = {
+  oahu: {
+    h1: 'The 4-hour mobile bar package — Waikīkī to Ko Olina.',
+    lede:
+      'A cart, ice, citrus, glassware and a bartender for four hours. Distinct from the cocktail-hour add-on on /bar. Stack it with dinner or book the package alone.',
+    hero: photos.mobileBarOahu,
+  },
+  maui: {
+    h1: 'A 4-hour mobile bar for Maui villa nights.',
+    lede:
+      'The packaged cart for Wailea, Kapalua, Kāʻanapali and Makena. /bar is the bartender add-on. This page is the four-hour setup, priced as a package.',
+    hero: photos.mobileBarMaui,
+  },
+  kauai: {
+    h1: 'A 4-hour mobile bar on both Kauaʻi shores.',
+    lede:
+      'Princeville, Hanalei and Poʻipū — a full cart on the terrace. Inquiry stage. Starting prices published. The add-on hour lives on /bar.',
+    hero: photos.mobileBarKauai,
+  },
+  bigisland: {
+    h1: 'A 4-hour mobile bar on the Kohala Coast.',
+    lede:
+      'Lava-coast package: ice, citrus, glassware, bartender. West-side first. /bar is the stacked hour; this page is the four-hour cart.',
+    hero: photos.mobileBarBigisland,
+  },
+};
+
+export function HubMobileBarView() {
+  return (
+    <>
+      <Hero src={photos.barHero.file} alt={photos.barHero.alt} min="short">
+        <p className="text-[13px] text-mute">4-hour package</p>
+        <LineReveal
+          text="The mobile bar package — four hours, four islands."
+          className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
+        />
+        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ink">
+          A cart, a bartender, citrus and ice as a published package. The cocktail-hour add-on lives on /bar.
+        </p>
+        <div className="mt-8">
+          <QuoteCta service="mobile-bar" />
+        </div>
+      </Hero>
+      <section className="bg-paper py-20 lg:py-28">
+        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+          {rows.map((row) => (
+            <HostLink
+              key={row.id}
+              island={row.id}
+              path="/mobile-bar"
+              className="grid gap-2 border-b border-line py-6 md:grid-cols-[1fr_1.4fr_1fr] md:items-baseline"
+            >
+              <p className="font-display text-[1.5rem] font-light text-ink">{islands[row.id].name}</p>
+              <p className="text-[17px] leading-relaxed text-mute">{row.line}</p>
+              <p className="text-[17px] text-ink md:text-right">{formatMobileBarPackage(row.id)}</p>
+            </HostLink>
+          ))}
+        </div>
+      </section>
+      <QuoteTeaser headline="Date, headcount, island — we quote the package in writing." />
+    </>
+  );
+}
+
+export function IslandMobileBarView({ islandId, hostMode }: { islandId: IslandId; hostMode: boolean }) {
+  const copy = PACKAGE[islandId];
+  const bar = getMobileBar(islandId);
+  const href = (path: string) => islandHref(islandId, hostMode, path);
+  const faqs = [
+    {
+      q: 'How is this different from /bar?',
+      a: `${islands[islandId].name} /bar is the bartender add-on stacked with dinner. This page is the four-hour mobile-bar package — cart, ice, citrus, glassware — priced as its own line.`,
+    },
+    {
+      q: 'What does the package include?',
+      a: `A bartender, bar setup and glassware for ${bar.packageHours} hours. Spirits are billed at cost with receipts, or you supply your own.`,
+    },
+    {
+      q: 'How is it priced?',
+      a: `${formatMobileBarPackage(islandId)}, or ${formatMobileBarGuest(islandId)}. ${FEE_DISCLOSURE}`,
+    },
+  ];
+
+  return (
+    <>
+      <Hero src={copy.hero.file} alt={copy.hero.alt} min="short">
+        <p className="text-[13px] text-mute">{islands[islandId].name} · 4-hour package</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
+        />
+        <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-ink">{copy.lede}</p>
+        <p className="mt-4 text-[17px] text-ink">{formatMobileBarPackage(islandId)}</p>
+        <div className="mt-8">
+          <QuoteCta island={islandId} service="mobile-bar" />
+        </div>
+      </Hero>
+      <LongFaq items={faqs} title="The packaged cart." />
+      <SiblingCluster island={islandId} href={href} />
+      <QuoteTeaser island={islandId} />
+    </>
+  );
+}
+
 export function IslandBarView({ islandId, hostMode }: { islandId: IslandId; hostMode: boolean }) {
   const copy = COPY[islandId];
   const bar = getMobileBar(islandId);

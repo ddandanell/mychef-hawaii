@@ -12,13 +12,14 @@ The blueprint zip (`mychef-hawaii-seo-blueprint.zip`) was not on this machine. W
 - `npm run seo:audit` plus GitHub Action — uniqueness is automatic on every push.
 - DataForSEO client remains `npm run seo:ping|volumes|related|snapshot` (credentials in gitignored `.env.local`).
 
-## Wave 2 — remaining money and supporting uniqueness
+## Wave 2 — shipped in this branch
 
-- Give `/events` and `/mobile-bar` their own documents (they currently alias `/catering` and `/bar`).
-- Island `/about` pages with unique copy (hub `/about` already exists).
-- Unique private-chef and vacation-chef stills per island (Oʻahu/Maui stills exist; Kauaʻi and Hawaiʻi Island reuse).
-- Index supporting paths only after titles cannot cannibalize master keywords.
-- Refresh DataForSEO snapshot after each title change; never invent volumes.
+- `/events` is its own occasion document on every island (not a catering alias). Titles do not use the catering money keywords.
+- `/mobile-bar` is the 4-hour package; `/bar` is the bartender add-on. Unique stills and titles.
+- Island `/about` pages with unique crew copy and stills. Hub `/about` still names the four-island company.
+- Unique private-chef and vacation-chef Grok stills on every island.
+- Island sitemaps now include `/about` and `/events`.
+- Canonical aliases for `/events` and `/mobile-bar` removed so they self-canonicalize.
 
 ## Wave 3 — zip execution
 

@@ -30,10 +30,10 @@ const faqs = [
     q: 'Do you have Hawaiʻi guest reviews yet?',
     a: 'Not yet. We will not invent them. Reviews publish after verified events. Until then the proof is published prices, a sample menu, cleanup, and a written quote. See /trust.',
   },
-  {
-    q: 'Which islands?',
-    a: 'Oʻahu, Maui, Kauaʻi, and Hawaiʻi Island. Honolulu is covered on the Oʻahu site. Kona is covered on the Big Island site. Neighborhood names belong in the quote, not as their own URLs.',
-  },
+    {
+      q: 'Which islands?',
+      a: 'Oʻahu, Maui, Kauaʻi, and Hawaiʻi Island. Each island host names its corridors as live URLs — Honolulu, Waikīkī, Wailea, Princeville, Kona, and the rest. Open the island site, then the corridor.',
+    },
   {
     q: 'How do I reach you?',
     a: 'The quote form — island, dates, guests. Typical reply in Hawaii business hours. We do not publish a street office or a local phone number.',
@@ -88,9 +88,9 @@ const islandPhotos: Record<(typeof islandOrder)[number], { src: string; position
 
 const islandCopy: Record<(typeof islandOrder)[number], string> = {
   oahu: `Oʻahu is town and the short-stay villa belt. Honolulu residences, Waikīkī apartments that actually have a kitchen, Kahala dining rooms, Kailua weeks, Ko Olina villa stays. A Gold Coast dinner and a North Shore surcharge day are not the same drive; the quote says which. Personal-chef weeks for households sit next to visitor dinners. The crew in the photograph is the point: this is not one person with a tote bag and a hope.`,
-  maui: `Maui is the villa dinner people picture when they say private chef — Wailea, West Maui, Kīhei, Kapalua, Makena, named here as coverage, not as extra URLs. Catering is the larger door on this island. The same team shops, cooks, and staffs the room. A reception on the lawn is a different crew than Date Night for two. We write that difference before the deposit.`,
+  maui: `Maui is the villa dinner people picture when they say private chef — Wailea, West Maui, Kīhei, Kapalua, Makena, each with its own corridor page. Catering is the larger door on this island. The same team shops, cooks, and staffs the room. A reception on the lawn is a different crew than Date Night for two. We write that difference before the deposit.`,
   kauai: `Kauaʻi is both shores, inquiry-stage: Princeville and Hanalei on the north, Poʻipū and Kōloa on the south. The bridge and the weather are real; far-North inquiries inherit a written road clause instead of a shrug. We staff the estate to the guest list when a crew exists. We do not pretend Līhuʻe and Hāʻena are the same afternoon.`,
-  bigisland: `Hawaiʻi Island is west-side first: Kona, Waikoloa, the Kohala Coast. Kona is a search people type; it lives on this island’s home, not on a /kona page. Hilo is a different day — we will not sell a same-day round trip. Ironman week compresses the calendar. Tell us the dates early. The crew size still follows the house.`,
+  bigisland: `Hawaiʻi Island is west-side first: Kona, Waikoloa, the Kohala Coast. Kona has its own page on this host. Hilo is a different day — we will not sell a same-day round trip. Ironman week compresses the calendar. Tell us the dates early. The crew size still follows the house.`,
 };
 
 export default function AboutView() {
@@ -204,6 +204,13 @@ export default function AboutView() {
                   <p className="mt-3 text-[17px] leading-[1.7] text-mute">{islandCopy[id]}</p>
                   <HostLink island={id} className="mt-4 inline-block text-sm text-ink underline underline-offset-4">
                     {isl.shortName} site
+                  </HostLink>
+                  <HostLink
+                    island={id}
+                    path="/about"
+                    className="ml-4 mt-4 inline-block text-sm text-ink underline underline-offset-4"
+                  >
+                    About {isl.shortName}
                   </HostLink>
                 </article>
               );

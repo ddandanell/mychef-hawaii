@@ -75,9 +75,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Bartender add-on or a 4-hour mobile-bar package. Published starting prices on every island. Stack with the chef.',
   },
   '/mobile-bar': {
-    title: 'Mobile bar & villa cocktails — Hawaii | myCHEF',
+    title: '4-hour mobile bar package — Hawaii | myCHEF',
     description:
-      'Cocktail packages for Hawaiian villas. Starting prices published per island; quote confirmed in writing.',
+      'A four-hour mobile bar cart for Hawaiian villas. The cocktail-hour add-on lives on /bar. Starting prices published per island.',
   },
   '/trust': {
     title: 'Trust standards — Honesty register | myCHEF Hawaii',
@@ -148,13 +148,23 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Wedding catering Oahu from $125/pp plus staffing. Kahala, Ko Olina and windward estates. One culinary team.',
   },
   '/oahu/bar': {
-    title: 'Oʻahu mobile bar — villa cocktails from Waikīkī to Ko Olina | myCHEF',
+    title: 'Oʻahu villa cocktails — bartender on the lānai | myCHEF',
     description:
       'A bartender on your lānai. Published starting prices. Stack with a private chef in Waikīkī, Kahala, Ko Olina or Kailua.',
   },
   '/oahu/mobile-bar': {
-    title: 'Oʻahu mobile bar — villa cocktails | myCHEF',
-    description: 'Cocktail hour on Oʻahu villas. Starting prices published; quote in writing.',
+    title: 'Oʻahu 4-hour mobile bar package | myCHEF',
+    description: 'A four-hour cart — ice, citrus, glassware, bartender — from Waikīkī to Ko Olina. Quote in writing.',
+  },
+  '/oahu/events': {
+    title: 'Oahu villa events — birthdays, retreats, welcome nights | myCHEF',
+    description:
+      'Staffed villa events on Oahu: birthdays, retreats and welcome nights from Honolulu to Ko Olina. The catering door is /catering. Request a quote.',
+  },
+  '/oahu/about': {
+    title: 'About myCHEF Oahu — Honolulu to Ko Olina crew | myCHEF',
+    description:
+      'myCHEF Oahu staffs a brigade to the house: chef, sous, service, bar, shopper. Honolulu, Waikīkī residences, Kahala, Kailua, Ko Olina. Request a quote.',
   },
   '/oahu/pricing': {
     title: 'What a night costs on Oahu | myCHEF',
@@ -184,13 +194,23 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Wedding catering Maui — one team for the week. Welcome dinner through recovery brunch. Starting prices published. Request a quote.',
   },
   '/maui/bar': {
-    title: 'Maui mobile bar — villa cocktails in Wailea & Kapalua | myCHEF',
+    title: 'Maui villa cocktails — Wailea and Kapalua terraces | myCHEF',
     description:
-      'Terrace cocktail packages for Maui villas and wedding weeks. Published starting prices. Stack with the chef.',
+      'Terrace cocktail add-on for Maui villas and wedding weeks. Published starting prices. Stack with the chef.',
   },
   '/maui/mobile-bar': {
-    title: 'Maui mobile bar — villa cocktails | myCHEF',
-    description: 'Mobile bar for Wailea, Kapalua, Kāʻanapali and Makena. Starting prices published.',
+    title: 'Maui 4-hour mobile bar package | myCHEF',
+    description: 'A four-hour cart for Wailea, Kapalua, Kāʻanapali and Makena. Starting prices published.',
+  },
+  '/maui/events': {
+    title: 'Maui villa events — Wailea lawns and West Maui houses | myCHEF',
+    description:
+      'Staffed villa events on Maui: birthdays, retreats and welcome nights in Wailea, Kīhei and West Maui. Catering is the larger door on /catering.',
+  },
+  '/maui/about': {
+    title: 'About myCHEF Maui — Wailea to West Maui crew | myCHEF',
+    description:
+      'myCHEF Maui staffs villa dinners and lawn receptions. Wailea, Kīhei, Kāʻanapali, Kapalua, Makena. Catering is the larger door. Request a quote.',
   },
   '/maui/pricing': {
     title: 'What a night costs on Maui | myCHEF',
@@ -216,9 +236,14 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'A chef for your Kauaʻi week. Arrival-night dinner, provisioning, retreat full-board. Inquiry stage.',
   },
   '/kauai/events': {
-    title: 'Kauai estate events — buffet or plated | myCHEF',
+    title: 'Kauai estate events — both shores, inquiry | myCHEF',
     description:
-      'Staffed villa events on Kauaʻi. Buffet or plated, published menu. Princeville, Poʻipū, Hanalei. The catering door is /catering.',
+      'Staffed estate events on Kauai: Princeville, Hanalei and Poʻipū. Inquiry stage. The catering door is /catering.',
+  },
+  '/kauai/about': {
+    title: 'About myCHEF Kauai — both-shore inquiry crew | myCHEF',
+    description:
+      'myCHEF Kauai is inquiry-stage on both shores: Princeville, Hanalei, Poʻipū. We staff the estate to the guest list when a crew exists.',
   },
   '/kauai/catering': {
     title: 'Kauai Catering | Estate Events — Inquiry | myCHEF',
@@ -235,12 +260,12 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'Wedding catering Kauai from $175/pp plus staffing. Princeville, Hanalei and Poʻipū. Inquiry stage.',
   },
   '/kauai/bar': {
-    title: 'Kauaʻi mobile bar — Princeville & Poʻipū estates | myCHEF',
-    description: 'Terrace cocktails on both Kauaʻi shores. Bartender add-on or 4-hour package. Inquiry stage.',
+    title: 'Kauaʻi villa cocktails — Princeville and Poʻipū | myCHEF',
+    description: 'Terrace cocktail add-on on both Kauaʻi shores. Inquiry stage. The 4-hour package lives on /mobile-bar.',
   },
   '/kauai/mobile-bar': {
-    title: 'Kauaʻi mobile bar — estate cocktails | myCHEF',
-    description: 'Mobile bar for Princeville, Hanalei and Poʻipū. Starting prices published.',
+    title: 'Kauaʻi 4-hour mobile bar package | myCHEF',
+    description: 'A four-hour cart for Princeville, Hanalei and Poʻipū. Starting prices published. Inquiry stage.',
   },
   '/kauai/pricing': {
     title: 'What a night costs on Kauai | myCHEF',
@@ -273,12 +298,22 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'Wedding catering Big Island — Kohala and Kona estate weeks. Starting prices published. Inquiry stage.',
   },
   '/bigisland/bar': {
-    title: 'Hawaiʻi Island mobile bar — Kohala Coast cocktails | myCHEF',
-    description: 'Sunset pours on Kona–Kohala terraces. Bartender add-on or 4-hour package.',
+    title: 'Hawaiʻi Island villa cocktails — Kohala terraces | myCHEF',
+    description: 'Sunset pours on Kona–Kohala terraces. Bartender add-on. The 4-hour package lives on /mobile-bar.',
   },
   '/bigisland/mobile-bar': {
-    title: 'Hawaiʻi Island mobile bar — Kohala | myCHEF',
-    description: 'Mobile bar for the Kohala Coast and Kona. Inquiry-stage. Starting prices published.',
+    title: 'Hawaiʻi Island 4-hour mobile bar package | myCHEF',
+    description: 'A four-hour cart for the Kohala Coast and Kona. Inquiry-stage. Starting prices published.',
+  },
+  '/bigisland/events': {
+    title: 'Big Island villa events — Kohala and Kona | myCHEF',
+    description:
+      'Staffed villa events on Hawaiʻi Island: Kohala Coast and Kona. Inquiry stage. East side is quote-only. Catering lives on /catering.',
+  },
+  '/bigisland/about': {
+    title: 'About myCHEF Big Island — Kona–Kohala crew | myCHEF',
+    description:
+      'myCHEF Hawaiʻi Island is west-side first: Kona, Waikoloa, the Kohala Coast. Inquiry stage. Hilo is a different day.',
   },
   '/bigisland/pricing': {
     title: 'What a night costs on the Big Island | myCHEF',

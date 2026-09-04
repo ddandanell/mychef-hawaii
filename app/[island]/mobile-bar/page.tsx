@@ -1,4 +1,4 @@
-import { IslandBarView } from '@/components/views/BarView';
+import { IslandMobileBarView } from '@/components/views/BarView';
 import { islandPageMetadata } from '@/lib/pageSeo';
 import { islandProps } from '../params';
 
@@ -8,5 +8,5 @@ export function generateMetadata({ params }: { params: Promise<{ island: string 
 
 export default async function Page({ params }: { params: Promise<{ island: string }> }) {
   const { islandId, hostMode } = await islandProps(params);
-  return <IslandBarView islandId={islandId} hostMode={hostMode} />;
+  return <IslandMobileBarView islandId={islandId} hostMode={hostMode} />;
 }

@@ -11,6 +11,8 @@ import { getCatalog } from '@/data/islandCatalog';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { getLocation } from '@/data/locations';
 import { getMoneyNeighborhood, islandOffers, moneyNeighborhoods } from '@/data/offers';
+import { eventOffers } from '@/data/events';
+import { islandAbout } from '@/data/islandAbout';
 import { lookupPageMeta, metaForPath } from '@/data/pageMeta';
 import { photos } from '@/data/photos';
 import { formatBand, getDayRate, getMobileBar, getOtherOffer, getTiers } from '@/data/rateCard';
@@ -38,6 +40,30 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     const slug = /^\/([^/]+)$/.exec(localPath)?.[1];
     const hood = slug ? getMoneyNeighborhood(islandId, slug) : undefined;
     if (hood) return `${origin}${photos[hood.photo].file}`;
+    if (localPath === '/events') return `${origin}${photos[eventOffers[islandId].photo].file}`;
+    if (localPath === '/about') return `${origin}${islandAbout[islandId].hero.file}`;
+    if (localPath === '/private-chef') {
+      const key = { oahu: 'chefOahu', maui: 'chefMaui', kauai: 'chefKauai', bigisland: 'chefBigisland' } as const;
+      return `${origin}${photos[key[islandId]].file}`;
+    }
+    if (localPath === '/vacation-chef') {
+      const key = {
+        oahu: 'vacationOahu',
+        maui: 'vacationMaui',
+        kauai: 'vacationKauai',
+        bigisland: 'vacationBigisland',
+      } as const;
+      return `${origin}${photos[key[islandId]].file}`;
+    }
+    if (localPath === '/mobile-bar') {
+      const key = {
+        oahu: 'mobileBarOahu',
+        maui: 'mobileBarMaui',
+        kauai: 'mobileBarKauai',
+        bigisland: 'mobileBarBigisland',
+      } as const;
+      return `${origin}${photos[key[islandId]].file}`;
+    }
   }
   if (!islandId) return `${origin}${photos.hubHero.file}`;
   return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;
@@ -199,6 +225,12 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (hood) {
       title = hood.title;
       description = hood.description;
+    } else if (localPath === '/events') {
+      title = eventOffers[islandId].title;
+      description = eventOffers[islandId].description;
+    } else if (localPath === '/about') {
+      title = islandAbout[islandId].title;
+      description = islandAbout[islandId].description;
     } else if (locRec) {
       title = `${locRec.name} private chef — myCHEF ${island.name}`;
       description = locRec.lede;
@@ -291,20 +323,25 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
   const host = hostname.split(':')[0] ?? hostname;
   const fromHost = detectIslandFromHost(host);
   const master = fromHost ? MASTER_MAP.filter((r) => r.host === fromHost) : MASTER_MAP;
-  const corridors = (fromHost ? [fromHost] : ISLAND_HOSTS).flatMap((island) =>
-    moneyNeighborhoods[island].map((hood) => ({
+  const extras = (fromHost ? [fromHost] : ISLAND_HOSTS).flatMap((island) => [
+    ...moneyNeighborhoods[island].map((hood) => ({
       loc: `https://${masterHostName(island)}${`/${hood.slug}`}`,
       changefreq: 'monthly',
       priority: '0.7',
     })),
-  );
+    ...(['/about', '/events'] as const).map((path) => ({
+      loc: `https://${masterHostName(island)}${path}`,
+      changefreq: 'monthly',
+      priority: '0.6',
+    })),
+  ]);
   return [
     ...master.map((r) => ({
       loc: `https://${masterHostName(r.host as MasterHost)}${r.path === '/' ? '/' : r.path}`,
       changefreq: r.path === '/' ? 'weekly' : 'monthly',
       priority: r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8',
     })),
-    ...corridors,
+    ...extras,
   ];
 }
 

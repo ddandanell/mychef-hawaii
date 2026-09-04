@@ -17,10 +17,10 @@ const H1: Record<IslandId, string> = {
 };
 
 const HERO: Record<IslandId, { file: string; alt: string }> = {
-  maui: photos.mauiKitchen,
-  oahu: photos.oahuDinner,
-  kauai: photos.kauaiChef,
-  bigisland: photos.kohalaFish,
+  maui: photos.chefMaui,
+  oahu: photos.chefOahu,
+  kauai: photos.chefKauai,
+  bigisland: photos.chefBigisland,
 };
 
 export default function PrivateChefView({ islandId, hostMode }: { islandId: IslandId; hostMode: boolean }) {

@@ -54,7 +54,11 @@ export default function SiteFooter({
             <p className="text-[13px] text-on-ink">Company</p>
             <ul className="mt-4 space-y-2">
               <li>
-                <HostLink island="root" path="/about" className="text-base text-paper hover:underline underline-offset-4">
+                <HostLink
+                  island={islandId ?? 'root'}
+                  path="/about"
+                  className="text-base text-paper hover:underline underline-offset-4"
+                >
                   About
                 </HostLink>
               </li>

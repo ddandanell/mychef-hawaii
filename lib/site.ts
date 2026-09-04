@@ -99,8 +99,6 @@ export function canonicalOrigin(island: IslandId | 'root', hostname?: string): s
 /** Aliases stay live; canonical points at the master-map URL. */
 const CANONICAL_ALIASES: Record<string, string> = {
   '/wedding-catering': '/weddings',
-  '/mobile-bar': '/bar',
-  '/events': '/catering',
 };
 
 export function canonicalPath(path: string): string {
