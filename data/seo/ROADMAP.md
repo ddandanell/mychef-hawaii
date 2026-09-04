@@ -83,13 +83,22 @@ Still no zip on this machine. Wave 9 uniquifies the remaining cloned island docu
 - Unique `/journal` and `/blog` index documents on every island host — unique H1, lede, still. Article lists stay island-specific. Hub directories stay statewide.
 - New Grok stills for every Wave 9 URL.
 
-## Wave 10 — zip execution
+## Wave 10 — unique locations, sitemaps, and first journal articles (this branch)
+
+Still no zip on this machine. Wave 10 ships the next unique-page slice:
+
+- Unique `/locations` directory on every island host. Middleware no longer 301s the index to home; `/locations/:slug` still 301s to `/:slug` when the slug is a live corridor. Distinct from `/coverage`.
+- Unique HTML `/sitemap` documents on every island host — unique H1, lede, Grok still. Hub sitemap stays the statewide list.
+- First live journal articles on every island host: `/journal/how-much-does-a-private-chef-cost` and `/journal/how-to-hire-a-private-chef`. Distinct from `/pricing`, `/private-chef-cost`, `/quote`, and `/help/getting-started`.
+- New Grok stills for every Wave 10 URL.
+
+## Wave 11 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 11 — automation that stays on
+## Wave 12 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

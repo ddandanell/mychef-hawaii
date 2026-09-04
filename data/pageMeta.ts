@@ -204,6 +204,15 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Shorter Oahu host posts for Honolulu kitchens and booking questions. Not the journal. Not a statewide feed.',
   },
+  '/oahu/locations': {
+    title: 'Oahu corridors we cook — Honolulu to Ko Olina | myCHEF',
+    description:
+      'Live Oahu corridor URLs: Honolulu, Waikīkī, Kailua, North Shore, Kahala, Ko Olina. /coverage is the zone map. This page is the directory.',
+  },
+  '/oahu/sitemap': {
+    title: 'Oahu HTML sitemap — live URLs on this host | myCHEF',
+    description: 'HTML sitemap for the Oahu host: corridors, services, occasions, and supporting documents. Not the hub sitemap.',
+  },
   '/maui/private-chef': {
     title: 'Personal chef Maui villas & vacation rentals | myCHEF',
     description:
@@ -270,6 +279,15 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     title: 'Maui private chef blog | myCHEF',
     description:
       'Shorter Maui host posts beside Wailea and Kāʻanapali nights. Not the journal. Not a statewide feed.',
+  },
+  '/maui/locations': {
+    title: 'Maui corridors we cook — Wailea to Kapalua | myCHEF',
+    description:
+      'Live Maui corridor URLs: Wailea, Kāʻanapali, Lahaina, Kīhei, Kapalua, Makena. /coverage is the zone map. This page is the directory.',
+  },
+  '/maui/sitemap': {
+    title: 'Maui HTML sitemap — live URLs on this host | myCHEF',
+    description: 'HTML sitemap for the Maui host: corridors, services, occasions, and supporting documents. Not the hub sitemap.',
   },
   '/maui/catering': {
     title: 'Maui Catering | Villa Receptions and Events | myCHEF',
@@ -346,6 +364,16 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Shorter Kauai host posts at inquiry. Princeville and Poʻipū named. Not a live roster. Not the journal.',
   },
+  '/kauai/locations': {
+    title: 'Kauai corridors we cook — both shores | myCHEF',
+    description:
+      'Live Kauai corridor URLs: Princeville, Poʻipū, Hanalei, Kapaʻa. Inquiry. /coverage is the zone map. This page is the directory.',
+  },
+  '/kauai/sitemap': {
+    title: 'Kauai HTML sitemap — live URLs on this host | myCHEF',
+    description:
+      'HTML sitemap for the Kauai host at inquiry: both shores, supporting documents, and the cells we will quote.',
+  },
   '/bigisland/private-chef': {
     title: 'Personal chef Big Island villas & vacation rentals | myCHEF',
     description: 'Personal chef for Big Island and Kona villas. In-home dinner, Stay Chef weeks. WhatsApp for a quote.',
@@ -412,6 +440,16 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     title: 'Hawaiʻi Island private chef blog | myCHEF',
     description:
       'Shorter Hawaiʻi Island host posts. West side first. East side is a different day. Not the journal.',
+  },
+  '/bigisland/locations': {
+    title: 'Hawaiʻi Island corridors we cook — Kona to Kohala | myCHEF',
+    description:
+      'Live Hawaiʻi Island corridor URLs: Kona, Waimea, Waikoloa, Kohala. West side first. /east-side is a different day. This page is the directory.',
+  },
+  '/bigisland/sitemap': {
+    title: 'Hawaiʻi Island HTML sitemap — live URLs on this host | myCHEF',
+    description:
+      'HTML sitemap for the Hawaiʻi Island host: west-side corridors, supporting documents, and east-side as its own cell.',
   },
 };
 

@@ -77,10 +77,12 @@ export function middleware(request: NextRequest) {
     const first = segs[0] ?? '';
     const corridors = CORRIDORS[islandHost];
     if (first === 'locations') {
-      const dest = url.clone();
       const slug = segs[1] ?? '';
-      dest.pathname = slug && corridors.includes(slug) ? `/${slug}` : '/';
-      return NextResponse.redirect(dest, 301);
+      if (slug) {
+        const dest = url.clone();
+        dest.pathname = corridors.includes(slug) ? `/${slug}` : '/';
+        return NextResponse.redirect(dest, 301);
+      }
     }
     if (first === 'private-chef' && segs.length > 1) {
       const dest = url.clone();

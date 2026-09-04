@@ -9,6 +9,7 @@ import { fineDiningPages } from '@/data/fineDining';
 import { staffingPages } from '@/data/staffingPages';
 import { menuSkuPages } from '@/data/menuSkus';
 import { helpArticles } from '@/data/helpArticles';
+import { journalArticles } from '@/data/journalArticles';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 function xmlEscape(s: string): string {
@@ -30,7 +31,7 @@ function neighborhoodRows(island: IslandSitemapHost): { host: MasterHost; path: 
 }
 
 function supportRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
-  return [...SUPPORT_PATHS, '/about', '/events', '/legal', '/journal', '/blog'].map((path) => ({
+  return [...SUPPORT_PATHS, '/about', '/events', '/legal', '/journal', '/blog', '/locations', '/sitemap'].map((path) => ({
     host: island,
     path,
     priority: '0.6',
@@ -47,6 +48,7 @@ function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: st
     ...staffingPages[island].map((cell) => ({ host: island, path: `/staffing/${cell.slug}`, priority: '0.45' })),
     ...menuSkuPages[island].map((cell) => ({ host: island, path: `/menus/${cell.slug}`, priority: '0.45' })),
     ...helpArticles[island].map((cell) => ({ host: island, path: `/help/${cell.slug}`, priority: '0.4' })),
+    ...journalArticles[island].map((cell) => ({ host: island, path: `/journal/${cell.slug}`, priority: '0.35' })),
   ];
 }
 

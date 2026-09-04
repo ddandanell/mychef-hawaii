@@ -26,6 +26,9 @@ import { SUPPORT_PATHS } from '@/data/islandSupport';
 import { islandLegal } from '@/data/islandLegal';
 import { islandJournal } from '@/data/islandJournal';
 import { islandBlog } from '@/data/islandBlog';
+import { islandLocations } from '@/data/islandLocations';
+import { islandSitemap } from '@/data/islandSitemap';
+import { journalArticles } from '@/data/journalArticles';
 import { photos } from '@/data/photos';
 
 export function HowItWorksView() {
@@ -335,12 +338,21 @@ export function IslandEditorialView({
         <div className="mx-auto max-w-container px-5 lg:px-10">
           <p className="text-[12px] text-mute">{islands[islandId].name}</p>
           <ul className="mt-10 space-y-6">
-            {list.map((a) => (
-              <li key={a.slug} className="border-t border-line pt-6">
-                <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
-                <p className="mt-2 text-mute">{a.description}</p>
-              </li>
-            ))}
+            {kind === 'journal'
+              ? journalArticles[islandId].map((a) => (
+                  <li key={a.slug} className="border-t border-line pt-6">
+                    <HostLink island={islandId} path={`/journal/${a.slug}`} className="block">
+                      <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
+                      <p className="mt-2 text-mute">{a.description}</p>
+                    </HostLink>
+                  </li>
+                ))
+              : list.map((a) => (
+                  <li key={a.slug} className="border-t border-line pt-6">
+                    <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
+                    <p className="mt-2 text-mute">{a.description}</p>
+                  </li>
+                ))}
           </ul>
         </div>
       </section>
@@ -350,12 +362,17 @@ export function IslandEditorialView({
 
 export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[number] | null }) {
   const hosts = islandId ? [islandId] : islandOrder;
+  const copy = islandId ? islandSitemap[islandId] : null;
+  const photo = copy ? photos[copy.photo] : null;
   const rows = [
     ...(islandId ? MASTER_MAP.filter((r) => r.host === islandId) : MASTER_MAP),
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/legal', '/journal', '/blog'] as const).map((path) => ({ host: id, path })),
+      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/sitemap'] as const).map((path) => ({
+        host: id,
+        path,
+      })),
       ...uniqueCells[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
       ...islandServices[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
       ...occasionPages[id].map((cell) => ({ host: id, path: `/events/${cell.slug}` as const })),
@@ -364,26 +381,90 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
       ...staffingPages[id].map((cell) => ({ host: id, path: `/staffing/${cell.slug}` as const })),
       ...menuSkuPages[id].map((cell) => ({ host: id, path: `/menus/${cell.slug}` as const })),
       ...helpArticles[id].map((cell) => ({ host: id, path: `/help/${cell.slug}` as const })),
+      ...journalArticles[id].map((cell) => ({ host: id, path: `/journal/${cell.slug}` as const })),
     ]),
   ];
   return (
-    <section className="bg-paper py-20">
-      <div className="mx-auto max-w-container px-5 lg:px-10">
-        <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-light text-ink">Sitemap</h1>
-        <ul className="mt-10 space-y-3">
-          {rows.map((r) => {
-            const href = `https://${masterHostName(r.host)}${r.path === '/' ? '/' : r.path}`;
-            return (
-              <li key={`${r.host}${r.path}`}>
-                <a href={href} className="text-ink underline underline-offset-4">
-                  {href}
-                </a>
+    <>
+      {copy && photo ? (
+        <Hero src={photo.file} alt={photo.alt}>
+          <p className="text-[13px] text-mute">{copy.kicker}</p>
+          <LineReveal
+            text={copy.h1}
+            className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+          />
+          <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+        </Hero>
+      ) : (
+        <section className="bg-paper py-20">
+          <div className="mx-auto max-w-container px-5 lg:px-10">
+            <h1 className="font-display text-[clamp(2rem,4vw,3rem)] font-light text-ink">Sitemap</h1>
+          </div>
+        </section>
+      )}
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <ul className="space-y-3">
+            {rows.map((r) => {
+              const href = `https://${masterHostName(r.host)}${r.path === '/' ? '/' : r.path}`;
+              return (
+                <li key={`${r.host}${r.path}`}>
+                  <a href={href} className="text-ink underline underline-offset-4">
+                    {href}
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </section>
+    </>
+  );
+}
+
+export function LocationsIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  const copy = islandLocations[islandId];
+  const photo = photos[copy.photo];
+  const hoods = moneyNeighborhoods[islandId];
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
+          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
+            {hoods.map((hood) => (
+              <li key={hood.slug} className="bg-paper">
+                <HostLink island={islandId} path={`/${hood.slug}`} className="block p-6">
+                  <h2 className="font-display text-2xl font-light text-ink">{hood.name}</h2>
+                  <p className="mt-2 text-sm text-mute">/{hood.slug}</p>
+                </HostLink>
               </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <LongFaq items={copy.faqs} title="Before you pick a corridor." />
+    </>
   );
 }
 

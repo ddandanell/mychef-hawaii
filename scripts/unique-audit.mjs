@@ -154,6 +154,9 @@ const legalSrc = read('data/islandLegal.ts');
 const thanksSrc = read('data/islandThanks.ts');
 const journalSrc = read('data/islandJournal.ts');
 const blogSrc = read('data/islandBlog.ts');
+const locationsSrc = read('data/islandLocations.ts');
+const sitemapDocSrc = read('data/islandSitemap.ts');
+const journalArticleSrc = read('data/journalArticles.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
 const hoods = neighborhoods(offersSrc);
@@ -178,6 +181,9 @@ const legalDocs = supportBlocks(legalSrc, 'islandLegal');
 const thanksDocs = supportBlocks(thanksSrc, 'islandThanks');
 const journalDocs = supportBlocks(journalSrc, 'islandJournal');
 const blogDocs = supportBlocks(blogSrc, 'islandBlog');
+const locationDocs = supportBlocks(locationsSrc, 'islandLocations');
+const sitemapDocs = supportBlocks(sitemapDocSrc, 'islandSitemap');
+const journalPieces = uniqueCellMeta(journalArticleSrc);
 
 const errors = [];
 
@@ -202,6 +208,9 @@ if (legalDocs.length !== 4) errors.push(`Expected 4 island legal pages, found ${
 if (thanksDocs.length !== 4) errors.push(`Expected 4 island thank-you pages, found ${thanksDocs.length}`);
 if (journalDocs.length !== 4) errors.push(`Expected 4 island journal pages, found ${journalDocs.length}`);
 if (blogDocs.length !== 4) errors.push(`Expected 4 island blog pages, found ${blogDocs.length}`);
+if (locationDocs.length !== 4) errors.push(`Expected 4 island locations pages, found ${locationDocs.length}`);
+if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
+if (journalPieces.length !== 8) errors.push(`Expected 8 journal articles, found ${journalPieces.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -263,6 +272,15 @@ errors.push(...dupes(journalDocs.map((h) => files[h.photo] || h.photo), 'journal
 errors.push(...dupes(blogDocs.map((h) => h.title), 'blog title'));
 errors.push(...dupes(blogDocs.map((h) => h.h1), 'blog H1'));
 errors.push(...dupes(blogDocs.map((h) => files[h.photo] || h.photo), 'blog hero file'));
+errors.push(...dupes(locationDocs.map((h) => h.title), 'locations title'));
+errors.push(...dupes(locationDocs.map((h) => h.h1), 'locations H1'));
+errors.push(...dupes(locationDocs.map((h) => files[h.photo] || h.photo), 'locations hero file'));
+errors.push(...dupes(sitemapDocs.map((h) => h.title), 'sitemap title'));
+errors.push(...dupes(sitemapDocs.map((h) => h.h1), 'sitemap H1'));
+errors.push(...dupes(sitemapDocs.map((h) => files[h.photo] || h.photo), 'sitemap hero file'));
+errors.push(...dupes(journalPieces.map((h) => h.title), 'journal-article title'));
+errors.push(...dupes(journalPieces.map((h) => h.h1), 'journal-article H1'));
+errors.push(...dupes(journalPieces.map((h) => files[h.photo] || h.photo), 'journal-article hero file'));
 
 const allTitles = [
   ...hoods.map((h) => h.title),
@@ -287,6 +305,9 @@ const allTitles = [
   ...thanksDocs.map((h) => h.title),
   ...journalDocs.map((h) => h.title),
   ...blogDocs.map((h) => h.title),
+  ...locationDocs.map((h) => h.title),
+  ...sitemapDocs.map((h) => h.title),
+  ...journalPieces.map((h) => h.title),
 ];
 errors.push(...dupes(allTitles, 'cross-type title'));
 
@@ -321,7 +342,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...sitemapDocs, ...journalPieces]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -332,7 +353,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...sitemapDocs, ...journalPieces]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -385,5 +406,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles.`,
 );

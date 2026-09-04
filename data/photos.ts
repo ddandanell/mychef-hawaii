@@ -1207,6 +1207,70 @@ export const photos = {
     file: '/photos/blog-bigisland.png',
     alt: `Short note cards on a Kona window-kitchen counter, seared-fish pan, dry lava and coffee slope beyond.`,
   },
+  locIndexOahu: {
+    file: '/photos/loc-index-oahu.png',
+    alt: `A Kahala kitchen counter with a small corridor map card, brass clip, Diamond Head faint at dusk.`,
+  },
+  locIndexMaui: {
+    file: '/photos/loc-index-maui.png',
+    alt: `A Wailea lānai table with a small shore-map card, brass clip, Molokini faint at west sunset.`,
+  },
+  locIndexKauai: {
+    file: '/photos/loc-index-kauai.png',
+    alt: `A Princeville stone counter with a both-shores map card, wet glass, misted fluted mountains.`,
+  },
+  locIndexBigisland: {
+    file: '/photos/loc-index-bigisland.png',
+    alt: `A Kohala lava-stone counter with a west-side corridor card, hard sun, Mauna Kea faint.`,
+  },
+  sitemapOahu: {
+    file: '/photos/sitemap-oahu.png',
+    alt: `A stacked set of blank cream URL cards on a Kahala dining table at dusk, brass clip, Diamond Head faint.`,
+  },
+  sitemapMaui: {
+    file: '/photos/sitemap-maui.png',
+    alt: `A stacked set of blank cream URL cards on a Wailea lānai table, brass clip, Pacific dusk.`,
+  },
+  sitemapKauai: {
+    file: '/photos/sitemap-kauai.png',
+    alt: `A stacked set of blank cream URL cards on a wet Princeville counter, brass clip, mountain mist.`,
+  },
+  sitemapBigisland: {
+    file: '/photos/sitemap-bigisland.png',
+    alt: `A stacked set of blank cream URL cards on a Kona lava-terrace table, brass clip, hard sun.`,
+  },
+  jnlCostOahu: {
+    file: '/photos/jnl-cost-oahu.png',
+    alt: `An itemised Oahu quote draft on cream paper beside a brass pen on a Kahala kitchen counter at dusk.`,
+  },
+  jnlCostMaui: {
+    file: '/photos/jnl-cost-maui.png',
+    alt: `An itemised Maui quote draft on cream paper on a Wailea lānai table, Pacific beyond.`,
+  },
+  jnlCostKauai: {
+    file: '/photos/jnl-cost-kauai.png',
+    alt: `An itemised Kauai inquiry draft on cream paper on a Princeville counter, misted mountains.`,
+  },
+  jnlCostBigisland: {
+    file: '/photos/jnl-cost-bigisland.png',
+    alt: `An itemised west-side inquiry draft on cream paper on a Kohala lava-stone counter, hard sun.`,
+  },
+  jnlHireOahu: {
+    file: '/photos/jnl-hire-oahu.png',
+    alt: `A five-field hire card on a Kahala kitchen island at dusk, brass pen, Diamond Head faint through the sliders.`,
+  },
+  jnlHireMaui: {
+    file: '/photos/jnl-hire-maui.png',
+    alt: `A five-field hire card on a Wailea kitchen island in late afternoon, Molokini faint beyond the lānai.`,
+  },
+  jnlHireKauai: {
+    file: '/photos/jnl-hire-kauai.png',
+    alt: `A five-field inquiry card on a Princeville kitchen counter, rain on the glass, misted peaks.`,
+  },
+  jnlHireBigisland: {
+    file: '/photos/jnl-hire-bigisland.png',
+    alt: `A five-field inquiry card on a Kona window-kitchen counter, coffee slope and dry lava in hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
