@@ -213,7 +213,7 @@ if (blogDocs.length !== 4) errors.push(`Expected 4 island blog pages, found ${bl
 if (locationDocs.length !== 4) errors.push(`Expected 4 island locations pages, found ${locationDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
-if (blogPieces.length !== 64) errors.push(`Expected 64 blog articles, found ${blogPieces.length}`);
+if (blogPieces.length !== 80) errors.push(`Expected 80 blog articles, found ${blogPieces.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));

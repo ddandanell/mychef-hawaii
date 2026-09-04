@@ -1607,6 +1607,70 @@ export const photos = {
     file: '/photos/blog-shoulder-bigisland.png',
     alt: `An empty west-side lava-terrace table in softer morning light, folded sand linen.`,
   },
+  dinLanikai: {
+    file: '/photos/din-lanikai.png',
+    alt: `A compact Lanikai beach-house galley at dusk, unused ivory plates, moss-green foliage through a window.`,
+  },
+  dinHawaiiKai: {
+    file: '/photos/din-hawaii-kai.png',
+    alt: `An East Honolulu household kitchen island at dusk, unused ivory plates, unmarked citrus.`,
+  },
+  dinDiamondHead: {
+    file: '/photos/din-diamond-head.png',
+    alt: `A Diamond Head-adjacent dining room at dusk, empty ivory plates, unlit brass candleholders.`,
+  },
+  dinKakaako: {
+    file: '/photos/din-kakaako.png',
+    alt: `A compact Kakaʻako tower-residence range at blue hour, unused ivory plates, city lights.`,
+  },
+  dinUpcountry: {
+    file: '/photos/din-upcountry.png',
+    alt: `An Upcountry Maui estate kitchen in misty morning light, unused ivory plates, moss-green pasture.`,
+  },
+  dinNapili: {
+    file: '/photos/din-napili.png',
+    alt: `A Nāpili villa kitchen at west sunset, unused ivory plates, sand linen, brass faucet.`,
+  },
+  dinPaia: {
+    file: '/photos/din-paia.png',
+    alt: `A Pāʻia house kitchen in softer light, unused ivory plates, sand linen.`,
+  },
+  dinHonokowai: {
+    file: '/photos/din-honokowai.png',
+    alt: `A Honokōwai condo kitchen at west sunset, compact range, unused ivory plates.`,
+  },
+  dinHaena: {
+    file: '/photos/din-haena.png',
+    alt: `A Hāʻena Far-North kitchen in rain, unused ivory plates, wet glass, moss-green foliage.`,
+  },
+  dinKoloa: {
+    file: '/photos/din-koloa.png',
+    alt: `A Kōloa town house kitchen, unused ivory plates, quieter residential street through the window.`,
+  },
+  dinLihue: {
+    file: '/photos/din-lihue.png',
+    alt: `A Līhuʻe in-town household kitchen, compact range, unused ivory plates, not a villa.`,
+  },
+  dinKalaheo: {
+    file: '/photos/din-kalaheo.png',
+    alt: `A Kalāheo south-west residential kitchen, unused ivory plates, moss-green hillside.`,
+  },
+  dinHilo: {
+    file: '/photos/din-hilo.png',
+    alt: `A Hilo east-side house kitchen in rain, unused ivory plates, wet glass, moss-green foliage.`,
+  },
+  dinVolcano: {
+    file: '/photos/din-volcano.png',
+    alt: `A Volcano lodge kitchen in mist, unused ivory plates, moss-green foliage, no theatrical glow.`,
+  },
+  dinKeauhou: {
+    file: '/photos/din-keauhou.png',
+    alt: `A Keauhou resort-residence kitchen in hard sun, unused ivory plates, lava-stone backsplash.`,
+  },
+  dinHolualoa: {
+    file: '/photos/din-holualoa.png',
+    alt: `A Hōlualoa mauka kitchen, unused ivory plates, unmarked coffee cherries in a clay bowl.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
