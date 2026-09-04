@@ -48,13 +48,24 @@ Still no zip on this machine. Wave 5 ships the next catalog slice that does not 
 - Unique `/catering/bbq|plated|family-style|buffet|grazing|drop-off` on every island host. Titles are format documents (“Plated villa service on Oahu”), never “Oahu catering plated”. Drop-off is explicitly not staffed service.
 - New Grok stills for every Wave 5 URL.
 
-## Wave 6 — zip execution
+## Wave 6 — fine dining, staffing, menu SKUs, resident line (this branch)
+
+Still no zip on this machine. Wave 6 ships the next catalog slice that does not cannibalize money keywords:
+
+- Unique `/fine-dining/romantic-dinner|tasting-menu|chefs-table-evening|celebration-dinner` on every island host. Halo formats, not Michelin claims. Distinct from `/honeymoon-dinners`, `/omakase-at-home`, `/chefs-table`, and occasion pages.
+- Unique `/staffing/servers|bartenders|butlers` on every island host. Quoted hourly add-ons. Distinct from `/bar` and `/mobile-bar`. Butlers stay honesty/quoted.
+- Unique `/menus/three-course|family-style-menu|breakfast|lunch` on every island host. Designed per table, not a fake standing carte. Distinct from `/menus` as a process page.
+- Unique `/personal-chef` on every island host as the resident household line. Does not steal `/private-chef` titles or “private chef {island}” money keywords. Oʻahu sits beside `/kamaaina`.
+- New Grok stills for every Wave 6 URL.
+
+## Wave 7 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
+- Remaining catalog stand-in: help articles (`/help/*`), `/private-chef-cost` (distinct from `/pricing` if the zip wants both).
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 7 — automation that stays on
+## Wave 8 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` against DataForSEO when credentials are in GitHub Actions secrets (`DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD`). Do not commit secrets.

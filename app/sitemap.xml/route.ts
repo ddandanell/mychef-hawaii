@@ -5,6 +5,9 @@ import { uniqueCells } from '@/data/uniqueCells';
 import { islandServices } from '@/data/islandServices';
 import { occasionPages } from '@/data/occasionPages';
 import { cateringFormats } from '@/data/cateringFormats';
+import { fineDiningPages } from '@/data/fineDining';
+import { staffingPages } from '@/data/staffingPages';
+import { menuSkuPages } from '@/data/menuSkus';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 function xmlEscape(s: string): string {
@@ -35,6 +38,9 @@ function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: st
     ...islandServices[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.5' })),
     ...occasionPages[island].map((cell) => ({ host: island, path: `/events/${cell.slug}`, priority: '0.5' })),
     ...cateringFormats[island].map((cell) => ({ host: island, path: `/catering/${cell.slug}`, priority: '0.5' })),
+    ...fineDiningPages[island].map((cell) => ({ host: island, path: `/fine-dining/${cell.slug}`, priority: '0.45' })),
+    ...staffingPages[island].map((cell) => ({ host: island, path: `/staffing/${cell.slug}`, priority: '0.45' })),
+    ...menuSkuPages[island].map((cell) => ({ host: island, path: `/menus/${cell.slug}`, priority: '0.45' })),
   ];
 }
 

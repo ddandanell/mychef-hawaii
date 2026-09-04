@@ -15,6 +15,9 @@ import { getUniqueCell, uniqueCells } from '@/data/uniqueCells';
 import { getIslandService, islandServices } from '@/data/islandServices';
 import { getOccasionPage, occasionPages } from '@/data/occasionPages';
 import { getCateringFormat, cateringFormats } from '@/data/cateringFormats';
+import { getFineDiningPage, fineDiningPages } from '@/data/fineDining';
+import { getStaffingPage, staffingPages } from '@/data/staffingPages';
+import { getMenuSkuPage, menuSkuPages } from '@/data/menuSkus';
 import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
@@ -55,6 +58,15 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     const formatSlug = /^\/catering\/([^/]+)$/.exec(localPath)?.[1];
     const format = formatSlug ? getCateringFormat(islandId, formatSlug) : undefined;
     if (format) return `${origin}${photos[format.photo].file}`;
+    const fineSlug = /^\/fine-dining\/([^/]+)$/.exec(localPath)?.[1];
+    const fine = fineSlug ? getFineDiningPage(islandId, fineSlug) : undefined;
+    if (fine) return `${origin}${photos[fine.photo].file}`;
+    const staffSlug = /^\/staffing\/([^/]+)$/.exec(localPath)?.[1];
+    const staff = staffSlug ? getStaffingPage(islandId, staffSlug) : undefined;
+    if (staff) return `${origin}${photos[staff.photo].file}`;
+    const skuSlug = /^\/menus\/([^/]+)$/.exec(localPath)?.[1];
+    const sku = skuSlug ? getMenuSkuPage(islandId, skuSlug) : undefined;
+    if (sku) return `${origin}${photos[sku.photo].file}`;
     const support = getIslandSupport(islandId, localPath);
     if (support) return `${origin}${photos[support.photo].file}`;
     if (localPath === '/events') return `${origin}${photos[eventOffers[islandId].photo].file}`;
@@ -283,6 +295,27 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       const format = getCateringFormat(islandId, localPath.slice('/catering/'.length))!;
       title = format.title;
       description = format.description;
+    } else if (
+      /^\/fine-dining\/[^/]+$/.test(localPath) &&
+      getFineDiningPage(islandId, localPath.slice('/fine-dining/'.length))
+    ) {
+      const fine = getFineDiningPage(islandId, localPath.slice('/fine-dining/'.length))!;
+      title = fine.title;
+      description = fine.description;
+    } else if (
+      /^\/staffing\/[^/]+$/.test(localPath) &&
+      getStaffingPage(islandId, localPath.slice('/staffing/'.length))
+    ) {
+      const staff = getStaffingPage(islandId, localPath.slice('/staffing/'.length))!;
+      title = staff.title;
+      description = staff.description;
+    } else if (
+      /^\/menus\/[^/]+$/.test(localPath) &&
+      getMenuSkuPage(islandId, localPath.slice('/menus/'.length))
+    ) {
+      const sku = getMenuSkuPage(islandId, localPath.slice('/menus/'.length))!;
+      title = sku.title;
+      description = sku.description;
     } else if (locRec) {
       title = `${locRec.name} private chef — myCHEF ${island.name}`;
       description = locRec.lede;
@@ -406,6 +439,21 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       loc: `https://${masterHostName(island)}/catering/${cell.slug}`,
       changefreq: 'monthly',
       priority: '0.5',
+    })),
+    ...fineDiningPages[island].map((cell) => ({
+      loc: `https://${masterHostName(island)}/fine-dining/${cell.slug}`,
+      changefreq: 'monthly',
+      priority: '0.45',
+    })),
+    ...staffingPages[island].map((cell) => ({
+      loc: `https://${masterHostName(island)}/staffing/${cell.slug}`,
+      changefreq: 'monthly',
+      priority: '0.45',
+    })),
+    ...menuSkuPages[island].map((cell) => ({
+      loc: `https://${masterHostName(island)}/menus/${cell.slug}`,
+      changefreq: 'monthly',
+      priority: '0.45',
     })),
   ]);
   return [

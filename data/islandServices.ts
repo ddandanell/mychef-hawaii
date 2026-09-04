@@ -1,6 +1,7 @@
 import type { IslandId } from './islands';
 import { SEARCH_VOLUMES } from './offers';
 import { gatedServices } from './gatedServices';
+import { residentLineList } from './residentLine';
 import type { UniqueCell } from './uniqueCells';
 
 /**
@@ -192,6 +193,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
       ],
     },
     ...gatedServices.oahu,
+    ...residentLineList.oahu,
   ],
   maui: [
     {
@@ -375,6 +377,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
       ],
     },
     ...gatedServices.maui,
+    ...residentLineList.maui,
   ],
   kauai: [
     {
@@ -558,6 +561,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
       ],
     },
     ...gatedServices.kauai,
+    ...residentLineList.kauai,
   ],
   bigisland: [
     {
@@ -741,6 +745,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
       ],
     },
     ...gatedServices.bigisland,
+    ...residentLineList.bigisland,
   ],
 };
 

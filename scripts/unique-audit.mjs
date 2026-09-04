@@ -98,7 +98,7 @@ function uniqueCellSlugsByIsland(src) {
   const map = {};
   let current = null;
   for (const line of src.split('\n')) {
-    const island = line.match(/^\s+(oahu|maui|kauai|bigisland):\s*\[/);
+    const island = line.match(/^\s+(oahu|maui|kauai|bigisland):\s*[\[{]/);
     if (island) current = island[1];
     const slug = line.match(/slug:\s*'([^']+)'/);
     if (current && slug) {
@@ -141,9 +141,12 @@ const cateringSrc = read('data/catering.ts');
 const eventsSrc = read('data/events.ts');
 const supportSrc = read('data/islandSupport.ts');
 const cellsSrc = read('data/uniqueCells.ts');
-const servicesSrc = read('data/islandServices.ts') + '\n' + read('data/gatedServices.ts');
+const servicesSrc = read('data/islandServices.ts') + '\n' + read('data/gatedServices.ts') + '\n' + read('data/residentLine.ts');
 const occasionsSrc = read('data/occasionPages.ts') + '\n' + read('data/occasionExtras.ts');
 const formatsSrc = read('data/cateringFormats.ts');
+const fineSrc = read('data/fineDining.ts');
+const staffSrc = read('data/staffingPages.ts');
+const menuSkuSrc = read('data/menuSkus.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
 const hoods = neighborhoods(offersSrc);
@@ -158,6 +161,9 @@ const cells = uniqueCellMeta(cellsSrc);
 const services = uniqueCellMeta(servicesSrc);
 const occasions = uniqueCellMeta(occasionsSrc);
 const formats = uniqueCellMeta(formatsSrc);
+const fine = uniqueCellMeta(fineSrc);
+const staff = uniqueCellMeta(staffSrc);
+const menuSkus = uniqueCellMeta(menuSkuSrc);
 
 const errors = [];
 
@@ -169,9 +175,12 @@ if (coverage.length !== 4) errors.push(`Expected 4 coverage pages, found ${cover
 if (how.length !== 4) errors.push(`Expected 4 how-it-works pages, found ${how.length}`);
 if (menus.length !== 4) errors.push(`Expected 4 menus pages, found ${menus.length}`);
 if (cells.length < 15) errors.push(`Expected ≥15 unique cells, found ${cells.length}`);
-if (services.length < 48) errors.push(`Expected ≥48 island service pages, found ${services.length}`);
+if (services.length < 52) errors.push(`Expected ≥52 island service pages, found ${services.length}`);
 if (occasions.length < 28) errors.push(`Expected ≥28 occasion pages, found ${occasions.length}`);
 if (formats.length < 24) errors.push(`Expected ≥24 catering format pages, found ${formats.length}`);
+if (fine.length < 16) errors.push(`Expected ≥16 fine-dining pages, found ${fine.length}`);
+if (staff.length < 12) errors.push(`Expected ≥12 staffing pages, found ${staff.length}`);
+if (menuSkus.length < 16) errors.push(`Expected ≥16 menu SKU pages, found ${menuSkus.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -203,6 +212,15 @@ errors.push(...dupes(occasions.map((h) => files[h.photo] || h.photo), 'occasion 
 errors.push(...dupes(formats.map((h) => h.title), 'format title'));
 errors.push(...dupes(formats.map((h) => h.h1), 'format H1'));
 errors.push(...dupes(formats.map((h) => files[h.photo] || h.photo), 'format hero file'));
+errors.push(...dupes(fine.map((h) => h.title), 'fine-dining title'));
+errors.push(...dupes(fine.map((h) => h.h1), 'fine-dining H1'));
+errors.push(...dupes(fine.map((h) => files[h.photo] || h.photo), 'fine-dining hero file'));
+errors.push(...dupes(staff.map((h) => h.title), 'staffing title'));
+errors.push(...dupes(staff.map((h) => h.h1), 'staffing H1'));
+errors.push(...dupes(staff.map((h) => files[h.photo] || h.photo), 'staffing hero file'));
+errors.push(...dupes(menuSkus.map((h) => h.title), 'menu-sku title'));
+errors.push(...dupes(menuSkus.map((h) => h.h1), 'menu-sku H1'));
+errors.push(...dupes(menuSkus.map((h) => files[h.photo] || h.photo), 'menu-sku hero file'));
 
 const allTitles = [
   ...hoods.map((h) => h.title),
@@ -217,6 +235,9 @@ const allTitles = [
   ...services.map((h) => h.title),
   ...occasions.map((h) => h.title),
   ...formats.map((h) => h.title),
+  ...fine.map((h) => h.title),
+  ...staff.map((h) => h.title),
+  ...menuSkus.map((h) => h.title),
 ];
 errors.push(...dupes(allTitles, 'cross-type title'));
 
@@ -251,7 +272,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -262,7 +283,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -315,5 +336,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs.`,
 );

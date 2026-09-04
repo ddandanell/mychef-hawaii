@@ -823,6 +823,198 @@ export const photos = {
     file: '/photos/fmt-dropoff-bigisland.png',
     alt: `Trays at a Kona villa door, hard sun, unused pass — drop-off is not staffed service.`,
   },
+  fineRomanticOahu: {
+    file: '/photos/fine-romantic-oahu.png',
+    alt: `Two seats at a Kahala dining table at dusk — plated ahi, brass, Diamond Head faint.`,
+  },
+  fineRomanticMaui: {
+    file: '/photos/fine-romantic-maui.png',
+    alt: `Two plated fish on a Wailea lānai at blue hour, Molokini faint.`,
+  },
+  fineRomanticKauai: {
+    file: '/photos/fine-romantic-kauai.png',
+    alt: `Two seats on a Princeville terrace — plated fish, misted fluted mountains.`,
+  },
+  fineRomanticBigisland: {
+    file: '/photos/fine-romantic-bigisland.png',
+    alt: `Two seats on a Kohala lava terrace at sunset — plated kanpachi, Mauna Kea faint.`,
+  },
+  fineTastingOahu: {
+    file: '/photos/fine-tasting-oahu.png',
+    alt: `Tasting plates on a Kahala kitchen island — seared ahi, brass, Diamond Head faint.`,
+  },
+  fineTastingMaui: {
+    file: '/photos/fine-tasting-maui.png',
+    alt: `Tasting plates on a Wailea kitchen counter, Molokini faint, not a restaurant claim.`,
+  },
+  fineTastingKauai: {
+    file: '/photos/fine-tasting-kauai.png',
+    alt: `Small tasting plates on a Princeville counter, seared fish, misted mountains.`,
+  },
+  fineTastingBigisland: {
+    file: '/photos/fine-tasting-bigisland.png',
+    alt: `Kanpachi tasting plates in a Kona kitchen, lava and coffee slopes, hard sun.`,
+  },
+  fineChefsEveOahu: {
+    file: '/photos/fine-chefseve-oahu.png',
+    alt: `Guests at a Kahala kitchen island at night watching a sear — not a restaurant pass.`,
+  },
+  fineChefsEveMaui: {
+    file: '/photos/fine-chefseve-maui.png',
+    alt: `A couple at a Wailea kitchen counter at night, tasting plates, Molokini faint.`,
+  },
+  fineChefsEveKauai: {
+    file: '/photos/fine-chefseve-kauai.png',
+    alt: `Guests at a Princeville kitchen counter at dusk, seared fish, misted mountains.`,
+  },
+  fineChefsEveBigisland: {
+    file: '/photos/fine-chefseve-bigisland.png',
+    alt: `Guests at a Kona kitchen counter at dusk watching a sear, lava beyond.`,
+  },
+  fineCelebrationOahu: {
+    file: '/photos/fine-celebration-oahu.png',
+    alt: `A Kahala celebration dinner — plated fish for about eight, brass, Diamond Head faint.`,
+  },
+  fineCelebrationMaui: {
+    file: '/photos/fine-celebration-maui.png',
+    alt: `A Wailea celebration dinner — plated fish for a small seated list, Molokini faint.`,
+  },
+  fineCelebrationKauai: {
+    file: '/photos/fine-celebration-kauai.png',
+    alt: `A Kauaʻi estate celebration dinner — plated fish, misted mountains, small list.`,
+  },
+  fineCelebrationBigisland: {
+    file: '/photos/fine-celebration-bigisland.png',
+    alt: `A Kohala celebration dinner — plated kanpachi for eight, Mauna Kea faint.`,
+  },
+  staffServersOahu: {
+    file: '/photos/staff-servers-oahu.png',
+    alt: `A server setting plated fish at a Kahala dining table, ivory linen, Diamond Head faint.`,
+  },
+  staffServersMaui: {
+    file: '/photos/staff-servers-maui.png',
+    alt: `A server setting plated fish on a Wailea lānai table, Molokini faint.`,
+  },
+  staffServersKauai: {
+    file: '/photos/staff-servers-kauai.png',
+    alt: `A server setting plated fish on a Princeville terrace, misted mountains.`,
+  },
+  staffServersBigisland: {
+    file: '/photos/staff-servers-bigisland.png',
+    alt: `A server setting plated kanpachi on a Kohala lava terrace, Mauna Kea faint.`,
+  },
+  staffBartendersOahu: {
+    file: '/photos/staff-bartenders-oahu.png',
+    alt: `A bartender at a Kahala lānai counter mixing a citrus cocktail, Diamond Head faint, no tiki mug.`,
+  },
+  staffBartendersMaui: {
+    file: '/photos/staff-bartenders-maui.png',
+    alt: `A bartender at a Wailea lānai counter, citrus and glassware, Molokini faint.`,
+  },
+  staffBartendersKauai: {
+    file: '/photos/staff-bartenders-kauai.png',
+    alt: `A bartender at a Princeville terrace counter, citrus, misted mountains.`,
+  },
+  staffBartendersBigisland: {
+    file: '/photos/staff-bartenders-bigisland.png',
+    alt: `A bartender at a Kohala lava terrace counter, citrus, hard sun, Mauna Kea faint.`,
+  },
+  staffButlersOahu: {
+    file: '/photos/staff-butlers-oahu.png',
+    alt: `A butler pouring water at a Kahala dining table before service, ivory linen, brass.`,
+  },
+  staffButlersMaui: {
+    file: '/photos/staff-butlers-maui.png',
+    alt: `A butler setting a Wailea dining table, Molokini faint — quoted add-on, not a hotel staff.`,
+  },
+  staffButlersKauai: {
+    file: '/photos/staff-butlers-kauai.png',
+    alt: `An empty Princeville dining table being set, misted mountains — butler service quoted when a bench exists.`,
+  },
+  staffButlersBigisland: {
+    file: '/photos/staff-butlers-bigisland.png',
+    alt: `A Kohala lava terrace table being set in hard sun, Mauna Kea faint.`,
+  },
+  menuThreeOahu: {
+    file: '/photos/menu-three-oahu.png',
+    alt: `Three plated courses on a Kahala dining table — crudo, seared ahi, dessert, Diamond Head faint.`,
+  },
+  menuThreeMaui: {
+    file: '/photos/menu-three-maui.png',
+    alt: `Three plated courses on a Wailea dining table — crudo, grilled fish, dessert, Molokini faint.`,
+  },
+  menuThreeKauai: {
+    file: '/photos/menu-three-kauai.png',
+    alt: `Three plated courses on a Princeville estate table — crudo, seared fish, dessert, misted mountains.`,
+  },
+  menuThreeBigisland: {
+    file: '/photos/menu-three-bigisland.png',
+    alt: `Three plated courses on a Kohala table — kanpachi crudo, seared fish, dessert, Mauna Kea faint.`,
+  },
+  menuFamilyOahu: {
+    file: '/photos/menu-family-oahu.png',
+    alt: `Shared family-style fish platters down a Kahala table, about twelve seats, Diamond Head faint.`,
+  },
+  menuFamilyMaui: {
+    file: '/photos/menu-family-maui.png',
+    alt: `Shared family-style fish platters on a Wailea lānai table, Pacific beyond.`,
+  },
+  menuFamilyKauai: {
+    file: '/photos/menu-family-kauai.png',
+    alt: `Shared family-style platters on a Poʻipū estate table, pool and pale cliffs.`,
+  },
+  menuFamilyBigisland: {
+    file: '/photos/menu-family-bigisland.png',
+    alt: `Shared family-style kanpachi platters on a Kona lava-terrace table, hard sun.`,
+  },
+  menuBreakfastOahu: {
+    file: '/photos/menu-breakfast-oahu.png',
+    alt: `Breakfast in a Kahala house — eggs, fruit, Diamond Head faint.`,
+  },
+  menuBreakfastMaui: {
+    file: '/photos/menu-breakfast-maui.png',
+    alt: `Breakfast on a Wailea lānai — eggs, fruit, grilled fish, Molokini faint.`,
+  },
+  menuBreakfastKauai: {
+    file: '/photos/menu-breakfast-kauai.png',
+    alt: `Breakfast in a Poʻipū kitchen — eggs, fruit, pale cliffs.`,
+  },
+  menuBreakfastBigisland: {
+    file: '/photos/menu-breakfast-bigisland.png',
+    alt: `Breakfast on a Kona lava terrace — eggs, fruit, breakfast fish, hard sun.`,
+  },
+  menuLunchOahu: {
+    file: '/photos/menu-lunch-oahu.png',
+    alt: `Midday lunch in a Kailua beach house — family-style fish, Mokulua through the sliders.`,
+  },
+  menuLunchMaui: {
+    file: '/photos/menu-lunch-maui.png',
+    alt: `Midday lunch in a Kīhei vacation-home kitchen — grilled fish, south Maui light.`,
+  },
+  menuLunchKauai: {
+    file: '/photos/menu-lunch-kauai.png',
+    alt: `Midday lunch in an east-side Kapaʻa house — family-style fish, a residential street.`,
+  },
+  menuLunchBigisland: {
+    file: '/photos/menu-lunch-bigisland.png',
+    alt: `Midday lunch in a Waikoloa residence — grilled kanpachi, lava terrace, hard sun.`,
+  },
+  svcPersonalOahu: {
+    file: '/photos/svc-personal-oahu.png',
+    alt: `A Honolulu household kitchen on a school night — a used fridge, a real stove, not a villa one-off.`,
+  },
+  svcPersonalMaui: {
+    file: '/photos/svc-personal-maui.png',
+    alt: `A Kīhei resident kitchen on a weekday — a used fridge, not a Wailea tourist SKU.`,
+  },
+  svcPersonalKauai: {
+    file: '/photos/svc-personal-kauai.png',
+    alt: `A Kapaʻa household kitchen on a weekday — residential street, inquiry-stage resident line.`,
+  },
+  svcPersonalBigisland: {
+    file: '/photos/svc-personal-bigisland.png',
+    alt: `A Kona town household kitchen on a weekday — used fridge, coffee slopes, not a resort villa.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

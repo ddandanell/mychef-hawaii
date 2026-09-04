@@ -14,6 +14,7 @@ import { zoneMap } from '@/data/zoneMap';
 import { islandHref } from '@/lib/paths';
 import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
+import { menuSkuPages } from '@/data/menuSkus';
 
 function FaqSchema({ faqs }: { faqs: { q: string; a: string }[] }) {
   return (
@@ -128,6 +129,23 @@ export function IslandSupportView({
       ) : null}
 
       {showMenu ? <SampleMenu island={islandId} /> : null}
+
+      {showMenu ? (
+        <nav aria-label="Menu documents on this island" className="border-t border-line bg-sand py-10">
+          <div className="mx-auto flex w-full max-w-container flex-wrap gap-x-6 gap-y-2 px-5 text-sm lg:px-10">
+            {menuSkuPages[islandId].map((sku) => (
+              <HostLink
+                key={sku.slug}
+                island={islandId}
+                path={`/menus/${sku.slug}`}
+                className="text-ink underline underline-offset-4"
+              >
+                {sku.name}
+              </HostLink>
+            ))}
+          </div>
+        </nav>
+      ) : null}
 
       <SiblingCluster island={islandId} href={href} />
       <LongFaq items={copy.faqs} title={`Asked on ${island.shortName}.`} />
