@@ -11,6 +11,8 @@ import { getCatalog } from '@/data/islandCatalog';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { getLocation } from '@/data/locations';
 import { getMoneyNeighborhood, islandOffers, moneyNeighborhoods } from '@/data/offers';
+import { getUniqueCell, uniqueCells } from '@/data/uniqueCells';
+import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
 import { lookupPageMeta, metaForPath } from '@/data/pageMeta';
@@ -40,6 +42,10 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     const slug = /^\/([^/]+)$/.exec(localPath)?.[1];
     const hood = slug ? getMoneyNeighborhood(islandId, slug) : undefined;
     if (hood) return `${origin}${photos[hood.photo].file}`;
+    const cell = slug ? getUniqueCell(islandId, slug) : undefined;
+    if (cell) return `${origin}${photos[cell.photo].file}`;
+    const support = getIslandSupport(islandId, localPath);
+    if (support) return `${origin}${photos[support.photo].file}`;
     if (localPath === '/events') return `${origin}${photos[eventOffers[islandId].photo].file}`;
     if (localPath === '/about') return `${origin}${islandAbout[islandId].hero.file}`;
     if (localPath === '/private-chef') {
@@ -231,6 +237,14 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (localPath === '/about') {
       title = islandAbout[islandId].title;
       description = islandAbout[islandId].description;
+    } else if (getIslandSupport(islandId, localPath)) {
+      const support = getIslandSupport(islandId, localPath)!;
+      title = support.title;
+      description = support.description;
+    } else if (placeSlug && getUniqueCell(islandId, placeSlug)) {
+      const cell = getUniqueCell(islandId, placeSlug)!;
+      title = cell.title;
+      description = cell.description;
     } else if (locRec) {
       title = `${locRec.name} private chef — myCHEF ${island.name}`;
       description = locRec.lede;
@@ -299,7 +313,8 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     localPath === '/vacation-chef' ||
     localPath === '/catering' ||
     localPath === '/events' ||
-    (!islandId && ['/', '/pricing', '/services', '/bar', '/mobile-bar', '/weddings', '/corporate'].includes(path));
+    localPath === '/menus' ||
+    (!islandId && ['/', '/pricing', '/services', '/bar', '/mobile-bar', '/weddings', '/corporate', '/gatherings'].includes(path));
   if (priced) {
     jsonLd.push(offerCatalogJsonLd(origin || `https://${PRODUCTION_ROOT}`, islandId));
   }
@@ -329,10 +344,15 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.7',
     })),
-    ...(['/about', '/events'] as const).map((path) => ({
+    ...(['/about', '/events', ...SUPPORT_PATHS] as const).map((path) => ({
       loc: `https://${masterHostName(island)}${path}`,
       changefreq: 'monthly',
       priority: '0.6',
+    })),
+    ...uniqueCells[island].map((cell) => ({
+      loc: `https://${masterHostName(island)}/${cell.slug}`,
+      changefreq: 'monthly',
+      priority: '0.55',
     })),
   ]);
   return [

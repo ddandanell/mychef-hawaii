@@ -11,6 +11,9 @@ import { feeStack } from '@/data/rateCard';
 import { proofRegister } from '@/data/proofRegister';
 import { articlesFor } from '@/data/editorial';
 import { MASTER_MAP, masterHostName } from '@/data/commercialGraph';
+import { moneyNeighborhoods } from '@/data/offers';
+import { uniqueCells } from '@/data/uniqueCells';
+import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 export function HowItWorksView() {
   const steps = [
@@ -152,21 +155,34 @@ export function LegalView() {
   );
 }
 
-export function CorporateView() {
-  const uses = [
-    { title: 'Villa retreats', body: 'Full-board chef days for offsites that actually happen in houses — not ballrooms.' },
-    { title: 'Production and crew catering', body: 'Call-time breakfasts and wrap dinners, 10–75, zoned honestly.' },
-    { title: 'Private gatherings', body: 'Birthdays, family reunions, rehearsal dinners that are not a full wedding week.' },
-  ];
+export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'gatherings' }) {
+  const uses =
+    kind === 'gatherings'
+      ? [
+          { title: 'Birthdays and reunions', body: 'A staffed table in the house. Guest lists we hold: about ten to seventy-five.' },
+          { title: 'Rehearsal dinners', body: 'The night before, as its own line — not swallowed by a reception quote.' },
+          { title: 'Family villa weeks', body: 'Not a wedding stack. Groceries and dinners for the people already in the house.' },
+        ]
+      : [
+          { title: 'Villa retreats', body: 'Full-board chef days for offsites that actually happen in houses — not ballrooms.' },
+          { title: 'Production and crew catering', body: 'Call-time breakfasts and wrap dinners, 10–75, zoned honestly.' },
+          { title: 'Board dinners', body: 'A Kahala dining room during a conference week is still a house, not a citywide.' },
+        ];
+  const h1 =
+    kind === 'gatherings' ? 'Private gatherings — the house, not the ballroom.' : 'Retreats, crews, private rooms — not citywides.';
+  const lede =
+    kind === 'gatherings'
+      ? 'Birthdays, reunions, and rehearsal dinners in villas. Staffed 10–75. Wedding-week stacks live on /weddings.'
+      : 'Staffed chef catering for villa offsites and production crews of 10–75. HCC citywides are closed through 2027 — and they are not our product.';
   return (
     <>
       <Hero src="/photos/live-fire-grill-lanai-fish.jpg" alt="Live-fire grill on a villa lānai, whole fish and citrus." min="short">
         <LineReveal
-          text="Retreats, crews, private rooms — not citywides."
+          text={h1}
           className="font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
         <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-ink">
-          Staffed private chef catering for 10–75 guests: villa retreats, production crews and private gatherings.
+          {lede}
         </p>
         <div className="mt-8">
           <QuoteCta service="catering-events" />
@@ -280,7 +296,16 @@ export function IslandEditorialView({
 }
 
 export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[number] | null }) {
-  const rows = islandId ? MASTER_MAP.filter((r) => r.host === islandId) : MASTER_MAP;
+  const hosts = islandId ? [islandId] : islandOrder;
+  const rows = [
+    ...(islandId ? MASTER_MAP.filter((r) => r.host === islandId) : MASTER_MAP),
+    ...hosts.flatMap((id) => [
+      ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
+      ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
+      ...(['/about', '/events'] as const).map((path) => ({ host: id, path })),
+      ...uniqueCells[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
+    ]),
+  ];
   return (
     <section className="bg-paper py-20">
       <div className="mx-auto max-w-container px-5 lg:px-10">

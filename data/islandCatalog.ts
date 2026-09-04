@@ -80,7 +80,6 @@ const UNIQUE: Record<IslandId, { path: string; label: string; lede: string }[]> 
     { path: '/short-stay', label: 'Legal short-stay villas', lede: 'Ko Olina holds the deepest legal short-stay villa pool on Oʻahu. We say so because the law does.' },
   ],
   maui: [
-    { path: '/lahaina', label: 'Lahaina, named honestly', lede: 'West Maui is Kāʻanapali, Nāpili, Kapalua. We do not market this department as Lahaina luxury dining.' },
     { path: '/south-maui', label: 'South Maui corridor', lede: 'Wailea, Makena, Kīhei — three cells, three logistics stories, one South Maui team.' },
     { path: '/west-maui', label: 'West Maui corridor', lede: 'Kāʻanapali to Kapalua. Traffic is planned into arrival, not discovered on the invoice.' },
     { path: '/wedding-week', label: 'Maui wedding week', lede: 'Primary wedding island. Welcome, rehearsal, reception, recovery brunch as separate lines.' },

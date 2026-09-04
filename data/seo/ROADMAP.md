@@ -21,14 +21,23 @@ The blueprint zip (`mychef-hawaii-seo-blueprint.zip`) was not on this machine. W
 - Island sitemaps now include `/about` and `/events`.
 - Canonical aliases for `/events` and `/mobile-bar` removed so they self-canonicalize.
 
-## Wave 3 — zip execution
+## Wave 3 — supporting documents (this branch)
 
-- Open the blueprint zip. Stop inventing page lists. Build every URL it names, with its copy deck and internal-link rules.
-- Unique Grok still for every remaining location photo the zip requires.
-- Schema, FAQ, and sample-menu expansions the zip specifies.
+The blueprint zip is still not on this machine. Wave 3 ships the catalog cells that do not cannibalize money keywords:
+
+- Unique `/faq`, `/coverage`, `/how-it-works`, and `/menus` on every island host.
+- Unique island cells: Oʻahu kamaʻāina / conventions / gold-coast / short-stay; Maui south-maui / west-maui / wedding-week; Kauaʻi hanalei-bridge / north-shore / south-shore / wedding-week; Hawaiʻi Island kohala-corridor / coffee-act-198 / ironman-weeks / east-side.
+- Maui `/lahaina` stays the neighborhood URL (catalog UNIQUE `/lahaina` is not a second page).
+- Hub `/corporate` and `/gatherings` no longer share a title.
+- New Grok stills for every Wave 3 URL.
+
+## Wave 4 — zip execution
+
+- Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
+- Schema, FAQ, and sample-menu expansions the zip specifies beyond Wave 3.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 4 — automation that stays on
+## Wave 5 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` against DataForSEO when credentials are in GitHub Actions secrets (`DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD`). Do not commit secrets.

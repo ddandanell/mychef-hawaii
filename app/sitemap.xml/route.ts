@@ -1,6 +1,8 @@
 import { PRODUCTION_ROOT, detectIslandFromHost } from '@/lib/site';
 import { MASTER_MAP, masterHostName, type MasterHost, type IslandSitemapHost } from '@/data/commercialGraph';
 import { moneyNeighborhoods } from '@/data/offers';
+import { uniqueCells } from '@/data/uniqueCells';
+import { SUPPORT_PATHS } from '@/data/islandSupport';
 
 function xmlEscape(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -21,7 +23,11 @@ function neighborhoodRows(island: IslandSitemapHost): { host: MasterHost; path: 
 }
 
 function supportRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
-  return ['/about', '/events'].map((path) => ({ host: island, path, priority: '0.6' }));
+  return [...SUPPORT_PATHS, '/about', '/events'].map((path) => ({ host: island, path, priority: '0.6' }));
+}
+
+function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
+  return uniqueCells[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.55' }));
 }
 
 function urlset(rows: { host: MasterHost; path: string; priority?: string }[]): string {
@@ -50,10 +56,11 @@ export async function GET(request: Request) {
     .toLowerCase();
   const island = detectIslandFromHost(host);
   const extras = island
-    ? [...neighborhoodRows(island), ...supportRows(island)]
+    ? [...neighborhoodRows(island), ...supportRows(island), ...uniqueCellRows(island)]
     : (['oahu', 'maui', 'kauai', 'bigisland'] as const).flatMap((id) => [
         ...neighborhoodRows(id),
         ...supportRows(id),
+        ...uniqueCellRows(id),
       ]);
   const rows = island
     ? [...MASTER_MAP.filter((r) => r.host === island), ...extras]

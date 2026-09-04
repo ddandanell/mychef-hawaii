@@ -74,6 +74,41 @@ function middlewareCorridors(src) {
   return map;
 }
 
+function supportBlocks(src, name) {
+  const start = src.indexOf(`export const ${name}`);
+  if (start < 0) throw new Error(`Missing export const ${name}`);
+  const next = src.indexOf('export const ', start + `export const ${name}`.length);
+  const block = src.slice(start, next < 0 ? src.length : next);
+  const items = [];
+  const re = /h1:\s*'([^']+)'[\s\S]*?title:\s*'([^']+)'[\s\S]*?photo:\s*'([^']+)'/g;
+  let m;
+  while ((m = re.exec(block))) items.push({ h1: m[1], title: m[2], photo: m[3] });
+  return items;
+}
+
+function uniqueCellMeta(src) {
+  const items = [];
+  const re = /slug:\s*'([^']+)'[\s\S]*?h1:\s*'([^']+)'[\s\S]*?title:\s*'([^']+)'[\s\S]*?photo:\s*'([^']+)'/g;
+  let m;
+  while ((m = re.exec(src))) items.push({ slug: m[1], h1: m[2], title: m[3], photo: m[4] });
+  return items;
+}
+
+function uniqueCellSlugsByIsland(src) {
+  const map = {};
+  let current = null;
+  for (const line of src.split('\n')) {
+    const island = line.match(/^\s+(oahu|maui|kauai|bigisland):\s*\[/);
+    if (island) current = island[1];
+    const slug = line.match(/slug:\s*'([^']+)'/);
+    if (current && slug) {
+      map[current] ??= [];
+      map[current].push(slug[1]);
+    }
+  }
+  return map;
+}
+
 function offerSlugsByIsland(src) {
   const block = sliceExport(src, 'moneyNeighborhoods', 'export function getMoneyNeighborhood');
   const map = {};
@@ -104,18 +139,30 @@ const offersSrc = read('data/offers.ts');
 const photosSrc = read('data/photos.ts');
 const cateringSrc = read('data/catering.ts');
 const eventsSrc = read('data/events.ts');
+const supportSrc = read('data/islandSupport.ts');
+const cellsSrc = read('data/uniqueCells.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
 const hoods = neighborhoods(offersSrc);
 const homes = islandOfferMeta(offersSrc);
 const catering = cateringMeta(cateringSrc);
 const events = cateringMeta(eventsSrc);
+const faq = supportBlocks(supportSrc, 'islandFaq');
+const coverage = supportBlocks(supportSrc, 'islandCoverage');
+const how = supportBlocks(supportSrc, 'islandHow');
+const menus = supportBlocks(supportSrc, 'islandMenus');
+const cells = uniqueCellMeta(cellsSrc);
 
 const errors = [];
 
 if (hoods.length < 20) errors.push(`Expected ≥20 money neighborhoods, found ${hoods.length}`);
 if (homes.length !== 4) errors.push(`Expected 4 island homes, found ${homes.length}`);
 if (events.length !== 4) errors.push(`Expected 4 event offers, found ${events.length}`);
+if (faq.length !== 4) errors.push(`Expected 4 island FAQ pages, found ${faq.length}`);
+if (coverage.length !== 4) errors.push(`Expected 4 coverage pages, found ${coverage.length}`);
+if (how.length !== 4) errors.push(`Expected 4 how-it-works pages, found ${how.length}`);
+if (menus.length !== 4) errors.push(`Expected 4 menus pages, found ${menus.length}`);
+if (cells.length < 15) errors.push(`Expected ≥15 unique cells, found ${cells.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -126,6 +173,31 @@ errors.push(...dupes(catering.map((h) => files[h.photo] || h.photo), 'catering h
 errors.push(...dupes(events.map((h) => h.title), 'events title'));
 errors.push(...dupes(events.map((h) => h.h1), 'events H1'));
 errors.push(...dupes(events.map((h) => files[h.photo] || h.photo), 'events hero file'));
+errors.push(...dupes(faq.map((h) => h.title), 'faq title'));
+errors.push(...dupes(faq.map((h) => h.h1), 'faq H1'));
+errors.push(...dupes(faq.map((h) => files[h.photo] || h.photo), 'faq hero file'));
+errors.push(...dupes(coverage.map((h) => h.title), 'coverage title'));
+errors.push(...dupes(coverage.map((h) => files[h.photo] || h.photo), 'coverage hero file'));
+errors.push(...dupes(how.map((h) => h.title), 'how-it-works title'));
+errors.push(...dupes(how.map((h) => files[h.photo] || h.photo), 'how-it-works hero file'));
+errors.push(...dupes(menus.map((h) => h.title), 'menus title'));
+errors.push(...dupes(menus.map((h) => files[h.photo] || h.photo), 'menus hero file'));
+errors.push(...dupes(cells.map((h) => h.title), 'unique-cell title'));
+errors.push(...dupes(cells.map((h) => h.h1), 'unique-cell H1'));
+errors.push(...dupes(cells.map((h) => files[h.photo] || h.photo), 'unique-cell hero file'));
+
+const allTitles = [
+  ...hoods.map((h) => h.title),
+  ...homes.map((h) => h.title),
+  ...catering.map((h) => h.title),
+  ...events.map((h) => h.title),
+  ...faq.map((h) => h.title),
+  ...coverage.map((h) => h.title),
+  ...how.map((h) => h.title),
+  ...menus.map((h) => h.title),
+  ...cells.map((h) => h.title),
+];
+errors.push(...dupes(allTitles, 'cross-type title'));
 
 const cateringTitles = new Set(catering.map((h) => h.title));
 for (const row of events) {
@@ -158,6 +230,23 @@ for (const row of events) {
   }
 }
 
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells]) {
+  const file = files[row.photo];
+  const label = row.slug ? `/${row.slug}` : row.title;
+  if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
+  else if (!existsSync(join(ROOT, 'public', file.replace(/^\//, '')))) {
+    errors.push(`missing photo file ${file}`);
+  }
+}
+
+const MONEY_TITLE_RE =
+  /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells]) {
+  if (MONEY_TITLE_RE.test(row.title)) {
+    errors.push(`support/cell title uses a money keyword: ${row.title}`);
+  }
+}
+
 for (const key of [
   'vacationOahu',
   'vacationMaui',
@@ -181,10 +270,15 @@ for (const key of [
 
 const mw = middlewareCorridors(middlewareSrc);
 const slugs = offerSlugsByIsland(offersSrc);
+const cellSlugs = uniqueCellSlugsByIsland(cellsSrc);
 for (const island of ISLANDS) {
   const a = [...(mw[island] || [])].sort().join(',');
   const b = [...(slugs[island] || [])].sort().join(',');
   if (a !== b) errors.push(`middleware CORRIDORS.${island} !== moneyNeighborhoods (${a} vs ${b})`);
+  const hoodSet = new Set(slugs[island] || []);
+  for (const slug of cellSlugs[island] || []) {
+    if (hoodSet.has(slug)) errors.push(`unique cell /${slug} collides with neighborhood on ${island}`);
+  }
 }
 
 if (errors.length) {
@@ -193,5 +287,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells.`,
 );

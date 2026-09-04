@@ -62,6 +62,38 @@ export default function SiteFooter({
                   About
                 </HostLink>
               </li>
+              {islandId ? (
+                <>
+                  <li>
+                    <HostLink island={islandId} path="/faq" className="text-base text-paper hover:underline underline-offset-4">
+                      FAQ
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink
+                      island={islandId}
+                      path="/coverage"
+                      className="text-base text-paper hover:underline underline-offset-4"
+                    >
+                      Coverage
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink
+                      island={islandId}
+                      path="/how-it-works"
+                      className="text-base text-paper hover:underline underline-offset-4"
+                    >
+                      How it works
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island={islandId} path="/menus" className="text-base text-paper hover:underline underline-offset-4">
+                      Menus
+                    </HostLink>
+                  </li>
+                </>
+              ) : null}
               <li>
                 <HostLink island="root" path="/pricing" className="text-base text-paper hover:underline underline-offset-4">
                   Pricing

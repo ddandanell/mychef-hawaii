@@ -128,6 +128,16 @@ export default function SiteHeader() {
                 Bar
               </HostLink>
               <NavMenu label="Areas" items={areaItems(islandId)} />
+              <NavMenu
+                label="Guide"
+                items={[
+                  { label: 'FAQ', island: islandId, path: '/faq' },
+                  { label: 'Coverage', island: islandId, path: '/coverage' },
+                  { label: 'How it works', island: islandId, path: '/how-it-works' },
+                  { label: 'Menus', island: islandId, path: '/menus' },
+                  { label: 'About', island: islandId, path: '/about' },
+                ]}
+              />
             </>
           ) : (
             <>
@@ -207,6 +217,23 @@ export default function SiteHeader() {
                   <MobileDisclosure label="Areas">
                     {areaItems(islandId).map((item) => (
                       <MobileLink key={item.path} item={item} onPick={() => setDrawerOpen(false)} />
+                    ))}
+                  </MobileDisclosure>
+                  <MobileDisclosure label="Guide">
+                    {(
+                      [
+                        { label: 'FAQ', path: '/faq' },
+                        { label: 'Coverage', path: '/coverage' },
+                        { label: 'How it works', path: '/how-it-works' },
+                        { label: 'Menus', path: '/menus' },
+                        { label: 'About', path: '/about' },
+                      ] as const
+                    ).map((item) => (
+                      <MobileLink
+                        key={item.path}
+                        item={{ label: item.label, island: islandId, path: item.path }}
+                        onPick={() => setDrawerOpen(false)}
+                      />
                     ))}
                   </MobileDisclosure>
                 </>

@@ -94,14 +94,14 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'Your enquiry is in. A coordinator replies in Hawaii Standard Time, typically within one business day.',
   },
   '/corporate': {
-    title: 'Private catering for retreats, productions and gatherings | myCHEF Hawaii',
+    title: 'Corporate catering for Hawaii villa offsites | myCHEF Hawaii',
     description:
-      'Staffed private chef catering for 10–75 guests: villa retreats, production crews and private gatherings. Not a convention-centre play while HCC citywides are closed.',
+      'Staffed chef catering for villa offsites and production crews of 10–75. Not a convention-centre play while HCC citywides are closed through 2027.',
   },
   '/gatherings': {
-    title: 'Private catering for retreats, productions and gatherings | myCHEF Hawaii',
+    title: 'Private gatherings and family villa dinners | myCHEF Hawaii',
     description:
-      'Staffed private chef catering for 10–75 guests: villa retreats, production crews and private gatherings.',
+      'Birthdays, reunions, and rehearsal dinners in Hawaiian villas. Staffed 10–75. Not a wedding-week stack — that lives on /weddings.',
   },
   '/oahu': {
     title: 'Private Chef Oahu | Villa and Household Chefs | myCHEF',

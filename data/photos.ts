@@ -299,6 +299,130 @@ export const photos = {
     file: '/photos/heroes/hero-mobilebar-bigisland.png',
     alt: `A 4-hour mobile bar cart on a Kohala lava terrace at sunset, Mauna Kea faint.`,
   },
+  faqOahu: {
+    file: '/photos/heroes/hero-faq-oahu.png',
+    alt: `A chef and guests talk through a booking at a Kahala kitchen island, Diamond Head faint through the window.`,
+  },
+  faqMaui: {
+    file: '/photos/heroes/hero-faq-maui.png',
+    alt: `A Wailea open kitchen — chef and a couple reviewing the night at the counter, Molokini faint.`,
+  },
+  faqKauai: {
+    file: '/photos/heroes/hero-faq-kauai.png',
+    alt: `A Kauaʻi North Shore kitchen in rain — chef on the phone, misted mountains through wet glass.`,
+  },
+  faqBigisland: {
+    file: '/photos/heroes/hero-faq-bigisland.png',
+    alt: `A Kona kitchen in hard sun — chef with a written quote, coffee cherries and fish, Mauna Kea faint.`,
+  },
+  coverageOahu: {
+    file: '/photos/heroes/hero-coverage-oahu.png',
+    alt: `A chef loading insulated bags in a Kahala driveway — town and Pacific both in view.`,
+  },
+  coverageMaui: {
+    file: '/photos/heroes/hero-coverage-maui.png',
+    alt: `West Maui deck at sunset — chef carrying an insulated bag, Lānaʻi across the channel.`,
+  },
+  coverageKauai: {
+    file: '/photos/heroes/hero-coverage-kauai.png',
+    alt: `A wet North Shore road toward a misted Hanalei valley — chef waiting with coolers.`,
+  },
+  coverageBigisland: {
+    file: '/photos/heroes/hero-coverage-bigisland.png',
+    alt: `A long lava highway on the west side — chef with coolers, Mauna Kea distant.`,
+  },
+  howOahu: {
+    file: '/photos/heroes/hero-how-oahu.png',
+    alt: `A chef arriving at a Kahala kitchen with grocery totes three hours before service, Diamond Head beyond.`,
+  },
+  howMaui: {
+    file: '/photos/heroes/hero-how-maui.png',
+    alt: `A Wailea brigade — one chef plating, one setting the lānai table, Molokini faint.`,
+  },
+  howKauai: {
+    file: '/photos/heroes/hero-how-kauai.png',
+    alt: `A chef unpacking a Poʻipū kitchen — whole fish, pool and pale south-shore cliffs.`,
+  },
+  howBigisland: {
+    file: '/photos/heroes/hero-how-bigisland.png',
+    alt: `A Kona kitchen — chef searing fish, produce bags and coffee cherries, lava beyond the window.`,
+  },
+  menusOahu: {
+    file: '/photos/heroes/hero-menus-oahu.png',
+    alt: `Miso-glazed catch on dark ceramic on a Kahala lānai at dusk, Diamond Head on the horizon.`,
+  },
+  menusMaui: {
+    file: '/photos/heroes/hero-menus-maui.png',
+    alt: `Ahi poke and macadamia-crusted catch on a Wailea counter, Molokini faint through the window.`,
+  },
+  menusKauai: {
+    file: '/photos/heroes/hero-menus-kauai.png',
+    alt: `Wood-grilled catch on wet North Shore stone, misted fluted mountains behind.`,
+  },
+  menusBigisland: {
+    file: '/photos/heroes/hero-menus-bigisland.png',
+    alt: `Kanpachi crudo and coffee-rubbed catch on a Kohala lava terrace, Mauna Kea faint.`,
+  },
+  cellKamaaina: {
+    file: '/photos/cell-kamaaina.png',
+    alt: `Weeknight family plates in a Honolulu residential kitchen — not a resort villa.`,
+  },
+  cellConventions: {
+    file: '/photos/cell-conventions.png',
+    alt: `A Honolulu house dining room at dusk — we cook residences, not citywide conventions.`,
+  },
+  cellGoldCoast: {
+    file: '/photos/cell-gold-coast.png',
+    alt: `A Kahala Gold Coast estate table at dusk — plated ahi, brass, Diamond Head on the horizon.`,
+  },
+  cellShortStay: {
+    file: '/photos/cell-short-stay.png',
+    alt: `Morning in a Ko Olina short-stay villa kitchen opening to a west-side lagoon.`,
+  },
+  cellSouthMaui: {
+    file: '/photos/cell-south-maui.png',
+    alt: `A Kīhei vacation-home kitchen — family-style fish, residential South Maui through the sliders.`,
+  },
+  cellWestMaui: {
+    file: '/photos/cell-west-maui.png',
+    alt: `West Maui deck dinner at sunset — grilled fish, volcanic headland, Lānaʻi across the channel.`,
+  },
+  cellMauiWeddingWeek: {
+    file: '/photos/cell-maui-wedding-week.png',
+    alt: `Maui wedding-week recovery brunch on a Wailea lawn in the morning — fruit, eggs, a small staffed list.`,
+  },
+  cellHanaleiBridge: {
+    file: '/photos/cell-hanalei-bridge.png',
+    alt: `A wet one-lane coastal road and low bridge in rain — chef waiting with coolers, misted mountains.`,
+  },
+  cellKauaiNorth: {
+    file: '/photos/cell-kauai-north.png',
+    alt: `A chef carrying plated fish across a Princeville terrace, misted fluted mountains beyond.`,
+  },
+  cellKauaiSouth: {
+    file: '/photos/cell-kauai-south.png',
+    alt: `A Poʻipū kitchen on a sunny morning — whole fish, pool, pale south-shore cliffs.`,
+  },
+  cellKauaiWeddingWeek: {
+    file: '/photos/cell-kauai-wedding-week.png',
+    alt: `A Kauaʻi estate wedding-week table looking into a misted valley — inquiry-scale, not a ballroom.`,
+  },
+  cellKohalaCorridor: {
+    file: '/photos/cell-kohala-corridor.png',
+    alt: `A Kohala lava-coast terrace looking along the west-side shoreline — plated kanpachi, Mauna Kea faint.`,
+  },
+  cellCoffeeAct: {
+    file: '/photos/cell-coffee-act.png',
+    alt: `Coffee cherries and searing fish in a Kona kitchen — origin labeled when the law requires it.`,
+  },
+  cellIronman: {
+    file: '/photos/cell-ironman.png',
+    alt: `A Kailua-Kona villa kitchen on a crowded pier week — chef plating breakfast, town packed below.`,
+  },
+  cellEastSide: {
+    file: '/photos/cell-east-side.png',
+    alt: `A rainy Hilo house kitchen — ʻōhiʻa and ferns outside, east-side mist, not west-side lava.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
