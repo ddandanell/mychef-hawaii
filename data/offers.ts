@@ -2,46 +2,64 @@ import type { IslandId } from './islands';
 import { getTiers } from './rateCard';
 import type { PhotoKey } from './photos';
 
-/** DataForSEO Google Ads US — 2 Sep 2026. Do not invent volumes. */
+/** DataForSEO Google Ads US — 4 Sep 2026 (`npm run seo:snapshot`). Do not invent volumes. */
 export const SEARCH_VOLUMES = {
+  'oahu catering': 720,
+  'maui catering': 480,
   'private chef maui': 260,
   'private chef kauai': 210,
+  'kauai catering': 210,
+  'hawaii catering': 210,
+  'wedding catering oahu': 140,
   'private chef oahu': 90,
   'private chef honolulu': 70,
   'private chef big island': 70,
   'private chef kona': 70,
   'private chef hawaii': 50,
+  'big island catering': 50,
   'personal chef honolulu': 40,
-  'personal chef maui': 20,
-  'personal chef oahu': 20,
-  'kauai catering': 210,
-  'oahu catering': 720,
-  'maui catering': 480,
-  'hawaii catering': 210,
-  'wedding catering oahu': 140,
   'wedding catering maui': 30,
   'wedding catering hawaii': 30,
+  'personal chef maui': 20,
+  'personal chef oahu': 20,
+  'mobile bar hawaii': 20,
+  'private chef lahaina maui': 10,
+  'private chef north shore oahu': 10,
+  'private chef poipu kauai': 10,
+  'private chef maui cost': 10,
+  'kauai wedding catering': 10,
 } as const;
 
-/** Related searches (DataForSEO, 2 Sep 2026). Fold into titles/H1s/FAQs — do not invent volumes. */
+/** Related searches (DataForSEO Labs, 4 Sep 2026). Fold into titles/H1s/FAQs — do not invent volumes. */
 export const RELATED_SEARCHES = {
+  hawaii: [
+    'oahu catering',
+    'private chef oahu',
+    'private chef honolulu',
+    'maui private chefs',
+    'private chef big island hawaii',
+  ],
+  oahu: [
+    'oahu catering',
+    'wedding catering oahu',
+    'best catering oahu',
+    'private chef honolulu',
+    'hire a chef for a party',
+    'private chef at home',
+  ],
   maui: [
-    'best private chef maui',
-    'female private chef maui',
     'private chef lahaina maui',
-    'private chef wailea maui',
-    'private sushi chef maui',
     'private chef maui cost',
-    'private chef kihei maui',
+    'elite maui chef',
+    'lotus chefs maui',
   ],
   kauai: [
     'kauai catering',
     'private chef poipu kauai',
-    'private chef princeville',
-    'private chef hanalei',
     'kauai wedding catering',
-    'kauai catering prices',
     'kauai catering menu',
+    'private chef princeville kauai',
+    'south shore chef kauai',
   ],
 } as const;
 
