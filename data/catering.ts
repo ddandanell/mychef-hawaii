@@ -2,15 +2,17 @@ import type { IslandId } from './islands';
 import { SEARCH_VOLUMES } from './offers';
 import type { PhotoKey } from './photos';
 
-/** DataForSEO Google Ads US — 2 Sep 2026. Do not invent. Catering > chef on Oʻahu and Maui. */
+/** DataForSEO Google Ads US — 4 Sep 2026. Do not invent. Catering > chef on Oʻahu and Maui. */
 export const CATERING_VOLUMES = {
   'oahu catering': 720,
   'maui catering': 480,
   'kauai catering': 210,
   'hawaii catering': 210,
   'wedding catering oahu': 140,
+  'big island catering': 50,
   'wedding catering maui': 30,
   'wedding catering hawaii': 30,
+  'kauai wedding catering': 10,
 } as const;
 
 export interface CateringOffer {
@@ -125,8 +127,8 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     ],
   },
   bigisland: {
-    keyword: 'hawaii catering',
-    volume: 70,
+    keyword: 'big island catering',
+    volume: CATERING_VOLUMES['big island catering'],
     h1: 'Big Island catering',
     title: 'Big Island catering — Kona & Kohala from $125/pp | myCHEF',
     description:
