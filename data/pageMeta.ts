@@ -89,6 +89,16 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Published starting prices, service 20% and GET up to 4.712%, 50% deposit. Written quote is the confirmed total.',
   },
+  '/journal': {
+    title: 'The journal, by island | myCHEF Hawaii',
+    description:
+      'Each island department publishes its own journal. The hub does not rank for private chef Maui — that page lives on the Maui host.',
+  },
+  '/blog': {
+    title: 'Guides and notes, by island | myCHEF Hawaii',
+    description:
+      'Each island department publishes its own blog. Statewide Hawaii catering stays on the hub catering page, not this directory.',
+  },
   '/thank-you': {
     title: 'Enquiry received — myCHEF Hawaii',
     description: 'Your enquiry is in. A coordinator replies in Hawaii Standard Time, typically within one business day.',
