@@ -1,0 +1,44 @@
+name: DataForSEO snapshot
+
+# Weekly keyword refresh. Requires repository secrets
+# DATAFORSEO_LOGIN and DATAFORSEO_PASSWORD. Does not commit secrets.
+# Does not auto-commit the snapshot — upload it as an artifact.
+
+on:
+  schedule:
+    - cron: '0 16 * * 1'
+  workflow_dispatch:
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Skip when secrets are not set
+        id: secrets
+        env:
+          DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
+          DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
+        run: |
+          if [ -z "$DATAFORSEO_LOGIN" ] || [ -z "$DATAFORSEO_PASSWORD" ]; then
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "DATAFORSEO_LOGIN / DATAFORSEO_PASSWORD are not set. Skipping."
+          else
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          fi
+      - name: Pull search volumes
+        if: steps.secrets.outputs.ready == 'true'
+        env:
+          DATAFORSEO_LOGIN: ${{ secrets.DATAFORSEO_LOGIN }}
+          DATAFORSEO_PASSWORD: ${{ secrets.DATAFORSEO_PASSWORD }}
+        run: npm run seo:snapshot
+      - name: Upload snapshot
+        if: steps.secrets.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: dataforseo-snapshot
+          path: data/seo/dataforseo-snapshot.json
+          if-no-files-found: error

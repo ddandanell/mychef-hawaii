@@ -148,6 +148,8 @@ const fineSrc = read('data/fineDining.ts');
 const staffSrc = read('data/staffingPages.ts');
 const menuSkuSrc = read('data/menuSkus.ts');
 const helpSrc = read('data/helpArticles.ts');
+const quoteSrc = read('data/islandQuote.ts');
+const pricingDocSrc = read('data/islandPricing.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
 const hoods = neighborhoods(offersSrc);
@@ -166,6 +168,8 @@ const fine = uniqueCellMeta(fineSrc);
 const staff = uniqueCellMeta(staffSrc);
 const menuSkus = uniqueCellMeta(menuSkuSrc);
 const help = uniqueCellMeta(helpSrc);
+const quoteDocs = supportBlocks(quoteSrc, 'islandQuote');
+const pricingDocs = supportBlocks(pricingDocSrc, 'islandPricing');
 
 const errors = [];
 
@@ -184,6 +188,8 @@ if (fine.length < 16) errors.push(`Expected ≥16 fine-dining pages, found ${fin
 if (staff.length < 12) errors.push(`Expected ≥12 staffing pages, found ${staff.length}`);
 if (menuSkus.length < 16) errors.push(`Expected ≥16 menu SKU pages, found ${menuSkus.length}`);
 if (help.length < 20) errors.push(`Expected ≥20 help articles, found ${help.length}`);
+if (quoteDocs.length !== 4) errors.push(`Expected 4 island quote pages, found ${quoteDocs.length}`);
+if (pricingDocs.length !== 4) errors.push(`Expected 4 island pricing pages, found ${pricingDocs.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -227,6 +233,12 @@ errors.push(...dupes(menuSkus.map((h) => files[h.photo] || h.photo), 'menu-sku h
 errors.push(...dupes(help.map((h) => h.title), 'help title'));
 errors.push(...dupes(help.map((h) => h.h1), 'help H1'));
 errors.push(...dupes(help.map((h) => files[h.photo] || h.photo), 'help hero file'));
+errors.push(...dupes(quoteDocs.map((h) => h.title), 'quote title'));
+errors.push(...dupes(quoteDocs.map((h) => h.h1), 'quote H1'));
+errors.push(...dupes(quoteDocs.map((h) => files[h.photo] || h.photo), 'quote hero file'));
+errors.push(...dupes(pricingDocs.map((h) => h.title), 'pricing title'));
+errors.push(...dupes(pricingDocs.map((h) => h.h1), 'pricing H1'));
+errors.push(...dupes(pricingDocs.map((h) => files[h.photo] || h.photo), 'pricing hero file'));
 
 const allTitles = [
   ...hoods.map((h) => h.title),
@@ -245,6 +257,8 @@ const allTitles = [
   ...staff.map((h) => h.title),
   ...menuSkus.map((h) => h.title),
   ...help.map((h) => h.title),
+  ...quoteDocs.map((h) => h.title),
+  ...pricingDocs.map((h) => h.title),
 ];
 errors.push(...dupes(allTitles, 'cross-type title'));
 
@@ -279,7 +293,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -290,7 +304,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -343,5 +357,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing.`,
 );

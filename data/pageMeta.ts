@@ -171,8 +171,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'Published starting prices for Oʻahu: villa chef day rate, signature dinners, mobile bar and weekly household service.',
   },
   '/oahu/quote': {
-    title: 'Get a quote — private chef & catering Oahu | myCHEF',
-    description: 'Five fields, two minutes. Oahu villa dinner or catering. WhatsApp or this form. Typical reply in Hawaii business hours.',
+    title: 'Oahu quote form — corridor, kitchen, written total | myCHEF',
+    description:
+      'Five fields for an Oahu villa dinner or staffed room. Name the corridor and the kitchen. A written quote follows.',
   },
   '/maui/private-chef': {
     title: 'Personal chef Maui villas & vacation rentals | myCHEF',
@@ -218,8 +219,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Maui starting prices: $150–$250 a guest CORE, groceries at cost on Stay Chef, 20% service, GET up to 4.712%. Published, line by line.',
   },
   '/maui/quote': {
-    title: 'Get a quote — private chef & catering Maui | myCHEF',
-    description: 'Five fields, two minutes. Maui villa dinner or catering. WhatsApp or this form. Typical reply in Hawaii business hours.',
+    title: 'Maui quote form — shore, kitchen, written total | myCHEF',
+    description:
+      'Five fields for a Maui villa dinner or staffed room. Name the shore and the kitchen. Saturday West Maui traffic is planned in.',
   },
   '/maui/catering': {
     title: 'Maui Catering | Villa Receptions and Events | myCHEF',
@@ -273,8 +275,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Kauai starting prices $150–$250 a guest. Wedding from $175 a guest plus staffing. Groceries, 20% service, GET — published.',
   },
   '/kauai/quote': {
-    title: 'Get a quote — private chef & catering Kauai | myCHEF',
-    description: 'Five fields, two minutes. Kauai villa dinner or catering. Join the inquiry list.',
+    title: 'Kauai inquiry form — both shores, written reply | myCHEF',
+    description:
+      'Inquiry form for Kauai estate dinners. Name the shore. Hanalei-bridge weather is a clause. We will not fake a live Book-now button.',
   },
   '/bigisland/private-chef': {
     title: 'Personal chef Big Island villas & vacation rentals | myCHEF',
@@ -320,8 +323,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'Published starting prices for Big Island villa chefs, dinners, bar and estate weddings. West side first.',
   },
   '/bigisland/quote': {
-    title: 'Get a quote — private chef & catering Big Island | myCHEF',
-    description: 'Five fields, two minutes. Big Island and Kona villa dinner or catering. WhatsApp or this form.',
+    title: 'Hawaiʻi Island inquiry form — west side, written reply | myCHEF',
+    description:
+      'Inquiry form for west-side Hawaiʻi Island dinners. East side is a different day. We will not fake a live Book-now button.',
   },
 };
 

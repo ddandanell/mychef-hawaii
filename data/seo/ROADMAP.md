@@ -66,16 +66,24 @@ Still no zip on this machine. Wave 7 ships the remaining catalog stand-in that d
 - Unique `/private-chef-cost` on every island host as the fee-stack explainer. Distinct from `/pricing` (“What a night costs…”). Titles never use “private chef {island}”.
 - New Grok stills for every Wave 7 URL.
 
-## Wave 8 — zip execution
+## Wave 8 — unique quote and pricing documents (this branch)
+
+Still no zip on this machine. Wave 8 uniquifies the live conversion URLs that still shared hub copy:
+
+- Unique `/quote` documents on every island host — unique H1, lede, FAQ, Grok still. Distinct from `/help/getting-started`. The five-field form stays. Kauaʻi and Hawaiʻi Island stay inquiry.
+- Unique `/pricing` documents on every island host — unique stills and FAQs around the canonical rate card. Distinct from `/private-chef-cost`. Titles stay “What a night costs on …”.
+- Scheduled `seo:snapshot` GitHub Action (weekly, plus workflow_dispatch). Requires `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` secrets. Uploads the snapshot as an artifact; does not commit secrets.
+
+## Wave 9 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 9 — automation that stays on
+## Wave 10 — automation that stays on
 
 - `seo:audit` in CI (this branch).
-- Scheduled `seo:snapshot` against DataForSEO when credentials are in GitHub Actions secrets (`DATAFORSEO_LOGIN`, `DATAFORSEO_PASSWORD`). Do not commit secrets.
+- Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.
 - Search Console / indexation pass after Wave 1 is on `main`: inspect one corridor URL per island, then the rest.
 - Keep `*.mychef-hawaii.com` attached on the Vercel project so island hosts never 404.
 

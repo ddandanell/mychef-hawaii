@@ -1111,6 +1111,38 @@ export const photos = {
     file: '/photos/svc-cost-bigisland.png',
     alt: `An itemised Hawaiʻi Island fee stack on cream paper on a Kohala lava-stone counter, hard sun.`,
   },
+  quoteOahu: {
+    file: '/photos/quote-oahu.png',
+    alt: `A Kahala kitchen counter with a five-field quote card and brass pen, Diamond Head faint through the sliders.`,
+  },
+  quoteMaui: {
+    file: '/photos/quote-maui.png',
+    alt: `A Wailea kitchen counter with a five-field quote card, Molokini faint beyond the lānai.`,
+  },
+  quoteKauai: {
+    file: '/photos/quote-kauai.png',
+    alt: `A Princeville kitchen counter with an inquiry card, wet glass, misted mountains.`,
+  },
+  quoteBigisland: {
+    file: '/photos/quote-bigisland.png',
+    alt: `A Kona lava-terrace kitchen with an inquiry card on the counter, Mauna Kea faint in hard sun.`,
+  },
+  pricingOahu: {
+    file: '/photos/pricing-oahu.png',
+    alt: `A printed Oahu rate card on a Kahala dining table — dinner bands, brass pen, Diamond Head faint.`,
+  },
+  pricingMaui: {
+    file: '/photos/pricing-maui.png',
+    alt: `A printed Maui rate card on a Wailea lānai table — dinner bands, Pacific beyond.`,
+  },
+  pricingKauai: {
+    file: '/photos/pricing-kauai.png',
+    alt: `A printed Kauai rate card on a Princeville estate table — dinner bands, misted mountains.`,
+  },
+  pricingBigisland: {
+    file: '/photos/pricing-bigisland.png',
+    alt: `A printed west-side rate card on a Kohala lava-stone table — dinner bands, hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

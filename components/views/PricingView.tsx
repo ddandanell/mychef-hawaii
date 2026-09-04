@@ -4,10 +4,15 @@ import { useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import * as Accordion from '@radix-ui/react-accordion';
 import { QuoteCta } from '@/components/Cta';
+import Hero from '@/components/Hero';
+import HostLink from '@/components/HostLink';
+import LineReveal from '@/components/LineReveal';
 import { Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { useIsland } from '@/components/IslandProvider';
 import { hubPricingSections } from '@/data/longformHub';
+import { islandPricing } from '@/data/islandPricing';
+import { photos } from '@/data/photos';
 import { islandOrder, islands, primaryCtaLabel, type IslandId } from '@/data/islands';
 import {
   formatBand,
@@ -64,28 +69,43 @@ export default function PricingView() {
   const day = getDayRate(active);
   const bar = getMobileBar(active);
 
-  const h1 =
-    islandId === 'maui'
-      ? 'What a night costs on Maui.'
-      : islandId === 'kauai'
-        ? 'What a night costs on Kauaʻi.'
-        : islandId === 'bigisland'
-          ? 'What a night costs on the Big Island.'
-          : islandId === 'oahu'
-            ? 'What a night costs on Oahu.'
-            : 'What a night costs.';
+  const copy = islandId ? islandPricing[islandId] : null;
+  const photo = copy ? photos[copy.photo] : null;
+  const h1 = copy?.h1 ?? 'What a night costs.';
+  const lede =
+    copy?.lede ??
+    'USD. Line by line. The written quote is the confirmed total — never a verbal range in a chat window.';
+  const questions = copy?.faqs ?? faqs;
 
   return (
     <>
+      {copy && photo ? (
+        <Hero src={photo.file} alt={photo.alt}>
+          <p className="text-[13px] text-mute">{copy.kicker}</p>
+          <LineReveal
+            text={copy.h1}
+            className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+          />
+          <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+          <div className="mt-8">
+            <QuoteCta island={islandId} />
+          </div>
+        </Hero>
+      ) : (
+        <section className="bg-paper py-20 lg:py-28">
+          <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+            <p className="text-[12px] text-mute">Published starting prices</p>
+            <h1 className="mt-4 max-w-[18ch] font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-ink">
+              {h1}
+            </h1>
+            <p className="mt-6 max-w-[62ch] text-[17px] leading-[1.65] text-mute">{lede}</p>
+          </div>
+        </section>
+      )}
+
       <section className="bg-paper py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <p className="text-[12px] text-mute">Published starting prices</p>
-          <h1 className="mt-4 max-w-[18ch] font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-ink">
-            {h1}
-          </h1>
-          <p className="mt-6 max-w-[62ch] text-[17px] leading-[1.65] text-mute">
-            USD. Line by line. The written quote is the confirmed total — never a verbal range in a chat window.
-          </p>
           {!islandId ? (
             <div className="mt-8 flex flex-wrap gap-2">
               {islandOrder.map((id) => (
@@ -147,17 +167,30 @@ export default function PricingView() {
             ))}
           </ul>
 
-          <div className="mt-10">
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
             <QuoteCta island={islandId ?? active} />
+            {islandId ? (
+              <HostLink
+                island={islandId}
+                path="/private-chef-cost"
+                className="text-ink underline underline-offset-4"
+              >
+                How the fee stack prints
+              </HostLink>
+            ) : null}
           </div>
         </div>
       </section>
-      <Longform sections={hubPricingSections} />
+      {copy ? (
+        <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      ) : (
+        <Longform sections={hubPricingSections} />
+      )}
       <section className="border-t border-line bg-paper py-20">
         <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-5 lg:px-10">
           <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink lg:col-span-2">Questions</h2>
           <Accordion.Root type="single" collapsible className="lg:col-span-3">
-            {faqs.map((f, i) => (
+            {questions.map((f, i) => (
               <Accordion.Item key={f.q} value={`p-${i}`} className="border-b border-line">
                 <Accordion.Header>
                   <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left">

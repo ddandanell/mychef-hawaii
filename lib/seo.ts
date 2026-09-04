@@ -19,6 +19,8 @@ import { getFineDiningPage, fineDiningPages } from '@/data/fineDining';
 import { getStaffingPage, staffingPages } from '@/data/staffingPages';
 import { getMenuSkuPage, menuSkuPages } from '@/data/menuSkus';
 import { getHelpArticle, helpArticles } from '@/data/helpArticles';
+import { islandQuote } from '@/data/islandQuote';
+import { islandPricing } from '@/data/islandPricing';
 import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
@@ -109,6 +111,8 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
       } as const;
       return `${origin}${photos[key[islandId]].file}`;
     }
+    if (localPath === '/quote') return `${origin}${photos[islandQuote[islandId].photo].file}`;
+    if (localPath === '/pricing') return `${origin}${photos[islandPricing[islandId].photo].file}`;
   }
   if (!islandId) return `${origin}${photos.hubHero.file}`;
   return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;
@@ -276,6 +280,12 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (localPath === '/about') {
       title = islandAbout[islandId].title;
       description = islandAbout[islandId].description;
+    } else if (islandQuote[islandId] && localPath === '/quote') {
+      title = islandQuote[islandId].title;
+      description = islandQuote[islandId].description;
+    } else if (islandPricing[islandId] && localPath === '/pricing') {
+      title = islandPricing[islandId].title;
+      description = islandPricing[islandId].description;
     } else if (getIslandSupport(islandId, localPath)) {
       const support = getIslandSupport(islandId, localPath)!;
       title = support.title;
