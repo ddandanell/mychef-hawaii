@@ -671,6 +671,14 @@ Still no zip on this machine. Wave 77 gives hub `/services` related-document pho
 - Titles stay off `mobile bar hawaii` and `personal chef honolulu`. Island service lists stay on the island host.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
 
+## Wave 78 — hub /corporate and /gatherings related doors (this branch)
+
+Still no zip on this machine. Wave 78 gives hub `/corporate` and `/gatherings` related-document photography after the island picker. Nested occasion SKUs stay the page’s job. Island `/corporate` and `/gatherings` already open their host lists.
+
+- Hub `/corporate` keeps villa retreats, crew catering, and board dinners, then opens `/catering`, `/events`, `/staffing`, and `/quote`.
+- Hub `/gatherings` keeps birthdays, rehearsal dinners, and family villa weeks, then opens `/catering`, `/weddings` (“Wedding week”), `/events`, and `/quote`. The lede already names `/weddings`; that URL now opens from photography.
+- Titles stay off `hawaii catering` and `wedding catering hawaii`. Island nested indexes stay SKU lists. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

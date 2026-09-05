@@ -473,6 +473,71 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
         heading={kind === 'gatherings' ? 'Open the island gatherings document.' : 'Open the island offsite document.'}
         detailOf={() => (kind === 'gatherings' ? 'House gatherings' : 'Villa offsites')}
       />
+      <HubPhotoGrid
+        eyebrow={kind === 'gatherings' ? 'Beside these house gatherings' : 'Beside these villa offsites'}
+        heading="Open a related document."
+        intro={
+          kind === 'gatherings'
+            ? 'This page is the statewide gatherings list. Catering, wedding weeks, occasions, and the form are their own URLs. Island gatherings stay on the island host.'
+            : 'This page is the statewide offsite list. Catering, occasions, staffing add-ons, and the form are their own URLs. Island offsite lists stay on the island host.'
+        }
+        columns={2}
+        items={
+          kind === 'gatherings'
+            ? [
+                {
+                  href: '/catering',
+                  title: 'Villa catering',
+                  body: 'The larger staffed room. Distinct from a birthday or family villa week.',
+                  still: photos.cateringHero,
+                },
+                {
+                  href: '/weddings',
+                  title: 'Wedding week',
+                  body: 'Welcome dinner to recovery brunch. Distinct from a rehearsal dinner as its own line.',
+                  still: photos.weddingHero,
+                },
+                {
+                  href: '/events',
+                  title: 'Villa occasions',
+                  body: 'The occasion picker. Distinct from this gatherings list.',
+                  still: photos.hubEvents,
+                },
+                {
+                  href: '/quote',
+                  title: 'The quote form',
+                  body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+                  still: photos.quoteHub,
+                },
+              ]
+            : [
+                {
+                  href: '/catering',
+                  title: 'Villa catering',
+                  body: 'The larger staffed room. Distinct from a villa offsite or crew catering SKU.',
+                  still: photos.cateringHero,
+                },
+                {
+                  href: '/events',
+                  title: 'Villa occasions',
+                  body: 'The occasion picker. Distinct from this offsite list.',
+                  still: photos.hubEvents,
+                },
+                {
+                  href: '/staffing',
+                  title: 'Staffing add-ons',
+                  body: 'Hourly servers, bartenders, quoted butlers. Distinct from the offsite door.',
+                  still: photos.hubStaff,
+                },
+                {
+                  href: '/quote',
+                  title: 'The quote form',
+                  body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+                  still: photos.quoteHub,
+                },
+              ]
+        }
+      />
       <QuoteTeaser />
     </>
   );
