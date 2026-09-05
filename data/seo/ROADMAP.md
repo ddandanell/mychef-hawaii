@@ -556,6 +556,14 @@ Still no zip on this machine. Wave 62 gives island `/contact` the same related-d
 - Island `/contact` opens `/quote`, `/help/getting-started`, `/how-it-works`, and `/faq` on existing stills. The desk copy stays. Hub `/contact` stays the four-island picker.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 63 — hub and island /quote related doors (this branch)
+
+Still no zip on this machine. Wave 63 gives `/quote` the same related-document photography as `/contact`, without turning the form into tiles:
+
+- Hub `/quote` opens `/contact`, `/pricing`, `/how-it-works`, and `/faq` on existing stills. Island forms stay on the island host.
+- Island `/quote` opens `/contact`, `/pricing`, `/how-it-works`, and `/help/getting-started` on island stills. Distinct from `/contact` (the desk). The five-field form and TypePanel stay. SiblingCluster stays paper.
+- Coverage/locations honesty lists stay paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
