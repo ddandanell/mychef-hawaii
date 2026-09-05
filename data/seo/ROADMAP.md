@@ -1069,6 +1069,12 @@ Still no zip on this machine. Wave 136 gives hub `/mobile-bar` visible FAQs and 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 137 — site header Bar points at /mobile-bar (this branch)
+
+Still no zip on this machine. Wave 137 sends header **Bar** to `/mobile-bar`, the `mobile bar hawaii` owner — the same ownership rule as header **Private chef** → `/`. `/bar` stays the bartender add-on. The label stays **Bar**, not the money phrase. Hub `/services` Bar door and quote-form TypePanel stay. `seo:audit` fails if the header still points Bar at `/bar`. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

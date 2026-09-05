@@ -107,7 +107,7 @@ export default function SiteHeader() {
               <HostLink island={islandId} path="/weddings" className={linkCls}>
                 Weddings
               </HostLink>
-              <HostLink island={islandId} path="/bar" className={linkCls}>
+              <HostLink island={islandId} path="/mobile-bar" className={linkCls}>
                 Bar
               </HostLink>
               <NavMenu label="Areas" items={areaItems(islandId)} />
@@ -135,7 +135,7 @@ export default function SiteHeader() {
               <HostLink island="root" path="/weddings" className={linkCls}>
                 Weddings
               </HostLink>
-              <HostLink island="root" path="/bar" className={linkCls}>
+              <HostLink island="root" path="/mobile-bar" className={linkCls}>
                 Bar
               </HostLink>
               <NavMenu label="Guide" items={HUB_GUIDE_ITEMS} />
@@ -202,7 +202,7 @@ export default function SiteHeader() {
                   </HostLink>
                   <HostLink
                     island={islandId}
-                    path="/bar"
+                    path="/mobile-bar"
                     className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
                   >
                     Bar
@@ -257,7 +257,7 @@ export default function SiteHeader() {
                   </HostLink>
                   <HostLink
                     island="root"
-                    path="/bar"
+                    path="/mobile-bar"
                     className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
                   >
                     Bar

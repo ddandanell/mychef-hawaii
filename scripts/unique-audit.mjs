@@ -1239,6 +1239,12 @@ const headerSrc = read('components/SiteHeader.tsx');
 if (/path="\/private-chef"[\s\S]{0,240}Private chef/.test(headerSrc)) {
   errors.push('site header still sends Private chef to /private-chef');
 }
+if (/path="\/bar"[\s\S]{0,240}Bar/.test(headerSrc)) {
+  errors.push('site header still sends Bar to /bar');
+}
+if (!/path="\/mobile-bar"[\s\S]{0,240}Bar/.test(headerSrc)) {
+  errors.push('site header Bar no longer points at /mobile-bar');
+}
 
 for (const key of [
   'vacationOahu',
