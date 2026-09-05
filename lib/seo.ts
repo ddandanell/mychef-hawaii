@@ -117,6 +117,8 @@ const ISLAND_RATE_JSONLD = new Set([
 
 const HUB_RATE_JSONLD = new Set(['/', '/pricing', '/services', '/mobile-bar', '/weddings']);
 
+const LOCAL_BUSINESS_JSONLD = new Set(['/', '/about', '/contact']);
+
 function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
   const ids: IslandId[] = islandId ? [islandId] : ['oahu', 'maui', 'kauai', 'bigisland'];
   const items = ids.flatMap((id) => {
@@ -435,7 +437,9 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     },
   ];
 
-  jsonLd.push(localBusinessJsonLd(islandId, origin || `https://${PRODUCTION_ROOT}`));
+  if (LOCAL_BUSINESS_JSONLD.has(localPath)) {
+    jsonLd.push(localBusinessJsonLd(islandId, origin || `https://${PRODUCTION_ROOT}`));
+  }
 
   const priced = islandId ? ISLAND_RATE_JSONLD.has(localPath) : HUB_RATE_JSONLD.has(path);
   if (priced) {

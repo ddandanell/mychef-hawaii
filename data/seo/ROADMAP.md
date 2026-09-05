@@ -931,6 +931,12 @@ Still no zip on this machine. Wave 113 stops spraying the four-offer catalog ont
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 114 — LocalBusiness JSON-LD stays on identity pages (this branch)
+
+Still no zip on this machine. Wave 114 stops stamping `LocalBusiness` with `serviceType: Private chef` onto every unique URL. Organization and WebPage JSON-LD stay on every document. LocalBusiness stays on `/`, `/about`, and `/contact` — the identity pages — so island homes keep `private chef {island}` and blogs, menus, and honesty cells do not. `seo:audit` fails if the unconditional stamp returns. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

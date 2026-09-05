@@ -983,6 +983,12 @@ if (/HUB_RATE_JSONLD[\s\S]{0,250}'\/corporate'/.test(seoSrc) || /HUB_RATE_JSONLD
 if (/ISLAND_RATE_JSONLD[\s\S]{0,400}'\/bar'/.test(seoSrc) || /HUB_RATE_JSONLD[\s\S]{0,250}'\/bar'/.test(seoSrc)) {
   errors.push('JSON-LD OfferCatalog still treats /bar as the packaged-cart product');
 }
+if (!/LOCAL_BUSINESS_JSONLD/.test(seoSrc)) {
+  errors.push('LocalBusiness JSON-LD must use an identity-page allow list');
+}
+if (/jsonLd\.push\(localBusinessJsonLd/.test(seoSrc) && !/LOCAL_BUSINESS_JSONLD\.has\(localPath\)/.test(seoSrc)) {
+  errors.push('LocalBusiness JSON-LD still stamps every unique URL');
+}
 
 const hubStealSrc = [
   'components/views/OfferViews.tsx',
