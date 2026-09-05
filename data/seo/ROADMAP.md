@@ -595,6 +595,14 @@ Still no zip on this machine. Wave 67 gives `/private-chef` related-document pho
 - Island `/private-chef` opens the same four paths on island stills. Distinct from `/personal-chef` (household week) and `/vacation-chef` (Stay Chef). SiblingCluster stays paper.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 68 — hub and island /weddings related doors (this branch)
+
+Still no zip on this machine. Wave 68 gives `/weddings` related-document photography without turning the island bleed stills or the wedding-catering titles into tiles:
+
+- Hub `/weddings` keeps the four-island bleed stills, then opens `/catering`, `/events`, `/quote`, and `/mobile-bar` on existing stills.
+- Island `/weddings` opens the same four paths on island stills. Distinct from `/catering` (the larger room) and `/events` (occasions). SiblingCluster stays paper.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

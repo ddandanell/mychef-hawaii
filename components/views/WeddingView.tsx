@@ -1,14 +1,17 @@
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Hero from '@/components/Hero';
+import HubPhotoGrid from '@/components/HubPhotoGrid';
 import Photo from '@/components/Photo';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaser from '@/components/QuoteTeaser';
+import { getHubDirectory } from '@/data/hubDirectories';
 import { hubWeddingsFaqs, hubWeddingsSections } from '@/data/longformHub';
 import { weddingLongform } from '@/data/longformWeddings';
-import type { IslandId } from '@/data/islands';
+import { islands, type IslandId } from '@/data/islands';
 import { photos } from '@/data/photos';
 import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { islandHref } from '@/lib/paths';
@@ -78,6 +81,7 @@ const ISLAND_COPY: Record<
 };
 
 export function HubWeddingsView() {
+  const events = getHubDirectory('/events');
   return (
     <>
       <JsonLd
@@ -136,6 +140,38 @@ export function HubWeddingsView() {
       </section>
 
       <Longform sections={hubWeddingsSections} />
+      <HubPhotoGrid
+        eyebrow="Beside this wedding week"
+        heading="Open a related document."
+        intro="This page is the four-island picker for wedding weeks. Catering, occasions, the form, and the packaged cart are their own URLs."
+        columns={2}
+        items={[
+          {
+            href: '/catering',
+            title: 'Villa catering',
+            body: 'The larger staffed room. Distinct from the wedding-week stack.',
+            still: photos.cateringHero,
+          },
+          {
+            href: '/events',
+            title: events?.cardLabel ?? 'Occasions',
+            body: events?.lede ?? 'Occasion documents live on the island host. This page is the picker.',
+            still: photos.hubEvents,
+          },
+          {
+            href: '/quote',
+            title: 'The quote form',
+            body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+            still: photos.quoteHub,
+          },
+          {
+            href: '/mobile-bar',
+            title: 'The packaged cart',
+            body: 'The four-hour villa package. Distinct from the bartender add-on on /bar. Hub /mobile-bar holds the statewide title.',
+            still: photos.hubMobileBar,
+          },
+        ]}
+      />
       <SiblingCluster current="weddings" />
       <LongFaq items={hubWeddingsFaqs} />
       <QuoteTeaser headline="Tell us the island, the dates, the headcount." />
@@ -162,6 +198,19 @@ export function IslandWeddingView({ islandId, hostMode }: { islandId: IslandId; 
         </div>
       </Hero>
       <Longform sections={long.sections} />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].shortName} · Beside this wedding week`}
+        heading="Open a related document."
+        intro="This URL is the wedding-week stack. Catering, occasions, the form, and the packaged cart are their own URLs."
+        columns={2}
+        items={[
+          { path: '/catering', label: 'Villa catering', detail: '/catering' },
+          { path: '/events', label: 'Occasions', detail: '/events' },
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/mobile-bar', label: 'Mobile bar package', detail: '/mobile-bar' },
+        ]}
+      />
       <SiblingCluster island={islandId} current="weddings" href={href} />
       <LongFaq items={long.faqs} />
       <QuoteTeaser headline="Tell us the dates and the headcount." island={islandId} />
