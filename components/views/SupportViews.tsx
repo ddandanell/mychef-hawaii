@@ -348,6 +348,7 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
 
 export function HubAreasView() {
   const still = photos.hubAreas;
+  const locations = getHubDirectory('/locations');
   return (
     <>
       <Hero src={still.file} alt={still.alt}>
@@ -361,6 +362,26 @@ export function HubAreasView() {
           corridors plus the rest of the named places. /islands is the island picker, not this page.
         </p>
       </Hero>
+      <HubPhotoGrid
+        eyebrow="Statewide geography"
+        heading="Open a geography document."
+        intro="/locations is the corridor picker. /islands is the host picker. This page stays the map-notes directory."
+        columns={2}
+        items={[
+          {
+            href: '/locations',
+            title: locations?.cardLabel ?? 'Live dinner doors',
+            body: locations?.lede ?? 'Named towns are live URLs on the island host.',
+            still: locations ? photos[locations.photo] : still,
+          },
+          {
+            href: '/islands',
+            title: 'Four island hosts',
+            body: 'Each island is its own host — its own chefs, zones and pricing. This is not the map-notes page.',
+            still: photos.hubIslands,
+          },
+        ]}
+      />
       <IslandPhotoPicker path="/areas" heading="Open the island map notes." detailOf={() => 'Map notes'} />
     </>
   );
@@ -468,6 +489,26 @@ export function IslandsView() {
         </p>
       </Hero>
       <IslandBleedRows />
+      <HubPhotoGrid
+        eyebrow="Statewide geography"
+        heading="Open a geography document."
+        intro="/locations is the corridor picker. /areas is the map-notes directory. This page stays the host picker."
+        columns={2}
+        items={[
+          {
+            href: '/locations',
+            title: 'Live dinner doors',
+            body: 'Named towns are live URLs on the island host. The hub page is the corridor picker.',
+            still: photos.hubLocations,
+          },
+          {
+            href: '/areas',
+            title: 'Map notes',
+            body: 'Corridors plus the rest of the named places. Not the live dinner-door list.',
+            still: photos.hubAreas,
+          },
+        ]}
+      />
       <IslandPhotoPicker
         path="/islands"
         heading="Open the other-islands list."

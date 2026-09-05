@@ -14,13 +14,20 @@ export default function HubPhotoGrid({
   heading: string;
   intro?: string;
   items: { href: string; title: string; body: string; still: { file: string; alt: string } }[];
-  columns?: 3 | 4;
+  columns?: 2 | 3 | 4;
 }) {
-  const grid = columns === 4 ? 'sm:grid-cols-2 xl:grid-cols-4' : 'sm:grid-cols-2 xl:grid-cols-3';
+  const grid =
+    columns === 2
+      ? 'sm:grid-cols-2'
+      : columns === 4
+        ? 'sm:grid-cols-2 xl:grid-cols-4'
+        : 'sm:grid-cols-2 xl:grid-cols-3';
   const sizes =
-    columns === 4
-      ? '(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw'
-      : '(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw';
+    columns === 2
+      ? '(min-width: 640px) 50vw, 100vw'
+      : columns === 4
+        ? '(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw'
+        : '(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw';
   return (
     <section className="bg-paper py-24 lg:py-32">
       <div className="mx-auto w-full max-w-spread px-5 lg:px-10">

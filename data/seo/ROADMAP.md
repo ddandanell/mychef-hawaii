@@ -480,6 +480,14 @@ Still no zip on this machine. Wave 53 lifts leftover paper SKU and help lists on
 - Island `/how-it-works` opens the help articles and `/private-chef-cost` from photography. Process steps stay paper.
 - Coverage/locations stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 54 — hub /areas and /islands geography doors (this branch)
+
+Still no zip on this machine. Wave 54 gives hub geography indexes the same pair as island `/islands`:
+
+- Hub `/areas` opens `/locations` and `/islands` from existing stills, then the island map-notes picker.
+- Hub `/islands` opens `/locations` and `/areas` from existing stills after the host bleed rows.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
