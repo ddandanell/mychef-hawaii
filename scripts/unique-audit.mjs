@@ -786,6 +786,31 @@ if (/title = catalog\.title/.test(seoSrc) || /else if \(catalog\)/.test(seoSrc))
 if (/Private chef \$\{area\.name\}/.test(seoSrc)) {
   errors.push('area fallback titles still use Private chef {area}');
 }
+if (/\/private-chef': photos\.chefMaui/.test(seoSrc) || /\/vacation-chef': photos\.vacationMaui/.test(seoSrc)) {
+  errors.push('hub OG still steals Maui island stills for /private-chef or /vacation-chef');
+}
+if (!/\/private-chef': photos\.hubChef/.test(seoSrc) || !/\/vacation-chef': photos\.hubVacation/.test(seoSrc)) {
+  errors.push('hub OG must use hubChef / hubVacation for /private-chef and /vacation-chef');
+}
+
+const hubStealSrc = [
+  'components/views/OfferViews.tsx',
+  'components/views/HomeView.tsx',
+  'components/views/SupportViews.tsx',
+  'components/views/BarView.tsx',
+  'app/personal-chef/page.tsx',
+]
+  .map(read)
+  .join('\n');
+if (/img: photos\.chefMaui/.test(hubStealSrc) || /img: photos\.vacationMaui/.test(hubStealSrc)) {
+  errors.push('hub /private-chef or /vacation-chef hero still uses a Maui island still');
+}
+if (/src=\{photos\.chefMaui\.file\}/.test(hubStealSrc)) {
+  errors.push('hub home private-chef card still uses the Maui island still');
+}
+if (/still: photos\.chefMaui/.test(hubStealSrc) || /still: photos\.vacationMaui/.test(hubStealSrc)) {
+  errors.push('hub related doors still steal Maui island stills for /private-chef or /vacation-chef');
+}
 
 for (const key of [
   'vacationOahu',
@@ -796,6 +821,8 @@ for (const key of [
   'chefMaui',
   'chefKauai',
   'chefBigisland',
+  'hubChef',
+  'hubVacation',
   'mobileBarOahu',
   'mobileBarMaui',
   'mobileBarKauai',

@@ -80,8 +80,8 @@ export default function HomeView() {
               <MaskReveal>
                 <div className="relative min-h-[52vh] overflow-hidden lg:min-h-[64vh]">
                   <Photo
-                    src={photos.chefMaui.file}
-                    alt={photos.chefMaui.alt}
+                    src={photos.hubChef.file}
+                    alt={photos.hubChef.alt}
                     fill
                     sizes="(min-width: 1024px) 50vw, 100vw"
                     className="transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.03] motion-reduce:transform-none"

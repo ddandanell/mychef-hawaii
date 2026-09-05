@@ -91,14 +91,14 @@ export function HubOfferView({ kind }: { kind: 'private-chef' | 'vacation-chef' 
       ? {
           h1: 'Visitor dinners in Hawaii villas.',
           lede: 'Open the island document. Oʻahu from $125 a guest, Maui and Kauaʻi from $150 a guest. Weekly household cooking lives on each island /personal-chef.',
-          img: photos.chefMaui,
+          img: photos.hubChef,
           service: 'private-chef',
           path: '/private-chef' as const,
         }
       : {
           h1: 'Vacation chef — a chef for the villa week',
           lede: 'Stay Chef day rates from $850 Oʻahu / $1,050 Maui / $1,100 Kauaʻi / $950 Hawaiʻi Island. Groceries at cost.',
-          img: photos.vacationMaui,
+          img: photos.hubVacation,
           service: 'vacation-chef',
           path: '/vacation-chef' as const,
         };
@@ -166,7 +166,7 @@ export function HubOfferView({ kind }: { kind: 'private-chef' | 'vacation-chef' 
               href: '/vacation-chef',
               title: 'Stay Chef week',
               body: 'A chef for the villa week. Groceries at cost. Distinct from one visitor dinner.',
-              still: photos.vacationMaui,
+              still: photos.hubVacation,
             },
             {
               href: '/quote',
@@ -193,7 +193,7 @@ export function HubOfferView({ kind }: { kind: 'private-chef' | 'vacation-chef' 
               href: '/private-chef',
               title: 'Visitor dinner',
               body: 'One night in the house. Distinct from the villa week.',
-              still: photos.chefMaui,
+              still: photos.hubChef,
             },
             {
               href: '/personal-chef',

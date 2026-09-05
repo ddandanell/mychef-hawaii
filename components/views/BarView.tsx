@@ -137,7 +137,7 @@ export function HubBarView() {
             href: '/private-chef',
             title: 'Visitor dinner',
             body: 'One night in the house. Stack the terrace hour or book dinner alone.',
-            still: photos.chefMaui,
+            still: photos.hubChef,
           },
           {
             href: '/quote',
@@ -223,7 +223,7 @@ export function HubMobileBarView() {
             href: '/private-chef',
             title: 'Visitor dinner',
             body: 'One night in the house. Stack the cart or book dinner alone.',
-            still: photos.chefMaui,
+            still: photos.hubChef,
           },
           {
             href: '/quote',

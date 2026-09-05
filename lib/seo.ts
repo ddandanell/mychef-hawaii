@@ -90,8 +90,8 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
       '/journal': photos.hubJournal,
       '/blog': photos.hubBlog,
       '/islands': photos.hubIslands,
-      '/private-chef': photos.chefMaui,
-      '/vacation-chef': photos.vacationMaui,
+      '/private-chef': photos.hubChef,
+      '/vacation-chef': photos.hubVacation,
       '/pricing': photos.hubPricing,
     };
     const still = hubStill[localPath];

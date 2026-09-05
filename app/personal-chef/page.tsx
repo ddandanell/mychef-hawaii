@@ -20,13 +20,13 @@ export default function Page() {
               href: '/private-chef',
               title: 'Visitor dinner',
               body: 'One night in the house. Distinct from the resident household line.',
-              still: photos.chefMaui,
+              still: photos.hubChef,
             },
             {
               href: '/vacation-chef',
               title: 'Stay Chef week',
               body: 'A chef for the villa week. Distinct from school-night households.',
-              still: photos.vacationMaui,
+              still: photos.hubVacation,
             },
             {
               href: '/quote',

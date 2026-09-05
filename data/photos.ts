@@ -283,6 +283,14 @@ export const photos = {
     file: '/photos/heroes/hero-chef-bigisland.png',
     alt: `A personal chef searing fish in a Kona villa kitchen, coffee slopes and dry lava beyond the window.`,
   },
+  hubChef: {
+    file: '/photos/heroes/hero-hub-private-chef.png',
+    alt: `A private chef plating seared fish in a Hawaiian villa kitchen at blue hour — charcoal jacket, volcanic-stone island, Pacific lawn beyond. No island landmark.`,
+  },
+  hubVacation: {
+    file: '/photos/heroes/hero-hub-vacation-chef.png',
+    alt: `A vacation chef stocking a villa fridge for the week — paper-wrapped fish, citrus, bottled water, papaya on the board, pool beyond. No island landmark.`,
+  },
   mobileBarOahu: {
     file: '/photos/heroes/hero-mobilebar-oahu.png',
     alt: `A 4-hour mobile bar cart on a Kahala lānai at dusk — ice, citrus, coupe glasses, bartender building a round.`,

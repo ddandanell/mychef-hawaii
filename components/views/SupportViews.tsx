@@ -1314,7 +1314,7 @@ export function ServicesView() {
             href: '/private-chef',
             title: 'Private chef',
             body: 'A dinner in the villa. Shop, cook, serve, clean.',
-            still: photos.chefMaui,
+            still: photos.hubChef,
           },
           {
             href: '/catering',
@@ -1347,7 +1347,7 @@ export function ServicesView() {
             href: '/vacation-chef',
             title: 'Stay Chef week',
             body: 'A chef for the villa week. Distinct from one dinner and from school-night households.',
-            still: photos.vacationMaui,
+            still: photos.hubVacation,
           },
           {
             href: '/mobile-bar',

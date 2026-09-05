@@ -816,6 +816,14 @@ Still no zip on this machine. Wave 95 removes the `getCatalog` title fallback fr
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 96 — hub visitor-dinner and Stay Chef stills stop stealing Maui (this branch)
+
+Still no zip on this machine. Wave 96 gives hub `/private-chef` and `/vacation-chef` their own Grok stills. Those hub documents no longer reuse Maui `chefMaui` / `vacationMaui`. Maui `/private-chef` and `/vacation-chef` keep the Wailea stills. No new URLs. No JPEG remaps. No new related-door grids — existing hub doors into those URLs now use the destination stills.
+
+- Hub home private-chef card, hub `/services`, `/bar`, `/mobile-bar`, `/personal-chef` related doors, and OG images follow the new hub stills.
+- `seo:audit` fails if hub OG or hub heroes fall back to Maui island stills.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
