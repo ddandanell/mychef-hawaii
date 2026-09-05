@@ -35,11 +35,11 @@ export const islandGatherings: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Same as /events?',
-        a: 'That page is the occasion index. This page is the house-gathering list beside it.',
+        a: 'That page is the occasion index. This page is the Oahu house-gathering list beside it.',
       },
       {
         q: 'Same as /blog/family-reunions?',
-        a: 'That note is the reunion essay. This page is the gathering directory.',
+        a: 'That note is the reunion essay. This page is the Oahu gathering directory.',
       },
     ],
   },
@@ -63,7 +63,7 @@ export const islandGatherings: Record<IslandId, IslandNestedIndexPage> = {
       },
       {
         q: 'Same as /blog/family-reunions?',
-        a: 'That note is the reunion essay. This page is the gathering directory.',
+        a: 'That note is the reunion essay. This page is the Maui gathering directory.',
       },
     ],
   },
@@ -83,11 +83,11 @@ export const islandGatherings: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Are you live?',
-        a: 'Inquiry. Send the dates on /quote. We write back when we can staff.',
+        a: 'Inquiry. House gatherings exist when we can staff. Send the dates on /quote.',
       },
       {
         q: 'Same as /events?',
-        a: 'That page is the occasion index. This page is the house-gathering list beside it.',
+        a: 'That page is the occasion index. This page is the Kauai house-gathering list beside it.',
       },
     ],
   },
@@ -107,7 +107,7 @@ export const islandGatherings: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Does this cover Hilo?',
-        a: 'No. Open /east-side. It is a different chef day.',
+        a: 'No. These are west-side house gatherings — Kona to Kohala. Hilo is a dedicated east-side day on /east-side.',
       },
       {
         q: 'Same as /events?',

@@ -531,6 +531,34 @@ if (/h2: 'Private chef Hawaii cost'/.test(longHubSrc)) {
   errors.push('hub /pricing H2 still steals private chef hawaii from hub home');
 }
 
+const nestedIndexSrc = [
+  'data/islandFineDiningIndex.ts',
+  'data/islandGatherings.ts',
+  'data/islandCorporate.ts',
+  'data/islandStaffingIndex.ts',
+  'data/islandHelpIndex.ts',
+  'data/islandServiceIndex.ts',
+]
+  .map(read)
+  .join('\n');
+if (/No\. Open \/east-side\. It is a different chef day\./.test(nestedIndexSrc)) {
+  errors.push('nested-index FAQs still clone the Hilo east-side chef-day answer');
+}
+if (
+  /\/bar is the bartender product\. \/staffing\/bartenders is the hourly line\. This page lists both kinds of add-on\.'/.test(
+    nestedIndexSrc,
+  )
+) {
+  errors.push('staffing indexes still clone the Same as /bar answer across islands');
+}
+if (
+  /FAQ is the question list\. This page is the first-booking documents beside it\.'/.test(
+    nestedIndexSrc,
+  )
+) {
+  errors.push('help indexes still clone the Same as /faq answer across islands');
+}
+
 const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
   errors.push('location fallback titles still use private chef');

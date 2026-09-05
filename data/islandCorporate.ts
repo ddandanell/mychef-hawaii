@@ -106,7 +106,7 @@ export const islandCorporate: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Does this cover Hilo?',
-        a: 'No. Open /east-side. It is a different chef day.',
+        a: 'No. These are west-side villa offsites — Kona to Kohala. Hilo is a dedicated east-side day on /east-side.',
       },
       {
         q: 'Same as /corporate-catering?',

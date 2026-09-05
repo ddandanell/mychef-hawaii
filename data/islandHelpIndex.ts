@@ -35,11 +35,11 @@ export const islandHelpIndex: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Same as /faq?',
-        a: 'FAQ is the question list. This page is the first-booking documents beside it.',
+        a: 'FAQ is the question list. This page is the first-booking documents beside it — getting started names the corridor.',
       },
       {
         q: 'Same as /quote?',
-        a: 'The form is /quote. These pages tell you what to send, then what happens after.',
+        a: 'The form is /quote. These Oahu pages tell you what to send, then what happens after.',
       },
     ],
   },
@@ -59,11 +59,11 @@ export const islandHelpIndex: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Same as /faq?',
-        a: 'FAQ is the question list. This page is the first-booking documents beside it.',
+        a: 'FAQ is the question list. This page is the first-booking documents beside it — getting started names the shore.',
       },
       {
         q: 'Same as /quote?',
-        a: 'The form is /quote. These pages tell you what to send, then what happens after.',
+        a: 'The form is /quote. These Maui pages tell you what to send, then what happens after.',
       },
     ],
   },
@@ -87,7 +87,7 @@ export const islandHelpIndex: Record<IslandId, IslandNestedIndexPage> = {
       },
       {
         q: 'Same as /faq?',
-        a: 'FAQ is the question list. This page is the first-inquiry documents beside it.',
+        a: 'FAQ is the question list. This page is the first-inquiry documents beside it — both shores, not a confirmation.',
       },
     ],
   },
@@ -107,11 +107,11 @@ export const islandHelpIndex: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Does this cover Hilo?',
-        a: 'No. Open /east-side. It is a different chef day.',
+        a: 'No. These are west-side first-inquiry documents — Kona to Kohala. Hilo is a dedicated east-side day on /east-side.',
       },
       {
         q: 'Same as /faq?',
-        a: 'FAQ is the question list. This page is the first-inquiry documents beside it.',
+        a: 'FAQ is the question list. This page is the first-inquiry documents beside it — west-side desk, Hilo never implied.',
       },
     ],
   },

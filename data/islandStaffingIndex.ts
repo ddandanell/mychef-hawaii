@@ -25,11 +25,11 @@ export const islandStaffingIndex: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Same as /bar?',
-        a: '/bar is the bartender product. /staffing/bartenders is the hourly line. This page lists both kinds of add-on.',
+        a: '/bar is the bartender product. /staffing/bartenders is the hourly line. This page lists both kinds of add-on — Gold Coast host.',
       },
       {
         q: 'Are butlers always available?',
-        a: 'No. /staffing/butlers says so. We quote only when a bench exists.',
+        a: 'No. /staffing/butlers says so. We quote only when a Gold Coast bench exists.',
       },
     ],
   },
@@ -49,11 +49,11 @@ export const islandStaffingIndex: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Same as /bar?',
-        a: '/bar is the bartender product. /staffing/bartenders is the hourly line. This page lists both kinds of add-on.',
+        a: '/bar is the bartender product. /staffing/bartenders is the hourly line. This page lists both kinds of add-on — Wailea host.',
       },
       {
         q: 'Are butlers always available?',
-        a: 'No. /staffing/butlers says so. We quote only when a bench exists.',
+        a: 'No. /staffing/butlers says so. We quote only when a Wailea bench exists.',
       },
     ],
   },
@@ -77,7 +77,7 @@ export const islandStaffingIndex: Record<IslandId, IslandNestedIndexPage> = {
       },
       {
         q: 'Same as /bar?',
-        a: '/bar is the bartender product. /staffing/bartenders is the hourly line. This page lists both.',
+        a: '/bar is the bartender product. /staffing/bartenders is the hourly line. This page lists both — both-shore inquiry.',
       },
     ],
   },
@@ -97,11 +97,11 @@ export const islandStaffingIndex: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Does this cover Hilo?',
-        a: 'No. Open /east-side. It is a different chef day.',
+        a: 'No. These are west-side hourly add-ons — Kona to Kohala. Hilo is a dedicated east-side day on /east-side.',
       },
       {
         q: 'Same as /bar?',
-        a: '/bar is the bartender product. /staffing/bartenders is the hourly line. This page lists both.',
+        a: '/bar is the bartender product. /staffing/bartenders is the hourly line. This page lists both — west-side host.',
       },
     ],
   },

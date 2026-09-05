@@ -29,7 +29,7 @@ export const islandFineDiningIndex: Record<IslandId, IslandNestedIndexPage> = {
       },
       {
         q: 'Same as honeymoon dinner?',
-        a: '/honeymoon-dinners is the two-top SKU. /fine-dining/romantic-dinner is the night as a format.',
+        a: 'The Kahala two-top SKU is /honeymoon-dinners. This list’s romantic-dinner URL is the night as a format — still a Gold Coast house, still a written quote.',
       },
     ],
   },
@@ -53,7 +53,7 @@ export const islandFineDiningIndex: Record<IslandId, IslandNestedIndexPage> = {
       },
       {
         q: 'Same as honeymoon dinner?',
-        a: '/honeymoon-dinners is the two-top SKU. /fine-dining/romantic-dinner is the night as a format.',
+        a: 'The Wailea two-top SKU is /honeymoon-dinners. This list’s romantic-dinner URL is the night as a format — still a villa, still a written quote.',
       },
     ],
   },
@@ -77,7 +77,7 @@ export const islandFineDiningIndex: Record<IslandId, IslandNestedIndexPage> = {
       },
       {
         q: 'Same as honeymoon dinner?',
-        a: '/honeymoon-dinners is the two-top SKU. /fine-dining/romantic-dinner is the night as a format.',
+        a: 'The two-top SKU at inquiry is /honeymoon-dinners. This list’s romantic-dinner URL is the night as a format — both shores, when we can staff.',
       },
     ],
   },
@@ -97,11 +97,11 @@ export const islandFineDiningIndex: Record<IslandId, IslandNestedIndexPage> = {
     faqs: [
       {
         q: 'Does this cover Hilo?',
-        a: 'No. Open /east-side. It is a different chef day.',
+        a: 'No. These are west-side villa formats — Kona to Kohala. Hilo is a dedicated east-side day on /east-side.',
       },
       {
         q: 'Same as honeymoon dinner?',
-        a: '/honeymoon-dinners is the two-top SKU. /fine-dining/romantic-dinner is the night as a format.',
+        a: 'The west-side two-top SKU is /honeymoon-dinners. This list’s romantic-dinner URL is the night as a format. Hilo is never implied.',
       },
     ],
   },

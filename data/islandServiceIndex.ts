@@ -54,7 +54,7 @@ export const islandServiceIndex: Record<IslandId, IslandServiceIndexPage> = {
     faqs: [
       {
         q: 'Same as / or /catering?',
-        a: 'Those are the money doors. This page is the curated service list beside them.',
+        a: 'Those are the Gold Coast money doors. This page is the curated Oahu service list beside them.',
       },
       {
         q: 'Same as hub /services?',
@@ -78,7 +78,7 @@ export const islandServiceIndex: Record<IslandId, IslandServiceIndexPage> = {
     faqs: [
       {
         q: 'Same as / or /catering?',
-        a: 'Those are the money doors. This page is the curated service list beside them.',
+        a: 'Those are the Wailea money doors. This page is the curated Maui service list beside them.',
       },
       {
         q: 'Same as hub /services?',
@@ -130,7 +130,7 @@ export const islandServiceIndex: Record<IslandId, IslandServiceIndexPage> = {
       },
       {
         q: 'Does this list cover Hilo?',
-        a: 'No. Open /east-side. It is a different chef day.',
+        a: 'No. These are west-side service names — Kona to Kohala. Hilo is a dedicated east-side day on /east-side.',
       },
     ],
   },

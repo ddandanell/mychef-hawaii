@@ -741,6 +741,16 @@ Still no zip on this machine. Wave 85 uniquifies hub `/pricing` longform so `pri
 - The FAQ “Private chef Hawaii cost — what is actually on the quote?” stays on this tariff page as a related-search question, not a second title.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 86 — nested-index FAQs stop cloning across islands (this branch)
+
+Still no zip on this machine. Wave 86 uniquifies nested island indexes so Hawaiʻi Island `/fine-dining`, `/gatherings`, `/corporate`, `/staffing`, `/help`, and `/services` no longer share one Hilo FAQ, and Oahu/Maui staffing and help no longer share identical `/bar` and `/faq` answers. No new URLs. Extra-blog note FAQs still clone across four islands (titles/H1s already unique) — later leftover, not this wave.
+
+- Fine-dining “Same as honeymoon dinner?” now names Kahala, Wailea, both-shore inquiry, or the west-side two-top.
+- Hawaiʻi Island Hilo FAQs now name the index job: west-side villa formats, house gatherings, villa offsites, hourly add-ons, first-inquiry documents, or service names.
+- Staffing “Same as /bar?” now names Gold Coast, Wailea, both-shore inquiry, or west-side host.
+- Help “Same as /faq?” now names the corridor, the shore, both-shore inquiry, or the west-side desk.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. Nested SKU indexes stay SKU photo grids — no related-door photography. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
