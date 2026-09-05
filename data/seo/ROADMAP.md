@@ -647,6 +647,13 @@ Still no zip on this machine. Wave 74 gives every live money-corridor dinner doo
 - After the corridor copy, `/{slug}` opens `/private-chef`, `/catering`, `/quote`, and `/coverage` on existing stills. Card labels never use island money keywords.
 - Distinct from `/` (the island home) and from `/locations` (the live-door list). SiblingCluster stays paper. No new URLs.
 
+## Wave 75 — hub /personal-chef related doors (this branch)
+
+Still no zip on this machine. Wave 75 gives hub `/personal-chef` related-document photography after the island picker. Island household pages already open related documents. Titles stay off `personal chef honolulu` / `personal chef maui`.
+
+- Hub `/personal-chef` keeps the four-island picker, then opens `/private-chef`, `/vacation-chef`, `/quote`, and `/pricing` on existing stills. Distinct from `/private-chef` (one dinner) and `/vacation-chef` (the villa week).
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
