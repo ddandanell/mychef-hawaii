@@ -22,9 +22,10 @@ export default function Hero({
 }) {
   return (
     <section
+      data-hero
       className={cn(
         'hero-bleed relative flex items-end overflow-hidden',
-        min === 'short' ? 'min-h-[72svh] min-h-[480px]' : 'min-h-[100svh] min-h-[640px]',
+        min === 'short' ? 'min-h-[max(480px,68svh)]' : 'min-h-[max(640px,92svh)]',
         className,
       )}
     >
@@ -37,13 +38,12 @@ export default function Hero({
           sizes="100vw"
           style={objectPosition ? { objectPosition } : undefined}
         />
-        <div
-          className="absolute inset-0 bg-[linear-gradient(90deg,rgba(22,20,18,0.55)_0%,rgba(22,20,18,0.18)_52%,rgba(22,20,18,0.08)_100%),linear-gradient(180deg,rgba(22,20,18,0.28)_0%,rgba(22,20,18,0.08)_38%,rgba(22,20,18,0.78)_100%)]"
-          aria-hidden
-        />
+        <div aria-hidden className="absolute inset-0 bg-ink/35 lg:bg-ink/20" />
+        <div aria-hidden className="absolute inset-0 hero-scrim-bottom" />
+        <div aria-hidden className="absolute inset-0 hidden lg:block hero-scrim-left" />
       </div>
       <div className="hero-copy relative mx-auto w-full max-w-spread px-5 pb-16 pt-28 lg:px-10 lg:pb-24 lg:pt-32">
-        <div className="max-w-[40rem] text-paper">{children}</div>
+        <div className="hero-type-shadow max-w-[40rem] text-paper">{children}</div>
       </div>
     </section>
   );

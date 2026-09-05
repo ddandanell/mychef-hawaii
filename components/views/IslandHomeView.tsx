@@ -1,11 +1,13 @@
 import Link from 'next/link';
 import { CtaLink, QuoteCta } from '@/components/Cta';
+import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { Longform, LongFaq } from '@/components/Longform';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { SampleMenu } from '@/components/SampleMenu';
+import { heroFocal, islandHeroLede } from '@/data/chromeCopy';
 import { islandHomeLongform } from '@/data/longformIslands';
 import { islands, type IslandId } from '@/data/islands';
 import { islandOffers, moneyNeighborhoods } from '@/data/offers';
@@ -40,21 +42,21 @@ export default function IslandHomeView({
         }}
       />
 
-      <Hero src={hero.file} alt={hero.alt}>
-        {inquiry ? (
-          <p className="text-[12px] uppercase tracking-[0.2em] text-paper/80">Opening · Inquiry</p>
-        ) : (
-          <p className="text-[12px] uppercase tracking-[0.2em] text-paper/80">myCHEF {island.name}</p>
-        )}
+      <Hero src={hero.file} alt={hero.alt} objectPosition={heroFocal[islandId]}>
+        <Eyebrow tone="paper">
+          {inquiry ? `${island.name} · Inquiry` : `myCHEF ${island.name}`}
+        </Eyebrow>
         <LineReveal
           text={offer.h1}
-          className="mt-5 font-display text-[clamp(2.75rem,6.4vw,5rem)] font-light leading-[1.04] tracking-[-0.03em] text-paper"
+          className="mt-6 font-display text-[clamp(2.5rem,6.4vw,4.75rem)] font-light leading-[1.02] tracking-[-0.02em] text-paper"
         />
-        <p className="mt-6 max-w-[42ch] text-[17px] leading-[1.6] text-paper/90">{offer.lede}</p>
-        <p className="mt-4 text-[15px] tracking-[0.01em] text-paper/80">
+        <p className="mt-6 max-w-[42ch] text-[17px] leading-[1.6] text-paper lg:text-[19px]">
+          {islandHeroLede[islandId]}
+        </p>
+        <p className="mt-4 text-[15px] text-paper">
           Signature dinner from ${offer.fromPp} a guest, {island.shortName}.
         </p>
-        <div className="mt-10 flex flex-wrap gap-3">
+        <div className="mt-9 flex flex-wrap items-center gap-4">
           <QuoteCta island={islandId} variant="light" />
           <CtaLink href={href('/pricing')} variant="ghost">
             What a night costs
@@ -65,14 +67,14 @@ export default function IslandHomeView({
       <section className="bg-paper py-24 lg:py-32">
         <div className="mx-auto grid w-full max-w-spread gap-16 px-5 lg:grid-cols-2 lg:px-10">
           <Link href={href('/private-chef')} className="group max-w-[40ch]">
-            <p className="text-[12px] uppercase tracking-[0.16em] text-mute">01</p>
+            <p className="font-display text-[1.375rem] font-light text-brass">01</p>
             <h2 className="mt-4 font-display text-[clamp(2rem,3.5vw,2.75rem)] font-light text-ink">Private chef</h2>
             <p className="mt-3 text-[17px] leading-relaxed text-mute">
               In the kitchen of this house. From ${offer.fromPp} a guest.
             </p>
           </Link>
           <Link href={href('/catering')} className="group max-w-[40ch]">
-            <p className="text-[12px] uppercase tracking-[0.16em] text-mute">02</p>
+            <p className="font-display text-[1.375rem] font-light text-brass">02</p>
             <h2 className="mt-4 font-display text-[clamp(2rem,3.5vw,2.75rem)] font-light text-ink">Staffed events</h2>
             <p className="mt-3 text-[17px] leading-relaxed text-mute">
               Buffet or plated, from ${offer.fromPp} a guest. About ten to seventy-five.
@@ -84,16 +86,17 @@ export default function IslandHomeView({
       <SampleMenu island={islandId} />
       <Longform sections={copy.sections} />
 
-      <section className="bg-paper py-20 lg:py-28">
+      <section className="bg-sand py-20 lg:py-28">
         <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
-          <p className="text-[12px] uppercase tracking-[0.18em] text-mute">On {island.name}</p>
+          <Eyebrow>Where we cook on {island.shortName}</Eyebrow>
           <h2 className="mt-4 font-display text-[clamp(1.75rem,3vw,2.5rem)] font-light text-ink">Named corridors</h2>
-          <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-[17px]">
+          <ul className="mt-10 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
             {moneyNeighborhoods[islandId].map((hood) => (
-              <li key={hood.slug}>
-                <Link href={href(`/${hood.slug}`)} className="text-ink underline-offset-4 hover:underline">
+              <li key={hood.slug} id={hood.slug} className="scroll-mt-24 border-t border-brass/40 pt-4">
+                <Link href={href(`/${hood.slug}`)} className="font-display text-[1.25rem] font-light text-ink">
                   {hood.name}
                 </Link>
+                <p className="mt-1 text-[13px] text-mute">{hood.zone}</p>
               </li>
             ))}
           </ul>
@@ -104,7 +107,7 @@ export default function IslandHomeView({
 
       <LongFaq items={copy.faqs} title="Cost, cleanup, kitchens." />
       <QuoteTeaser
-        headline={inquiry ? 'Join the inquiry list.' : 'Date, guest count, and the house. That is enough to start.'}
+        headline={inquiry ? 'Join the inquiry list.' : 'Island, date, guest count and kitchen. That is enough to start.'}
         island={islandId}
       />
     </>

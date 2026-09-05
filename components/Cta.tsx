@@ -10,7 +10,7 @@ const variants = {
   primary: `${base} bg-ink text-paper focus-visible:outline-ink`,
   secondary: `${base} bg-paper text-ink border border-ink focus-visible:outline-ink`,
   light: `${base} cta-solid-paper bg-paper text-ink focus-visible:outline-paper`,
-  ghost: `${base} border border-paper/80 bg-transparent text-paper focus-visible:outline-paper`,
+  ghost: `${base} border border-paper/70 bg-transparent text-paper focus-visible:outline-paper`,
 } as const;
 
 export function CtaLink({
@@ -45,15 +45,17 @@ export function QuoteCta({
   service,
   variant = 'primary',
   className,
+  children,
 }: {
   island?: IslandId | null;
   service?: string;
   variant?: keyof typeof variants;
   className?: string;
+  children?: React.ReactNode;
 }) {
   return (
     <CtaLink href={quotePath(island ?? undefined, service)} variant={variant} className={className}>
-      {primaryCtaLabel(island)}
+      {children ?? primaryCtaLabel(island)}
     </CtaLink>
   );
 }

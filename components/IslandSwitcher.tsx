@@ -84,6 +84,9 @@ export default function IslandSwitcher({
             transition={{ duration: DURATION.fast, ease: EASE_STANDARD }}
             className="absolute right-0 top-full z-50 mt-2 min-w-[18rem] border border-line bg-paper py-2 text-ink shadow-[0_18px_40px_rgba(22,20,18,0.12)]"
           >
+            <p className="px-4 pb-2 pt-3 text-[12px] uppercase tracking-[0.14em] text-mute">
+              Stay on this page, change island.
+            </p>
             <HostLink
               island="root"
               path={hubSwitchPath(local)}
