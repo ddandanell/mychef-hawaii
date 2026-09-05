@@ -214,11 +214,11 @@ function publishedPriceRange(islandId: IslandId | null): string {
   return `$${oahu?.band[0] ?? 125}–$${maui?.band[1] ?? 250}`;
 }
 
-/** LocalBusiness / FoodService — service-area kitchen. No telephone. No streetAddress. */
+/** LocalBusiness — service-area kitchen. No telephone. No streetAddress. FoodService lives on owner pages. */
 export function localBusinessJsonLd(islandId: IslandId | null, origin: string) {
   return {
     '@context': 'https://schema.org',
-    '@type': ['LocalBusiness', 'FoodService'],
+    '@type': 'LocalBusiness',
     name: islandId ? `myCHEF ${islands[islandId].name}` : 'myCHEF Hawaii',
     url: origin,
     priceRange: publishedPriceRange(islandId),

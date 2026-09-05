@@ -1067,6 +1067,9 @@ if (/name: `Wedding week[\s\S]{0,160}serviceType: 'Catering'/.test(seoSrc)) {
 if (!/function localBusinessJsonLd[\s\S]{0,500}serviceType: 'Private chef'/.test(seoSrc)) {
   errors.push('LocalBusiness JSON-LD must keep serviceType Private chef on identity pages');
 }
+if (/\['LocalBusiness', 'FoodService'\]/.test(seoSrc)) {
+  errors.push('identity LocalBusiness still dual-types as FoodService');
+}
 if (/name: `Mobile bar/.test(seoSrc)) {
   errors.push('JSON-LD offers still use Mobile bar names');
 }
