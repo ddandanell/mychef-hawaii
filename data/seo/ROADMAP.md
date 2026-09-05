@@ -611,6 +611,13 @@ Still no zip on this machine. Wave 69 gives `/catering` related-document photogr
 - Island `/catering` opens the same four paths on island stills. Distinct from `/weddings` (the week) and from format SKUs. Sample menu and price cards stay paper. SiblingCluster stays paper.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 70 — hub /vacation-chef related doors (this branch)
+
+Still no zip on this machine. Wave 70 gives hub `/vacation-chef` the same related-document photography as hub `/private-chef`. Island Stay Chef pages already open related documents.
+
+- Hub `/vacation-chef` keeps the four-island picker, then opens `/private-chef`, `/personal-chef`, `/quote`, and `/pricing` on existing stills. Distinct from `/private-chef` (one dinner).
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

@@ -182,7 +182,40 @@ export function HubOfferView({ kind }: { kind: 'private-chef' | 'vacation-chef' 
             },
           ]}
         />
-      ) : null}
+      ) : (
+        <HubPhotoGrid
+          eyebrow="Beside this villa week"
+          heading="Open a related document."
+          intro="This page is the four-island picker for Stay Chef weeks. Visitor dinners, household weeks, the form, and the rate card are their own URLs."
+          columns={2}
+          items={[
+            {
+              href: '/private-chef',
+              title: 'Visitor dinner',
+              body: 'One night in the house. Distinct from the villa week.',
+              still: photos.chefMaui,
+            },
+            {
+              href: '/personal-chef',
+              title: household?.cardLabel ?? 'Household week',
+              body: household?.lede ?? 'Weekly household cooking lives on each island /personal-chef.',
+              still: photos.hubPersonal,
+            },
+            {
+              href: '/quote',
+              title: 'The quote form',
+              body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+              still: photos.quoteHub,
+            },
+            {
+              href: '/pricing',
+              title: 'What a night costs',
+              body: 'The published rate card. Distinct from the fee-stack explainer.',
+              still: photos.hubPricing,
+            },
+          ]}
+        />
+      )}
       <QuoteTeaser />
     </>
   );
