@@ -9,6 +9,8 @@ import { LongFaq, Longform } from '@/components/Longform';
 import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import Reveal, { MaskReveal } from '@/components/Reveal';
+import ConfidenceBar from '@/components/sections/ConfidenceBar';
+import ExperienceCards from '@/components/sections/ExperienceCards';
 import { hubChrome, heroFocal, processSteps } from '@/data/chromeCopy';
 import { hubHomeFaqs, hubHomeSections } from '@/data/longformHub';
 import { photos } from '@/data/photos';
@@ -67,6 +69,8 @@ export default function HomeView() {
         </div>
       </Hero>
 
+      <ConfidenceBar />
+
       <section className="bg-paper py-24 lg:py-32">
         <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
           <Eyebrow>Private chef & catering</Eyebrow>
@@ -115,6 +119,8 @@ export default function HomeView() {
           </Reveal>
         </div>
       </section>
+
+      <ExperienceCards />
 
       <IslandChooser />
 
