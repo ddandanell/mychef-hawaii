@@ -1963,6 +1963,22 @@ export const photos = {
     file: '/photos/gather-index-bigisland.png',
     alt: `Unused ivory plates and extra glasses on a Kohala lava terrace in hard sun.`,
   },
+  islandsIndexOahu: {
+    file: '/photos/islands-index-oahu.png',
+    alt: `Unused ivory plates on a Kahala koa pass at dusk, open Pacific horizon, Diamond Head faint.`,
+  },
+  islandsIndexMaui: {
+    file: '/photos/islands-index-maui.png',
+    alt: `Unused ivory plates on a Wailea lānai pass at west sunset, open Pacific horizon.`,
+  },
+  islandsIndexKauai: {
+    file: '/photos/islands-index-kauai.png',
+    alt: `Unused ivory plates on a Princeville stone pass in misted rain light, open channel horizon.`,
+  },
+  islandsIndexBigisland: {
+    file: '/photos/islands-index-bigisland.png',
+    alt: `Unused ivory plates on a Kohala lava terrace in hard sun, open Pacific horizon.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

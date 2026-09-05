@@ -232,13 +232,21 @@ Still no zip on this machine. Wave 25 uniquifies two reserved 404s on every isla
 - Unique `/gatherings` directories. Distinct from hub `/gatherings`, `/events`, `/blog/family-reunions`, and `/rehearsal-dinners`.
 - Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 25 URL.
 
-## Wave 26 — zip execution
+## Wave 26 — unique island other-host lists (this branch)
+
+Still no zip on this machine. Wave 26 uniquifies `/islands` on every island host:
+
+- Unique `/islands` directories. Distinct from hub `/islands` (statewide picker) and from `/areas` (map notes on this host).
+- Hub `/islands` now links to each island list.
+- Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 26 URL.
+
+## Wave 27 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 27 — automation that stays on
+## Wave 28 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

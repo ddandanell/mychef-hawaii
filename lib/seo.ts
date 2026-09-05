@@ -35,6 +35,7 @@ import { islandFineDiningIndex } from '@/data/islandFineDiningIndex';
 import { islandStaffingIndex } from '@/data/islandStaffingIndex';
 import { islandCorporate } from '@/data/islandCorporate';
 import { islandGatherings } from '@/data/islandGatherings';
+import { islandIslands } from '@/data/islandIslands';
 import { islandSitemap } from '@/data/islandSitemap';
 import { getJournalArticle, journalArticles } from '@/data/journalArticles';
 import { getBlogArticle, blogArticles } from '@/data/blogArticles';
@@ -144,6 +145,7 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     if (localPath === '/staffing') return `${origin}${photos[islandStaffingIndex[islandId].photo].file}`;
     if (localPath === '/corporate') return `${origin}${photos[islandCorporate[islandId].photo].file}`;
     if (localPath === '/gatherings') return `${origin}${photos[islandGatherings[islandId].photo].file}`;
+    if (localPath === '/islands') return `${origin}${photos[islandIslands[islandId].photo].file}`;
     if (localPath === '/sitemap') return `${origin}${photos[islandSitemap[islandId].photo].file}`;
     const journalSlug = /^\/journal\/([^/]+)$/.exec(localPath)?.[1];
     const journalPiece = journalSlug ? getJournalArticle(islandId, journalSlug) : undefined;
@@ -378,6 +380,9 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (islandGatherings[islandId] && localPath === '/gatherings') {
       title = islandGatherings[islandId].title;
       description = islandGatherings[islandId].description;
+    } else if (islandIslands[islandId] && localPath === '/islands') {
+      title = islandIslands[islandId].title;
+      description = islandIslands[islandId].description;
     } else if (islandSitemap[islandId] && localPath === '/sitemap') {
       title = islandSitemap[islandId].title;
       description = islandSitemap[islandId].description;
@@ -520,7 +525,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.7',
     })),
-    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
+    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
       loc: `https://${masterHostName(island)}${path}`,
       changefreq: 'monthly',
       priority: '0.6',

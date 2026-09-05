@@ -36,6 +36,7 @@ import { islandFineDiningIndex } from '@/data/islandFineDiningIndex';
 import { islandStaffingIndex } from '@/data/islandStaffingIndex';
 import { islandCorporate, CORPORATE_INDEX_LINKS } from '@/data/islandCorporate';
 import { islandGatherings, GATHERINGS_INDEX_LINKS } from '@/data/islandGatherings';
+import { islandIslands } from '@/data/islandIslands';
 import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
@@ -357,7 +358,8 @@ export function IslandsView() {
           </h1>
           <p className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink">
             Four island departments. Each island is its own host — its own chefs, zones and pricing. Oʻahu and Maui take
-            quotes. Kauaʻi and Hawaiʻi Island are inquiry-stage.
+            quotes. Kauaʻi and Hawaiʻi Island are inquiry-stage. Each island host also keeps an other-islands list at
+            /islands.
           </p>
         </div>
       </section>
@@ -376,6 +378,22 @@ export function IslandsView() {
             </HostLink>
           );
         })}
+      </section>
+      <section className="bg-paper py-16">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">By island</p>
+          <ul className="mt-6 grid gap-px bg-line md:grid-cols-2">
+            {islandOrder.map((id) => (
+              <li key={id} className="bg-paper">
+                <HostLink island={id} path="/islands" className="block p-5">
+                  <p className="text-[12px] text-mute">{islands[id].name}</p>
+                  <h2 className="mt-2 font-display text-xl font-light text-ink">Other islands</h2>
+                  <p className="mt-2 text-sm text-mute">/islands</p>
+                </HostLink>
+              </li>
+            ))}
+          </ul>
+        </div>
       </section>
     </>
   );
@@ -467,7 +485,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/sitemap'] as const).map((path) => ({
+      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'] as const).map((path) => ({
         host: id,
         path,
       })),
@@ -814,6 +832,61 @@ export function GatheringsIndexView({ islandId }: { islandId: (typeof islandOrde
       links={GATHERINGS_INDEX_LINKS}
       faqTitle="Before you pick an occasion."
     />
+  );
+}
+
+export function IslandsIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  const copy = islandIslands[islandId];
+  const photo = photos[copy.photo];
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
+          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
+            {islandOrder.map((id) => (
+              <li key={id} className="bg-paper">
+                <HostLink island={id} path="/" className="block p-6">
+                  <h2 className="font-display text-2xl font-light text-ink">
+                    {id === islandId ? `${islands[id].name} — this host` : islands[id].name}
+                  </h2>
+                  <p className="mt-2 text-sm text-mute">
+                    {islands[id].state === 'inquiry' ? 'Inquiry' : 'Live quotes'} · {id === islandId ? '/' : `${id}.mychef-hawaii.com`}
+                  </p>
+                </HostLink>
+              </li>
+            ))}
+            <li className="bg-paper">
+              <HostLink island={islandId} path="/areas" className="block p-6">
+                <h2 className="font-display text-2xl font-light text-ink">Map notes on this host</h2>
+                <p className="mt-2 text-sm text-mute">/areas</p>
+              </HostLink>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <LongFaq items={copy.faqs} title="Before you switch hosts." />
+    </>
   );
 }
 
