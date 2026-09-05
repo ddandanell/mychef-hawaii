@@ -1,5 +1,6 @@
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
 import LineReveal from '@/components/LineReveal';
@@ -205,19 +206,25 @@ export function IslandMobileBarView({ islandId, hostMode }: { islandId: IslandId
           <QuoteCta island={islandId} service="mobile-bar" variant="light" />
         </div>
       </Hero>
-      <DocumentCopy heading={`How the packaged cart runs on ${islands[islandId].name}.`} paras={[copy.lede, `/bar is the bartender add-on stacked with dinner. This URL is the four-hour mobile-bar package — cart, ice, citrus, glassware — priced as its own line.`, `${formatMobileBarPackage(islandId)}, or ${formatMobileBarGuest(islandId)}. ${FEE_DISCLOSURE}`]}>
-        <nav aria-label="Related on this island" className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <HostLink island={islandId} path="/bar" className="text-ink underline underline-offset-4">
-            Bartender add-on
-          </HostLink>
-          <HostLink island={islandId} path="/weddings" className="text-ink underline underline-offset-4">
-            Wedding week
-          </HostLink>
-          <HostLink island={islandId} path="/private-chef" className="text-ink underline underline-offset-4">
-            What’s included
-          </HostLink>
-        </nav>
-      </DocumentCopy>
+      <DocumentCopy
+        heading={`How the packaged cart runs on ${islands[islandId].name}.`}
+        paras={[
+          copy.lede,
+          `/bar is the bartender add-on stacked with dinner. This URL is the four-hour mobile-bar package — cart, ice, citrus, glassware — priced as its own line.`,
+          `${formatMobileBarPackage(islandId)}, or ${formatMobileBarGuest(islandId)}. ${FEE_DISCLOSURE}`,
+        ]}
+      />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].name} · Beside the cart`}
+        heading="Open a related document."
+        intro="/bar is the add-on hour. /weddings is the week. /private-chef is one dinner."
+        items={[
+          { path: '/bar', label: 'Bartender add-on', detail: '/bar' },
+          { path: '/weddings', label: 'Wedding week', detail: '/weddings' },
+          { path: '/private-chef', label: 'What’s included', detail: '/private-chef' },
+        ]}
+      />
       <LongFaq items={faqs} title="The packaged cart." />
       <SiblingCluster island={islandId} href={href} />
       <QuoteTeaser island={islandId} />
@@ -261,19 +268,25 @@ export function IslandBarView({ islandId, hostMode }: { islandId: IslandId; host
           <QuoteCta island={islandId} service="mobile-bar" variant="light" />
         </div>
       </Hero>
-      <DocumentCopy heading={`How the terrace bar runs on ${islands[islandId].name}.`} paras={[copy.lede, `/mobile-bar is the four-hour packaged cart. This URL is the add-on hour — stacked with dinner or booked alone.`, `${formatMobileBarPackage(islandId)}, or ${formatMobileBarGuest(islandId)}. ${FEE_DISCLOSURE}`]}>
-        <nav aria-label="Related on this island" className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          <HostLink island={islandId} path="/mobile-bar" className="text-ink underline underline-offset-4">
-            4-hour package
-          </HostLink>
-          <HostLink island={islandId} path="/weddings" className="text-ink underline underline-offset-4">
-            Wedding week
-          </HostLink>
-          <HostLink island={islandId} path="/private-chef" className="text-ink underline underline-offset-4">
-            What’s included
-          </HostLink>
-        </nav>
-      </DocumentCopy>
+      <DocumentCopy
+        heading={`How the terrace bar runs on ${islands[islandId].name}.`}
+        paras={[
+          copy.lede,
+          `/mobile-bar is the four-hour packaged cart. This URL is the add-on hour — stacked with dinner or booked alone.`,
+          `${formatMobileBarPackage(islandId)}, or ${formatMobileBarGuest(islandId)}. ${FEE_DISCLOSURE}`,
+        ]}
+      />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].name} · Beside the add-on`}
+        heading="Open a related document."
+        intro="/mobile-bar is the four-hour cart. /weddings is the week. /private-chef is one dinner."
+        items={[
+          { path: '/mobile-bar', label: '4-hour package', detail: '/mobile-bar' },
+          { path: '/weddings', label: 'Wedding week', detail: '/weddings' },
+          { path: '/private-chef', label: 'What’s included', detail: '/private-chef' },
+        ]}
+      />
       <LongFaq items={faqs} />
       <SiblingCluster island={islandId} href={href} />
       <QuoteTeaser island={islandId} />

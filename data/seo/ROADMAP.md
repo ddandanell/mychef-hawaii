@@ -464,6 +464,14 @@ Still no zip on this machine. Wave 51 lifts two leftover paper related-document 
 - Island `/islands` geography doors use the `/locations` and `/areas` stills. Coverage stays paper.
 - Quote-form TypePanel stays. No new URLs.
 
+## Wave 52 — island bar related lists and unique-cell related doors (this branch)
+
+Still no zip on this machine. Wave 52 lifts leftover paper related-document lists onto existing stills:
+
+- Island `/bar` and `/mobile-bar` related doors open from a `DocumentPhotoGrid` (`/bar`, `/mobile-bar`, `/weddings`, `/private-chef`).
+- Unique cells, journals, blogs, and SKUs that already publish `related` open those URLs from photography instead of paper underlines.
+- Coverage/locations stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

@@ -1,4 +1,5 @@
 import { QuoteCta } from '@/components/Cta';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
@@ -202,22 +203,20 @@ export function UniqueCellView({
         </div>
       </Hero>
 
-      <DocumentCopy paras={cell.body}>
-        {cell.related.length ? (
-          <nav aria-label="Related on this island" className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-            {cell.related.map((link) => (
-              <HostLink
-                key={link.path}
-                island={islandId}
-                path={link.path}
-                className="text-ink underline underline-offset-4"
-              >
-                {link.label}
-              </HostLink>
-            ))}
-          </nav>
-        ) : null}
-      </DocumentCopy>
+      <DocumentCopy paras={cell.body} />
+      {cell.related.length ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Beside this note`}
+          heading="Open a related document."
+          columns={cell.related.length <= 2 ? 2 : 3}
+          items={cell.related.map((link) => ({
+            path: link.path,
+            label: link.label,
+            detail: link.path,
+          }))}
+        />
+      ) : null}
 
       <LongFaq items={cell.faqs} title={`Asked about ${cell.name}.`} />
       <QuoteTeaser headline="Tell us the address and the dates." island={islandId} />
