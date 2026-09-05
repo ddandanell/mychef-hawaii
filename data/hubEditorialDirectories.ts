@@ -26,6 +26,17 @@ export const HUB_EDITORIAL_PATHS = [
   '/blog/coffee-labeling',
   '/blog/peak-season',
   '/blog/no-fake-reviews',
+  '/blog/anniversary-dinners',
+  '/blog/kids-at-the-table',
+  '/blog/breakfast-in-the-villa',
+  '/blog/lunch-service',
+  '/blog/staffing-servers',
+  '/blog/bartender-add-on',
+  '/blog/welcome-dinner',
+  '/blog/day-after-brunch',
+  '/blog/rehearsal-dinner',
+  '/blog/corporate-offsites',
+  '/blog/retreat-full-board',
 ] as const;
 
 export type HubEditorialId =
@@ -51,7 +62,18 @@ export type HubEditorialId =
   | 'blogFish'
   | 'blogCoffee'
   | 'blogPeak'
-  | 'blogReviews';
+  | 'blogReviews'
+  | 'blogAnniv'
+  | 'blogKids'
+  | 'blogBreakfast'
+  | 'blogLunch'
+  | 'blogServers'
+  | 'blogBartender'
+  | 'blogWelcome'
+  | 'blogBrunch'
+  | 'blogRehearsal'
+  | 'blogOffsites'
+  | 'blogRetreat';
 
 export const hubEditorialDirectories: Record<HubEditorialId, HubDirectory> = {
   jnlCost: {
@@ -649,6 +671,292 @@ export const hubEditorialDirectories: Record<HubEditorialId, HubDirectory> = {
       {
         q: 'Same as /what-we-dont-do?',
         a: 'That picker is the claim list. This URL is specifically why there are no Hawaiʻi star ratings yet.',
+      },
+    ],
+  },
+  blogAnniv: {
+    path: '/blog/anniversary-dinners',
+    h1: 'Anniversary kitchen notes, by island.',
+    title: 'Anniversary kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes the anniversary kitchen beside /events/anniversaries. Distinct from the occasion SKU and from /blog/proposal-dinners.',
+    lede:
+      '/events/anniversaries is the occasion door. Each island blog note is the two-top kitchen. This page is the picker.',
+    kicker: 'Statewide · Anniversary notes',
+    photo: 'hubBlogAnniv',
+    cardLabel: 'Anniversary kitchen notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the kitchen note beside the anniversary SKU, not a catering title.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /events/anniversaries?',
+        a: 'That picker is the occasion SKU. This URL is the kitchen note beside it.',
+      },
+      {
+        q: 'Same as /blog/proposal-dinners?',
+        a: 'That note is the ask. This page is the later anniversary table.',
+      },
+    ],
+  },
+  blogKids: {
+    path: '/blog/kids-at-the-table',
+    h1: 'Kids-plate kitchen notes, by island.',
+    title: 'Kids-plate kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes how kids plates land beside /kids-menus. Distinct from the SKU.',
+    lede:
+      '/kids-menus is the SKU. Each island blog note is how a kids plate actually lands. This page is the picker.',
+    kicker: 'Statewide · Kids plates',
+    photo: 'hubBlogKids',
+    cardLabel: 'Kids-plate kitchen notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the kitchen note beside the kids SKU.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /kids-menus?',
+        a: 'That picker is the SKU. This URL is the kitchen note beside it.',
+      },
+      {
+        q: 'Do you run a kids station?',
+        a: 'No. One kitchen, two plate sizes. Open the island note.',
+      },
+    ],
+  },
+  blogBreakfast: {
+    path: '/blog/breakfast-in-the-villa',
+    h1: 'Villa-breakfast kitchen notes, by island.',
+    title: 'Villa-breakfast kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes the morning kitchen beside /menus/breakfast. Distinct from the menu SKU.',
+    lede:
+      '/menus/breakfast is the SKU. Each island blog note is the morning call. This page is the picker.',
+    kicker: 'Statewide · Breakfast notes',
+    photo: 'hubBlogBreakfast',
+    cardLabel: 'Villa-breakfast notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the morning kitchen note, not a catering title.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /menus/breakfast?',
+        a: 'That picker is the menu SKU. This URL is the morning kitchen note.',
+      },
+      {
+        q: 'Same as /events/brunch?',
+        a: 'Brunch is an occasion. This note is villa breakfast as a kitchen.',
+      },
+    ],
+  },
+  blogLunch: {
+    path: '/blog/lunch-service',
+    h1: 'In-villa lunch notes, by island.',
+    title: 'In-villa lunch notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes why lunch is its own call beside /menus/lunch. Distinct from the menu SKU.',
+    lede:
+      '/menus/lunch is the SKU. Each island blog note is why midday is not an unpaid dinner add-on. This page is the picker.',
+    kicker: 'Statewide · Lunch notes',
+    photo: 'hubBlogLunch',
+    cardLabel: 'In-villa lunch notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the midday kitchen note.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /menus/lunch?',
+        a: 'That picker is the menu SKU. This URL is the midday kitchen note.',
+      },
+      {
+        q: 'Lunch and dinner as one unpaid day?',
+        a: 'No. Both print. Open the island note.',
+      },
+    ],
+  },
+  blogServers: {
+    path: '/blog/staffing-servers',
+    h1: 'Server-add kitchen notes, by island.',
+    title: 'Server-add kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes when a guest list needs a pour beside /staffing/servers. Distinct from the hourly SKU.',
+    lede:
+      '/staffing/servers is the hourly SKU. Each island blog note is when we add the person. This page is the picker.',
+    kicker: 'Statewide · Servers',
+    photo: 'hubBlogServers',
+    cardLabel: 'Server-add notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the pour-decision kitchen note.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /staffing/servers?',
+        a: 'That picker is the hourly SKU. This URL is when we add the person.',
+      },
+      {
+        q: 'Same as /bar?',
+        a: 'That picker is the bartender add-on. This note is service at the table.',
+      },
+    ],
+  },
+  blogBartender: {
+    path: '/blog/bartender-add-on',
+    h1: 'Bartender-add kitchen notes, by island.',
+    title: 'Bartender-add kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes the bartender add-on kitchen beside /bar. Distinct from /staffing/bartenders and /mobile-bar.',
+    lede:
+      '/bar is the add-on SKU. /staffing/bartenders is hourly. Each island blog note is the pour. This page is the picker.',
+    kicker: 'Statewide · Bartender notes',
+    photo: 'hubBlogBartender',
+    cardLabel: 'Bartender-add notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the bartender kitchen note, not a catering title.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /bar?',
+        a: 'That picker is the add-on SKU. This URL is the kitchen note beside it.',
+      },
+      {
+        q: 'Same as /mobile-bar?',
+        a: 'That picker is the 4-hour package. This note is the shorter add-on kitchen.',
+      },
+    ],
+  },
+  blogWelcome: {
+    path: '/blog/welcome-dinner',
+    h1: 'Arrival-night kitchen notes, by island.',
+    title: 'Arrival-night kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes the first-evening kitchen beside /events/welcome-dinners. Distinct from the occasion SKU.',
+    lede:
+      '/events/welcome-dinners is the occasion SKU. Each island blog note is the arrival kitchen. This page is the picker.',
+    kicker: 'Statewide · Arrival nights',
+    photo: 'hubBlogWelcome',
+    cardLabel: 'Arrival-night notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the first-evening kitchen note.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /events/welcome-dinners?',
+        a: 'That picker is the occasion SKU. This URL is the arrival kitchen note.',
+      },
+      {
+        q: 'Same as the reception?',
+        a: 'No. Separate line. Open /weddings if that is the night you mean.',
+      },
+    ],
+  },
+  blogBrunch: {
+    path: '/blog/day-after-brunch',
+    h1: 'Day-after brunch notes, by island.',
+    title: 'Day-after brunch notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes the recovery-morning kitchen beside /events/brunch. Distinct from the occasion SKU and from /menus/breakfast.',
+    lede:
+      '/events/brunch is the occasion SKU. Each island blog note is the recovery morning. This page is the picker.',
+    kicker: 'Statewide · Brunch notes',
+    photo: 'hubBlogBrunch',
+    cardLabel: 'Day-after brunch notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the recovery-morning kitchen note.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /events/brunch?',
+        a: 'That picker is the occasion SKU. This URL is the recovery-morning kitchen note.',
+      },
+      {
+        q: 'Same as /menus/breakfast?',
+        a: 'Breakfast is a menu SKU. This note is the day-after occasion kitchen.',
+      },
+    ],
+  },
+  blogRehearsal: {
+    path: '/blog/rehearsal-dinner',
+    h1: 'Rehearsal-night kitchen notes, by island.',
+    title: 'Rehearsal-night kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes the night-before kitchen beside /rehearsal-dinners. Distinct from the SKU and from /weddings.',
+    lede:
+      '/rehearsal-dinners is the SKU. Each island blog note is the night-before kitchen. This page is the picker.',
+    kicker: 'Statewide · Rehearsal notes',
+    photo: 'hubBlogRehearsal',
+    cardLabel: 'Rehearsal-night notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the night-before kitchen note, not a wedding title.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /rehearsal-dinners?',
+        a: 'That picker is the SKU. This URL is the kitchen note beside it.',
+      },
+      {
+        q: 'Same as /weddings?',
+        a: 'That door owns the catering keyword. This note is the night-before kitchen.',
+      },
+    ],
+  },
+  blogOffsites: {
+    path: '/blog/corporate-offsites',
+    h1: 'House-offsite kitchen notes, by island.',
+    title: 'House-offsite kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes the house-table kitchen beside /events/corporate-events. Distinct from /corporate-catering.',
+    lede:
+      '/events/corporate-events is the occasion. /corporate-catering is the kitchen SKU. Each island blog note is the house table. This page is the picker.',
+    kicker: 'Statewide · Offsite notes',
+    photo: 'hubBlogOffsites',
+    cardLabel: 'House-offsite notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the house-offsite kitchen note, not a citywide.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /events/corporate-events?',
+        a: 'That picker is the occasion SKU. This URL is the house kitchen note.',
+      },
+      {
+        q: 'Same as /corporate-catering?',
+        a: 'That picker is the kitchen SKU. This note is the shorter offsite kitchen.',
+      },
+    ],
+  },
+  blogRetreat: {
+    path: '/blog/retreat-full-board',
+    h1: 'Retreat-day meal notes, by island.',
+    title: 'Retreat-day meal notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes how full-board meals stack beside /retreat-catering. Distinct from /events/retreats.',
+    lede:
+      '/retreat-catering is the kitchen SKU. /events/retreats is the occasion. Each island blog note is the meal stack. This page is the picker.',
+    kicker: 'Statewide · Retreat notes',
+    photo: 'hubBlogRetreat',
+    cardLabel: 'Retreat-day meal notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the full-board kitchen note.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /retreat-catering?',
+        a: 'That picker is the kitchen SKU. This URL is the meal-stack kitchen note.',
+      },
+      {
+        q: 'Same as /events/retreats?',
+        a: 'That picker is the occasion. This note is how the meals stack.',
       },
     ],
   },

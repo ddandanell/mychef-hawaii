@@ -1,6 +1,7 @@
 import type { IslandId } from './islands';
 import { SEARCH_VOLUMES } from './offers';
 import type { UniqueCell } from './uniqueCells';
+import { EXTRA_BLOG_NOTES } from './extraBlogNotes';
 
 /**
  * Live blog article URLs. First slice: dining-in notes for money corridors.
@@ -920,6 +921,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    ...EXTRA_BLOG_NOTES.oahu,
   ],
   maui: [
     {
@@ -1828,6 +1830,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    ...EXTRA_BLOG_NOTES.maui,
   ],
   kauai: [
     {
@@ -2706,6 +2709,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
+    ...EXTRA_BLOG_NOTES.kauai,
   ],
   bigisland: [
     {
@@ -3648,6 +3652,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
+    ...EXTRA_BLOG_NOTES.bigisland,
   ],
 };
 

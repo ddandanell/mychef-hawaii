@@ -2279,6 +2279,226 @@ export const photos = {
     file: '/photos/hub-blog-reviews.png',
     alt: `A blank unused ivory card under a brass clip on a koa pass, no stars, no writing, fountain pen.`,
   },
+  hubBlogAnniv: {
+    file: '/photos/hub-blog-anniversary.png',
+    alt: `Two unused ivory place settings close together on a koa table, two unlit candles, empty coupes, brass clip.`,
+  },
+  hubBlogKids: {
+    file: '/photos/hub-blog-kids.png',
+    alt: `One unused adult ivory plate beside one smaller unused ivory child’s plate on a koa table, brass clip.`,
+  },
+  hubBlogBreakfast: {
+    file: '/photos/hub-blog-breakfast.png',
+    alt: `Unused ivory cups and unused breakfast plates on a koa sideboard in morning light, brass clip.`,
+  },
+  hubBlogLunch: {
+    file: '/photos/hub-blog-lunch.png',
+    alt: `Unused ivory lunch plates and empty water glasses on a koa table in hard midday light, brass clip.`,
+  },
+  hubBlogServers: {
+    file: '/photos/hub-blog-servers.png',
+    alt: `Stack of unused ivory plates and folded sand linen on a koa pass, unused empty glasses in a row.`,
+  },
+  hubBlogBartender: {
+    file: '/photos/hub-blog-bartender.png',
+    alt: `Unused empty coupes and an unlabeled dark bottle on a koa bar cart, citrus peel, brass jigger.`,
+  },
+  hubBlogWelcome: {
+    file: '/photos/hub-blog-welcome.png',
+    alt: `Unused ivory first-night place settings on a small koa table, two empty glasses, unlit candle.`,
+  },
+  hubBlogBrunch: {
+    file: '/photos/hub-blog-brunch.png',
+    alt: `Unused ivory brunch plates, unused fruit in a volcanic-stone bowl, empty coffee cups, morning light.`,
+  },
+  hubBlogRehearsal: {
+    file: '/photos/hub-blog-rehearsal.png',
+    alt: `A medium unused koa dining table with unused ivory plates for about eight, unlit candles, brass clip.`,
+  },
+  hubBlogOffsites: {
+    file: '/photos/hub-blog-offsites.png',
+    alt: `Unused identical ivory plates in a precise row on a wide koa house table, blank notebooks, brass clip.`,
+  },
+  hubBlogRetreat: {
+    file: '/photos/hub-blog-retreat.png',
+    alt: `Three stacked unused ivory plate settings with cups and glasses of different sizes on a koa pass, brass clip.`,
+  },
+  blogAnnivOahu: {
+    file: '/photos/blog-anniv-oahu.png',
+    alt: `A chef plating two intimate ivory dishes on a Kahala dining table at dusk, Diamond Head through the sliders.`,
+  },
+  blogAnnivMaui: {
+    file: '/photos/blog-anniv-maui.png',
+    alt: `A chef plating two intimate ivory dishes on a Wailea villa terrace at west sunset, Pacific beyond.`,
+  },
+  blogAnnivKauai: {
+    file: '/photos/blog-anniv-kauai.png',
+    alt: `A chef plating two intimate ivory dishes on a wet Princeville stone terrace, misted mountains.`,
+  },
+  blogAnnivBigisland: {
+    file: '/photos/blog-anniv-bigisland.png',
+    alt: `A chef plating two intimate ivory kanpachi dishes on a Kohala lava terrace at sunset, Mauna Kea faint.`,
+  },
+  blogKidsOahu: {
+    file: '/photos/blog-kids-oahu.png',
+    alt: `A chef plating a smaller ivory kids plate beside an adult fish course in a Honolulu kitchen at dusk.`,
+  },
+  blogKidsMaui: {
+    file: '/photos/blog-kids-maui.png',
+    alt: `A chef plating a smaller ivory kids plate beside an adult fish course in a Wailea villa kitchen at dusk.`,
+  },
+  blogKidsKauai: {
+    file: '/photos/blog-kids-kauai.png',
+    alt: `A chef plating a smaller ivory kids plate beside an adult fish course in a Princeville kitchen in rain.`,
+  },
+  blogKidsBigisland: {
+    file: '/photos/blog-kids-bigisland.png',
+    alt: `A chef plating a smaller ivory kids plate beside an adult fish course in a Kona villa kitchen, lava coast.`,
+  },
+  blogBreakfastOahu: {
+    file: '/photos/blog-breakfast-oahu.png',
+    alt: `A chef plating morning eggs and fruit on ivory plates in a Kahala villa kitchen, Pacific beyond.`,
+  },
+  blogBreakfastMaui: {
+    file: '/photos/blog-breakfast-maui.png',
+    alt: `A chef plating morning eggs and fruit on ivory plates in a Wailea villa kitchen, west morning light.`,
+  },
+  blogBreakfastKauai: {
+    file: '/photos/blog-breakfast-kauai.png',
+    alt: `A chef plating morning breakfast on ivory plates in a Poʻipū kitchen, pale south-shore light.`,
+  },
+  blogBreakfastBigisland: {
+    file: '/photos/blog-breakfast-bigisland.png',
+    alt: `A chef plating morning breakfast on ivory plates in a Waikoloa villa kitchen, lava coast morning.`,
+  },
+  blogLunchOahu: {
+    file: '/photos/blog-lunch-oahu.png',
+    alt: `A chef plating a midday fish lunch on ivory plates at a Honolulu house table, Diamond Head distant.`,
+  },
+  blogLunchMaui: {
+    file: '/photos/blog-lunch-maui.png',
+    alt: `A chef plating a midday fish lunch on a Wailea lanai table in hard sun, Pacific beyond.`,
+  },
+  blogLunchKauai: {
+    file: '/photos/blog-lunch-kauai.png',
+    alt: `A chef plating a midday fish lunch on a Kauaʻi estate table, misted mountains, ivory plates.`,
+  },
+  blogLunchBigisland: {
+    file: '/photos/blog-lunch-bigisland.png',
+    alt: `A chef plating a midday kanpachi lunch on a Kohala lava terrace in hard sun, Mauna Kea distant.`,
+  },
+  blogServersOahu: {
+    file: '/photos/blog-servers-oahu.png',
+    alt: `A server setting unused ivory plates on a Kahala dining table at dusk, chef at the pass, Diamond Head.`,
+  },
+  blogServersMaui: {
+    file: '/photos/blog-servers-maui.png',
+    alt: `A server setting unused ivory plates on a Wailea dining table at sunset, chef at the pass, Pacific.`,
+  },
+  blogServersKauai: {
+    file: '/photos/blog-servers-kauai.png',
+    alt: `A server setting unused ivory plates on a wet North Shore Kauaʻi stone table, misted mountains.`,
+  },
+  blogServersBigisland: {
+    file: '/photos/blog-servers-bigisland.png',
+    alt: `A server setting unused ivory plates on a Kohala lava-terrace table, Mauna Kea faint.`,
+  },
+  blogBartenderOahu: {
+    file: '/photos/blog-bartender-oahu.png',
+    alt: `A bartender straining a citrus cocktail on a Kahala lanai bar cart at dusk, unlabeled bottle.`,
+  },
+  blogBartenderMaui: {
+    file: '/photos/blog-bartender-maui.png',
+    alt: `A bartender straining a citrus cocktail on a Wailea terrace bar cart at west sunset, unlabeled bottle.`,
+  },
+  blogBartenderKauai: {
+    file: '/photos/blog-bartender-kauai.png',
+    alt: `A bartender straining a citrus cocktail on a Kauaʻi estate terrace at blue hour, misted mountains.`,
+  },
+  blogBartenderBigisland: {
+    file: '/photos/blog-bartender-bigisland.png',
+    alt: `A bartender straining a citrus cocktail on a Kohala lava terrace at sunset, unlabeled bottle.`,
+  },
+  blogWelcomeOahu: {
+    file: '/photos/blog-welcome-oahu.png',
+    alt: `A chef plating a first-night welcome dinner on a Kahala lanai at dusk, Diamond Head, ivory plates.`,
+  },
+  blogWelcomeMaui: {
+    file: '/photos/blog-welcome-maui.png',
+    alt: `A chef plating a first-night welcome dinner on a Wailea lanai at dusk, Pacific sunset, ivory plates.`,
+  },
+  blogWelcomeKauai: {
+    file: '/photos/blog-welcome-kauai.png',
+    alt: `A chef plating a first-night welcome dinner on a Kauaʻi estate table looking into a misted valley.`,
+  },
+  blogWelcomeBigisland: {
+    file: '/photos/blog-welcome-bigisland.png',
+    alt: `A chef plating a first-night welcome dinner on a Kailua-Kona villa terrace at dusk, town lights below.`,
+  },
+  blogBrunchOahu: {
+    file: '/photos/blog-brunch-oahu.png',
+    alt: `A chef plating recovery brunch fruit and eggs on a Kahala lawn table in morning light, Diamond Head faint.`,
+  },
+  blogBrunchMaui: {
+    file: '/photos/blog-brunch-maui.png',
+    alt: `A chef plating recovery brunch fruit and eggs on a Wailea lawn table in morning light, Pacific.`,
+  },
+  blogBrunchKauai: {
+    file: '/photos/blog-brunch-kauai.png',
+    alt: `A chef plating recovery brunch fruit and eggs on a Kauaʻi estate lawn in morning mist, fluted mountains.`,
+  },
+  blogBrunchBigisland: {
+    file: '/photos/blog-brunch-bigisland.png',
+    alt: `A chef plating recovery brunch fruit and eggs on a Kohala lava terrace in morning sun, Mauna Kea faint.`,
+  },
+  blogRehearsalOahu: {
+    file: '/photos/blog-rehearsal-oahu.png',
+    alt: `A chef plating a seated rehearsal dinner for about eight on a Kahala dining table at dusk, Diamond Head.`,
+  },
+  blogRehearsalMaui: {
+    file: '/photos/blog-rehearsal-maui.png',
+    alt: `A chef plating a seated rehearsal dinner for about eight on a Wailea ocean lawn at dusk, candles.`,
+  },
+  blogRehearsalKauai: {
+    file: '/photos/blog-rehearsal-kauai.png',
+    alt: `A chef plating a seated rehearsal dinner for about eight on a Kauaʻi estate looking into a misted valley.`,
+  },
+  blogRehearsalBigisland: {
+    file: '/photos/blog-rehearsal-bigisland.png',
+    alt: `A chef plating a seated rehearsal dinner for about eight on a Kohala lava terrace at sunset, candles.`,
+  },
+  blogOffsitesOahu: {
+    file: '/photos/blog-offsites-oahu.png',
+    alt: `A chef plating identical board-dinner fish courses on a Honolulu house table, unused notebooks aside.`,
+  },
+  blogOffsitesMaui: {
+    file: '/photos/blog-offsites-maui.png',
+    alt: `A chef plating identical board-dinner fish courses on a Wailea house table at west sunset, unused notebooks.`,
+  },
+  blogOffsitesKauai: {
+    file: '/photos/blog-offsites-kauai.png',
+    alt: `A chef plating identical board-dinner fish courses on a Kauaʻi estate table, unused notebooks, misted mountains.`,
+  },
+  blogOffsitesBigisland: {
+    file: '/photos/blog-offsites-bigisland.png',
+    alt: `A chef plating identical board-dinner kanpachi courses on a Waikoloa house table, unused notebooks aside.`,
+  },
+  blogRetreatOahu: {
+    file: '/photos/blog-retreat-oahu.png',
+    alt: `A chef at a Kahala kitchen pass with stacked ivory plates for a full-board retreat day, Pacific beyond.`,
+  },
+  blogRetreatMaui: {
+    file: '/photos/blog-retreat-maui.png',
+    alt: `A chef at a Wailea kitchen pass with stacked ivory plates for a full-board retreat day, Pacific through sliders.`,
+  },
+  blogRetreatKauai: {
+    file: '/photos/blog-retreat-kauai.png',
+    alt: `A chef at a Kauaʻi estate kitchen pass with stacked ivory plates for a full-board retreat day, wet glass.`,
+  },
+  blogRetreatBigisland: {
+    file: '/photos/blog-retreat-bigisland.png',
+    alt: `A chef at a Kohala kitchen pass with stacked ivory plates for a full-board retreat day, lava terrace beyond.`,
+  },
   cellLanikai: {
     file: '/photos/cell-lanikai.png',
     alt: `A quieter Lanikai beach-house table at dusk — plated fish, Mokulua islets across the channel.`,

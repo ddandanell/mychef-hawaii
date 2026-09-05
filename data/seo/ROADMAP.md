@@ -298,6 +298,24 @@ Still no zip on this machine. Wave 33 ships unique `/{slug}` dinner doors for su
 - `/areas` lists supporting cells as live dinner doors; dining-in blogs remain kitchen notes.
 - New Grok stills for every Wave 33 URL. Kauaʻi and Hawaiʻi Island stay inquiry. Hilo / Volcano / Kaʻū stay quote-only dedicated days.
 
+## Wave 34 — extra-blog kitchen notes beside live SKUs (this branch)
+
+Still no zip on this machine. Wave 34 ships the remaining extra-blog seeds as unique kitchen notes beside live SKUs (11 slugs × 4 islands = 44 articles, plus 11 hub pickers). They do not steal occasion, menu, staffing, or bar titles.
+
+- `/blog/anniversary-dinners` beside `/events/anniversaries`
+- `/blog/kids-at-the-table` beside `/kids-menus`
+- `/blog/breakfast-in-the-villa` beside `/menus/breakfast`
+- `/blog/lunch-service` beside `/menus/lunch`
+- `/blog/staffing-servers` beside `/staffing/servers`
+- `/blog/bartender-add-on` beside `/bar`
+- `/blog/welcome-dinner` beside `/events/welcome-dinners`
+- `/blog/day-after-brunch` beside `/events/brunch`
+- `/blog/rehearsal-dinner` beside `/rehearsal-dinners`
+- `/blog/corporate-offsites` beside `/events/corporate-events`
+- `/blog/retreat-full-board` beside `/retreat-catering`
+- Hub pickers for each slug. Dining-in blogs stay island-only.
+- Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 34 URL.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
