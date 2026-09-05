@@ -1027,6 +1027,12 @@ Still no zip on this machine. Wave 129 drops FoodService from the identity Local
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 130 — hub /catering ships the same OfferCatalog as other hub owners (this branch)
+
+Still no zip on this machine. Wave 130 adds hub `/catering` to the hub rate-page allow list so the `hawaii catering` owner publishes the same OfferCatalog hub `/weddings`, hub `/mobile-bar`, and island `/catering` already ship. Offer names stay Villa dinner / Stay Chef / Wedding week / Packaged cart. `seo:audit` fails if hub `/catering` drops off that list. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

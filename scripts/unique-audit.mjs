@@ -1082,6 +1082,9 @@ if (/private chef and catering prices/.test(seoSrc)) {
 if (!/ISLAND_RATE_JSONLD/.test(seoSrc) || !/HUB_RATE_JSONLD/.test(seoSrc)) {
   errors.push('JSON-LD OfferCatalog must use the rate-page allow lists');
 }
+if (!/HUB_RATE_JSONLD[\s\S]{0,200}'\/catering'/.test(seoSrc)) {
+  errors.push('hub /catering still missing OfferCatalog JSON-LD');
+}
 if (/ISLAND_RATE_JSONLD[\s\S]{0,400}'\/events'/.test(seoSrc) || /ISLAND_RATE_JSONLD[\s\S]{0,400}'\/menus'/.test(seoSrc)) {
   errors.push('JSON-LD OfferCatalog still sprays onto /events or /menus');
 }
