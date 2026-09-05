@@ -581,6 +581,19 @@ if (/No\. Unverified fish is named as fish\.'/.test(blogOnlySrc)) {
   errors.push('blog article FAQs still clone the unverified-fish answer');
 }
 
+const journalOnlySrc = read('data/journalArticles.ts');
+if (/This piece is the journal note on why we will not take a verbal yes\.'/.test(journalOnlySrc)) {
+  errors.push('journal FAQs still clone the verbal-yes answer');
+}
+if (/No\. We cook in the house\. Open \/quote\.'/.test(journalOnlySrc)) {
+  errors.push('journal FAQs still clone the restaurant-house answer');
+}
+
+const extraJournalSrc = read('data/extraJournalNotes.ts');
+if (/This piece is a visitor villa week\.'/.test(extraJournalSrc)) {
+  errors.push('extra-journal FAQs still clone the visitor-villa-week answer');
+}
+
 const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
   errors.push('location fallback titles still use private chef');

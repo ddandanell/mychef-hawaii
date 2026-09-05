@@ -60,11 +60,11 @@ export const EXTRA_JOURNAL_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /vacation-chef?',
-          a: 'That URL is the SKU. This piece is the week-stack kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the week-stack kitchen note beside it — Kahala kitchen.',
         },
         {
           q: 'Same as /personal-chef?',
-          a: 'That URL is the resident household line. This piece is a visitor villa week.',
+          a: 'That URL is the resident household line. This piece is a visitor villa week — Kahala kitchen.',
         },
       ],
       related: [
@@ -158,11 +158,11 @@ export const EXTRA_JOURNAL_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /vacation-chef?',
-          a: 'That URL is the SKU. This piece is the week-stack kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the week-stack kitchen note beside it — Wailea kitchen.',
         },
         {
           q: 'Same as /personal-chef?',
-          a: 'That URL is the resident household line. This piece is a visitor villa week.',
+          a: 'That URL is the resident household line. This piece is a visitor villa week — Wailea kitchen.',
         },
       ],
       related: [
@@ -256,11 +256,11 @@ export const EXTRA_JOURNAL_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /vacation-chef?',
-          a: 'That URL is the SKU at inquiry. This piece is the week-stack kitchen note beside it.',
+          a: 'That URL is the SKU at inquiry. This piece is the week-stack kitchen note beside it — Princeville kitchen at inquiry.',
         },
         {
           q: 'Same as /personal-chef?',
-          a: 'That URL is the resident household line. This piece is a visitor villa week.',
+          a: 'That URL is the resident household line. This piece is a visitor villa week — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -354,11 +354,11 @@ export const EXTRA_JOURNAL_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /vacation-chef?',
-          a: 'That URL is the SKU at inquiry. This piece is the week-stack kitchen note beside it.',
+          a: 'That URL is the SKU at inquiry. This piece is the week-stack kitchen note beside it — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Same as /personal-chef?',
-          a: 'That URL is the resident household line. This piece is a visitor villa week.',
+          a: 'That URL is the resident household line. This piece is a visitor villa week — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [

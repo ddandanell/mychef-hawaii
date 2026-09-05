@@ -78,7 +78,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /quote?',
-          a: 'That URL is the form. This piece is the journal note on why we will not take a verbal yes.',
+          a: 'That URL is the form. This piece is the journal note on why we will not take a verbal yes — Kahala kitchen.',
         },
         {
           q: 'Same as /help/getting-started?',
@@ -109,7 +109,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is what a night includes. This piece is the kitchen constraint that decides whether we even quote.',
+          a: 'That page is what a night includes. This piece is the kitchen constraint that decides whether we even quote — Kahala kitchen.',
         },
         {
           q: 'Will you cook in a Waikīkī suite?',
@@ -140,11 +140,11 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /dietary?',
-          a: 'That URL is the service page. This piece is the journal note on how the allergy reaches the draft.',
+          a: 'That URL is the service page. This piece is the journal note on how the allergy reaches the draft — Kahala kitchen.',
         },
         {
           q: 'Can you invent it on the night?',
-          a: 'No. Designed ahead, or we decline the seat. Open /dietary.',
+          a: 'No. Designed ahead, or we decline the seat. Open /dietary — Kahala kitchen.',
         },
       ],
       related: [
@@ -171,11 +171,11 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the journal note on why exclusions print as lines.',
+          a: 'That page is the inclusion document. This piece is the journal note on why exclusions print as lines — Kahala kitchen.',
         },
         {
           q: 'Same as /pricing?',
-          a: 'That page is the rate card. This piece is what the card does and does not swallow.',
+          a: 'That page is the rate card. This piece is what the card does and does not swallow — Kahala kitchen.',
         },
       ],
       related: [
@@ -233,11 +233,11 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product.',
+          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product — Kahala kitchen.',
         },
         {
           q: 'Can you book us a restaurant?',
-          a: 'No. We cook in the house. Open /quote.',
+          a: 'No. We cook in the house. Open /quote — Kahala kitchen.',
         },
       ],
       related: [
@@ -298,7 +298,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /quote?',
-          a: 'That URL is the form. This piece is the journal note on why we will not take a verbal yes.',
+          a: 'That URL is the form. This piece is the journal note on why we will not take a verbal yes — Wailea kitchen.',
         },
         {
           q: 'Lahaina after a Wailea deposit?',
@@ -329,7 +329,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is what a night includes. This piece is the kitchen constraint that decides whether we even quote.',
+          a: 'That page is what a night includes. This piece is the kitchen constraint that decides whether we even quote — Wailea kitchen.',
         },
         {
           q: 'Will you cook in a resort suite?',
@@ -360,11 +360,11 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /dietary?',
-          a: 'That URL is the service page. This piece is the journal note on how the allergy reaches the draft.',
+          a: 'That URL is the service page. This piece is the journal note on how the allergy reaches the draft — Wailea kitchen.',
         },
         {
           q: 'Can you invent it on the night?',
-          a: 'No. Designed ahead, or we decline the seat. Open /dietary.',
+          a: 'No. Designed ahead, or we decline the seat. Open /dietary — Wailea kitchen.',
         },
       ],
       related: [
@@ -391,11 +391,11 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the journal note on why exclusions print as lines.',
+          a: 'That page is the inclusion document. This piece is the journal note on why exclusions print as lines — Wailea kitchen.',
         },
         {
           q: 'Same as /pricing?',
-          a: 'That page is the rate card. This piece is what the card does and does not swallow.',
+          a: 'That page is the rate card. This piece is what the card does and does not swallow — Wailea kitchen.',
         },
       ],
       related: [
@@ -453,11 +453,11 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product.',
+          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product — Wailea kitchen.',
         },
         {
           q: 'Can you book us a restaurant?',
-          a: 'No. We cook in the house. Open /quote.',
+          a: 'No. We cook in the house. Open /quote — Wailea kitchen.',
         },
       ],
       related: [
@@ -549,7 +549,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is what a night includes. This piece is the kitchen constraint that decides whether we even enquire a draft.',
+          a: 'That page is what a night includes. This piece is the kitchen constraint that decides whether we even enquire a draft — Princeville kitchen at inquiry.',
         },
         {
           q: 'Are you live on both shores?',
@@ -584,7 +584,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
         },
         {
           q: 'Can you invent it on the night?',
-          a: 'No. Designed ahead, or we decline the seat. Open /dietary.',
+          a: 'No. Designed ahead, or we decline the seat. Open /dietary — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -673,11 +673,11 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product — at inquiry.',
+          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product — Princeville kitchen at inquiry.',
         },
         {
           q: 'Can you book us a restaurant?',
-          a: 'No. We cook in the house, when we can staff. Open /quote.',
+          a: 'No. We cook in the house, when we can staff. Open /quote — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -769,7 +769,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is what a night includes. This piece is the kitchen constraint that decides whether we even enquire a draft.',
+          a: 'That page is what a night includes. This piece is the kitchen constraint that decides whether we even enquire a draft — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Can a Kona cooktop cover Hilo?',
@@ -893,11 +893,11 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product — at inquiry.',
+          a: 'That page is the inclusion document. This piece is the journal note on why a restaurant is a different product — Waikoloa kitchen at inquiry. Hilo is never implied.',
         },
         {
           q: 'Can you book us a restaurant?',
-          a: 'No. We cook in the house, when we can staff. Open /quote.',
+          a: 'No. We cook in the house, when we can staff. Open /quote — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
