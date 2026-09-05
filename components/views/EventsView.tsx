@@ -55,6 +55,19 @@ export function IslandEventsView({ islandId, hostMode }: { islandId: IslandId; h
           detail: `/events/${page.slug}`,
         }))}
       />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].name} · Beside these occasions`}
+        heading="Open a related document."
+        intro="/catering is the staffed room. /weddings is the week. The form and the packaged cart are their own URLs."
+        columns={2}
+        items={[
+          { path: '/catering', label: 'Villa catering', detail: '/catering' },
+          { path: '/weddings', label: 'Wedding week', detail: '/weddings' },
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/mobile-bar', label: 'The packaged cart', detail: '/mobile-bar' },
+        ]}
+      />
 
       <SiblingCluster island={islandId} current="catering" href={href} />
       <LongFaq items={offer.faqs} title="Occasion, not the catering keyword." />

@@ -633,6 +633,13 @@ Still no zip on this machine. Wave 72 gives hub `/bar` and hub `/mobile-bar` rel
 - Hub `/mobile-bar` keeps the statewide title and island picker, then opens `/bar`, `/weddings`, `/private-chef`, and `/quote`. Distinct from `/bar` (the add-on hour).
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
 
+## Wave 73 — hub and island /events related doors (this branch)
+
+Still no zip on this machine. Wave 73 gives `/events` related-document photography without turning occasion documents into the catering keyword.
+
+- Hub `/events` keeps the four-island picker, then opens `/catering`, `/weddings`, `/quote`, and `/mobile-bar` on existing stills. The packaged-cart card is titled “The packaged cart” so it cannot steal `mobile bar hawaii`.
+- Island `/events` keeps the occasion-document grid, then opens the same four paths on island stills. Distinct from `/catering` (the staffed room) and `/weddings` (the week). SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

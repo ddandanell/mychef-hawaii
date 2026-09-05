@@ -49,6 +49,7 @@ import { photos, type PhotoKey } from '@/data/photos';
 import { getHubDirectory, getHubDirectoryById } from '@/data/hubDirectories';
 import { nestedHubDirectories } from '@/data/hubNestedDirectories';
 import { nestedHubEditorials } from '@/data/hubEditorialDirectories';
+import type { ReactNode } from 'react';
 
 export function HowItWorksView() {
   const still = photos.hubHow;
@@ -518,7 +519,7 @@ export function HubAreasView() {
   );
 }
 
-export function HubDirectoryView({ id }: { id: string }) {
+export function HubDirectoryView({ id, related }: { id: string; related?: ReactNode }) {
   const copy = getHubDirectoryById(id);
   if (!copy) return null;
   const photo = photos[copy.photo];
@@ -566,6 +567,7 @@ export function HubDirectoryView({ id }: { id: string }) {
         heading="Open the island document."
         detailOf={() => copy.cardLabel}
       />
+      {related}
       <LongFaq items={copy.faqs} title="Before you open an island." />
     </>
   );
