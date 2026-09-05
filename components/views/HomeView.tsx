@@ -36,6 +36,8 @@ const hubFaqs = [
   },
 ];
 
+const homeFaqItems = [...hubFaqs, ...hubHomeFaqs];
+
 export default function HomeView() {
   return (
     <>
@@ -53,7 +55,7 @@ export default function HomeView() {
           {
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            mainEntity: hubFaqs.map((f) => ({
+            mainEntity: homeFaqItems.map((f) => ({
               '@type': 'Question',
               name: f.q,
               acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -167,7 +169,7 @@ export default function HomeView() {
       </section>
 
       <Longform sections={hubHomeSections} />
-      <LongFaq items={[...hubFaqs, ...hubHomeFaqs]} title="Cost, cleanup, kitchens." />
+      <LongFaq items={homeFaqItems} title="Cost, cleanup, kitchens." />
       <QuoteTeaser headline={hubChrome.closer} />
     </>
   );

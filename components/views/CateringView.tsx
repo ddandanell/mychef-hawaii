@@ -55,7 +55,7 @@ export function HubCateringView() {
           {
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            mainEntity: HUB_CATERING.faqs.map((f) => ({
+            mainEntity: [...HUB_CATERING.faqs, ...hubCateringFaqs].map((f) => ({
               '@type': 'Question',
               name: f.q,
               acceptedAnswer: { '@type': 'Answer', text: f.a },
@@ -183,7 +183,7 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
           {
             '@context': 'https://schema.org',
             '@type': 'FAQPage',
-            mainEntity: offer.faqs.map((f) => ({
+            mainEntity: [...offer.faqs, ...long.faqs].map((f) => ({
               '@type': 'Question',
               name: f.q,
               acceptedAnswer: { '@type': 'Answer', text: f.a },

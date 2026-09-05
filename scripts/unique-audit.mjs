@@ -1011,6 +1011,9 @@ const homeViewSrc = read('components/views/HomeView.tsx');
 if (!/Private chef Hawaii — myCHEF/.test(homeViewSrc)) {
   errors.push('hub home still missing owner FoodService JSON-LD');
 }
+if (!/const homeFaqItems = \[\.\.\.hubFaqs, \.\.\.hubHomeFaqs\]/.test(homeViewSrc)) {
+  errors.push('hub home FAQPage still omits visible hubHomeFaqs');
+}
 if (/path: '\/private-chef',\s*title: 'Private chef'/.test(islandHomeSrc)) {
   errors.push('island homes still label /private-chef as Private chef');
 }
@@ -1027,6 +1030,12 @@ if (!/Sample islandId=\{islandId\}/.test(cateringViewSrc)) {
 }
 if (!/IslandCateringView[\s\S]{0,2500}'FoodService'/.test(cateringViewSrc)) {
   errors.push('island /catering still missing owner FoodService JSON-LD');
+}
+if (!/\[\.\.\.HUB_CATERING\.faqs, \.\.\.hubCateringFaqs\]\.map/.test(cateringViewSrc)) {
+  errors.push('hub /catering FAQPage still omits visible hubCateringFaqs');
+}
+if (!/\[\.\.\.offer\.faqs, \.\.\.long\.faqs\]\.map/.test(cateringViewSrc)) {
+  errors.push('island /catering FAQPage still omits visible longform FAQs');
 }
 if (!/Oahu catering menu/.test(cateringViewSrc) || !/Maui catering menu/.test(cateringViewSrc)) {
   errors.push('island catering sample kickers dropped Oahu or Maui catering menu');

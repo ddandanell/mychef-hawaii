@@ -1051,6 +1051,12 @@ Still no zip on this machine. Wave 133 gives island `/private-chef` and island `
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 134 — hub home and catering FAQPage matches the visible FAQ list (this branch)
+
+Still no zip on this machine. Wave 134 puts every visible FAQ on hub `/`, hub `/catering`, and island `/catering` into FAQPage JSON-LD. Those pages were concatenating extra longform FAQs on the page but omitting them from schema. `seo:audit` fails if those lists drift apart. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.
