@@ -570,6 +570,17 @@ if (/No\. One kitchen, two plate sizes\. Open \/quote\.'/.test(extraBlogSrc)) {
   errors.push('extra-blog FAQs still clone the kids-station answer');
 }
 
+const blogOnlySrc = read('data/blogArticles.ts');
+if (/This piece is how groceries print beside it\.'/.test(blogOnlySrc)) {
+  errors.push('blog article FAQs still clone the grocery-line answer');
+}
+if (/No\. Cost plus receipts\. Open \/quote\.'/.test(blogOnlySrc)) {
+  errors.push('blog article FAQs still clone the grocery-markup answer');
+}
+if (/No\. Unverified fish is named as fish\.'/.test(blogOnlySrc)) {
+  errors.push('blog article FAQs still clone the unverified-fish answer');
+}
+
 const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
   errors.push('location fallback titles still use private chef');

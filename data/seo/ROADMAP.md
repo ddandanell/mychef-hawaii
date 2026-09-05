@@ -759,6 +759,14 @@ Still no zip on this machine. Wave 87 uniquifies the 11 extra-blog kitchen notes
 - Kauaʻi answers add inquiry honesty. Hawaiʻi Island answers add “Hilo is never implied.”
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No related-door photography. No new URLs.
 
+## Wave 88 — blog-article FAQs stop cloning across islands (this branch)
+
+Still no zip on this machine. Wave 88 uniquifies leftover `blogArticles.ts` FAQs so Oahu/Maui live notes and Kauaʻi/Hawaiʻi Island inquiry notes no longer share identical answers. Titles, H1s, and photos were already unique. No new URLs. Journal leftover clones stay a later leftover.
+
+- Grocery, wine, weather, sourcing, cleanup, reunion, proposal, estate, peak-season, and fish-species notes now name Kahala, Wailea, Princeville, or Waikoloa.
+- Inquiry answers keep the inquiry clause and add the island kitchen. Hawaiʻi Island answers add “Hilo is never implied.”
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No related-door photography. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

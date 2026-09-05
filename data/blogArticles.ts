@@ -219,11 +219,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /pricing?',
-          a: 'That page is the rate card. This piece is how groceries print beside it.',
+          a: 'That page is the rate card. This piece is how groceries print beside it — Kahala kitchen.',
         },
         {
           q: 'Is there a grocery markup?',
-          a: 'No. Cost plus receipts. Open /quote.',
+          a: 'No. Cost plus receipts. Open /quote — Kahala kitchen.',
         },
       ],
       related: [
@@ -250,11 +250,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /bar?',
-          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line.',
+          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line — Kahala kitchen.',
         },
         {
           q: 'Can you bury wine in the menu price?',
-          a: 'No. Open /journal/what-is-included.',
+          a: 'No. Open /journal/what-is-included — Kahala kitchen.',
         },
       ],
       related: [
@@ -281,7 +281,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /coverage?',
-          a: 'That page is where we cook. This piece is the short outdoor-backup note.',
+          a: 'That page is where we cook. This piece is the short outdoor-backup note — Kahala kitchen.',
         },
         {
           q: 'Same as /legal?',
@@ -312,11 +312,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /what-we-dont-do?',
-          a: 'That page is the claim list. This piece is the shorter sourcing note.',
+          a: 'That page is the claim list. This piece is the shorter sourcing note — Kahala kitchen.',
         },
         {
           q: 'Will you print a farm name on the menu?',
-          a: 'Only after written verification. Otherwise the ingredient is named as food.',
+          a: 'Only after written verification. Otherwise the ingredient is named as food — Kahala kitchen.',
         },
       ],
       related: [
@@ -343,11 +343,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the shorter cleanup note.',
+          a: 'That page is the inclusion document. This piece is the shorter cleanup note — Kahala kitchen.',
         },
         {
           q: 'Is cleanup extra?',
-          a: 'No. It is in. Open /quote.',
+          a: 'No. It is in. Open /quote — Kahala kitchen.',
         },
       ],
       related: [
@@ -378,7 +378,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Do you need a COI?',
-          a: 'When the building requires one, we handle it in writing before the night.',
+          a: 'When the building requires one, we handle it in writing before the night — Kahala kitchen.',
         },
       ],
       related: [
@@ -405,11 +405,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /events?',
-          a: 'That page is the occasion door. This piece is the shorter family-reunion note.',
+          a: 'That page is the occasion door. This piece is the shorter family-reunion note — Kahala kitchen.',
         },
         {
           q: 'Can you staff a ballroom reunion?',
-          a: 'No. We staff houses. Open /guest-counts.',
+          a: 'No. We staff houses. Open /guest-counts — Kahala kitchen.',
         },
       ],
       related: [
@@ -436,7 +436,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /catering?',
-          a: 'That page is the staffed-room door. This piece is the shorter production-meal note.',
+          a: 'That page is the staffed-room door. This piece is the shorter production-meal note — Kahala kitchen.',
         },
         {
           q: 'Can you run craft service on a lot?',
@@ -467,11 +467,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /honeymoon-dinners?',
-          a: 'That page is two seats after the wedding. This piece is the shorter proposal note.',
+          a: 'That page is two seats after the wedding. This piece is the shorter proposal note — Kahala kitchen.',
         },
         {
           q: 'Can you hold a restaurant table?',
-          a: 'No. We cook in the house. Open /what-we-dont-do.',
+          a: 'No. We cook in the house. Open /what-we-dont-do — Kahala kitchen.',
         },
       ],
       related: [
@@ -498,11 +498,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/condo-load-in?',
-          a: 'That note is the tower. This piece is the shorter estate-driveway note.',
+          a: 'That note is the tower. This piece is the shorter estate-driveway note — Kahala kitchen.',
         },
         {
           q: 'Same as /coverage?',
-          a: 'That page is where we cook. This piece is how we reach the house.',
+          a: 'That page is where we cook. This piece is how we reach the house — Kahala kitchen.',
         },
       ],
       related: [
@@ -529,11 +529,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /journal/how-far-ahead-to-book?',
-          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note.',
+          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note — Kahala kitchen.',
         },
         {
           q: 'Are April nights walk-in?',
-          a: 'No. Send /quote. We still write the kitchen.',
+          a: 'No. Send /quote. We still write the kitchen — Kahala kitchen.',
         },
       ],
       related: [
@@ -784,7 +784,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/sourcing-honesty?',
-          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice.',
+          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice — Kahala kitchen.',
         },
         {
           q: 'Will you invent a farm for the menu card?',
@@ -815,11 +815,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/sourcing-honesty?',
-          a: 'That piece is ship versus farm. This piece is the species on the fish line.',
+          a: 'That piece is ship versus farm. This piece is the species on the fish line — Kahala kitchen.',
         },
         {
           q: 'Will you guess the species for the menu card?',
-          a: 'No. Unverified fish is named as fish.',
+          a: 'No. Unverified fish is named as fish — Kahala kitchen.',
         },
       ],
       related: [
@@ -846,7 +846,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/named-farms?',
-          a: 'That piece is produce. This piece is the coffee line on the invoice.',
+          a: 'That piece is produce. This piece is the coffee line on the invoice — Kahala kitchen.',
         },
         {
           q: 'Will you print Kona coffee on an Oahu menu?',
@@ -912,7 +912,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Same as /what-we-dont-do?',
-          a: 'That page is the claim list. This piece is the review-count essay beside it.',
+          a: 'That page is the claim list. This piece is the review-count essay beside it — Kahala kitchen.',
         },
       ],
       related: [
@@ -1128,11 +1128,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /pricing?',
-          a: 'That page is the rate card. This piece is how groceries print beside it.',
+          a: 'That page is the rate card. This piece is how groceries print beside it — Wailea kitchen.',
         },
         {
           q: 'Is there a grocery markup?',
-          a: 'No. Cost plus receipts. Open /quote.',
+          a: 'No. Cost plus receipts. Open /quote — Wailea kitchen.',
         },
       ],
       related: [
@@ -1159,11 +1159,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /bar?',
-          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line.',
+          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line — Wailea kitchen.',
         },
         {
           q: 'Can you bury wine in the menu price?',
-          a: 'No. Open /journal/what-is-included.',
+          a: 'No. Open /journal/what-is-included — Wailea kitchen.',
         },
       ],
       related: [
@@ -1190,7 +1190,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /coverage?',
-          a: 'That page is where we cook. This piece is the short outdoor-backup note.',
+          a: 'That page is where we cook. This piece is the short outdoor-backup note — Wailea kitchen.',
         },
         {
           q: 'Same as /makena?',
@@ -1221,11 +1221,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /what-we-dont-do?',
-          a: 'That page is the claim list. This piece is the shorter sourcing note.',
+          a: 'That page is the claim list. This piece is the shorter sourcing note — Wailea kitchen.',
         },
         {
           q: 'Will you print a farm name on the menu?',
-          a: 'Only after written verification. Otherwise the ingredient is named as food.',
+          a: 'Only after written verification. Otherwise the ingredient is named as food — Wailea kitchen.',
         },
       ],
       related: [
@@ -1252,11 +1252,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the shorter cleanup note.',
+          a: 'That page is the inclusion document. This piece is the shorter cleanup note — Wailea kitchen.',
         },
         {
           q: 'Is cleanup extra?',
-          a: 'No. It is in. Open /quote.',
+          a: 'No. It is in. Open /quote — Wailea kitchen.',
         },
       ],
       related: [
@@ -1287,7 +1287,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Do you need a COI?',
-          a: 'When the building requires one, we handle it in writing before the night.',
+          a: 'When the building requires one, we handle it in writing before the night — Wailea kitchen.',
         },
       ],
       related: [
@@ -1314,11 +1314,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /events?',
-          a: 'That page is the occasion door. This piece is the shorter family-reunion note.',
+          a: 'That page is the occasion door. This piece is the shorter family-reunion note — Wailea kitchen.',
         },
         {
           q: 'Can you staff a ballroom reunion?',
-          a: 'No. We staff houses. Open /guest-counts.',
+          a: 'No. We staff houses. Open /guest-counts — Wailea kitchen.',
         },
       ],
       related: [
@@ -1345,7 +1345,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /catering?',
-          a: 'That page is the staffed-room door. This piece is the shorter production-meal note.',
+          a: 'That page is the staffed-room door. This piece is the shorter production-meal note — Wailea kitchen.',
         },
         {
           q: 'Can you run craft service on a lot?',
@@ -1376,11 +1376,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /honeymoon-dinners?',
-          a: 'That page is two seats after the wedding. This piece is the shorter proposal note.',
+          a: 'That page is two seats after the wedding. This piece is the shorter proposal note — Wailea kitchen.',
         },
         {
           q: 'Can you hold a restaurant table?',
-          a: 'No. We cook in the house. Open /what-we-dont-do.',
+          a: 'No. We cook in the house. Open /what-we-dont-do — Wailea kitchen.',
         },
       ],
       related: [
@@ -1407,11 +1407,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/condo-load-in?',
-          a: 'That note is the tower. This piece is the shorter estate-driveway note.',
+          a: 'That note is the tower. This piece is the shorter estate-driveway note — Wailea kitchen.',
         },
         {
           q: 'Same as /coverage?',
-          a: 'That page is where we cook. This piece is how we reach the house.',
+          a: 'That page is where we cook. This piece is how we reach the house — Wailea kitchen.',
         },
       ],
       related: [
@@ -1438,11 +1438,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /journal/how-far-ahead-to-book?',
-          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note.',
+          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note — Wailea kitchen.',
         },
         {
           q: 'Are April nights walk-in?',
-          a: 'No. Send /quote. We still write the kitchen.',
+          a: 'No. Send /quote. We still write the kitchen — Wailea kitchen.',
         },
       ],
       related: [
@@ -1473,7 +1473,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you print a farm name?',
-          a: 'Only after written verification. Open /blog/sourcing-honesty.',
+          a: 'Only after written verification. Open /blog/sourcing-honesty — Wailea kitchen.',
         },
       ],
       related: [
@@ -1693,7 +1693,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/sourcing-honesty?',
-          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice.',
+          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice — Wailea kitchen.',
         },
         {
           q: 'Will you invent an Upcountry farm for the menu card?',
@@ -1724,11 +1724,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/sourcing-honesty?',
-          a: 'That piece is ship versus farm. This piece is the species on the fish line.',
+          a: 'That piece is ship versus farm. This piece is the species on the fish line — Wailea kitchen.',
         },
         {
           q: 'Will you guess the species for the menu card?',
-          a: 'No. Unverified fish is named as fish.',
+          a: 'No. Unverified fish is named as fish — Wailea kitchen.',
         },
       ],
       related: [
@@ -1755,7 +1755,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/named-farms?',
-          a: 'That piece is produce. This piece is the coffee line on the invoice.',
+          a: 'That piece is produce. This piece is the coffee line on the invoice — Wailea kitchen.',
         },
         {
           q: 'Will you print Kona coffee on a Maui menu?',
@@ -1821,7 +1821,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Same as /what-we-dont-do?',
-          a: 'That page is the claim list. This piece is the review-count essay beside it.',
+          a: 'That page is the claim list. This piece is the review-count essay beside it — Wailea kitchen.',
         },
       ],
       related: [
@@ -2006,11 +2006,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /bar?',
-          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line — even at inquiry.',
+          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line — Princeville kitchen, even at inquiry.',
         },
         {
           q: 'Can you bury wine in the menu price?',
-          a: 'No. Open /journal/what-is-included.',
+          a: 'No. Open /journal/what-is-included — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2072,7 +2072,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you print a farm name on the menu?',
-          a: 'Only after written verification. Otherwise the ingredient is named as food.',
+          a: 'Only after written verification. Otherwise the ingredient is named as food — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2099,11 +2099,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the shorter cleanup note — at inquiry.',
+          a: 'That page is the inclusion document. This piece is the shorter cleanup note — Princeville kitchen at inquiry.',
         },
         {
           q: 'Is cleanup extra?',
-          a: 'No. It is in, when we can staff. Open /quote.',
+          a: 'No. It is in, when we can staff. Open /quote — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2134,7 +2134,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Do you need a COI?',
-          a: 'When the building requires one, we handle it in writing before we can staff.',
+          a: 'When the building requires one, we handle it in writing before we can staff — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2161,11 +2161,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /events?',
-          a: 'That page is the occasion door. This piece is the shorter family-reunion note — at inquiry.',
+          a: 'That page is the occasion door. This piece is the shorter family-reunion note — Princeville kitchen at inquiry.',
         },
         {
           q: 'Can you staff a ballroom reunion?',
-          a: 'No. We staff houses, when we can staff. Open /guest-counts.',
+          a: 'No. We staff houses, when we can staff. Open /guest-counts — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2192,7 +2192,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /catering?',
-          a: 'That page is the staffed-room door. This piece is the shorter production-meal note — at inquiry.',
+          a: 'That page is the staffed-room door. This piece is the shorter production-meal note — Princeville kitchen at inquiry.',
         },
         {
           q: 'Can you run craft service on a lot?',
@@ -2223,11 +2223,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /honeymoon-dinners?',
-          a: 'That page is two seats after the wedding. This piece is the shorter proposal note — at inquiry.',
+          a: 'That page is two seats after the wedding. This piece is the shorter proposal note — Princeville kitchen at inquiry.',
         },
         {
           q: 'Can you hold a restaurant table?',
-          a: 'No. We cook in the house, when we can staff. Open /what-we-dont-do.',
+          a: 'No. We cook in the house, when we can staff. Open /what-we-dont-do — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2254,11 +2254,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/condo-load-in?',
-          a: 'That note is the tower. This piece is the shorter estate-driveway note — at inquiry.',
+          a: 'That note is the tower. This piece is the shorter estate-driveway note — Princeville kitchen at inquiry.',
         },
         {
           q: 'Same as /coverage?',
-          a: 'That page is where we cook. This piece is how we reach the house.',
+          a: 'That page is where we cook. This piece is how we reach the house — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2285,11 +2285,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /journal/how-far-ahead-to-book?',
-          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note — at inquiry.',
+          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note — Princeville kitchen at inquiry.',
         },
         {
           q: 'Are April nights walk-in?',
-          a: 'No. Send /quote. We still write the kitchen, when we can staff.',
+          a: 'No. Send /quote. We still write the kitchen, when we can staff — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2603,11 +2603,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/sourcing-honesty?',
-          a: 'That piece is ship versus farm. This piece is the species on the fish line.',
+          a: 'That piece is ship versus farm. This piece is the species on the fish line — Princeville kitchen at inquiry.',
         },
         {
           q: 'Will you guess the species for the menu card?',
-          a: 'No. Unverified fish is named as fish.',
+          a: 'No. Unverified fish is named as fish — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -2885,11 +2885,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /bar?',
-          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line — even at inquiry.',
+          a: 'That URL is the bartender add-on. This piece is why the bottles print as their own line — Waikoloa kitchen, even at inquiry. Hilo is never implied.',
         },
         {
           q: 'Can you bury wine in the menu price?',
-          a: 'No. Open /journal/what-is-included.',
+          a: 'No. Open /journal/what-is-included — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -2916,7 +2916,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /coverage?',
-          a: 'That page is where we cook. This piece is the short outdoor-backup note.',
+          a: 'That page is where we cook. This piece is the short outdoor-backup note — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Does a Kona backup cover Hilo weather?',
@@ -2951,7 +2951,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you print a farm name on the menu?',
-          a: 'Only after written verification. Otherwise the ingredient is named as food.',
+          a: 'Only after written verification. Otherwise the ingredient is named as food — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -2978,11 +2978,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /private-chef?',
-          a: 'That page is the inclusion document. This piece is the shorter cleanup note — at inquiry.',
+          a: 'That page is the inclusion document. This piece is the shorter cleanup note — Waikoloa kitchen at inquiry. Hilo is never implied.',
         },
         {
           q: 'Is cleanup extra?',
-          a: 'No. It is in, when we can staff. Open /quote.',
+          a: 'No. It is in, when we can staff. Open /quote — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -3013,7 +3013,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Do you need a COI?',
-          a: 'When the building requires one, we handle it in writing before we can staff.',
+          a: 'When the building requires one, we handle it in writing before we can staff — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -3040,11 +3040,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /events?',
-          a: 'That page is the occasion door. This piece is the shorter family-reunion note — at inquiry.',
+          a: 'That page is the occasion door. This piece is the shorter family-reunion note — Waikoloa kitchen at inquiry. Hilo is never implied.',
         },
         {
           q: 'Can you staff a ballroom reunion?',
-          a: 'No. We staff houses, when we can staff. Open /guest-counts.',
+          a: 'No. We staff houses, when we can staff. Open /guest-counts — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -3071,7 +3071,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /catering?',
-          a: 'That page is the staffed-room door. This piece is the shorter production-meal note — at inquiry.',
+          a: 'That page is the staffed-room door. This piece is the shorter production-meal note — Waikoloa kitchen at inquiry. Hilo is never implied.',
         },
         {
           q: 'Can you run craft service on a lot?',
@@ -3102,11 +3102,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /honeymoon-dinners?',
-          a: 'That page is two seats after the wedding. This piece is the shorter proposal note — at inquiry.',
+          a: 'That page is two seats after the wedding. This piece is the shorter proposal note — Waikoloa kitchen at inquiry. Hilo is never implied.',
         },
         {
           q: 'Can you hold a restaurant table?',
-          a: 'No. We cook in the house, when we can staff. Open /what-we-dont-do.',
+          a: 'No. We cook in the house, when we can staff. Open /what-we-dont-do — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -3133,11 +3133,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/condo-load-in?',
-          a: 'That note is the tower. This piece is the shorter estate-driveway note — at inquiry.',
+          a: 'That note is the tower. This piece is the shorter estate-driveway note — Waikoloa kitchen at inquiry. Hilo is never implied.',
         },
         {
           q: 'Same as /coverage?',
-          a: 'That page is where we cook. This piece is how we reach the house.',
+          a: 'That page is where we cook. This piece is how we reach the house — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -3164,11 +3164,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /journal/how-far-ahead-to-book?',
-          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note — at inquiry.',
+          a: 'That piece is the peak calendar. This note is the shorter shoulder-month note — Waikoloa kitchen at inquiry. Hilo is never implied.',
         },
         {
           q: 'Are April nights walk-in?',
-          a: 'No. Send /quote. We still write the kitchen, when we can staff.',
+          a: 'No. Send /quote. We still write the kitchen, when we can staff — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -3455,7 +3455,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you print a farm name?',
-          a: 'Only after written verification. Open /blog/sourcing-honesty.',
+          a: 'Only after written verification. Open /blog/sourcing-honesty — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -3519,7 +3519,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Same as /blog/sourcing-honesty?',
-          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice.',
+          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -3546,11 +3546,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /blog/sourcing-honesty?',
-          a: 'That piece is ship versus farm. This piece is the species on the fish line.',
+          a: 'That piece is ship versus farm. This piece is the species on the fish line — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Will you guess the species for the menu card?',
-          a: 'No. Unverified fish is named as fish.',
+          a: 'No. Unverified fish is named as fish — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
