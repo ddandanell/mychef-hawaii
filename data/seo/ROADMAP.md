@@ -687,6 +687,14 @@ Still no zip on this machine. Wave 79 gives hub `/contact` related-document phot
 - Hub `/faq` and `/coverage` stay four-island pickers. Island `/contact` already opens the same four paths on island stills.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
 
+## Wave 80 — hub and island /islands related doors (this branch)
+
+Still no zip on this machine. Wave 80 closes the geography loop from the host picker. Bleed rows and the locations/areas grid stay the page’s job.
+
+- Hub `/islands` keeps the four-island bleed rows and the locations/areas geography grid, then opens `/coverage`, `/quote`, `/how-it-works`, and `/faq` (“FAQ”).
+- Island `/islands` keeps the other-host bleed rows and the same two geography doors, then opens `/coverage`, `/quote`, `/how-it-works`, and `/faq`.
+- Zone lists on `/coverage` stay paper. Hub `/faq` stays a four-island picker. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

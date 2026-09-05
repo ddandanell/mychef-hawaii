@@ -744,6 +744,38 @@ export function IslandsView() {
         heading="Open the other-islands list."
         detailOf={() => 'Other hosts'}
       />
+      <HubPhotoGrid
+        eyebrow="Beside this host picker"
+        heading="Open a related document."
+        intro="This page is the four-island host picker. Coverage maps, the form, and how a night runs are their own URLs. Live dinner doors and map notes stay on the geography grid above."
+        columns={2}
+        items={[
+          {
+            href: '/coverage',
+            title: 'Coverage maps',
+            body: 'Each island publishes its own zone list. Not the live dinner-door list.',
+            still: photos.hubCoverage,
+          },
+          {
+            href: '/quote',
+            title: 'The quote form',
+            body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+            still: photos.quoteHub,
+          },
+          {
+            href: '/how-it-works',
+            title: 'How it works',
+            body: 'Enquire, menu, written quote. Distinct from the FAQ picker.',
+            still: photos.hubHow,
+          },
+          {
+            href: '/faq',
+            title: 'FAQ',
+            body: 'The FAQ picker. Coverage and locations stay their own URLs.',
+            still: photos.hubFaq,
+          },
+        ]}
+      />
     </>
   );
 }
@@ -1235,6 +1267,19 @@ export function IslandsIndexView({ islandId }: { islandId: (typeof islandOrder)[
         items={[
           { path: '/locations', label: 'Live dinner doors', detail: '/locations' },
           { path: '/areas', label: 'Map notes', detail: '/areas' },
+        ]}
+      />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].shortName} · Beside these other hosts`}
+        heading="Open a related document."
+        intro="/locations and /areas stay on the geography grid above. Coverage is the zone list. The form and how a night runs are their own URLs."
+        columns={2}
+        items={[
+          { path: '/coverage', label: 'Coverage map', detail: '/coverage' },
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+          { path: '/faq', label: 'FAQ', detail: '/faq' },
         ]}
       />
       <LongFaq items={copy.faqs} title="Before you switch hosts." />
