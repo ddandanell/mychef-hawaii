@@ -89,6 +89,11 @@ header[data-chrome='solid'] {
   color: color-mix(in srgb, var(--color-paper) 78%, transparent);
 }
 
+.hero-copy a.bg-paper,
+.hero-copy a.cta-solid-paper {
+  color: var(--color-ink);
+}
+
 .hero-copy [data-type-panel] {
   background: transparent;
   border: 0;
