@@ -191,7 +191,21 @@ Still no zip on this machine. Wave 20 uniquifies two reserved 404s on every isla
 - Unique `/trust` — island honesty register. Distinct from `/what-we-dont-do` (claim list), `/legal`, and hub `/trust`.
 - Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 20 URL.
 
-## Wave 21 — zip execution
+## Wave 21 — unique coffee-labeling and peak-season notes (this branch)
+
+Still no zip on this machine. Wave 21 uniquifies two remaining honesty/calendar blog seeds on every island host:
+
+- Unique `/blog/coffee-labeling` — coffee on this island’s invoice. Distinct from `/coffee-act-198` (Hawaiʻi Island origin rule) and `/blog/named-farms` (produce).
+- Unique `/blog/peak-season` — which weeks actually compress. Distinct from `/journal/how-far-ahead-to-book` (notice windows) and `/blog/shoulder-season` (April/November).
+- Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 21 URL.
+
+## Wave 22 — zip execution
+
+- Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
+- Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
+- Hub vs island keyword split exactly as the zip writes it.
+
+## Wave 23 — automation that stays on
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.

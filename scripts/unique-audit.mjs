@@ -222,7 +222,7 @@ if (contactDocs.length !== 4) errors.push(`Expected 4 island contact pages, foun
 if (trustDocs.length !== 4) errors.push(`Expected 4 island trust pages, found ${trustDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
-if (blogPieces.length !== 104) errors.push(`Expected 104 blog articles, found ${blogPieces.length}`);
+if (blogPieces.length !== 112) errors.push(`Expected 112 blog articles, found ${blogPieces.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));

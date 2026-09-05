@@ -1819,6 +1819,38 @@ export const photos = {
     file: '/photos/trust-bigisland.png',
     alt: `Blank cream ledger cards and a brass clip on a Kohala lava-stone counter in hard sun, unused ivory plates.`,
   },
+  blogCoffeeOahu: {
+    file: '/photos/blog-coffee-oahu.png',
+    alt: `Unmarked roasted coffee beans in a clay bowl and a brass cup on a Kahala kitchen counter at dusk.`,
+  },
+  blogCoffeeMaui: {
+    file: '/photos/blog-coffee-maui.png',
+    alt: `Unmarked roasted coffee beans in a clay bowl and a brass cup on a Wailea kitchen island at west sunset.`,
+  },
+  blogCoffeeKauai: {
+    file: '/photos/blog-coffee-kauai.png',
+    alt: `Unmarked roasted coffee beans in a clay bowl and a brass cup on a wet Princeville stone counter.`,
+  },
+  blogCoffeeBigisland: {
+    file: '/photos/blog-coffee-bigisland.png',
+    alt: `Unmarked coffee cherries in a clay bowl on a Kohala lava-stone counter in hard sun, no farm labels.`,
+  },
+  blogPeakOahu: {
+    file: '/photos/blog-peak-oahu.png',
+    alt: `A Kahala dining table being set at winter dusk, unused ivory plates, sand linen, Diamond Head faint.`,
+  },
+  blogPeakMaui: {
+    file: '/photos/blog-peak-maui.png',
+    alt: `A Wailea lānai table being set at west winter sunset, unused ivory plates, sand linen, Pacific beyond.`,
+  },
+  blogPeakKauai: {
+    file: '/photos/blog-peak-kauai.png',
+    alt: `A Princeville stone table being set in winter rain dusk, unused ivory plates, sand linen, misted mountains.`,
+  },
+  blogPeakBigisland: {
+    file: '/photos/blog-peak-bigisland.png',
+    alt: `A Kohala lava-terrace table being set in hard winter sun, unused ivory plates, sand linen.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

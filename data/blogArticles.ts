@@ -820,6 +820,68 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'coffee-labeling',
+      name: 'Coffee labeling',
+      h1: 'Oahu coffee names — Honolulu invoices still follow origin law.',
+      title: 'Oahu coffee names — Honolulu invoices still follow origin law | myCHEF',
+      description:
+        'Oahu coffee names on the invoice follow origin law even off-island. Distinct from /blog/named-farms and /blog/sourcing-honesty.',
+      lede:
+        '/blog/named-farms is produce. /blog/sourcing-honesty is ship versus farm. This blog note is the coffee line on a Honolulu invoice — a documented lot, not a Kona brochure.',
+      photo: 'blogCoffeeOahu',
+      body: [
+        'A Kahala menu that prints a coffee name without a lot is a brochure. Act 198 still governs origin language even when we cook on Oahu. Unverified coffee is coffee.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is how a coffee line lands on an Oahu invoice.`,
+        'Produce names are /blog/named-farms. Peak months are a different note — /blog/peak-season.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/named-farms?',
+          a: 'That piece is produce. This piece is the coffee line on the invoice.',
+        },
+        {
+          q: 'Will you print Kona coffee on an Oahu menu?',
+          a: 'When the lot is documented. Otherwise it is coffee.',
+        },
+      ],
+      related: [
+        { path: '/blog/named-farms', label: 'Named farms' },
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'peak-season',
+      name: 'Peak season',
+      h1: 'Oahu peak months — Gold Coast and Ko Olina weeks fill first.',
+      title: 'Oahu December through March — Gold Coast weeks fill first | myCHEF',
+      description:
+        'Oahu December–March: Gold Coast and Ko Olina weeks fill first. Distinct from /journal/how-far-ahead-to-book and /blog/shoulder-season.',
+      lede:
+        '/journal/how-far-ahead-to-book is the notice window. /blog/shoulder-season is April and November. This blog note is which Oahu weeks actually compress — Gold Coast and Ko Olina first.',
+      photo: 'blogPeakOahu',
+      body: [
+        'December through March on this island is not a generic Hawaiʻi peak essay. Kahala and Ko Olina weeks move first. A Kailua Tuesday is a different clock. Convention-week access still lives on /conventions.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is the calendar, not a scarcity stunt.`,
+        'How far ahead to send the form is /journal/how-far-ahead-to-book. April and November are /blog/shoulder-season.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /journal/how-far-ahead-to-book?',
+          a: 'That journal piece is the notice window. This note is which Oahu weeks fill first.',
+        },
+        {
+          q: 'Same as /blog/shoulder-season?',
+          a: 'That note is April and November. This piece is December through March.',
+        },
+      ],
+      related: [
+        { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
+        { path: '/blog/shoulder-season', label: 'Shoulder dates' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   maui: [
     {
@@ -1628,6 +1690,68 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'coffee-labeling',
+      name: 'Coffee labeling',
+      h1: 'Maui coffee names — Wailea invoices still follow origin law.',
+      title: 'Maui coffee names — Wailea invoices still follow origin law | myCHEF',
+      description:
+        'Maui coffee names on the invoice follow origin law even off-island. Distinct from /blog/named-farms and /blog/sourcing-honesty.',
+      lede:
+        '/blog/named-farms is produce. /blog/sourcing-honesty is ship versus farm. This blog note is the coffee line on a Wailea invoice — a documented lot, not a Kona brochure.',
+      photo: 'blogCoffeeMaui',
+      body: [
+        'A Wailea menu that prints a coffee name without a lot is a brochure. Origin law still governs even when we cook on Maui. Unverified coffee is coffee.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is how a coffee line lands on a Maui invoice.`,
+        'Produce names are /blog/named-farms. Peak months are a different note — /blog/peak-season.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/named-farms?',
+          a: 'That piece is produce. This piece is the coffee line on the invoice.',
+        },
+        {
+          q: 'Will you print Kona coffee on a Maui menu?',
+          a: 'When the lot is documented. Otherwise it is coffee.',
+        },
+      ],
+      related: [
+        { path: '/blog/named-farms', label: 'Named farms' },
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'peak-season',
+      name: 'Peak season',
+      h1: 'Maui peak months — Wailea and wedding-week houses fill first.',
+      title: 'Maui December through March — Wailea weeks fill first | myCHEF',
+      description:
+        'Maui December–March: Wailea and wedding-week houses fill first. Distinct from /journal/how-far-ahead-to-book, /wedding-week, and /blog/shoulder-season.',
+      lede:
+        '/journal/how-far-ahead-to-book is the notice window. /wedding-week is the SKU stack. /blog/shoulder-season is April and November. This blog note is which Maui weeks actually compress.',
+      photo: 'blogPeakMaui',
+      body: [
+        'December through March on this island is not a generic Hawaiʻi peak essay. Wailea weeks move first. Saturday West Maui traffic still lives on /west-maui. Wedding-week houses are a different SKU — /wedding-week.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is the calendar, not a scarcity stunt.`,
+        'How far ahead to send the form is /journal/how-far-ahead-to-book. April and November are /blog/shoulder-season.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /journal/how-far-ahead-to-book?',
+          a: 'That journal piece is the notice window. This note is which Maui weeks fill first.',
+        },
+        {
+          q: 'Same as /wedding-week?',
+          a: 'That page is the SKU stack. This piece is December through March on the calendar.',
+        },
+      ],
+      related: [
+        { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
+        { path: '/wedding-week', label: 'Wedding week' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   kauai: [
     {
@@ -2402,6 +2526,68 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
         { path: '/blog/named-farms', label: 'Named farms' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'coffee-labeling',
+      name: 'Coffee labeling',
+      h1: 'Kauai coffee names — inquiry invoices still follow origin law.',
+      title: 'Kauai coffee names — inquiry invoices still follow origin law | myCHEF',
+      description:
+        'Kauai coffee names on an inquiry invoice follow origin law. Distinct from /blog/named-farms and /blog/sourcing-honesty.',
+      lede:
+        '/blog/named-farms is produce. /blog/sourcing-honesty is ship versus farm. This blog note is the coffee line on a Kauai inquiry invoice — a documented lot, not a Kona brochure.',
+      photo: 'blogCoffeeKauai',
+      body: [
+        'A Princeville draft that prints a coffee name without a lot is a brochure. Origin law still governs at inquiry. Unverified coffee is coffee. Inquiry until we can staff.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is how a coffee line lands on a Kauai inquiry invoice.`,
+        'Produce names are /blog/named-farms. Peak months are a different note — /blog/peak-season.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/named-farms?',
+          a: 'That piece is produce. This piece is the coffee line on the inquiry invoice.',
+        },
+        {
+          q: 'Will you print Kona coffee on a Kauai menu?',
+          a: 'When the lot is documented and we can staff. Otherwise it is coffee.',
+        },
+      ],
+      related: [
+        { path: '/blog/named-farms', label: 'Named farms' },
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'peak-season',
+      name: 'Peak season',
+      h1: 'Kauai peak months — both shores fill at inquiry, not a Book-now calendar.',
+      title: 'Kauai December through March — both shores fill at inquiry | myCHEF',
+      description:
+        'Kauai December–March at inquiry: both shores fill. Distinct from /journal/how-far-ahead-to-book, /hanalei-bridge, and /blog/shoulder-season.',
+      lede:
+        '/journal/how-far-ahead-to-book is the notice window. /hanalei-bridge is weather. /blog/shoulder-season is the quieter months. This blog note is which Kauai weeks compress at inquiry.',
+      photo: 'blogPeakKauai',
+      body: [
+        'December through March on this island is not a live Book-now calendar. Both shores fill at inquiry. Far-North weather is a clause — /hanalei-bridge — not a reason to invent a roster.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is the calendar, not a scarcity stunt.`,
+        'How far ahead to enquire is /journal/how-far-ahead-to-book. Quieter months are /blog/shoulder-season.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /journal/how-far-ahead-to-book?',
+          a: 'That journal piece is the notice window. This note is which Kauai weeks fill at inquiry.',
+        },
+        {
+          q: 'Are you live in December?',
+          a: 'Inquiry. Send the dates on /quote. We write back when we can staff.',
+        },
+      ],
+      related: [
+        { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
+        { path: '/hanalei-bridge', label: 'Hanalei bridge' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
@@ -3241,6 +3427,68 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
         { path: '/blog/named-farms', label: 'Named farms' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'coffee-labeling',
+      name: 'Coffee labeling',
+      h1: 'West-side coffee lots — the bag we bought, not a second origin essay.',
+      title: 'West-side coffee lots — the bag we bought, not a second origin essay | myCHEF',
+      description:
+        'West-side coffee on the invoice is a documented lot. Distinct from /coffee-act-198 (origin rule) and /blog/named-farms (produce).',
+      lede:
+        '/coffee-act-198 is the origin rule for named Kona and Kaʻū coffee. /blog/named-farms is produce. This blog note is the coffee line on a west-side inquiry invoice — the bag we bought, not a farm brochure.',
+      photo: 'blogCoffeeBigisland',
+      body: [
+        'The origin rule lives on /coffee-act-198. This note is the invoice line: a documented lot, or the word coffee. We will not print a farm we do not have in writing. Inquiry until we can staff.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is how a coffee line lands on a west-side inquiry invoice.`,
+        'Produce names are /blog/named-farms. Peak months are a different note — /blog/peak-season. East side is a dedicated day — /east-side.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /coffee-act-198?',
+          a: 'That page is the origin rule. This piece is the coffee line on the invoice.',
+        },
+        {
+          q: 'Same as /blog/named-farms?',
+          a: 'That piece is produce. This piece is coffee lots.',
+        },
+      ],
+      related: [
+        { path: '/coffee-act-198', label: 'Coffee Act 198' },
+        { path: '/blog/named-farms', label: 'Named farms' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'peak-season',
+      name: 'Peak season',
+      h1: 'West-side peak months — Ironman sits on the same December–March calendar.',
+      title: 'West-side December through March — Ironman sits on the same calendar | myCHEF',
+      description:
+        'West-side December–March at inquiry, with Ironman on the same calendar. Distinct from /ironman-weeks, /journal/how-far-ahead-to-book, and /blog/shoulder-season.',
+      lede:
+        '/ironman-weeks is the event-week essay. /journal/how-far-ahead-to-book is the notice window. This blog note is which west-side weeks compress — peak months and Ironman on one calendar, Hilo never implied.',
+      photo: 'blogPeakBigisland',
+      body: [
+        'December through March on the west side is not a generic Hawaiʻi peak essay. Ironman week sits on the same calendar — /ironman-weeks. East side is a dedicated day — /east-side — not a Kona add-on.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is the calendar at inquiry, not a Book-now button.`,
+        'How far ahead to enquire is /journal/how-far-ahead-to-book. Quieter months are /blog/shoulder-season.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /ironman-weeks?',
+          a: 'That page is the event-week essay. This note is December through March with Ironman on the same calendar.',
+        },
+        {
+          q: 'Same as /journal/how-far-ahead-to-book?',
+          a: 'That journal piece is the notice window. This note is which west-side weeks fill.',
+        },
+      ],
+      related: [
+        { path: '/ironman-weeks', label: 'Ironman weeks' },
+        { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
