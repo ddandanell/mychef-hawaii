@@ -248,13 +248,21 @@ Still no zip on this machine. Wave 27 ships hub pickers for paths that already 2
 - Distinct from the matching island-host documents, from hub `/areas` (map notes), and from hub `/journal` / `/blog` pickers.
 - Titles never use money keywords. Each page is a four-island picker with its own Grok still.
 
-## Wave 28 — zip execution
+## Wave 28 — unique hub pickers for island-only service documents (this branch)
+
+Still no zip on this machine. Wave 28 ships hub pickers for shared island-only service and honesty paths that already 200 on island hosts but 404'd on the apex:
+
+- Unique hub `/events`, `/what-we-dont-do`, `/guest-counts`, `/dietary`, `/honeymoon-dinners`, `/chefs-table`, `/kids-menus`, `/personal-chef`, `/private-chef-cost`, `/meal-prep`, `/cooking-classes`, `/omakase-at-home`, `/rehearsal-dinners`, `/retreat-catering`, `/corporate-catering`.
+- Distinct from matching island-host documents and from hub `/corporate`, `/gatherings`, `/private-chef`, `/weddings`, `/pricing`.
+- Titles never use money keywords. Each page is a four-island picker with its own Grok still.
+
+## Wave 29 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 29 — automation that stays on
+## Wave 30 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

@@ -154,6 +154,81 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Each island lists hourly add-ons: servers, bartenders, quoted butlers. Distinct from /bar, /mobile-bar, and nested /staffing/:role pages.',
   },
+  '/events': {
+    title: 'Villa occasions, by island | myCHEF Hawaii',
+    description:
+      'Each island host keeps its own events document. Distinct from hub /gatherings, /weddings, and nested /events/:occasion pages.',
+  },
+  '/what-we-dont-do': {
+    title: 'What we will not claim, by island | myCHEF Hawaii',
+    description:
+      'Each island publishes its own claim list. Distinct from /trust (honesty register) and from /blog/no-fake-reviews.',
+  },
+  '/guest-counts': {
+    title: 'Guest counts we staff, by island | myCHEF Hawaii',
+    description:
+      'Each island publishes dinners 2–15 and receptions about 10–75. Distinct from /events and from /honeymoon-dinners.',
+  },
+  '/dietary': {
+    title: 'Dietary design, by island | myCHEF Hawaii',
+    description:
+      'Each island designs vegan, gluten-free, and allergy plates in advance. Distinct from /menus and from /help/menu-guide.',
+  },
+  '/honeymoon-dinners': {
+    title: 'Dinner for two, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts dinner-for-two as its own document. Distinct from /fine-dining, /chefs-table, and /weddings.',
+  },
+  '/chefs-table': {
+    title: 'Chef’s table nights, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts chef’s table in the villa. Distinct from /fine-dining/chefs-table-evening, /omakase-at-home, and /honeymoon-dinners.',
+  },
+  '/kids-menus': {
+    title: 'Kids at the table, by island | myCHEF Hawaii',
+    description:
+      'Each island plans children’s plates with the adults’ menu. Distinct from /menus/breakfast and from /guest-counts.',
+  },
+  '/personal-chef': {
+    title: 'Household chef line, by island | myCHEF Hawaii',
+    description:
+      'Each island keeps a resident household line. Distinct from hub /private-chef, from /vacation-chef, and from Oahu /kamaaina.',
+  },
+  '/private-chef-cost': {
+    title: 'Fee stack explainers, by island | myCHEF Hawaii',
+    description:
+      'Each island explains service, GET, and travel. Distinct from /pricing (what a night costs) and from island homes.',
+  },
+  '/meal-prep': {
+    title: 'Meal prep honesty, by island | myCHEF Hawaii',
+    description:
+      'Each island gates volume meal prep until utilization is proven. Distinct from /vacation-chef and from /menus/lunch.',
+  },
+  '/cooking-classes': {
+    title: 'Cooking classes honesty, by island | myCHEF Hawaii',
+    description:
+      'Each island keeps classes unpublished until a real instructor bench exists. Distinct from /menus and from /chefs-table.',
+  },
+  '/omakase-at-home': {
+    title: 'Omakase-at-home notes, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts tasting-at-home with sourcing gates. Distinct from /fine-dining/tasting-menu, /chefs-table, and /honeymoon-dinners.',
+  },
+  '/rehearsal-dinners': {
+    title: 'Rehearsal dinners, by island | myCHEF Hawaii',
+    description:
+      'Each island quotes the night before as its own line. Distinct from /weddings, /events, and hub /gatherings.',
+  },
+  '/retreat-catering': {
+    title: 'Retreat full-board, by island | myCHEF Hawaii',
+    description:
+      'Each island quotes full-board retreat days in houses. Distinct from /events/retreats, /corporate, and /corporate-catering.',
+  },
+  '/corporate-catering': {
+    title: 'House offsite catering, by island | myCHEF Hawaii',
+    description:
+      'Each island quotes executive dinners in houses. Distinct from hub /corporate, /events/corporate-events, and /help/corporate-guide.',
+  },
   '/oahu': {
     title: 'Private Chef Oahu | Villa and Household Chefs | myCHEF',
     description:

@@ -125,6 +125,11 @@ export default function SiteFooter({
                       Help desks
                     </HostLink>
                   </li>
+                  <li>
+                    <HostLink island="root" path="/events" className="text-base text-paper hover:underline underline-offset-4">
+                      Villa occasions
+                    </HostLink>
+                  </li>
                 </>
               )}
               <li>

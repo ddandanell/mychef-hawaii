@@ -2011,6 +2011,66 @@ export const photos = {
     file: '/photos/hub-staff.png',
     alt: `Unused empty glasses and sand linen on a kitchen pass, brass clip, no writing.`,
   },
+  hubEvents: {
+    file: '/photos/hub-events.png',
+    alt: `Unused extra glasses and unused ivory plates on a koa lawn table, brass clip, no writing.`,
+  },
+  hubHonesty: {
+    file: '/photos/hub-honesty.png',
+    alt: `A blank unused ivory card under a brass clip on a koa pass, no stars, no writing.`,
+  },
+  hubCounts: {
+    file: '/photos/hub-counts.png',
+    alt: `Two unused ivory plates beside a taller stack of unused plates on a koa sideboard, brass clip.`,
+  },
+  hubDietary: {
+    file: '/photos/hub-dietary.png',
+    alt: `Unmarked whole produce and a whole fish on a koa board, unused ivory plate, no labels.`,
+  },
+  hubHoneymoon: {
+    file: '/photos/hub-honeymoon.png',
+    alt: `Two unused ivory place settings and two empty glasses on a small koa table, brass clip.`,
+  },
+  hubChefsTable: {
+    file: '/photos/hub-chefs-table.png',
+    alt: `Unused tasting spoons and unused ivory plates in a quiet row on a koa pass, brass clip.`,
+  },
+  hubKids: {
+    file: '/photos/hub-kids.png',
+    alt: `One unused smaller ivory plate beside one unused adult plate on a koa table, citrus.`,
+  },
+  hubPersonal: {
+    file: '/photos/hub-personal.png',
+    alt: `Unused weekly produce crate on a koa counter, unused ivory plate, brass clip, no writing.`,
+  },
+  hubFeeStack: {
+    file: '/photos/hub-feestack.png',
+    alt: `Unmarked unused ivory papers under a brass clip on a koa desk, fountain pen, no numbers.`,
+  },
+  hubMealPrep: {
+    file: '/photos/hub-mealprep.png',
+    alt: `Unused empty glass containers stacked on a koa counter, unused ivory plate, no labels.`,
+  },
+  hubClasses: {
+    file: '/photos/hub-classes.png',
+    alt: `Unused empty wooden board with citrus and a brass clip, no writing, unused ivory plate.`,
+  },
+  hubOmakase: {
+    file: '/photos/hub-omakase.png',
+    alt: `Unused small ivory tasting plates in a quiet row on a koa pass, brass clip, no writing.`,
+  },
+  hubRehearsal: {
+    file: '/photos/hub-rehearsal.png',
+    alt: `Unused long table of empty ivory plates and empty glasses on a koa dining table, brass clip.`,
+  },
+  hubRetreat: {
+    file: '/photos/hub-retreat.png',
+    alt: `Unused breakfast plates stacked with empty coffee cups on a koa sideboard, brass clip.`,
+  },
+  hubCorpCater: {
+    file: '/photos/hub-corpcater.png',
+    alt: `Unused identical ivory plates in a straight row on a koa table, unmarked papers, brass clip.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

@@ -244,7 +244,7 @@ if (corporateDocs.length !== 4) errors.push(`Expected 4 island corporate indexes
 if (gatheringsDocs.length !== 4) errors.push(`Expected 4 island gatherings indexes, found ${gatheringsDocs.length}`);
 if (islandsIndexDocs.length !== 4) errors.push(`Expected 4 island islands indexes, found ${islandsIndexDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
-if (hubDirs.length !== 8) errors.push(`Expected 8 hub directories, found ${hubDirs.length}`);
+if (hubDirs.length !== 23) errors.push(`Expected 23 hub directories, found ${hubDirs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
 if (blogPieces.length !== 116) errors.push(`Expected 116 blog articles, found ${blogPieces.length}`);
 

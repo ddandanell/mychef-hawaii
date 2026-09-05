@@ -49,6 +49,7 @@ const HUB_GUIDE_ITEMS: NavTarget[] = [
   { label: 'Coverage maps', island: 'root', path: '/coverage' },
   { label: 'How it works', island: 'root', path: '/how-it-works' },
   { label: 'Menus', island: 'root', path: '/menus' },
+  { label: 'Villa occasions', island: 'root', path: '/events' },
   { label: 'Live dinner doors', island: 'root', path: '/locations' },
   { label: 'Map notes', island: 'root', path: '/areas' },
   { label: 'In-villa formats', island: 'root', path: '/fine-dining' },
