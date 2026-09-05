@@ -979,6 +979,12 @@ Still no zip on this machine. Wave 121 stops OfferCatalog JSON-LD from classifyi
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 122 — island chooser lines stay off catering money keywords (this branch)
+
+Still no zip on this machine. Wave 122 rewrites the shared island-chooser lines so they no longer say Oʻahu catering / Maui catering / Kauaʻi catering. Those phrases were reused on hub home (links to `/`), hub `/private-chef`, and hub `/pricing` — none of which own the island catering titles. Cards now read villa dinners and staffed events. Island `/catering` H1s and titles stay. `seo:audit` fails if those chooser phrases return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

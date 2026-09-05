@@ -1113,6 +1113,9 @@ if (/cateringPrice: 'Signature dinner from/.test(chromeSrc)) {
 if (/private chef stays/.test(chromeSrc)) {
   errors.push('Maui island chooser still sells Stay Chef as private chef stays');
 }
+if (/Oʻahu catering/.test(chromeSrc) || /Maui catering/.test(chromeSrc) || /Kauaʻi catering/.test(chromeSrc)) {
+  errors.push('island chooser lines still use catering money keywords');
+}
 
 const supportViewsSrc = read('components/views/SupportViews.tsx');
 if (/articlesFor/.test(supportViewsSrc) || /from '@\/data\/editorial'/.test(supportViewsSrc)) {

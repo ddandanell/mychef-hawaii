@@ -47,19 +47,19 @@ export const processSteps = [
 
 export const islandChooserCopy: Record<IslandId, { line: string; price: string }> = {
   oahu: {
-    line: 'Honolulu to Ko Olina, for private dinners and Oʻahu catering. Quotes open now.',
+    line: 'Honolulu to Ko Olina, for villa dinners and staffed events. Quotes open now.',
     price: 'Signature dinner from $125 a guest · Stay Chef from $850 a day',
   },
   maui: {
-    line: 'Wailea, Kīhei and West Maui, for private dinners and Maui catering. Quotes open now.',
+    line: 'Wailea, Kīhei and West Maui, for villa dinners and staffed events. Quotes open now.',
     price: 'Signature dinner from $150 a guest · Stay Chef from $1,050 a day',
   },
   kauai: {
-    line: 'Princeville and Hanalei to Poʻipū, for private dinners and Kauaʻi catering. Inquiry stage.',
+    line: 'Princeville and Hanalei to Poʻipū, for villa dinners and staffed events. Inquiry stage.',
     price: 'Signature dinner from $150 a guest',
   },
   bigisland: {
-    line: 'Kona and the Kohala Coast first, for private dinners and staffed events. Inquiry stage.',
+    line: 'Kona and the Kohala Coast first, for villa dinners and staffed events. Inquiry stage.',
     price: 'Signature dinner from $125 a guest · west side first',
   },
 };
