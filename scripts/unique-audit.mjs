@@ -954,6 +954,9 @@ const islandHomeSrc = read('components/views/IslandHomeView.tsx');
 if (!/PlacePriceBlock/.test(islandHomeSrc)) {
   errors.push('island homes must publish PlacePriceBlock');
 }
+if (/path: '\/private-chef',\s*title: 'Private chef'/.test(islandHomeSrc)) {
+  errors.push('island homes still label /private-chef as Private chef');
+}
 const svcIndexSrc = read('data/islandServiceIndex.ts');
 if (/label: 'Private chef dinner'/.test(svcIndexSrc) || /label: '4-hour mobile bar'/.test(svcIndexSrc)) {
   errors.push('island /services still uses Private chef dinner or 4-hour mobile bar card labels');

@@ -75,7 +75,7 @@ export default function IslandHomeView({
               {
                 n: '01',
                 path: '/private-chef',
-                title: 'Private chef',
+                title: 'What’s included',
                 body: `In the kitchen of this house. From $${offer.fromPp} a guest.`,
               },
               {
