@@ -421,6 +421,17 @@ Still no zip on this machine. Wave 46 stops leftover hub money pages from sharin
 - Hub homepage cores, `/services` four doors, and hub `/private-chef` / `/vacation-chef` heroes use existing Grok money stills instead of leftover JPEGs.
 - Quote-form TypePanel stays. No new URLs.
 
+## Wave 47 — leftover corridor Grok stills (this branch)
+
+Still no zip on this machine. Wave 47 replaces leftover JPEG heroes on the twelve money corridors that still used campaign JPEGs:
+
+- Oʻahu `/waikiki`, `/kailua`, `/north-shore`, `/ko-olina`.
+- Maui `/wailea`, `/kaanapali`, `/kapalua`, `/makena`.
+- Kauaʻi `/princeville` (north) and `/poipu` (south) corridor stills.
+- Hawaiʻi Island `/kona` and `/kohala` corridor stills.
+- Hub `/pricing` uses a unique unused-plates still for the hero and Open Graph, not the leftover menu-card JPEG.
+- Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

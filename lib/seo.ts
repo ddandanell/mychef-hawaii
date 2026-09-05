@@ -93,6 +93,7 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
       '/islands': photos.hubIslands,
       '/private-chef': photos.chefMaui,
       '/vacation-chef': photos.vacationMaui,
+      '/pricing': photos.hubPricing,
     };
     const still = hubStill[localPath];
     if (still) return `${origin}${still.file}`;

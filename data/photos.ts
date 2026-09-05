@@ -112,11 +112,11 @@ export const photos = {
     alt: `Chef’s hands finishing seared fish in a Kauaʻi villa kitchen, misted mountains beyond.`,
   },
   kauaiNorth: {
-    file: '/photos/kauai-north-terrace-mist.jpg',
+    file: '/photos/loc-kauai-north.png',
     alt: `Grilled-fish plates on a wet North Shore Kauaʻi stone terrace against misted peaks.`,
   },
   kauaiSouth: {
-    file: '/photos/poipu-south-shore-kitchen-pool.jpg',
+    file: '/photos/loc-kauai-south.png',
     alt: `Whole fish and fruit in a Poʻipū villa kitchen opening to a pool and pale cliffs.`,
   },
   kohalaFish: {
@@ -124,11 +124,11 @@ export const photos = {
     alt: `Whole grilled fish and tropical fruit on Kohala lava rock at golden hour.`,
   },
   kohalaTable: {
-    file: '/photos/kohala-lava-coast-table.jpg',
+    file: '/photos/loc-kohala.png',
     alt: `An outdoor Kohala Coast table with plated fish, Mauna Kea in the distance.`,
   },
   konaKitchen: {
-    file: '/photos/kona-coffee-coast-sear-kitchen.jpg',
+    file: '/photos/loc-kona.png',
     alt: `Searing fish in a Kona kitchen, coffee slopes and dry lava beyond the window.`,
   },
   mauiKitchen: {
@@ -136,19 +136,19 @@ export const photos = {
     alt: `Chef’s hands finishing seared fish in a Wailea villa kitchen.`,
   },
   wailea: {
-    file: '/photos/wailea-open-kitchen-tasting-morning.jpg',
+    file: '/photos/loc-wailea.png',
     alt: `Morning tasting plates in a Wailea open kitchen, Molokini faintly through the window.`,
   },
   kapaluaTwo: {
-    file: '/photos/maui-kapalua-dinner-for-two.jpg',
+    file: '/photos/loc-kapalua.png',
     alt: `Dinner for two on a Kapalua lānai at blue hour.`,
   },
   kaanapali: {
-    file: '/photos/kaanapali-deck-sunset-family-table.jpg',
+    file: '/photos/loc-kaanapali.png',
     alt: `A Kāʻanapali deck dinner with family-style fish, west Maui sunset.`,
   },
   makena: {
-    file: '/photos/makena-lava-terrace-plated-carry.jpg',
+    file: '/photos/loc-makena.png',
     alt: `A chef carrying a plated course across a Makena lava terrace.`,
   },
   upcountry: {
@@ -156,19 +156,19 @@ export const photos = {
     alt: `Produce prep in an Upcountry Maui kitchen, Haleakalā slopes in mist.`,
   },
   waikiki: {
-    file: '/photos/waikiki-residence-kitchen-ahi.jpg',
+    file: '/photos/loc-waikiki.png',
     alt: `Plating ahi in a Waikīkī residence kitchen overlooking the canal.`,
   },
   koolina: {
-    file: '/photos/koolina-villa-lagoon-morning-prep.jpg',
+    file: '/photos/loc-ko-olina.png',
     alt: `Morning prep in a Ko Olina villa kitchen opening to a west-side lagoon.`,
   },
   kailua: {
-    file: '/photos/kailua-lanikai-family-table-mokulua.jpg',
+    file: '/photos/loc-kailua.png',
     alt: `Family-style table in a Kailua house, Mokulua islets through the sliders.`,
   },
   northShore: {
-    file: '/photos/north-shore-oahu-grill-swell.jpg',
+    file: '/photos/loc-north-shore.png',
     alt: `Grilling whole fish on the Oʻahu North Shore, winter swell beyond ironwoods.`,
   },
   vacation: {
@@ -2734,6 +2734,10 @@ export const photos = {
   hubMobileBar: {
     file: '/photos/hub-mobile-bar.png',
     alt: `Unused coupe glasses and a brass jigger on a koa villa bar cart, volcanic-stone bowl of citrus, unused ivory plates, sand linen, no writing.`,
+  },
+  hubPricing: {
+    file: '/photos/hub-pricing.png',
+    alt: `Unused ivory plates in a quiet row on a koa table, unmarked cream rate cards under a brass clip, volcanic-stone bowl of limes, no writing.`,
   },
 } as const;
 

@@ -35,7 +35,7 @@ export const locations: LocationRecord[] = [
     area: 'Resort residences',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-waikiki.jpg',
+    hero: '/photos/loc-waikiki.png',
     heroAlt: 'A private chef plates seared fish in a Waikīkī high-rise residence kitchen overlooking the Ala Wai canal',
     h1: 'A chef in a Waikīkī kitchen — when the suite actually has one.',
     lede:
@@ -65,7 +65,7 @@ export const locations: LocationRecord[] = [
     area: 'Estate entertaining',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-kahala.jpg',
+    hero: '/photos/loc-kahala.png',
     heroAlt: 'A chef serves plated fish to a couple at dusk on a Kahala Gold Coast lawn, Diamond Head on the horizon',
     h1: 'Estate evenings along the Gold Coast.',
     lede:
@@ -95,7 +95,7 @@ export const locations: LocationRecord[] = [
     area: 'West-side villas',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-ko-olina.jpg',
+    hero: '/photos/loc-ko-olina.png',
     heroAlt: 'A private chef preps mango, tomatoes and a whole fish in a Ko Olina villa kitchen opening to a calm west-side lagoon',
     h1: 'The west-side villa week, fully cheffed.',
     lede:
@@ -125,7 +125,7 @@ export const locations: LocationRecord[] = [
     area: 'Windward estates',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-kailua.jpg',
+    hero: '/photos/loc-kailua.png',
     heroAlt: 'A family shares a beach-house dinner in Kailua with the Mokulua islets offshore; a chef finishes plates at the pass',
     h1: 'Windward stays are measured in weeks, not nights.',
     lede:
@@ -155,7 +155,7 @@ export const locations: LocationRecord[] = [
     area: 'Surcharge corridor',
     zoneClass: 'surcharge',
     zoneCode: 'B',
-    hero: '/photos/loc-north-shore.jpg',
+    hero: '/photos/loc-north-shore.png',
     heroAlt: 'A chef grills fish on an Oʻahu North Shore lanai with winter swell and ironwood trees beyond',
     h1: 'The North Shore fee is on the website, not the invoice.',
     lede:
@@ -187,7 +187,7 @@ export const locations: LocationRecord[] = [
     area: 'Resort-residence corridor',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-wailea.jpg',
+    hero: '/photos/loc-wailea.png',
     heroAlt: 'A chef finishes a tasting-menu plate at a Wailea villa counter while guests watch; Molokini sits on the south Maui horizon',
     h1: 'The private chef’s table — in a Wailea villa.',
     lede:
@@ -217,7 +217,7 @@ export const locations: LocationRecord[] = [
     area: 'West Maui resort residences',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-kaanapali.jpg',
+    hero: '/photos/loc-kaanapali.png',
     heroAlt: 'Friends share a sunset dinner on a Kāʻanapali villa deck while a chef plates nearby; west Maui light and a lava headland',
     h1: 'West Maui, named honestly: Kāʻanapali.',
     lede:
@@ -247,7 +247,7 @@ export const locations: LocationRecord[] = [
     area: 'Northwest estates',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-kapalua.jpg',
+    hero: '/photos/loc-kapalua.png',
     heroAlt: 'A couple at a twilight dinner-for-two in Kapalua, ironwoods and a rocky northwest Maui bay beyond',
     h1: 'Kapalua tables, cooked in-house.',
     lede:
@@ -277,7 +277,7 @@ export const locations: LocationRecord[] = [
     area: 'South of Wailea',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-makena.jpg',
+    hero: '/photos/loc-makena.png',
     heroAlt: 'A chef carries plated dishes to a lava-stone table in Makena, with Puʻu Ōlaʻi cinder cone behind',
     h1: 'South of Wailea, still a base zone.',
     lede:
@@ -339,7 +339,7 @@ export const locations: LocationRecord[] = [
     area: 'North Shore estates',
     zoneClass: 'surcharge',
     zoneCode: 'B',
-    hero: '/photos/loc-kauai-north.jpg',
+    hero: '/photos/loc-kauai-north.png',
     heroAlt: 'A chef plates fish on a rainy Princeville terrace above the Hanalei valley',
     h1: 'North Shore estates — on the inquiry list.',
     lede:
@@ -369,7 +369,7 @@ export const locations: LocationRecord[] = [
     area: 'South Shore retreats',
     zoneClass: 'surcharge',
     zoneCode: 'B',
-    hero: '/photos/loc-kauai-south.jpg',
+    hero: '/photos/loc-kauai-south.png',
     heroAlt: 'A chef prepares a whole fish and tropical fruit in a Poʻipū villa kitchen, kiawe and pale south-shore cliffs beyond',
     h1: 'South Shore weeks, closer to the Līhuʻe base.',
     lede:
@@ -401,7 +401,7 @@ export const locations: LocationRecord[] = [
     area: 'West-side town corridor',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-kona.jpg',
+    hero: '/photos/loc-kona.png',
     heroAlt: 'A chef sears fish in a Kona villa kitchen looking over dry lava coast and coffee slopes',
     h1: 'Kona first — when the west-side team exists.',
     lede:
@@ -431,7 +431,7 @@ export const locations: LocationRecord[] = [
     area: 'Resort communities',
     zoneClass: 'base',
     zoneCode: 'A',
-    hero: '/photos/loc-kohala.jpg',
+    hero: '/photos/loc-kohala.png',
     heroAlt: 'Guests dine at a Kohala lava-stone table while a chef works the pass; Mauna Kea inland, white sand and ocean beside',
     h1: 'The Kohala corridor is the whole opening move.',
     lede:

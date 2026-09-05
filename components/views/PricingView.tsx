@@ -82,7 +82,7 @@ export default function PricingView() {
 
   return (
     <>
-      <Hero src={(photo ?? photos.menu).file} alt={(photo ?? photos.menu).alt}>
+      <Hero src={(photo ?? photos.hubPricing).file} alt={(photo ?? photos.hubPricing).alt}>
         <p className="text-[13px] text-mute">{copy?.kicker ?? 'Published starting prices'}</p>
         <LineReveal
           text={h1}
