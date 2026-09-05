@@ -45,6 +45,7 @@ import { islandAbout } from '@/data/islandAbout';
 import { lookupPageMeta, metaForPath } from '@/data/pageMeta';
 import { getHubDirectory, HUB_ALL_PICKER_PATHS } from '@/data/hubDirectories';
 import { photos } from '@/data/photos';
+import { stillForPath } from '@/lib/documentStill';
 import { formatBand, getDayRate, getMobileBar, getOtherOffer, getTiers } from '@/data/rateCard';
 import { SERVICE_AREAS } from '@/data/serviceAreas';
 
@@ -67,93 +68,8 @@ function cleanPath(pathname: string): string {
 
 function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'): string {
   if (islandId && localPath !== '/') {
-    const slug = /^\/([^/]+)$/.exec(localPath)?.[1];
-    const hood = slug ? getMoneyNeighborhood(islandId, slug) : undefined;
-    if (hood) return `${origin}${photos[hood.photo].file}`;
-    const cell = slug ? getUniqueCell(islandId, slug) : undefined;
-    if (cell) return `${origin}${photos[cell.photo].file}`;
-    const service = slug ? getIslandService(islandId, slug) : undefined;
-    if (service) return `${origin}${photos[service.photo].file}`;
-    const occasionSlug = /^\/events\/([^/]+)$/.exec(localPath)?.[1];
-    const occasion = occasionSlug ? getOccasionPage(islandId, occasionSlug) : undefined;
-    if (occasion) return `${origin}${photos[occasion.photo].file}`;
-    const formatSlug = /^\/catering\/([^/]+)$/.exec(localPath)?.[1];
-    const format = formatSlug ? getCateringFormat(islandId, formatSlug) : undefined;
-    if (format) return `${origin}${photos[format.photo].file}`;
-    const fineSlug = /^\/fine-dining\/([^/]+)$/.exec(localPath)?.[1];
-    const fine = fineSlug ? getFineDiningPage(islandId, fineSlug) : undefined;
-    if (fine) return `${origin}${photos[fine.photo].file}`;
-    const staffSlug = /^\/staffing\/([^/]+)$/.exec(localPath)?.[1];
-    const staff = staffSlug ? getStaffingPage(islandId, staffSlug) : undefined;
-    if (staff) return `${origin}${photos[staff.photo].file}`;
-    const skuSlug = /^\/menus\/([^/]+)$/.exec(localPath)?.[1];
-    const sku = skuSlug ? getMenuSkuPage(islandId, skuSlug) : undefined;
-    if (sku) return `${origin}${photos[sku.photo].file}`;
-    const helpSlug = /^\/help\/([^/]+)$/.exec(localPath)?.[1];
-    const help = helpSlug ? getHelpArticle(islandId, helpSlug) : undefined;
-    if (help) return `${origin}${photos[help.photo].file}`;
-    const support = getIslandSupport(islandId, localPath);
-    if (support) return `${origin}${photos[support.photo].file}`;
-    if (localPath === '/events') return `${origin}${photos[eventOffers[islandId].photo].file}`;
-    if (localPath === '/about') return `${origin}${islandAbout[islandId].hero.file}`;
-    if (localPath === '/private-chef') {
-      const key = { oahu: 'chefOahu', maui: 'chefMaui', kauai: 'chefKauai', bigisland: 'chefBigisland' } as const;
-      return `${origin}${photos[key[islandId]].file}`;
-    }
-    if (localPath === '/vacation-chef') {
-      const key = {
-        oahu: 'vacationOahu',
-        maui: 'vacationMaui',
-        kauai: 'vacationKauai',
-        bigisland: 'vacationBigisland',
-      } as const;
-      return `${origin}${photos[key[islandId]].file}`;
-    }
-    if (localPath === '/catering') {
-      const key = { oahu: 'cateringOahu', maui: 'cateringMaui', kauai: 'cateringKauai', bigisland: 'cateringBigisland' } as const;
-      return `${origin}${photos[key[islandId]].file}`;
-    }
-    if (localPath === '/weddings' || localPath === '/wedding-catering') {
-      const key = { oahu: 'weddingOahu', maui: 'weddingMaui', kauai: 'weddingKauai', bigisland: 'weddingBigisland' } as const;
-      return `${origin}${photos[key[islandId]].file}`;
-    }
-    if (localPath === '/bar') {
-      const key = { oahu: 'barOahu', maui: 'barMaui', kauai: 'barKauai', bigisland: 'barBigisland' } as const;
-      return `${origin}${photos[key[islandId]].file}`;
-    }
-    if (localPath === '/mobile-bar') {
-      const key = {
-        oahu: 'mobileBarOahu',
-        maui: 'mobileBarMaui',
-        kauai: 'mobileBarKauai',
-        bigisland: 'mobileBarBigisland',
-      } as const;
-      return `${origin}${photos[key[islandId]].file}`;
-    }
-    if (localPath === '/quote') return `${origin}${photos[islandQuote[islandId].photo].file}`;
-    if (localPath === '/pricing') return `${origin}${photos[islandPricing[islandId].photo].file}`;
-    if (localPath === '/legal') return `${origin}${photos[islandLegal[islandId].photo].file}`;
-    if (localPath === '/thank-you') return `${origin}${photos[islandThanks[islandId].photo].file}`;
-    if (localPath === '/journal') return `${origin}${photos[islandJournal[islandId].photo].file}`;
-    if (localPath === '/blog') return `${origin}${photos[islandBlog[islandId].photo].file}`;
-    if (localPath === '/locations') return `${origin}${photos[islandLocations[islandId].photo].file}`;
-    if (localPath === '/areas') return `${origin}${photos[islandAreas[islandId].photo].file}`;
-    if (localPath === '/contact') return `${origin}${photos[islandContact[islandId].photo].file}`;
-    if (localPath === '/trust') return `${origin}${photos[islandTrust[islandId].photo].file}`;
-    if (localPath === '/services') return `${origin}${photos[islandServiceIndex[islandId].photo].file}`;
-    if (localPath === '/help') return `${origin}${photos[islandHelpIndex[islandId].photo].file}`;
-    if (localPath === '/fine-dining') return `${origin}${photos[islandFineDiningIndex[islandId].photo].file}`;
-    if (localPath === '/staffing') return `${origin}${photos[islandStaffingIndex[islandId].photo].file}`;
-    if (localPath === '/corporate') return `${origin}${photos[islandCorporate[islandId].photo].file}`;
-    if (localPath === '/gatherings') return `${origin}${photos[islandGatherings[islandId].photo].file}`;
-    if (localPath === '/islands') return `${origin}${photos[islandIslands[islandId].photo].file}`;
-    if (localPath === '/sitemap') return `${origin}${photos[islandSitemap[islandId].photo].file}`;
-    const journalSlug = /^\/journal\/([^/]+)$/.exec(localPath)?.[1];
-    const journalPiece = journalSlug ? getJournalArticle(islandId, journalSlug) : undefined;
-    if (journalPiece) return `${origin}${photos[journalPiece.photo].file}`;
-    const blogSlug = /^\/blog\/([^/]+)$/.exec(localPath)?.[1];
-    const blogPiece = blogSlug ? getBlogArticle(islandId, blogSlug) : undefined;
-    if (blogPiece) return `${origin}${photos[blogPiece.photo].file}`;
+    const still = stillForPath(islandId, localPath);
+    if (still) return `${origin}${still.file}`;
   }
   if (!islandId) {
     const hubDir = getHubDirectory(localPath);

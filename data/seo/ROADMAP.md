@@ -376,6 +376,14 @@ Still no zip on this machine. Wave 41 puts type on photography on the leftover s
 - Hub `/islands` keeps full-bleed home rows and opens each island `/islands` list from photography, not paper tiles.
 - Island `/islands` other-host lists use the same full-bleed selector stills. Quote-form TypePanel stays.
 
+## Wave 42 — island directory lists on existing photography (this branch)
+
+Still no zip on this machine. Wave 42 lifts island-host directory lists off paper tiles onto the stills those documents already use:
+
+- `/locations`, `/areas`, `/services`, `/help`, `/fine-dining`, `/staffing`, `/corporate`, `/gatherings`.
+- Island `/journal` and `/blog` indexes open live pieces from photography.
+- `stillForPath` is the shared lookup OG images already used. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

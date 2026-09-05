@@ -9,6 +9,7 @@ import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { LongFaq, Longform } from '@/components/Longform';
 import IslandPhotoPicker from '@/components/IslandPhotoPicker';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import { islandChooserCopy } from '@/data/chromeCopy';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { feeStack } from '@/data/rateCard';
@@ -500,30 +501,24 @@ export function IslandEditorialView({
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
-      <section className="bg-paper py-20">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
-          <ul className="mt-10 space-y-6">
-            {kind === 'journal'
-              ? journalArticles[islandId].map((a) => (
-                  <li key={a.slug} className="border-t border-line pt-6">
-                    <HostLink island={islandId} path={`/journal/${a.slug}`} className="block">
-                      <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
-                      <p className="mt-2 text-mute">{a.description}</p>
-                    </HostLink>
-                  </li>
-                ))
-              : blogArticles[islandId].map((a) => (
-                  <li key={a.slug} className="border-t border-line pt-6">
-                    <HostLink island={islandId} path={`/blog/${a.slug}`} className="block">
-                      <h2 className="font-display text-2xl font-light text-ink">{a.h1}</h2>
-                      <p className="mt-2 text-mute">{a.description}</p>
-                    </HostLink>
-                  </li>
-                ))}
-          </ul>
-        </div>
-      </section>
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={islands[islandId].name}
+        heading={kind === 'journal' ? 'Open a journal note.' : 'Open a kitchen note.'}
+        items={
+          kind === 'journal'
+            ? journalArticles[islandId].map((a) => ({
+                path: `/journal/${a.slug}`,
+                label: a.h1,
+                detail: `/journal/${a.slug}`,
+              }))
+            : blogArticles[islandId].map((a) => ({
+                path: `/blog/${a.slug}`,
+                label: a.h1,
+                detail: `/blog/${a.slug}`,
+              }))
+        }
+      />
     </>
   );
 }
@@ -625,40 +620,25 @@ export function AreasIndexView({ islandId }: { islandId: (typeof islandOrder)[nu
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
-      <section className="bg-paper py-20">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">Live dinner doors</p>
-          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
-            {hoods.map((hood) => (
-              <li key={hood.slug} className="bg-paper">
-                <HostLink island={islandId} path={`/${hood.slug}`} className="block p-6">
-                  <h2 className="font-display text-2xl font-light text-ink">{hood.name}</h2>
-                  <p className="mt-2 text-sm text-mute">/{hood.slug}</p>
-                </HostLink>
-              </li>
-            ))}
-            {supportingDoors.map((cell) => (
-              <li key={cell.slug} className="bg-paper">
-                <HostLink island={islandId} path={`/${cell.slug}`} className="block p-6">
-                  <h2 className="font-display text-2xl font-light text-ink">{cell.name}</h2>
-                  <p className="mt-2 text-sm text-mute">/{cell.slug}</p>
-                </HostLink>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-16 text-[12px] text-mute">Kitchen notes</p>
-          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
-            {notes.map((place) => (
-              <li key={place.slug} className="bg-paper">
-                <HostLink island={islandId} path={`/blog/dining-in-${place.slug}`} className="block p-6">
-                  <h2 className="font-display text-2xl font-light text-ink">{place.name}</h2>
-                  <p className="mt-2 text-sm text-mute">/blog/dining-in-{place.slug}</p>
-                </HostLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow="Live dinner doors"
+        heading="Open a place on this island."
+        items={[
+          ...hoods.map((hood) => ({ path: `/${hood.slug}`, label: hood.name, detail: `/${hood.slug}` })),
+          ...supportingDoors.map((cell) => ({ path: `/${cell.slug}`, label: cell.name, detail: `/${cell.slug}` })),
+        ]}
+      />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow="Kitchen notes"
+        heading="The dining-in notes beside those doors."
+        items={notes.map((place) => ({
+          path: `/blog/dining-in-${place.slug}`,
+          label: place.name,
+          detail: `/blog/dining-in-${place.slug}`,
+        }))}
+      />
       <LongFaq items={copy.faqs} title="Before you pick a place." />
     </>
   );
@@ -723,21 +703,12 @@ export function LocationsIndexView({ islandId }: { islandId: (typeof islandOrder
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
-      <section className="bg-paper py-20">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
-          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
-            {hoods.map((hood) => (
-              <li key={hood.slug} className="bg-paper">
-                <HostLink island={islandId} path={`/${hood.slug}`} className="block p-6">
-                  <h2 className="font-display text-2xl font-light text-ink">{hood.name}</h2>
-                  <p className="mt-2 text-sm text-mute">/{hood.slug}</p>
-                </HostLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={islands[islandId].name}
+        heading="Open a live dinner door."
+        items={hoods.map((hood) => ({ path: `/${hood.slug}`, label: hood.name, detail: `/${hood.slug}` }))}
+      />
       <LongFaq items={copy.faqs} title="Before you pick a corridor." />
     </>
   );
@@ -768,21 +739,12 @@ export function ServicesIndexView({ islandId }: { islandId: (typeof islandOrder)
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
-      <section className="bg-paper py-20">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
-          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
-            {SERVICE_INDEX_LINKS.map((row) => (
-              <li key={row.path} className="bg-paper">
-                <HostLink island={islandId} path={row.path} className="block p-6">
-                  <h2 className="font-display text-2xl font-light text-ink">{row.label}</h2>
-                  <p className="mt-2 text-sm text-mute">{row.path}</p>
-                </HostLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={islands[islandId].name}
+        heading="Open a service on this host."
+        items={SERVICE_INDEX_LINKS.map((row) => ({ path: row.path, label: row.label, detail: row.path }))}
+      />
       <LongFaq items={copy.faqs} title="Before you pick a door." />
     </>
   );
@@ -822,21 +784,12 @@ function NestedIndexView({
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
-      <section className="bg-paper py-20">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
-          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
-            {links.map((row) => (
-              <li key={row.path} className="bg-paper">
-                <HostLink island={islandId} path={row.path} className="block p-6">
-                  <h2 className="font-display text-2xl font-light text-ink">{row.label}</h2>
-                  <p className="mt-2 text-sm text-mute">{row.path}</p>
-                </HostLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={islands[islandId].name}
+        heading="Open a document on this host."
+        items={links.map((row) => ({ path: row.path, label: row.label, detail: row.path }))}
+      />
       <LongFaq items={copy.faqs} title={faqTitle} />
     </>
   );
