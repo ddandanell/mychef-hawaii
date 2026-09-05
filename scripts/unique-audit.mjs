@@ -483,6 +483,33 @@ if (/Private chef Kauai from/.test(catalogSrc)) {
   errors.push('catalog Kauaʻi North Shore lede still stuffs Private chef Kauai');
 }
 
+const longCateringSrc = read('data/longformCatering.ts');
+if (/q: 'How much is Oahu catering\?'/.test(longCateringSrc)) {
+  errors.push('longform catering still duplicates How much is Oahu catering');
+}
+if (/q: 'How much is Maui catering\?'/.test(longCateringSrc)) {
+  errors.push('longform catering still duplicates How much is Maui catering');
+}
+if (/q: 'How much is Kauai catering\?'/.test(longCateringSrc)) {
+  errors.push('longform catering still duplicates How much is Kauai catering');
+}
+
+const longHubSrc = read('data/longformHub.ts');
+if (/q: 'How much is Hawaii catering\?'/.test(longHubSrc)) {
+  errors.push('hub catering longform still duplicates How much is Hawaii catering');
+}
+if (/q: 'How much does a private chef cost in Hawaii\?'/.test(longHubSrc)) {
+  errors.push('hub home longform still duplicates How much does a private chef cost in Hawaii');
+}
+if (/not a \/kona page/.test(longHubSrc)) {
+  errors.push('hub quote copy still claims Kona is not a /kona page');
+}
+
+const longIslandSrc = read('data/longformIslands.ts');
+if (/They are not their own URLs/.test(longIslandSrc) || /They are not their own URLs/.test(longHubSrc)) {
+  errors.push('copy still claims neighborhood corridors are not URLs');
+}
+
 const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
   errors.push('location fallback titles still use private chef');

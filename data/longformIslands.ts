@@ -23,7 +23,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
         h2: 'Waikīkī',
         paras: [
           'Most Waikīkī hotel rooms cannot host a chef. We cook in resort residences and apartments that have a functioning cooktop, a fridge, and a table that fits the list. If the listing is a standard suite with a minibar, we decline before a deposit. That honesty is the product: a celebration dinner in a residence, not a hallway cart and a fire alarm.',
-          'High-rise load-in is the constraint, not distance. We schedule freight windows with the building, carry COI paperwork, and design a menu that fits a galley. CORE still starts at $125 a guest. Stay Chef — a chef day from $850, groceries at cost — makes more sense than stacking single dinners across a long stay. Neighborhood names stay in the quote and on this page. They are not their own URLs.',
+          'High-rise load-in is the constraint, not distance. We schedule freight windows with the building, carry COI paperwork, and design a menu that fits a galley. CORE still starts at $125 a guest. Stay Chef — a chef day from $850, groceries at cost — makes more sense than stacking single dinners across a long stay. Waikīkī residences with kitchens live on /waikiki. Honolulu and Kahala are their own corridor URLs. This home still owns private chef Oahu.',
         ],
       },
       {

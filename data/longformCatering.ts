@@ -57,8 +57,8 @@ const oahuSections: CopySection[] = [
 
 const oahuFaqs: CopyFaq[] = [
   {
-    q: 'How much is Oahu catering?',
-    a: 'Food $125–$190 a guest. Servers $55 an hour, sous $75, four-to-five-hour minimums. Wedding receptions follow the same food band plus that crew. Service 20% and GET up to 4.712% are their own lines on the written quote.',
+    q: 'What’s on the written Oahu catering quote besides food?',
+    a: 'Servers $55 an hour, sous $75, four-to-five-hour minimums. Wedding receptions follow the same food band plus that crew. Service 20% and GET up to 4.712% are their own lines on the written quote.',
   },
   {
     q: 'Do you cater Honolulu towers and Ko Olina villas?',
@@ -126,20 +126,16 @@ const mauiSections: CopySection[] = [
 
 const mauiFaqs: CopyFaq[] = [
   {
-    q: 'How much is Maui catering?',
-    a: 'Food $150–$250 a guest. Wedding receptions from $150 a guest plus staffing at $55 an hour for a server and $75 for a sous. Service 20% and GET up to 4.712% on their own lines.',
+    q: 'What’s on the written Maui catering quote besides food?',
+    a: 'Wedding receptions from $150 a guest plus staffing at $55 an hour for a server and $75 for a sous. Service 20% and GET up to 4.712% on their own lines. Groceries for multi-day days are billed at cost with receipts.',
   },
   {
-    q: 'Wailea, West Maui, or Kīhei — does the band change?',
-    a: 'Same Maui food band. Kitchen quality changes the format, not the published start. Upcountry is a surcharge. Pāʻia / Haʻikū are quote-only.',
+    q: 'Does Upcountry change the Maui catering band?',
+    a: 'The food start stays $150–$250. Kitchen quality changes the format, not the published start. Upcountry is a surcharge. Pāʻia / Haʻikū are quote-only.',
   },
   {
     q: 'Can the night stay outside?',
     a: 'Often. Trades and rain are why the wet-weather plan is written before the deposit. Buffet stations are placed for wind and heat, not for a photograph.',
-  },
-  {
-    q: 'Sushi-forward on a catering night?',
-    a: 'Yes, as a menu direction — nigiri, sashimi, hand rolls — cooked in the villa. Not a separate company.',
   },
   {
     q: 'Where do I send the date?',
@@ -194,20 +190,20 @@ const kauaiSections: CopySection[] = [
 
 const kauaiFaqs: CopyFaq[] = [
   {
-    q: 'How much is Kauai catering?',
-    a: 'Food $150–$250 a guest. Wedding formats from $175 a guest plus staffing. Servers $55 an hour, sous $75. Service 20% and GET up to 4.712% as their own lines. A local competitor prints $200–$250; we print the band and a written quote.',
+    q: 'What’s on the written Kauai catering quote besides food?',
+    a: 'Wedding formats from $175 a guest plus staffing. Servers $55 an hour, sous $75. Service 20% and GET up to 4.712% as their own lines. A local competitor prints $200–$250; we print the band and a written quote.',
   },
   {
     q: 'Princeville or Poʻipū — is travel included?',
     a: 'Līhuʻe and Kapaʻa are base. Both shores carry a published surcharge. Hāʻena and the far North are quote-only with seventy-two-hour notice and a Hanalei-bridge weather clause.',
   },
   {
-    q: 'Buffet or plated on Kauaʻi?',
+    q: 'Does the North Shore change buffet versus plated?',
     a: 'North Shore winters often want a covered stationed line. Poʻipū can hold a plated lawn more nights. Far-North plated nights are a staffing decision because of the road. Family-style for ten to twenty.',
   },
   {
-    q: 'Do you publish a Kauai catering menu?',
-    a: 'A sample estate menu is on this page. The menu you eat is written that week for that house.',
+    q: 'Is the sample Kauai estate menu the one we eat?',
+    a: 'No. A sample estate menu is on this page. The menu you eat is written that week for that house.',
   },
   {
     q: 'How does a wedding week start?',
@@ -261,11 +257,11 @@ const bigislandSections: CopySection[] = [
 
 const bigislandFaqs: CopyFaq[] = [
   {
-    q: 'How much is catering on Hawaiʻi Island?',
-    a: 'CORE food $150–$225 a guest, ENTRY from $110. Wedding from $150 a guest plus staffing at $55 / $75 an hour. Service 20% and GET up to 4.712% on their own lines.',
+    q: 'What’s on the written Hawaiʻi Island catering quote besides food?',
+    a: 'Wedding from $150 a guest plus staffing at $55 / $75 an hour. Service 20% and GET up to 4.712% on their own lines. ENTRY from $110 when the menu and the house fit that band.',
   },
   {
-    q: 'Do you run Kona and Hilo in one day?',
+    q: 'Is east-side catering a same-day add-on from Kona?',
     a: 'No. East side is two and a half to three hours from the west-side base. Hilo and Volcano are dedicated staffing, quoted honestly.',
   },
   {

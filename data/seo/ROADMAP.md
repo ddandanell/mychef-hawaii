@@ -714,6 +714,16 @@ Still no zip on this machine. Wave 82 folds leftover DataForSEO snapshot `relate
 - Maui honesty FAQs that still said “Related searches, not us” now name Lotus Chefs / elite Maui chef on `/what-we-dont-do`, `/fine-dining/tasting-menu`, and `/omakase-at-home`.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 83 — uniquify concatenated catering and hub FAQs (this branch)
+
+Still no zip on this machine. Wave 83 uniquifies FAQ lists that were concatenated on the same page. No new URLs. Titles stay off money keywords.
+
+- Island `/catering` concatenates offer FAQs with longform FAQs. Longform no longer repeats “How much is {island} catering?”. Maui longform no longer repeats sushi-forward or the Wailea/Kīhei band question. Kauaʻi longform no longer repeats buffet-versus-plated or the catering-menu PDF. Hawaiʻi Island longform no longer repeats the food-band or Kona–Hilo same-day questions.
+- Hub `/catering` concatenates `HUB_CATERING.faqs` with `hubCateringFaqs`. Longform no longer repeats “How much is Hawaii catering?”, “Which island should I open?”, or the menu-PDF question.
+- Hub `/` concatenates `hubFaqs` with `hubHomeFaqs`. Longform no longer repeats the statewide price, island list, or Airbnb questions.
+- Oahu home and hub copy no longer claim neighborhood corridors are “not their own URLs”. `/honolulu`, `/waikiki`, `/kahala`, and `/kona` are live corridor URLs on the island hosts. Hub `/quote` no longer says Kona is “not a /kona page”. Unused `hubPricingFaqs` (never rendered) is removed so it cannot re-duplicate the hub home price FAQ.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
