@@ -819,6 +819,12 @@ if (/Daily chef service for your villa stay/.test(chromeSrc)) {
 if (/chefPrice: 'From \$850 a day/.test(chromeSrc)) {
   errors.push('hub home private-chef card still prints Stay Chef day rates');
 }
+if (/One dinner or a staffed event/.test(chromeSrc)) {
+  errors.push('hub home catering card still sells a one-table dinner');
+}
+if (/cateringPrice: 'Signature dinner from/.test(chromeSrc)) {
+  errors.push('hub home catering card still prints Signature dinner on the staffed-event door');
+}
 
 for (const key of [
   'vacationOahu',

@@ -832,6 +832,14 @@ Still no zip on this machine. Wave 97 fixes hub home card 01 so the door into `/
 - `seo:audit` fails if the card sells “daily chef service” or Stay Chef day rates.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 98 — hub home catering card stops selling one-table dinners (this branch)
+
+Still no zip on this machine. Wave 98 fixes hub home card 02 so the door into `/catering` describes staffed villa events of about 10–75. One-table dinners stay on `/private-chef`. Hub `/catering` still owns `hawaii catering`. No new URLs. No JPEG remaps. No related-door photography.
+
+- Card line is buffet or plated, 10–75. Card price drops “Signature dinner.”
+- `seo:audit` fails if the card sells “one dinner or a staffed event” or prints Signature dinner on that door.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
