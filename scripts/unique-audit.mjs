@@ -825,6 +825,9 @@ if (/One dinner or a staffed event/.test(chromeSrc)) {
 if (/cateringPrice: 'Signature dinner from/.test(chromeSrc)) {
   errors.push('hub home catering card still prints Signature dinner on the staffed-event door');
 }
+if (/private chef stays/.test(chromeSrc)) {
+  errors.push('Maui island chooser still sells Stay Chef as private chef stays');
+}
 
 for (const key of [
   'vacationOahu',

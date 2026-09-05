@@ -51,7 +51,7 @@ export const islandChooserCopy: Record<IslandId, { line: string; price: string }
     price: 'Signature dinner from $125 a guest · Stay Chef from $850 a day',
   },
   maui: {
-    line: 'Wailea, Kīhei and West Maui, for private chef stays and Maui catering. Quotes open now.',
+    line: 'Wailea, Kīhei and West Maui, for private dinners and Maui catering. Quotes open now.',
     price: 'Signature dinner from $150 a guest · Stay Chef from $1,050 a day',
   },
   kauai: {

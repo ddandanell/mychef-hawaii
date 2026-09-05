@@ -840,6 +840,13 @@ Still no zip on this machine. Wave 98 fixes hub home card 02 so the door into `/
 - `seo:audit` fails if the card sells “one dinner or a staffed event” or prints Signature dinner on that door.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 99 — Maui island chooser stops selling Stay Chef as stays (this branch)
+
+Still no zip on this machine. Wave 99 fixes the Maui island-chooser line so it names private dinners, not stays. Stay Chef day rates stay on the chooser price line and on `/vacation-chef`. Maui home still owns `private chef maui`. No new URLs. No JPEG remaps. No related-door photography.
+
+- `seo:audit` fails if chrome copy sells “private chef stays.”
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
