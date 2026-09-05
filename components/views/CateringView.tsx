@@ -170,15 +170,26 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: offer.faqs.map((f) => ({
-            '@type': 'Question',
-            name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
-          })),
-        }}
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: `${offer.h1.split('—')[0].trim()} — myCHEF`,
+            description: offer.description,
+            areaServed: island.name,
+            serviceType: 'Catering',
+            parentOrganization: { '@type': 'Organization', name: `myCHEF ${island.name}` },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: offer.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
       />
       <Hero src={hero.file} alt={hero.alt} objectPosition={CATERING_CROP[islandId]}>
         <p className="text-[13px] text-mute">{island.name} catering</p>

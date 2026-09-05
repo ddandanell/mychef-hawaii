@@ -1009,6 +1009,9 @@ if (/>Wedding catering</.test(cateringViewSrc) || />Wedding catering Hawaii</.te
 if (!/Sample islandId=\{islandId\}/.test(cateringViewSrc)) {
   errors.push('island catering sample menu still shares the Hawaii catering kicker');
 }
+if (!/IslandCateringView[\s\S]{0,2500}'FoodService'/.test(cateringViewSrc)) {
+  errors.push('island /catering still missing owner FoodService JSON-LD');
+}
 if (!/Oahu catering menu/.test(cateringViewSrc) || !/Maui catering menu/.test(cateringViewSrc)) {
   errors.push('island catering sample kickers dropped Oahu or Maui catering menu');
 }
@@ -1018,6 +1021,9 @@ if (!/Kauai catering menu/.test(cateringViewSrc) || !/Big Island catering menu/.
 const weddingViewSrc = read('components/views/WeddingView.tsx');
 if (/label: 'Mobile bar package'/.test(weddingViewSrc)) {
   errors.push('wedding related doors still use the Mobile bar package label');
+}
+if (!/IslandWeddingView[\s\S]{0,1200}'FoodService'/.test(weddingViewSrc)) {
+  errors.push('island /weddings still missing owner FoodService JSON-LD');
 }
 const pricingViewSrc = read('components/views/PricingView.tsx');
 if (/>Mobile bar</.test(pricingViewSrc)) {

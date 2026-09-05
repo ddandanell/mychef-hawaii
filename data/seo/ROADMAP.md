@@ -991,6 +991,12 @@ Still no zip on this machine. Wave 123 stops island `/catering` sample-menu kick
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 124 — island catering and wedding owners ship FoodService JSON-LD (this branch)
+
+Still no zip on this machine. Wave 124 gives island `/catering` and `/weddings` the same owner FoodService JSON-LD the hub already ships. Names use each host’s live H1 keyword (Oahu catering, Maui catering, Kauai wedding catering, and the rest). Hub `/catering` and `/weddings` stay. `seo:audit` fails if those island FoodService nodes drop. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

@@ -183,9 +183,21 @@ export function IslandWeddingView({ islandId, hostMode }: { islandId: IslandId; 
   const copy = ISLAND_COPY[islandId];
   const long = weddingLongform[islandId];
   const href = (path: string) => islandHref(islandId, hostMode, path);
+  const island = islands[islandId];
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FoodService',
+          name: `${copy.h1.split('—')[0].trim().replace(/\.$/, '')} — myCHEF`,
+          description: copy.lede,
+          areaServed: island.name,
+          serviceType: 'Wedding catering',
+          parentOrganization: { '@type': 'Organization', name: `myCHEF ${island.name}` },
+        }}
+      />
       <Hero src={copy.hero.file} alt={copy.hero.alt} min="short">
         <p className="text-[13px] text-mute">{copy.eyebrow}</p>
         <LineReveal
