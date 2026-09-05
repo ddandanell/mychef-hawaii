@@ -43,6 +43,19 @@ const BAR_ITEMS: NavTarget[] = [
   { label: 'Hawaiʻi Island', island: 'bigisland', path: '/bar', note: 'Inquiry' },
 ];
 
+const HUB_GUIDE_ITEMS: NavTarget[] = [
+  { label: 'FAQ', island: 'root', path: '/faq' },
+  { label: 'Help desks', island: 'root', path: '/help' },
+  { label: 'Coverage maps', island: 'root', path: '/coverage' },
+  { label: 'How it works', island: 'root', path: '/how-it-works' },
+  { label: 'Menus', island: 'root', path: '/menus' },
+  { label: 'Live dinner doors', island: 'root', path: '/locations' },
+  { label: 'Map notes', island: 'root', path: '/areas' },
+  { label: 'In-villa formats', island: 'root', path: '/fine-dining' },
+  { label: 'Staffing add-ons', island: 'root', path: '/staffing' },
+  { label: 'Contact', island: 'root', path: '/contact' },
+];
+
 const ISLAND_SWITCH: NavTarget[] = [
   { label: 'All Hawaiʻi', island: 'root' },
   ...islandOrder.map((id) => ({
@@ -155,6 +168,7 @@ export default function SiteHeader() {
               <NavMenu label="Catering" items={CATERING_ITEMS} />
               <NavMenu label="Weddings" items={WEDDING_ITEMS} />
               <NavMenu label="Bar" items={BAR_ITEMS} />
+              <NavMenu label="Guide" items={HUB_GUIDE_ITEMS} />
               <HostLink island="root" path="/pricing" className={linkCls}>
                 Pricing
               </HostLink>
@@ -273,6 +287,11 @@ export default function SiteHeader() {
                   <MobileDisclosure label="Bar">
                     {BAR_ITEMS.map((item) => (
                       <MobileLink key={item.label} item={item} onPick={() => setDrawerOpen(false)} />
+                    ))}
+                  </MobileDisclosure>
+                  <MobileDisclosure label="Guide">
+                    {HUB_GUIDE_ITEMS.map((item) => (
+                      <MobileLink key={item.path} item={item} onPick={() => setDrawerOpen(false)} />
                     ))}
                   </MobileDisclosure>
                   <HostLink

@@ -166,6 +166,7 @@ const corporateSrc = read('data/islandCorporate.ts');
 const gatheringsSrc = read('data/islandGatherings.ts');
 const islandsIndexSrc = read('data/islandIslands.ts');
 const sitemapDocSrc = read('data/islandSitemap.ts');
+const hubDirSrc = read('data/hubDirectories.ts');
 const journalArticleSrc = read('data/journalArticles.ts');
 const blogArticleSrc = read('data/blogArticles.ts');
 const middlewareSrc = read('middleware.ts');
@@ -204,6 +205,7 @@ const corporateDocs = supportBlocks(corporateSrc, 'islandCorporate');
 const gatheringsDocs = supportBlocks(gatheringsSrc, 'islandGatherings');
 const islandsIndexDocs = supportBlocks(islandsIndexSrc, 'islandIslands');
 const sitemapDocs = supportBlocks(sitemapDocSrc, 'islandSitemap');
+const hubDirs = supportBlocks(hubDirSrc, 'hubDirectories');
 const journalPieces = uniqueCellMeta(journalArticleSrc);
 const blogPieces = uniqueCellMeta(blogArticleSrc);
 
@@ -242,6 +244,7 @@ if (corporateDocs.length !== 4) errors.push(`Expected 4 island corporate indexes
 if (gatheringsDocs.length !== 4) errors.push(`Expected 4 island gatherings indexes, found ${gatheringsDocs.length}`);
 if (islandsIndexDocs.length !== 4) errors.push(`Expected 4 island islands indexes, found ${islandsIndexDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
+if (hubDirs.length !== 8) errors.push(`Expected 8 hub directories, found ${hubDirs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
 if (blogPieces.length !== 116) errors.push(`Expected 116 blog articles, found ${blogPieces.length}`);
 
@@ -341,6 +344,9 @@ errors.push(...dupes(islandsIndexDocs.map((h) => files[h.photo] || h.photo), 'is
 errors.push(...dupes(sitemapDocs.map((h) => h.title), 'sitemap title'));
 errors.push(...dupes(sitemapDocs.map((h) => h.h1), 'sitemap H1'));
 errors.push(...dupes(sitemapDocs.map((h) => files[h.photo] || h.photo), 'sitemap hero file'));
+errors.push(...dupes(hubDirs.map((h) => h.title), 'hub-directory title'));
+errors.push(...dupes(hubDirs.map((h) => h.h1), 'hub-directory H1'));
+errors.push(...dupes(hubDirs.map((h) => files[h.photo] || h.photo), 'hub-directory hero file'));
 errors.push(...dupes(journalPieces.map((h) => h.title), 'journal-article title'));
 errors.push(...dupes(journalPieces.map((h) => h.h1), 'journal-article H1'));
 errors.push(...dupes(journalPieces.map((h) => files[h.photo] || h.photo), 'journal-article hero file'));
@@ -383,6 +389,7 @@ const allTitles = [
   ...gatheringsDocs.map((h) => h.title),
   ...islandsIndexDocs.map((h) => h.title),
   ...sitemapDocs.map((h) => h.title),
+  ...hubDirs.map((h) => h.title),
   ...journalPieces.map((h) => h.title),
   ...blogPieces.map((h) => h.title),
 ];
@@ -419,7 +426,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...helpIndexDocs, ...fineIndexDocs, ...staffIndexDocs, ...corporateDocs, ...gatheringsDocs, ...islandsIndexDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...helpIndexDocs, ...fineIndexDocs, ...staffIndexDocs, ...corporateDocs, ...gatheringsDocs, ...islandsIndexDocs, ...sitemapDocs, ...hubDirs, ...journalPieces, ...blogPieces]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -430,7 +437,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...helpIndexDocs, ...fineIndexDocs, ...staffIndexDocs, ...corporateDocs, ...gatheringsDocs, ...islandsIndexDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...helpIndexDocs, ...fineIndexDocs, ...staffIndexDocs, ...corporateDocs, ...gatheringsDocs, ...islandsIndexDocs, ...sitemapDocs, ...hubDirs, ...journalPieces, ...blogPieces]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -483,5 +490,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${areaDocs.length} areas, ${contactDocs.length} contact, ${trustDocs.length} trust, ${serviceIndexDocs.length} service lists, ${helpIndexDocs.length} help indexes, ${fineIndexDocs.length} fine-dining indexes, ${staffIndexDocs.length} staffing indexes, ${corporateDocs.length} corporate indexes, ${gatheringsDocs.length} gatherings indexes, ${islandsIndexDocs.length} islands indexes, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${areaDocs.length} areas, ${contactDocs.length} contact, ${trustDocs.length} trust, ${serviceIndexDocs.length} service lists, ${helpIndexDocs.length} help indexes, ${fineIndexDocs.length} fine-dining indexes, ${staffIndexDocs.length} staffing indexes, ${corporateDocs.length} corporate indexes, ${gatheringsDocs.length} gatherings indexes, ${islandsIndexDocs.length} islands indexes, ${sitemapDocs.length} sitemap, ${hubDirs.length} hub directories, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
 );

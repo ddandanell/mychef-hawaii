@@ -13,6 +13,7 @@ import { feeStack } from '@/data/rateCard';
 import { proofRegister } from '@/data/proofRegister';
 import { articlesFor } from '@/data/editorial';
 import { MASTER_MAP, masterHostName } from '@/data/commercialGraph';
+import { HUB_DIRECTORY_PATHS } from '@/data/hubDirectories';
 import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
 import { islandServices } from '@/data/islandServices';
@@ -42,6 +43,7 @@ import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
 import { areas } from '@/data/areas';
 import { photos, type PhotoKey } from '@/data/photos';
+import { hubDirectories, type HubDirectoryId } from '@/data/hubDirectories';
 
 export function HowItWorksView() {
   const steps = [
@@ -347,6 +349,58 @@ export function HubAreasView() {
   );
 }
 
+export function HubDirectoryView({ id }: { id: HubDirectoryId }) {
+  const copy = hubDirectories[id];
+  const photo = photos[copy.photo];
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+        <div className="mt-8">
+          <QuoteCta />
+        </div>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">By island</p>
+          <ul className="mt-6 grid gap-px bg-line md:grid-cols-2">
+            {islandOrder.map((id) => (
+              <li key={id} className="bg-paper">
+                <HostLink island={id} path={copy.path} className="block p-5">
+                  <p className="text-[12px] text-mute">{islands[id].name}</p>
+                  <h2 className="mt-2 font-display text-xl font-light text-ink">{copy.cardLabel}</h2>
+                  <p className="mt-2 text-sm text-mute">
+                    {copy.path}
+                    {islands[id].state === 'inquiry' ? ' · Inquiry' : ''}
+                  </p>
+                </HostLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <LongFaq items={copy.faqs} title="Before you open an island." />
+    </>
+  );
+}
+
 export function IslandsView() {
   return (
     <>
@@ -482,6 +536,9 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
   const photo = copy ? photos[copy.photo] : null;
   const rows = [
     ...(islandId ? MASTER_MAP.filter((r) => r.host === islandId) : MASTER_MAP),
+    ...(islandId
+      ? []
+      : HUB_DIRECTORY_PATHS.map((path) => ({ host: 'hub' as const, path }))),
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),

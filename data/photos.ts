@@ -1979,6 +1979,38 @@ export const photos = {
     file: '/photos/islands-index-bigisland.png',
     alt: `Unused ivory plates on a Kohala lava terrace in hard sun, open Pacific horizon.`,
   },
+  hubFaq: {
+    file: '/photos/hub-faq.png',
+    alt: `A stack of unused ivory papers under a brass clip on a koa table, volcanic-stone bowl of limes, no writing.`,
+  },
+  hubCoverage: {
+    file: '/photos/hub-coverage.png',
+    alt: `Unused ivory papers and a brass clip on a sand linen pass, no map, no landmark, no writing.`,
+  },
+  hubContact: {
+    file: '/photos/hub-contact.png',
+    alt: `A blank ivory card in a brass clip on a koa desk, fountain pen, mossed lava, no writing.`,
+  },
+  hubLocations: {
+    file: '/photos/hub-locations.png',
+    alt: `Four unused ivory plates stacked on a koa sideboard, a thin brass clip on the top plate, no landmark.`,
+  },
+  hubMenus: {
+    file: '/photos/hub-menus.png',
+    alt: `Unused ivory plates and unmarked papers on a koa pass, citrus, brass clip, no writing.`,
+  },
+  hubHelp: {
+    file: '/photos/hub-help.png',
+    alt: `Unused ivory cards under a brass clip on a sand linen kitchen pass, no writing.`,
+  },
+  hubFine: {
+    file: '/photos/hub-fine.png',
+    alt: `Unused ivory plates and empty stemware on a koa dining table, brass clip, no writing.`,
+  },
+  hubStaff: {
+    file: '/photos/hub-staff.png',
+    alt: `Unused empty glasses and sand linen on a kitchen pass, brass clip, no writing.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

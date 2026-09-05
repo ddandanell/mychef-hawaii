@@ -12,6 +12,7 @@ import { helpArticles } from '@/data/helpArticles';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
+import { HUB_DIRECTORY_PATHS } from '@/data/hubDirectories';
 
 function xmlEscape(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -86,9 +87,12 @@ export async function GET(request: Request) {
         ...supportRows(id),
         ...uniqueCellRows(id),
       ]);
+  const hubRows = island
+    ? []
+    : HUB_DIRECTORY_PATHS.map((path) => ({ host: 'hub' as const, path, priority: '0.55' }));
   const rows = island
     ? [...MASTER_MAP.filter((r) => r.host === island), ...extras]
-    : [...MASTER_MAP, ...extras];
+    : [...MASTER_MAP, ...hubRows, ...extras];
   return new Response(urlset(rows), {
     status: 200,
     headers: {

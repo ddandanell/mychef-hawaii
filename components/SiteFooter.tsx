@@ -93,7 +93,40 @@ export default function SiteFooter({
                     </HostLink>
                   </li>
                 </>
-              ) : null}
+              ) : (
+                <>
+                  <li>
+                    <HostLink island="root" path="/faq" className="text-base text-paper hover:underline underline-offset-4">
+                      FAQ
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/coverage" className="text-base text-paper hover:underline underline-offset-4">
+                      Coverage
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/contact" className="text-base text-paper hover:underline underline-offset-4">
+                      Contact
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/locations" className="text-base text-paper hover:underline underline-offset-4">
+                      Live dinner doors
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/menus" className="text-base text-paper hover:underline underline-offset-4">
+                      Menus
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/help" className="text-base text-paper hover:underline underline-offset-4">
+                      Help desks
+                    </HostLink>
+                  </li>
+                </>
+              )}
               <li>
                 <HostLink island="root" path="/pricing" className="text-base text-paper hover:underline underline-offset-4">
                   Pricing

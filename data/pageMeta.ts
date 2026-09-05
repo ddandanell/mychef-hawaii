@@ -114,6 +114,46 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Birthdays, reunions, and rehearsal dinners in Hawaiian villas. Staffed 10–75. Not a wedding-week stack — that lives on /weddings.',
   },
+  '/faq': {
+    title: 'Questions, by island | myCHEF Hawaii',
+    description:
+      'Each island host keeps its own FAQ. This hub page is the picker — not Oahu questions, not Maui villa kitchens.',
+  },
+  '/coverage': {
+    title: 'Coverage maps, by island | myCHEF Hawaii',
+    description:
+      'Each island host publishes its own coverage map. Distinct from hub /areas (map notes) and from live dinner doors at /locations.',
+  },
+  '/contact': {
+    title: 'How to reach a desk, by island | myCHEF Hawaii',
+    description:
+      'Each island department has its own desk hours and form. This hub page is the picker — not the Oahu desk, not the Maui desk.',
+  },
+  '/locations': {
+    title: 'Live dinner doors, by island | myCHEF Hawaii',
+    description:
+      'Each island host lists its live corridor URLs. Distinct from hub /areas (map notes) and from each island /coverage zone map.',
+  },
+  '/menus': {
+    title: 'How menus are designed, by island | myCHEF Hawaii',
+    description:
+      'Each island host explains how a table is designed. Distinct from nested /menus/:sku pages and from the island /menus process document.',
+  },
+  '/help': {
+    title: 'Help desks, by island | myCHEF Hawaii',
+    description:
+      'Each island host keeps a help desk: first booking, menu draft, after the quote. Distinct from /faq and from nested /help/:slug articles.',
+  },
+  '/fine-dining': {
+    title: 'In-villa formats, by island | myCHEF Hawaii',
+    description:
+      'Each island lists in-villa formats — not a Michelin claim. Distinct from /honeymoon-dinners, /chefs-table, and nested /fine-dining/:course pages.',
+  },
+  '/staffing': {
+    title: 'Staffing add-ons, by island | myCHEF Hawaii',
+    description:
+      'Each island lists hourly add-ons: servers, bartenders, quoted butlers. Distinct from /bar, /mobile-bar, and nested /staffing/:role pages.',
+  },
   '/oahu': {
     title: 'Private Chef Oahu | Villa and Household Chefs | myCHEF',
     description:

@@ -43,6 +43,7 @@ import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
 import { lookupPageMeta, metaForPath } from '@/data/pageMeta';
+import { getHubDirectory, HUB_DIRECTORY_PATHS } from '@/data/hubDirectories';
 import { photos } from '@/data/photos';
 import { formatBand, getDayRate, getMobileBar, getOtherOffer, getTiers } from '@/data/rateCard';
 import { SERVICE_AREAS } from '@/data/serviceAreas';
@@ -154,7 +155,11 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     const blogPiece = blogSlug ? getBlogArticle(islandId, blogSlug) : undefined;
     if (blogPiece) return `${origin}${photos[blogPiece.photo].file}`;
   }
-  if (!islandId) return `${origin}${photos.hubHero.file}`;
+  if (!islandId) {
+    const hubDir = getHubDirectory(localPath);
+    if (hubDir) return `${origin}${photos[hubDir.photo].file}`;
+    return `${origin}${photos.hubHero.file}`;
+  }
   return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;
 }
 
@@ -458,9 +463,15 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       }
     }
   } else {
-    const mapped = metaForPath(path);
-    title = mapped.title;
-    description = mapped.description;
+    const hubDir = getHubDirectory(localPath);
+    if (hubDir) {
+      title = hubDir.title;
+      description = hubDir.description;
+    } else {
+      const mapped = metaForPath(path);
+      title = mapped.title;
+      description = mapped.description;
+    }
   }
 
   const canonical = islandId ? canonicalUrl(islandId, localPath, host) : canonicalUrl('root', path, host);
@@ -519,6 +530,13 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
   const host = hostname.split(':')[0] ?? hostname;
   const fromHost = detectIslandFromHost(host);
   const master = fromHost ? MASTER_MAP.filter((r) => r.host === fromHost) : MASTER_MAP;
+  const hubExtras = fromHost
+    ? []
+    : HUB_DIRECTORY_PATHS.map((path) => ({
+        loc: `https://${masterHostName('hub')}${path}`,
+        changefreq: 'monthly',
+        priority: '0.55',
+      }));
   const extras = (fromHost ? [fromHost] : ISLAND_HOSTS).flatMap((island) => [
     ...moneyNeighborhoods[island].map((hood) => ({
       loc: `https://${masterHostName(island)}${`/${hood.slug}`}`,
@@ -587,6 +605,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: r.path === '/' ? 'weekly' : 'monthly',
       priority: r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8',
     })),
+    ...hubExtras,
     ...extras,
   ];
 }
