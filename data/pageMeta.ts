@@ -86,9 +86,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Hawaii is launching. Reviews publish only after verified events. No fabricated local proof.',
   },
   '/legal': {
-    title: 'Legal notes for private chef & catering bookings | myCHEF Hawaii',
+    title: 'Booking notes — quotes, GET, deposits | myCHEF Hawaii',
     description:
-      'Published starting prices, service 20% and GET up to 4.712%, 50% deposit. Written quote is the confirmed total.',
+      'Published starting prices, service 20% and GET up to 4.712%, 50% deposit. Written quote is the confirmed total. Distinct from island /legal notes.',
   },
   '/journal': {
     title: 'The journal, by island | myCHEF Hawaii',

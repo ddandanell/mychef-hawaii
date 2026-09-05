@@ -300,6 +300,7 @@ export function LegalView({ islandId }: { islandId?: IslandId | null } = {}) {
   const copy = islandId ? islandLegal[islandId] : null;
   const photo = copy ? photos[copy.photo] : null;
   const sections = copy?.sections ?? HUB_LEGAL_SECTIONS;
+  const fee = getHubDirectory('/private-chef-cost');
   return (
     <>
       {copy && photo ? (
@@ -360,6 +361,54 @@ export function LegalView({ islandId }: { islandId?: IslandId | null } = {}) {
           ))}
         </div>
       </section>
+      {islandId ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${islands[islandId].shortName} · Beside these notes`}
+          heading="Open a related document."
+          intro="The clauses stay on this page. The quote form, the rate card, the fee stack, and the honesty register are their own URLs."
+          columns={2}
+          items={[
+            { path: '/quote', label: 'The quote form', detail: '/quote' },
+            { path: '/pricing', label: 'What a night costs', detail: '/pricing' },
+            { path: '/private-chef-cost', label: 'Fee stack', detail: '/private-chef-cost' },
+            { path: '/trust', label: 'Honesty register', detail: '/trust' },
+          ]}
+        />
+      ) : (
+        <HubPhotoGrid
+          eyebrow="Beside these notes"
+          heading="Open a related document."
+          intro="The clauses stay on this page. The quote form, the rate card, the fee stack, and the honesty register are their own URLs. Island booking notes stay on the island host."
+          columns={2}
+          items={[
+            {
+              href: '/quote',
+              title: 'The quote form',
+              body: 'Five fields. A written total follows. Not a booking.',
+              still: photos.quoteHub,
+            },
+            {
+              href: '/pricing',
+              title: 'What a night costs',
+              body: 'The published rate card. Distinct from the fee-stack explainer.',
+              still: photos.hubPricing,
+            },
+            {
+              href: '/private-chef-cost',
+              title: fee?.cardLabel ?? 'Fee stack',
+              body: fee?.lede ?? 'Service, GET, and travel as their own lines.',
+              still: fee ? photos[fee.photo] : photos.hubPricing,
+            },
+            {
+              href: '/trust',
+              title: 'Honesty register',
+              body: 'Published prices and a written quote are what we can prove today. Reviews after verified events.',
+              still: photos.hubTrust,
+            },
+          ]}
+        />
+      )}
       {copy ? <LongFaq items={copy.faqs} title="Before you deposit." /> : (
         <IslandPhotoPicker path="/legal" heading="Open the island legal notes." detailOf={() => 'Legal notes'} />
       )}

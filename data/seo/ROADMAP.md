@@ -532,6 +532,14 @@ Still no zip on this machine. Wave 59 gives `/trust` the same related-document p
 - Island `/trust` opens the same four URLs on island stills. Distinct from `/how-it-works` (process doors) and from `/help`.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 60 — hub /legal off the leftover catering phrase (this branch)
+
+Still no zip on this machine. Wave 60 stops hub `/legal` from shipping `private chef & catering` and gives booking notes the same related-document photography as `/trust`:
+
+- Hub `/legal` title is “Booking notes — quotes, GET, deposits.” `seo:audit` fails if the leftover catering phrase returns.
+- Hub and island `/legal` open `/quote`, `/pricing`, `/private-chef-cost`, and `/trust` on existing stills. Distinct from `/how-it-works` (process) and `/trust` (honesty). Clause lists and the fee-stack paper list stay paper.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

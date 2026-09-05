@@ -459,6 +459,9 @@ if (/Personal chef for Hawaii villas/.test(pageMetaSrc)) {
 if (/vacation chef and weekly household service/i.test(pageMetaSrc)) {
   errors.push('island /vacation-chef pageMeta still sells the household week');
 }
+if (/Legal notes for private chef & catering/i.test(pageMetaSrc)) {
+  errors.push('hub /legal pageMeta still cannibalizes with private chef & catering');
+}
 
 const catalogSrc = read('data/islandCatalog.ts');
 if (/Private chef & catering/.test(catalogSrc)) {
