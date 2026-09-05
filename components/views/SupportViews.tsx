@@ -4,10 +4,11 @@ import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
+import Eyebrow from '@/components/Eyebrow';
 import Photo from '@/components/Photo';
-import TypePanel from '@/components/TypePanel';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { LongFaq, Longform } from '@/components/Longform';
+import { islandChooserCopy } from '@/data/chromeCopy';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { feeStack } from '@/data/rateCard';
 import { proofRegister } from '@/data/proofRegister';
@@ -421,15 +422,26 @@ export function IslandsView() {
       <section className="bg-paper">
         {islandOrder.map((id) => {
           const isl = islands[id];
+          const chooser = islandChooserCopy[id];
           return (
-            <HostLink key={id} island={id} className="relative block min-h-[70vh] overflow-hidden">
+            <HostLink
+              key={id}
+              island={id}
+              className="group relative block min-h-[70svh] overflow-hidden"
+            >
               <Photo src={isl.selectorImage} alt={isl.name} fill sizes="100vw" />
-              <span className="relative flex min-h-[70vh] items-end px-5 py-12 lg:px-10">
-                <TypePanel className="max-w-xl">
-                  <span className="block font-display text-[clamp(2.5rem,6vw,4rem)] font-light text-ink">{isl.name}</span>
-                  <span className="mt-3 block text-[17px] text-ink">{isl.role}</span>
-                </TypePanel>
-              </span>
+              <span aria-hidden className="absolute inset-0 bg-ink/35 lg:bg-ink/20" />
+              <span aria-hidden className="absolute inset-0 hero-scrim-bottom" />
+              <div className="hero-copy relative mx-auto flex min-h-[70svh] w-full max-w-spread items-end px-5 py-12 lg:px-10">
+                <div className="hero-type-shadow max-w-[40rem] text-paper">
+                  <Eyebrow tone="paper">{isl.stateLabel}</Eyebrow>
+                  <span className="mt-4 block font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper">
+                    {isl.name}
+                  </span>
+                  <span className="mt-4 block text-[17px] leading-[1.65] text-paper">{chooser.line}</span>
+                  <span className="mt-4 block text-[15px] text-paper">{chooser.price}</span>
+                </div>
+              </div>
             </HostLink>
           );
         })}

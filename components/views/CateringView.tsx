@@ -1,10 +1,13 @@
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
+import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
+import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
+import { islandChooserCopy } from '@/data/chromeCopy';
 import { HUB_CATERING, cateringOffers } from '@/data/catering';
 import { hubCateringFaqs, hubCateringSections } from '@/data/longformHub';
 import { cateringLongform } from '@/data/longformCatering';
@@ -88,30 +91,45 @@ export function HubCateringView() {
         <p className="mt-5 max-w-[54ch] text-[17px] leading-[1.65] text-ink">{HUB_CATERING.lede}</p>
         <p className="mt-4 text-[17px] text-ink">Ten to seventy-five guests. From $125 a guest on Oʻahu.</p>
         <div className="mt-8">
-          <QuoteCta service="catering" />
+          <QuoteCta service="catering" variant="light" />
         </div>
       </Hero>
 
-      <section className="bg-sand py-16 lg:py-24">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <h2 className="font-display text-[clamp(1.75rem,3vw,2.5rem)] font-light text-ink">Choose the island</h2>
-          <p className="mt-4 max-w-[65ch] text-mute">
+      <section className="bg-paper py-24 lg:py-32">
+        <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
+          <Eyebrow>Where we cook</Eyebrow>
+          <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] text-ink">
+            Open the island catering document.
+          </h2>
+          <p className="mt-5 max-w-[52ch] text-[17px] leading-relaxed text-mute">
             Open the island where the house is. Each island page publishes its own starting prices and a sample menu.
             This page stays statewide.
           </p>
-          <div className="mt-10 grid gap-px bg-line sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
             {islandOrder.map((id) => {
               const c = cateringOffers[id];
               const isl = islands[id];
+              const chooser = islandChooserCopy[id];
               return (
-                <HostLink key={id} island={id} path="/catering" className="bg-paper p-5">
-                  <p className="font-display text-2xl font-light text-ink">{isl.name}</p>
-                  <p className="mt-2 font-display text-xl text-ink">from ${c.fromPp}</p>
-                  <p className="mt-2 text-sm text-mute">Staffed villa events</p>
-                </HostLink>
+                <li key={id}>
+                  <HostLink island={id} path="/catering" className="group block">
+                    <span className="relative block aspect-[3/4] overflow-hidden bg-sand">
+                      <Photo
+                        src={isl.selectorImage}
+                        alt={isl.name}
+                        fill
+                        sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                        className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
+                      />
+                    </span>
+                    <span className="mt-5 block font-display text-[1.5rem] font-light text-ink">{isl.name}</span>
+                    <span className="mt-2 block text-[15px] leading-relaxed text-mute">{chooser.line}</span>
+                    <span className="mt-2 block text-[13px] text-mute">from ${c.fromPp} a guest</span>
+                  </HostLink>
+                </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </section>
 

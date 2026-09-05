@@ -2,7 +2,6 @@ import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
 import Photo from '@/components/Photo';
-import TypePanel from '@/components/TypePanel';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
@@ -104,24 +103,31 @@ export function HubWeddingsView() {
           seventy-five.
         </p>
         <div className="mt-8">
-          <QuoteCta service="wedding-week" />
+          <QuoteCta service="wedding-week" variant="light" />
         </div>
       </Hero>
 
       <section className="bg-paper">
         {islandsWeddings.map((row) => (
-          <HostLink key={row.id} island={row.id} path="/weddings" className="group relative block min-h-[70svh] min-h-[420px] overflow-hidden">
+          <HostLink
+            key={row.id}
+            island={row.id}
+            path="/weddings"
+            className="group relative block min-h-[70svh] overflow-hidden"
+          >
             <Photo src={row.img} alt={row.alt} fill sizes="100vw" />
-            <span className="relative mx-auto flex min-h-[70svh] min-h-[420px] w-full max-w-spread items-end px-5 py-12 lg:px-10">
-              <TypePanel className="max-w-[560px]">
-                <span className="block font-display text-[clamp(2rem,4vw,2.75rem)] font-light leading-[1.1] text-ink">
+            <span aria-hidden className="absolute inset-0 bg-ink/35 lg:bg-ink/20" />
+            <span aria-hidden className="absolute inset-0 hero-scrim-bottom" />
+            <span className="hero-copy relative mx-auto flex min-h-[70svh] w-full max-w-spread items-end px-5 py-12 lg:px-10">
+              <span className="hero-type-shadow max-w-[40rem] text-paper">
+                <span className="block font-display text-[clamp(2rem,4vw,2.75rem)] font-light leading-[1.1] text-paper">
                   {row.title}
                 </span>
-                <span className="mt-3 block text-[17px] leading-[1.65] text-ink">{row.body}</span>
-                <span className="mt-4 block text-[17px] text-ink">
+                <span className="mt-3 block text-[17px] leading-[1.65] text-paper">{row.body}</span>
+                <span className="mt-4 block text-[17px] text-paper">
                   Wedding catering {formatOtherOffer(getOtherOffer('wedding'), row.id)}
                 </span>
-              </TypePanel>
+              </span>
             </span>
           </HostLink>
         ))}

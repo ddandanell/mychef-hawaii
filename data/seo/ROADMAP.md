@@ -335,6 +335,15 @@ Still no zip on this machine. Wave 36 tightens the unique-page template used by 
 - Body copy and related island links sit in one paper column after the hero. FAQ and the quote closer stay.
 - Money corridor pages keep a unique “how a booking runs” heading and the island money links.
 
+## Wave 37 — leftover luxury chrome on hub money pages (this branch)
+
+Still no zip on this machine. Wave 37 finishes type-on-photography on hub money-adjacent pages that still used paper cards or TypePanel on the still:
+
+- Hub `/private-chef` and `/vacation-chef` use cinematic heroes plus a 4-up island photo picker.
+- Hub `/catering` island picker is the same photo 4-up, not paper tiles.
+- Hub `/weddings` island strips and hub `/islands` full-bleed rows put type on the photograph with scrims. Quote-form TypePanel stays — that is a WCAG paper field, not homepage chrome.
+- Island `/vacation-chef` adds a body column and related links so the SKU is not only a hero plus generic money nav.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

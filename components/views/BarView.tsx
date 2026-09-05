@@ -53,7 +53,7 @@ export function HubBarView() {
         </p>
         <p className="mt-5 text-[17px] text-ink">From {formatMobileBarGuest('maui')}, Maui.</p>
         <div className="mt-8">
-          <QuoteCta service="mobile-bar" />
+          <QuoteCta service="mobile-bar" variant="light" />
         </div>
       </Hero>
       <section className="bg-paper py-20 lg:py-28">
@@ -131,7 +131,7 @@ export function HubMobileBarView() {
           A cart, a bartender, citrus and ice as a published package. The cocktail-hour add-on lives on /bar.
         </p>
         <div className="mt-8">
-          <QuoteCta service="mobile-bar" />
+          <QuoteCta service="mobile-bar" variant="light" />
         </div>
       </Hero>
       <section className="bg-paper py-20 lg:py-28">
