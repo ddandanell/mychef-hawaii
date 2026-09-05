@@ -824,6 +824,14 @@ Still no zip on this machine. Wave 96 gives hub `/private-chef` and `/vacation-c
 - `seo:audit` fails if hub OG or hub heroes fall back to Maui island stills.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 97 — hub home private-chef card stops selling Stay Chef (this branch)
+
+Still no zip on this machine. Wave 97 fixes hub home card 01 so the door into `/private-chef` describes a visitor dinner at the per-guest band. Stay Chef day rates stay on `/vacation-chef` and on the published-prices block. Hub home title still owns `private chef hawaii`. No new URLs. No JPEG remaps. No related-door photography.
+
+- Card line is one dinner in the villa. Card price is from $125 / $150 a guest, not $850 a day.
+- `seo:audit` fails if the card sells “daily chef service” or Stay Chef day rates.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

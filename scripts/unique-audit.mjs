@@ -812,6 +812,14 @@ if (/still: photos\.chefMaui/.test(hubStealSrc) || /still: photos\.vacationMaui/
   errors.push('hub related doors still steal Maui island stills for /private-chef or /vacation-chef');
 }
 
+const chromeSrc = read('data/chromeCopy.ts');
+if (/Daily chef service for your villa stay/.test(chromeSrc)) {
+  errors.push('hub home private-chef card still sells Stay Chef as daily chef service');
+}
+if (/chefPrice: 'From \$850 a day/.test(chromeSrc)) {
+  errors.push('hub home private-chef card still prints Stay Chef day rates');
+}
+
 for (const key of [
   'vacationOahu',
   'vacationMaui',
