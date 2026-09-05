@@ -944,25 +944,25 @@ export function ServicesView() {
             href: '/private-chef',
             title: 'Private chef',
             body: 'A dinner in the villa. Shop, cook, serve, clean.',
-            still: photos.mauiKitchen,
+            still: photos.chefMaui,
           },
           {
             href: '/catering',
             title: 'Catering',
             body: 'Staffed events, 10–75. Buffet or plated.',
-            still: photos.catering,
+            still: photos.cateringHero,
           },
           {
             href: '/weddings',
             title: 'Weddings',
             body: 'One team for the week.',
-            still: photos.wedding,
+            still: photos.weddingHero,
           },
           {
             href: '/bar',
             title: 'Bar',
             body: 'Terrace cocktails, stacked or alone.',
-            still: photos.bar,
+            still: photos.barHero,
           },
         ]}
       />

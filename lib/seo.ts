@@ -74,10 +74,29 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
   if (!islandId) {
     const hubDir = getHubDirectory(localPath);
     if (hubDir) return `${origin}${photos[hubDir.photo].file}`;
-    if (localPath === '/thank-you') return `${origin}${photos.hubThanks.file}`;
-    if (localPath === '/corporate') return `${origin}${photos.hubCorporate.file}`;
-    if (localPath === '/gatherings') return `${origin}${photos.hubGatherings.file}`;
-    if (localPath === '/mobile-bar') return `${origin}${photos.hubMobileBar.file}`;
+    const hubStill: Partial<Record<string, { file: string }>> = {
+      '/thank-you': photos.hubThanks,
+      '/corporate': photos.hubCorporate,
+      '/gatherings': photos.hubGatherings,
+      '/mobile-bar': photos.hubMobileBar,
+      '/bar': photos.barHero,
+      '/weddings': photos.weddingHero,
+      '/catering': photos.cateringHero,
+      '/services': photos.hubServices,
+      '/how-it-works': photos.hubHow,
+      '/quote': photos.quoteHub,
+      '/trust': photos.hubTrust,
+      '/legal': photos.hubLegal,
+      '/areas': photos.hubAreas,
+      '/journal': photos.hubJournal,
+      '/blog': photos.hubBlog,
+      '/islands': photos.hubIslands,
+      '/private-chef': photos.chefMaui,
+      '/vacation-chef': photos.vacationMaui,
+    };
+    const still = hubStill[localPath];
+    if (still) return `${origin}${still.file}`;
+    if (localPath === '/about') return `${origin}/about/about-hub.png`;
     return `${origin}${photos.hubHero.file}`;
   }
   return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;

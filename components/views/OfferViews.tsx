@@ -87,14 +87,14 @@ export function HubOfferView({ kind }: { kind: 'private-chef' | 'vacation-chef' 
       ? {
           h1: 'Personal chef for Hawaii villas.',
           lede: 'Personal chef and vacation-rental chef in Hawaii. Oʻahu from $125 a guest, Maui and Kauaʻi from $150 a guest. We shop, cook, serve and clean.',
-          img: photos.chefTeam,
+          img: photos.chefMaui,
           service: 'private-chef',
           path: '/private-chef' as const,
         }
       : {
           h1: 'Vacation chef — a chef for the villa week',
           lede: 'Stay Chef day rates from $850 Oʻahu / $1,050 Maui / $1,100 Kauaʻi / $950 Hawaiʻi Island. Groceries at cost.',
-          img: photos.vacation,
+          img: photos.vacationMaui,
           service: 'vacation-chef',
           path: '/vacation-chef' as const,
         };

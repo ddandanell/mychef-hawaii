@@ -412,6 +412,15 @@ Still no zip on this machine. Wave 45 puts the measured `mobile bar hawaii` (20)
 - Hub `/weddings` island bleed rows use the existing island wedding Grok stills instead of leftover JPEGs.
 - Quote-form TypePanel stays. No new URLs.
 
+## Wave 46 — leftover hub OG stills + Grok island pickers (this branch)
+
+Still no zip on this machine. Wave 46 stops leftover hub money pages from sharing the homepage Open Graph still, and lifts island pickers off leftover JPEGs:
+
+- Hub `/bar`, `/weddings`, `/catering`, `/services`, `/how-it-works`, `/quote`, `/trust`, `/legal`, `/areas`, `/journal`, `/blog`, `/islands`, `/private-chef`, `/vacation-chef`, and `/about` use the same unique still as the page hero for Open Graph.
+- Island selector stills on every hub/island picker are the Grok island heroes, not leftover JPEGs.
+- Hub homepage cores, `/services` four doors, and hub `/private-chef` / `/vacation-chef` heroes use existing Grok money stills instead of leftover JPEGs.
+- Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
