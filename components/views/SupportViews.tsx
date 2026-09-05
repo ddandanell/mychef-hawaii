@@ -1227,6 +1227,38 @@ export function ServicesView() {
         ]}
       />
       <IslandPhotoPicker path="/services" heading="Open the island service list." detailOf={() => 'Service list'} />
+      <HubPhotoGrid
+        eyebrow="Beside these four doors"
+        heading="Open a related document."
+        intro="This page is the statewide service list. Stay Chef weeks, the packaged cart, the household line, and the form are their own URLs. Island service lists stay on the island host."
+        columns={2}
+        items={[
+          {
+            href: '/vacation-chef',
+            title: 'Stay Chef week',
+            body: 'A chef for the villa week. Distinct from one dinner and from school-night households.',
+            still: photos.vacationMaui,
+          },
+          {
+            href: '/mobile-bar',
+            title: 'The packaged cart',
+            body: 'The four-hour villa package. Distinct from the bartender add-on on /bar.',
+            still: photos.hubMobileBar,
+          },
+          {
+            href: '/personal-chef',
+            title: 'Household line',
+            body: 'Weekly cooking for residents. Distinct from visitor dinners and Stay Chef weeks.',
+            still: photos.hubPersonal,
+          },
+          {
+            href: '/quote',
+            title: 'The quote form',
+            body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+            still: photos.quoteHub,
+          },
+        ]}
+      />
       <div className="mx-auto max-w-container px-5 pb-16 lg:px-10">
         <QuoteCta />
       </div>

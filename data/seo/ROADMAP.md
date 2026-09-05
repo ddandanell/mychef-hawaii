@@ -663,6 +663,14 @@ Still no zip on this machine. Wave 76 closes the geography loop that Wave 71 ope
 - Hub `/locations` keeps the four-island picker, then opens the same four statewide doors. Hub `/areas` already names `/locations` and `/islands`, then opens `/coverage`, `/quote`, `/how-it-works`, and `/faq`.
 - Zone lists on `/coverage` stay paper. SiblingCluster stays paper. No new URLs.
 
+## Wave 77 — hub /services related doors (this branch)
+
+Still no zip on this machine. Wave 77 gives hub `/services` related-document photography after the island picker. The four statewide doors stay the page’s job. Island `/services` already opens the full host list.
+
+- Hub `/services` keeps private chef, catering, weddings, and bar, then opens `/vacation-chef`, `/mobile-bar` (“The packaged cart”), `/personal-chef` (“Household line”), and `/quote`. The lede already names Stay Chef and the four-hour cart; those URLs now open from photography.
+- Titles stay off `mobile bar hawaii` and `personal chef honolulu`. Island service lists stay on the island host.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
