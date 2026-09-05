@@ -1003,6 +1003,12 @@ Still no zip on this machine. Wave 125 gives hub `/mobile-bar` the same owner Fo
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 126 — corridor and personal-chef owners ship FoodService JSON-LD (this branch)
+
+Still no zip on this machine. Wave 126 gives money corridors and `/personal-chef` the same owner FoodService JSON-LD catering, weddings, and `/mobile-bar` already ship. Corridor names come from each dinner-door title (`Private chef Honolulu`, `Private chef Kona`, and the rest) with `serviceType: Villa dinner`. Oahu and Maui `/personal-chef` use `Personal chef`; Kauaʻi and Hawaiʻi Island use Household cooking. Blogs, journals, and SKUs stay FAQ-only. `seo:audit` fails if those nodes drop. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

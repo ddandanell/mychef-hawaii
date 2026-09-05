@@ -27,15 +27,26 @@ export function LocationPlaceView({
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: hood.faqs.map((f) => ({
-            '@type': 'Question',
-            name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
-          })),
-        }}
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: `${hood.title.split('|')[0].split('—')[0].trim()} — myCHEF`,
+            description: hood.description,
+            areaServed: `${hood.name}, ${island.name}`,
+            serviceType: 'Villa dinner',
+            parentOrganization: { '@type': 'Organization', name: `myCHEF ${island.name}` },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: hood.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
       />
       <Hero src={photo.file} alt={photo.alt}>
         <p className="text-[13px] text-mute">

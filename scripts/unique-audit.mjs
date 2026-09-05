@@ -988,6 +988,12 @@ if (/label: 'Private chef dinner'/.test(priceLabelSrc)) {
 if (!/PlacePriceBlock/.test(placeViewSrc)) {
   errors.push('corridor pages must reuse PlacePriceBlock');
 }
+if (!/LocationPlaceView[\s\S]{0,2500}'FoodService'/.test(placeViewSrc)) {
+  errors.push('corridor pages still missing FoodService JSON-LD');
+}
+if (!/cell\.slug === 'personal-chef'/.test(uniqueViewSrc) || !/UniqueCellView[\s\S]*'FoodService'/.test(uniqueViewSrc)) {
+  errors.push('personal-chef owners still missing FoodService JSON-LD');
+}
 if (!/isAreaDinnerDoor\(islandId, cell\.slug\)/.test(uniqueViewSrc) || !/PlacePriceBlock/.test(uniqueViewSrc)) {
   errors.push('supporting-area dinner doors must reuse PlacePriceBlock gated to AREA_CELLS');
 }

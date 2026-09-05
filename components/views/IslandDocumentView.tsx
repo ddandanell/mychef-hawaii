@@ -215,6 +215,19 @@ export function UniqueCellView({
 
   return (
     <>
+      {cell.slug === 'personal-chef' ? (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: `${cell.title.split('|')[0].split('—')[0].trim()} — myCHEF`,
+            description: cell.description,
+            areaServed: island.name,
+            serviceType: islandId === 'oahu' || islandId === 'maui' ? 'Personal chef' : 'Household cooking',
+            parentOrganization: { '@type': 'Organization', name: `myCHEF ${island.name}` },
+          }}
+        />
+      ) : null}
       <FaqSchema faqs={cell.faqs} />
       <Hero src={photo.file} alt={photo.alt}>
         <p className="text-[13px] text-mute">
