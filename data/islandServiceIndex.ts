@@ -20,14 +20,14 @@ export interface IslandServiceIndexPage {
 }
 
 export const SERVICE_INDEX_LINKS: { path: string; label: string }[] = [
-  { path: '/private-chef', label: 'Private chef dinner' },
+  { path: '/private-chef', label: 'What’s included' },
   { path: '/vacation-chef', label: 'Stay Chef week' },
   { path: '/personal-chef', label: 'Household line' },
   { path: '/catering', label: 'Staffed catering' },
   { path: '/weddings', label: 'Wedding week' },
   { path: '/events', label: 'Occasions' },
   { path: '/bar', label: 'Bartender add-on' },
-  { path: '/mobile-bar', label: '4-hour mobile bar' },
+  { path: '/mobile-bar', label: 'The packaged cart' },
   { path: '/fine-dining', label: 'In-villa formats' },
   { path: '/staffing', label: 'Staffing add-ons' },
   { path: '/help', label: 'Help desk' },

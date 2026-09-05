@@ -919,6 +919,12 @@ Still no zip on this machine. Wave 111 renames the OfferCatalog JSON-LD names th
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 112 — leftover related-door and rate-card labels stay off money keywords (this branch)
+
+Still no zip on this machine. Wave 112 renames leftover visible labels that still said Private chef dinner, 4-hour mobile bar, or Mobile bar package after the corridor cards were renamed. Island `/services` cards read What’s included and The packaged cart. Wedding related doors and the `/pricing` cart row match. Owner-page H1s and titles on `/mobile-bar` stay. `seo:audit` fails if those labels return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

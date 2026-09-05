@@ -947,6 +947,18 @@ const islandHomeSrc = read('components/views/IslandHomeView.tsx');
 if (!/PlacePriceBlock/.test(islandHomeSrc)) {
   errors.push('island homes must publish PlacePriceBlock');
 }
+const svcIndexSrc = read('data/islandServiceIndex.ts');
+if (/label: 'Private chef dinner'/.test(svcIndexSrc) || /label: '4-hour mobile bar'/.test(svcIndexSrc)) {
+  errors.push('island /services still uses Private chef dinner or 4-hour mobile bar card labels');
+}
+const weddingViewSrc = read('components/views/WeddingView.tsx');
+if (/label: 'Mobile bar package'/.test(weddingViewSrc)) {
+  errors.push('wedding related doors still use the Mobile bar package label');
+}
+const pricingViewSrc = read('components/views/PricingView.tsx');
+if (/>Mobile bar</.test(pricingViewSrc)) {
+  errors.push('pricing table still labels the cart Mobile bar');
+}
 if (/name: `Private chef dinner/.test(seoSrc) || /name: `Private chef —/.test(seoSrc)) {
   errors.push('JSON-LD offers still use Private chef dinner names');
 }

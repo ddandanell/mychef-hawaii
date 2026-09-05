@@ -178,7 +178,7 @@ export default function PricingView({ related }: { related?: ReactNode } = {}) {
               <p className="mt-2 text-sm text-mute">{day.includes}</p>
             </article>
             <article className="border border-line p-6">
-              <p className="text-[12px] text-mute">Mobile bar</p>
+              <p className="text-[12px] text-mute">Packaged cart</p>
               <p className="mt-2 font-display text-3xl font-light text-ink">{formatMobileBarPackage(active)}</p>
               <p className="mt-2 text-sm text-mute">{bar.note}</p>
             </article>

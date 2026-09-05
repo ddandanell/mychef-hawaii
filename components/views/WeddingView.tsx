@@ -208,7 +208,7 @@ export function IslandWeddingView({ islandId, hostMode }: { islandId: IslandId; 
           { path: '/catering', label: 'Villa catering', detail: '/catering' },
           { path: '/events', label: 'Occasions', detail: '/events' },
           { path: '/quote', label: 'The quote form', detail: '/quote' },
-          { path: '/mobile-bar', label: 'Mobile bar package', detail: '/mobile-bar' },
+          { path: '/mobile-bar', label: 'The packaged cart', detail: '/mobile-bar' },
         ]}
       />
       <SiblingCluster island={islandId} current="weddings" href={href} />
