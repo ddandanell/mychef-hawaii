@@ -74,6 +74,7 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
   if (!islandId) {
     const hubDir = getHubDirectory(localPath);
     if (hubDir) return `${origin}${photos[hubDir.photo].file}`;
+    if (localPath === '/thank-you') return `${origin}${photos.hubThanks.file}`;
     return `${origin}${photos.hubHero.file}`;
   }
   return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;

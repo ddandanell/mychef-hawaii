@@ -2719,6 +2719,10 @@ export const photos = {
     file: '/photos/hub-islands.png',
     alt: `Four unused ivory plates along a long koa terrace table at dusk, anonymous ocean horizon, no writing.`,
   },
+  hubThanks: {
+    file: '/photos/hub-thanks.png',
+    alt: `Unused ivory confirmation cards under a brass clip on a koa kitchen pass, unused ivory plates, volcanic-stone bowl of limes, sand linen, no writing.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

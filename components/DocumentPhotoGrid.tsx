@@ -9,11 +9,13 @@ export default function DocumentPhotoGrid({
   islandId,
   eyebrow,
   heading,
+  intro,
   items,
 }: {
   islandId: IslandId;
   eyebrow: string;
   heading: string;
+  intro?: string;
   items: { path: string; label: string; detail?: string }[];
 }) {
   const fallback = islands[islandId].selectorImage;
@@ -24,6 +26,7 @@ export default function DocumentPhotoGrid({
         <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] text-ink">
           {heading}
         </h2>
+        {intro ? <p className="mt-5 max-w-[52ch] text-[17px] leading-relaxed text-mute">{intro}</p> : null}
         <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
           {items.map((item) => {
             const still = stillForPath(islandId, item.path);

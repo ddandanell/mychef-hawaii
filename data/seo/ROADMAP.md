@@ -384,6 +384,16 @@ Still no zip on this machine. Wave 42 lifts island-host directory lists off pape
 - Island `/journal` and `/blog` indexes open live pieces from photography.
 - `stillForPath` is the shared lookup OG images already used. Quote-form TypePanel stays.
 
+## Wave 43 — leftover paper doors onto photography (this branch)
+
+Still no zip on this machine. Wave 43 lifts the remaining paper lists and inset stills onto the same photography language:
+
+- Hub `/services` four statewide doors are a 4-up photo grid (private chef, catering, weddings, bar).
+- Island `/events` occasion lists use `DocumentPhotoGrid`.
+- Island catering format lists use `DocumentPhotoGrid`. Hub `/catering` opens the six format pickers (`/catering/bbq|plated|family-style|buffet|grazing|drop-off`) from photography.
+- Hub and island `/thank-you` use a cinematic short hero. Optional follow-up form stays on paper. New hub still `hub-thanks.png`.
+- Unused `gsap` dependency removed. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

@@ -912,20 +912,53 @@ export function ServicesView() {
           <QuoteCta variant="light" />
         </div>
       </Hero>
-      <section className="bg-paper py-20 lg:py-28">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <ul className="grid gap-8 md:grid-cols-2">
+      <section className="bg-paper py-24 lg:py-32">
+        <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
+          <p className="text-[12px] text-mute">Four doors</p>
+          <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] text-ink">
+            Open a statewide document.
+          </h2>
+          <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
             {[
-              { href: '/private-chef', title: 'Private chef', body: 'A dinner in the villa. Shop, cook, serve, clean.' },
-              { href: '/catering', title: 'Catering', body: 'Staffed events, 10–75. Buffet or plated.' },
-              { href: '/weddings', title: 'Weddings', body: 'One team for the week.' },
-              { href: '/bar', title: 'Bar', body: 'Terrace cocktails, stacked or alone.' },
+              {
+                href: '/private-chef',
+                title: 'Private chef',
+                body: 'A dinner in the villa. Shop, cook, serve, clean.',
+                still: photos.mauiKitchen,
+              },
+              {
+                href: '/catering',
+                title: 'Catering',
+                body: 'Staffed events, 10–75. Buffet or plated.',
+                still: photos.catering,
+              },
+              {
+                href: '/weddings',
+                title: 'Weddings',
+                body: 'One team for the week.',
+                still: photos.wedding,
+              },
+              {
+                href: '/bar',
+                title: 'Bar',
+                body: 'Terrace cocktails, stacked or alone.',
+                still: photos.bar,
+              },
             ].map((s) => (
-              <li key={s.href} className="border-t border-line pt-6">
-                <Link href={s.href} className="font-display text-2xl font-light text-ink">
-                  {s.title}
+              <li key={s.href}>
+                <Link href={s.href} className="group block">
+                  <span className="relative block aspect-[3/4] overflow-hidden bg-sand">
+                    <Photo
+                      src={s.still.file}
+                      alt={s.still.alt}
+                      fill
+                      sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
+                    />
+                  </span>
+                  <span className="mt-5 block font-display text-[1.5rem] font-light text-ink">{s.title}</span>
+                  <span className="mt-2 block text-[15px] leading-relaxed text-mute">{s.body}</span>
                 </Link>
-                <p className="mt-2 text-mute">{s.body}</p>
               </li>
             ))}
           </ul>

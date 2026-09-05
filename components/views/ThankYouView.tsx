@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { islands, type IslandId } from '@/data/islands';
 import { useIsland } from '@/components/IslandProvider';
+import Hero from '@/components/Hero';
+import LineReveal from '@/components/LineReveal';
 import { islandThanks } from '@/data/islandThanks';
 import { photos } from '@/data/photos';
 import { cn } from '@/lib/utils';
@@ -28,7 +30,7 @@ export default function ThankYouView() {
   const params = useSearchParams();
   const { href, islandId: hostIsland } = useIsland();
   const copy = hostIsland ? islandThanks[hostIsland] : null;
-  const photo = copy ? photos[copy.photo] : null;
+  const photo = copy ? photos[copy.photo] : photos.hubThanks;
   const islandParam = params.get('island');
   const island = islandParam && islandParam in islands ? (islandParam as IslandId) : null;
   const svc = params.get('service');
@@ -57,30 +59,20 @@ export default function ThankYouView() {
 
   return (
     <>
-      <section className="bg-paper py-16 lg:py-24">
-        <div className="mx-auto w-full max-w-[640px] px-5 text-center lg:px-0">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={photo?.file ?? '/photos/thank-you.jpg'}
-            alt={
-              photo?.alt ??
-              'A folded linen napkin and a sprig of rosemary on a stone counter in soft window light'
-            }
-            className="aspect-[16/9] w-full object-cover"
-          />
-          {copy ? <p className="mt-10 text-[12px] text-mute">{copy.kicker}</p> : null}
-          <h1 className="mt-4 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] text-ink">
-            {copy?.h1 ?? 'Mahalo — we’ve got it.'}
-          </h1>
-          {contextParts.length ? (
-            <p className="mt-4 text-sm text-mute">{contextParts.join(' · ')}</p>
-          ) : null}
-          <p className="mx-auto mt-6 max-w-[52ch] text-[17px] leading-[1.65] text-mute">
-            {copy?.lede ??
-              'A coordinator will reply in Hawaii business hours. WhatsApp if you want a faster thread. If your dates are close, callback requests get priority routing.'}
-          </p>
-        </div>
-      </section>
+      <Hero src={photo.file} alt={photo.alt} min="short">
+        <p className="text-[13px] text-mute">{copy?.kicker ?? 'Hawaii · Enquiry received'}</p>
+        <LineReveal
+          text={copy?.h1 ?? 'Mahalo — we’ve got it.'}
+          className="mt-4 font-display text-[clamp(2.25rem,5vw,3.5rem)] font-light leading-[1.05] text-ink"
+        />
+        {contextParts.length ? (
+          <p className="mt-4 text-sm text-mute">{contextParts.join(' · ')}</p>
+        ) : null}
+        <p className="mt-6 max-w-[52ch] text-[17px] leading-[1.65] text-ink">
+          {copy?.lede ??
+            'A coordinator will reply in Hawaii business hours. WhatsApp if you want a faster thread. If your dates are close, callback requests get priority routing.'}
+        </p>
+      </Hero>
 
       <section className="bg-sand py-20 lg:py-28">
         <div className="mx-auto w-full max-w-3xl px-5 lg:px-10">
