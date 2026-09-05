@@ -865,6 +865,12 @@ Still no zip on this machine. Wave 102 uniquifies the last three FAQ answers tha
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 103 — leftover two-island FAQ clones (this branch)
+
+Still no zip on this machine. Wave 103 uniquifies the remaining FAQ answers that still cloned across two live unique documents (family-style vs grazing, BBQ luau refusals, dining-in and load-in notes, coffee-lot honesty). Statewide inquiry lines (“We crew when we can staff”) stay identical on purpose. `seo:audit` fails if those clone answers return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

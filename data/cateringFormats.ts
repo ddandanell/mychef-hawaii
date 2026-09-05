@@ -279,7 +279,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
         },
         {
           q: 'Same as grazing?',
-          a: 'Grazing is boards — /catering/grazing. This is seated platters.',
+          a: 'Grazing is boards — /catering/grazing. This is seated platters in a Wailea villa.',
         },
       ],
       related: [
@@ -397,7 +397,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
       faqs: [
         {
           q: 'Luau?',
-          a: 'We grill. We do not staff a theatrical luau.',
+          a: 'We grill. We do not staff a theatrical luau on a Princeville lawn.',
         },
         {
           q: 'Hanalei BBQ in surf season?',
@@ -579,7 +579,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
       faqs: [
         {
           q: 'Luau on lava?',
-          a: 'We grill. We do not staff a theatrical luau.',
+          a: 'We grill. We do not staff a theatrical luau on a Waikoloa terrace.',
         },
         {
           q: 'Hilo BBQ?',

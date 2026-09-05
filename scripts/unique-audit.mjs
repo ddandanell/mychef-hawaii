@@ -647,6 +647,27 @@ if (/No\. Quoted add-on\. Empty bench means we say so\.'/.test(staffSrc)) {
 if (/Inquiry only\. Not the staffed product\.'/.test(formatsSrc)) {
   errors.push('drop-off FAQs still clone the not-the-staffed-product answer');
 }
+if (/Grazing is boards — \/catering\/grazing\. This is seated platters\.'/.test(formatsSrc + menuSkuSrc)) {
+  errors.push('family-style FAQs still clone the grazing-vs-platters answer');
+}
+if (/We grill\. We do not staff a theatrical luau\.'/.test(formatsSrc)) {
+  errors.push('BBQ FAQs still clone the theatrical-luau answer');
+}
+if (/This piece is a short kitchen note beside it\.'/.test(blogOnlySrc)) {
+  errors.push('dining-in FAQs still clone the short-kitchen-note answer');
+}
+if (/This piece is the short load-in note\.'/.test(blogOnlySrc)) {
+  errors.push('condo-load-in FAQs still clone the short-load-in answer');
+}
+if (/When the lot is documented\. Otherwise it is coffee\.'/.test(blogOnlySrc)) {
+  errors.push('coffee-labeling FAQs still clone the lot-documented answer');
+}
+if (/That page is the corridor cell\. This piece is the shorter kitchen note beside it\.'/.test(blogOnlySrc)) {
+  errors.push('dining-in FAQs still clone the shorter-kitchen-note answer');
+}
+if (/This piece is the short load-in note — at inquiry\.'/.test(blogOnlySrc)) {
+  errors.push('condo-load-in FAQs still clone the inquiry-load-in answer');
+}
 
 const journalOnlySrc = read('data/journalArticles.ts');
 if (/This piece is the journal note on why we will not take a verbal yes\.'/.test(journalOnlySrc)) {

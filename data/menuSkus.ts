@@ -67,7 +67,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
         },
         {
           q: 'Same as grazing?',
-          a: 'Grazing is boards — /catering/grazing. This is seated platters.',
+          a: 'Grazing is boards — /catering/grazing. This is seated platters in a Kahala dining room.',
         },
       ],
       related: [

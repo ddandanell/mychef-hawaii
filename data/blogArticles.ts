@@ -33,7 +33,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /honolulu?',
-          a: 'That URL is the dinner door. This piece is a short kitchen note beside it.',
+          a: 'That URL is the dinner door. This piece is a short Honolulu kitchen note beside it.',
         },
         {
           q: 'Will you cook in a hotel room?',
@@ -374,7 +374,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /waikiki?',
-          a: 'That URL is the dinner door. This piece is the short load-in note.',
+          a: 'That URL is the dinner door. This piece is the short Waikīkī load-in note.',
         },
         {
           q: 'Do you need a COI?',
@@ -850,7 +850,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you print Kona coffee on an Oahu menu?',
-          a: 'When the lot is documented. Otherwise it is coffee.',
+          a: 'When the lot is documented. Otherwise it is coffee — Kahala kitchen.',
         },
       ],
       related: [
@@ -942,7 +942,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /wailea?',
-          a: 'That URL is the dinner door. This piece is a short kitchen note beside it.',
+          a: 'That URL is the dinner door. This piece is a short Wailea kitchen note beside it.',
         },
         {
           q: 'Is this a resort chef’s table?',
@@ -977,7 +977,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Same as /west-maui?',
-          a: 'That page is the corridor cell. This piece is the shorter kitchen note beside it.',
+          a: 'That page is the corridor cell. This piece is the shorter West Maui kitchen note beside it.',
         },
       ],
       related: [
@@ -1283,7 +1283,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /kihei?',
-          a: 'That URL is the dinner door. This piece is the short load-in note.',
+          a: 'That URL is the dinner door. This piece is the short Kīhei load-in note.',
         },
         {
           q: 'Do you need a COI?',
@@ -1759,7 +1759,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you print Kona coffee on a Maui menu?',
-          a: 'When the lot is documented. Otherwise it is coffee.',
+          a: 'When the lot is documented. Otherwise it is coffee — Wailea kitchen.',
         },
       ],
       related: [
@@ -2130,7 +2130,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /poipu?',
-          a: 'That URL is the dinner door. This piece is the short load-in note — at inquiry.',
+          a: 'That URL is the dinner door. This piece is the short Poʻipū load-in note — at inquiry.',
         },
         {
           q: 'Do you need a COI?',
@@ -2796,7 +2796,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Same as /kohala-corridor?',
-          a: 'That page is the corridor cell. This piece is the shorter kitchen note beside it.',
+          a: 'That page is the corridor cell. This piece is the shorter Waikoloa kitchen note beside it.',
         },
       ],
       related: [
@@ -3009,7 +3009,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       faqs: [
         {
           q: 'Same as /waikoloa?',
-          a: 'That URL is the dinner door. This piece is the short load-in note — at inquiry.',
+          a: 'That URL is the dinner door. This piece is the short Waikoloa load-in note — at inquiry.',
         },
         {
           q: 'Do you need a COI?',
