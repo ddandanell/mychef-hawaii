@@ -52,6 +52,32 @@ function islandOfferMeta(src) {
   return items;
 }
 
+/** First `title:` after `  {island}: {` — the source resolveDocumentSeo actually reads. */
+function islandRecordTitle(src, island) {
+  const start = src.search(new RegExp(`\\n  ${island}: \\{`));
+  if (start < 0) return '';
+  const hit = src.slice(start, start + 4000).match(/title:\s*'([^']+)'/);
+  return hit ? hit[1] : '';
+}
+
+function pageMetaKeyTitle(src, key) {
+  const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const hit = src.match(new RegExp(`'${escaped}':\\s*\\{[\\s\\S]*?title:\\s*'([^']+)'`));
+  return hit ? hit[1] : '';
+}
+
+function neighborhoodTitle(src, island, slug) {
+  const start = src.search(new RegExp(`\\n  ${island}: \\[`));
+  if (start < 0) return '';
+  const rest = src.slice(start + 1);
+  const next = rest.search(/\n  (oahu|maui|kauai|bigisland): \[/);
+  const block = next < 0 ? src.slice(start) : src.slice(start, start + 1 + next);
+  const slugAt = block.search(new RegExp(`slug:\\s*'${slug}'`));
+  if (slugAt < 0) return '';
+  const hit = block.slice(slugAt).match(/title:\s*'([^']+)'/);
+  return hit ? hit[1] : '';
+}
+
 function cateringMeta(src) {
   const items = [];
   const re = /h1:\s*'([^']+)'[\s\S]*?title:\s*'([^']+)'[\s\S]*?photo:\s*'([^']+)'/g;
@@ -826,6 +852,50 @@ if (!kauaiWeddingsTitle || !/kauai wedding catering/i.test(kauaiWeddingsTitle[1]
 const bigislandCateringTitle = pageMetaSrc.match(/'\/bigisland\/catering':\s*\{[^}]*title:\s*'([^']+)'/);
 if (!bigislandCateringTitle || !/big island catering/i.test(bigislandCateringTitle[1])) {
   errors.push('pageMeta /bigisland/catering title no longer owns big island catering');
+}
+if (/title: 'Wedding catering Kauai \| myCHEF'/.test(pageMetaSrc)) {
+  errors.push('Kauai /weddings title still uses reversed Wedding catering Kauai');
+}
+if (/Hawaiʻi Island catering — Kohala Coast/.test(pageMetaSrc)) {
+  errors.push('pageMeta /bigisland/catering still drops big island catering');
+}
+
+const hoodTitleBlock = sliceExport(offersSrc, 'moneyNeighborhoods', 'export function getMoneyNeighborhood');
+const homeTitleBlock = sliceExport(offersSrc, 'islandOffers', 'export const moneyNeighborhoods');
+const cateringOfferBlock = cateringSrc.slice(
+  cateringSrc.indexOf('export const cateringOffers'),
+  cateringSrc.indexOf('export const HUB_CATERING'),
+);
+const residentLineSrc = read('data/residentLine.ts');
+const keywordRows = [...read('data/seo/keywordMap.ts').matchAll(/host: '(\w+)', path: '([^']+)', keyword: '([^']+)'/g)];
+if (keywordRows.length !== 22) {
+  errors.push(`MASTER_KEYWORDS count drifted: ${keywordRows.length}`);
+}
+for (const [, host, path, keyword] of keywordRows) {
+  let title = '';
+  if (host === 'hub') {
+    if (path === '/') {
+      const def = pageMetaSrc.match(/const DEFAULT[\s\S]*?title:\s*'([^']+)'/);
+      title = def ? def[1] : '';
+    } else {
+      title = pageMetaKeyTitle(pageMetaSrc, path);
+    }
+  } else if (path === '/') {
+    title = islandRecordTitle(homeTitleBlock, host);
+  } else if (path === '/catering') {
+    title = islandRecordTitle(cateringOfferBlock, host);
+  } else if (path === '/weddings') {
+    title = pageMetaKeyTitle(pageMetaSrc, `/${host}${path}`);
+  } else if (path === '/personal-chef') {
+    title = islandRecordTitle(residentLineSrc, host);
+  } else {
+    title = neighborhoodTitle(hoodTitleBlock, host, path.slice(1));
+  }
+  if (!title) {
+    errors.push(`MASTER_KEYWORDS ${host}${path} has no live title source for “${keyword}”`);
+  } else if (!title.toLowerCase().includes(keyword.toLowerCase())) {
+    errors.push(`MASTER_KEYWORDS ${host}${path} title “${title}” dropped “${keyword}”`);
+  }
 }
 
 const seoSrc = read('lib/seo.ts');

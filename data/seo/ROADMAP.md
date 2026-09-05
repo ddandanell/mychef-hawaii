@@ -889,6 +889,12 @@ Still no zip on this machine. Wave 106 intercepts `cateringOffers` in `resolveDo
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 107 — MASTER_KEYWORDS must match the title source that ships (this branch)
+
+Still no zip on this machine. Wave 107 makes `seo:audit` read each measured keyword’s owner title from the same source `resolveDocumentSeo` uses (pageMeta on the hub, `islandOffers` / `cateringOffers` / `residentLine` / neighborhood cells / prefixed pageMeta on island hosts). A leftover pageMeta title can no longer look green while the live document dropped the phrase. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
