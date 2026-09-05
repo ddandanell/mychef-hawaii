@@ -679,6 +679,14 @@ Still no zip on this machine. Wave 78 gives hub `/corporate` and `/gatherings` r
 - Hub `/gatherings` keeps birthdays, rehearsal dinners, and family villa weeks, then opens `/catering`, `/weddings` (“Wedding week”), `/events`, and `/quote`. The lede already names `/weddings`; that URL now opens from photography.
 - Titles stay off `hawaii catering` and `wedding catering hawaii`. Island nested indexes stay SKU lists. No new URLs.
 
+## Wave 79 — hub /contact related doors (this branch)
+
+Still no zip on this machine. Wave 79 gives hub `/contact` related-document photography after the island picker. Island desks already open related documents. This page stays how to reach a coordinator.
+
+- Hub `/contact` keeps the four-island picker, then opens `/quote`, `/help/getting-started`, `/how-it-works`, and `/faq` (“FAQ”, not “Questions, by island”). Distinct from `/quote` (the form) and from `/help` (the help-desk picker).
+- Hub `/faq` and `/coverage` stay four-island pickers. Island `/contact` already opens the same four paths on island stills.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
