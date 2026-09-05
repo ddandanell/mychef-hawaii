@@ -2687,6 +2687,38 @@ export const photos = {
     file: '/photos/hub-jnl-zones.png',
     alt: `Two unused canvas coolers stacked beside unused ivory plates on a koa pass, brass clip, mossed lava.`,
   },
+  hubHow: {
+    file: '/photos/hub-how.png',
+    alt: `Five small stacks of unused ivory plates in a line on a koa kitchen pass, volcanic-stone bowl of limes, sand linen, no writing.`,
+  },
+  hubTrust: {
+    file: '/photos/hub-trust.png',
+    alt: `Blank cream ledger cards under a brass clip on a koa counter, unused ivory plates, mossed lava, no writing.`,
+  },
+  hubLegal: {
+    file: '/photos/hub-legal.png',
+    alt: `A stack of unmarked cream papers under a brass clip on a koa desk, capped fountain pen, unused ivory plate, no writing.`,
+  },
+  hubAreas: {
+    file: '/photos/hub-areas.png',
+    alt: `Unused ivory papers on sand linen on a koa sideboard, brass weight, mossed lava, anonymous dusk ocean, no map, no writing.`,
+  },
+  hubJournal: {
+    file: '/photos/hub-journal.png',
+    alt: `Unused cream notebooks and unmarked ivory cards under a brass clip on a koa table, citrus, no writing.`,
+  },
+  hubBlog: {
+    file: '/photos/hub-blog.png',
+    alt: `Unused ivory cards in a brass clipboard on sand linen, volcanic-stone bowl of limes, no writing.`,
+  },
+  hubServices: {
+    file: '/photos/hub-services.png',
+    alt: `Four unused ivory place settings on a long koa lawn table at dusk, empty stemware, brass clips, no writing.`,
+  },
+  hubIslands: {
+    file: '/photos/hub-islands.png',
+    alt: `Four unused ivory plates along a long koa terrace table at dusk, anonymous ocean horizon, no writing.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

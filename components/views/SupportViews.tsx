@@ -48,6 +48,7 @@ import { photos, type PhotoKey } from '@/data/photos';
 import { getHubDirectoryById } from '@/data/hubDirectories';
 
 export function HowItWorksView() {
+  const still = photos.hubHow;
   const steps = [
     { n: '01', title: 'Enquire — two minutes.', body: 'Five fields: island, dates, party size, service, and how to reach you. No account.' },
     { n: '02', title: 'Menu design — 48 hours.', body: 'A real human replies with menu directions and an indicative range. You refine together.' },
@@ -57,17 +58,19 @@ export function HowItWorksView() {
   ];
   return (
     <>
-      <section className="bg-paper py-20 lg:py-28">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">The Process</p>
-          <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-ink">
-            From enquiry to empty dishwasher.
-          </h1>
-          <p className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink">
-            One process on every island. The only things that change are the drive times — and we publish those too.
-          </p>
+      <Hero src={still.file} alt={still.alt}>
+        <p className="text-[13px] text-mute">The Process</p>
+        <LineReveal
+          text="From enquiry to empty dishwasher."
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
+          One process on every island. The only things that change are the drive times — and we publish those too.
+        </p>
+        <div className="mt-8">
+          <QuoteCta variant="light" />
         </div>
-      </section>
+      </Hero>
       <section className="bg-sand py-20">
         <div className="mx-auto max-w-container space-y-16 px-5 lg:px-10">
           {steps.map((s) => (
@@ -79,24 +82,37 @@ export function HowItWorksView() {
           ))}
         </div>
       </section>
+      <IslandPhotoPicker
+        path="/how-it-works"
+        heading="Open the island process document."
+        detailOf={() => 'How a night runs'}
+      />
       <QuoteTeaser />
     </>
   );
 }
 
 export function TrustView() {
+  const still = photos.hubTrust;
   return (
     <>
-      <section className="bg-paper py-20 lg:py-28">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">Trust</p>
-          <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-ink">
-            New to Hawaiʻi. Not new at this.
-          </h1>
-          <p className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink">
-            We do not yet have Hawaiʻi guest reviews. They publish here after verified events — never bought, never
-            invented. Published prices and a written quote are what we can prove today.
-          </p>
+      <Hero src={still.file} alt={still.alt}>
+        <p className="text-[13px] text-mute">Trust</p>
+        <LineReveal
+          text="New to Hawaiʻi. Not new at this."
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
+          We do not yet have Hawaiʻi guest reviews. They publish here after verified events — never bought, never
+          invented. Published prices and a written quote are what we can prove today.
+        </p>
+        <div className="mt-8">
+          <QuoteCta variant="light" />
+        </div>
+      </Hero>
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">What we can show today</p>
           <ul className="mt-12 max-w-3xl space-y-8">
             {proofRegister.map((row) => (
               <li key={row.claim} className="border-b border-line pb-6">
@@ -107,6 +123,7 @@ export function TrustView() {
           </ul>
         </div>
       </section>
+      <IslandPhotoPicker path="/trust" heading="Open the island honesty register." detailOf={() => 'Honesty register'} />
       <QuoteTeaser />
     </>
   );
@@ -223,17 +240,19 @@ export function LegalView({ islandId }: { islandId?: IslandId | null } = {}) {
           </Hero>
         </>
       ) : (
-        <section className="bg-paper pt-20 lg:pt-28">
-          <div className="mx-auto max-w-container px-5 lg:px-10">
-            <p className="text-[12px] text-mute">Policies</p>
-            <h1 className="mt-4 max-w-[14ch] font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink">
-              The fine print, in large type.
-            </h1>
-            <p className="mt-6 max-w-[68ch] text-[1.25rem] leading-[1.55] text-ink">
-              Everything that governs a myCHEF Hawaii booking, written to be read.
-            </p>
+        <Hero src={photos.hubLegal.file} alt={photos.hubLegal.alt}>
+          <p className="text-[13px] text-mute">Policies</p>
+          <LineReveal
+            text="The fine print, in large type."
+            className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+          />
+          <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
+            Everything that governs a myCHEF Hawaii booking, written to be read.
+          </p>
+          <div className="mt-8">
+            <QuoteCta variant="light" />
           </div>
-        </section>
+        </Hero>
       )}
       {copy ? <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} /> : null}
       <section className="bg-paper py-20">
@@ -256,7 +275,9 @@ export function LegalView({ islandId }: { islandId?: IslandId | null } = {}) {
           ))}
         </div>
       </section>
-      {copy ? <LongFaq items={copy.faqs} title="Before you deposit." /> : null}
+      {copy ? <LongFaq items={copy.faqs} title="Before you deposit." /> : (
+        <IslandPhotoPicker path="/legal" heading="Open the island legal notes." detailOf={() => 'Legal notes'} />
+      )}
     </>
   );
 }
@@ -315,20 +336,20 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
 }
 
 export function HubAreasView() {
+  const still = photos.hubAreas;
   return (
     <>
-      <section className="bg-paper py-20 lg:py-28">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">Statewide directory</p>
-          <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-light text-ink">
-            Where we cook, by island.
-          </h1>
-          <p className="mt-4 max-w-[65ch] text-mute">
-            Each island host has two geography pages. /locations is the live dinner-door list. /areas is the map notes —
-            corridors plus the rest of the named places. /islands is the island picker, not this page.
-          </p>
-        </div>
-      </section>
+      <Hero src={still.file} alt={still.alt}>
+        <p className="text-[13px] text-mute">Statewide directory</p>
+        <LineReveal
+          text="Where we cook, by island."
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
+          Each island host has two geography pages. /locations is the live dinner-door list. /areas is the map notes —
+          corridors plus the rest of the named places. /islands is the island picker, not this page.
+        </p>
+      </Hero>
       <IslandPhotoPicker path="/areas" heading="Open the island map notes." detailOf={() => 'Map notes'} />
     </>
   );
@@ -373,83 +394,80 @@ export function HubDirectoryView({ id }: { id: string }) {
   );
 }
 
+function IslandBleedRows({ currentIsland }: { currentIsland?: IslandId } = {}) {
+  return (
+    <section className="bg-paper">
+      {islandOrder.map((id) => {
+        const isl = islands[id];
+        const chooser = islandChooserCopy[id];
+        const here = currentIsland === id;
+        return (
+          <HostLink key={id} island={id} className="group relative block min-h-[70svh] overflow-hidden">
+            <Photo src={isl.selectorImage} alt={isl.name} fill sizes="100vw" />
+            <span aria-hidden className="absolute inset-0 bg-ink/35 lg:bg-ink/20" />
+            <span aria-hidden className="absolute inset-0 hero-scrim-bottom" />
+            <div className="hero-copy relative mx-auto flex min-h-[70svh] w-full max-w-spread items-end px-5 py-12 lg:px-10">
+              <div className="hero-type-shadow max-w-[40rem] text-paper">
+                <Eyebrow tone="paper">{here ? 'This host' : isl.stateLabel}</Eyebrow>
+                <span className="mt-4 block font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper">
+                  {here ? `${isl.name} — this host` : isl.name}
+                </span>
+                <span className="mt-4 block text-[17px] leading-[1.65] text-paper">{chooser.line}</span>
+                <span className="mt-4 block text-[15px] text-paper">
+                  {chooser.price}
+                  {isl.state === 'inquiry' ? ' · Inquiry' : ''}
+                </span>
+              </div>
+            </div>
+          </HostLink>
+        );
+      })}
+    </section>
+  );
+}
+
 export function IslandsView() {
+  const still = photos.hubIslands;
   return (
     <>
-      <section className="bg-paper py-20 lg:py-28">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">Four Islands</p>
-          <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-ink">
-            Choose your island.
-          </h1>
-          <p className="mt-6 max-w-[65ch] text-[1.25rem] leading-[1.55] text-ink">
-            Four island departments. Each island is its own host — its own chefs, zones and pricing. Oʻahu and Maui take
-            quotes. Kauaʻi and Hawaiʻi Island are inquiry-stage. Each island host also keeps an other-islands list at
-            /islands.
-          </p>
-        </div>
-      </section>
-      <section className="bg-paper">
-        {islandOrder.map((id) => {
-          const isl = islands[id];
-          const chooser = islandChooserCopy[id];
-          return (
-            <HostLink
-              key={id}
-              island={id}
-              className="group relative block min-h-[70svh] overflow-hidden"
-            >
-              <Photo src={isl.selectorImage} alt={isl.name} fill sizes="100vw" />
-              <span aria-hidden className="absolute inset-0 bg-ink/35 lg:bg-ink/20" />
-              <span aria-hidden className="absolute inset-0 hero-scrim-bottom" />
-              <div className="hero-copy relative mx-auto flex min-h-[70svh] w-full max-w-spread items-end px-5 py-12 lg:px-10">
-                <div className="hero-type-shadow max-w-[40rem] text-paper">
-                  <Eyebrow tone="paper">{isl.stateLabel}</Eyebrow>
-                  <span className="mt-4 block font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-paper">
-                    {isl.name}
-                  </span>
-                  <span className="mt-4 block text-[17px] leading-[1.65] text-paper">{chooser.line}</span>
-                  <span className="mt-4 block text-[15px] text-paper">{chooser.price}</span>
-                </div>
-              </div>
-            </HostLink>
-          );
-        })}
-      </section>
-      <section className="bg-paper py-16">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">By island</p>
-          <ul className="mt-6 grid gap-px bg-line md:grid-cols-2">
-            {islandOrder.map((id) => (
-              <li key={id} className="bg-paper">
-                <HostLink island={id} path="/islands" className="block p-5">
-                  <p className="text-[12px] text-mute">{islands[id].name}</p>
-                  <h2 className="mt-2 font-display text-xl font-light text-ink">Other islands</h2>
-                  <p className="mt-2 text-sm text-mute">/islands</p>
-                </HostLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <Hero src={still.file} alt={still.alt}>
+        <p className="text-[13px] text-mute">Four Islands</p>
+        <LineReveal
+          text="Choose your island."
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
+          Four island departments. Each island is its own host — its own chefs, zones and pricing. Oʻahu and Maui take
+          quotes. Kauaʻi and Hawaiʻi Island are inquiry-stage. Each island host also keeps an other-islands list at
+          /islands.
+        </p>
+      </Hero>
+      <IslandBleedRows />
+      <IslandPhotoPicker
+        path="/islands"
+        heading="Open the other-islands list."
+        detailOf={() => 'Other hosts'}
+      />
     </>
   );
 }
 
 export function EditorialView({ kind }: { kind: 'journal' | 'blog' }) {
+  const still = kind === 'journal' ? photos.hubJournal : photos.hubBlog;
   const title = kind === 'journal' ? 'The journal, by island.' : 'Guides and notes, by island.';
   return (
     <>
-      <section className="bg-paper py-20 lg:py-28">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">Statewide directory</p>
-          <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-light text-ink">{title}</h1>
-          <p className="mt-4 max-w-[65ch] text-mute">
-            Each island department publishes its own {kind}. The hub does not rank for “private chef Maui” — that page
-            lives on the Maui host.
-          </p>
-        </div>
-      </section>
+      <Hero src={still.file} alt={still.alt}>
+        <p className="text-[13px] text-mute">Statewide directory</p>
+        <LineReveal
+          text={title}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
+          Each island department publishes its own {kind}. The hub does not rank for “private chef Maui” — that page
+          lives on the Maui host.
+        </p>
+      </Hero>
       <IslandPhotoPicker
         path={`/${kind}`}
         heading={kind === 'journal' ? 'Open the island journal.' : 'Open the island guides.'}
@@ -908,29 +926,14 @@ export function IslandsIndexView({ islandId }: { islandId: (typeof islandOrder)[
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
-      <section className="bg-paper py-20">
+      <IslandBleedRows currentIsland={islandId} />
+      <section className="bg-paper py-16">
         <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
-          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
-            {islandOrder.map((id) => (
-              <li key={id} className="bg-paper">
-                <HostLink island={id} path="/" className="block p-6">
-                  <h2 className="font-display text-2xl font-light text-ink">
-                    {id === islandId ? `${islands[id].name} — this host` : islands[id].name}
-                  </h2>
-                  <p className="mt-2 text-sm text-mute">
-                    {islands[id].state === 'inquiry' ? 'Inquiry' : 'Live quotes'} · {id === islandId ? '/' : `${id}.mychef-hawaii.com`}
-                  </p>
-                </HostLink>
-              </li>
-            ))}
-            <li className="bg-paper">
-              <HostLink island={islandId} path="/areas" className="block p-6">
-                <h2 className="font-display text-2xl font-light text-ink">Map notes on this host</h2>
-                <p className="mt-2 text-sm text-mute">/areas</p>
-              </HostLink>
-            </li>
-          </ul>
+          <HostLink island={islandId} path="/areas" className="block max-w-[40rem]">
+            <p className="text-[12px] text-mute">On this host</p>
+            <h2 className="mt-2 font-display text-2xl font-light text-ink">Map notes</h2>
+            <p className="mt-2 text-sm text-mute">/areas — corridors and the rest of the named places.</p>
+          </HostLink>
         </div>
       </section>
       <LongFaq items={copy.faqs} title="Before you switch hosts." />
@@ -939,35 +942,46 @@ export function IslandsIndexView({ islandId }: { islandId: (typeof islandOrder)[
 }
 
 export function ServicesView() {
+  const still = photos.hubServices;
   return (
-    <section className="bg-paper py-20 lg:py-28">
-      <div className="mx-auto max-w-container px-5 lg:px-10">
-        <p className="text-[12px] text-mute">Services</p>
-        <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light text-ink">Private dining, four ways.</h1>
-        <p className="mt-6 max-w-[60ch] text-[17px] leading-[1.65] text-mute">
+    <>
+      <Hero src={still.file} alt={still.alt}>
+        <p className="text-[13px] text-mute">Services</p>
+        <LineReveal
+          text="Private dining, four ways."
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
           Private chef dinners from $125 a guest, Stay Chef day rates, wedding catering and mobile bar across Hawaii.
           Each island host also keeps its own service list.
         </p>
-        <ul className="mt-12 grid gap-8 md:grid-cols-2">
-          {[
-            { href: '/private-chef', title: 'Private chef', body: 'A dinner in the villa. Shop, cook, serve, clean.' },
-            { href: '/catering', title: 'Catering', body: 'Staffed events, 10–75. Buffet or plated.' },
-            { href: '/weddings', title: 'Weddings', body: 'One team for the week.' },
-            { href: '/bar', title: 'Bar', body: 'Terrace cocktails, stacked or alone.' },
-          ].map((s) => (
-            <li key={s.href} className="border-t border-line pt-6">
-              <Link href={s.href} className="font-display text-2xl font-light text-ink">
-                {s.title}
-              </Link>
-              <p className="mt-2 text-mute">{s.body}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="mt-8">
+          <QuoteCta variant="light" />
+        </div>
+      </Hero>
+      <section className="bg-paper py-20 lg:py-28">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <ul className="grid gap-8 md:grid-cols-2">
+            {[
+              { href: '/private-chef', title: 'Private chef', body: 'A dinner in the villa. Shop, cook, serve, clean.' },
+              { href: '/catering', title: 'Catering', body: 'Staffed events, 10–75. Buffet or plated.' },
+              { href: '/weddings', title: 'Weddings', body: 'One team for the week.' },
+              { href: '/bar', title: 'Bar', body: 'Terrace cocktails, stacked or alone.' },
+            ].map((s) => (
+              <li key={s.href} className="border-t border-line pt-6">
+                <Link href={s.href} className="font-display text-2xl font-light text-ink">
+                  {s.title}
+                </Link>
+                <p className="mt-2 text-mute">{s.body}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
       <IslandPhotoPicker path="/services" heading="Open the island service list." detailOf={() => 'Service list'} />
       <div className="mx-auto max-w-container px-5 pb-16 lg:px-10">
         <QuoteCta />
       </div>
-    </section>
+    </>
   );
 }

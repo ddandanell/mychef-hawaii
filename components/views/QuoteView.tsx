@@ -13,37 +13,37 @@ import { islandHref } from '@/lib/paths';
 export default function QuoteView({ islandId, hostMode }: { islandId: IslandId | null; hostMode: boolean }) {
   const href = (path: string) => islandHref(islandId, hostMode, path);
   const copy = islandId ? islandQuote[islandId] : null;
-  const photo = copy ? photos[copy.photo] : null;
+  const photo = copy ? photos[copy.photo] : photos.quoteHub;
 
   return (
     <>
-      {copy && photo ? (
-        <>
-          <JsonLd
-            data={{
-              '@context': 'https://schema.org',
-              '@type': 'FAQPage',
-              mainEntity: copy.faqs.map((f) => ({
-                '@type': 'Question',
-                name: f.q,
-                acceptedAnswer: { '@type': 'Answer', text: f.a },
-              })),
-            }}
-          />
-          <Hero src={photo.file} alt={photo.alt}>
-            <p className="text-[13px] text-mute">{copy.kicker}</p>
-            <LineReveal
-              text={copy.h1}
-              className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
-            />
-            <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
-          </Hero>
-        </>
+      {copy ? (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: copy.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          }}
+        />
       ) : null}
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy?.kicker ?? 'Four islands'}</p>
+        <LineReveal
+          text={copy?.h1 ?? 'Tell us where you’re dining.'}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
+          {copy?.lede ?? 'Five fields. A human reply. Typical response in Hawaii business hours.'}
+        </p>
+      </Hero>
 
       <section className="bg-paper">
         <Suspense fallback={<div className="min-h-[60vh] bg-paper" />}>
-          <QuoteForm hidePageHeading={Boolean(copy)} asidePhoto={photo ?? undefined} />
+          <QuoteForm hidePageHeading asidePhoto={photo} />
         </Suspense>
       </section>
 

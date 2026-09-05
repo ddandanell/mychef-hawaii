@@ -367,6 +367,15 @@ Still no zip on this machine. Wave 40 replaces paper island tiles on unique hub 
 - Hub `/areas`, `/journal`, `/blog`, `/services`, `/corporate`, and `/gatherings` use the same picker.
 - Homepage island chooser shares that component. Quote-form TypePanel stays.
 
+## Wave 41 — cinematic heroes on remaining paper hub indexes (this branch)
+
+Still no zip on this machine. Wave 41 puts type on photography on the leftover statewide indexes that still opened as paper H1s:
+
+- Hub `/how-it-works`, `/trust`, `/legal`, `/areas`, `/journal`, `/blog`, `/services`, `/islands`, and `/quote` use cinematic heroes and unique Grok stills (unused plates, papers, brass; no readable text).
+- Hub `/how-it-works`, `/trust`, and `/legal` also open the matching island document from the 4-up picker.
+- Hub `/islands` keeps full-bleed home rows and opens each island `/islands` list from photography, not paper tiles.
+- Island `/islands` other-host lists use the same full-bleed selector stills. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
