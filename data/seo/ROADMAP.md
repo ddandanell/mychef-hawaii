@@ -327,6 +327,14 @@ Still no zip on this machine. Wave 35 ships the remaining journal seeds as uniqu
 - Island switcher treats `/journal/wedding-week` as a four-island nested key so it does not collide with Maui/Kauaʻi `/wedding-week` cells.
 - Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 35 URL.
 
+## Wave 36 — quieter unique-document chrome (this branch)
+
+Still no zip on this machine. Wave 36 tightens the unique-page template used by cells, journals, blogs, SKUs, and corridor documents:
+
+- Unique documents no longer repeat the cell name as a second H2, then a related strip, then a generic money-nav cluster.
+- Body copy and related island links sit in one paper column after the hero. FAQ and the quote closer stay.
+- Money corridor pages keep a unique “how a booking runs” heading and the island money links.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

@@ -2,7 +2,7 @@ import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
-import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
+import { DocumentCopy, LongFaq, SiblingCluster } from '@/components/Longform';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { islands, type IslandId } from '@/data/islands';
 import type { MoneyNeighborhood } from '@/data/offers';
@@ -50,14 +50,7 @@ export function LocationPlaceView({
         </div>
       </Hero>
 
-      <Longform
-        sections={[
-          {
-            h2: `How a ${hood.name} booking runs.`,
-            paras: hood.body,
-          },
-        ]}
-      />
+      <DocumentCopy heading={`How a ${hood.name} booking runs.`} paras={hood.body} />
 
       <SiblingCluster island={islandId} href={href} />
       <LongFaq items={hood.faqs} title={`Asked on ${hood.name} bookings.`} />

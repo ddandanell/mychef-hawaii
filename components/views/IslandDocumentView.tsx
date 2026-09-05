@@ -2,7 +2,7 @@ import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
-import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
+import { DocumentCopy, LongFaq, SiblingCluster } from '@/components/Longform';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { SampleMenu } from '@/components/SampleMenu';
 import HostLink from '@/components/HostLink';
@@ -68,14 +68,7 @@ export function IslandSupportView({
         </div>
       </Hero>
 
-      <Longform
-        sections={[
-          {
-            h2: island.name,
-            paras: copy.body,
-          },
-        ]}
-      />
+      <DocumentCopy paras={copy.body} />
 
       {copy.steps ? (
         <section className="border-t border-line bg-sand py-20">
@@ -183,7 +176,6 @@ export function IslandSupportView({
 
 export function UniqueCellView({
   islandId,
-  hostMode,
   cell,
 }: {
   islandId: IslandId;
@@ -192,7 +184,6 @@ export function UniqueCellView({
 }) {
   const island = islands[islandId];
   const photo = photos[cell.photo];
-  const href = (path: string) => islandHref(islandId, hostMode, path);
 
   return (
     <>
@@ -211,31 +202,23 @@ export function UniqueCellView({
         </div>
       </Hero>
 
-      <Longform
-        sections={[
-          {
-            h2: cell.name,
-            paras: cell.body,
-          },
-        ]}
-      />
+      <DocumentCopy paras={cell.body}>
+        {cell.related.length ? (
+          <nav aria-label="Related on this island" className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            {cell.related.map((link) => (
+              <HostLink
+                key={link.path}
+                island={islandId}
+                path={link.path}
+                className="text-ink underline underline-offset-4"
+              >
+                {link.label}
+              </HostLink>
+            ))}
+          </nav>
+        ) : null}
+      </DocumentCopy>
 
-      <nav aria-label="Related on this island" className="border-t border-line bg-paper py-10">
-        <div className="mx-auto flex w-full max-w-container flex-wrap gap-x-6 gap-y-2 px-5 text-sm lg:px-10">
-          {cell.related.map((link) => (
-            <HostLink
-              key={link.path}
-              island={islandId}
-              path={link.path}
-              className="text-ink underline underline-offset-4"
-            >
-              {link.label}
-            </HostLink>
-          ))}
-        </div>
-      </nav>
-
-      <SiblingCluster island={islandId} href={href} />
       <LongFaq items={cell.faqs} title={`Asked about ${cell.name}.`} />
       <QuoteTeaser headline="Tell us the address and the dates." island={islandId} />
     </>

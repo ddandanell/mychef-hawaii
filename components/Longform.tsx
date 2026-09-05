@@ -1,6 +1,7 @@
 import * as Accordion from '@radix-ui/react-accordion';
 import HostLink from '@/components/HostLink';
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import type { IslandId } from '@/data/islands';
 
 export interface CopySection {
@@ -29,6 +30,37 @@ export function Longform({ sections }: { sections: CopySection[] }) {
             ))}
           </article>
         ))}
+      </div>
+    </section>
+  );
+}
+
+/** One paper column after a unique-page hero — no repeated H2, related links stay in the same section. */
+export function DocumentCopy({
+  heading,
+  paras,
+  children,
+}: {
+  heading?: string;
+  paras: string[];
+  children?: ReactNode;
+}) {
+  return (
+    <section className="bg-paper py-20 lg:py-28">
+      <div className="mx-auto w-full max-w-3xl px-5 lg:px-10">
+        {heading ? (
+          <h2 className="font-display text-[clamp(1.75rem,3.5vw,2.5rem)] font-light leading-[1.15] text-ink">
+            {heading}
+          </h2>
+        ) : null}
+        <div className={heading ? 'mt-6 space-y-6' : 'space-y-6'}>
+          {paras.map((p) => (
+            <p key={p.slice(0, 48)} className="text-[17px] leading-[1.7] text-mute">
+              {p}
+            </p>
+          ))}
+        </div>
+        {children}
       </div>
     </section>
   );
