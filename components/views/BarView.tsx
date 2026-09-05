@@ -1,8 +1,10 @@
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
+import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
 import LineReveal from '@/components/LineReveal';
-import { LongFaq, SiblingCluster } from '@/components/Longform';
+import { DocumentCopy, LongFaq, SiblingCluster } from '@/components/Longform';
+import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { islands, type IslandId } from '@/data/islands';
 import { photos } from '@/data/photos';
@@ -39,6 +41,52 @@ const COPY: Record<IslandId, { h1: string; lede: string; hero: { file: string; a
   },
 };
 
+function IslandBarPicker({
+  path,
+  heading,
+  stills,
+  priceOf,
+}: {
+  path: '/bar' | '/mobile-bar';
+  heading: string;
+  stills: Record<IslandId, { hero: { file: string; alt: string } }>;
+  priceOf: (id: IslandId) => string;
+}) {
+  return (
+    <section className="bg-paper py-24 lg:py-32">
+      <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
+        <Eyebrow>Where we pour</Eyebrow>
+        <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] text-ink">
+          {heading}
+        </h2>
+        <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+          {rows.map((row) => {
+            const still = stills[row.id].hero;
+            return (
+              <li key={row.id}>
+                <HostLink island={row.id} path={path} className="group block">
+                  <span className="relative block aspect-[3/4] overflow-hidden bg-sand">
+                    <Photo
+                      src={still.file}
+                      alt={still.alt}
+                      fill
+                      sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                      className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
+                    />
+                  </span>
+                  <span className="mt-5 block font-display text-[1.5rem] font-light text-ink">{islands[row.id].name}</span>
+                  <span className="mt-2 block text-[15px] leading-relaxed text-mute">{row.line}</span>
+                  <span className="mt-2 block text-[13px] text-mute">{priceOf(row.id)}</span>
+                </HostLink>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+    </section>
+  );
+}
+
 export function HubBarView() {
   return (
     <>
@@ -56,36 +104,15 @@ export function HubBarView() {
           <QuoteCta service="mobile-bar" variant="light" />
         </div>
       </Hero>
-      <section className="bg-paper py-20 lg:py-28">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">Island tariff</p>
-          <h2 className="mt-4 font-display text-[clamp(2rem,4vw,2.5rem)] font-light leading-[1.1] text-ink">
-            Four islands, four starting prices.
-          </h2>
-          <div className="mt-10">
-            {rows.map((row) => {
-              const bar = getMobileBar(row.id);
-              return (
-                <HostLink
-                  key={row.id}
-                  island={row.id}
-                  path="/bar"
-                  className="grid gap-2 border-b border-line py-6 md:grid-cols-[1fr_1.4fr_1fr] md:items-baseline"
-                >
-                  <p className="font-display text-[1.5rem] font-light text-ink">{islands[row.id].name}</p>
-                  <p className="text-[17px] leading-relaxed text-mute">{row.line}</p>
-                  <p className="text-[17px] text-ink md:text-right">
-                    {formatMobileBarPackage(row.id)}
-                    <span className="mt-1 block text-[12px] text-mute">
-                      or ${bar.perGuest[0]}–${bar.perGuest[1]} a guest
-                    </span>
-                  </p>
-                </HostLink>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <IslandBarPicker
+        path="/bar"
+        heading="Open the island bar document."
+        stills={COPY}
+        priceOf={(id) => {
+          const bar = getMobileBar(id);
+          return `${formatMobileBarPackage(id)} · or $${bar.perGuest[0]}–$${bar.perGuest[1]} a guest`;
+        }}
+      />
       <QuoteTeaser headline="Date, headcount, island — we quote the bar in writing." />
     </>
   );
@@ -134,22 +161,12 @@ export function HubMobileBarView() {
           <QuoteCta service="mobile-bar" variant="light" />
         </div>
       </Hero>
-      <section className="bg-paper py-20 lg:py-28">
-        <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-          {rows.map((row) => (
-            <HostLink
-              key={row.id}
-              island={row.id}
-              path="/mobile-bar"
-              className="grid gap-2 border-b border-line py-6 md:grid-cols-[1fr_1.4fr_1fr] md:items-baseline"
-            >
-              <p className="font-display text-[1.5rem] font-light text-ink">{islands[row.id].name}</p>
-              <p className="text-[17px] leading-relaxed text-mute">{row.line}</p>
-              <p className="text-[17px] text-ink md:text-right">{formatMobileBarPackage(row.id)}</p>
-            </HostLink>
-          ))}
-        </div>
-      </section>
+      <IslandBarPicker
+        path="/mobile-bar"
+        heading="Open the island package document."
+        stills={PACKAGE}
+        priceOf={(id) => formatMobileBarPackage(id)}
+      />
       <QuoteTeaser headline="Date, headcount, island — we quote the package in writing." />
     </>
   );
@@ -185,9 +202,22 @@ export function IslandMobileBarView({ islandId, hostMode }: { islandId: IslandId
         <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-ink">{copy.lede}</p>
         <p className="mt-4 text-[17px] text-ink">{formatMobileBarPackage(islandId)}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="mobile-bar" />
+          <QuoteCta island={islandId} service="mobile-bar" variant="light" />
         </div>
       </Hero>
+      <DocumentCopy heading={`How the packaged cart runs on ${islands[islandId].name}.`} paras={[copy.lede, `/bar is the bartender add-on stacked with dinner. This URL is the four-hour mobile-bar package — cart, ice, citrus, glassware — priced as its own line.`, `${formatMobileBarPackage(islandId)}, or ${formatMobileBarGuest(islandId)}. ${FEE_DISCLOSURE}`]}>
+        <nav aria-label="Related on this island" className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <HostLink island={islandId} path="/bar" className="text-ink underline underline-offset-4">
+            Bartender add-on
+          </HostLink>
+          <HostLink island={islandId} path="/weddings" className="text-ink underline underline-offset-4">
+            Wedding week
+          </HostLink>
+          <HostLink island={islandId} path="/private-chef" className="text-ink underline underline-offset-4">
+            What’s included
+          </HostLink>
+        </nav>
+      </DocumentCopy>
       <LongFaq items={faqs} title="The packaged cart." />
       <SiblingCluster island={islandId} href={href} />
       <QuoteTeaser island={islandId} />
@@ -225,9 +255,22 @@ export function IslandBarView({ islandId, hostMode }: { islandId: IslandId; host
         <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-ink">{copy.lede}</p>
         <p className="mt-4 text-[17px] text-ink">{formatMobileBarPackage(islandId)}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="mobile-bar" />
+          <QuoteCta island={islandId} service="mobile-bar" variant="light" />
         </div>
       </Hero>
+      <DocumentCopy heading={`How the terrace bar runs on ${islands[islandId].name}.`} paras={[copy.lede, `/mobile-bar is the four-hour packaged cart. This URL is the add-on hour — stacked with dinner or booked alone.`, `${formatMobileBarPackage(islandId)}, or ${formatMobileBarGuest(islandId)}. ${FEE_DISCLOSURE}`]}>
+        <nav aria-label="Related on this island" className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <HostLink island={islandId} path="/mobile-bar" className="text-ink underline underline-offset-4">
+            4-hour package
+          </HostLink>
+          <HostLink island={islandId} path="/weddings" className="text-ink underline underline-offset-4">
+            Wedding week
+          </HostLink>
+          <HostLink island={islandId} path="/private-chef" className="text-ink underline underline-offset-4">
+            What’s included
+          </HostLink>
+        </nav>
+      </DocumentCopy>
       <LongFaq items={faqs} />
       <SiblingCluster island={islandId} href={href} />
       <QuoteTeaser island={islandId} />

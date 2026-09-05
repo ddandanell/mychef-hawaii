@@ -344,6 +344,14 @@ Still no zip on this machine. Wave 37 finishes type-on-photography on hub money-
 - Hub `/weddings` island strips and hub `/islands` full-bleed rows put type on the photograph with scrims. Quote-form TypePanel stays — that is a WCAG paper field, not homepage chrome.
 - Island `/vacation-chef` adds a body column and related links so the SKU is not only a hero plus generic money nav.
 
+## Wave 38 — leftover bar chrome (this branch)
+
+Still no zip on this machine. Wave 38 finishes type-on-photography leftovers on the bar money pages:
+
+- Hub `/bar` and `/mobile-bar` island pickers are photo 4-ups with published starting prices, not paper tariff rows.
+- Island `/bar` and `/mobile-bar` add a body column and related links so the SKU is not only a hero plus FAQ.
+- Hub `/about` hero quote button matches the paper-on-photo treatment.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
