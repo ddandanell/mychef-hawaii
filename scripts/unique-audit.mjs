@@ -167,6 +167,7 @@ const gatheringsSrc = read('data/islandGatherings.ts');
 const islandsIndexSrc = read('data/islandIslands.ts');
 const sitemapDocSrc = read('data/islandSitemap.ts');
 const hubDirSrc = read('data/hubDirectories.ts');
+const hubNestedSrc = read('data/hubNestedDirectories.ts');
 const journalArticleSrc = read('data/journalArticles.ts');
 const blogArticleSrc = read('data/blogArticles.ts');
 const middlewareSrc = read('middleware.ts');
@@ -205,7 +206,7 @@ const corporateDocs = supportBlocks(corporateSrc, 'islandCorporate');
 const gatheringsDocs = supportBlocks(gatheringsSrc, 'islandGatherings');
 const islandsIndexDocs = supportBlocks(islandsIndexSrc, 'islandIslands');
 const sitemapDocs = supportBlocks(sitemapDocSrc, 'islandSitemap');
-const hubDirs = supportBlocks(hubDirSrc, 'hubDirectories');
+const hubDirs = [...supportBlocks(hubDirSrc, 'hubDirectories'), ...supportBlocks(hubNestedSrc, 'hubNestedDirectories')];
 const journalPieces = uniqueCellMeta(journalArticleSrc);
 const blogPieces = uniqueCellMeta(blogArticleSrc);
 
@@ -244,7 +245,7 @@ if (corporateDocs.length !== 4) errors.push(`Expected 4 island corporate indexes
 if (gatheringsDocs.length !== 4) errors.push(`Expected 4 island gatherings indexes, found ${gatheringsDocs.length}`);
 if (islandsIndexDocs.length !== 4) errors.push(`Expected 4 island islands indexes, found ${islandsIndexDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
-if (hubDirs.length !== 23) errors.push(`Expected 23 hub directories, found ${hubDirs.length}`);
+if (hubDirs.length !== 52) errors.push(`Expected 52 hub directories, found ${hubDirs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
 if (blogPieces.length !== 116) errors.push(`Expected 116 blog articles, found ${blogPieces.length}`);
 

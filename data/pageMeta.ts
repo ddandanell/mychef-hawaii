@@ -229,6 +229,151 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Each island quotes executive dinners in houses. Distinct from hub /corporate, /events/corporate-events, and /help/corporate-guide.',
   },
+  '/events/birthdays': {
+    title: 'Birthday dinners, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts birthday dinners in houses. Distinct from hub /events and from /gatherings.',
+  },
+  '/events/welcome-dinners': {
+    title: 'Arrival-night dinners, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts the first night of the villa week. Distinct from /events, /honeymoon-dinners, and /rehearsal-dinners.',
+  },
+  '/events/retreats': {
+    title: 'Retreat cooking notes, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts the retreat occasion essay. Distinct from /retreat-catering (full-board SKU) and from /corporate.',
+  },
+  '/events/anniversaries': {
+    title: 'Anniversary nights, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts anniversary dinners in houses. Distinct from /honeymoon-dinners, /chefs-table, and /events.',
+  },
+  '/events/corporate-events': {
+    title: 'House offsite nights, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts the offsite occasion. Distinct from hub /corporate, /corporate-catering, and /help/corporate-guide.',
+  },
+  '/events/villa-parties': {
+    title: 'Villa parties, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts villa parties as their own occasion. Distinct from /gatherings, /events, and /guest-counts.',
+  },
+  '/events/brunch': {
+    title: 'Day-after brunch, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts brunch in the house. Distinct from /menus/breakfast, /menus/lunch, and /events.',
+  },
+  '/catering/bbq': {
+    title: 'Lawn BBQ service, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts BBQ as a format document. Distinct from hub /catering and from nested plated service.',
+  },
+  '/catering/plated': {
+    title: 'Plated villa service, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts plated service as a format. Titles never use “{island} catering plated”. Distinct from /fine-dining.',
+  },
+  '/catering/family-style': {
+    title: 'Family-style service, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts family-style service as a format. Distinct from /menus/family-style-menu and from plated service.',
+  },
+  '/catering/buffet': {
+    title: 'Buffet service, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts buffet as a format. Distinct from /catering, /guest-counts, and drop-off.',
+  },
+  '/catering/grazing': {
+    title: 'Grazing boards, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts grazing as a format. Distinct from /bar, /events/villa-parties, and plated service.',
+  },
+  '/catering/drop-off': {
+    title: 'Drop-off is not staffed, by island | myCHEF Hawaii',
+    description:
+      'Each island says drop-off is not staffed service. Distinct from /catering, buffet, and /meal-prep.',
+  },
+  '/fine-dining/romantic-dinner': {
+    title: 'Romantic villa dinners, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts a romantic-dinner format. Distinct from /honeymoon-dinners, /chefs-table, and /fine-dining.',
+  },
+  '/fine-dining/tasting-menu': {
+    title: 'Tasting menus, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts tasting-menu as a format. Distinct from /omakase-at-home, /menus/three-course, and /fine-dining.',
+  },
+  '/fine-dining/chefs-table-evening': {
+    title: 'Evening chef’s-table formats, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts chef’s-table evening as a format. Distinct from /chefs-table (the named SKU) and from /omakase-at-home.',
+  },
+  '/fine-dining/celebration-dinner': {
+    title: 'Celebration dinners, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts celebration-dinner as a format. Distinct from /events/anniversaries, /events/birthdays, and /fine-dining.',
+  },
+  '/staffing/servers': {
+    title: 'Server add-ons, by island | myCHEF Hawaii',
+    description:
+      'Each island quotes servers hourly. Distinct from /staffing, /bar, and /guest-counts.',
+  },
+  '/staffing/bartenders': {
+    title: 'Bartender hourly lines, by island | myCHEF Hawaii',
+    description:
+      'Each island quotes bartenders hourly. Distinct from /bar, /mobile-bar, and /staffing.',
+  },
+  '/staffing/butlers': {
+    title: 'Quoted butler lines, by island | myCHEF Hawaii',
+    description:
+      'Each island quotes butlers only when a bench exists. Distinct from /staffing and from /help.',
+  },
+  '/menus/three-course': {
+    title: 'Three-course tables, by island | myCHEF Hawaii',
+    description:
+      'Each island designs a three-course SKU per table. Distinct from /menus, /catering/plated, and /fine-dining/tasting-menu.',
+  },
+  '/menus/family-style-menu': {
+    title: 'Family-style menus, by island | myCHEF Hawaii',
+    description:
+      'Each island designs a family-style menu SKU. Distinct from /catering/family-style and from /menus.',
+  },
+  '/menus/breakfast': {
+    title: 'Breakfast in the house, by island | myCHEF Hawaii',
+    description:
+      'Each island designs breakfast per table. Distinct from /events/brunch, /vacation-chef, and /menus.',
+  },
+  '/menus/lunch': {
+    title: 'Lunch in the house, by island | myCHEF Hawaii',
+    description:
+      'Each island designs lunch per table. Distinct from /menus/breakfast, /meal-prep, and /menus.',
+  },
+  '/help/getting-started': {
+    title: 'First booking notes, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts the first-booking help article. Distinct from /help, /faq, /how-it-works, and /quote.',
+  },
+  '/help/menu-guide': {
+    title: 'How to read a menu draft, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts the menu-guide help article. Distinct from /menus, /help, and nested menu SKUs.',
+  },
+  '/help/wedding-guide': {
+    title: 'Wedding-week planning notes, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts the wedding-week help article. Distinct from /weddings, /rehearsal-dinners, and /help.',
+  },
+  '/help/corporate-guide': {
+    title: 'Offsite planning notes, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts the offsite help article. Distinct from /corporate, /corporate-catering, /events/corporate-events, and /help.',
+  },
+  '/help/managing-booking': {
+    title: 'After the quote, by island | myCHEF Hawaii',
+    description:
+      'Each island hosts the after-quote help article. Distinct from /quote, /help/getting-started, and /help.',
+  },
   '/oahu': {
     title: 'Private Chef Oahu | Villa and Household Chefs | myCHEF',
     description:

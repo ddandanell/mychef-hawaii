@@ -14,6 +14,7 @@ import { proofRegister } from '@/data/proofRegister';
 import { articlesFor } from '@/data/editorial';
 import { MASTER_MAP, masterHostName } from '@/data/commercialGraph';
 import { HUB_DIRECTORY_PATHS } from '@/data/hubDirectories';
+import { HUB_NESTED_PATHS } from '@/data/hubNestedDirectories';
 import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
 import { islandServices } from '@/data/islandServices';
@@ -43,7 +44,7 @@ import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
 import { areas } from '@/data/areas';
 import { photos, type PhotoKey } from '@/data/photos';
-import { hubDirectories, type HubDirectoryId } from '@/data/hubDirectories';
+import { getHubDirectoryById } from '@/data/hubDirectories';
 
 export function HowItWorksView() {
   const steps = [
@@ -349,8 +350,9 @@ export function HubAreasView() {
   );
 }
 
-export function HubDirectoryView({ id }: { id: HubDirectoryId }) {
-  const copy = hubDirectories[id];
+export function HubDirectoryView({ id }: { id: string }) {
+  const copy = getHubDirectoryById(id);
+  if (!copy) return null;
   const photo = photos[copy.photo];
   return (
     <>
@@ -538,7 +540,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...(islandId ? MASTER_MAP.filter((r) => r.host === islandId) : MASTER_MAP),
     ...(islandId
       ? []
-      : HUB_DIRECTORY_PATHS.map((path) => ({ host: 'hub' as const, path }))),
+      : [...HUB_DIRECTORY_PATHS, ...HUB_NESTED_PATHS].map((path) => ({ host: 'hub' as const, path }))),
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),

@@ -1,5 +1,6 @@
 import { SEARCH_VOLUMES } from './offers';
 import type { PhotoKey } from './photos';
+import { hubNestedDirectories } from './hubNestedDirectories';
 
 /**
  * Hub-only pickers for support paths that already live on every island host.
@@ -58,7 +59,7 @@ export type HubDirectoryId =
   | 'corporateCatering';
 
 export interface HubDirectory {
-  path: (typeof HUB_DIRECTORY_PATHS)[number];
+  path: string;
   h1: string;
   title: string;
   description: string;
@@ -673,5 +674,15 @@ export const hubDirectories: Record<HubDirectoryId, HubDirectory> = {
 
 export function getHubDirectory(path: string): HubDirectory | undefined {
   const clean = path.replace(/\/$/, '') || '/';
-  return (Object.values(hubDirectories) as HubDirectory[]).find((row) => row.path === clean);
+  return (
+    (Object.values(hubDirectories) as HubDirectory[]).find((row) => row.path === clean) ??
+    (Object.values(hubNestedDirectories) as HubDirectory[]).find((row) => row.path === clean)
+  );
+}
+
+export function getHubDirectoryById(id: string): HubDirectory | undefined {
+  return (
+    (hubDirectories as Record<string, HubDirectory>)[id] ??
+    (hubNestedDirectories as Record<string, HubDirectory>)[id]
+  );
 }

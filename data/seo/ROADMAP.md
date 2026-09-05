@@ -256,13 +256,20 @@ Still no zip on this machine. Wave 28 ships hub pickers for shared island-only s
 - Distinct from matching island-host documents and from hub `/corporate`, `/gatherings`, `/private-chef`, `/weddings`, `/pricing`.
 - Titles never use money keywords. Each page is a four-island picker with its own Grok still.
 
-## Wave 29 — zip execution
+## Wave 29 — unique hub pickers for nested island SKUs (this branch)
+
+Still no zip on this machine. Wave 29 ships hub pickers for nested occasion, catering-format, fine-dining, staffing, menu-SKU, and help URLs that already 200 on island hosts but 404'd on the apex (29 URLs).
+
+- Distinct from parent hub pickers (`/events`, `/catering`, `/fine-dining`, `/staffing`, `/menus`, `/help`) and from matching island-host documents.
+- Titles never use money keywords. Each page is a four-island picker with its own Grok still.
+
+## Wave 30 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 30 — automation that stays on
+## Wave 31 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

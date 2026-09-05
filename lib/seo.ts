@@ -44,6 +44,7 @@ import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
 import { lookupPageMeta, metaForPath } from '@/data/pageMeta';
 import { getHubDirectory, HUB_DIRECTORY_PATHS } from '@/data/hubDirectories';
+import { HUB_NESTED_PATHS } from '@/data/hubNestedDirectories';
 import { photos } from '@/data/photos';
 import { formatBand, getDayRate, getMobileBar, getOtherOffer, getTiers } from '@/data/rateCard';
 import { SERVICE_AREAS } from '@/data/serviceAreas';
@@ -532,7 +533,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
   const master = fromHost ? MASTER_MAP.filter((r) => r.host === fromHost) : MASTER_MAP;
   const hubExtras = fromHost
     ? []
-    : HUB_DIRECTORY_PATHS.map((path) => ({
+    : [...HUB_DIRECTORY_PATHS, ...HUB_NESTED_PATHS].map((path) => ({
         loc: `https://${masterHostName('hub')}${path}`,
         changefreq: 'monthly',
         priority: '0.55',

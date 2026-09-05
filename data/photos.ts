@@ -2071,6 +2071,122 @@ export const photos = {
     file: '/photos/hub-corpcater.png',
     alt: `Unused identical ivory plates in a straight row on a koa table, unmarked papers, brass clip.`,
   },
+  hubOccBirthdays: {
+    file: '/photos/hub-occ-birthdays.png',
+    alt: `Unused extra empty glasses and unused ivory plates on a koa lawn table, brass clip.`,
+  },
+  hubOccWelcome: {
+    file: '/photos/hub-occ-welcome.png',
+    alt: `Unused ivory plates and citrus on a koa villa counter, brass clip, unpacked linen.`,
+  },
+  hubOccRetreats: {
+    file: '/photos/hub-occ-retreats.png',
+    alt: `Unused breakfast plates stacked with empty coffee cups on a koa sideboard, brass clip.`,
+  },
+  hubOccAnniversaries: {
+    file: '/photos/hub-occ-anniversaries.png',
+    alt: `Two unused ivory place settings and two unlit candles on a koa table, brass clip.`,
+  },
+  hubOccCorporate: {
+    file: '/photos/hub-occ-corporate.png',
+    alt: `Unused identical ivory plates in a straight row on a koa table, unmarked papers, brass clip.`,
+  },
+  hubOccParties: {
+    file: '/photos/hub-occ-parties.png',
+    alt: `Cluster of unused extra empty glasses on a koa lawn table, unused ivory plates, brass clip.`,
+  },
+  hubOccBrunch: {
+    file: '/photos/hub-occ-brunch.png',
+    alt: `Unused coffee cups and unused ivory plates with citrus on a koa table, brass clip.`,
+  },
+  hubFmtBbq: {
+    file: '/photos/hub-fmt-bbq.png',
+    alt: `Unused grill grate beside unused ivory plates on a koa outdoor table, brass clip.`,
+  },
+  hubFmtPlated: {
+    file: '/photos/hub-fmt-plated.png',
+    alt: `Unused identical ivory dinner plates in a quiet row on a koa pass, brass clip.`,
+  },
+  hubFmtFamily: {
+    file: '/photos/hub-fmt-family.png',
+    alt: `Unused empty shared platters and unused ivory plates on a koa table, brass clip.`,
+  },
+  hubFmtBuffet: {
+    file: '/photos/hub-fmt-buffet.png',
+    alt: `Unused empty serving vessels in a line on a koa sideboard, unused ivory plates.`,
+  },
+  hubFmtGrazing: {
+    file: '/photos/hub-fmt-grazing.png',
+    alt: `Unused empty wooden boards on a koa counter, citrus, brass clip.`,
+  },
+  hubFmtDropoff: {
+    file: '/photos/hub-fmt-dropoff.png',
+    alt: `Unused stacked empty food containers on a koa counter, unused ivory plate, brass clip.`,
+  },
+  hubFineRomantic: {
+    file: '/photos/hub-fine-romantic.png',
+    alt: `Two unused ivory place settings close together on a small koa table, brass clip.`,
+  },
+  hubFineTasting: {
+    file: '/photos/hub-fine-tasting.png',
+    alt: `Five unused small ivory tasting plates in a quiet arc on a koa pass, brass clip.`,
+  },
+  hubFineChefsev: {
+    file: '/photos/hub-fine-chefsev.png',
+    alt: `Unused tasting spoons in a row on a koa kitchen pass, unused ivory plates, brass clip.`,
+  },
+  hubFineCeleb: {
+    file: '/photos/hub-fine-celeb.png',
+    alt: `Unused extra empty glasses and unused ivory plates on a koa dining table, brass clip.`,
+  },
+  hubStaffServers: {
+    file: '/photos/hub-staff-servers.png',
+    alt: `Unused empty stemware lined on a sand linen pass, brass clip.`,
+  },
+  hubStaffBartenders: {
+    file: '/photos/hub-staff-bartenders.png',
+    alt: `Unused empty coupe glasses on a koa bar cart, citrus, brass clip.`,
+  },
+  hubStaffButlers: {
+    file: '/photos/hub-staff-butlers.png',
+    alt: `Unused folded sand linen napkins stacked under a brass clip on a koa pass.`,
+  },
+  hubMenuThree: {
+    file: '/photos/hub-menu-three.png',
+    alt: `Three unused ivory plates stacked slightly offset on a koa dining table, brass clip.`,
+  },
+  hubMenuFamily: {
+    file: '/photos/hub-menu-family.png',
+    alt: `Unused empty shared platter in the center of a koa table with unused ivory plates.`,
+  },
+  hubMenuBreakfast: {
+    file: '/photos/hub-menu-breakfast.png',
+    alt: `Unused coffee cup and unused ivory plate with whole fruit on a koa counter.`,
+  },
+  hubMenuLunch: {
+    file: '/photos/hub-menu-lunch.png',
+    alt: `Unused ivory plate with citrus and a brass clip on a koa table, empty glass.`,
+  },
+  hubHelpStart: {
+    file: '/photos/hub-help-start.png',
+    alt: `Unused ivory papers under a brass clip on a koa kitchen pass, citrus, no writing.`,
+  },
+  hubHelpMenu: {
+    file: '/photos/hub-help-menu.png',
+    alt: `Unused unmarked ivory paper beside citrus on a koa counter, brass clip.`,
+  },
+  hubHelpWedding: {
+    file: '/photos/hub-help-wedding.png',
+    alt: `Unused long table of empty ivory plates and empty glasses on a koa dining table.`,
+  },
+  hubHelpCorp: {
+    file: '/photos/hub-help-corp.png',
+    alt: `Unused unmarked papers and unused ivory plates on a koa table, brass clip.`,
+  },
+  hubHelpManage: {
+    file: '/photos/hub-help-manage.png',
+    alt: `Unused ivory papers under a brass clip on a koa desk, fountain pen, no writing.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
