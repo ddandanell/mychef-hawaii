@@ -1,7 +1,8 @@
 /**
- * Locked master map — 12 money URLs plus hub /about.
- * Supporting /private-chef /bar /pricing /quote stay live, unadvertised.
- * No neighborhood or blog URLs.
+ * Locked master map — island money URLs plus hub /about.
+ * Neighborhood corridors are live on each island host and listed in XML
+ * sitemaps (see moneyNeighborhoods). Supporting /private-chef /bar /pricing
+ * /quote stay live, unadvertised.
  */
 
 export const PRODUCTION_ROOT = 'mychef-hawaii.com';
@@ -13,14 +14,15 @@ export type MasterHost = 'hub' | IslandSitemapHost;
 
 export interface MasterLoc {
   host: MasterHost;
-  path: '/' | '/catering' | '/weddings' | '/about';
+  path: '/' | '/catering' | '/weddings' | '/about' | '/mobile-bar';
 }
 
-/** The 12 money URLs plus hub /about. One primary keyword each on the money set. */
+/** Money URLs plus hub /about. Hub /mobile-bar owns `mobile bar hawaii`. */
 export const MASTER_MAP: readonly MasterLoc[] = [
   { host: 'hub', path: '/' },
   { host: 'hub', path: '/catering' },
   { host: 'hub', path: '/weddings' },
+  { host: 'hub', path: '/mobile-bar' },
   { host: 'hub', path: '/about' },
   { host: 'oahu', path: '/' },
   { host: 'oahu', path: '/catering' },
@@ -30,7 +32,10 @@ export const MASTER_MAP: readonly MasterLoc[] = [
   { host: 'maui', path: '/weddings' },
   { host: 'kauai', path: '/' },
   { host: 'kauai', path: '/catering' },
+  { host: 'kauai', path: '/weddings' },
   { host: 'bigisland', path: '/' },
+  { host: 'bigisland', path: '/catering' },
+  { host: 'bigisland', path: '/weddings' },
 ] as const;
 
 /** Supporting paths — live, not in XML sitemap, titles must not compete. */

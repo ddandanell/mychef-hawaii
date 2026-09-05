@@ -1,4 +1,4 @@
-import { IslandCateringView } from '@/components/views/CateringView';
+import { IslandEventsView } from '@/components/views/EventsView';
 import { islandPageMetadata } from '@/lib/pageSeo';
 import { islandProps } from '../params';
 
@@ -8,5 +8,5 @@ export function generateMetadata({ params }: { params: Promise<{ island: string 
 
 export default async function Page({ params }: { params: Promise<{ island: string }> }) {
   const { islandId, hostMode } = await islandProps(params);
-  return <IslandCateringView islandId={islandId} hostMode={hostMode} />;
+  return <IslandEventsView islandId={islandId} hostMode={hostMode} />;
 }

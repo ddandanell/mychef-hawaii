@@ -2,46 +2,64 @@ import type { IslandId } from './islands';
 import { getTiers } from './rateCard';
 import type { PhotoKey } from './photos';
 
-/** DataForSEO Google Ads US — 2 Sep 2026. Do not invent volumes. */
+/** DataForSEO Google Ads US — 4 Sep 2026 (`npm run seo:snapshot`). Do not invent volumes. */
 export const SEARCH_VOLUMES = {
+  'oahu catering': 720,
+  'maui catering': 480,
   'private chef maui': 260,
   'private chef kauai': 210,
+  'kauai catering': 210,
+  'hawaii catering': 210,
+  'wedding catering oahu': 140,
   'private chef oahu': 90,
   'private chef honolulu': 70,
   'private chef big island': 70,
   'private chef kona': 70,
   'private chef hawaii': 50,
+  'big island catering': 50,
   'personal chef honolulu': 40,
-  'personal chef maui': 20,
-  'personal chef oahu': 20,
-  'kauai catering': 210,
-  'oahu catering': 720,
-  'maui catering': 480,
-  'hawaii catering': 210,
-  'wedding catering oahu': 140,
   'wedding catering maui': 30,
   'wedding catering hawaii': 30,
+  'personal chef maui': 20,
+  'personal chef oahu': 20,
+  'mobile bar hawaii': 20,
+  'private chef lahaina maui': 10,
+  'private chef north shore oahu': 10,
+  'private chef poipu kauai': 10,
+  'private chef maui cost': 10,
+  'kauai wedding catering': 10,
 } as const;
 
-/** Related searches (DataForSEO, 2 Sep 2026). Fold into titles/H1s/FAQs — do not invent volumes. */
+/** Related searches (DataForSEO Labs, 4 Sep 2026). Fold into titles/H1s/FAQs — do not invent volumes. */
 export const RELATED_SEARCHES = {
+  hawaii: [
+    'oahu catering',
+    'private chef oahu',
+    'private chef honolulu',
+    'maui private chefs',
+    'private chef big island hawaii',
+  ],
+  oahu: [
+    'oahu catering',
+    'wedding catering oahu',
+    'best catering oahu',
+    'private chef honolulu',
+    'hire a chef for a party',
+    'private chef at home',
+  ],
   maui: [
-    'best private chef maui',
-    'female private chef maui',
     'private chef lahaina maui',
-    'private chef wailea maui',
-    'private sushi chef maui',
     'private chef maui cost',
-    'private chef kihei maui',
+    'elite maui chef',
+    'lotus chefs maui',
   ],
   kauai: [
     'kauai catering',
     'private chef poipu kauai',
-    'private chef princeville',
-    'private chef hanalei',
     'kauai wedding catering',
-    'kauai catering prices',
     'kauai catering menu',
+    'private chef princeville kauai',
+    'south shore chef kauai',
   ],
 } as const;
 
@@ -134,7 +152,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     h1: 'Private Chef Oahu — in your villa, in your home.',
     title: 'Private Chef Oahu | Villa and Household Chefs | myCHEF',
     description:
-      'Private chef Oahu from $125 a guest. Honolulu and personal chef on this same page — no /honolulu. Villa dinners and household chefs. Request a quote.',
+      'Private chef Oahu from $125 a guest. Named corridors — Honolulu, Waikīkī, Kahala, Kailua, Ko Olina, North Shore. Villa dinners and household chefs. Request a quote.',
     lede:
       'Private chef Oahu and Honolulu — villa dinners from $125 a guest. Staffed events for a larger list live on /catering. Same team: we shop, cook, serve and clean.',
     fromPp: 125,
@@ -222,7 +240,7 @@ export const islandOffers: Record<IslandId, IslandOffer> = {
     h1: 'Private chef Big Island — the Kohala Coast first.',
     title: 'Private Chef Big Island | Kona–Kohala Inquiry | myCHEF',
     description:
-      'Private chef Big Island from $125 a guest. Kona–Kohala first — no /kona. Inquiry stage. Kohala Coast, Waikoloa and Kailua-Kona villa dinners.',
+      'Private chef Big Island from $125 a guest. Named corridors — Kona, Waikoloa, Waimea, Kohala Coast. Inquiry stage. Villa dinners on the west side first.',
     lede:
       'Kona and the Kohala Coast first — seven resort communities in one west-side radius. Hilo and Volcano are quote-only; we will not fake a same-day round trip.',
     fromPp: 125,
@@ -322,7 +340,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
         'WhatsApp the address. If the kitchen works, we book it. If it does not, we say so before you put a deposit down.',
       ],
       zone: 'West Maui — Kāʻanapali / Nāpili / Kapalua',
-      photo: 'kaanapali',
+      photo: 'locLahaina',
       faqs: [
         {
           q: 'Can you come to a Lahaina address?',
@@ -347,7 +365,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
         'Family Feast is the usual order: 6–8 people, fresh catch, a clean kitchen. Stay Chef if you are in for the week.',
       ],
       zone: 'South Maui — base-adjacent',
-      photo: 'makena',
+      photo: 'locKihei',
       faqs: [
         {
           q: 'Is Kīhei cheaper than Wailea?',
@@ -399,11 +417,15 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
         'Standard hotel rooms without kitchens are not a chef venue. Residences, yes.',
       ],
       zone: 'Base zone — town',
-      photo: 'oahuEstate',
+      photo: 'locHonolulu',
       faqs: [
         {
           q: 'Personal chef vs private chef?',
           a: 'Private chef is the one-night dinner. Personal chef is the weekly Honolulu household line. Same team, different rhythm.',
+        },
+        {
+          q: 'Honolulu catering?',
+          a: 'Related search. Staffed events ten to seventy-five are /catering — that URL owns Oahu catering. This page is the Honolulu residence dinner. Same team, different door.',
         },
       ],
     },
@@ -464,7 +486,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
       lede: 'Honolulu’s household-entertaining belt. Celebration dinners and the kamaʻāina weekly line overlap here.',
       body: ['Real dining rooms. CORE $125–$190/pp. Weekly from $300 plus groceries at cost.'],
       zone: 'Base zone',
-      photo: 'oahuEstate',
+      photo: 'locKahala',
       faqs: [{ q: 'Weekly service?', a: 'Yes — this is the core of personal chef Honolulu.' }],
     },
     {
@@ -501,6 +523,10 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
         {
           q: 'Princeville catering or a private chef?',
           a: 'Dinner for the house is private chef. Ten to seventy-five guests is Kauai catering — same team, staffed. See /catering.',
+        },
+        {
+          q: 'Is this private chef Princeville Kauai?',
+          a: 'Yes. That related search is this corridor. Home holds private chef Kauai. This URL stays the North Shore estate door.',
         },
       ],
     },
@@ -540,7 +566,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
         'Estate dinners and Kauai wedding catering when the guest list grows. 72-hour notice for far-North. CORE from $150/pp.',
       ],
       zone: 'North Shore',
-      photo: 'kauaiNorth',
+      photo: 'locHanalei',
       faqs: [
         { q: 'Road closure?', a: 'We reschedule rather than forfeit. That is on the quote before any deposit.' },
         {
@@ -558,7 +584,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
       lede: 'East-side town, closer to the Līhuʻe base than either shore villa belt. Honest, not the hero product — still a real booking.',
       body: ['Family Feast and weekly-style nights. Same Kauaʻi starting prices.'],
       zone: 'East side — included',
-      photo: 'kauaiChef',
+      photo: 'locKapaa',
       faqs: [{ q: 'Is this cheaper?', a: 'Closer drive. Menu band is still the Kauaʻi card.' }],
     },
   ],
@@ -590,7 +616,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
       lede: 'Ranch country above the Kohala resorts. The surcharge is the drive and the elevation — published, not hidden.',
       body: ['Estate and ranch tables. CORE band plus the Waimea zone line on the quote.'],
       zone: 'Surcharge — Waimea / Hāmākua',
-      photo: 'kohalaTable',
+      photo: 'locWaimea',
       faqs: [{ q: 'Can you do a ranch wedding?', a: 'Estate formats, quoted with staffing. WhatsApp the headcount.' }],
     },
     {
@@ -602,7 +628,7 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
       lede: 'Inside the 30-minute west-side radius. Same Kona–Kohala team. Stay Chef for the villa week.',
       body: ['Seven resort communities share this corridor. We will not pretend to cover Hilo from here in an afternoon.'],
       zone: 'Base — Kohala corridor',
-      photo: 'kohalaFish',
+      photo: 'locWaikoloa',
       faqs: [{ q: 'Mauna Lani / Mauna Kea resort too?', a: 'Yes — same corridor, same quote.' }],
     },
     {

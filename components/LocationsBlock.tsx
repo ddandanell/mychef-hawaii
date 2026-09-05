@@ -1,5 +1,6 @@
 import HostLink from '@/components/HostLink';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
+import { moneyNeighborhoods } from '@/data/offers';
 import { LOCATIONS_LEDE, SERVICE_AREAS } from '@/data/serviceAreas';
 import { cn } from '@/lib/utils';
 
@@ -7,13 +8,17 @@ export function LocationsBlock({
   tone = 'paper',
   anchorsFor,
   id,
+  scope,
 }: {
   tone?: 'paper' | 'ink';
   /** Add home-page corridor anchors for this island (Areas nav). */
   anchorsFor?: IslandId | null;
   id?: string;
+  /** Limit the list to one island — used on island hosts so the footer does not jump. */
+  scope?: IslandId | 'all';
 }) {
   const ink = tone === 'ink';
+  const ids = scope && scope !== 'all' ? [scope] : islandOrder;
 
   return (
     <section id={id} className={cn(ink ? 'bg-ink text-paper' : 'border-t border-line bg-paper text-ink')}>
@@ -31,7 +36,7 @@ export function LocationsBlock({
           {LOCATIONS_LEDE}
         </p>
         <ul className="mt-10 space-y-8">
-          {islandOrder.map((id) => {
+          {ids.map((id) => {
             const area = SERVICE_AREAS[id];
             const anchored = anchorsFor === id;
             return (
@@ -44,15 +49,22 @@ export function LocationsBlock({
                 <p className={cn('mt-2 max-w-[70ch] text-[17px] leading-relaxed', ink ? 'text-on-ink' : 'text-mute')}>
                   {area.line}
                 </p>
-                {anchored ? (
-                  <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                    {area.corridors.map((c) => (
-                      <li key={c.id} id={c.id} className={cn('scroll-mt-24', ink ? 'text-paper' : 'text-ink')}>
-                        {c.name}
-                      </li>
-                    ))}
-                  </ul>
-                ) : null}
+                <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                  {moneyNeighborhoods[id].map((hood) => (
+                    <li key={hood.slug} id={anchored ? hood.slug : undefined} className="scroll-mt-24">
+                      <HostLink
+                        island={id}
+                        path={`/${hood.slug}`}
+                        className={cn(
+                          'underline-offset-4 hover:underline',
+                          ink ? 'text-paper' : 'text-ink',
+                        )}
+                      >
+                        {hood.name}
+                      </HostLink>
+                    </li>
+                  ))}
+                </ul>
               </li>
             );
           })}

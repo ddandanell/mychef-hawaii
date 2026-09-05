@@ -1,5 +1,18 @@
 import { PRODUCTION_ROOT, detectIslandFromHost } from '@/lib/site';
-import { MASTER_MAP, masterHostName, type MasterHost } from '@/data/commercialGraph';
+import { MASTER_MAP, masterHostName, type MasterHost, type IslandSitemapHost } from '@/data/commercialGraph';
+import { moneyNeighborhoods } from '@/data/offers';
+import { uniqueCells } from '@/data/uniqueCells';
+import { islandServices } from '@/data/islandServices';
+import { occasionPages } from '@/data/occasionPages';
+import { cateringFormats } from '@/data/cateringFormats';
+import { fineDiningPages } from '@/data/fineDining';
+import { staffingPages } from '@/data/staffingPages';
+import { menuSkuPages } from '@/data/menuSkus';
+import { helpArticles } from '@/data/helpArticles';
+import { journalArticles } from '@/data/journalArticles';
+import { blogArticles } from '@/data/blogArticles';
+import { SUPPORT_PATHS } from '@/data/islandSupport';
+import { HUB_ALL_PICKER_PATHS } from '@/data/hubDirectories';
 
 function xmlEscape(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -11,10 +24,45 @@ function loc(host: MasterHost, path: string): string {
   return `https://${hostname}${clean === '/' ? '/' : clean}`;
 }
 
-function urlset(rows: { host: MasterHost; path: string }[]): string {
+function neighborhoodRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
+  return moneyNeighborhoods[island].map((hood) => ({
+    host: island,
+    path: `/${hood.slug}`,
+    priority: '0.7',
+  }));
+}
+
+function supportRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
+  return [...SUPPORT_PATHS, '/about', '/events', '/mobile-bar', '/personal-chef', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'].map((path) => ({
+    host: island,
+    path,
+    priority: '0.6',
+  }));
+}
+
+function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
+  return [
+    ...uniqueCells[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.55' })),
+    ...islandServices[island]
+      .filter((cell) => cell.slug !== 'personal-chef')
+      .map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.5' })),
+    ...occasionPages[island].map((cell) => ({ host: island, path: `/events/${cell.slug}`, priority: '0.5' })),
+    ...cateringFormats[island].map((cell) => ({ host: island, path: `/catering/${cell.slug}`, priority: '0.5' })),
+    ...fineDiningPages[island].map((cell) => ({ host: island, path: `/fine-dining/${cell.slug}`, priority: '0.45' })),
+    ...staffingPages[island].map((cell) => ({ host: island, path: `/staffing/${cell.slug}`, priority: '0.45' })),
+    ...menuSkuPages[island].map((cell) => ({ host: island, path: `/menus/${cell.slug}`, priority: '0.45' })),
+    ...helpArticles[island].map((cell) => ({ host: island, path: `/help/${cell.slug}`, priority: '0.4' })),
+    ...journalArticles[island].map((cell) => ({ host: island, path: `/journal/${cell.slug}`, priority: '0.35' })),
+    ...blogArticles[island].map((cell) => ({ host: island, path: `/blog/${cell.slug}`, priority: '0.35' })),
+  ];
+}
+
+function urlset(rows: { host: MasterHost; path: string; priority?: string }[]): string {
   const entries = rows.map((r) => {
     const href = loc(r.host, r.path);
-    const priority = r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8';
+    const priority =
+      r.priority ??
+      (r.path === '/' ? (r.host === 'hub' ? '1.0' : '0.9') : r.path === '/about' ? '0.6' : '0.8');
     const changefreq = r.path === '/' ? 'weekly' : 'monthly';
     return `  <url>
     <loc>${xmlEscape(href)}</loc>
@@ -34,9 +82,19 @@ export async function GET(request: Request) {
     .split(':')[0]
     .toLowerCase();
   const island = detectIslandFromHost(host);
+  const extras = island
+    ? [...neighborhoodRows(island), ...supportRows(island), ...uniqueCellRows(island)]
+    : (['oahu', 'maui', 'kauai', 'bigisland'] as const).flatMap((id) => [
+        ...neighborhoodRows(id),
+        ...supportRows(id),
+        ...uniqueCellRows(id),
+      ]);
+  const hubRows = island
+    ? []
+    : HUB_ALL_PICKER_PATHS.map((path) => ({ host: 'hub' as const, path, priority: '0.55' }));
   const rows = island
-    ? MASTER_MAP.filter((r) => r.host === island)
-    : [...MASTER_MAP];
+    ? [...MASTER_MAP.filter((r) => r.host === island), ...extras]
+    : [...MASTER_MAP, ...hubRows, ...extras];
   return new Response(urlset(rows), {
     status: 200,
     headers: {

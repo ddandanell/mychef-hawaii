@@ -1,13 +1,21 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
 import { useSearchParams } from 'next/navigation';
 import * as Accordion from '@radix-ui/react-accordion';
 import { QuoteCta } from '@/components/Cta';
+import Eyebrow from '@/components/Eyebrow';
+import Hero from '@/components/Hero';
+import HostLink from '@/components/HostLink';
+import LineReveal from '@/components/LineReveal';
 import { Longform, SiblingCluster } from '@/components/Longform';
+import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
+import { islandChooserCopy } from '@/data/chromeCopy';
 import { useIsland } from '@/components/IslandProvider';
 import { hubPricingSections } from '@/data/longformHub';
+import { islandPricing } from '@/data/islandPricing';
+import { photos } from '@/data/photos';
 import { islandOrder, islands, primaryCtaLabel, type IslandId } from '@/data/islands';
 import {
   formatBand,
@@ -52,7 +60,7 @@ const faqs = [
   },
 ];
 
-export default function PricingView() {
+export default function PricingView({ related }: { related?: ReactNode } = {}) {
   const { islandId, href } = useIsland();
   const params = useSearchParams();
   const paramIsland = params.get('island');
@@ -64,28 +72,66 @@ export default function PricingView() {
   const day = getDayRate(active);
   const bar = getMobileBar(active);
 
-  const h1 =
-    islandId === 'maui'
-      ? 'What a night costs on Maui.'
-      : islandId === 'kauai'
-        ? 'What a night costs on Kauaʻi.'
-        : islandId === 'bigisland'
-          ? 'What a night costs on the Big Island.'
-          : islandId === 'oahu'
-            ? 'What a night costs on Oahu.'
-            : 'What a night costs.';
+  const copy = islandId ? islandPricing[islandId] : null;
+  const photo = copy ? photos[copy.photo] : null;
+  const h1 = copy?.h1 ?? 'What a night costs.';
+  const lede =
+    copy?.lede ??
+    'USD. Line by line. The written quote is the confirmed total — never a verbal range in a chat window.';
+  const questions = copy?.faqs ?? faqs;
 
   return (
     <>
+      <Hero src={(photo ?? photos.hubPricing).file} alt={(photo ?? photos.hubPricing).alt}>
+        <p className="text-[13px] text-mute">{copy?.kicker ?? 'Published starting prices'}</p>
+        <LineReveal
+          text={h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{lede}</p>
+        <div className="mt-8">
+          <QuoteCta island={islandId} variant="light" />
+        </div>
+      </Hero>
+
+      {!islandId ? (
+        <section className="bg-paper py-24 lg:py-32">
+          <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
+            <Eyebrow>Where we cook</Eyebrow>
+            <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] text-ink">
+              Open the island rate card.
+            </h2>
+            <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+              {islandOrder.map((id) => {
+                const still = photos[islandPricing[id].photo];
+                const chooser = islandChooserCopy[id];
+                return (
+                  <li key={id}>
+                    <HostLink island={id} path="/pricing" className="group block">
+                      <span className="relative block aspect-[3/4] overflow-hidden bg-sand">
+                        <Photo
+                          src={still.file}
+                          alt={still.alt}
+                          fill
+                          sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                          className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
+                        />
+                      </span>
+                      <span className="mt-5 block font-display text-[1.5rem] font-light text-ink">{islands[id].name}</span>
+                      <span className="mt-2 block text-[15px] leading-relaxed text-mute">{chooser.line}</span>
+                      <span className="mt-2 block text-[13px] text-mute">{chooser.price}</span>
+                    </HostLink>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
       <section className="bg-paper py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
           <p className="text-[12px] text-mute">Published starting prices</p>
-          <h1 className="mt-4 max-w-[18ch] font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-ink">
-            {h1}
-          </h1>
-          <p className="mt-6 max-w-[62ch] text-[17px] leading-[1.65] text-mute">
-            USD. Line by line. The written quote is the confirmed total — never a verbal range in a chat window.
-          </p>
           {!islandId ? (
             <div className="mt-8 flex flex-wrap gap-2">
               {islandOrder.map((id) => (
@@ -132,7 +178,7 @@ export default function PricingView() {
               <p className="mt-2 text-sm text-mute">{day.includes}</p>
             </article>
             <article className="border border-line p-6">
-              <p className="text-[12px] text-mute">Mobile bar</p>
+              <p className="text-[12px] text-mute">Packaged cart</p>
               <p className="mt-2 font-display text-3xl font-light text-ink">{formatMobileBarPackage(active)}</p>
               <p className="mt-2 text-sm text-mute">{bar.note}</p>
             </article>
@@ -147,17 +193,31 @@ export default function PricingView() {
             ))}
           </ul>
 
-          <div className="mt-10">
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-3">
             <QuoteCta island={islandId ?? active} />
+            {islandId ? (
+              <HostLink
+                island={islandId}
+                path="/private-chef-cost"
+                className="text-ink underline underline-offset-4"
+              >
+                How the fee stack prints
+              </HostLink>
+            ) : null}
           </div>
         </div>
       </section>
-      <Longform sections={hubPricingSections} />
+      {copy ? (
+        <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      ) : (
+        <Longform sections={hubPricingSections} />
+      )}
+      {related}
       <section className="border-t border-line bg-paper py-20">
         <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-5 lg:px-10">
           <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink lg:col-span-2">Questions</h2>
           <Accordion.Root type="single" collapsible className="lg:col-span-3">
-            {faqs.map((f, i) => (
+            {questions.map((f, i) => (
               <Accordion.Item key={f.q} value={`p-${i}`} className="border-b border-line">
                 <Accordion.Header>
                   <Accordion.Trigger className="flex w-full items-center justify-between gap-4 py-5 text-left">

@@ -4,7 +4,8 @@ import type { NextRequest } from 'next/server';
 const PRODUCTION_ROOT = 'mychef-hawaii.com';
 const ISLANDS = ['oahu', 'maui', 'kauai', 'bigisland'] as const;
 
-const DEFERRED: Record<(typeof ISLANDS)[number], readonly string[]> = {
+/** Live corridor slugs — must match `moneyNeighborhoods` in data/offers.ts. */
+const CORRIDORS: Record<(typeof ISLANDS)[number], readonly string[]> = {
   oahu: ['honolulu', 'waikiki', 'kailua', 'north-shore', 'kahala', 'ko-olina'],
   maui: ['wailea', 'kaanapali', 'lahaina', 'kihei', 'kapalua', 'makena'],
   kauai: ['princeville', 'poipu', 'hanalei', 'kapaa'],
@@ -43,6 +44,20 @@ export function middleware(request: NextRequest) {
 
   if (isStaticAsset(path)) return NextResponse.next();
 
+  {
+    const segs = path.split('/').filter(Boolean);
+    if (segs.length === 1 && segs[0] === 'wedding-catering') {
+      const dest = url.clone();
+      dest.pathname = '/weddings';
+      return NextResponse.redirect(dest, 301);
+    }
+    if (segs.length === 2 && isIsland(segs[0]) && segs[1] === 'wedding-catering') {
+      const dest = url.clone();
+      dest.pathname = `/${segs[0]}/weddings`;
+      return NextResponse.redirect(dest, 301);
+    }
+  }
+
   if (host === `www.${PRODUCTION_ROOT}`) {
     const dest = url.clone();
     dest.hostname = PRODUCTION_ROOT;
@@ -74,16 +89,14 @@ export function middleware(request: NextRequest) {
   if (islandHost && isIsland(islandHost)) {
     const segs = path.split('/').filter(Boolean);
     const first = segs[0] ?? '';
-    const deferred = DEFERRED[islandHost];
-    if (first && deferred?.includes(first) && segs.length === 1) {
-      const dest = url.clone();
-      dest.pathname = '/';
-      return NextResponse.redirect(dest, 301);
-    }
+    const corridors = CORRIDORS[islandHost];
     if (first === 'locations') {
-      const dest = url.clone();
-      dest.pathname = '/';
-      return NextResponse.redirect(dest, 301);
+      const slug = segs[1] ?? '';
+      if (slug) {
+        const dest = url.clone();
+        dest.pathname = corridors.includes(slug) ? `/${slug}` : '/';
+        return NextResponse.redirect(dest, 301);
+      }
     }
     if (first === 'private-chef' && segs.length > 1) {
       const dest = url.clone();
@@ -99,6 +112,9 @@ export function middleware(request: NextRequest) {
   if (islandHost && isIsland(islandHost)) {
     requestHeaders.set('x-island', islandHost);
     requestHeaders.set('x-host-mode', '1');
+    if (path === '/sitemap.xml' || path === '/robots.txt') {
+      return NextResponse.next({ request: { headers: requestHeaders } });
+    }
     const alreadyPrefixed = path === `/${islandHost}` || path.startsWith(`/${islandHost}/`);
     if (!alreadyPrefixed) {
       const rewriteUrl = url.clone();

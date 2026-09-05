@@ -1,15 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --color-paper: #f6f1e8;
-  --color-sand: #ede6d8;
-  --color-line: #ddd4c6;
-  --color-ink: #1c1916;
-  --color-mute: #5c564e;
+  --color-paper: #f3eee4;
+  --color-sand: #ebe4d4;
+  --color-line: #e0d6c6;
+  --color-ink: #161412;
+  --color-brass: #b08d57;
+  --color-mute: #5e574e;
   --color-on-ink: #e4dcd0;
-  --color-ivory: #f6f1e8;
-  --color-stone: #ddd4c6;
-  --color-ink-soft: #5c564e;
+  --color-ivory: #f3eee4;
+  --color-stone: #e0d6c6;
+  --color-ink-soft: #5e574e;
 
   --font-display: var(--font-fraunces), "Iowan Old Style", Palatino, Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
@@ -20,8 +21,8 @@
   --radius-lg: 2px;
   --radius-xl: 2px;
 
-  --max-width-container: 1200px;
-  --max-width-spread: 1360px;
+  --max-width-container: 1240px;
+  --max-width-spread: 1440px;
 
   --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
   --duration-fast: 200ms;
@@ -65,7 +66,40 @@ h3 {
 }
 
 ::selection {
-  background: rgba(28, 25, 22, 0.12);
+  background: rgba(22, 20, 18, 0.12);
+}
+
+header {
+  --nav-fg: var(--color-ink);
+}
+
+header[data-chrome='overlay'] {
+  --nav-fg: #f6f1e8;
+}
+
+header[data-chrome='solid'] {
+  --nav-fg: var(--color-ink);
+}
+
+.hero-copy .text-ink {
+  color: var(--color-paper);
+}
+
+.hero-copy .text-mute {
+  color: var(--color-paper);
+}
+
+.hero-copy a.bg-paper,
+.hero-copy a.cta-solid-paper {
+  color: var(--color-ink);
+}
+
+.hero-copy [data-type-panel] {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding: 0;
+  color: inherit;
 }
 
 @utility text-balance {
@@ -73,9 +107,34 @@ h3 {
 }
 
 @utility max-w-container {
-  max-width: 1200px;
+  max-width: 1240px;
 }
 
 @utility max-w-spread {
-  max-width: 1360px;
+  max-width: 1440px;
+}
+
+@utility hero-scrim-bottom {
+  background-image: linear-gradient(
+    to top,
+    rgba(22, 20, 18, 0.88) 0%,
+    rgba(22, 20, 18, 0.78) 28%,
+    rgba(22, 20, 18, 0.58) 48%,
+    rgba(22, 20, 18, 0.26) 70%,
+    rgba(22, 20, 18, 0) 92%
+  );
+}
+
+@utility hero-scrim-left {
+  background-image: linear-gradient(
+    to right,
+    rgba(22, 20, 18, 0.72) 0%,
+    rgba(22, 20, 18, 0.6) 26%,
+    rgba(22, 20, 18, 0.3) 52%,
+    rgba(22, 20, 18, 0) 76%
+  );
+}
+
+@utility hero-type-shadow {
+  text-shadow: 0 1px 2px rgba(22, 20, 18, 0.5);
 }

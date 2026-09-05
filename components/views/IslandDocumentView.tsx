@@ -1,0 +1,272 @@
+import { QuoteCta } from '@/components/Cta';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
+import Hero from '@/components/Hero';
+import JsonLd from '@/components/JsonLd';
+import LineReveal from '@/components/LineReveal';
+import { DocumentCopy, LongFaq, SiblingCluster } from '@/components/Longform';
+import PlacePriceBlock from '@/components/PlacePriceBlock';
+import QuoteTeaser from '@/components/QuoteTeaser';
+import { SampleMenu } from '@/components/SampleMenu';
+import HostLink from '@/components/HostLink';
+import { isAreaDinnerDoor } from '@/data/areaCells';
+import type { IslandSupportPage } from '@/data/islandSupport';
+import { islands, type IslandId } from '@/data/islands';
+import { photos } from '@/data/photos';
+import type { UniqueCell } from '@/data/uniqueCells';
+import { zoneMap } from '@/data/zoneMap';
+import { islandHref } from '@/lib/paths';
+import { moneyNeighborhoods } from '@/data/offers';
+import { uniqueCells } from '@/data/uniqueCells';
+import { menuSkuPages } from '@/data/menuSkus';
+import { helpArticles } from '@/data/helpArticles';
+
+function FaqSchema({ faqs }: { faqs: { q: string; a: string }[] }) {
+  return (
+    <JsonLd
+      data={{
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: faqs.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }}
+    />
+  );
+}
+
+export function IslandSupportView({
+  islandId,
+  hostMode,
+  copy,
+  showZones,
+  showMenu,
+  showHelp,
+}: {
+  islandId: IslandId;
+  hostMode: boolean;
+  copy: IslandSupportPage;
+  showZones?: boolean;
+  showMenu?: boolean;
+  showHelp?: boolean;
+}) {
+  const island = islands[islandId];
+  const photo = photos[copy.photo];
+  const href = (path: string) => islandHref(islandId, hostMode, path);
+  const zones = zoneMap[islandId];
+
+  return (
+    <>
+      <FaqSchema faqs={copy.faqs} />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+        <div className="mt-8">
+          <QuoteCta island={islandId} variant="light" />
+        </div>
+      </Hero>
+
+      <DocumentCopy paras={copy.body} />
+
+      {copy.steps ? (
+        <section className="border-t border-line bg-sand py-20">
+          <div className="mx-auto max-w-container space-y-16 px-5 lg:px-10">
+            {copy.steps.map((s) => (
+              <article key={s.n}>
+                <p className="font-display text-2xl font-light text-ink">{s.n}</p>
+                <h2 className="mt-2 font-display text-[clamp(1.625rem,3vw,2.25rem)] font-light text-ink">{s.title}</h2>
+                <p className="mt-4 max-w-[65ch] text-[17px] leading-[1.65] text-mute">{s.body}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      {showZones ? (
+        <section className="border-t border-line bg-paper py-20 lg:py-28">
+          <div className="mx-auto w-full max-w-container px-5 lg:px-10">
+            <p className="text-[13px] text-mute">{zones.headline}</p>
+            <ul className="mt-10 grid gap-8 md:grid-cols-2">
+              {zones.zones.map((z) => (
+                <li key={z.name} className="border-t border-line pt-6">
+                  <p className="text-[12px] uppercase tracking-[0.14em] text-mute">
+                    {z.class}
+                    {z.feeChip ? ` · ${z.feeChip}` : ''}
+                  </p>
+                  <h2 className="mt-2 font-display text-[1.75rem] font-light text-ink">{z.name}</h2>
+                  <p className="mt-3 text-[17px] leading-[1.65] text-mute">{z.note}</p>
+                  {z.driveTime ? <p className="mt-2 text-sm text-mute">{z.driveTime}</p> : null}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-12 max-w-[62ch] text-[17px] leading-relaxed text-mute">{zones.honestyLine}</p>
+            <ul className="mt-10 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {moneyNeighborhoods[islandId].map((hood) => (
+                <li key={hood.slug}>
+                  <HostLink island={islandId} path={`/${hood.slug}`} className="text-ink underline underline-offset-4">
+                    {hood.name}
+                  </HostLink>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+              {uniqueCells[islandId].map((cell) => (
+                <li key={cell.slug}>
+                  <HostLink island={islandId} path={`/${cell.slug}`} className="text-ink underline underline-offset-4">
+                    {cell.name}
+                  </HostLink>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      {showZones ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Beside this coverage map`}
+          heading="Open a related document."
+          intro="The zone list stays on this page. Live dinner doors, map notes, the form, and how a night runs are their own URLs."
+          columns={2}
+          items={[
+            { path: '/locations', label: 'Live dinner doors', detail: '/locations' },
+            { path: '/areas', label: 'Map notes', detail: '/areas' },
+            { path: '/quote', label: 'The quote form', detail: '/quote' },
+            { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+          ]}
+        />
+      ) : null}
+
+      {showMenu ? <SampleMenu island={islandId} /> : null}
+
+      {showMenu ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Menu documents`}
+          heading="Open a menu document."
+          intro="Each SKU is its own URL so it cannot steal this process page. Designed per table, not a standing carte."
+          columns={2}
+          items={menuSkuPages[islandId].map((sku) => ({
+            path: `/menus/${sku.slug}`,
+            label: sku.name,
+            detail: `/menus/${sku.slug}`,
+          }))}
+        />
+      ) : null}
+
+      {showHelp ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Help`}
+          heading="Open a help document."
+          intro="Getting started, the menu guide, wedding and corporate notes, and the fee stack. Distinct from this process page."
+          items={[
+            ...helpArticles[islandId].map((article) => ({
+              path: `/help/${article.slug}`,
+              label: article.name,
+              detail: `/help/${article.slug}`,
+            })),
+            { path: '/private-chef-cost', label: 'Fee stack', detail: '/private-chef-cost' },
+          ]}
+        />
+      ) : null}
+
+      {!showZones && !showMenu && !showHelp ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Beside these answers`}
+          heading="Open a related document."
+          intro="The questions stay on this page. The form, the desk, the process, and coverage are their own URLs."
+          columns={2}
+          items={[
+            { path: '/quote', label: 'The quote form', detail: '/quote' },
+            { path: '/contact', label: 'The desk', detail: '/contact' },
+            { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+            { path: '/coverage', label: 'Coverage', detail: '/coverage' },
+          ]}
+        />
+      ) : null}
+
+      <SiblingCluster island={islandId} href={href} />
+      <LongFaq items={copy.faqs} title={`Asked on ${island.shortName}.`} />
+      <QuoteTeaser headline="Request a quote. Quote in writing." island={islandId} />
+    </>
+  );
+}
+
+export function UniqueCellView({
+  islandId,
+  hostMode,
+  cell,
+}: {
+  islandId: IslandId;
+  hostMode: boolean;
+  cell: UniqueCell;
+}) {
+  const island = islands[islandId];
+  const photo = photos[cell.photo];
+  const showPrices = isAreaDinnerDoor(islandId, cell.slug);
+
+  return (
+    <>
+      {cell.slug === 'personal-chef' ? (
+        <JsonLd
+          data={{
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: `${cell.title.split('|')[0].split('—')[0].trim()} — myCHEF`,
+            description: cell.description,
+            areaServed: island.name,
+            serviceType: islandId === 'oahu' || islandId === 'maui' ? 'Personal chef' : 'Household cooking',
+            parentOrganization: { '@type': 'Organization', name: `myCHEF ${island.name}` },
+          }}
+        />
+      ) : null}
+      <FaqSchema faqs={cell.faqs} />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">
+          {island.name} · {cell.name}
+        </p>
+        <LineReveal
+          text={cell.h1}
+          className="mt-3 font-display text-[clamp(2.75rem,7vw,4.5rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{cell.lede}</p>
+        <div className="mt-8">
+          <QuoteCta island={islandId} variant="light" />
+        </div>
+      </Hero>
+
+      <DocumentCopy paras={cell.body} />
+      {showPrices ? (
+        <PlacePriceBlock
+          islandId={islandId}
+          placeName={cell.name}
+          href={(path) => islandHref(islandId, hostMode, path)}
+        />
+      ) : null}
+      {cell.related.length ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Beside this note`}
+          heading="Open a related document."
+          columns={cell.related.length <= 2 ? 2 : 3}
+          items={cell.related.map((link) => ({
+            path: link.path,
+            label: link.label,
+            detail: link.path,
+          }))}
+        />
+      ) : null}
+
+      <LongFaq items={cell.faqs} title={`Asked about ${cell.name}.`} />
+      <QuoteTeaser headline="Tell us the address and the dates." island={islandId} />
+    </>
+  );
+}

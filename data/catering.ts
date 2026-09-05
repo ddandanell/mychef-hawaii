@@ -2,15 +2,17 @@ import type { IslandId } from './islands';
 import { SEARCH_VOLUMES } from './offers';
 import type { PhotoKey } from './photos';
 
-/** DataForSEO Google Ads US — 2 Sep 2026. Do not invent. Catering > chef on Oʻahu and Maui. */
+/** DataForSEO Google Ads US — 4 Sep 2026. Do not invent. Catering > chef on Oʻahu and Maui. */
 export const CATERING_VOLUMES = {
   'oahu catering': 720,
   'maui catering': 480,
   'kauai catering': 210,
   'hawaii catering': 210,
   'wedding catering oahu': 140,
+  'big island catering': 50,
   'wedding catering maui': 30,
   'wedding catering hawaii': 30,
+  'kauai wedding catering': 10,
 } as const;
 
 export interface CateringOffer {
@@ -40,7 +42,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     fromPp: 125,
     weddingFrom: 125,
     places: 'Honolulu, Waikīkī residences, Kahala, Kailua, Ko Olina',
-    photo: 'oahuHero',
+    photo: 'cateringOahu',
     faqs: [
       {
         q: 'How much is Oahu catering?',
@@ -52,7 +54,15 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
       },
       {
         q: 'Do you publish an Oahu catering menu?',
-        a: 'A sample estate menu is on this page. Your written menu is designed for that house and that guest list — not a laminated carte.',
+        a: 'A sample estate menu is on this page. Your Kahala or Ko Olina written menu is designed for that house and that guest list — not a laminated carte.',
+      },
+      {
+        q: 'Best catering Oahu?',
+        a: 'Related search, not a trophy. Published starting prices, a sample estate menu, and a written quote are the proof. We do not invent Hawaiʻi reviews to look like a ranking.',
+      },
+      {
+        q: 'Cheap catering Oahu?',
+        a: 'Related search, not a coupon. Published CORE from $125 a guest plus staffing, service, and GET as their own lines. We will not invent a mystery low number. The written quote is the total.',
       },
       {
         q: 'Wedding catering Oahu?',
@@ -72,7 +82,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     fromPp: 150,
     weddingFrom: 150,
     places: 'Wailea, Kāʻanapali, Lahaina / West Maui, Kīhei, Kapalua',
-    photo: 'mauiHero',
+    photo: 'cateringMaui',
     faqs: [
       {
         q: 'How much is Maui catering?',
@@ -90,6 +100,10 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
         q: 'Sushi-forward catering?',
         a: 'We can arrange a sushi-forward menu as a direction — nigiri, sashimi, hand rolls. Not a separate brand.',
       },
+      {
+        q: 'Affordable catering Maui?',
+        a: 'Related search, not a discount brand. Published CORE $150–$250 a guest plus staffing, service, and GET as their own lines. The written quote is the total. We do not invent a cheaper kitchen.',
+      },
     ],
   },
   kauai: {
@@ -104,7 +118,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     fromPp: 150,
     weddingFrom: 175,
     places: 'Princeville, Poʻipū, Hanalei, Kapaʻa',
-    photo: 'kauaiHero',
+    photo: 'cateringKauai',
     faqs: [
       {
         q: 'How much is Kauai catering?',
@@ -125,8 +139,8 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     ],
   },
   bigisland: {
-    keyword: 'hawaii catering',
-    volume: 70,
+    keyword: 'big island catering',
+    volume: CATERING_VOLUMES['big island catering'],
     h1: 'Big Island catering',
     title: 'Big Island catering — Kona & Kohala from $125/pp | myCHEF',
     description:
@@ -136,7 +150,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
     fromPp: 125,
     weddingFrom: 150,
     places: 'Kohala Coast, Waikoloa, Kailua-Kona',
-    photo: 'bigislandHero',
+    photo: 'cateringBigisland',
     faqs: [
       {
         q: 'How much is catering on the Big Island?',
@@ -174,7 +188,7 @@ export const HUB_CATERING = {
     },
     {
       q: 'Do you publish a Hawaii catering menu?',
-      a: 'A sample estate menu is on this page. Your written menu is designed for that house and that guest list — not a laminated carte.',
+      a: 'Each island host publishes a sample estate menu. The written menu is for that house and that guest list — not a statewide laminated carte.',
     },
   ],
 } as const;

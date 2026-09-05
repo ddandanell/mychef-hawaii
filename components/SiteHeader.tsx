@@ -5,56 +5,33 @@ import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { EnquireCta } from '@/components/Cta';
 import HostLink from '@/components/HostLink';
+import IslandSwitcher from '@/components/IslandSwitcher';
 import { MobileDisclosure, NavMenu, type NavTarget } from '@/components/NavMenu';
 import { useIsland } from '@/components/IslandProvider';
-import { islandOrder, islands } from '@/data/islands';
-import { SERVICE_AREAS } from '@/data/serviceAreas';
+import { islands } from '@/data/islands';
+import { moneyNeighborhoods } from '@/data/offers';
 import { DURATION, EASE_STANDARD } from '@/lib/motion';
+import { isHomePath, localPathFromPathname } from '@/lib/switchPath';
+import { cn } from '@/lib/utils';
 
-const CHEF_ITEMS: NavTarget[] = [
-  { label: 'Oʻahu', island: 'oahu' },
-  { label: 'Maui', island: 'maui' },
-  { label: 'Kauaʻi', island: 'kauai', note: 'Inquiry' },
-  { label: 'Hawaiʻi Island', island: 'bigisland', note: 'Inquiry' },
+const HUB_GUIDE_ITEMS: NavTarget[] = [
+  { label: 'FAQ', island: 'root', path: '/faq' },
   { label: 'How it works', island: 'root', path: '/how-it-works' },
+  { label: 'Menus', island: 'root', path: '/menus' },
+  { label: 'Coverage', island: 'root', path: '/coverage' },
+  { label: 'Contact', island: 'root', path: '/contact' },
 ];
 
-const CATERING_ITEMS: NavTarget[] = [
-  { label: 'Hawaii', island: 'root', path: '/catering' },
-  { label: 'Oʻahu catering', island: 'oahu', path: '/catering' },
-  { label: 'Maui catering', island: 'maui', path: '/catering' },
-  { label: 'Kauaʻi catering', island: 'kauai', path: '/catering' },
-  { label: 'Hawaiʻi Island catering', island: 'bigisland', path: '/catering' },
-];
-
-const WEDDING_ITEMS: NavTarget[] = [
-  { label: 'Hawaii', island: 'root', path: '/weddings' },
-  { label: 'Oʻahu', island: 'oahu', path: '/weddings' },
-  { label: 'Maui', island: 'maui', path: '/weddings' },
-  { label: 'Kauaʻi', island: 'kauai', path: '/weddings', note: 'Inquiry' },
-];
-
-const BAR_ITEMS: NavTarget[] = [
-  { label: 'Hawaii', island: 'root', path: '/bar' },
-  { label: 'Oʻahu', island: 'oahu', path: '/bar' },
-  { label: 'Maui', island: 'maui', path: '/bar' },
-];
-
-const ISLAND_SWITCH: NavTarget[] = [
-  { label: 'All Hawaiʻi', island: 'root' },
-  ...islandOrder.map((id) => ({
-    label: islands[id].name,
-    island: id,
-    note: islands[id].state === 'inquiry' ? 'Inquiry' : undefined,
-  })),
-];
-
-function areaItems(islandId: (typeof islandOrder)[number]): NavTarget[] {
-  return SERVICE_AREAS[islandId].corridors.map((c) => ({
-    label: c.name,
-    island: islandId,
-    path: `/#${c.id}`,
-  }));
+function areaItems(islandId: NonNullable<ReturnType<typeof useIsland>['islandId']>): NavTarget[] {
+  return [
+    { label: 'Map notes', island: islandId, path: '/areas' },
+    { label: 'Live corridors', island: islandId, path: '/locations' },
+    ...moneyNeighborhoods[islandId].map((hood) => ({
+      label: hood.name,
+      island: islandId,
+      path: `/${hood.slug}`,
+    })),
+  ];
 }
 
 function MobileLink({ item, onPick }: { item: NavTarget; onPick: () => void }) {
@@ -71,34 +48,51 @@ function MobileLink({ item, onPick }: { item: NavTarget; onPick: () => void }) {
   );
 }
 
-const linkCls = 'text-base font-medium text-ink hover:underline underline-offset-4';
+const linkCls = 'text-base font-medium text-[var(--nav-fg)] hover:underline underline-offset-4';
 
 export default function SiteHeader() {
-  const { islandId } = useIsland();
+  const { islandId, hostMode } = useIsland();
   const pathname = usePathname();
+  const local = localPathFromPathname(pathname || '/', islandId, hostMode);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [onHero, setOnHero] = useState(isHomePath(local));
   const reduce = useReducedMotion();
 
   useEffect(() => {
     setDrawerOpen(false);
   }, [pathname]);
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 16);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    setOnHero(Boolean(document.querySelector('.hero-bleed')));
+  }, [pathname]);
+
+  const overlay = onHero && !scrolled && !drawerOpen;
+
   return (
-    <header className="fixed inset-x-0 top-0 z-50 h-16 border-b border-line bg-paper">
-      <div className="mx-auto flex h-16 w-full max-w-spread items-center justify-between px-5 lg:px-10">
-        <div className="flex items-center gap-6">
+    <header
+      data-chrome={overlay ? 'overlay' : 'solid'}
+      className={cn(
+        'fixed inset-x-0 top-0 z-50 h-16 border-b transition-[background-color,border-color,color] duration-300',
+        overlay ? 'border-transparent bg-transparent' : 'border-line bg-paper/92 backdrop-blur-md',
+      )}
+    >
+      <div className="mx-auto flex h-16 w-full max-w-spread items-center justify-between gap-4 px-5 lg:px-10">
+        <div className="flex min-w-0 items-center gap-5">
           <HostLink
-            island="root"
-            aria-label="myCHEF Hawaii home"
-            className="font-display text-[1.375rem] font-light tracking-tight text-ink"
+            island={islandId ?? 'root'}
+            aria-label={islandId ? `myCHEF ${islands[islandId].name} home` : 'myCHEF Hawaii home'}
+            className="font-display text-[1.375rem] font-light tracking-tight text-[var(--nav-fg)]"
           >
             myCHEF
           </HostLink>
-          {islandId ? (
-            <div className="hidden lg:block">
-              <NavMenu label="Islands" items={ISLAND_SWITCH} />
-            </div>
-          ) : null}
         </div>
 
         <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
@@ -113,17 +107,38 @@ export default function SiteHeader() {
               <HostLink island={islandId} path="/weddings" className={linkCls}>
                 Weddings
               </HostLink>
-              <HostLink island={islandId} path="/bar" className={linkCls}>
+              <HostLink island={islandId} path="/mobile-bar" className={linkCls}>
                 Bar
               </HostLink>
               <NavMenu label="Areas" items={areaItems(islandId)} />
+              <NavMenu
+                label="Guide"
+                items={[
+                  { label: 'FAQ', island: islandId, path: '/faq' },
+                  { label: 'How it works', island: islandId, path: '/how-it-works' },
+                  { label: 'Menus', island: islandId, path: '/menus' },
+                  { label: 'Coverage', island: islandId, path: '/coverage' },
+                  { label: 'Pricing', island: islandId, path: '/pricing' },
+                  { label: 'Contact', island: islandId, path: '/contact' },
+                  { label: 'About', island: islandId, path: '/about' },
+                ]}
+              />
             </>
           ) : (
             <>
-              <NavMenu label="Private chefs" items={CHEF_ITEMS} />
-              <NavMenu label="Catering" items={CATERING_ITEMS} />
-              <NavMenu label="Weddings" items={WEDDING_ITEMS} />
-              <NavMenu label="Bar" items={BAR_ITEMS} />
+              <HostLink island="root" path="/" className={linkCls}>
+                Private chef
+              </HostLink>
+              <HostLink island="root" path="/catering" className={linkCls}>
+                Catering
+              </HostLink>
+              <HostLink island="root" path="/weddings" className={linkCls}>
+                Weddings
+              </HostLink>
+              <HostLink island="root" path="/mobile-bar" className={linkCls}>
+                Bar
+              </HostLink>
+              <NavMenu label="Guide" items={HUB_GUIDE_ITEMS} />
               <HostLink island="root" path="/pricing" className={linkCls}>
                 Pricing
               </HostLink>
@@ -134,18 +149,22 @@ export default function SiteHeader() {
           )}
         </nav>
 
-        <div className="hidden lg:block">
-          <EnquireCta island={islandId} />
+        <div className="hidden items-center gap-6 lg:flex">
+          <IslandSwitcher />
+          <EnquireCta island={islandId} variant={overlay ? 'light' : 'primary'} />
         </div>
 
-        <button
-          type="button"
-          className="inline-flex min-h-12 items-center justify-center px-2 text-base font-medium text-ink lg:hidden"
-          aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
-          onClick={() => setDrawerOpen((v) => !v)}
-        >
-          {drawerOpen ? 'Close' : 'Menu'}
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <IslandSwitcher />
+          <button
+            type="button"
+            className="inline-flex min-h-12 items-center justify-center px-2 text-base font-medium text-[var(--nav-fg)]"
+            aria-label={drawerOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setDrawerOpen((v) => !v)}
+          >
+            {drawerOpen ? 'Close' : 'Menu'}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -160,11 +179,6 @@ export default function SiteHeader() {
             <nav aria-label="Mobile" className="flex flex-1 flex-col overflow-y-auto px-5 py-4">
               {islandId ? (
                 <>
-                  <MobileDisclosure label="Islands">
-                    {ISLAND_SWITCH.map((item) => (
-                      <MobileLink key={item.label} item={item} onPick={() => setDrawerOpen(false)} />
-                    ))}
-                  </MobileDisclosure>
                   <HostLink
                     island={islandId}
                     path="/"
@@ -188,7 +202,7 @@ export default function SiteHeader() {
                   </HostLink>
                   <HostLink
                     island={islandId}
-                    path="/bar"
+                    path="/mobile-bar"
                     className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
                   >
                     Bar
@@ -198,27 +212,59 @@ export default function SiteHeader() {
                       <MobileLink key={item.path} item={item} onPick={() => setDrawerOpen(false)} />
                     ))}
                   </MobileDisclosure>
+                  <MobileDisclosure label="Guide">
+                    {(
+                      [
+                        { label: 'FAQ', path: '/faq' },
+                        { label: 'How it works', path: '/how-it-works' },
+                        { label: 'Menus', path: '/menus' },
+                        { label: 'Coverage', path: '/coverage' },
+                        { label: 'Pricing', path: '/pricing' },
+                        { label: 'Contact', path: '/contact' },
+                        { label: 'About', path: '/about' },
+                      ] as const
+                    ).map((item) => (
+                      <MobileLink
+                        key={item.path}
+                        item={{ label: item.label, island: islandId, path: item.path }}
+                        onPick={() => setDrawerOpen(false)}
+                      />
+                    ))}
+                  </MobileDisclosure>
                 </>
               ) : (
                 <>
-                  <MobileDisclosure label="Private chefs">
-                    {CHEF_ITEMS.map((item) => (
-                      <MobileLink key={item.label} item={item} onPick={() => setDrawerOpen(false)} />
-                    ))}
-                  </MobileDisclosure>
-                  <MobileDisclosure label="Catering">
-                    {CATERING_ITEMS.map((item) => (
-                      <MobileLink key={item.label} item={item} onPick={() => setDrawerOpen(false)} />
-                    ))}
-                  </MobileDisclosure>
-                  <MobileDisclosure label="Weddings">
-                    {WEDDING_ITEMS.map((item) => (
-                      <MobileLink key={item.label} item={item} onPick={() => setDrawerOpen(false)} />
-                    ))}
-                  </MobileDisclosure>
-                  <MobileDisclosure label="Bar">
-                    {BAR_ITEMS.map((item) => (
-                      <MobileLink key={item.label} item={item} onPick={() => setDrawerOpen(false)} />
+                  <HostLink
+                    island="root"
+                    path="/"
+                    className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
+                  >
+                    Private chef
+                  </HostLink>
+                  <HostLink
+                    island="root"
+                    path="/catering"
+                    className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
+                  >
+                    Catering
+                  </HostLink>
+                  <HostLink
+                    island="root"
+                    path="/weddings"
+                    className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
+                  >
+                    Weddings
+                  </HostLink>
+                  <HostLink
+                    island="root"
+                    path="/mobile-bar"
+                    className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
+                  >
+                    Bar
+                  </HostLink>
+                  <MobileDisclosure label="Guide">
+                    {HUB_GUIDE_ITEMS.map((item) => (
+                      <MobileLink key={item.path} item={item} onPick={() => setDrawerOpen(false)} />
                     ))}
                   </MobileDisclosure>
                   <HostLink

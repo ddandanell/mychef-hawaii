@@ -46,7 +46,7 @@ const SERVICE_PATHS: { path: string; label: string; lede: (n: string) => string 
   { path: '/what-we-dont-do', label: 'What we will not claim', lede: (n) => `No fake reviews, no invented licenses, no “now serving ${n}” language ahead of a staffed team.` },
 ];
 
-const EVENT_SLUGS = ['weddings', 'birthdays', 'anniversaries', 'corporate-events', 'retreats', 'villa-parties', 'welcome-dinners', 'brunch'];
+const EVENT_SLUGS = ['birthdays', 'anniversaries', 'corporate-events', 'retreats', 'villa-parties', 'welcome-dinners', 'brunch'];
 const CATERING_SLUGS = ['bbq', 'plated', 'family-style', 'buffet', 'grazing', 'drop-off'];
 const FINE_SLUGS = ['romantic-dinner', 'tasting-menu', 'chefs-table-evening', 'celebration-dinner'];
 const HELP_SLUGS = ['getting-started', 'menu-guide', 'wedding-guide', 'corporate-guide', 'managing-booking'];
@@ -59,8 +59,8 @@ function entry(island: IslandId, path: string, kind: CatalogKind, label: string,
   return {
     path,
     kind,
-    title: `${label} | Private chef & catering — myCHEF ${n}`,
-    h1: label,
+    title: `${label} on ${n} | myCHEF`,
+    h1: `${label} on ${n}`,
     lede: extra,
     body: [
       `${label} on ${n} is its own commercial cell — not a find-and-replace of a sibling island. ${islands[island].role}`,
@@ -80,14 +80,13 @@ const UNIQUE: Record<IslandId, { path: string; label: string; lede: string }[]> 
     { path: '/short-stay', label: 'Legal short-stay villas', lede: 'Ko Olina holds the deepest legal short-stay villa pool on Oʻahu. We say so because the law does.' },
   ],
   maui: [
-    { path: '/lahaina', label: 'Lahaina, named honestly', lede: 'West Maui is Kāʻanapali, Nāpili, Kapalua. We do not market this department as Lahaina luxury dining.' },
     { path: '/south-maui', label: 'South Maui corridor', lede: 'Wailea, Makena, Kīhei — three cells, three logistics stories, one South Maui team.' },
     { path: '/west-maui', label: 'West Maui corridor', lede: 'Kāʻanapali to Kapalua. Traffic is planned into arrival, not discovered on the invoice.' },
     { path: '/wedding-week', label: 'Maui wedding week', lede: 'Primary wedding island. Welcome, rehearsal, reception, recovery brunch as separate lines.' },
   ],
   kauai: [
     { path: '/hanalei-bridge', label: 'Hanalei bridge clause', lede: 'Far-North events inherit the weather/road clause. 72-hour notice. Reschedule rather than forfeit.' },
-    { path: '/north-shore', label: 'Kauaʻi North Shore', lede: 'Princeville, Hanalei, Hāʻena. Surf-season winters book early. Private chef Kauai from $150/pp.' },
+    { path: '/north-shore', label: 'Kauaʻi North Shore', lede: 'Princeville, Hanalei, Hāʻena. Surf-season winters book early. Inquiry stage — quote in writing.' },
     { path: '/south-shore', label: 'Kauaʻi South Shore', lede: 'Poʻipū and Kōloa. Shorter drive from Līhuʻe than the North. Same Maui-class starting prices.' },
     { path: '/wedding-week', label: 'Kauaʻi wedding week', lede: 'Estate formats to about 75 guests. Welcome, rehearsal, reception as separate lines. Inquiry stage.' },
   ],

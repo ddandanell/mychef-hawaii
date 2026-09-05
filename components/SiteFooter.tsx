@@ -16,7 +16,7 @@ export default function SiteFooter({
 
   return (
     <footer className="bg-ink text-paper">
-      <LocationsBlock tone="ink" />
+      <LocationsBlock tone="ink" scope={islandId ?? 'all'} />
 
       <div className="mx-auto w-full max-w-container border-t border-white/10 px-5 py-14 lg:px-10">
         <div className="grid gap-10 md:grid-cols-3">
@@ -25,7 +25,7 @@ export default function SiteFooter({
               myCHEF
             </HostLink>
             <p className="mt-4 max-w-xs text-[17px] leading-relaxed text-on-ink">
-              A chef in your villa. Oʻahu, Maui, Kauaʻi, Hawaiʻi Island.
+              A chef in your villa. Stay on one island — change it only when you mean to.
             </p>
             <div className="mt-6">
               <EnquireCta island={islandId} variant="secondary" />
@@ -54,10 +54,84 @@ export default function SiteFooter({
             <p className="text-[13px] text-on-ink">Company</p>
             <ul className="mt-4 space-y-2">
               <li>
-                <HostLink island="root" path="/about" className="text-base text-paper hover:underline underline-offset-4">
+                <HostLink
+                  island={islandId ?? 'root'}
+                  path="/about"
+                  className="text-base text-paper hover:underline underline-offset-4"
+                >
                   About
                 </HostLink>
               </li>
+              {islandId ? (
+                <>
+                  <li>
+                    <HostLink island={islandId} path="/faq" className="text-base text-paper hover:underline underline-offset-4">
+                      FAQ
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink
+                      island={islandId}
+                      path="/coverage"
+                      className="text-base text-paper hover:underline underline-offset-4"
+                    >
+                      Coverage
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink
+                      island={islandId}
+                      path="/how-it-works"
+                      className="text-base text-paper hover:underline underline-offset-4"
+                    >
+                      How it works
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island={islandId} path="/menus" className="text-base text-paper hover:underline underline-offset-4">
+                      Menus
+                    </HostLink>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <HostLink island="root" path="/faq" className="text-base text-paper hover:underline underline-offset-4">
+                      FAQ
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/coverage" className="text-base text-paper hover:underline underline-offset-4">
+                      Coverage
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/contact" className="text-base text-paper hover:underline underline-offset-4">
+                      Contact
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/locations" className="text-base text-paper hover:underline underline-offset-4">
+                      Live dinner doors
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/menus" className="text-base text-paper hover:underline underline-offset-4">
+                      Menus
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/help" className="text-base text-paper hover:underline underline-offset-4">
+                      Help desks
+                    </HostLink>
+                  </li>
+                  <li>
+                    <HostLink island="root" path="/events" className="text-base text-paper hover:underline underline-offset-4">
+                      Villa occasions
+                    </HostLink>
+                  </li>
+                </>
+              )}
               <li>
                 <HostLink island="root" path="/pricing" className="text-base text-paper hover:underline underline-offset-4">
                   Pricing

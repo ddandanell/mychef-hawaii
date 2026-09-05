@@ -1,0 +1,794 @@
+{
+  "source": "DataForSEO Google Ads + Labs related_keywords",
+  "pulled_at": "2026-09-04",
+  "location": "United States",
+  "location_code": 2840,
+  "language_code": "en",
+  "cost": 0.09,
+  "volumes": {
+    "oahu catering": {
+      "keyword": "oahu catering",
+      "search_volume": 720,
+      "competition": "LOW",
+      "competition_index": 29,
+      "cpc": 1.89,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 590
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 720
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 590
+        }
+      ]
+    },
+    "maui catering": {
+      "keyword": "maui catering",
+      "search_volume": 480,
+      "competition": "LOW",
+      "competition_index": 31,
+      "cpc": 2.84,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 480
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 480
+        }
+      ]
+    },
+    "private chef maui": {
+      "keyword": "private chef maui",
+      "search_volume": 260,
+      "competition": "MEDIUM",
+      "competition_index": 54,
+      "cpc": 3.07,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 260
+        }
+      ]
+    },
+    "private chef kauai": {
+      "keyword": "private chef kauai",
+      "search_volume": 210,
+      "competition": "LOW",
+      "competition_index": 24,
+      "cpc": 3.28,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 140
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 210
+        }
+      ]
+    },
+    "kauai catering": {
+      "keyword": "kauai catering",
+      "search_volume": 210,
+      "competition": "LOW",
+      "competition_index": 21,
+      "cpc": 3.58,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 320
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 320
+        }
+      ]
+    },
+    "hawaii catering": {
+      "keyword": "hawaii catering",
+      "search_volume": 210,
+      "competition": "LOW",
+      "competition_index": 21,
+      "cpc": 3.18,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 210
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 260
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 210
+        }
+      ]
+    },
+    "wedding catering oahu": {
+      "keyword": "wedding catering oahu",
+      "search_volume": 140,
+      "competition": "MEDIUM",
+      "competition_index": 43,
+      "cpc": 2.63,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 170
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 170
+        }
+      ]
+    },
+    "private chef oahu": {
+      "keyword": "private chef oahu",
+      "search_volume": 90,
+      "competition": "MEDIUM",
+      "competition_index": 33,
+      "cpc": 2.71,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 70
+        }
+      ]
+    },
+    "private chef honolulu": {
+      "keyword": "private chef honolulu",
+      "search_volume": 70,
+      "competition": "MEDIUM",
+      "competition_index": 40,
+      "cpc": 2.35,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 50
+        }
+      ]
+    },
+    "private chef big island": {
+      "keyword": "private chef big island",
+      "search_volume": 70,
+      "competition": "LOW",
+      "competition_index": 28,
+      "cpc": 3.92,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 70
+        }
+      ]
+    },
+    "private chef kona": {
+      "keyword": "private chef kona",
+      "search_volume": 70,
+      "competition": "LOW",
+      "competition_index": 32,
+      "cpc": 3.98,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 70
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 90
+        }
+      ]
+    },
+    "private chef hawaii": {
+      "keyword": "private chef hawaii",
+      "search_volume": 50,
+      "competition": "LOW",
+      "competition_index": 24,
+      "cpc": 1.76,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 70
+        }
+      ]
+    },
+    "big island catering": {
+      "keyword": "big island catering",
+      "search_volume": 50,
+      "competition": "LOW",
+      "competition_index": 15,
+      "cpc": null,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 110
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 90
+        }
+      ]
+    },
+    "personal chef honolulu": {
+      "keyword": "personal chef honolulu",
+      "search_volume": 40,
+      "competition": "LOW",
+      "competition_index": 12,
+      "cpc": 4.21,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 10
+        }
+      ]
+    },
+    "wedding catering hawaii": {
+      "keyword": "wedding catering hawaii",
+      "search_volume": 30,
+      "competition": "LOW",
+      "competition_index": 32,
+      "cpc": 2.12,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 40
+        }
+      ]
+    },
+    "wedding catering maui": {
+      "keyword": "wedding catering maui",
+      "search_volume": 30,
+      "competition": "MEDIUM",
+      "competition_index": 40,
+      "cpc": 1.81,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 50
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 30
+        }
+      ]
+    },
+    "personal chef oahu": {
+      "keyword": "personal chef oahu",
+      "search_volume": 20,
+      "competition": "MEDIUM",
+      "competition_index": 62,
+      "cpc": 1.94,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 20
+        }
+      ]
+    },
+    "personal chef maui": {
+      "keyword": "personal chef maui",
+      "search_volume": 20,
+      "competition": "LOW",
+      "competition_index": 21,
+      "cpc": null,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 40
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 10
+        }
+      ]
+    },
+    "mobile bar hawaii": {
+      "keyword": "mobile bar hawaii",
+      "search_volume": 20,
+      "competition": "LOW",
+      "competition_index": 10,
+      "cpc": null,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 30
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 40
+        }
+      ]
+    },
+    "private chef lahaina maui": {
+      "keyword": "private chef lahaina maui",
+      "search_volume": 10,
+      "competition": "HIGH",
+      "competition_index": 100,
+      "cpc": 5.88,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 10
+        }
+      ]
+    },
+    "private chef north shore oahu": {
+      "keyword": "private chef north shore oahu",
+      "search_volume": 10,
+      "competition": "MEDIUM",
+      "competition_index": 57,
+      "cpc": null,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 10
+        }
+      ]
+    },
+    "private chef poipu kauai": {
+      "keyword": "private chef poipu kauai",
+      "search_volume": 10,
+      "competition": "MEDIUM",
+      "competition_index": 57,
+      "cpc": 3.58,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 10
+        }
+      ]
+    },
+    "private chef maui cost": {
+      "keyword": "private chef maui cost",
+      "search_volume": 10,
+      "competition": "MEDIUM",
+      "competition_index": 36,
+      "cpc": 3.4,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 20
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 20
+        }
+      ]
+    },
+    "kauai wedding catering": {
+      "keyword": "kauai wedding catering",
+      "search_volume": 10,
+      "competition": "LOW",
+      "competition_index": 32,
+      "cpc": 1.98,
+      "monthly_searches": [
+        {
+          "year": 2025,
+          "month": 10,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 9,
+          "search_volume": 10
+        },
+        {
+          "year": 2025,
+          "month": 8,
+          "search_volume": 30
+        }
+      ]
+    },
+    "wedding catering kauai": {
+      "keyword": "wedding catering kauai",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef wailea": {
+      "keyword": "private chef wailea",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef wailea maui": {
+      "keyword": "private chef wailea maui",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef kaanapali": {
+      "keyword": "private chef kaanapali",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef kihei maui": {
+      "keyword": "private chef kihei maui",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef kapalua": {
+      "keyword": "private chef kapalua",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef kahala": {
+      "keyword": "private chef kahala",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef ko olina": {
+      "keyword": "private chef ko olina",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef kailua": {
+      "keyword": "private chef kailua",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef waikiki": {
+      "keyword": "private chef waikiki",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef princeville": {
+      "keyword": "private chef princeville",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef hanalei": {
+      "keyword": "private chef hanalei",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "private chef waikoloa": {
+      "keyword": "private chef waikoloa",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "vacation chef hawaii": {
+      "keyword": "vacation chef hawaii",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "vacation chef maui": {
+      "keyword": "vacation chef maui",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    },
+    "best private chef maui": {
+      "keyword": "best private chef maui",
+      "search_volume": null,
+      "competition": null,
+      "competition_index": null,
+      "cpc": null,
+      "monthly_searches": []
+    }
+  },
+  "related": {
+    "private chef hawaii": [
+      "oahu catering",
+      "honolulu catering",
+      "private chef palm springs",
+      "maui private chefs",
+      "aloha culinary group",
+      "elite maui chef",
+      "private chef oahu",
+      "private chef honolulu",
+      "private chef big island hawaii",
+      "private chef hawaii"
+    ],
+    "private chef maui": [
+      "private chef palm springs",
+      "palm springs catering",
+      "private chef maui",
+      "elite maui chef",
+      "private chef joshua tree",
+      "private chef palm springs bachelorette party",
+      "lotus chefs maui",
+      "no worries private chefs",
+      "private chef lahaina maui",
+      "private chef maui cost"
+    ],
+    "private chef oahu": [
+      "private chef near me",
+      "private chef for dinner party",
+      "oahu catering",
+      "private chef at home",
+      "wedding catering oahu",
+      "hire a chef for a party",
+      "private chef oahu",
+      "best catering oahu",
+      "personal chef to cook in my home",
+      "hire a chef for home"
+    ],
+    "private chef kauai": [
+      "private chef kauai",
+      "kauai catering",
+      "farm cook kauai",
+      "chef leo kauai",
+      "private chef poipu kauai",
+      "south shore chef kauai",
+      "kauai catering menu",
+      "kauai wedding catering",
+      "white ginger catering",
+      "private chef princeville kauai"
+    ],
+    "oahu catering": [
+      "oahu catering",
+      "catering oahu",
+      "wedding catering oahu",
+      "best catering oahu",
+      "cheap catering oahu",
+      "party catering oahu",
+      "small catering honolulu",
+      "filipino catering oahu",
+      "honolulu catering menus with prices",
+      "bento & catering oahu"
+    ],
+    "maui catering": [
+      "four sisters bakery & catering menu",
+      "maui catering",
+      "dani's catering menu",
+      "dani's catering maui",
+      "four sisters bakery & catering reviews",
+      "four sisters catering menu",
+      "tj's catering maui",
+      "affordable catering maui",
+      "four sisters catering maui",
+      "dani's catering photos"
+    ],
+    "wedding catering hawaii": [
+      "wedding catering oahu",
+      "party catering oahu",
+      "wedding catering hawaii",
+      "affordable wedding catering oahu"
+    ]
+  }
+}

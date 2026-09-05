@@ -22,21 +22,21 @@ export const hubHomeSections: CopySection[] = [
     paras: [
       'A vacation rental chef is the honest name for most visitor bookings: Airbnb, VRBO, resort residence, estate week. The test is the kitchen. If there is a cooktop, a fridge, and a table, we can work. If there is not, we say no before you put a deposit down.',
       'Stay Chef is the multi-day version — day rates from $850 on Oʻahu and $1,050 on Maui, groceries billed at cost with receipts. Arrival-night dinner plus a stocked fridge is the usual first move. Full-board days exist for houses that actually cook three times.',
-      'Neighborhood names — Wailea, Waikīkī, Princeville, Kona — belong in the quote, not as their own URLs. Open the island site for the kitchen that matches the house. Request a quote statewide on /quote.',
+      'Neighborhood corridors live on the island hosts — /wailea on Maui, /waikiki on Oʻahu, /princeville on Kauaʻi, /kona on Hawaiʻi Island. They are not hub paths. Open the island site for the kitchen that matches the house. Request a quote statewide on /quote.',
     ],
   },
   {
     h2: 'Four islands, one written total',
     paras: [
       'Oʻahu is town kitchens and the west-side villa belt: Honolulu residences, Kahala dining rooms, Ko Olina short-stay houses. Maui is the villa week people picture — Wailea, West Maui, Kīhei — with staffed receptions as a larger door next to dinner. Kauaʻi is both shores, inquiry-stage: Princeville and Hanalei to the north, Poʻipū and Kōloa to the south. Hawaiʻi Island is west-side first — Kona and the Kohala Coast — also inquiry-stage. Hilo is a different day. We will not sell a same-day crossing.',
-      'Each island host publishes its own starting prices. This page is the statewide door: private chef Hawaii in the villa you booked, on the island you booked. It does not replace the Oʻahu, Maui, Kauaʻi, or Big Island homes. Those pages own their island phrases. Honolulu is a secondary on the Oʻahu home. Kona is a secondary on the Big Island home. Neither is a path of its own.',
+      'Each island host publishes its own starting prices. This page is the statewide door: private chef Hawaii in the villa you booked, on the island you booked. It does not replace the Oʻahu, Maui, Kauaʻi, or Big Island homes. Those pages own their island phrases. Honolulu lives on the Oʻahu host as /honolulu. Kona lives on the Hawaiʻi Island host as /kona. Neither is a separate company or a separate domain.',
       'Oʻahu and Maui take a written quote now. Kauaʻi and Hawaiʻi Island take the inquiry list — dates and shore, not a Book now button. The form is the same five fields. The reply is still a human in Hawaii business hours.',
     ],
   },
   {
     h2: 'What a night includes',
     paras: [
-      'A signature dinner includes menu design, same-day shopping, cooking in that kitchen, table service, and cleanup. Groceries sit inside the per-guest band on a dinner night. Stay Chef days bill groceries at cost with receipts. Alcohol is BYO or the mobile bar as its own line. Rentals and venue fees are add-ons when you want them — never a silent hospitality fold-in.',
+      'A signature dinner includes menu design, same-day shopping, cooking in that kitchen, table service, and cleanup. Groceries sit inside the per-guest band on a dinner night. Stay Chef days bill groceries at cost with receipts. Alcohol is BYO or the packaged cart as its own line. Rentals and venue fees are add-ons when you want them — never a silent hospitality fold-in.',
       'Oʻahu CORE is $125–$190 a guest. Maui CORE is $150–$250. Kauaʻi matches the Maui band. Hawaiʻi Island CORE is $150–$225, with an ENTRY door from $110. Service 20% and Hawaiʻi GET up to 4.712% print after the food. A 50% deposit locks the date once you accept the written total. A tip is never required and never hidden.',
       'Small tables under about six are often a fixed night, not a per-head stack. Date Night for two has its own starting prices on each island card. Staffed rooms of about ten to seventy-five live on /catering. Wedding weeks live on /weddings. The line-by-line tariff lives on /pricing. Start on /quote.',
     ],
@@ -52,16 +52,12 @@ export const hubHomeSections: CopySection[] = [
 
 export const hubHomeFaqs: CopyFaq[] = [
   {
-    q: 'How much does a private chef cost in Hawaii?',
+    q: 'Where is the line-by-line Hawaii chef card?',
     a: 'Signature dinner from $125 a guest on Oʻahu, $150 on Maui and Kauaʻi. Stay Chef from $850 a day. Service 20% and GET up to 4.712% are added once on the written quote. The line-by-line card is on /pricing.',
   },
   {
-    q: 'Which islands?',
-    a: 'Oʻahu, Maui, Kauaʻi, and Hawaiʻi Island. Each island site publishes its own starting prices and a sample menu. Honolulu lives on the Oʻahu home. Kona lives on the Big Island home.',
-  },
-  {
-    q: 'Do you cook in an Airbnb?',
-    a: 'Yes, when there is a real cooktop. Hotel rooms without kitchens are declined. Tell us the property type on /quote.',
+    q: 'Hotel rooms without a cooktop?',
+    a: 'Declined. Airbnb and vacation rentals are a yes when there is a real cooktop. Tell us the property type on /quote.',
   },
   {
     q: 'Is this a marketplace of freelance chefs?',
@@ -73,7 +69,7 @@ export const hubHomeFaqs: CopyFaq[] = [
   },
   {
     q: 'Are Honolulu and Kona their own sites?',
-    a: 'No. Honolulu is covered on the Oʻahu home. Kona is covered on the Big Island home. Neighborhood names stay in the quote and in the body — they are not their own URLs.',
+    a: 'No. Honolulu is a corridor on the Oʻahu host — /honolulu. Kona is a corridor on the Hawaiʻi Island host — /kona. They are not separate companies or separate domains.',
   },
 ];
 
@@ -97,7 +93,7 @@ export const hubCateringSections: CopySection[] = [
     h2: 'Villas and estates — not ballrooms',
     paras: [
       'We cook in residences and estate kitchens. Hotel banquet rooms and citywide convention holds are a different industry. If the house has a cooktop and a table that fits the list, we design to that. If it does not, we say so.',
-      'Retreat weeks, production crews, and family reunions sit in the same band as a celebration dinner — the guest count and the format change the crew, not the honesty of the quote. Drinks are BYO or the mobile bar on a separate line. See /bar and /weddings.',
+      'Retreat weeks, production crews, and family reunions sit in the same band as a celebration dinner — the guest count and the format change the crew, not the honesty of the quote. Drinks are BYO or the packaged cart on a separate line. See /mobile-bar and /weddings.',
     ],
   },
   {
@@ -126,20 +122,12 @@ export const hubCateringSections: CopySection[] = [
 
 export const hubCateringFaqs: CopyFaq[] = [
   {
-    q: 'How much is Hawaii catering?',
-    a: 'Food from $125 a guest on Oʻahu, $150 on Maui and Kauaʻi. Wedding formats from $125–$175 a guest plus staffing, depending on the island. Service 20% and GET up to 4.712% on their own lines.',
+    q: 'What’s on a Hawaii catering quote besides food?',
+    a: 'Wedding formats from $125–$175 a guest plus staffing, depending on the island. Service 20% and GET up to 4.712% on their own lines. The food start is $125 a guest on Oʻahu, $150 on Maui and Kauaʻi.',
   },
   {
     q: 'What guest counts do you staff?',
     a: 'About ten to seventy-five for a reception. Smaller dinners sit on the private-chef door. Larger rooms are quoted as exceptions, never implied as standard.',
-  },
-  {
-    q: 'Do you publish a menu?',
-    a: 'A sample estate menu is on this page. Your written menu is designed for that house and that list — not a laminated carte.',
-  },
-  {
-    q: 'Which island should I open?',
-    a: 'The island where the house is. Oʻahu, Maui, Kauaʻi, and Hawaiʻi Island each have a catering page with local prices. This page does not replace them.',
   },
   {
     q: 'Oʻahu and Maui versus Kauaʻi and the Big Island?',
@@ -197,7 +185,7 @@ export const hubWeddingsSections: CopySection[] = [
     h2: 'Planners, houses, and what we will not invent',
     paras: [
       'We slot into a planner’s timeline. COIs, load-in windows, and quiet hours are arranged with the property before the first welcome pour. We do not claim venue exclusivity we do not have. If the estate cannot hold the list, we decline the headcount before we design a cake-cutting window.',
-      'Hawaii is launching. We do not invent wedding reviews, chef names, an 808 number, or a street office. Proof is published prices, a sample estate menu, cleanup, and a written week. Reviews publish after verified events — see /trust. Neighborhood names stay in the quote. They are not their own URLs. Oʻahu and Maui request a quote. Kauaʻi and Hawaiʻi Island join the inquiry list.',
+      'Hawaii is launching. We do not invent wedding reviews, chef names, an 808 number, or a street office. Proof is published prices, a sample estate menu, cleanup, and a written week. Reviews publish after verified events — see /trust. Neighborhood corridors live on the island hosts, not on this statewide page. Oʻahu and Maui request a quote. Kauaʻi and Hawaiʻi Island join the inquiry list.',
     ],
   },
 ];
@@ -217,7 +205,7 @@ export const hubWeddingsFaqs: CopyFaq[] = [
   },
   {
     q: 'Can we add a bar?',
-    a: 'Yes. Mobile bar is a published add-on, stacked on the same quote.',
+    a: 'Yes. The packaged cart lives on /mobile-bar. The bartender add-on lives on /bar. Either stacks on the same quote.',
   },
   {
     q: 'Do you book Kauaʻi and the Big Island weddings now?',
@@ -231,9 +219,9 @@ export const hubWeddingsFaqs: CopyFaq[] = [
 
 export const hubPricingSections: CopySection[] = [
   {
-    h2: 'Private chef Hawaii cost',
+    h2: 'The statewide band, then a written quote',
     paras: [
-      'Private chef Hawaii cost is not a single number. It is a published band, then a written quote. Signature dinner: $125–$190 a guest on Oʻahu, $150–$250 on Maui and Kauaʻi, $150–$225 on Hawaiʻi Island (Table from $110). Stay Chef day rates from $850 Oʻahu / $1,050 Maui / $1,100 Kauaʻi / $950 Hawaiʻi Island.',
+      'Private chef Hawaii cost is not a single number. Hub `/` owns private chef Hawaii. This page is the tariff. Signature dinner: $125–$190 a guest on Oʻahu, $150–$250 on Maui and Kauaʻi, $150–$225 on Hawaiʻi Island (Table from $110). Stay Chef day rates from $850 Oʻahu / $1,050 Maui / $1,100 Kauaʻi / $950 Hawaiʻi Island.',
       'What sits inside the per-guest dinner band: menu design, same-day shopping, cooking, table service, cleanup. Groceries are inside that band on a signature night. On Stay Chef days, groceries are billed at cost with receipts. Alcohol is BYO or quoted. Rentals and venue fees are add-ons when you want them.',
       'What is added once, as its own lines: 20% service, Hawaiʻi GET up to 4.712%, and a 50% deposit to lock the date. Gratuity is voluntary. Travel beyond base corridors is a published zone line. There is no mystery “hospitality” fold-in.',
     ],
@@ -249,27 +237,8 @@ export const hubPricingSections: CopySection[] = [
     h2: 'How to read the tariff',
     paras: [
       'Use the island tabs on this page for the card that matches the house. Then open /quote with that island selected. Typical reply in Hawaii business hours. No payment to enquire. No account.',
-      'If you need the Maui-only cost story, the Maui site’s pricing page and home carry it. This page is statewide: private chef Hawaii cost, line by line.',
+      'If you need the Maui-only cost story, the Maui site’s /pricing and /private-chef-cost carry it. This statewide card is what a night costs, line by line. The fee-stack picker is /private-chef-cost.',
     ],
-  },
-];
-
-export const hubPricingFaqs: CopyFaq[] = [
-  {
-    q: 'How much does a private chef cost in Hawaii?',
-    a: 'Oʻahu Signature $125–$190 a guest. Maui and Kauaʻi $150–$250. Hawaiʻi Island Signature $150–$225, Table from $110. Stay Chef from $850 a day on Oʻahu. Written quote before you commit.',
-  },
-  {
-    q: 'Are groceries included?',
-    a: 'On a signature dinner, yes — inside the per-guest band. On Stay Chef and multi-day days, groceries are billed at cost with receipts.',
-  },
-  {
-    q: 'What is added on the quote?',
-    a: '20% service and GET up to 4.712% as their own lines. 50% deposit locks the date. Gratuity is voluntary. Zone travel only outside the usual corridors.',
-  },
-  {
-    q: 'Why bands instead of one number?',
-    a: 'Menu, date, and kitchen change the total. A band is the published start. The quote is exact.',
   },
 ];
 
@@ -286,7 +255,7 @@ export const quoteTrustSections: CopySection[] = [
     h2: 'How to make the quote accurate',
     paras: [
       'Island, dates, headcount, and service are enough to start. Property type helps: villa, condo, hotel residence, or no kitchen. Allergies and a bartender belong in the first reply thread, not as a surprise at the pass. 50% locks the date once you accept the written total.',
-      'Name the island that matches the house. Honolulu is an Oʻahu address, not a separate site. Kona is a Big Island address, not a /kona page. Neighborhood names — Wailea, Kahala, Princeville, Waikoloa — belong in the first message so we price the drive, not as extra URLs.',
+      'Name the island that matches the house. Honolulu is an Oʻahu corridor — /honolulu on that host — not a separate company. Kona is a Hawaiʻi Island corridor — /kona. Neighborhood corridors — /wailea, /kahala, /princeville, /waikoloa — live on the island hosts. Name the house on /quote so we price the drive.',
       'Oʻahu CORE dinners are $125–$190 a guest. Maui CORE is $150–$250. Those bands hold menu, shopping, cooking, service, and cleanup. Staffing for a ten-to-seventy-five room is hourly on top. The confirmed number is the written quote — never a chat estimate.',
       'If dates are flexible, say so. Peak months move first on every island. One crew holds one heavy week. We will not invent a second brigade to look available. WhatsApp is the same conversation as this form — typical reply in Hawaii business hours. No street office. No 808 number. The form and WhatsApp are the doors. A 50% deposit is the only money that locks a date — after you accept the written total, never before. Oʻahu CORE is $125–$190 a guest. Maui CORE is $150–$250. Those numbers do not change because the form is short.',
     ],

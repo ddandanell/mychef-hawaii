@@ -5,17 +5,17 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
   oahu: {
     sections: [
       {
-        h2: 'Private chef Honolulu',
+        h2: 'Honolulu residences',
         paras: [
-          'Private chef Honolulu is a cook in a residence that actually has a kitchen — a Gold Coast apartment, a townhouse dining room, a tower with a cooktop — not a restaurant table moved three blocks. We design the menu for that galley, buy at the Honolulu fish markets the morning of service, cook on your range, pace the table, and pack out so the dishwasher is empty. The guest list is yours. The night ends when you say it ends.',
+          'Private chef Honolulu is a cook in a residence that actually has a kitchen — a Gold Coast apartment, a townhouse dining room, a tower with a cooktop — not a restaurant table moved three blocks. That corridor URL is /honolulu. This home still owns private chef Oahu. We design the menu for that galley, buy at the Honolulu fish markets the morning of service, cook on your range, pace the table, and pack out so the dishwasher is empty. The guest list is yours. The night ends when you say it ends.',
           'Signature dinners on this island sit at $125–$190 a guest. That band holds menu design, same-day shopping, cooking, table service, and cleanup. Date Night for two starts from $450 as a fixed evening. Small parties under six are often quoted as a night, not a per-head stack. Twenty percent service and Hawaiʻi GET up to 4.712% print as their own lines on the written total. A 50% deposit locks the date. A tip is never required on an Oʻahu quote.',
           'You book myCHEF Hawaii, not a swipeable roster of named cooks. We crew the night to the house: six at a Honolulu table is not sixty on a lawn. Staffed rooms of about ten to seventy-five live on /catering. Wedding-week formats — welcome dinner, rehearsal, reception, recovery brunch — live on /weddings. Line-by-line numbers live on /pricing. Start on /quote with the island set to Oʻahu.',
         ],
       },
       {
-        h2: 'Personal chef Oahu',
+        h2: 'Weekly households',
         paras: [
-          'Personal chef Oahu is the standing household rhythm, not a one-night halo. Residents book a weekly cook day: groceries billed at cost with receipts, kids’ plates designed in, leftovers labeled. The kamaʻāina line starts from $300 a week plus those groceries. Frequency is the product. Visitors still book a first-night dinner; the weekly line is for people who already live here.',
+          'Personal chef Oahu is the standing household rhythm, not a one-night halo. That URL is /personal-chef, beside /kamaaina. Visitors still book a first-night dinner on this home. Residents book a weekly cook day: groceries billed at cost with receipts, kids’ plates designed in, leftovers labeled. The kamaʻāina line starts from $300 a week plus those groceries. Frequency is the product.',
           'Tell us the property type on /quote. Freight elevators, loading docks, quiet hours, and building COIs are arranged before anyone shops — not discovered in a driveway on Kalākaua. Compact Kakaʻako and downtown galleys get bring-equipment menus. A Waikīkī suite with only a coffee maker is declined; we will not pretend that is a pass. Hawaiʻi Kai and Diamond Head households sit in the same town timing as Kahala. North Shore and Turtle Bay are a published drive surcharge, 60–90+ minutes from town, and we do not stack a town dinner on the same calendar.',
         ],
       },
@@ -23,7 +23,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
         h2: 'Waikīkī',
         paras: [
           'Most Waikīkī hotel rooms cannot host a chef. We cook in resort residences and apartments that have a functioning cooktop, a fridge, and a table that fits the list. If the listing is a standard suite with a minibar, we decline before a deposit. That honesty is the product: a celebration dinner in a residence, not a hallway cart and a fire alarm.',
-          'High-rise load-in is the constraint, not distance. We schedule freight windows with the building, carry COI paperwork, and design a menu that fits a galley. CORE still starts at $125 a guest. Stay Chef — a chef day from $850, groceries at cost — makes more sense than stacking single dinners across a long stay. Neighborhood names stay in the quote and on this page. They are not their own URLs.',
+          'High-rise load-in is the constraint, not distance. We schedule freight windows with the building, carry COI paperwork, and design a menu that fits a galley. CORE still starts at $125 a guest. Stay Chef — a chef day from $850, groceries at cost — makes more sense than stacking single dinners across a long stay. Waikīkī residences with kitchens live on /waikiki. Honolulu and Kahala are their own corridor URLs. This home still owns private chef Oahu.',
         ],
       },
       {
@@ -82,7 +82,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
         paras: [
           'Wailea is Maui’s signature resort-residence corridor: hotel-zoned villas with kitchens, December-through-March tightness, and the dinner we built the island around. This is not a communal resort chef’s table that seats you with strangers. It is your villa, your guest list, a menu designed that week. We shop South Maui the day of service. You pick the catch; the plate follows the boat.',
           'Signature dinners run $150–$250 a guest. Inside that Maui band: a menu written for the villa, a same-day shop, cooking on your range, paced service, and a kitchen we leave empty. Date Night for two starts from $500+. Stay Chef — a chef day from $1,050, groceries billed at cost with receipts — is the villa-week product. Peak months move first. Ask early on /quote.',
-          'If the room grows past a household table, the staffed-event door is /catering. Wedding-week formats — welcome through recovery brunch as separate lines — live on /weddings. The tariff itself is on /pricing. Neighborhood names stay in the body and on the quote. They are not destination URLs.',
+          'If the room grows past a household table, the staffed-event door is /catering. Wedding-week formats — welcome through recovery brunch as separate lines — live on /weddings. The tariff itself is on /pricing. Wailea is /wailea. West Maui is /lahaina and /kaanapali. This home still owns private chef Maui.',
         ],
       },
       {
@@ -107,9 +107,9 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
         ],
       },
       {
-        h2: 'Private chef Maui cost',
+        h2: 'What a Maui night costs',
         paras: [
-          'Private chef Maui cost is a published band, then a written quote. Signature $150–$250 a guest. Stay Chef from $1,050 a day. Groceries ride inside the dinner band on a signature night; on Stay Chef days they are billed at cost with receipts. Alcohol is BYO or quoted. Rentals and venue fees are add-ons when you want them.',
+          'Private chef Maui cost is a published band, then a written quote. The fee-stack page is /private-chef-cost. The card is /pricing. Signature $150–$250 a guest. Stay Chef from $1,050 a day. Groceries ride inside the dinner band on a signature night; on Stay Chef days they are billed at cost with receipts. Alcohol is BYO or quoted. Rentals and venue fees are add-ons when you want them.',
           'What is added once, as its own lines: 20% service, Hawaiʻi GET up to 4.712%, and a 50% deposit to hold the date. Wine and spirits are either yours or a separate quote — never folded into the catch. Travel beyond Wailea, Kāʻanapali, Kapalua, and Makena is a published zone line — Upcountry from $75, North Shore quoted with the menu. There is no mystery hospitality fee. Read the card on /pricing, then send dates on /quote.',
         ],
       },
@@ -144,6 +144,10 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
       {
         q: 'Wailea versus West Maui — does the food price change?',
         a: 'No. Wailea, Kāʻanapali, Kapalua, and Makena share the Maui signature band. Drive time inside those corridors is included. Upcountry and Pāʻia are the exceptions.',
+      },
+      {
+        q: 'Maui private chefs — is that a roster?',
+        a: 'Related search, not a marketplace. You book myCHEF Hawaii. We staff the house. Named-chef swipes and “elite Maui chef” impersonations live on /what-we-dont-do.',
       },
       {
         q: 'Can I pick a cook by name or gender?',
@@ -231,9 +235,9 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
   bigisland: {
     sections: [
       {
-        h2: 'Private chef Kona',
+        h2: 'Kona and the west-side shop',
         paras: [
-          'Private chef Kona is the west-side door on Hawaiʻi Island. Kailua-Kona, Keauhou, Hōlualoa mauka of town — one corridor, not a separate site. Kona is named on this home; it is not a path of its own. We cook in villas and resort residences that have a real kitchen. We shop Kona-side the day of service. Named coffee on a crust is coffee; origin is labeled when the plate requires it. Ranch or farm credits appear only after we hold written verification — no invented Big Island producers.',
+          'Private chef Kona is the west-side corridor on this host — /kona. This home still owns private chef Big Island. Kailua-Kona, Keauhou, Hōlualoa mauka of town — one corridor, not a separate company. We cook in villas and resort residences that have a real kitchen. We shop Kona-side the day of service. Named coffee on a crust is coffee; origin is labeled when the plate requires it. Ranch or farm credits appear only after we hold written verification — no invented Big Island producers.',
           'CORE dinners are $150–$225 a guest. ENTRY starts from $110. Date Night from $550 as a fixed evening. Stay Chef from $950 a day, groceries at cost with receipts. West-side quotes add 20% service and GET (capped at 4.712%) after the food, never inside it. A 50% deposit holds the date. The confirmed total is the written quote from /quote — west-side first, always.',
           'The booking is myCHEF Hawaii. We staff to the house. A kanpachi crudo and a coffee-rubbed catch for six at a Kona villa is not a Kohala reception. Staffed west-side rooms live on /catering. Wedding-week formats from $150 a guest plus staffing live on /weddings. The island card is on /pricing. Keauhou sits on the same west-side shop as town; we do not treat it as a second island.',
         ],
@@ -270,7 +274,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
         h2: 'How we quote Hawaiʻi Island',
         paras: [
           'Island, dates, headcount, service, property type. Five fields. A Hawaiʻi Island coordinator answers on working days, usually within one business day. We ask west-side or east-side in the first thread because that answer changes the crew, not just the drive. Allergies and a bartender belong there too. 50% locks the date once you accept the written total. Waikoloa, Mauna Lani, and town addresses all count as west-side for that first question.',
-          'Vacation-rental kitchens on the Kohala Coast and in Kona town are the default yes — when they actually cook. A resort room with no range is declined on this island the same as anywhere we work. Neighborhood names — Kona, Waikoloa, Kohala, Waimea — belong in the quote, not as their own paths. Start on /quote. Stack a staffed room on /catering or a week of vows on /weddings when the list grows.',
+          'Vacation-rental kitchens on the Kohala Coast and in Kona town are the default yes — when they actually cook. A resort room with no range is declined on this island the same as anywhere we work. Live corridor URLs on this host are /kona, /waikoloa, /kohala, and /waimea. Start on /quote. Stack a staffed room on /catering or a week of vows on /weddings when the list grows.',
         ],
       },
     ],
@@ -281,7 +285,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
       },
       {
         q: 'Is there a separate Kona site?',
-        a: 'No. Private chef Kona lives on this Hawaiʻi Island home. We do not spin Kona out as its own path. Put the west-side address on /quote.',
+        a: 'No. There is no separate Kona hostname. /kona is the west-side corridor on this Hawaiʻi Island host. This home still owns private chef Big Island. Put the west-side address on /quote.',
       },
       {
         q: 'Can you cover Hilo from Kona in one day?',
@@ -293,7 +297,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
       },
       {
         q: 'Big Island or Hawaiʻi Island?',
-        a: 'Both names. Searchers say Big Island and Kona. The geography is Hawaiʻi Island. The chef team is the same.',
+        a: 'Both names. Related search “private chef big island hawaii” is this host — not a second path. Searchers also say Kona. The geography is Hawaiʻi Island. The chef team is the same.',
       },
       {
         q: 'Airbnb on the Kohala Coast?',

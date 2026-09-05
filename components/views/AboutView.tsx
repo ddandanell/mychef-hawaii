@@ -2,16 +2,16 @@ import Link from 'next/link';
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
+import HubPhotoGrid from '@/components/HubPhotoGrid';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, SiblingCluster } from '@/components/Longform';
 import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { LocationsBlock } from '@/components/LocationsBlock';
+import { getHubDirectory } from '@/data/hubDirectories';
 import { islandOrder, islands } from '@/data/islands';
-
-const DESCRIPTION =
-  'myCHEF Hawaii is a four-island villa chef team. We staff a brigade to the size of the house — chef, sous, service, bar, shopper. Request a quote.';
+import { photos } from '@/data/photos';
 
 const faqs = [
   {
@@ -30,10 +30,10 @@ const faqs = [
     q: 'Do you have Hawaiʻi guest reviews yet?',
     a: 'Not yet. We will not invent them. Reviews publish after verified events. Until then the proof is published prices, a sample menu, cleanup, and a written quote. See /trust.',
   },
-  {
-    q: 'Which islands?',
-    a: 'Oʻahu, Maui, Kauaʻi, and Hawaiʻi Island. Honolulu is covered on the Oʻahu site. Kona is covered on the Big Island site. Neighborhood names belong in the quote, not as their own URLs.',
-  },
+    {
+      q: 'Which islands?',
+      a: 'Oʻahu, Maui, Kauaʻi, and Hawaiʻi Island. Each island host names its corridors as live URLs — Honolulu, Waikīkī, Wailea, Princeville, Kona, and the rest. Open the island site, then the corridor.',
+    },
   {
     q: 'How do I reach you?',
     a: 'The quote form — island, dates, guests. Typical reply in Hawaii business hours. We do not publish a street office or a local phone number.',
@@ -75,51 +75,42 @@ const islandPhotos: Record<(typeof islandOrder)[number], { src: string; position
     alt: 'A staffed Maui villa service — a brigade assembled on an open-air deck at sunset.',
   },
   kauai: {
-    src: '/about/brigade-hero.png',
-    position: '18% 45%',
-    alt: 'Kitchen brigade at work in a Hawaiian villa — the same scale of crew we staff on Kauaʻi.',
+    src: '/about/about-kauai-crew.png',
+    position: 'center',
+    alt: 'A Kauaʻi villa brigade on a North Shore stone terrace at dusk — chef, sous, service, bartender, misted mountains.',
   },
   bigisland: {
-    src: '/about/brigade-hero.png',
-    position: '82% 40%',
-    alt: 'A villa kitchen brigade at twilight — the crew size we staff on the west side of Hawaiʻi Island.',
+    src: '/about/about-bigisland-crew.png',
+    position: 'center',
+    alt: 'A west-side Hawaiʻi Island villa brigade on a Kohala lava terrace at twilight — chefs plating, service moving, Mauna Kea faint.',
   },
 };
 
 const islandCopy: Record<(typeof islandOrder)[number], string> = {
   oahu: `Oʻahu is town and the short-stay villa belt. Honolulu residences, Waikīkī apartments that actually have a kitchen, Kahala dining rooms, Kailua weeks, Ko Olina villa stays. A Gold Coast dinner and a North Shore surcharge day are not the same drive; the quote says which. Personal-chef weeks for households sit next to visitor dinners. The crew in the photograph is the point: this is not one person with a tote bag and a hope.`,
-  maui: `Maui is the villa dinner people picture when they say private chef — Wailea, West Maui, Kīhei, Kapalua, Makena, named here as coverage, not as extra URLs. Catering is the larger door on this island. The same team shops, cooks, and staffs the room. A reception on the lawn is a different crew than Date Night for two. We write that difference before the deposit.`,
+  maui: `Maui is the villa dinner people picture when they say private chef — Wailea, West Maui, Kīhei, Kapalua, Makena, each with its own corridor page. Catering is the larger door on this island. The same team shops, cooks, and staffs the room. A reception on the lawn is a different crew than Date Night for two. We write that difference before the deposit.`,
   kauai: `Kauaʻi is both shores, inquiry-stage: Princeville and Hanalei on the north, Poʻipū and Kōloa on the south. The bridge and the weather are real; far-North inquiries inherit a written road clause instead of a shrug. We staff the estate to the guest list when a crew exists. We do not pretend Līhuʻe and Hāʻena are the same afternoon.`,
-  bigisland: `Hawaiʻi Island is west-side first: Kona, Waikoloa, the Kohala Coast. Kona is a search people type; it lives on this island’s home, not on a /kona page. Hilo is a different day — we will not sell a same-day round trip. Ironman week compresses the calendar. Tell us the dates early. The crew size still follows the house.`,
+  bigisland: `Hawaiʻi Island is west-side first: Kona, Waikoloa, the Kohala Coast. Kona has its own page on this host. Hilo is a different day — we will not sell a same-day round trip. Ironman week compresses the calendar. Tell us the dates early. The crew size still follows the house.`,
 };
 
 export default function AboutView() {
+  const contact = getHubDirectory('/contact');
   return (
     <>
       <JsonLd
-        data={[
-          {
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'myCHEF Hawaii',
-            url: 'https://mychef-hawaii.com/about',
-            areaServed: 'Hawaiʻi',
-            description: DESCRIPTION,
-          },
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: faqs.map((f) => ({
-              '@type': 'Question',
-              name: f.q,
-              acceptedAnswer: { '@type': 'Answer', text: f.a },
-            })),
-          },
-        ]}
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
       />
 
       <Hero
-        src="/about/brigade-hero.png"
+        src="/about/about-hub.png"
         alt="A full villa brigade at twilight — chefs plating, service moving, a long table beyond the pass."
       >
         <p className="text-[13px] text-mute">About myCHEF Hawaii</p>
@@ -132,7 +123,7 @@ export default function AboutView() {
           marketplace freelancer with a tote bag.
         </p>
         <div className="mt-8">
-          <QuoteCta />
+          <QuoteCta variant="light" />
         </div>
       </Hero>
 
@@ -205,6 +196,13 @@ export default function AboutView() {
                   <HostLink island={id} className="mt-4 inline-block text-sm text-ink underline underline-offset-4">
                     {isl.shortName} site
                   </HostLink>
+                  <HostLink
+                    island={id}
+                    path="/about"
+                    className="ml-4 mt-4 inline-block text-sm text-ink underline underline-offset-4"
+                  >
+                    About {isl.shortName}
+                  </HostLink>
                 </article>
               );
             })}
@@ -235,6 +233,39 @@ export default function AboutView() {
       </section>
 
       <LocationsBlock id="locations" />
+
+      <HubPhotoGrid
+        eyebrow="Beside this department"
+        heading="Open a related document."
+        intro="This page is who cooks. Honesty, booking notes, the desk, and how a night runs are their own URLs. Island departments stay on the island host."
+        columns={2}
+        items={[
+          {
+            href: '/trust',
+            title: 'Honesty register',
+            body: 'What we will not invent. Reviews after verified events. Distinct from this department page.',
+            still: photos.hubTrust,
+          },
+          {
+            href: '/legal',
+            title: 'Booking notes',
+            body: 'Quotes, GET, deposits. Distinct from the rate card and the fee-stack explainer.',
+            still: photos.hubLegal,
+          },
+          {
+            href: '/contact',
+            title: contact?.cardLabel ?? 'The desk',
+            body: contact?.lede ?? 'Quotes and inquiry replies run in Hawaii Standard Time on the island host.',
+            still: contact ? photos[contact.photo] : photos.quoteHub,
+          },
+          {
+            href: '/how-it-works',
+            title: 'How a booking works',
+            body: 'One process on every island. Drive times live on the island host.',
+            still: photos.hubHow,
+          },
+        ]}
+      />
 
       <section className="bg-paper py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">

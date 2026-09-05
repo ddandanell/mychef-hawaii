@@ -114,7 +114,13 @@ const inputClass = (invalid: boolean) =>
     invalid ? 'border-ink' : 'border-line',
   );
 
-export default function QuoteForm() {
+export default function QuoteForm({
+  hidePageHeading = false,
+  asidePhoto,
+}: {
+  hidePageHeading?: boolean;
+  asidePhoto?: { file: string; alt: string };
+} = {}) {
   const router = useRouter();
   const params = useSearchParams();
   const { islandId, hostMode, href } = useIsland();
@@ -195,9 +201,15 @@ export default function QuoteForm() {
 
       <div className="px-5 py-12 lg:px-10 lg:py-16">
         <div className="mx-auto w-full max-w-xl border border-line bg-paper p-6 lg:p-10">
-          <h1 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-light leading-[1.1] text-ink">
-            {inquiry ? 'Tell us your dates.' : 'Tell us where you’re dining.'}
-          </h1>
+          {hidePageHeading ? (
+            <h2 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-light leading-[1.1] text-ink">
+              {inquiry ? 'The five fields — inquiry.' : 'The five fields.'}
+            </h2>
+          ) : (
+            <h1 className="font-display text-[clamp(1.75rem,3vw,2.25rem)] font-light leading-[1.1] text-ink">
+              {inquiry ? 'Tell us your dates.' : 'Tell us where you’re dining.'}
+            </h1>
+          )}
           <p className="mt-3 text-[17px] leading-[1.65] text-mute">
             Starting prices are published. Your written quote is the confirmed total.
           </p>
@@ -387,8 +399,8 @@ export default function QuoteForm() {
         <div className="sticky top-0 flex h-[100dvh] items-end overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/photos/villa-table-menu-card-detail.jpg"
-            alt="A menu card on ivory linen beside a plated fish course."
+            src={asidePhoto?.file ?? '/photos/quote-hub.png'}
+            alt={asidePhoto?.alt ?? 'A blank cream menu card on ivory linen beside a plated fish course.'}
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="relative p-8">

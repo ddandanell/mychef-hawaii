@@ -8,7 +8,7 @@ export const privateChefLongform: Record<IslandId, { sections: CopySection[]; fa
         h2: 'What’s included in an Oʻahu villa night',
         paras: [
           'A night in the house you actually have: menu design within forty-eight hours of the enquiry, same-day shopping at Honolulu markets, cooking on the cooktop that exists, paced table service, and a kitchen left cleaner than we found it. Groceries sit inside the CORE band on a signature dinner — $125–$190 USD a guest on Oʻahu. Alcohol is BYO or quoted. Rentals, venue fees, and a bartender are add-ons. Nothing named “hospitality” swallows those lines.',
-          'You book myCHEF Hawaii. We assign the crew to the size of a Kahala dining room or a Ko Olina villa, not a named-chef profile. A table for six is not a reception for sixty — that staffed room lives on /catering and a weekend stack lives on /weddings. Stay Chef from $850 a day, groceries at cost with receipts, lives on /vacation-chef when the house wants a cook for the week. The kamaʻāina weekly line — from $300 a week plus groceries at cost — is for residents who want a standing night, not a tourist one-off.',
+          'You book myCHEF Hawaii. We assign the crew to the size of a Kahala dining room or a Ko Olina villa, not a named-chef profile. A table for six is not a reception for sixty — that staffed room lives on /catering and a weekend stack lives on /weddings. Stay Chef from $850 a day, groceries at cost with receipts, lives on /vacation-chef when the house wants a cook for the week. Weekly household cooking for Honolulu residents is /personal-chef. The kamaʻāina frequency line is /kamaaina. This page is the visitor dinner.',
           'Service 20% and Hawaiʻi GET up to 4.712% appear once, as their own lines, on the written quote. Fifty percent locks the date. Gratuity is voluntary. Travel to the North Shore and Turtle Bay is a published surcharge; Kahala, Ko Olina, Kailua, and Waikīkī residences with kitchens are base. Hotel rooms without a cooktop are declined. We do not invent Hawaiʻi reviews or an 808 number. Proof is the published card on /pricing and the total you accept on /quote.',
         ],
       },
@@ -51,12 +51,20 @@ export const privateChefLongform: Record<IslandId, { sections: CopySection[]; fa
         a: 'Menu design, same-day shopping, cooking, table service, and cleanup. Groceries inside the $125–$190 USD CORE band on a signature night. The 20% service line and GET up to 4.712% are added once, not folded into the fish. Alcohol, rentals, and venue fees are add-ons. Start on /quote.',
       },
       {
+        q: 'Private chef at home — is that this page?',
+        a: 'Related search. Yes, when the house has a cooktop. Hotel rooms without kitchens are declined. This URL is the visitor dinner; weekly residents open /personal-chef.',
+      },
+      {
+        q: 'Private chef for a dinner party?',
+        a: 'Related search. A seated house dinner is this page. Ten to seventy-five is /catering. The occasion name — birthday, welcome night — is /events. We staff the kitchen you have, not a ballroom.',
+      },
+      {
         q: 'Our condo kitchen is small — does that still work?',
         a: 'Yes, when there is a real cooktop. We design bring-equipment menus and handle freight elevators and building COIs before the night. Hotel rooms without kitchens are declined.',
       },
       {
         q: 'Do you cook for residents, not just visitors?',
-        a: 'Yes. The kamaʻāina weekly line is a standing chef night or meal prep — from $300 a week plus groceries at cost. See /vacation-chef.',
+        a: 'Yes. Weekly household cooking is /personal-chef. Oʻahu residents who want a standing night open /kamaaina. Stay Chef weeks for visitors are /vacation-chef. This page is the visitor dinner.',
       },
       {
         q: 'North Shore — is travel extra?',

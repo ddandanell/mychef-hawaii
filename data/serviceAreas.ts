@@ -1,7 +1,7 @@
 import type { IslandId } from './islands';
 import { islandOrder } from './islands';
 
-/** Corridors we cook — anchors on the island home, not doorway URLs. */
+/** Corridors we cook — each id is a live URL on the island host. */
 export interface Corridor {
   id: string;
   name: string;
