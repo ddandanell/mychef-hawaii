@@ -233,7 +233,7 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
         </div>
       </section>
 
-      <Sample />
+      <Sample islandId={islandId} />
       <Longform sections={long.sections} />
       <DocumentPhotoGrid
         islandId={islandId}
@@ -328,11 +328,18 @@ function PricesHub() {
   );
 }
 
-function Sample() {
+const SAMPLE_KICKER: Record<IslandId, string> = {
+  oahu: 'Oahu catering menu',
+  maui: 'Maui catering menu',
+  kauai: 'Kauai catering menu',
+  bigisland: 'Big Island catering menu',
+};
+
+function Sample({ islandId }: { islandId?: IslandId }) {
   return (
     <section className="bg-paper py-16 lg:py-24">
       <div className="mx-auto w-full max-w-3xl px-5 lg:px-10">
-        <p className="text-[12px] text-mute">Hawaii catering menu</p>
+        <p className="text-[12px] text-mute">{islandId ? SAMPLE_KICKER[islandId] : 'Hawaii catering menu'}</p>
         <h2 className="mt-4 font-display text-[clamp(2rem,4vw,3rem)] font-light leading-[1.1] text-ink">
           A sample estate menu
         </h2>

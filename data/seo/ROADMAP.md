@@ -985,6 +985,12 @@ Still no zip on this machine. Wave 122 rewrites the shared island-chooser lines 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 123 — island catering sample menus stay off hawaii catering (this branch)
+
+Still no zip on this machine. Wave 123 stops island `/catering` sample-menu kickers from saying Hawaii catering menu — that phrase belongs on hub `/catering`. Island kickers now read Oahu catering menu / Maui catering menu / Kauai catering menu / Big Island catering menu, matching each host’s owner title. Hub `/catering` keeps Hawaii catering menu. `seo:audit` fails if the shared kicker returns. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

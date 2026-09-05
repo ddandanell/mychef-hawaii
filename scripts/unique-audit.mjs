@@ -1006,6 +1006,15 @@ const cateringViewSrc = read('components/views/CateringView.tsx');
 if (/>Wedding catering</.test(cateringViewSrc) || />Wedding catering Hawaii</.test(cateringViewSrc)) {
   errors.push('catering rate cards still use Wedding catering labels');
 }
+if (!/Sample islandId=\{islandId\}/.test(cateringViewSrc)) {
+  errors.push('island catering sample menu still shares the Hawaii catering kicker');
+}
+if (!/Oahu catering menu/.test(cateringViewSrc) || !/Maui catering menu/.test(cateringViewSrc)) {
+  errors.push('island catering sample kickers dropped Oahu or Maui catering menu');
+}
+if (!/Kauai catering menu/.test(cateringViewSrc) || !/Big Island catering menu/.test(cateringViewSrc)) {
+  errors.push('island catering sample kickers dropped Kauai or Big Island catering menu');
+}
 const weddingViewSrc = read('components/views/WeddingView.tsx');
 if (/label: 'Mobile bar package'/.test(weddingViewSrc)) {
   errors.push('wedding related doors still use the Mobile bar package label');
