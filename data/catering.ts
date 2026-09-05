@@ -54,7 +54,7 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
       },
       {
         q: 'Do you publish an Oahu catering menu?',
-        a: 'A sample estate menu is on this page. Your written menu is designed for that house and that guest list — not a laminated carte.',
+        a: 'A sample estate menu is on this page. Your Kahala or Ko Olina written menu is designed for that house and that guest list — not a laminated carte.',
       },
       {
         q: 'Best catering Oahu?',
@@ -188,7 +188,7 @@ export const HUB_CATERING = {
     },
     {
       q: 'Do you publish a Hawaii catering menu?',
-      a: 'A sample estate menu is on this page. Your written menu is designed for that house and that guest list — not a laminated carte.',
+      a: 'Each island host publishes a sample estate menu. The written menu is for that house and that guest list — not a statewide laminated carte.',
     },
   ],
 } as const;

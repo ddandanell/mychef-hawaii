@@ -877,6 +877,12 @@ Still no zip on this machine. Wave 104 uniquifies Record-style FAQ answers that 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 105 — leftover hub vs Oahu catering sample-menu FAQ (this branch)
+
+Still no zip on this machine. Wave 105 uniquifies the sample-menu FAQ that still cloned between hub `/catering` and Oahu `/catering`. The island answer names a Kahala or Ko Olina house. The hub answer sends readers to the island hosts. Statewide inquiry honesty stays. `seo:audit` fails if that clone answer returns. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

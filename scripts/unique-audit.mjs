@@ -675,6 +675,13 @@ if (/No\. We will not invent either\. Send \/quote\.'/.test(contactSrc)) {
 if (/Open \/ or \/vacation-chef\. This page is residents\.'/.test(servicesSrc)) {
   errors.push('resident-line FAQs still clone the visitors-open-vacation-chef answer');
 }
+if (
+  /A sample estate menu is on this page\. Your written menu is designed for that house and that guest list — not a laminated carte\.'/.test(
+    cateringSrc,
+  )
+) {
+  errors.push('hub and Oahu catering FAQs still clone the laminated-carte sample-menu answer');
+}
 
 const journalOnlySrc = read('data/journalArticles.ts');
 if (/This piece is the journal note on why we will not take a verbal yes\.'/.test(journalOnlySrc)) {
