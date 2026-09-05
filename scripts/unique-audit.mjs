@@ -158,6 +158,7 @@ const locationsSrc = read('data/islandLocations.ts');
 const areasSrc = read('data/islandAreas.ts');
 const contactSrc = read('data/islandContact.ts');
 const trustSrc = read('data/islandTrust.ts');
+const serviceIndexSrc = read('data/islandServiceIndex.ts');
 const sitemapDocSrc = read('data/islandSitemap.ts');
 const journalArticleSrc = read('data/journalArticles.ts');
 const blogArticleSrc = read('data/blogArticles.ts');
@@ -189,6 +190,7 @@ const locationDocs = supportBlocks(locationsSrc, 'islandLocations');
 const areaDocs = supportBlocks(areasSrc, 'islandAreas');
 const contactDocs = supportBlocks(contactSrc, 'islandContact');
 const trustDocs = supportBlocks(trustSrc, 'islandTrust');
+const serviceIndexDocs = supportBlocks(serviceIndexSrc, 'islandServiceIndex');
 const sitemapDocs = supportBlocks(sitemapDocSrc, 'islandSitemap');
 const journalPieces = uniqueCellMeta(journalArticleSrc);
 const blogPieces = uniqueCellMeta(blogArticleSrc);
@@ -220,6 +222,7 @@ if (locationDocs.length !== 4) errors.push(`Expected 4 island locations pages, f
 if (areaDocs.length !== 4) errors.push(`Expected 4 island areas pages, found ${areaDocs.length}`);
 if (contactDocs.length !== 4) errors.push(`Expected 4 island contact pages, found ${contactDocs.length}`);
 if (trustDocs.length !== 4) errors.push(`Expected 4 island trust pages, found ${trustDocs.length}`);
+if (serviceIndexDocs.length !== 4) errors.push(`Expected 4 island services pages, found ${serviceIndexDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
 if (blogPieces.length !== 112) errors.push(`Expected 112 blog articles, found ${blogPieces.length}`);
@@ -296,6 +299,9 @@ errors.push(...dupes(contactDocs.map((h) => files[h.photo] || h.photo), 'contact
 errors.push(...dupes(trustDocs.map((h) => h.title), 'trust title'));
 errors.push(...dupes(trustDocs.map((h) => h.h1), 'trust H1'));
 errors.push(...dupes(trustDocs.map((h) => files[h.photo] || h.photo), 'trust hero file'));
+errors.push(...dupes(serviceIndexDocs.map((h) => h.title), 'services-index title'));
+errors.push(...dupes(serviceIndexDocs.map((h) => h.h1), 'services-index H1'));
+errors.push(...dupes(serviceIndexDocs.map((h) => files[h.photo] || h.photo), 'services-index hero file'));
 errors.push(...dupes(sitemapDocs.map((h) => h.title), 'sitemap title'));
 errors.push(...dupes(sitemapDocs.map((h) => h.h1), 'sitemap H1'));
 errors.push(...dupes(sitemapDocs.map((h) => files[h.photo] || h.photo), 'sitemap hero file'));
@@ -333,6 +339,7 @@ const allTitles = [
   ...areaDocs.map((h) => h.title),
   ...contactDocs.map((h) => h.title),
   ...trustDocs.map((h) => h.title),
+  ...serviceIndexDocs.map((h) => h.title),
   ...sitemapDocs.map((h) => h.title),
   ...journalPieces.map((h) => h.title),
   ...blogPieces.map((h) => h.title),
@@ -370,7 +377,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -381,7 +388,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -434,5 +441,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${areaDocs.length} areas, ${contactDocs.length} contact, ${trustDocs.length} trust, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${areaDocs.length} areas, ${contactDocs.length} contact, ${trustDocs.length} trust, ${serviceIndexDocs.length} service lists, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
 );

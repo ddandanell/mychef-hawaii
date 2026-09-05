@@ -30,6 +30,7 @@ import { islandLocations } from '@/data/islandLocations';
 import { islandAreas } from '@/data/islandAreas';
 import { islandContact } from '@/data/islandContact';
 import { islandTrust } from '@/data/islandTrust';
+import { islandServiceIndex, SERVICE_INDEX_LINKS } from '@/data/islandServiceIndex';
 import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
@@ -445,7 +446,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/sitemap'] as const).map((path) => ({
+      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/sitemap'] as const).map((path) => ({
         host: id,
         path,
       })),
@@ -637,6 +638,51 @@ export function LocationsIndexView({ islandId }: { islandId: (typeof islandOrder
   );
 }
 
+export function ServicesIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  const copy = islandServiceIndex[islandId];
+  const photo = photos[copy.photo];
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
+          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
+            {SERVICE_INDEX_LINKS.map((row) => (
+              <li key={row.path} className="bg-paper">
+                <HostLink island={islandId} path={row.path} className="block p-6">
+                  <h2 className="font-display text-2xl font-light text-ink">{row.label}</h2>
+                  <p className="mt-2 text-sm text-mute">{row.path}</p>
+                </HostLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <LongFaq items={copy.faqs} title="Before you pick a door." />
+    </>
+  );
+}
+
 export function ServicesView() {
   return (
     <section className="bg-paper py-20 lg:py-28">
@@ -645,6 +691,7 @@ export function ServicesView() {
         <h1 className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light text-ink">Private dining, four ways.</h1>
         <p className="mt-6 max-w-[60ch] text-[17px] leading-[1.65] text-mute">
           Private chef dinners from $125 a guest, Stay Chef day rates, wedding catering and mobile bar across Hawaii.
+          Each island host also keeps its own service list.
         </p>
         <ul className="mt-12 grid gap-8 md:grid-cols-2">
           {[
@@ -658,6 +705,18 @@ export function ServicesView() {
                 {s.title}
               </Link>
               <p className="mt-2 text-mute">{s.body}</p>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-16 text-[12px] text-mute">By island</p>
+        <ul className="mt-6 grid gap-px bg-line md:grid-cols-2">
+          {islandOrder.map((id) => (
+            <li key={id} className="bg-paper">
+              <HostLink island={id} path="/services" className="block p-5">
+                <p className="text-[12px] text-mute">{islands[id].name}</p>
+                <h2 className="mt-2 font-display text-xl font-light text-ink">Service list</h2>
+                <p className="mt-2 text-sm text-mute">/services</p>
+              </HostLink>
             </li>
           ))}
         </ul>

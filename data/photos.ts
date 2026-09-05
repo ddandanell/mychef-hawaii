@@ -1851,6 +1851,22 @@ export const photos = {
     file: '/photos/blog-peak-bigisland.png',
     alt: `A Kohala lava-terrace table being set in hard winter sun, unused ivory plates, sand linen.`,
   },
+  svcIndexOahu: {
+    file: '/photos/svc-index-oahu.png',
+    alt: `Four unused ivory plates stacked on a Kahala kitchen pass at dusk, brass clip, Diamond Head faint.`,
+  },
+  svcIndexMaui: {
+    file: '/photos/svc-index-maui.png',
+    alt: `Four unused ivory plates stacked on a Wailea kitchen pass at west sunset, brass clip, Pacific beyond.`,
+  },
+  svcIndexKauai: {
+    file: '/photos/svc-index-kauai.png',
+    alt: `Four unused ivory plates stacked on a wet Princeville stone pass, brass clip, misted mountains.`,
+  },
+  svcIndexBigisland: {
+    file: '/photos/svc-index-bigisland.png',
+    alt: `Four unused ivory plates stacked on a Kohala lava-stone pass in hard sun, brass clip.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

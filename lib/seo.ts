@@ -29,6 +29,7 @@ import { islandLocations } from '@/data/islandLocations';
 import { islandAreas } from '@/data/islandAreas';
 import { islandContact } from '@/data/islandContact';
 import { islandTrust } from '@/data/islandTrust';
+import { islandServiceIndex } from '@/data/islandServiceIndex';
 import { islandSitemap } from '@/data/islandSitemap';
 import { getJournalArticle, journalArticles } from '@/data/journalArticles';
 import { getBlogArticle, blogArticles } from '@/data/blogArticles';
@@ -132,6 +133,7 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     if (localPath === '/areas') return `${origin}${photos[islandAreas[islandId].photo].file}`;
     if (localPath === '/contact') return `${origin}${photos[islandContact[islandId].photo].file}`;
     if (localPath === '/trust') return `${origin}${photos[islandTrust[islandId].photo].file}`;
+    if (localPath === '/services') return `${origin}${photos[islandServiceIndex[islandId].photo].file}`;
     if (localPath === '/sitemap') return `${origin}${photos[islandSitemap[islandId].photo].file}`;
     const journalSlug = /^\/journal\/([^/]+)$/.exec(localPath)?.[1];
     const journalPiece = journalSlug ? getJournalArticle(islandId, journalSlug) : undefined;
@@ -348,6 +350,9 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (islandTrust[islandId] && localPath === '/trust') {
       title = islandTrust[islandId].title;
       description = islandTrust[islandId].description;
+    } else if (islandServiceIndex[islandId] && localPath === '/services') {
+      title = islandServiceIndex[islandId].title;
+      description = islandServiceIndex[islandId].description;
     } else if (islandSitemap[islandId] && localPath === '/sitemap') {
       title = islandSitemap[islandId].title;
       description = islandSitemap[islandId].description;
@@ -490,7 +495,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.7',
     })),
-    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
+    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
       loc: `https://${masterHostName(island)}${path}`,
       changefreq: 'monthly',
       priority: '0.6',

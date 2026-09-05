@@ -143,6 +143,7 @@ export default function SiteHeader() {
                   { label: 'Fee stack', island: islandId, path: '/private-chef-cost' },
                   { label: 'What we will not claim', island: islandId, path: '/what-we-dont-do' },
                   { label: 'Honesty register', island: islandId, path: '/trust' },
+                  { label: 'Service list', island: islandId, path: '/services' },
                   { label: 'Contact', island: islandId, path: '/contact' },
                   { label: 'About', island: islandId, path: '/about' },
                 ]}
@@ -239,6 +240,7 @@ export default function SiteHeader() {
                         { label: 'Fee stack', path: '/private-chef-cost' },
                         { label: 'What we will not claim', path: '/what-we-dont-do' },
                         { label: 'Honesty register', path: '/trust' },
+                        { label: 'Service list', path: '/services' },
                         { label: 'Contact', path: '/contact' },
                         { label: 'About', path: '/about' },
                       ] as const
