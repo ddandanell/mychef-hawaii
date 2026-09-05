@@ -159,6 +159,22 @@ export function IslandSupportView({
         />
       ) : null}
 
+      {!showZones && !showMenu && !showHelp ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Beside these answers`}
+          heading="Open a related document."
+          intro="The questions stay on this page. The form, the desk, the process, and coverage are their own URLs."
+          columns={2}
+          items={[
+            { path: '/quote', label: 'The quote form', detail: '/quote' },
+            { path: '/contact', label: 'The desk', detail: '/contact' },
+            { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+            { path: '/coverage', label: 'Coverage', detail: '/coverage' },
+          ]}
+        />
+      ) : null}
+
       <SiblingCluster island={islandId} href={href} />
       <LongFaq items={copy.faqs} title={`Asked on ${island.shortName}.`} />
       <QuoteTeaser headline="Request a quote. Quote in writing." island={islandId} />

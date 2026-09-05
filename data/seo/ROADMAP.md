@@ -572,6 +572,13 @@ Still no zip on this machine. Wave 64 gives `/pricing` related-document photogra
 - Island `/pricing` opens the same four paths on island stills. Distinct from `/quote` (the form) and `/private-chef-cost` (the stack). SiblingCluster stays paper.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 65 — island /faq related doors (this branch)
+
+Still no zip on this machine. Wave 65 gives island `/faq` related-document photography. Hub `/faq` stays the four-island picker.
+
+- Island `/faq` opens `/quote`, `/contact`, `/how-it-works`, and `/coverage` on existing stills. The questions stay. Distinct from `/contact` (the desk) and `/how-it-works` (the process + help articles).
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
