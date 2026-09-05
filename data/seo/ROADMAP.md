@@ -618,6 +618,13 @@ Still no zip on this machine. Wave 70 gives hub `/vacation-chef` the same relate
 - Hub `/vacation-chef` keeps the four-island picker, then opens `/private-chef`, `/personal-chef`, `/quote`, and `/pricing` on existing stills. Distinct from `/private-chef` (one dinner).
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
 
+## Wave 71 — island /coverage related doors (this branch)
+
+Still no zip on this machine. Wave 71 gives island `/coverage` related-document photography without turning the zone list into tiles. Hub `/coverage` stays the four-island picker.
+
+- Island `/coverage` opens `/locations`, `/areas`, `/quote`, and `/how-it-works` on existing stills after the paper zone list. Neighborhood and unique-cell honesty links stay paper.
+- Distinct from `/faq` (questions) and `/locations` (live dinner doors). SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

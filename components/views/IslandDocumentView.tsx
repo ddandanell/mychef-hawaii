@@ -125,6 +125,22 @@ export function IslandSupportView({
         </section>
       ) : null}
 
+      {showZones ? (
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Beside this coverage map`}
+          heading="Open a related document."
+          intro="The zone list stays on this page. Live dinner doors, map notes, the form, and how a night runs are their own URLs."
+          columns={2}
+          items={[
+            { path: '/locations', label: 'Live dinner doors', detail: '/locations' },
+            { path: '/areas', label: 'Map notes', detail: '/areas' },
+            { path: '/quote', label: 'The quote form', detail: '/quote' },
+            { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+          ]}
+        />
+      ) : null}
+
       {showMenu ? <SampleMenu island={islandId} /> : null}
 
       {showMenu ? (
