@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { EnquireCta } from '@/components/Cta';
+import BrandMark from '@/components/BrandMark';
 import HostLink from '@/components/HostLink';
 import { MobileDisclosure, NavMenu, type NavTarget } from '@/components/NavMenu';
 import { useIsland } from '@/components/IslandProvider';
@@ -111,9 +112,12 @@ export default function SiteHeader() {
           <HostLink
             island="root"
             aria-label="myCHEF Hawaii home"
-            className="font-display text-[1.375rem] font-light tracking-tight text-ink"
+            className="flex items-center gap-2 font-display text-[1.375rem] font-light tracking-tight text-ink"
           >
-            myCHEF
+            <BrandMark className="h-7 w-7" />
+            <span>
+              my<span className="text-brass">CHEF</span>
+            </span>
           </HostLink>
           {islandId ? (
             <HostLink

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="myCHEF">
+  <rect width="32" height="32" rx="7" fill="#1c1916"/>
+  <g fill="none">
+    <circle cx="16" cy="7.8" r="1.5" fill="#b08d57"/>
+    <path d="M16 9.3v1.6" stroke="#b08d57" stroke-width="1.4" stroke-linecap="round"/>
+    <path d="M6.6 20.6a9.4 9.4 0 0 1 18.8 0" stroke="#f6f1e8" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M5.2 21h21.6" stroke="#f6f1e8" stroke-width="1.7" stroke-linecap="round"/>
+    <path d="M8 24.4c1.35-1.35 2.7-1.35 4 0 1.35 1.35 2.7 1.35 4 0 1.35-1.35 2.7-1.35 4 0" stroke="#b08d57" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+</svg>

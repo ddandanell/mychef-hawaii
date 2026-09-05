@@ -1,4 +1,5 @@
 import HostLink from '@/components/HostLink';
+import BrandMark from '@/components/BrandMark';
 import { EnquireCta } from '@/components/Cta';
 import { LocationsBlock } from '@/components/LocationsBlock';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
@@ -21,8 +22,11 @@ export default function SiteFooter({
       <div className="mx-auto w-full max-w-container border-t border-white/10 px-5 py-14 lg:px-10">
         <div className="grid gap-10 md:grid-cols-3">
           <div>
-            <HostLink island="root" className="font-display text-2xl font-light tracking-tight text-paper">
-              myCHEF
+            <HostLink island="root" className="flex items-center gap-2 font-display text-2xl font-light tracking-tight text-paper">
+              <BrandMark className="h-8 w-8" />
+              <span>
+                my<span className="text-brass">CHEF</span>
+              </span>
             </HostLink>
             <p className="mt-4 max-w-xs text-[17px] leading-relaxed text-on-ink">
               A chef in your villa. Oʻahu, Maui, Kauaʻi, Hawaiʻi Island.
