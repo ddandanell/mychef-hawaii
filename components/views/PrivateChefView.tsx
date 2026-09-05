@@ -16,6 +16,13 @@ const H1: Record<IslandId, string> = {
   bigisland: 'Visitor dinners on the west side — inquiry.',
 };
 
+const LEDE: Record<IslandId, string> = {
+  oahu: 'A visitor dinner in the house. Weekly household cooking is /personal-chef.',
+  maui: 'A visitor dinner in the villa. Weekly household cooking is /personal-chef.',
+  kauai: 'A visitor dinner on either shore — inquiry. Weekly household cooking is /personal-chef.',
+  bigisland: 'A visitor dinner on the west side — inquiry. Weekly household cooking is /personal-chef.',
+};
+
 const HERO: Record<IslandId, { file: string; alt: string }> = {
   maui: photos.chefMaui,
   oahu: photos.chefOahu,
@@ -38,7 +45,7 @@ export default function PrivateChefView({ islandId, hostMode }: { islandId: Isla
           className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
         <p className="mt-5 max-w-[48ch] text-[17px] leading-[1.65] text-ink">
-          In-home dinner, weekly household line, no restaurant. {core ? `${formatBand(core)} a guest CORE.` : ''}
+          {LEDE[islandId]} {core ? `${formatBand(core)} a guest CORE.` : ''}
         </p>
         <div className="mt-8">
           <QuoteCta island={islandId} service="private-chef" variant="light" />

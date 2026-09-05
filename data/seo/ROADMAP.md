@@ -498,6 +498,14 @@ Still no zip on this machine. Wave 55 stops leftover titles from stuffing island
 - `MASTER_KEYWORDS` maps remaining measured long-tails onto live corridors (`/honolulu`, `/kona`, `/lahaina`, `/north-shore`, `/poipu`) and `/mobile-bar`.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 56 — visitor-dinner copy stays off the household week (this branch)
+
+Still no zip on this machine. Wave 56 finishes the Wave 55 split on island `/private-chef`:
+
+- Island `/private-chef` hero ledes are visitor dinners. Weekly household cooking stays on `/personal-chef`.
+- Oahu longform and FAQ no longer sell the kamaʻāina week as this page’s product. `/kamaaina` and `/personal-chef` keep that door.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
