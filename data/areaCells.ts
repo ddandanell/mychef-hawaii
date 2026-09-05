@@ -1010,3 +1010,8 @@ export const AREA_CELLS: Record<IslandId, UniqueCell[]> = {
     },
   ],
 };
+
+/** Dinner doors only. Honesty unique cells, blogs, journals, and SKUs stay off the published rate card. */
+export function isAreaDinnerDoor(island: IslandId, slug: string): boolean {
+  return AREA_CELLS[island].some((cell) => cell.slug === slug);
+}

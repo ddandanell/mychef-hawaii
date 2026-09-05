@@ -901,9 +901,15 @@ Still no zip on this machine. Wave 108 keeps the published-price block on money 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 109 — supporting-area dinner doors publish the same rate card (this branch)
+
+Still no zip on this machine. Wave 109 extracts the corridor published-price block into `PlacePriceBlock` and shows it on `AREA_CELLS` dinner doors. Honesty unique cells (kamaʻāina, what-we-dont-do, wedding-week, coffee-act, and the rest), blogs, journals, and SKUs stay without dinner rate cards. Labels stay Villa dinner / Stay Chef / Wedding week / Packaged cart. `seo:audit` fails if those labels return or if UniqueCellView shows the block without the AREA_CELLS gate. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. Corridor and supporting-area `PlacePriceBlock` is a paper rate-card strip.
+
 ## Keyword discipline (measured, not invented)
 
-Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
+Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.
 
 | Keyword | Volume |
 |---|---|
@@ -915,4 +921,7 @@ Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, no
 | private chef oahu | 90 |
 | private chef honolulu / private chef big island / private chef kona | 70 |
 | private chef hawaii / big island catering | 50 |
-| kauai wedding catering | 10 |
+| personal chef honolulu | 40 |
+| wedding catering maui / wedding catering hawaii | 30 |
+| personal chef maui / personal chef oahu / mobile bar hawaii | 20 |
+| private chef lahaina maui / private chef north shore oahu / private chef poipu kauai / kauai wedding catering | 10 |

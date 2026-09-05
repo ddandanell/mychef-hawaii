@@ -4,9 +4,11 @@ import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { DocumentCopy, LongFaq, SiblingCluster } from '@/components/Longform';
+import PlacePriceBlock from '@/components/PlacePriceBlock';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { SampleMenu } from '@/components/SampleMenu';
 import HostLink from '@/components/HostLink';
+import { isAreaDinnerDoor } from '@/data/areaCells';
 import type { IslandSupportPage } from '@/data/islandSupport';
 import { islands, type IslandId } from '@/data/islands';
 import { photos } from '@/data/photos';
@@ -200,6 +202,7 @@ export function IslandSupportView({
 
 export function UniqueCellView({
   islandId,
+  hostMode,
   cell,
 }: {
   islandId: IslandId;
@@ -208,6 +211,7 @@ export function UniqueCellView({
 }) {
   const island = islands[islandId];
   const photo = photos[cell.photo];
+  const showPrices = isAreaDinnerDoor(islandId, cell.slug);
 
   return (
     <>
@@ -227,6 +231,13 @@ export function UniqueCellView({
       </Hero>
 
       <DocumentCopy paras={cell.body} />
+      {showPrices ? (
+        <PlacePriceBlock
+          islandId={islandId}
+          placeName={cell.name}
+          href={(path) => islandHref(islandId, hostMode, path)}
+        />
+      ) : null}
       {cell.related.length ? (
         <DocumentPhotoGrid
           islandId={islandId}

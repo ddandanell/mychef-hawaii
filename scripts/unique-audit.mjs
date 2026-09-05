@@ -928,11 +928,20 @@ if (!/\/private-chef': photos\.hubChef/.test(seoSrc) || !/\/vacation-chef': phot
 }
 
 const placeViewSrc = read('components/views/LocationPlaceView.tsx');
-if (/label: 'Mobile bar'/.test(placeViewSrc)) {
+const priceBlockSrc = read('components/PlacePriceBlock.tsx');
+const uniqueViewSrc = read('components/views/IslandDocumentView.tsx');
+const priceLabelSrc = `${placeViewSrc}\n${priceBlockSrc}\n${uniqueViewSrc}`;
+if (/label: 'Mobile bar'/.test(priceLabelSrc)) {
   errors.push('corridor price cards still use the Mobile bar label');
 }
-if (/label: 'Private chef dinner'/.test(placeViewSrc)) {
+if (/label: 'Private chef dinner'/.test(priceLabelSrc)) {
   errors.push('corridor price cards still use the Private chef dinner label');
+}
+if (!/PlacePriceBlock/.test(placeViewSrc)) {
+  errors.push('corridor pages must reuse PlacePriceBlock');
+}
+if (!/isAreaDinnerDoor\(islandId, cell\.slug\)/.test(uniqueViewSrc) || !/PlacePriceBlock/.test(uniqueViewSrc)) {
+  errors.push('supporting-area dinner doors must reuse PlacePriceBlock gated to AREA_CELLS');
 }
 
 const hubStealSrc = [
