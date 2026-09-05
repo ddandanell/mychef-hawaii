@@ -33,9 +33,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Open the island document: in-villa dinner, staffed catering, wedding week, or the bartender add-on. The four-hour cart lives on /mobile-bar. WhatsApp for a quote.',
   },
   '/private-chef': {
-    title: 'Personal chef for Hawaii villas & vacation rentals | myCHEF',
+    title: 'Visitor dinners in Hawaii villas, by island | myCHEF',
     description:
-      'Personal chef and vacation-rental chef in Hawaii. Villa dinner, in-home service, no restaurant. Enquire on WhatsApp.',
+      'Open the island visitor-dinner document. Oʻahu from $125 a guest. Weekly household cooking lives on each island /personal-chef. Enquire on WhatsApp.',
   },
   '/catering': {
     title: 'Hawaii Catering | Staffed Villa Events 10–75 | myCHEF',
@@ -400,8 +400,8 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'In-home visitor dinners on Oahu. The household week is /personal-chef. Private chef Oahu stays on this host’s home. WhatsApp for a quote.',
   },
   '/oahu/vacation-chef': {
-    title: 'Oʻahu vacation chef and weekly household service | myCHEF',
-    description: 'Multi-day villa chef packages and the kamaʻāina weekly line for resident households.',
+    title: 'Oʻahu vacation chef — Stay Chef villa weeks | myCHEF',
+    description: 'A chef for the Oʻahu villa week. Stay Chef from $850 a day, groceries at cost. Weekly household cooking is /personal-chef.',
   },
   '/oahu/catering': {
     title: 'Oahu Catering | Honolulu to Ko Olina Events | myCHEF',

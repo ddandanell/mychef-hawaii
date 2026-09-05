@@ -506,6 +506,15 @@ Still no zip on this machine. Wave 56 finishes the Wave 55 split on island `/pri
 - Oahu longform and FAQ no longer sell the kamaʻāina week as this page’s product. `/kamaaina` and `/personal-chef` keep that door.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 57 — hub /private-chef and Oahu /vacation-chef stay off the household week (this branch)
+
+Still no zip on this machine. Wave 57 finishes leftover titles that still sold the household line on the wrong URL:
+
+- Hub `/private-chef` is the visitor-dinner picker, not “Personal chef for Hawaii villas.” Island `/personal-chef` keeps `personal chef honolulu` and `personal chef maui`.
+- Oahu `/vacation-chef` is the Stay Chef villa week. Weekly household cooking stays on `/personal-chef` and `/kamaaina`.
+- `seo:audit` fails if those leftover titles return.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

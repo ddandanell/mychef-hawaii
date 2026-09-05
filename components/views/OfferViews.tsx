@@ -35,8 +35,8 @@ const VAC: Record<
     ],
   },
   oahu: {
-    h1: 'A chef for the week — or every week.',
-    lede: 'Stay Chef from $850 a day on Oʻahu. The kamaʻāina weekly line from $300 a week plus groceries at cost. Same crew, different rhythm.',
+    h1: 'A chef for the Oʻahu villa week.',
+    lede: 'Stay Chef from $850 a day. Groceries at cost. Arrival-night dinner, a stocked fridge, full-board days when the house actually cooks. Weekly household cooking is /personal-chef.',
     photo: 'vacationOahu',
     body: [
       'Stay Chef on Oʻahu is the visitor week: arrival-night dinner, a stocked fridge, full-board days when the house actually cooks. Groceries billed at cost with receipts. From $850 a day.',
@@ -86,8 +86,8 @@ export function HubOfferView({ kind }: { kind: 'private-chef' | 'vacation-chef' 
   const copy =
     kind === 'private-chef'
       ? {
-          h1: 'Personal chef for Hawaii villas.',
-          lede: 'Personal chef and vacation-rental chef in Hawaii. Oʻahu from $125 a guest, Maui and Kauaʻi from $150 a guest. We shop, cook, serve and clean.',
+          h1: 'Visitor dinners in Hawaii villas.',
+          lede: 'Open the island document. Oʻahu from $125 a guest, Maui and Kauaʻi from $150 a guest. Weekly household cooking lives on each island /personal-chef.',
           img: photos.chefMaui,
           service: 'private-chef',
           path: '/private-chef' as const,

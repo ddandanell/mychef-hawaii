@@ -449,6 +449,17 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
   }
 }
 
+const pageMetaSrc = read('data/pageMeta.ts');
+if (/Private chef Oahu, Maui, Kauai/.test(pageMetaSrc)) {
+  errors.push('hub /islands pageMeta still stuffs island money keywords');
+}
+if (/Personal chef for Hawaii villas/.test(pageMetaSrc)) {
+  errors.push('hub /private-chef pageMeta still uses the personal-chef title');
+}
+if (/vacation chef and weekly household service/i.test(pageMetaSrc)) {
+  errors.push('island /vacation-chef pageMeta still sells the household week');
+}
+
 for (const key of [
   'vacationOahu',
   'vacationMaui',
