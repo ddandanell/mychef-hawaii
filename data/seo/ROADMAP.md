@@ -1033,6 +1033,12 @@ Still no zip on this machine. Wave 130 adds hub `/catering` to the hub rate-page
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 131 — wedding owners ship FAQPage JSON-LD (this branch)
+
+Still no zip on this machine. Wave 131 gives hub `/weddings` and every island `/weddings` FAQPage JSON-LD for the visible wedding FAQs, matching catering owners. FoodService names stay `Wedding catering Hawaii` / island H1s. `seo:audit` fails if those FAQ nodes drop. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

@@ -85,15 +85,26 @@ export function HubWeddingsView() {
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FoodService',
-          name: 'Wedding catering Hawaii — myCHEF',
-          description: 'Wedding catering Hawaii: welcome dinner, ceremony, and the days after. One chef, one conversation.',
-          areaServed: 'Hawaiʻi',
-          serviceType: 'Wedding catering',
-          parentOrganization: { '@type': 'Organization', name: 'myCHEF Hawaii' },
-        }}
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: 'Wedding catering Hawaii — myCHEF',
+            description: 'Wedding catering Hawaii: welcome dinner, ceremony, and the days after. One chef, one conversation.',
+            areaServed: 'Hawaiʻi',
+            serviceType: 'Wedding catering',
+            parentOrganization: { '@type': 'Organization', name: 'myCHEF Hawaii' },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: hubWeddingsFaqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
       />
       <Hero src={photos.weddingHero.file} alt={photos.weddingHero.alt} min="short">
         <p className="text-[13px] text-mute">Wedding week</p>
@@ -188,15 +199,26 @@ export function IslandWeddingView({ islandId, hostMode }: { islandId: IslandId; 
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FoodService',
-          name: `${copy.h1.split('—')[0].trim().replace(/\.$/, '')} — myCHEF`,
-          description: copy.lede,
-          areaServed: island.name,
-          serviceType: 'Wedding catering',
-          parentOrganization: { '@type': 'Organization', name: `myCHEF ${island.name}` },
-        }}
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: `${copy.h1.split('—')[0].trim().replace(/\.$/, '')} — myCHEF`,
+            description: copy.lede,
+            areaServed: island.name,
+            serviceType: 'Wedding catering',
+            parentOrganization: { '@type': 'Organization', name: `myCHEF ${island.name}` },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: long.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
       />
       <Hero src={copy.hero.file} alt={copy.hero.alt} min="short">
         <p className="text-[13px] text-mute">{copy.eyebrow}</p>

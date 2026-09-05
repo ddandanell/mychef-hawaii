@@ -1041,6 +1041,12 @@ if (/label: 'Mobile bar package'/.test(weddingViewSrc)) {
 if (!/IslandWeddingView[\s\S]{0,1200}'FoodService'/.test(weddingViewSrc)) {
   errors.push('island /weddings still missing owner FoodService JSON-LD');
 }
+if (!/HubWeddingsView[\s\S]{0,2000}'FAQPage'/.test(weddingViewSrc)) {
+  errors.push('hub /weddings still missing FAQPage JSON-LD');
+}
+if (!/IslandWeddingView[\s\S]{0,2500}'FAQPage'/.test(weddingViewSrc)) {
+  errors.push('island /weddings still missing FAQPage JSON-LD');
+}
 const barViewSrc = read('components/views/BarView.tsx');
 if (!/HubMobileBarView[\s\S]{0,1500}'FoodService'/.test(barViewSrc) || !/Mobile bar Hawaii — myCHEF/.test(barViewSrc)) {
   errors.push('hub /mobile-bar still missing owner FoodService JSON-LD');
