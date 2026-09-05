@@ -456,6 +456,14 @@ Still no zip on this machine. Wave 50 lists the existing hub editorial pickers o
 - Hub `/blog` opens the twenty-seven shared kitchen notes from their unique stills, then the island guides.
 - Quote-form TypePanel stays. No new URLs.
 
+## Wave 51 — leftover related lists on photography (this branch)
+
+Still no zip on this machine. Wave 51 lifts two leftover paper related-document lists onto existing stills:
+
+- Island `/vacation-chef` related doors (`/private-chef`, `/personal-chef`, `/journal/vacation-chef-week`) open from a `DocumentPhotoGrid`.
+- Island `/islands` map-notes door uses the `/areas` still. Coverage stays paper.
+- Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

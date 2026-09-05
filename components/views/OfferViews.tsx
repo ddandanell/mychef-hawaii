@@ -1,4 +1,5 @@
 import { QuoteCta } from '@/components/Cta';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
 import LineReveal from '@/components/LineReveal';
@@ -169,20 +170,18 @@ export function IslandVacationView({ islandId, hostMode }: { islandId: IslandId;
           <QuoteCta island={islandId} service="vacation-chef" variant="light" />
         </div>
       </Hero>
-      <DocumentCopy heading={`How a Stay Chef week runs on ${islands[islandId].name}.`} paras={copy.body}>
-        <nav aria-label="Related on this island" className="mt-14 flex flex-wrap gap-x-6 gap-y-2 text-sm">
-          {copy.related.map((link) => (
-            <HostLink
-              key={link.path}
-              island={islandId}
-              path={link.path}
-              className="text-ink underline underline-offset-4"
-            >
-              {link.label}
-            </HostLink>
-          ))}
-        </nav>
-      </DocumentCopy>
+      <DocumentCopy heading={`How a Stay Chef week runs on ${islands[islandId].name}.`} paras={copy.body} />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].name} · Beside this week`}
+        heading="Open a related document."
+        intro="/personal-chef is the resident line. /private-chef is one dinner. The week notes sit in the journal."
+        items={copy.related.map((link) => ({
+          path: link.path,
+          label: link.label,
+          detail: link.path,
+        }))}
+      />
       <SiblingCluster island={islandId} href={href} />
       <QuoteTeaser island={islandId} />
     </>

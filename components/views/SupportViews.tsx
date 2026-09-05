@@ -916,15 +916,13 @@ export function IslandsIndexView({ islandId }: { islandId: (typeof islandOrder)[
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
       <IslandBleedRows currentIsland={islandId} />
-      <section className="bg-paper py-16">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <HostLink island={islandId} path="/areas" className="block max-w-[40rem]">
-            <p className="text-[12px] text-mute">On this host</p>
-            <h2 className="mt-2 font-display text-2xl font-light text-ink">Map notes</h2>
-            <p className="mt-2 text-sm text-mute">/areas — corridors and the rest of the named places.</p>
-          </HostLink>
-        </div>
-      </section>
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow="On this host"
+        heading="Map notes."
+        intro="/areas is the map — corridors plus the rest of the named places. Coverage stays the zone list."
+        items={[{ path: '/areas', label: 'Map notes', detail: '/areas' }]}
+      />
       <LongFaq items={copy.faqs} title="Before you switch hosts." />
     </>
   );
