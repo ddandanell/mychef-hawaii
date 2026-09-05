@@ -927,6 +927,14 @@ if (!/\/private-chef': photos\.hubChef/.test(seoSrc) || !/\/vacation-chef': phot
   errors.push('hub OG must use hubChef / hubVacation for /private-chef and /vacation-chef');
 }
 
+const placeViewSrc = read('components/views/LocationPlaceView.tsx');
+if (/label: 'Mobile bar'/.test(placeViewSrc)) {
+  errors.push('corridor price cards still use the Mobile bar label');
+}
+if (/label: 'Private chef dinner'/.test(placeViewSrc)) {
+  errors.push('corridor price cards still use the Private chef dinner label');
+}
+
 const hubStealSrc = [
   'components/views/OfferViews.tsx',
   'components/views/HomeView.tsx',

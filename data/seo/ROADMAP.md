@@ -895,6 +895,12 @@ Still no zip on this machine. Wave 107 makes `seo:audit` read each measured keyw
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 108 — corridor price cards stay off money keywords (this branch)
+
+Still no zip on this machine. Wave 108 keeps the published-price block on money corridors, but the four cards no longer label themselves Private chef dinner / Mobile bar. They read Villa dinner, Stay Chef, Wedding week, and Packaged cart, so `/` and hub `/mobile-bar` keep those phrases. `seo:audit` fails if those labels return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

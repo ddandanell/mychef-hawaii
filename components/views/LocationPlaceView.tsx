@@ -100,10 +100,10 @@ function PriceBlock({
   const bar = getMobileBar(islandId);
   const wedding = getOtherOffer('wedding').byIsland[islandId];
   const cards = [
-    { label: 'Private chef dinner', value: core ? formatBand(core) : '', unit: 'per guest' },
-    { label: 'Stay chef', value: formatFrom(day.from), unit: 'per day' },
-    { label: 'Wedding & events', value: formatFrom(wedding.from), unit: 'per guest + staffing' },
-    { label: 'Mobile bar', value: formatFrom(bar.packageFrom), unit: `per ${bar.packageHours}-hr package` },
+    { label: 'Villa dinner', value: core ? formatBand(core) : '', unit: 'per guest' },
+    { label: 'Stay Chef', value: formatFrom(day.from), unit: 'per day' },
+    { label: 'Wedding week', value: formatFrom(wedding.from), unit: 'per guest + staffing' },
+    { label: 'Packaged cart', value: formatFrom(bar.packageFrom), unit: `per ${bar.packageHours}-hr package` },
   ];
   return (
     <section className="border-t border-line bg-sand py-20 lg:py-28">
