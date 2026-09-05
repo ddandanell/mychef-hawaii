@@ -654,6 +654,15 @@ Still no zip on this machine. Wave 75 gives hub `/personal-chef` related-documen
 - Hub `/personal-chef` keeps the four-island picker, then opens `/private-chef`, `/vacation-chef`, `/quote`, and `/pricing` on existing stills. Distinct from `/private-chef` (one dinner) and `/vacation-chef` (the villa week).
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
 
+## Wave 76 — geography related doors (this branch)
+
+Still no zip on this machine. Wave 76 closes the geography loop that Wave 71 opened from `/coverage`. Dinner-door lists and map notes stay the page’s job.
+
+- Island `/locations` keeps the corridor photo grid, then opens `/areas`, `/coverage`, `/quote`, and `/how-it-works`.
+- Island `/areas` keeps the place grid and dining-in notes, then opens `/locations`, `/coverage`, `/quote`, and `/how-it-works`.
+- Hub `/locations` keeps the four-island picker, then opens the same four statewide doors. Hub `/areas` already names `/locations` and `/islands`, then opens `/coverage`, `/quote`, `/how-it-works`, and `/faq`.
+- Zone lists on `/coverage` stay paper. SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

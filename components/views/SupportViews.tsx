@@ -515,6 +515,38 @@ export function HubAreasView() {
         ]}
       />
       <IslandPhotoPicker path="/areas" heading="Open the island map notes." detailOf={() => 'Map notes'} />
+      <HubPhotoGrid
+        eyebrow="Beside these map notes"
+        heading="Open a related document."
+        intro="This page is the map-notes directory. Coverage maps, the form, and how a night runs are their own URLs."
+        columns={2}
+        items={[
+          {
+            href: '/coverage',
+            title: 'Coverage maps',
+            body: 'Each island publishes its own zone list. Not the live dinner-door list.',
+            still: photos.hubCoverage,
+          },
+          {
+            href: '/quote',
+            title: 'The quote form',
+            body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+            still: photos.quoteHub,
+          },
+          {
+            href: '/how-it-works',
+            title: 'How it works',
+            body: 'Enquire, menu, written quote. Distinct from the FAQ picker.',
+            still: photos.hubHow,
+          },
+          {
+            href: '/faq',
+            title: 'FAQ',
+            body: 'The FAQ picker. Coverage and locations stay their own URLs.',
+            still: photos.hubFaq,
+          },
+        ]}
+      />
     </>
   );
 }
@@ -849,6 +881,19 @@ export function AreasIndexView({ islandId }: { islandId: (typeof islandOrder)[nu
           detail: `/blog/dining-in-${place.slug}`,
         }))}
       />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].shortName} · Beside these map notes`}
+        heading="Open a related document."
+        intro="/locations is the live dinner-door list. /coverage is the zone list. The form and how a night runs are their own URLs."
+        columns={2}
+        items={[
+          { path: '/locations', label: 'Live dinner doors', detail: '/locations' },
+          { path: '/coverage', label: 'Coverage map', detail: '/coverage' },
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+        ]}
+      />
       <LongFaq items={copy.faqs} title="Before you pick a place." />
     </>
   );
@@ -931,6 +976,19 @@ export function LocationsIndexView({ islandId }: { islandId: (typeof islandOrder
         eyebrow={islands[islandId].name}
         heading="Open a live dinner door."
         items={hoods.map((hood) => ({ path: `/${hood.slug}`, label: hood.name, detail: `/${hood.slug}` }))}
+      />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].shortName} · Beside these dinner doors`}
+        heading="Open a related document."
+        intro="/areas is the map notes. /coverage is the zone list. The form and how a night runs are their own URLs."
+        columns={2}
+        items={[
+          { path: '/areas', label: 'Map notes', detail: '/areas' },
+          { path: '/coverage', label: 'Coverage map', detail: '/coverage' },
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+        ]}
       />
       <LongFaq items={copy.faqs} title="Before you pick a corridor." />
     </>
