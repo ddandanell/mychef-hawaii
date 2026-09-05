@@ -12,8 +12,7 @@ import { helpArticles } from '@/data/helpArticles';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
 import { SUPPORT_PATHS } from '@/data/islandSupport';
-import { HUB_DIRECTORY_PATHS } from '@/data/hubDirectories';
-import { HUB_NESTED_PATHS } from '@/data/hubNestedDirectories';
+import { HUB_ALL_PICKER_PATHS } from '@/data/hubDirectories';
 
 function xmlEscape(s: string): string {
   return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
@@ -90,7 +89,7 @@ export async function GET(request: Request) {
       ]);
   const hubRows = island
     ? []
-    : [...HUB_DIRECTORY_PATHS, ...HUB_NESTED_PATHS].map((path) => ({ host: 'hub' as const, path, priority: '0.55' }));
+    : HUB_ALL_PICKER_PATHS.map((path) => ({ host: 'hub' as const, path, priority: '0.55' }));
   const rows = island
     ? [...MASTER_MAP.filter((r) => r.host === island), ...extras]
     : [...MASTER_MAP, ...hubRows, ...extras];

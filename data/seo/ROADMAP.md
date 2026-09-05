@@ -263,13 +263,23 @@ Still no zip on this machine. Wave 29 ships hub pickers for nested occasion, cat
 - Distinct from parent hub pickers (`/events`, `/catering`, `/fine-dining`, `/staffing`, `/menus`, `/help`) and from matching island-host documents.
 - Titles never use money keywords. Each page is a four-island picker with its own Grok still.
 
-## Wave 30 — zip execution
+## Wave 30 — unique hub pickers for shared journal and blog notes (this branch)
+
+Still no zip on this machine. Wave 30 ships hub pickers for journal and shared-blog URLs that already 200 on every island host but 404'd on the apex (23 URLs).
+
+- Journal: `/journal/how-much-does-a-private-chef-cost`, `/journal/how-to-hire-a-private-chef`, `/journal/villa-kitchens`, `/journal/dietary-needs`, `/journal/what-is-included`, `/journal/how-far-ahead-to-book`, `/journal/private-chef-vs-restaurant`.
+- Shared blogs: `/blog/grocery-at-cost`, `/blog/wine-and-alcohol`, `/blog/weather-backup`, `/blog/sourcing-honesty`, `/blog/cleanup-standard`, `/blog/condo-load-in`, `/blog/family-reunions`, `/blog/photoshoot-catering`, `/blog/proposal-dinners`, `/blog/estate-logistics`, `/blog/shoulder-season`, `/blog/named-farms`, `/blog/fish-species`, `/blog/coffee-labeling`, `/blog/peak-season`, `/blog/no-fake-reviews`.
+- Dining-in blogs stay island-only. Extra-blog seeds that overlap live SKUs stay unpublished.
+- Distinct from parent hub `/journal` and `/blog` indexes and from matching island-host documents.
+- Titles never use money keywords. Each page is a four-island picker with its own Grok still.
+
+## Wave 31 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 31 — automation that stays on
+## Wave 32 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

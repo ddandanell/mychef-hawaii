@@ -13,8 +13,7 @@ import { feeStack } from '@/data/rateCard';
 import { proofRegister } from '@/data/proofRegister';
 import { articlesFor } from '@/data/editorial';
 import { MASTER_MAP, masterHostName } from '@/data/commercialGraph';
-import { HUB_DIRECTORY_PATHS } from '@/data/hubDirectories';
-import { HUB_NESTED_PATHS } from '@/data/hubNestedDirectories';
+import { HUB_ALL_PICKER_PATHS } from '@/data/hubDirectories';
 import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
 import { islandServices } from '@/data/islandServices';
@@ -540,7 +539,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...(islandId ? MASTER_MAP.filter((r) => r.host === islandId) : MASTER_MAP),
     ...(islandId
       ? []
-      : [...HUB_DIRECTORY_PATHS, ...HUB_NESTED_PATHS].map((path) => ({ host: 'hub' as const, path }))),
+      : HUB_ALL_PICKER_PATHS.map((path) => ({ host: 'hub' as const, path }))),
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),

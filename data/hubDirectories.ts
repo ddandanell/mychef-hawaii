@@ -1,6 +1,7 @@
 import { SEARCH_VOLUMES } from './offers';
 import type { PhotoKey } from './photos';
-import { hubNestedDirectories } from './hubNestedDirectories';
+import { hubNestedDirectories, HUB_NESTED_PATHS } from './hubNestedDirectories';
+import { hubEditorialDirectories, HUB_EDITORIAL_PATHS } from './hubEditorialDirectories';
 
 /**
  * Hub-only pickers for support paths that already live on every island host.
@@ -672,17 +673,25 @@ export const hubDirectories: Record<HubDirectoryId, HubDirectory> = {
   },
 };
 
+export const HUB_ALL_PICKER_PATHS = [
+  ...HUB_DIRECTORY_PATHS,
+  ...HUB_NESTED_PATHS,
+  ...HUB_EDITORIAL_PATHS,
+] as const;
+
 export function getHubDirectory(path: string): HubDirectory | undefined {
   const clean = path.replace(/\/$/, '') || '/';
   return (
     (Object.values(hubDirectories) as HubDirectory[]).find((row) => row.path === clean) ??
-    (Object.values(hubNestedDirectories) as HubDirectory[]).find((row) => row.path === clean)
+    (Object.values(hubNestedDirectories) as HubDirectory[]).find((row) => row.path === clean) ??
+    (Object.values(hubEditorialDirectories) as HubDirectory[]).find((row) => row.path === clean)
   );
 }
 
 export function getHubDirectoryById(id: string): HubDirectory | undefined {
   return (
     (hubDirectories as Record<string, HubDirectory>)[id] ??
-    (hubNestedDirectories as Record<string, HubDirectory>)[id]
+    (hubNestedDirectories as Record<string, HubDirectory>)[id] ??
+    (hubEditorialDirectories as Record<string, HubDirectory>)[id]
   );
 }

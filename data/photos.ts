@@ -2187,6 +2187,98 @@ export const photos = {
     file: '/photos/hub-help-manage.png',
     alt: `Unused ivory papers under a brass clip on a koa desk, fountain pen, no writing.`,
   },
+  hubJnlCost: {
+    file: '/photos/hub-jnl-cost.png',
+    alt: `Unused ivory papers stacked under a brass clip on a koa kitchen pass, fountain pen, limes, no writing.`,
+  },
+  hubJnlHire: {
+    file: '/photos/hub-jnl-hire.png',
+    alt: `Five unused blank ivory cards fanned under a brass clip on a sand linen pass, citrus.`,
+  },
+  hubJnlKitchens: {
+    file: '/photos/hub-jnl-kitchens.png',
+    alt: `Empty copper sauté pan beside unused ivory plates on a compact koa villa counter.`,
+  },
+  hubJnlDietary: {
+    file: '/photos/hub-jnl-dietary.png',
+    alt: `Three unused small ceramic bowls in a quiet row on a koa board, unmarked produce, no labels.`,
+  },
+  hubJnlIncluded: {
+    file: '/photos/hub-jnl-included.png',
+    alt: `Stacked unused sand linen napkins and unused ivory plates on a koa dining table, brass clip.`,
+  },
+  hubJnlBook: {
+    file: '/photos/hub-jnl-book.png',
+    alt: `Unused unmarked ivory papers under a brass clip on a koa desk, fountain pen, no dates.`,
+  },
+  hubJnlVsrest: {
+    file: '/photos/hub-jnl-vsrest.png',
+    alt: `One unused ivory place setting beside an unused charger plate on a koa table, two unlit candles.`,
+  },
+  hubBlogGrocery: {
+    file: '/photos/hub-blog-grocery.png',
+    alt: `Unmarked whole produce and a whole fish on a koa board, unused ivory plate, unlabeled paper bag.`,
+  },
+  hubBlogWine: {
+    file: '/photos/hub-blog-wine.png',
+    alt: `Two unused empty wine glasses and an unlabeled dark bottle on a koa bar cart, citrus peel.`,
+  },
+  hubBlogWeather: {
+    file: '/photos/hub-blog-weather.png',
+    alt: `Unused ivory plates on a rain-dark stone terrace, wet koa table, empty glasses, brass clip.`,
+  },
+  hubBlogSourcing: {
+    file: '/photos/hub-blog-sourcing.png',
+    alt: `Unpacked unmarked produce and an unlabeled whole fish on a koa prep table, unused ivory plate.`,
+  },
+  hubBlogCleanup: {
+    file: '/photos/hub-blog-cleanup.png',
+    alt: `Stack of clean unused ivory plates beside folded sand linen on a koa pass, empty sink edge.`,
+  },
+  hubBlogCondo: {
+    file: '/photos/hub-blog-condo.png',
+    alt: `Unused stacked empty food totes and unused ivory plates in a service corridor, brass clip.`,
+  },
+  hubBlogReunions: {
+    file: '/photos/hub-blog-reunions.png',
+    alt: `Long unused koa dining table with many unused ivory plates and empty glasses, sand linen.`,
+  },
+  hubBlogPhotoshoot: {
+    file: '/photos/hub-blog-photoshoot.png',
+    alt: `Unused identical ivory plates in a row on a koa sideboard, coiled cable, brass clip.`,
+  },
+  hubBlogProposal: {
+    file: '/photos/hub-blog-proposal.png',
+    alt: `Two unused ivory place settings close together on a small koa table, two empty coupes, unlit candle.`,
+  },
+  hubBlogEstate: {
+    file: '/photos/hub-blog-estate.png',
+    alt: `Unused empty crates and unused ivory plates on a wide koa estate kitchen pass, brass clip.`,
+  },
+  hubBlogShoulder: {
+    file: '/photos/hub-blog-shoulder.png',
+    alt: `A quieter unused ivory place setting on a mossed lava and koa table, empty coffee cup, brass clip.`,
+  },
+  hubBlogFarms: {
+    file: '/photos/hub-blog-farms.png',
+    alt: `Unlabeled produce crates and unmarked whole fruit on a koa counter, unused ivory plate, brass clip.`,
+  },
+  hubBlogFish: {
+    file: '/photos/hub-blog-fish.png',
+    alt: `A whole unmarked fish on crushed ice in a volcanic-stone bowl, unused ivory plate, koa counter.`,
+  },
+  hubBlogCoffee: {
+    file: '/photos/hub-blog-coffee.png',
+    alt: `Unlabeled brown coffee bags and unused ivory cups on a koa sideboard, brass clip, mossed lava.`,
+  },
+  hubBlogPeak: {
+    file: '/photos/hub-blog-peak.png',
+    alt: `A thick stack of unused ivory papers compressed under a heavy brass clip on a koa desk, no dates.`,
+  },
+  hubBlogReviews: {
+    file: '/photos/hub-blog-reviews.png',
+    alt: `A blank unused ivory card under a brass clip on a koa pass, no stars, no writing, fountain pen.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
