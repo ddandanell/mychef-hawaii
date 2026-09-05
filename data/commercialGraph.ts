@@ -14,14 +14,15 @@ export type MasterHost = 'hub' | IslandSitemapHost;
 
 export interface MasterLoc {
   host: MasterHost;
-  path: '/' | '/catering' | '/weddings' | '/about';
+  path: '/' | '/catering' | '/weddings' | '/about' | '/mobile-bar';
 }
 
-/** The 12 money URLs plus hub /about. One primary keyword each on the money set. */
+/** Money URLs plus hub /about. Hub /mobile-bar owns `mobile bar hawaii`. */
 export const MASTER_MAP: readonly MasterLoc[] = [
   { host: 'hub', path: '/' },
   { host: 'hub', path: '/catering' },
   { host: 'hub', path: '/weddings' },
+  { host: 'hub', path: '/mobile-bar' },
   { host: 'hub', path: '/about' },
   { host: 'oahu', path: '/' },
   { host: 'oahu', path: '/catering' },

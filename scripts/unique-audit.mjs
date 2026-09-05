@@ -859,6 +859,14 @@ if (!/wedding catering hawaii/.test(pageMetaSrc.toLowerCase())) {
 if (!/mobile bar hawaii/.test(pageMetaSrc.toLowerCase())) {
   errors.push('hub /mobile-bar title no longer owns mobile bar hawaii');
 }
+const graphSrc = read('data/commercialGraph.ts');
+if (!/host: 'hub', path: '\/mobile-bar'/.test(graphSrc)) {
+  errors.push('MASTER_MAP still omits hub /mobile-bar');
+}
+const sitemapRouteSrc = read('app/sitemap.xml/route.ts');
+if (!/'\/mobile-bar'/.test(sitemapRouteSrc)) {
+  errors.push('island XML sitemap still omits /mobile-bar');
+}
 if (!homeTitleBlob.includes('private chef oahu')) errors.push('Oahu home title no longer owns private chef oahu');
 if (!homeTitleBlob.includes('private chef maui')) errors.push('Maui home title no longer owns private chef maui');
 if (!homeTitleBlob.includes('private chef kauai')) errors.push('Kauai home title no longer owns private chef kauai');

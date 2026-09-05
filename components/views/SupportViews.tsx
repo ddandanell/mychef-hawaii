@@ -873,7 +873,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'] as const).map((path) => ({
+      ...(['/about', '/events', '/mobile-bar', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'] as const).map((path) => ({
         host: id,
         path,
       })),

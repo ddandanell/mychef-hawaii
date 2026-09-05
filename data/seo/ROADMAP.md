@@ -1057,6 +1057,12 @@ Still no zip on this machine. Wave 134 puts every visible FAQ on hub `/`, hub `/
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 135 — /mobile-bar enters the XML sitemap (this branch)
+
+Still no zip on this machine. Wave 135 puts hub `/mobile-bar` on `MASTER_MAP` so the `mobile bar hawaii` owner is advertised to crawlers, and lists island `/mobile-bar` beside `/events` on island sitemaps. `/bar` stays an unadvertised add-on. `seo:audit` fails if those sitemap rows drop. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

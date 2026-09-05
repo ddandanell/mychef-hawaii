@@ -33,7 +33,7 @@ function neighborhoodRows(island: IslandSitemapHost): { host: MasterHost; path: 
 }
 
 function supportRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
-  return [...SUPPORT_PATHS, '/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'].map((path) => ({
+  return [...SUPPORT_PATHS, '/about', '/events', '/mobile-bar', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'].map((path) => ({
     host: island,
     path,
     priority: '0.6',

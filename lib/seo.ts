@@ -477,7 +477,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.7',
     })),
-    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
+    ...(['/about', '/events', '/mobile-bar', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
       loc: `https://${masterHostName(island)}${path}`,
       changefreq: 'monthly',
       priority: '0.6',
