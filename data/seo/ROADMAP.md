@@ -804,6 +804,12 @@ Still no zip on this machine. Wave 93 removes `weddings` from the catalog EVENT_
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 94 — catalog slug lists stay locked to live unique documents (this branch)
+
+Still no zip on this machine. Wave 94 makes `seo:audit` fail if catalog EVENT / CATERING / FINE / HELP / STAFF / MENU slug lists drift from the live unique documents. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

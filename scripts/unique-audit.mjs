@@ -109,6 +109,25 @@ function uniqueCellSlugsByIsland(src) {
   return map;
 }
 
+function quotedList(src, name) {
+  const re = new RegExp(`(?:const|export const) ${name} = \\[([^\\]]+)\\]`);
+  const hit = src.match(re);
+  if (!hit) throw new Error(`Missing ${name} list`);
+  return hit[1]
+    .split(',')
+    .map((s) => s.replace(/['\s]/g, ''))
+    .filter((s) => s && !s.startsWith('.'));
+}
+
+function sameSet(a, b, label) {
+  const left = [...new Set(a)].sort();
+  const right = [...new Set(b)].sort();
+  if (left.join('|') !== right.join('|')) {
+    return [`${label} drift: catalog [${left.join(', ')}] vs live [${right.join(', ')}]`];
+  }
+  return [];
+}
+
 function offerSlugsByIsland(src) {
   const block = sliceExport(src, 'moneyNeighborhoods', 'export function getMoneyNeighborhood');
   const map = {};
@@ -486,6 +505,26 @@ if (/Private chef Kauai from/.test(catalogSrc)) {
 if (/EVENT_SLUGS = \['weddings'/.test(catalogSrc) || /\/events\/weddings/.test(catalogSrc)) {
   errors.push('catalog still lists /events/weddings — /weddings owns wedding titles');
 }
+
+const occasionExtrasSrc = read('data/occasionExtras.ts');
+const liveOccasions = [
+  ...quotedList(read('data/occasionPages.ts'), 'OCCASION_SLUGS'),
+  ...quotedList(occasionExtrasSrc, 'OCCASION_EXTRA_SLUGS'),
+];
+errors.push(...sameSet(quotedList(catalogSrc, 'EVENT_SLUGS'), liveOccasions, 'catalog EVENT_SLUGS'));
+errors.push(
+  ...sameSet(quotedList(catalogSrc, 'CATERING_SLUGS'), quotedList(formatsSrc, 'CATERING_FORMAT_SLUGS'), 'catalog CATERING_SLUGS'),
+);
+errors.push(
+  ...sameSet(quotedList(catalogSrc, 'FINE_SLUGS'), quotedList(fineSrc, 'FINE_DINING_SLUGS'), 'catalog FINE_SLUGS'),
+);
+errors.push(...sameSet(quotedList(catalogSrc, 'HELP_SLUGS'), quotedList(helpSrc, 'HELP_SLUGS'), 'catalog HELP_SLUGS'));
+errors.push(
+  ...sameSet(quotedList(catalogSrc, 'STAFF_SLUGS'), quotedList(staffSrc, 'STAFFING_SLUGS'), 'catalog STAFF_SLUGS'),
+);
+errors.push(
+  ...sameSet(quotedList(catalogSrc, 'MENU_SLUGS'), quotedList(menuSkuSrc, 'MENU_SKU_SLUGS'), 'catalog MENU_SLUGS'),
+);
 
 const longCateringSrc = read('data/longformCatering.ts');
 if (/q: 'How much is Oahu catering\?'/.test(longCateringSrc)) {
