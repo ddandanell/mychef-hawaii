@@ -819,11 +819,19 @@ if (!/wedding catering oahu/.test(pageMetaSrc.toLowerCase())) {
 if (!/wedding catering maui/.test(pageMetaSrc.toLowerCase())) {
   errors.push('Maui /weddings title no longer owns wedding catering maui');
 }
-if (!/kauai wedding catering/.test(pageMetaSrc.toLowerCase())) {
+const kauaiWeddingsTitle = pageMetaSrc.match(/'\/kauai\/weddings':\s*\{[^}]*title:\s*'([^']+)'/);
+if (!kauaiWeddingsTitle || !/kauai wedding catering/i.test(kauaiWeddingsTitle[1])) {
   errors.push('Kauai /weddings title no longer owns kauai wedding catering');
+}
+const bigislandCateringTitle = pageMetaSrc.match(/'\/bigisland\/catering':\s*\{[^}]*title:\s*'([^']+)'/);
+if (!bigislandCateringTitle || !/big island catering/i.test(bigislandCateringTitle[1])) {
+  errors.push('pageMeta /bigisland/catering title no longer owns big island catering');
 }
 
 const seoSrc = read('lib/seo.ts');
+if (!/cateringOffers\[islandId\]\.title/.test(seoSrc)) {
+  errors.push('seo.ts still misses cateringOffers intercept for island /catering titles');
+}
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
   errors.push('location fallback titles still use private chef');
 }

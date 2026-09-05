@@ -38,6 +38,7 @@ import { islandSitemap } from '@/data/islandSitemap';
 import { getJournalArticle, journalArticles } from '@/data/journalArticles';
 import { getBlogArticle, blogArticles } from '@/data/blogArticles';
 import { getIslandSupport, SUPPORT_PATHS } from '@/data/islandSupport';
+import { cateringOffers } from '@/data/catering';
 import { eventOffers } from '@/data/events';
 import { islandAbout } from '@/data/islandAbout';
 import { lookupPageMeta, metaForPath } from '@/data/pageMeta';
@@ -264,6 +265,9 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (localPath === '/events') {
       title = eventOffers[islandId].title;
       description = eventOffers[islandId].description;
+    } else if (localPath === '/catering') {
+      title = cateringOffers[islandId].title;
+      description = cateringOffers[islandId].description;
     } else if (localPath === '/about') {
       title = islandAbout[islandId].title;
       description = islandAbout[islandId].description;

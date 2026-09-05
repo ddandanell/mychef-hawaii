@@ -585,8 +585,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Kauai wedding catering from $175/pp plus staffing. Estate formats on both shores. Published starting prices. WhatsApp the week.',
   },
   '/kauai/weddings': {
-    title: 'Wedding catering Kauai | myCHEF',
-    description: 'Wedding catering Kauai from $175/pp plus staffing. Princeville, Hanalei and Poʻipū. Inquiry stage.',
+    title: 'Kauai wedding catering | both shores — inquiry | myCHEF',
+    description:
+      'Kauai wedding catering from $175/pp plus staffing. Princeville, Hanalei and Poʻipū. Inquiry stage.',
   },
   '/kauai/bar': {
     title: 'Kauaʻi villa cocktails — Princeville and Poʻipū | myCHEF',
@@ -645,8 +646,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'Multi-day chef residencies for Kohala and Waimea weeks. Groceries at cost. Inquiry stage.',
   },
   '/bigisland/catering': {
-    title: 'Hawaiʻi Island catering — Kohala Coast & Kona | myCHEF',
-    description: 'Kohala estate weddings and event catering. Published starting prices. Inquiry stage.',
+    title: 'Big Island catering — Kona & Kohala from $125/pp | myCHEF',
+    description:
+      'Catering on Hawaiʻi Island from $125/pp. Kohala Coast and Kona villa receptions, buffet or plated. WhatsApp for a written quote.',
   },
   '/bigisland/wedding-catering': {
     title: 'Hawaiʻi Island wedding catering — Kohala Coast estates | myCHEF',

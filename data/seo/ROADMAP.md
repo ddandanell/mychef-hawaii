@@ -883,6 +883,12 @@ Still no zip on this machine. Wave 105 uniquifies the sample-menu FAQ that still
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 106 — live catering and Kauai wedding titles own measured phrases (this branch)
+
+Still no zip on this machine. Wave 106 intercepts `cateringOffers` in `resolveDocumentSeo` so island `/catering` titles no longer drift to leftover pageMeta (Hawaiʻi Island now ships `big island catering`). Kauaʻi `/weddings` title owns the contiguous phrase `kauai wedding catering` instead of the reversed `Wedding catering Kauai`. `seo:audit` fails if those owner titles or the catering intercept return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
