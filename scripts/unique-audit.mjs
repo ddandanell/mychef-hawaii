@@ -527,6 +527,9 @@ if (/h2: 'Private chef Maui cost'/.test(longIslandSrc)) {
 if (/h2: 'Personal chef Oahu'/.test(longIslandSrc)) {
   errors.push('Oahu home H2 still steals personal chef oahu from /personal-chef');
 }
+if (/h2: 'Private chef Hawaii cost'/.test(longHubSrc)) {
+  errors.push('hub /pricing H2 still steals private chef hawaii from hub home');
+}
 
 const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {

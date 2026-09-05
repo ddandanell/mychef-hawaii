@@ -219,9 +219,9 @@ export const hubWeddingsFaqs: CopyFaq[] = [
 
 export const hubPricingSections: CopySection[] = [
   {
-    h2: 'Private chef Hawaii cost',
+    h2: 'The statewide band, then a written quote',
     paras: [
-      'Private chef Hawaii cost is not a single number. It is a published band, then a written quote. Signature dinner: $125–$190 a guest on Oʻahu, $150–$250 on Maui and Kauaʻi, $150–$225 on Hawaiʻi Island (Table from $110). Stay Chef day rates from $850 Oʻahu / $1,050 Maui / $1,100 Kauaʻi / $950 Hawaiʻi Island.',
+      'Private chef Hawaii cost is not a single number. Hub `/` owns private chef Hawaii. This page is the tariff. Signature dinner: $125–$190 a guest on Oʻahu, $150–$250 on Maui and Kauaʻi, $150–$225 on Hawaiʻi Island (Table from $110). Stay Chef day rates from $850 Oʻahu / $1,050 Maui / $1,100 Kauaʻi / $950 Hawaiʻi Island.',
       'What sits inside the per-guest dinner band: menu design, same-day shopping, cooking, table service, cleanup. Groceries are inside that band on a signature night. On Stay Chef days, groceries are billed at cost with receipts. Alcohol is BYO or quoted. Rentals and venue fees are add-ons when you want them.',
       'What is added once, as its own lines: 20% service, Hawaiʻi GET up to 4.712%, and a 50% deposit to lock the date. Gratuity is voluntary. Travel beyond base corridors is a published zone line. There is no mystery “hospitality” fold-in.',
     ],
@@ -237,7 +237,7 @@ export const hubPricingSections: CopySection[] = [
     h2: 'How to read the tariff',
     paras: [
       'Use the island tabs on this page for the card that matches the house. Then open /quote with that island selected. Typical reply in Hawaii business hours. No payment to enquire. No account.',
-      'If you need the Maui-only cost story, the Maui site’s pricing page and home carry it. This page is statewide: private chef Hawaii cost, line by line.',
+      'If you need the Maui-only cost story, the Maui site’s /pricing and /private-chef-cost carry it. This statewide card is what a night costs, line by line. The fee-stack picker is /private-chef-cost.',
     ],
   },
 ];

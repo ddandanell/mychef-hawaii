@@ -733,6 +733,14 @@ Still no zip on this machine. Wave 84 uniquifies island-home longform so corrido
 - Hawaiʻi Island `/` H2 “Private chef Kona” is now “Kona and the west-side shop” and names `/kona`. Copy no longer says Kona “is not a path of its own.”
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 85 — hub /pricing H2 stops stealing private chef Hawaii (this branch)
+
+Still no zip on this machine. Wave 85 uniquifies hub `/pricing` longform so `private chef hawaii` stays on hub `/`. No new URLs. Hub `/pricing` title stays “What a night costs”.
+
+- Hub `/pricing` H2 “Private chef Hawaii cost” is now “The statewide band, then a written quote”. Body still names the related search and points at hub `/` and `/private-chef-cost`.
+- The FAQ “Private chef Hawaii cost — what is actually on the quote?” stays on this tariff page as a related-search question, not a second title.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
