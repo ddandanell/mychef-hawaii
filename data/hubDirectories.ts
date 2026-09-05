@@ -475,7 +475,7 @@ export const hubDirectories: Record<HubDirectoryId, HubDirectory> = {
     photo: 'hubPersonal',
     cardLabel: 'Household line',
     body: [
-      `Personal chef Honolulu (${SEARCH_VOLUMES['personal chef honolulu']}) stays in Oahu copy, not this title. Private chef doors stay on island homes and hub /private-chef.`,
+      `Personal chef Honolulu (${SEARCH_VOLUMES['personal chef honolulu']}) stays on oahu.mychef-hawaii.com/personal-chef. Private chef doors stay on island homes.`,
       'Oahu also has /kamaaina. That is a resident frequency page, not this picker. Kauaʻi and Hawaiʻi Island stay inquiry.',
     ],
     faqs: [

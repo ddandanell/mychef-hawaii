@@ -984,8 +984,8 @@ export function ServicesView() {
           className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
         />
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">
-          Private chef dinners from $125 a guest, Stay Chef day rates, wedding catering and mobile bar across Hawaii.
-          Each island host also keeps its own service list.
+          Private chef dinners from $125 a guest, Stay Chef day rates, wedding catering and the bartender add-on.
+          The four-hour cart lives on /mobile-bar. Each island host also keeps its own service list.
         </p>
         <div className="mt-8">
           <QuoteCta variant="light" />

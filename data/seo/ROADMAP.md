@@ -488,6 +488,16 @@ Still no zip on this machine. Wave 54 gives hub geography indexes the same pair 
 - Hub `/islands` opens `/locations` and `/areas` from existing stills after the host bleed rows.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 55 — measured keywords on the URLs that own them (this branch)
+
+Still no zip on this machine. Wave 55 stops leftover titles from stuffing island money keywords onto the wrong documents:
+
+- Hub `/islands` is the host picker. It no longer titles as “Private chef Oahu, Maui, Kauai & Big Island”.
+- Hub `/services` no longer titles on `mobile bar hawaii`. That phrase stays on hub `/mobile-bar`.
+- Island `/personal-chef` takes the measured household phrases (`personal chef honolulu`, `personal chef maui`). Island `/private-chef` is the visitor-dinner document and no longer uses those titles.
+- `MASTER_KEYWORDS` maps remaining measured long-tails onto live corridors (`/honolulu`, `/kona`, `/lahaina`, `/north-shore`, `/poipu`) and `/mobile-bar`.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

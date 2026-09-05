@@ -18,9 +18,9 @@ const DEFAULT: PageMetaRecord = {
 export const PAGE_META: Record<string, PageMetaRecord> = {
   '/': DEFAULT,
   '/islands': {
-    title: 'Private chef Oahu, Maui, Kauai & Big Island | myCHEF',
+    title: 'Four island hosts | myCHEF Hawaii',
     description:
-      'Four island sites. Private chef Maui from $150 a guest. Private chef Kauai from $150 a guest. Oahu from $125 a guest. Big Island from $125 a guest.',
+      'Each island is its own host — own chefs, zones and pricing. Oʻahu and Maui take quotes. Kauaʻi and Hawaiʻi Island are inquiry. Island money titles stay on those hosts.',
   },
   '/areas': {
     title: 'Where we cook, by island — map notes | myCHEF',
@@ -28,9 +28,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Map notes on every island host: live corridors plus the rest of the named places. Choose an island, then the geography.',
   },
   '/services': {
-    title: 'Private chef, catering, weddings & mobile bar | myCHEF Hawaii',
+    title: 'Villa dinners, catering, weddings and bar — by island | myCHEF',
     description:
-      'Private chef dinners from $125/pp, Stay Chef day rates, wedding catering and mobile bar across Hawaii. WhatsApp for a quote.',
+      'Open the island document: in-villa dinner, staffed catering, wedding week, or the bartender add-on. The four-hour cart lives on /mobile-bar. WhatsApp for a quote.',
   },
   '/private-chef': {
     title: 'Personal chef for Hawaii villas & vacation rentals | myCHEF',
@@ -395,9 +395,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Private chef Big Island from $125 a guest. Named corridors — Kona, Waikoloa, Waimea, Kohala Coast. Inquiry stage. WhatsApp the dates.',
   },
   '/oahu/private-chef': {
-    title: 'Personal chef Oahu villas & vacation rentals | myCHEF',
+    title: 'Visitor dinners in the Oahu house | myCHEF',
     description:
-      'Personal chef for Oahu villas and vacation rentals. In-home dinner, weekly household line. WhatsApp for a quote.',
+      'In-home visitor dinners on Oahu. The household week is /personal-chef. Private chef Oahu stays on this host’s home. WhatsApp for a quote.',
   },
   '/oahu/vacation-chef': {
     title: 'Oʻahu vacation chef and weekly household service | myCHEF',
@@ -475,9 +475,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'HTML sitemap for the Oahu host: corridors, services, occasions, and supporting documents. Not the hub sitemap.',
   },
   '/maui/private-chef': {
-    title: 'Personal chef Maui villas & vacation rentals | myCHEF',
+    title: 'Visitor dinners in the Maui villa | myCHEF',
     description:
-      'Personal chef for Maui villas and vacation rentals. In-home dinner in Wailea, West Maui and Kīhei. WhatsApp for a quote.',
+      'In-home visitor dinners on Maui. The household week is /personal-chef. Private chef Maui stays on this host’s home. WhatsApp for a quote.',
   },
   '/maui/vacation-chef': {
     title: 'Maui vacation chef — Multi-day villa service | myCHEF',
@@ -556,9 +556,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Maui catering from $150 a guest. Staffed villa events, not drop-off. Buffet or plated. Request a quote.',
   },
   '/kauai/private-chef': {
-    title: 'Personal chef Kauai villas & vacation rentals | myCHEF',
+    title: 'Visitor dinners on Kauai — both shores, inquiry | myCHEF',
     description:
-      'Personal chef for Kauai villas and vacation rentals. Princeville, Poʻipū, Hanalei. Inquiry stage.',
+      'In-home visitor dinners on Kauai at inquiry. The household week is /personal-chef. Private chef Kauai stays on this host’s home.',
   },
   '/kauai/vacation-chef': {
     title: 'Vacation chef Kauai — Stay Chef from $1,100/day | myCHEF',
@@ -636,8 +636,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'HTML sitemap for the Kauai host at inquiry: both shores, supporting documents, and the cells we will quote.',
   },
   '/bigisland/private-chef': {
-    title: 'Personal chef Big Island villas & vacation rentals | myCHEF',
-    description: 'Personal chef for Big Island and Kona villas. In-home dinner, Stay Chef weeks. WhatsApp for a quote.',
+    title: 'Visitor dinners on Hawaiʻi Island — west side, inquiry | myCHEF',
+    description:
+      'In-home visitor dinners on the west side at inquiry. The household week is /personal-chef. Private chef Kona stays a dinner door.',
   },
   '/bigisland/vacation-chef': {
     title: 'Vacation chef Big Island — Stay Chef from $950/day | myCHEF',

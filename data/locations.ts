@@ -307,8 +307,8 @@ export const locations: LocationRecord[] = [
     area: 'Elevation surcharge',
     zoneClass: 'surcharge',
     zoneCode: 'B',
-    hero: '/photos/loc-upcountry.jpg',
-    heroAlt: 'A chef cuts island vegetables in a misty Upcountry Maui kitchen, Haleakalā pasture and jacaranda beyond',
+    hero: '/photos/cell-upcountry.png',
+    heroAlt: 'An Upcountry Maui estate table at elevation — cooler air, Haleakalā slope, plated fish and greens',
     h1: 'Upcountry is a map, not a surprise fee.',
     lede:
       'Elevation and drive time make Upcountry a surcharge zone. The published fee appears on the quote. Farm names appear on menus only after written verification — Hawaiʻi still imports most of its food.',

@@ -35,7 +35,7 @@ export const uniqueCells: Record<IslandId, UniqueCell[]> = {
         'Resident kitchens. School nights. A fridge that actually gets used. This is not a one-off villa dinner dressed up as local.',
       photo: 'cellKamaaina',
       body: [
-        `Personal chef Honolulu is a measured phrase (${SEARCH_VOLUMES['personal chef honolulu']} monthly). Personal chef Oahu is ${SEARCH_VOLUMES['personal chef oahu']}. Neither belongs in a tourist-dinner title. This page is the resident line.`,
+        `Personal chef Honolulu (${SEARCH_VOLUMES['personal chef honolulu']}) and personal chef Oahu (${SEARCH_VOLUMES['personal chef oahu']}) live on /personal-chef. This page is the resident frequency line. Neither belongs in a tourist-dinner title.`,
         'The dinner door for visitors is this host’s home and /private-chef. Stay Chef weeks are /vacation-chef. Kamaʻāina is frequency: the same household, the same corridors, a standing shop-and-cook rhythm.',
         'Honolulu residences, Kailua households, town apartments with a real stove. We do not sell this as a yield product. If you are visiting, open / or /vacation-chef.',
       ],

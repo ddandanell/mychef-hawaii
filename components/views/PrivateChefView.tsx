@@ -10,10 +10,10 @@ import { formatBand, getTiers } from '@/data/rateCard';
 import { islandHref } from '@/lib/paths';
 
 const H1: Record<IslandId, string> = {
-  maui: 'Personal chef for Maui villas.',
-  oahu: 'Personal chef for Oahu villas.',
-  kauai: 'Personal chef for Kauai villas.',
-  bigisland: 'Personal chef for Big Island villas.',
+  maui: 'Visitor dinners in the villa — Wailea to West Maui.',
+  oahu: 'Visitor dinners in the house — Gold Coast to Ko Olina.',
+  kauai: 'Visitor dinners on both shores — inquiry.',
+  bigisland: 'Visitor dinners on the west side — inquiry.',
 };
 
 const HERO: Record<IslandId, { file: string; alt: string }> = {

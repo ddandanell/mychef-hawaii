@@ -12,8 +12,8 @@ export const residentLine: Record<IslandId, UniqueCell> = {
   oahu: {
     slug: 'personal-chef',
     name: 'Personal chef',
-    h1: 'Honolulu school-night households — not a villa one-off.',
-    title: 'Honolulu school-night households — not a villa one-off | myCHEF',
+    h1: 'Personal chef Honolulu — school nights, not a villa one-off.',
+    title: 'Personal chef Honolulu — school-night households | myCHEF',
     description:
       'Weekly household cooking for Honolulu and Kailua residents. Distinct from /kamaaina and from the tourist dinner door. Personal chef Honolulu is a measured phrase; it does not unlock a villa SKU.',
     lede:
@@ -42,8 +42,8 @@ export const residentLine: Record<IslandId, UniqueCell> = {
   maui: {
     slug: 'personal-chef',
     name: 'Personal chef',
-    h1: 'Maui resident household cooking — weekly, not a Wailea SKU.',
-    title: 'Maui resident household cooking — weekly, not a Wailea SKU | myCHEF',
+    h1: 'Personal chef Maui — weekly, not a Wailea SKU.',
+    title: 'Personal chef Maui — weekly household cooking | myCHEF',
     description:
       'Weekly household cooking for Maui residents. Not a visitor dinner. Personal chef Maui is a measured phrase with low volume; it does not steal the private-chef door.',
     lede:

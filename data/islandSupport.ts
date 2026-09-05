@@ -31,7 +31,7 @@ export const islandFaq: Record<IslandId, IslandSupportPage> = {
     photo: 'faqOahu',
     body: [
       `Oahu catering is the largest measured search on this network (${SEARCH_VOLUMES['oahu catering']} monthly, US, 4 Sep 2026). That URL is /catering. This FAQ does not compete with it.`,
-      `Private chef Oahu (${SEARCH_VOLUMES['private chef oahu']}) and private chef Honolulu (${SEARCH_VOLUMES['private chef honolulu']}) sit on / and /private-chef. Personal chef Honolulu is a smaller related phrase (${SEARCH_VOLUMES['personal chef honolulu']}) — household weeks, not a second dinner title.`,
+      `Private chef Oahu (${SEARCH_VOLUMES['private chef oahu']}) and private chef Honolulu (${SEARCH_VOLUMES['private chef honolulu']}) sit on / and /honolulu. Personal chef Honolulu is a smaller related phrase (${SEARCH_VOLUMES['personal chef honolulu']}) — household weeks on /personal-chef, not a second dinner title.`,
       'Waikīkī hotel suites often lack a kitchen. Residences with a real stove are the product. Kahala dining rooms, Ko Olina villas, Kailua weeks, and a North Shore surcharge day are not the same drive; the quote says which.',
     ],
     faqs: [
