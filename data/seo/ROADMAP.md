@@ -695,6 +695,16 @@ Still no zip on this machine. Wave 80 closes the geography loop from the host pi
 - Island `/islands` keeps the other-host bleed rows and the same two geography doors, then opens `/coverage`, `/quote`, `/how-it-works`, and `/faq`.
 - Zone lists on `/coverage` stay paper. Hub `/faq` stays a four-island picker. No new URLs.
 
+## Wave 81 — fold leftover related searches into existing FAQs (this branch)
+
+Still no zip on this machine. Wave 81 folds DataForSEO related searches from `RELATED_SEARCHES` into live FAQs. No new URLs. No invented volumes. Titles stay off those phrases.
+
+- Maui `/` names “maui private chefs” as a related search, not a roster. Named-chef impersonations stay on `/what-we-dont-do`.
+- Hawaiʻi Island `/` names “private chef big island hawaii” on the existing Big Island / Hawaiʻi Island FAQ.
+- Oahu `/catering` names “best catering oahu”. Oahu `/private-chef` names “private chef at home”. Oahu `/events` names “hire a chef for a party”.
+- Kauaʻi `/princeville` names “private chef princeville kauai”. `/south-shore` names “south shore chef kauai”. “kauai catering menu”, “lotus chefs maui”, and “elite maui chef” were already on live FAQs.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

@@ -47,6 +47,10 @@ export const eventOffers: Record<IslandId, EventOffer> = {
         q: 'How many guests?',
         a: 'Dinners two to fifteen. Receptions about ten to seventy-five. Larger formats are quoted, not promised.',
       },
+      {
+        q: 'Hire a chef for a party?',
+        a: 'Related search. A house dinner is /private-chef. Ten to seventy-five is /catering. This page is the occasion — birthday, retreat, welcome night — not a ballroom hire.',
+      },
     ],
   },
   maui: {

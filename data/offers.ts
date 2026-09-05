@@ -520,6 +520,10 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
           q: 'Princeville catering or a private chef?',
           a: 'Dinner for the house is private chef. Ten to seventy-five guests is Kauai catering — same team, staffed. See /catering.',
         },
+        {
+          q: 'Is this private chef Princeville Kauai?',
+          a: 'Yes. That related search is this corridor. Home holds private chef Kauai. This URL stays the North Shore estate door.',
+        },
       ],
     },
     {

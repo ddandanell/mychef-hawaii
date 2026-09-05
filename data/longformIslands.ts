@@ -146,6 +146,10 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
         a: 'No. Wailea, Kāʻanapali, Kapalua, and Makena share the Maui signature band. Drive time inside those corridors is included. Upcountry and Pāʻia are the exceptions.',
       },
       {
+        q: 'Maui private chefs — is that a roster?',
+        a: 'Related search, not a marketplace. You book myCHEF Hawaii. We staff the house. Named-chef swipes and “elite Maui chef” impersonations live on /what-we-dont-do.',
+      },
+      {
         q: 'Can I pick a cook by name or gender?',
         a: 'Staff are assigned to the booking. A preference is noted and matched when the calendar allows. We do not sell names or a gender marketplace.',
       },
@@ -293,7 +297,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
       },
       {
         q: 'Big Island or Hawaiʻi Island?',
-        a: 'Both names. Searchers say Big Island and Kona. The geography is Hawaiʻi Island. The chef team is the same.',
+        a: 'Both names. Related search “private chef big island hawaii” is this host — not a second path. Searchers also say Kona. The geography is Hawaiʻi Island. The chef team is the same.',
       },
       {
         q: 'Airbnb on the Kohala Coast?',

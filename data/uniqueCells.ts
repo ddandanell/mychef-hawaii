@@ -331,7 +331,7 @@ export const uniqueCells: Record<IslandId, UniqueCell[]> = {
         },
         {
           q: 'South Shore chef as a brand?',
-          a: 'No. One Kauaʻi department, two shores. See /about.',
+          a: 'No. Related search “south shore chef kauai” is this cell, not a second company. One Kauaʻi department, two shores. See /about.',
         },
       ],
       related: [

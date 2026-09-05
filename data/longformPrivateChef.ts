@@ -51,6 +51,10 @@ export const privateChefLongform: Record<IslandId, { sections: CopySection[]; fa
         a: 'Menu design, same-day shopping, cooking, table service, and cleanup. Groceries inside the $125–$190 USD CORE band on a signature night. The 20% service line and GET up to 4.712% are added once, not folded into the fish. Alcohol, rentals, and venue fees are add-ons. Start on /quote.',
       },
       {
+        q: 'Private chef at home — is that this page?',
+        a: 'Related search. Yes, when the house has a cooktop. Hotel rooms without kitchens are declined. This URL is the visitor dinner; weekly residents open /personal-chef.',
+      },
+      {
         q: 'Our condo kitchen is small — does that still work?',
         a: 'Yes, when there is a real cooktop. We design bring-equipment menus and handle freight elevators and building COIs before the night. Hotel rooms without kitchens are declined.',
       },

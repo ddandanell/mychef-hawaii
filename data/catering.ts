@@ -57,6 +57,10 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
         a: 'A sample estate menu is on this page. Your written menu is designed for that house and that guest list — not a laminated carte.',
       },
       {
+        q: 'Best catering Oahu?',
+        a: 'Related search, not a trophy. Published starting prices, a sample estate menu, and a written quote are the proof. We do not invent Hawaiʻi reviews to look like a ranking.',
+      },
+      {
         q: 'Wedding catering Oahu?',
         a: 'Yes. Estate and residence formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. See /weddings.',
       },
