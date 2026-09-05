@@ -60,7 +60,7 @@ export function NavMenu({
         aria-controls={menuId}
         aria-haspopup="true"
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex min-h-10 items-center gap-1.5 py-1 text-base font-medium text-ink hover:underline underline-offset-4"
+        className="inline-flex min-h-10 items-center gap-1.5 py-1 text-base font-medium text-[var(--nav-fg)] hover:underline underline-offset-4"
       >
         {label}
         <span className="text-[13px] text-mute" aria-hidden>
@@ -77,7 +77,7 @@ export function NavMenu({
             exit={reduce ? undefined : { opacity: 0, y: 12 }}
             transition={{ duration: DURATION.fast, ease: EASE_STANDARD }}
             className={cn(
-              'absolute top-full z-50 mt-2 min-w-[17rem] border border-line bg-paper py-2',
+              'absolute top-full z-50 mt-2 min-w-[17rem] border border-line bg-paper py-2 text-ink shadow-[0_18px_40px_rgba(22,20,18,0.12)]',
               align === 'right' ? 'right-0' : 'left-0',
             )}
           >

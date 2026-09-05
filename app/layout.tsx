@@ -44,7 +44,7 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             Skip to content
           </a>
           <SiteHeader />
-          <main id="main" className="flex-1 pt-16">
+          <main id="main" className="flex-1 pt-16 has-[.hero-bleed]:pt-0">
             {children}
           </main>
           <SiteFooter islandId={islandId} hostMode={hostMode} />

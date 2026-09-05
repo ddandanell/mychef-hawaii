@@ -9,13 +9,13 @@ export default function QuoteTeaser({
   island?: IslandId | null;
 }) {
   return (
-    <section className="bg-ink py-16 lg:py-20">
-      <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-        <h2 className="max-w-2xl font-display text-[clamp(2rem,4vw,2.75rem)] font-light leading-[1.1] text-paper">
+    <section className="bg-ink py-24 lg:py-32">
+      <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
+        <h2 className="max-w-[18ch] font-display text-[clamp(2.25rem,4.5vw,3.5rem)] font-light leading-[1.08] text-paper">
           {headline}
         </h2>
-        <div className="mt-8">
-          <QuoteCta island={island} variant="secondary" />
+        <div className="mt-10">
+          <QuoteCta island={island} variant="light" />
         </div>
       </div>
     </section>

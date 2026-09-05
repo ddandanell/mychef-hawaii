@@ -9,6 +9,8 @@ const base =
 const variants = {
   primary: `${base} bg-ink text-paper focus-visible:outline-ink`,
   secondary: `${base} bg-paper text-ink border border-ink focus-visible:outline-ink`,
+  light: `${base} bg-paper text-ink focus-visible:outline-paper`,
+  ghost: `${base} border border-paper/80 bg-transparent text-paper focus-visible:outline-paper`,
 } as const;
 
 export function CtaLink({

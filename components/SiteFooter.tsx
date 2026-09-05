@@ -16,7 +16,7 @@ export default function SiteFooter({
 
   return (
     <footer className="bg-ink text-paper">
-      <LocationsBlock tone="ink" />
+      <LocationsBlock tone="ink" scope={islandId ?? 'all'} />
 
       <div className="mx-auto w-full max-w-container border-t border-white/10 px-5 py-14 lg:px-10">
         <div className="grid gap-10 md:grid-cols-3">
@@ -25,7 +25,7 @@ export default function SiteFooter({
               myCHEF
             </HostLink>
             <p className="mt-4 max-w-xs text-[17px] leading-relaxed text-on-ink">
-              A chef in your villa. Oʻahu, Maui, Kauaʻi, Hawaiʻi Island.
+              A chef in your villa. Stay on one island — change it only when you mean to.
             </p>
             <div className="mt-6">
               <EnquireCta island={islandId} variant="secondary" />

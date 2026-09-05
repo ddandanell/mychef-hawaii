@@ -8,13 +8,17 @@ export function LocationsBlock({
   tone = 'paper',
   anchorsFor,
   id,
+  scope,
 }: {
   tone?: 'paper' | 'ink';
   /** Add home-page corridor anchors for this island (Areas nav). */
   anchorsFor?: IslandId | null;
   id?: string;
+  /** Limit the list to one island — used on island hosts so the footer does not jump. */
+  scope?: IslandId | 'all';
 }) {
   const ink = tone === 'ink';
+  const ids = scope && scope !== 'all' ? [scope] : islandOrder;
 
   return (
     <section id={id} className={cn(ink ? 'bg-ink text-paper' : 'border-t border-line bg-paper text-ink')}>
@@ -32,7 +36,7 @@ export function LocationsBlock({
           {LOCATIONS_LEDE}
         </p>
         <ul className="mt-10 space-y-8">
-          {islandOrder.map((id) => {
+          {ids.map((id) => {
             const area = SERVICE_AREAS[id];
             const anchored = anchorsFor === id;
             return (
