@@ -2723,6 +2723,14 @@ export const photos = {
     file: '/photos/hub-thanks.png',
     alt: `Unused ivory confirmation cards under a brass clip on a koa kitchen pass, unused ivory plates, volcanic-stone bowl of limes, sand linen, no writing.`,
   },
+  hubCorporate: {
+    file: '/photos/hub-corporate.png',
+    alt: `Unused ivory plates in a quiet row on a long koa table, unmarked cream cards under a brass clip, volcanic-stone bowl of limes, no writing.`,
+  },
+  hubGatherings: {
+    file: '/photos/hub-gatherings.png',
+    alt: `Unused ivory plates and empty stemware on a long koa dining table, brass clips, volcanic-stone bowl of citrus, sand linen, no writing.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

@@ -394,6 +394,15 @@ Still no zip on this machine. Wave 43 lifts the remaining paper lists and inset 
 - Hub and island `/thank-you` use a cinematic short hero. Optional follow-up form stays on paper. New hub still `hub-thanks.png`.
 - Unused `gsap` dependency removed. Quote-form TypePanel stays.
 
+## Wave 44 — nested hub pickers onto photography (this branch)
+
+Still no zip on this machine. Wave 44 lists nested hub pickers from photography on parent indexes that already owned those URLs:
+
+- Hub `/events`, `/fine-dining`, `/staffing`, `/menus`, and `/help` open their nested pickers from stills, then the island document.
+- Hub `/catering` format doors share `HubPhotoGrid`. Hub `/services` four doors use the same component.
+- Hub `/corporate` and `/gatherings` use unique Grok stills and photo doors to existing pickers (`/events/retreats`, `/corporate-catering`, `/events/corporate-events`, `/events/birthdays`, `/rehearsal-dinners`, `/events/villa-parties`). No new URLs.
+- Quote-form TypePanel stays. Coverage/zones and the HTML sitemap stay paper.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

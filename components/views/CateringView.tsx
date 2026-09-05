@@ -17,8 +17,8 @@ import { FEE_DISCLOSURE, STAFFING, formatFrom, formatOtherOffer, getOtherOffer, 
 import { islandHref } from '@/lib/paths';
 import { cateringFormats } from '@/data/cateringFormats';
 import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
-import { hubNestedDirectories } from '@/data/hubNestedDirectories';
-import Link from 'next/link';
+import HubPhotoGrid from '@/components/HubPhotoGrid';
+import { nestedHubDirectories } from '@/data/hubNestedDirectories';
 
 /** Darker third of each island still — not a second catering frame, not a scrim. */
 const CATERING_CROP: Record<IslandId, string> = {
@@ -27,15 +27,6 @@ const CATERING_CROP: Record<IslandId, string> = {
   kauai: '18% 62%',
   bigisland: '80% 68%',
 };
-
-const HUB_FORMAT_PICKERS = [
-  hubNestedDirectories.fmtBbq,
-  hubNestedDirectories.fmtPlated,
-  hubNestedDirectories.fmtFamily,
-  hubNestedDirectories.fmtBuffet,
-  hubNestedDirectories.fmtGrazing,
-  hubNestedDirectories.fmtDropoff,
-] as const;
 
 const sampleMenu = [
   { course: 'Boards', name: 'Ahi poke, local crudités, mango', note: 'Grazing start — or skip straight to seated.' },
@@ -234,40 +225,17 @@ function Formats({ islandId }: { islandId?: IslandId }) {
   }
 
   return (
-    <section className="bg-paper py-24 lg:py-32">
-      <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
-        <p className="text-[12px] text-mute">Statewide · Formats</p>
-        <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] text-ink">
-          Open a format document.
-        </h2>
-        <p className="mt-5 max-w-[52ch] text-[17px] leading-relaxed text-mute">
-          The food band is the island CORE card. Staffing changes with the format. Each URL is a picker, not the
-          catering money keyword.
-        </p>
-        <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
-          {HUB_FORMAT_PICKERS.map((fmt) => {
-            const still = photos[fmt.photo];
-            return (
-              <li key={fmt.path}>
-                <Link href={fmt.path} className="group block">
-                  <span className="relative block aspect-[3/4] overflow-hidden bg-sand">
-                    <Photo
-                      src={still.file}
-                      alt={still.alt}
-                      fill
-                      sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
-                      className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
-                    />
-                  </span>
-                  <span className="mt-5 block font-display text-[1.5rem] font-light text-ink">{fmt.cardLabel}</span>
-                  <span className="mt-2 block text-[15px] leading-relaxed text-mute">{fmt.lede}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </section>
+    <HubPhotoGrid
+      eyebrow="Statewide · Formats"
+      heading="Open a format document."
+      intro="The food band is the island CORE card. Staffing changes with the format. Each URL is a picker, not the catering money keyword."
+      items={nestedHubDirectories('/catering').map((fmt) => ({
+        href: fmt.path,
+        title: fmt.cardLabel,
+        body: fmt.lede,
+        still: photos[fmt.photo],
+      }))}
+    />
   );
 }
 

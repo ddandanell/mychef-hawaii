@@ -822,3 +822,27 @@ export const hubNestedDirectories: Record<HubNestedId, HubDirectory> = {
   },
 };
 
+/** Parent hub indexes that already have nested pickers — list those stills, do not invent URLs. */
+const HUB_PARENT_NESTED: Record<string, HubNestedId[]> = {
+  '/events': [
+    'occBirthdays',
+    'occWelcome',
+    'occRetreats',
+    'occAnniversaries',
+    'occCorporate',
+    'occParties',
+    'occBrunch',
+  ],
+  '/catering': ['fmtBbq', 'fmtPlated', 'fmtFamily', 'fmtBuffet', 'fmtGrazing', 'fmtDropoff'],
+  '/fine-dining': ['fineRomantic', 'fineTasting', 'fineChefsev', 'fineCeleb'],
+  '/staffing': ['staffServers', 'staffBartenders', 'staffButlers'],
+  '/menus': ['menuThree', 'menuFamily', 'menuBreakfast', 'menuLunch'],
+  '/help': ['helpStart', 'helpMenu', 'helpWedding', 'helpCorp', 'helpManage'],
+};
+
+export function nestedHubDirectories(parentPath: string): HubDirectory[] {
+  const ids = HUB_PARENT_NESTED[parentPath];
+  if (!ids) return [];
+  return ids.map((id) => hubNestedDirectories[id]);
+}
+

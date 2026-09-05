@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
@@ -10,6 +9,7 @@ import QuoteTeaser from '@/components/QuoteTeaser';
 import { LongFaq, Longform } from '@/components/Longform';
 import IslandPhotoPicker from '@/components/IslandPhotoPicker';
 import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
+import HubPhotoGrid from '@/components/HubPhotoGrid';
 import { islandChooserCopy } from '@/data/chromeCopy';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { feeStack } from '@/data/rateCard';
@@ -46,7 +46,8 @@ import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
 import { photos, type PhotoKey } from '@/data/photos';
-import { getHubDirectoryById } from '@/data/hubDirectories';
+import { getHubDirectory, getHubDirectoryById } from '@/data/hubDirectories';
+import { nestedHubDirectories } from '@/data/hubNestedDirectories';
 
 export function HowItWorksView() {
   const still = photos.hubHow;
@@ -284,17 +285,18 @@ export function LegalView({ islandId }: { islandId?: IslandId | null } = {}) {
 }
 
 export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'gatherings' }) {
-  const uses =
+  const still = kind === 'gatherings' ? photos.hubGatherings : photos.hubCorporate;
+  const doors =
     kind === 'gatherings'
       ? [
-          { title: 'Birthdays and reunions', body: 'A staffed table in the house. Guest lists we hold: about ten to seventy-five.' },
-          { title: 'Rehearsal dinners', body: 'The night before, as its own line — not swallowed by a reception quote.' },
-          { title: 'Family villa weeks', body: 'Not a wedding stack. Groceries and dinners for the people already in the house.' },
+          { path: '/events/birthdays', title: 'Birthdays and reunions', body: 'A staffed table in the house. Guest lists we hold: about ten to seventy-five.' },
+          { path: '/rehearsal-dinners', title: 'Rehearsal dinners', body: 'The night before, as its own line — not swallowed by a reception quote.' },
+          { path: '/events/villa-parties', title: 'Family villa weeks', body: 'Not a wedding stack. Groceries and dinners for the people already in the house.' },
         ]
       : [
-          { title: 'Villa retreats', body: 'Full-board chef days for offsites that actually happen in houses — not ballrooms.' },
-          { title: 'Production and crew catering', body: 'Call-time breakfasts and wrap dinners, 10–75, zoned honestly.' },
-          { title: 'Board dinners', body: 'A Kahala dining room during a conference week is still a house, not a citywide.' },
+          { path: '/events/retreats', title: 'Villa retreats', body: 'Full-board chef days for offsites that actually happen in houses — not ballrooms.' },
+          { path: '/corporate-catering', title: 'Production and crew catering', body: 'Call-time breakfasts and wrap dinners, 10–75, zoned honestly.' },
+          { path: '/events/corporate-events', title: 'Board dinners', body: 'A Kahala dining room during a conference week is still a house, not a citywide.' },
         ];
   const h1 =
     kind === 'gatherings' ? 'Private gatherings — the house, not the ballroom.' : 'Retreats, crews, private rooms — not citywides.';
@@ -304,28 +306,35 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
       : 'Staffed chef catering for villa offsites and production crews of 10–75. HCC citywides are closed through 2027 — and they are not our product.';
   return (
     <>
-      <Hero src="/photos/live-fire-grill-lanai-fish.jpg" alt="Live-fire grill on a villa lānai, whole fish and citrus." min="short">
+      <Hero src={still.file} alt={still.alt} min="short">
+        <p className="text-[13px] text-mute">{kind === 'gatherings' ? 'Statewide · Gatherings' : 'Statewide · Offsites'}</p>
         <LineReveal
           text={h1}
-          className="font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-6 max-w-[60ch] text-[17px] leading-[1.65] text-mute">
-          {lede}
-        </p>
+        <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ink">{lede}</p>
         <div className="mt-8">
           <QuoteCta service="catering-events" variant="light" />
         </div>
       </Hero>
-      <section className="bg-paper py-20">
-        <div className="mx-auto grid max-w-container gap-8 px-5 md:grid-cols-3 lg:px-10">
-          {uses.map((u) => (
-            <article key={u.title} className="border-t border-line pt-6">
-              <h2 className="font-display text-2xl font-light text-ink">{u.title}</h2>
-              <p className="mt-3 text-[17px] leading-relaxed text-mute">{u.body}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+      <HubPhotoGrid
+        eyebrow={kind === 'gatherings' ? 'House gatherings' : 'Villa offsites'}
+        heading="Open a statewide document."
+        intro={
+          kind === 'gatherings'
+            ? 'Each door is an existing picker. Wedding-week stacks stay on /weddings.'
+            : 'Each door is an existing picker. HCC citywides are not the product.'
+        }
+        items={doors.map((d) => {
+          const dir = getHubDirectory(d.path);
+          return {
+            href: d.path,
+            title: d.title,
+            body: d.body,
+            still: dir ? photos[dir.photo] : still,
+          };
+        })}
+      />
       <IslandPhotoPicker
         path={kind === 'gatherings' ? '/gatherings' : '/corporate'}
         heading={kind === 'gatherings' ? 'Open the island gatherings document.' : 'Open the island offsite document.'}
@@ -360,6 +369,7 @@ export function HubDirectoryView({ id }: { id: string }) {
   const copy = getHubDirectoryById(id);
   if (!copy) return null;
   const photo = photos[copy.photo];
+  const nested = nestedHubDirectories(copy.path);
   return (
     <>
       <JsonLd
@@ -385,6 +395,19 @@ export function HubDirectoryView({ id }: { id: string }) {
         </div>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      {nested.length ? (
+        <HubPhotoGrid
+          eyebrow={copy.kicker}
+          heading="Open a nested document."
+          intro="Each nested URL is its own picker so it cannot steal this directory’s title."
+          items={nested.map((row) => ({
+            href: row.path,
+            title: row.cardLabel,
+            body: row.lede,
+            still: photos[row.photo],
+          }))}
+        />
+      ) : null}
       <IslandPhotoPicker
         path={copy.path}
         heading="Open the island document."
@@ -912,58 +935,37 @@ export function ServicesView() {
           <QuoteCta variant="light" />
         </div>
       </Hero>
-      <section className="bg-paper py-24 lg:py-32">
-        <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
-          <p className="text-[12px] text-mute">Four doors</p>
-          <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] text-ink">
-            Open a statewide document.
-          </h2>
-          <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-            {[
-              {
-                href: '/private-chef',
-                title: 'Private chef',
-                body: 'A dinner in the villa. Shop, cook, serve, clean.',
-                still: photos.mauiKitchen,
-              },
-              {
-                href: '/catering',
-                title: 'Catering',
-                body: 'Staffed events, 10–75. Buffet or plated.',
-                still: photos.catering,
-              },
-              {
-                href: '/weddings',
-                title: 'Weddings',
-                body: 'One team for the week.',
-                still: photos.wedding,
-              },
-              {
-                href: '/bar',
-                title: 'Bar',
-                body: 'Terrace cocktails, stacked or alone.',
-                still: photos.bar,
-              },
-            ].map((s) => (
-              <li key={s.href}>
-                <Link href={s.href} className="group block">
-                  <span className="relative block aspect-[3/4] overflow-hidden bg-sand">
-                    <Photo
-                      src={s.still.file}
-                      alt={s.still.alt}
-                      fill
-                      sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
-                      className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
-                    />
-                  </span>
-                  <span className="mt-5 block font-display text-[1.5rem] font-light text-ink">{s.title}</span>
-                  <span className="mt-2 block text-[15px] leading-relaxed text-mute">{s.body}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <HubPhotoGrid
+        eyebrow="Four doors"
+        heading="Open a statewide document."
+        columns={4}
+        items={[
+          {
+            href: '/private-chef',
+            title: 'Private chef',
+            body: 'A dinner in the villa. Shop, cook, serve, clean.',
+            still: photos.mauiKitchen,
+          },
+          {
+            href: '/catering',
+            title: 'Catering',
+            body: 'Staffed events, 10–75. Buffet or plated.',
+            still: photos.catering,
+          },
+          {
+            href: '/weddings',
+            title: 'Weddings',
+            body: 'One team for the week.',
+            still: photos.wedding,
+          },
+          {
+            href: '/bar',
+            title: 'Bar',
+            body: 'Terrace cocktails, stacked or alone.',
+            still: photos.bar,
+          },
+        ]}
+      />
       <IslandPhotoPicker path="/services" heading="Open the island service list." detailOf={() => 'Service list'} />
       <div className="mx-auto max-w-container px-5 pb-16 lg:px-10">
         <QuoteCta />
