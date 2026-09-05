@@ -227,7 +227,6 @@ export function IslandMobileBarView({ islandId, hostMode }: { islandId: IslandId
 
 export function IslandBarView({ islandId, hostMode }: { islandId: IslandId; hostMode: boolean }) {
   const copy = COPY[islandId];
-  const bar = getMobileBar(islandId);
   const href = (path: string) => islandHref(islandId, hostMode, path);
   const faqs = [
     {
