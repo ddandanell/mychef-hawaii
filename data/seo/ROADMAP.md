@@ -207,13 +207,22 @@ Still no zip on this machine. Wave 22 uniquifies `/services` on every island hos
 - Hub `/services` now links to each island list.
 - Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 22 URL.
 
-## Wave 23 — zip execution
+## Wave 23 — unique help, fine-dining, and staffing indexes (this branch)
+
+Still no zip on this machine. Wave 23 uniquifies three reserved 404s on every island host:
+
+- Unique `/help` directories. Distinct from nested `/help/:slug` articles, `/faq`, `/how-it-works`, and `/quote`.
+- Unique `/fine-dining` directories. Distinct from nested courses, `/honeymoon-dinners`, `/omakase-at-home`, and `/chefs-table`. Not a Michelin claim.
+- Unique `/staffing` directories. Distinct from nested roles, `/bar`, and `/mobile-bar`.
+- Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 23 URL.
+
+## Wave 24 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 24 — automation that stays on
+## Wave 25 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

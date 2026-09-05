@@ -28,6 +28,9 @@ export const SERVICE_INDEX_LINKS: { path: string; label: string }[] = [
   { path: '/events', label: 'Occasions' },
   { path: '/bar', label: 'Bartender add-on' },
   { path: '/mobile-bar', label: '4-hour mobile bar' },
+  { path: '/fine-dining', label: 'In-villa formats' },
+  { path: '/staffing', label: 'Staffing add-ons' },
+  { path: '/help', label: 'Help desk' },
   { path: '/pricing', label: 'What a night costs' },
   { path: '/quote', label: 'Quote / inquiry form' },
 ];

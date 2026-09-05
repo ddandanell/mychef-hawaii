@@ -31,11 +31,14 @@ import { islandAreas } from '@/data/islandAreas';
 import { islandContact } from '@/data/islandContact';
 import { islandTrust } from '@/data/islandTrust';
 import { islandServiceIndex, SERVICE_INDEX_LINKS } from '@/data/islandServiceIndex';
+import { islandHelpIndex } from '@/data/islandHelpIndex';
+import { islandFineDiningIndex } from '@/data/islandFineDiningIndex';
+import { islandStaffingIndex } from '@/data/islandStaffingIndex';
 import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
 import { areas } from '@/data/areas';
-import { photos } from '@/data/photos';
+import { photos, type PhotoKey } from '@/data/photos';
 
 export function HowItWorksView() {
   const steps = [
@@ -446,7 +449,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/sitemap'] as const).map((path) => ({
+      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/sitemap'] as const).map((path) => ({
         host: id,
         path,
       })),
@@ -680,6 +683,93 @@ export function ServicesIndexView({ islandId }: { islandId: (typeof islandOrder)
       </section>
       <LongFaq items={copy.faqs} title="Before you pick a door." />
     </>
+  );
+}
+
+function NestedIndexView({
+  islandId,
+  copy,
+  links,
+  faqTitle,
+}: {
+  islandId: (typeof islandOrder)[number];
+  copy: { h1: string; lede: string; kicker: string; photo: PhotoKey; body: string[]; faqs: { q: string; a: string }[] };
+  links: { path: string; label: string }[];
+  faqTitle: string;
+}) {
+  const photo = photos[copy.photo];
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">{islands[islandId].name}</p>
+          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
+            {links.map((row) => (
+              <li key={row.path} className="bg-paper">
+                <HostLink island={islandId} path={row.path} className="block p-6">
+                  <h2 className="font-display text-2xl font-light text-ink">{row.label}</h2>
+                  <p className="mt-2 text-sm text-mute">{row.path}</p>
+                </HostLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <LongFaq items={copy.faqs} title={faqTitle} />
+    </>
+  );
+}
+
+export function HelpIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  return (
+    <NestedIndexView
+      islandId={islandId}
+      copy={islandHelpIndex[islandId]}
+      links={helpArticles[islandId].map((row) => ({ path: `/help/${row.slug}`, label: row.name }))}
+      faqTitle="Before you open a document."
+    />
+  );
+}
+
+export function FineDiningIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  return (
+    <NestedIndexView
+      islandId={islandId}
+      copy={islandFineDiningIndex[islandId]}
+      links={fineDiningPages[islandId].map((row) => ({ path: `/fine-dining/${row.slug}`, label: row.name }))}
+      faqTitle="Before you pick a format."
+    />
+  );
+}
+
+export function StaffingIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  return (
+    <NestedIndexView
+      islandId={islandId}
+      copy={islandStaffingIndex[islandId]}
+      links={staffingPages[islandId].map((row) => ({ path: `/staffing/${row.slug}`, label: row.name }))}
+      faqTitle="Before you add a line."
+    />
   );
 }
 

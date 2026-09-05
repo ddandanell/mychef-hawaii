@@ -136,7 +136,7 @@ export default function SiteHeader() {
                 label="Guide"
                 items={[
                   { label: 'FAQ', island: islandId, path: '/faq' },
-                  { label: 'Getting started', island: islandId, path: '/help/getting-started' },
+                  { label: 'Help desk', island: islandId, path: '/help' },
                   { label: 'Coverage', island: islandId, path: '/coverage' },
                   { label: 'How it works', island: islandId, path: '/how-it-works' },
                   { label: 'Menus', island: islandId, path: '/menus' },
@@ -233,7 +233,7 @@ export default function SiteHeader() {
                     {(
                       [
                         { label: 'FAQ', path: '/faq' },
-                        { label: 'Getting started', path: '/help/getting-started' },
+                        { label: 'Help desk', path: '/help' },
                         { label: 'Coverage', path: '/coverage' },
                         { label: 'How it works', path: '/how-it-works' },
                         { label: 'Menus', path: '/menus' },

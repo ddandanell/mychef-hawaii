@@ -159,6 +159,9 @@ const areasSrc = read('data/islandAreas.ts');
 const contactSrc = read('data/islandContact.ts');
 const trustSrc = read('data/islandTrust.ts');
 const serviceIndexSrc = read('data/islandServiceIndex.ts');
+const helpIndexSrc = read('data/islandHelpIndex.ts');
+const fineIndexSrc = read('data/islandFineDiningIndex.ts');
+const staffIndexSrc = read('data/islandStaffingIndex.ts');
 const sitemapDocSrc = read('data/islandSitemap.ts');
 const journalArticleSrc = read('data/journalArticles.ts');
 const blogArticleSrc = read('data/blogArticles.ts');
@@ -191,6 +194,9 @@ const areaDocs = supportBlocks(areasSrc, 'islandAreas');
 const contactDocs = supportBlocks(contactSrc, 'islandContact');
 const trustDocs = supportBlocks(trustSrc, 'islandTrust');
 const serviceIndexDocs = supportBlocks(serviceIndexSrc, 'islandServiceIndex');
+const helpIndexDocs = supportBlocks(helpIndexSrc, 'islandHelpIndex');
+const fineIndexDocs = supportBlocks(fineIndexSrc, 'islandFineDiningIndex');
+const staffIndexDocs = supportBlocks(staffIndexSrc, 'islandStaffingIndex');
 const sitemapDocs = supportBlocks(sitemapDocSrc, 'islandSitemap');
 const journalPieces = uniqueCellMeta(journalArticleSrc);
 const blogPieces = uniqueCellMeta(blogArticleSrc);
@@ -223,6 +229,9 @@ if (areaDocs.length !== 4) errors.push(`Expected 4 island areas pages, found ${a
 if (contactDocs.length !== 4) errors.push(`Expected 4 island contact pages, found ${contactDocs.length}`);
 if (trustDocs.length !== 4) errors.push(`Expected 4 island trust pages, found ${trustDocs.length}`);
 if (serviceIndexDocs.length !== 4) errors.push(`Expected 4 island services pages, found ${serviceIndexDocs.length}`);
+if (helpIndexDocs.length !== 4) errors.push(`Expected 4 island help indexes, found ${helpIndexDocs.length}`);
+if (fineIndexDocs.length !== 4) errors.push(`Expected 4 island fine-dining indexes, found ${fineIndexDocs.length}`);
+if (staffIndexDocs.length !== 4) errors.push(`Expected 4 island staffing indexes, found ${staffIndexDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
 if (blogPieces.length !== 112) errors.push(`Expected 112 blog articles, found ${blogPieces.length}`);
@@ -302,6 +311,15 @@ errors.push(...dupes(trustDocs.map((h) => files[h.photo] || h.photo), 'trust her
 errors.push(...dupes(serviceIndexDocs.map((h) => h.title), 'services-index title'));
 errors.push(...dupes(serviceIndexDocs.map((h) => h.h1), 'services-index H1'));
 errors.push(...dupes(serviceIndexDocs.map((h) => files[h.photo] || h.photo), 'services-index hero file'));
+errors.push(...dupes(helpIndexDocs.map((h) => h.title), 'help-index title'));
+errors.push(...dupes(helpIndexDocs.map((h) => h.h1), 'help-index H1'));
+errors.push(...dupes(helpIndexDocs.map((h) => files[h.photo] || h.photo), 'help-index hero file'));
+errors.push(...dupes(fineIndexDocs.map((h) => h.title), 'fine-index title'));
+errors.push(...dupes(fineIndexDocs.map((h) => h.h1), 'fine-index H1'));
+errors.push(...dupes(fineIndexDocs.map((h) => files[h.photo] || h.photo), 'fine-index hero file'));
+errors.push(...dupes(staffIndexDocs.map((h) => h.title), 'staff-index title'));
+errors.push(...dupes(staffIndexDocs.map((h) => h.h1), 'staff-index H1'));
+errors.push(...dupes(staffIndexDocs.map((h) => files[h.photo] || h.photo), 'staff-index hero file'));
 errors.push(...dupes(sitemapDocs.map((h) => h.title), 'sitemap title'));
 errors.push(...dupes(sitemapDocs.map((h) => h.h1), 'sitemap H1'));
 errors.push(...dupes(sitemapDocs.map((h) => files[h.photo] || h.photo), 'sitemap hero file'));
@@ -340,6 +358,9 @@ const allTitles = [
   ...contactDocs.map((h) => h.title),
   ...trustDocs.map((h) => h.title),
   ...serviceIndexDocs.map((h) => h.title),
+  ...helpIndexDocs.map((h) => h.title),
+  ...fineIndexDocs.map((h) => h.title),
+  ...staffIndexDocs.map((h) => h.title),
   ...sitemapDocs.map((h) => h.title),
   ...journalPieces.map((h) => h.title),
   ...blogPieces.map((h) => h.title),
@@ -377,7 +398,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...helpIndexDocs, ...fineIndexDocs, ...staffIndexDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -388,7 +409,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...helpIndexDocs, ...fineIndexDocs, ...staffIndexDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -441,5 +462,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${areaDocs.length} areas, ${contactDocs.length} contact, ${trustDocs.length} trust, ${serviceIndexDocs.length} service lists, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${areaDocs.length} areas, ${contactDocs.length} contact, ${trustDocs.length} trust, ${serviceIndexDocs.length} service lists, ${helpIndexDocs.length} help indexes, ${fineIndexDocs.length} fine-dining indexes, ${staffIndexDocs.length} staffing indexes, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
 );

@@ -1867,6 +1867,54 @@ export const photos = {
     file: '/photos/svc-index-bigisland.png',
     alt: `Four unused ivory plates stacked on a Kohala lava-stone pass in hard sun, brass clip.`,
   },
+  helpIndexOahu: {
+    file: '/photos/help-index-oahu.png',
+    alt: `Unused ivory papers under a brass clip on a Kahala koa pass at dusk, Diamond Head faint.`,
+  },
+  helpIndexMaui: {
+    file: '/photos/help-index-maui.png',
+    alt: `Unused ivory papers under a brass clip on a Wailea pass at west sunset, Pacific beyond.`,
+  },
+  helpIndexKauai: {
+    file: '/photos/help-index-kauai.png',
+    alt: `Unused ivory papers under a rain-beaded brass clip on a wet Princeville stone pass.`,
+  },
+  helpIndexBigisland: {
+    file: '/photos/help-index-bigisland.png',
+    alt: `Unused ivory papers under a brass clip on a Kohala lava-stone pass in hard sun.`,
+  },
+  fineIndexOahu: {
+    file: '/photos/fine-index-oahu.png',
+    alt: `Unused ivory plates and empty glasses on a Kahala dining table at dusk, brass clip.`,
+  },
+  fineIndexMaui: {
+    file: '/photos/fine-index-maui.png',
+    alt: `Unused ivory plates and empty glasses on a Wailea lānai table at west sunset.`,
+  },
+  fineIndexKauai: {
+    file: '/photos/fine-index-kauai.png',
+    alt: `Unused ivory plates and empty glasses on a Princeville stone table in misted rain light.`,
+  },
+  fineIndexBigisland: {
+    file: '/photos/fine-index-bigisland.png',
+    alt: `Unused ivory plates and empty glasses on a Kohala lava terrace in hard sun.`,
+  },
+  staffIndexOahu: {
+    file: '/photos/staff-index-oahu.png',
+    alt: `Unused empty stemware and sand linen on a Kahala kitchen pass at dusk, brass clip.`,
+  },
+  staffIndexMaui: {
+    file: '/photos/staff-index-maui.png',
+    alt: `Unused empty glasses and sand linen on a Wailea lānai pass at west sunset.`,
+  },
+  staffIndexKauai: {
+    file: '/photos/staff-index-kauai.png',
+    alt: `Unused empty glasses and sand linen on a wet Princeville stone pass, brass clip.`,
+  },
+  staffIndexBigisland: {
+    file: '/photos/staff-index-bigisland.png',
+    alt: `Unused empty glasses and sand linen on a Kohala lava-stone pass in hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
