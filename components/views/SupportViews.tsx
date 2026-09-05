@@ -919,9 +919,13 @@ export function IslandsIndexView({ islandId }: { islandId: (typeof islandOrder)[
       <DocumentPhotoGrid
         islandId={islandId}
         eyebrow="On this host"
-        heading="Map notes."
-        intro="/areas is the map — corridors plus the rest of the named places. Coverage stays the zone list."
-        items={[{ path: '/areas', label: 'Map notes', detail: '/areas' }]}
+        heading="Open a geography document."
+        intro="/locations is the live dinner-door list. /areas is the map — corridors plus the rest of the named places. Coverage stays the zone list."
+        columns={2}
+        items={[
+          { path: '/locations', label: 'Live dinner doors', detail: '/locations' },
+          { path: '/areas', label: 'Map notes', detail: '/areas' },
+        ]}
       />
       <LongFaq items={copy.faqs} title="Before you switch hosts." />
     </>

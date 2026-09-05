@@ -11,14 +11,21 @@ export default function DocumentPhotoGrid({
   heading,
   intro,
   items,
+  columns = 3,
 }: {
   islandId: IslandId;
   eyebrow: string;
   heading: string;
   intro?: string;
   items: { path: string; label: string; detail?: string; id?: string }[];
+  columns?: 2 | 3;
 }) {
   const fallback = islands[islandId].selectorImage;
+  const grid = columns === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 xl:grid-cols-3';
+  const sizes =
+    columns === 2
+      ? '(min-width: 640px) 50vw, 100vw'
+      : '(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw';
   return (
     <section className="bg-paper py-24 lg:py-32">
       <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
@@ -27,7 +34,7 @@ export default function DocumentPhotoGrid({
           {heading}
         </h2>
         {intro ? <p className="mt-5 max-w-[52ch] text-[17px] leading-relaxed text-mute">{intro}</p> : null}
-        <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className={`mt-14 grid gap-8 ${grid}`}>
           {items.map((item) => {
             const still = stillForPath(islandId, item.path);
             return (
@@ -38,7 +45,7 @@ export default function DocumentPhotoGrid({
                       src={still?.file ?? fallback}
                       alt={still?.alt ?? item.label}
                       fill
-                      sizes="(min-width: 1280px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      sizes={sizes}
                       className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
                     />
                   </span>
