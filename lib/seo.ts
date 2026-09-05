@@ -113,8 +113,8 @@ function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
     return [
       {
         '@type': 'Offer',
-        name: `Private chef dinner — ${n}`,
-        itemOffered: { '@type': 'Service', name: `Private chef — ${n}`, serviceType: 'Private chef' },
+        name: `Villa dinner — ${n}`,
+        itemOffered: { '@type': 'Service', name: `Villa dinner — ${n}`, serviceType: 'Private chef' },
         priceSpecification: core
           ? {
               '@type': 'PriceSpecification',
@@ -128,8 +128,8 @@ function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
       },
       {
         '@type': 'Offer',
-        name: `Villa chef day rate — ${n}`,
-        itemOffered: { '@type': 'Service', name: `Vacation chef — ${n}`, serviceType: 'Personal chef' },
+        name: `Stay Chef — ${n}`,
+        itemOffered: { '@type': 'Service', name: `Stay Chef — ${n}`, serviceType: 'Personal chef' },
         priceSpecification: {
           '@type': 'PriceSpecification',
           priceCurrency: 'USD',
@@ -139,8 +139,8 @@ function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
       },
       {
         '@type': 'Offer',
-        name: `Wedding catering — ${n}`,
-        itemOffered: { '@type': 'Service', name: `Wedding catering — ${n}`, serviceType: 'Catering' },
+        name: `Wedding week — ${n}`,
+        itemOffered: { '@type': 'Service', name: `Wedding week — ${n}`, serviceType: 'Catering' },
         priceSpecification: {
           '@type': 'PriceSpecification',
           priceCurrency: 'USD',
@@ -150,8 +150,8 @@ function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
       },
       {
         '@type': 'Offer',
-        name: `Mobile bar — ${n}`,
-        itemOffered: { '@type': 'Service', name: `Mobile bar — ${n}`, serviceType: 'Bartending' },
+        name: `Packaged cart — ${n}`,
+        itemOffered: { '@type': 'Service', name: `Packaged cart — ${n}`, serviceType: 'Bartending' },
         priceSpecification: {
           '@type': 'PriceSpecification',
           priceCurrency: 'USD',
@@ -165,8 +165,8 @@ function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
     name: islandId
-      ? `myCHEF ${islands[islandId].name} private chef and catering prices`
-      : 'myCHEF Hawaii private chef and catering prices',
+      ? `myCHEF ${islands[islandId].name} published prices`
+      : 'myCHEF Hawaii published prices',
     url: origin,
     itemListElement: items,
   };

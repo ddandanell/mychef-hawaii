@@ -947,6 +947,18 @@ const islandHomeSrc = read('components/views/IslandHomeView.tsx');
 if (!/PlacePriceBlock/.test(islandHomeSrc)) {
   errors.push('island homes must publish PlacePriceBlock');
 }
+if (/name: `Private chef dinner/.test(seoSrc) || /name: `Private chef —/.test(seoSrc)) {
+  errors.push('JSON-LD offers still use Private chef dinner names');
+}
+if (/name: `Mobile bar/.test(seoSrc)) {
+  errors.push('JSON-LD offers still use Mobile bar names');
+}
+if (/name: `Wedding catering/.test(seoSrc)) {
+  errors.push('JSON-LD offers still use Wedding catering names');
+}
+if (/private chef and catering prices/.test(seoSrc)) {
+  errors.push('JSON-LD OfferCatalog still titles itself private chef and catering prices');
+}
 
 const hubStealSrc = [
   'components/views/OfferViews.tsx',

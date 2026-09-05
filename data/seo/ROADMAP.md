@@ -913,6 +913,12 @@ Still no zip on this machine. Wave 110 shows `PlacePriceBlock` on every island `
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. `PlacePriceBlock` is a paper rate-card strip.
 
+## Wave 111 — JSON-LD offer names stay off money keywords (this branch)
+
+Still no zip on this machine. Wave 111 renames the OfferCatalog JSON-LD names that still said Private chef dinner / Wedding catering / Mobile bar — the same leak Wave 108 removed from visible cards. Offers now read Villa dinner, Stay Chef, Wedding week, and Packaged cart. The catalog title is “published prices”, not “private chef and catering prices”. `seo:audit` fails if those JSON-LD names return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.
