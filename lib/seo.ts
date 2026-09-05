@@ -383,10 +383,10 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       title = help.title;
       description = help.description;
     } else if (locRec) {
-      title = `${locRec.name} private chef — myCHEF ${island.name}`;
+      title = `${locRec.name} kitchen note — myCHEF ${island.name}`;
       description = locRec.lede;
     } else if (area) {
-      title = `Private chef ${area.name} — myCHEF ${island.name}`;
+      title = `${area.name} map note — myCHEF ${island.name}`;
       description = area.blurb;
     } else {
       const explicit = lookupPageMeta(path, islandId, hostMode);

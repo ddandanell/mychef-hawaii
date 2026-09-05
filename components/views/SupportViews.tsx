@@ -52,6 +52,8 @@ import { nestedHubEditorials } from '@/data/hubEditorialDirectories';
 
 export function HowItWorksView() {
   const still = photos.hubHow;
+  const faq = getHubDirectory('/faq');
+  const coverage = getHubDirectory('/coverage');
   const steps = [
     { n: '01', title: 'Enquire — two minutes.', body: 'Five fields: island, dates, party size, service, and how to reach you. No account.' },
     { n: '02', title: 'Menu design — 48 hours.', body: 'A real human replies with menu directions and an indicative range. You refine together.' },
@@ -85,6 +87,38 @@ export function HowItWorksView() {
           ))}
         </div>
       </section>
+      <HubPhotoGrid
+        eyebrow="Beside this process"
+        heading="Open a related document."
+        intro="The five steps stay on this page. Questions, drive times, the quote form, and the rate card are their own URLs. Help articles stay on /help."
+        columns={2}
+        items={[
+          {
+            href: '/faq',
+            title: faq?.cardLabel ?? 'Questions',
+            body: faq?.lede ?? 'Booking questions live on the island host.',
+            still: faq ? photos[faq.photo] : still,
+          },
+          {
+            href: '/coverage',
+            title: coverage?.cardLabel ?? 'Coverage map',
+            body: coverage?.lede ?? 'Drive times live on the island host.',
+            still: coverage ? photos[coverage.photo] : still,
+          },
+          {
+            href: '/quote',
+            title: 'The quote form',
+            body: 'Five fields. A written total follows. Not a booking.',
+            still: photos.quoteHub,
+          },
+          {
+            href: '/pricing',
+            title: 'What a night costs',
+            body: 'The published rate card. Distinct from the fee-stack explainer.',
+            still: photos.hubPricing,
+          },
+        ]}
+      />
       <IslandPhotoPicker
         path="/how-it-works"
         heading="Open the island process document."

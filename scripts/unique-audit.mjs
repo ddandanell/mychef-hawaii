@@ -460,6 +460,25 @@ if (/vacation chef and weekly household service/i.test(pageMetaSrc)) {
   errors.push('island /vacation-chef pageMeta still sells the household week');
 }
 
+const catalogSrc = read('data/islandCatalog.ts');
+if (/Private chef & catering/.test(catalogSrc)) {
+  errors.push('catalog default titles still cannibalize with Private chef & catering');
+}
+if (!/title:\s*`\$\{label\} on \$\{n\} \| myCHEF`/.test(catalogSrc)) {
+  errors.push('catalog default titles must be unique per island (`${label} on ${n} | myCHEF`)');
+}
+if (/Private chef Kauai from/.test(catalogSrc)) {
+  errors.push('catalog Kauaʻi North Shore lede still stuffs Private chef Kauai');
+}
+
+const seoSrc = read('lib/seo.ts');
+if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
+  errors.push('location fallback titles still use private chef');
+}
+if (/Private chef \$\{area\.name\}/.test(seoSrc)) {
+  errors.push('area fallback titles still use Private chef {area}');
+}
+
 for (const key of [
   'vacationOahu',
   'vacationMaui',

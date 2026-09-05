@@ -59,8 +59,8 @@ function entry(island: IslandId, path: string, kind: CatalogKind, label: string,
   return {
     path,
     kind,
-    title: `${label} | Private chef & catering — myCHEF ${n}`,
-    h1: label,
+    title: `${label} on ${n} | myCHEF`,
+    h1: `${label} on ${n}`,
     lede: extra,
     body: [
       `${label} on ${n} is its own commercial cell — not a find-and-replace of a sibling island. ${islands[island].role}`,
@@ -86,7 +86,7 @@ const UNIQUE: Record<IslandId, { path: string; label: string; lede: string }[]> 
   ],
   kauai: [
     { path: '/hanalei-bridge', label: 'Hanalei bridge clause', lede: 'Far-North events inherit the weather/road clause. 72-hour notice. Reschedule rather than forfeit.' },
-    { path: '/north-shore', label: 'Kauaʻi North Shore', lede: 'Princeville, Hanalei, Hāʻena. Surf-season winters book early. Private chef Kauai from $150/pp.' },
+    { path: '/north-shore', label: 'Kauaʻi North Shore', lede: 'Princeville, Hanalei, Hāʻena. Surf-season winters book early. Inquiry stage — quote in writing.' },
     { path: '/south-shore', label: 'Kauaʻi South Shore', lede: 'Poʻipū and Kōloa. Shorter drive from Līhuʻe than the North. Same Maui-class starting prices.' },
     { path: '/wedding-week', label: 'Kauaʻi wedding week', lede: 'Estate formats to about 75 guests. Welcome, rehearsal, reception as separate lines. Inquiry stage.' },
   ],

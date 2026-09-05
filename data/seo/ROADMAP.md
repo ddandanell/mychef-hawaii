@@ -515,6 +515,15 @@ Still no zip on this machine. Wave 57 finishes leftover titles that still sold t
 - `seo:audit` fails if those leftover titles return.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 58 — catalog fallback titles and hub /how-it-works doors (this branch)
+
+Still no zip on this machine. Wave 58 stops catalog and location fallback titles from being able to ship money keywords, and gives hub `/how-it-works` the same related-document photography as island `/how-it-works`:
+
+- Catalog `entry()` titles are `${label} on ${island} | myCHEF`. They never use `Private chef & catering`. Kauaʻi `/north-shore` catalog lede no longer stuffs `Private chef Kauai`.
+- Location and area SEO fallbacks are kitchen/map notes, not `private chef {place}`. Middleware still 301s those URLs; the strings cannot ship if a rewrite ever misses.
+- `seo:audit` fails if those leftover templates return.
+- Hub `/how-it-works` opens `/faq`, `/coverage`, `/quote`, and `/pricing` on existing stills. Process steps stay paper. Help articles stay on `/help`. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
