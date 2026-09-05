@@ -7,7 +7,6 @@ import {
 import { MASTER_MAP, masterHostName, type MasterHost } from '@/data/commercialGraph';
 import { getArea } from '@/data/areas';
 import { getArticle } from '@/data/editorial';
-import { getCatalog } from '@/data/islandCatalog';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { getLocation } from '@/data/locations';
 import { getMoneyNeighborhood, islandOffers, moneyNeighborhoods } from '@/data/offers';
@@ -232,7 +231,6 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
 
   if (islandId) {
     const island = islands[islandId];
-    const catalog = getCatalog(islandId, localPath);
     const locRec = localPath.startsWith('/locations/')
       ? getLocation(islandId, localPath.slice('/locations/'.length))
       : undefined;
@@ -393,9 +391,6 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       if (explicit) {
         title = explicit.title;
         description = explicit.description;
-      } else if (catalog) {
-        title = catalog.title;
-        description = catalog.lede;
       } else {
         const mapped = metaForPath(path, islandId, hostMode);
         title = mapped.title;

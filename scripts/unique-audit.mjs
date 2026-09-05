@@ -780,6 +780,9 @@ const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
   errors.push('location fallback titles still use private chef');
 }
+if (/title = catalog\.title/.test(seoSrc) || /else if \(catalog\)/.test(seoSrc)) {
+  errors.push('seo.ts still falls back to cloned catalog titles');
+}
 if (/Private chef \$\{area\.name\}/.test(seoSrc)) {
   errors.push('area fallback titles still use Private chef {area}');
 }

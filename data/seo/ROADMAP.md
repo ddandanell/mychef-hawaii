@@ -810,6 +810,12 @@ Still no zip on this machine. Wave 94 makes `seo:audit` fail if catalog EVENT / 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 95 — live titles never fall back to cloned catalog cells (this branch)
+
+Still no zip on this machine. Wave 95 removes the `getCatalog` title fallback from `resolveDocumentSeo`. Unique intercepts already cover every catalog cell. Cloned `${label} on ${n} | myCHEF` titles can no longer ship. `seo:audit` fails if that fallback returns. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
