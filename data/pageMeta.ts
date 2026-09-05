@@ -71,14 +71,14 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Wedding catering Hawaii: one team for the whole week. Welcome dinner, ceremony, and the days after. Request a quote.',
   },
   '/bar': {
-    title: 'Mobile bar & villa cocktails — Hawaii | myCHEF',
+    title: 'Villa bartender add-on — terrace cocktails, by island | myCHEF',
     description:
-      'Bartender add-on or a 4-hour mobile-bar package. Published starting prices on every island. Stack with the chef.',
+      'A bartender stacked with dinner or booked as its own hour. The four-hour mobile bar Hawaii package lives on /mobile-bar. Starting prices published per island.',
   },
   '/mobile-bar': {
-    title: '4-hour mobile bar package — Hawaii | myCHEF',
+    title: 'Mobile bar Hawaii | 4-hour villa package | myCHEF',
     description:
-      'A four-hour mobile bar cart for Hawaiian villas. The cocktail-hour add-on lives on /bar. Starting prices published per island.',
+      'Mobile bar Hawaii: a four-hour cart, bartender, citrus and ice. The cocktail-hour add-on lives on /bar. Starting prices published per island.',
   },
   '/trust': {
     title: 'Trust standards — Honesty register | myCHEF Hawaii',

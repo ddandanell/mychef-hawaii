@@ -403,6 +403,15 @@ Still no zip on this machine. Wave 44 lists nested hub pickers from photography 
 - Hub `/corporate` and `/gatherings` use unique Grok stills and photo doors to existing pickers (`/events/retreats`, `/corporate-catering`, `/events/corporate-events`, `/events/birthdays`, `/rehearsal-dinners`, `/events/villa-parties`). No new URLs.
 - Quote-form TypePanel stays. Coverage/zones and the HTML sitemap stay paper.
 
+## Wave 45 — mobile-bar keyword + leftover wedding stills (this branch)
+
+Still no zip on this machine. Wave 45 puts the measured `mobile bar hawaii` (20) title on hub `/mobile-bar` and stops hub `/bar` from stealing it:
+
+- Hub `/mobile-bar` title is `Mobile bar Hawaii | 4-hour villa package`. Hub `/bar` is the bartender add-on.
+- Hub `/mobile-bar` uses a unique Grok still (`hub-mobile-bar.png`), not the `/bar` hero.
+- Hub `/weddings` island bleed rows use the existing island wedding Grok stills instead of leftover JPEGs.
+- Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

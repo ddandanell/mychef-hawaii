@@ -148,10 +148,10 @@ const PACKAGE: Record<IslandId, { h1: string; lede: string; hero: { file: string
 export function HubMobileBarView() {
   return (
     <>
-      <Hero src={photos.barHero.file} alt={photos.barHero.alt} min="short">
+      <Hero src={photos.hubMobileBar.file} alt={photos.hubMobileBar.alt} min="short">
         <p className="text-[13px] text-mute">4-hour package</p>
         <LineReveal
-          text="The mobile bar package — four hours, four islands."
+          text="Mobile bar Hawaii — four hours, four islands."
           className="mt-5 font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
         <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ink">

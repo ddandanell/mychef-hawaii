@@ -13,36 +13,35 @@ import { photos } from '@/data/photos';
 import { formatOtherOffer, getOtherOffer } from '@/data/rateCard';
 import { islandHref } from '@/lib/paths';
 
-const islandsWeddings: { id: IslandId; title: string; body: string; img: string; alt: string }[] = [
+const islandsWeddings: { id: IslandId; title: string; body: string }[] = [
   {
     id: 'maui',
     title: 'Maui',
     body: 'Welcome dinner, rehearsal, reception and recovery brunch with one team. Peak months September, October and May.',
-    img: '/photos/maui-wedding-long-table-banyan-dusk.jpg',
-    alt: 'A wedding-week long table under a banyan at dusk, ocean lawn beyond.',
   },
   {
     id: 'oahu',
     title: 'Oʻahu',
     body: 'Celebration dinners and weekend stacks in Ko Olina, Kahala and windward estates.',
-    img: '/photos/oahu-gold-coast-estate-dinner.jpg',
-    alt: 'A formally set Gold Coast estate table opening to a lawn, Diamond Head on the horizon.',
   },
   {
     id: 'kauai',
     title: 'Kauaʻi',
     body: 'Estate formats on both shores. Welcome dinner, rehearsal and reception as separate lines.',
-    img: '/photos/kauai-north-terrace-mist.jpg',
-    alt: 'Grilled-fish plates on a wet North Shore Kauaʻi stone terrace against misted peaks.',
   },
   {
     id: 'bigisland',
     title: 'Hawaiʻi Island',
     body: 'Kohala estates, wedding-week format, west side first.',
-    img: '/photos/kohala-lava-coast-table.jpg',
-    alt: 'An outdoor Kohala Coast table with plated fish, Mauna Kea in the distance.',
   },
 ];
+
+const WEDDING_STILL: Record<IslandId, { file: string; alt: string }> = {
+  maui: photos.weddingMaui,
+  oahu: photos.weddingOahu,
+  kauai: photos.weddingKauai,
+  bigisland: photos.weddingBigisland,
+};
 
 const ISLAND_COPY: Record<
   IslandId,
@@ -108,29 +107,32 @@ export function HubWeddingsView() {
       </Hero>
 
       <section className="bg-paper">
-        {islandsWeddings.map((row) => (
-          <HostLink
-            key={row.id}
-            island={row.id}
-            path="/weddings"
-            className="group relative block min-h-[70svh] overflow-hidden"
-          >
-            <Photo src={row.img} alt={row.alt} fill sizes="100vw" />
-            <span aria-hidden className="absolute inset-0 bg-ink/35 lg:bg-ink/20" />
-            <span aria-hidden className="absolute inset-0 hero-scrim-bottom" />
-            <span className="hero-copy relative mx-auto flex min-h-[70svh] w-full max-w-spread items-end px-5 py-12 lg:px-10">
-              <span className="hero-type-shadow max-w-[40rem] text-paper">
-                <span className="block font-display text-[clamp(2rem,4vw,2.75rem)] font-light leading-[1.1] text-paper">
-                  {row.title}
-                </span>
-                <span className="mt-3 block text-[17px] leading-[1.65] text-paper">{row.body}</span>
-                <span className="mt-4 block text-[17px] text-paper">
-                  Wedding catering {formatOtherOffer(getOtherOffer('wedding'), row.id)}
+        {islandsWeddings.map((row) => {
+          const still = WEDDING_STILL[row.id];
+          return (
+            <HostLink
+              key={row.id}
+              island={row.id}
+              path="/weddings"
+              className="group relative block min-h-[70svh] overflow-hidden"
+            >
+              <Photo src={still.file} alt={still.alt} fill sizes="100vw" />
+              <span aria-hidden className="absolute inset-0 bg-ink/35 lg:bg-ink/20" />
+              <span aria-hidden className="absolute inset-0 hero-scrim-bottom" />
+              <span className="hero-copy relative mx-auto flex min-h-[70svh] w-full max-w-spread items-end px-5 py-12 lg:px-10">
+                <span className="hero-type-shadow max-w-[40rem] text-paper">
+                  <span className="block font-display text-[clamp(2rem,4vw,2.75rem)] font-light leading-[1.1] text-paper">
+                    {row.title}
+                  </span>
+                  <span className="mt-3 block text-[17px] leading-[1.65] text-paper">{row.body}</span>
+                  <span className="mt-4 block text-[17px] text-paper">
+                    Wedding catering {formatOtherOffer(getOtherOffer('wedding'), row.id)}
+                  </span>
                 </span>
               </span>
-            </span>
-          </HostLink>
-        ))}
+            </HostLink>
+          );
+        })}
       </section>
 
       <Longform sections={hubWeddingsSections} />
