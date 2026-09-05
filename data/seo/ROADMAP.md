@@ -937,6 +937,12 @@ Still no zip on this machine. Wave 114 stops stamping `LocalBusiness` with `serv
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 115 — leftover catering and hub service labels stay off money keywords (this branch)
+
+Still no zip on this machine. Wave 115 renames leftover visible labels that still said Wedding catering / Wedding catering Hawaii on `/catering` rate cards, and Private chef on the hub `/services` door into `/private-chef`. Cards now read Wedding week and What’s included, matching PlacePriceBlock and island `/services`. Owner-page H1s and titles on `/weddings` and hub `/` stay. `seo:audit` fails if those labels return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

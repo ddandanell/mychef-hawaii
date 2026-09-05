@@ -1311,7 +1311,7 @@ export function ServicesView() {
         items={[
           {
             href: '/private-chef',
-            title: 'Private chef',
+            title: 'What’s included',
             body: 'A dinner in the villa. Shop, cook, serve, clean.',
             still: photos.hubChef,
           },

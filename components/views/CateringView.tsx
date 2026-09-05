@@ -212,7 +212,7 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
               </p>
             </article>
             <article className="border border-line bg-paper p-7">
-              <p className="text-[12px] text-mute">Wedding catering</p>
+              <p className="text-[12px] text-mute">Wedding week</p>
               <p className="mt-4 font-display text-4xl font-light tracking-tight text-ink">
                 {formatFrom(wedding.byIsland[islandId].from)}
                 <span className="ml-2 font-sans text-base font-normal text-mute">per guest + staffing</span>
@@ -305,7 +305,7 @@ function PricesHub() {
             </p>
           </article>
           <article className="border border-line bg-paper p-7">
-            <p className="text-[12px] text-mute">Wedding catering Hawaii</p>
+            <p className="text-[12px] text-mute">Wedding week</p>
             <p className="mt-4 font-display text-4xl font-light tracking-tight text-ink">
               from $125
               <span className="ml-2 font-sans text-base font-normal text-mute">per guest + staffing</span>

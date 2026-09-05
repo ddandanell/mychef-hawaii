@@ -951,6 +951,10 @@ const svcIndexSrc = read('data/islandServiceIndex.ts');
 if (/label: 'Private chef dinner'/.test(svcIndexSrc) || /label: '4-hour mobile bar'/.test(svcIndexSrc)) {
   errors.push('island /services still uses Private chef dinner or 4-hour mobile bar card labels');
 }
+const cateringViewSrc = read('components/views/CateringView.tsx');
+if (/>Wedding catering</.test(cateringViewSrc) || />Wedding catering Hawaii</.test(cateringViewSrc)) {
+  errors.push('catering rate cards still use Wedding catering labels');
+}
 const weddingViewSrc = read('components/views/WeddingView.tsx');
 if (/label: 'Mobile bar package'/.test(weddingViewSrc)) {
   errors.push('wedding related doors still use the Mobile bar package label');
@@ -1029,6 +1033,9 @@ if (/private chef stays/.test(chromeSrc)) {
 const supportViewsSrc = read('components/views/SupportViews.tsx');
 if (/articlesFor/.test(supportViewsSrc) || /from '@\/data\/editorial'/.test(supportViewsSrc)) {
   errors.push('hub journal/blog picker still counts cloned editorial seeds');
+}
+if (/href: '\/private-chef',\s*title: 'Private chef'/.test(supportViewsSrc)) {
+  errors.push('hub /services still labels /private-chef as Private chef');
 }
 
 for (const key of [
