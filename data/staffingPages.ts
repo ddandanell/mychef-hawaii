@@ -185,7 +185,7 @@ export const staffingPages: Record<IslandId, StaffingPage[]> = {
       faqs: [
         {
           q: 'Always a butler on a Wailea night?',
-          a: 'No. Quoted add-on. Empty bench means we say so.',
+          a: 'No. Quoted add-on. Empty Wailea bench means we say so.',
         },
         {
           q: 'Hotel butler?',
@@ -277,7 +277,7 @@ export const staffingPages: Record<IslandId, StaffingPage[]> = {
       faqs: [
         {
           q: 'Always a butler?',
-          a: 'No. Quoted add-on. Empty bench means we say so.',
+          a: 'No. Quoted add-on. Empty Princeville bench means we say so. Inquiry.',
         },
         {
           q: 'Can I book a butler now?',
@@ -369,7 +369,7 @@ export const staffingPages: Record<IslandId, StaffingPage[]> = {
       faqs: [
         {
           q: 'Always a butler in Waikoloa?',
-          a: 'No. Quoted add-on. Empty bench means we say so.',
+          a: 'No. Quoted add-on. Empty Waikoloa bench means we say so.',
         },
         {
           q: 'Hilo butler?',

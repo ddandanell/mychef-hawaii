@@ -638,6 +638,15 @@ if (/No\. Cost plus receipts\. Open \/quote\.'/.test(blogOnlySrc)) {
 if (/No\. Unverified fish is named as fish\.'/.test(blogOnlySrc)) {
   errors.push('blog article FAQs still clone the unverified-fish answer');
 }
+if (/No\. Unverified produce is named as food\.'/.test(blogOnlySrc)) {
+  errors.push('blog article FAQs still clone the unverified-produce answer');
+}
+if (/No\. Quoted add-on\. Empty bench means we say so\.'/.test(staffSrc)) {
+  errors.push('staffing FAQs still clone the empty-butler-bench answer');
+}
+if (/Inquiry only\. Not the staffed product\.'/.test(formatsSrc)) {
+  errors.push('drop-off FAQs still clone the not-the-staffed-product answer');
+}
 
 const journalOnlySrc = read('data/journalArticles.ts');
 if (/This piece is the journal note on why we will not take a verbal yes\.'/.test(journalOnlySrc)) {

@@ -859,6 +859,12 @@ Still no zip on this machine. Wave 101 stops `lookupPageMeta` from falling back 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 102 — leftover butler, drop-off, and named-farm FAQs (this branch)
+
+Still no zip on this machine. Wave 102 uniquifies the last three FAQ answers that still cloned across live unique documents: Maui/Kauaʻi/Hawaiʻi Island butler add-ons, drop-off format pages, and Oahu/Maui/Kauaʻi named-farm notes. Questions were already unique. `seo:audit` fails if those clone answers return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

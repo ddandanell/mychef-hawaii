@@ -788,7 +788,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you invent a farm for the menu card?',
-          a: 'No. Unverified produce is named as food.',
+          a: 'No. Unverified produce is named as food — Kahala kitchen.',
         },
       ],
       related: [
@@ -1697,7 +1697,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you invent an Upcountry farm for the menu card?',
-          a: 'No. Unverified produce is named as food.',
+          a: 'No. Unverified produce is named as food — Wailea kitchen.',
         },
       ],
       related: [
@@ -2576,7 +2576,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Will you invent a North Shore farm for the menu card?',
-          a: 'No. Unverified produce is named as food.',
+          a: 'No. Unverified produce is named as food — Princeville kitchen at inquiry.',
         },
       ],
       related: [

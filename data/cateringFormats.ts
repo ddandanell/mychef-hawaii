@@ -365,7 +365,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
       faqs: [
         {
           q: 'Can you leave trays in Kīhei and go?',
-          a: 'Inquiry only. Not the staffed product.',
+          a: 'Inquiry only. Not the staffed product in Kīhei.',
         },
         {
           q: 'Is this cheaper catering?',
@@ -547,7 +547,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
       faqs: [
         {
           q: 'Leave trays in Poʻipū?',
-          a: 'Inquiry only. Not the staffed product.',
+          a: 'Inquiry only. Not the staffed product in Poʻipū.',
         },
         {
           q: 'Is this cheaper catering?',
@@ -729,7 +729,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
       faqs: [
         {
           q: 'Leave trays in Waikoloa?',
-          a: 'Inquiry only. Not the staffed product.',
+          a: 'Inquiry only. Not the staffed product in Waikoloa.',
         },
         {
           q: 'Hilo drop-off from a Kona kitchen?',
