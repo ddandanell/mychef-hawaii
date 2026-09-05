@@ -60,7 +60,7 @@ export const residentLine: Record<IslandId, UniqueCell> = {
     faqs: [
       {
         q: 'I am visiting Wailea for a week.',
-        a: 'Open / or /vacation-chef. This page is residents.',
+        a: 'Open / or /vacation-chef. This page is for Wailea-area residents.',
       },
       {
         q: 'Upcountry household?',
@@ -120,7 +120,7 @@ export const residentLine: Record<IslandId, UniqueCell> = {
     faqs: [
       {
         q: 'I am visiting Waikoloa.',
-        a: 'Open / or /vacation-chef. This page is residents.',
+        a: 'Open / or /vacation-chef. This page is for west-side residents.',
       },
       {
         q: 'Hilo household weekly?',

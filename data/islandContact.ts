@@ -40,7 +40,7 @@ export const islandContact: Record<IslandId, IslandContactPage> = {
       },
       {
         q: 'Do you have an Honolulu office or an 808 number?',
-        a: 'No. We will not invent either. Send /quote.',
+        a: 'No. We will not invent an Honolulu office or an 808 number. Send /quote.',
       },
     ],
   },
@@ -65,7 +65,7 @@ export const islandContact: Record<IslandId, IslandContactPage> = {
       },
       {
         q: 'Do you have a Wailea office or an 808 number?',
-        a: 'No. We will not invent either. Send /quote.',
+        a: 'No. We will not invent a Wailea office or an 808 number. Send /quote.',
       },
     ],
   },

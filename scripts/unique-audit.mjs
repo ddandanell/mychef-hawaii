@@ -669,6 +669,13 @@ if (/This piece is the short load-in note — at inquiry\.'/.test(blogOnlySrc)) 
   errors.push('condo-load-in FAQs still clone the inquiry-load-in answer');
 }
 
+if (/No\. We will not invent either\. Send \/quote\.'/.test(contactSrc)) {
+  errors.push('island contact FAQs still clone the no-office-or-808 answer');
+}
+if (/Open \/ or \/vacation-chef\. This page is residents\.'/.test(servicesSrc)) {
+  errors.push('resident-line FAQs still clone the visitors-open-vacation-chef answer');
+}
+
 const journalOnlySrc = read('data/journalArticles.ts');
 if (/This piece is the journal note on why we will not take a verbal yes\.'/.test(journalOnlySrc)) {
   errors.push('journal FAQs still clone the verbal-yes answer');

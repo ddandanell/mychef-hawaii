@@ -871,6 +871,12 @@ Still no zip on this machine. Wave 103 uniquifies the remaining FAQ answers that
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 104 — leftover contact and resident-line FAQs (this branch)
+
+Still no zip on this machine. Wave 104 uniquifies Record-style FAQ answers that still cloned across two island documents: Oahu/Maui contact desks (no invented office or 808 number) and Maui/Hawaiʻi Island resident lines (visitors open Stay Chef). Statewide inquiry honesty stays. `seo:audit` fails if those clone answers return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
