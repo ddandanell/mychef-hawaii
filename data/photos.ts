@@ -2279,6 +2279,134 @@ export const photos = {
     file: '/photos/hub-blog-reviews.png',
     alt: `A blank unused ivory card under a brass clip on a koa pass, no stars, no writing, fountain pen.`,
   },
+  cellLanikai: {
+    file: '/photos/cell-lanikai.png',
+    alt: `A quieter Lanikai beach-house table at dusk — plated fish, Mokulua islets across the channel.`,
+  },
+  cellHawaiiKai: {
+    file: '/photos/cell-hawaii-kai.png',
+    alt: `An East Honolulu Hawaiʻi Kai kitchen looking over the marina — household plates, resident evening.`,
+  },
+  cellDiamondHead: {
+    file: '/photos/cell-diamond-head.png',
+    alt: `A Diamond Head residence dining room at dusk — one volcanic cone through the sliders, plated ahi.`,
+  },
+  cellKakaako: {
+    file: '/photos/cell-kakaako.png',
+    alt: `A compact Kakaʻako tower kitchen — chef at a small range, city lights, unused ivory plates stacked.`,
+  },
+  cellDowntown: {
+    file: '/photos/cell-downtown.png',
+    alt: `A downtown Honolulu pied-à-terre table — small dining room, loading dock light, plated fish for six.`,
+  },
+  cellKaneohe: {
+    file: '/photos/cell-kaneohe.png',
+    alt: `A Kāneʻohe household table under Koʻolau cliffs at dusk — quieter windward town, plated catch.`,
+  },
+  cellEwa: {
+    file: '/photos/cell-ewa.png',
+    alt: `An ʻEwa residential kitchen at west light — leeward household plates, Ko Olina lagoon faint beyond.`,
+  },
+  cellUpcountry: {
+    file: '/photos/cell-upcountry.png',
+    alt: `An Upcountry Maui estate table at elevation — cooler air, Haleakalā slope, plated fish and greens.`,
+  },
+  cellNapili: {
+    file: '/photos/cell-napili.png',
+    alt: `A Nāpili West Maui deck dinner at sunset — grilled fish, Molokaʻi across the channel, no Lahaina copy.`,
+  },
+  cellPaia: {
+    file: '/photos/cell-paia.png',
+    alt: `A Pāʻia North Shore estate kitchen — trade-wind light, plated fish, not a resort-residence corridor.`,
+  },
+  cellMakawao: {
+    file: '/photos/cell-makawao.png',
+    alt: `A Makawao town estate table — Upcountry weather on the lawn, plated ranch-country evening.`,
+  },
+  cellHonokowai: {
+    file: '/photos/cell-honokowai.png',
+    alt: `A Honokōwai condo kitchen on the West Maui strip — compact range, sunset, plated family fish.`,
+  },
+  cellWaikapu: {
+    file: '/photos/cell-waikapu.png',
+    alt: `A Waikapū central-valley estate table — West Maui mountains inland, not a resort lawn.`,
+  },
+  cellHaleakala: {
+    file: '/photos/cell-haleakala.png',
+    alt: `A Kula table on the Haleakalā slope — cooler elevation, plated greens and fish, cloud line below.`,
+  },
+  cellHaena: {
+    file: '/photos/cell-haena.png',
+    alt: `A Hāʻena Far-North kitchen in rain — wet stone, misted mountains, plated fish, inquiry scale.`,
+  },
+  cellKoloa: {
+    file: '/photos/cell-koloa.png',
+    alt: `A Kōloa town house kitchen — South Shore light, plated fish, not a Poʻipū resort-residence clone.`,
+  },
+  cellLihue: {
+    file: '/photos/cell-lihue.png',
+    alt: `A Līhuʻe in-town household table — staging town, not a villa hero, plated weekday fish.`,
+  },
+  cellKalaheo: {
+    file: '/photos/cell-kalaheo.png',
+    alt: `A Kalāheo south-west residential kitchen — quieter houses, plated evening, inquiry scale.`,
+  },
+  cellKauaiWaimea: {
+    file: '/photos/cell-kauai-waimea.png',
+    alt: `A Kauaʻi Waimea west-side estate table — distance from Līhuʻe, canyon light, plated fish.`,
+  },
+  cellHanapepe: {
+    file: '/photos/cell-hanapepe.png',
+    alt: `A Hanapēpē west-side town house table — not a visitor-villa cluster, plated household fish.`,
+  },
+  cellAnahola: {
+    file: '/photos/cell-anahola.png',
+    alt: `An Anahola east-north coast table — quieter than Kapaʻa, trade-wind lawn, plated catch.`,
+  },
+  cellEleele: {
+    file: '/photos/cell-eleele.png',
+    alt: `An ʻEleʻele south-west house kitchen — between Kalāheo and the west, plated evening, inquiry.`,
+  },
+  cellKailuaKona: {
+    file: '/photos/cell-kailua-kona.png',
+    alt: `A Kailua-Kona town villa kitchen — west-side town, Aliʻi light, plated kanpachi, inquiry.`,
+  },
+  cellKeauhou: {
+    file: '/photos/cell-keauhou.png',
+    alt: `A Keauhou resort-residence terrace south of town — still west side, plated fish, bay light.`,
+  },
+  cellMaunaLani: {
+    file: '/photos/cell-mauna-lani.png',
+    alt: `A Mauna Lani Kohala resort-residence table — lava terrace, plated kanpachi, one community not the island.`,
+  },
+  cellMaunaKea: {
+    file: '/photos/cell-mauna-kea.png',
+    alt: `A Mauna Kea resort-belt villa table — Kohala coast, not the summit, plated fish, Mauna Kea faint.`,
+  },
+  cellHilo: {
+    file: '/photos/cell-hilo.png',
+    alt: `A Hilo town house kitchen in rain — ʻōhiʻa and ferns, east-side mist, plated fish, dedicated day.`,
+  },
+  cellVolcano: {
+    file: '/photos/cell-volcano.png',
+    alt: `A Volcano lodge kitchen in mist — cooler elevation, ferns, plated evening, dedicated east-side staff.`,
+  },
+  cellKau: {
+    file: '/photos/cell-kau.png',
+    alt: `A Kaʻū south estate table — dry south light, unlabeled coffee bags aside, plated fish, dedicated day.`,
+  },
+  cellHonokaa: {
+    file: '/photos/cell-honokaa.png',
+    alt: `A Honokaʻa Hāmākua coast estate table — greener windward light, plated evening, surcharge drive.`,
+  },
+  cellHolualoa: {
+    file: '/photos/cell-holualoa.png',
+    alt: `A Hōlualoa mauka kitchen above Kona — cooler elevation, unlabeled coffee, plated west-side fish.`,
+  },
+  cellPuako: {
+    file: '/photos/cell-puako.png',
+    alt: `A Puakō residential villa table between Waikoloa and Mauna Lani — lava coast, plated kanpachi.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

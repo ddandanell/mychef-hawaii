@@ -16,6 +16,7 @@ import { MASTER_MAP, masterHostName } from '@/data/commercialGraph';
 import { HUB_ALL_PICKER_PATHS } from '@/data/hubDirectories';
 import { moneyNeighborhoods } from '@/data/offers';
 import { uniqueCells } from '@/data/uniqueCells';
+import { areas } from '@/data/areas';
 import { islandServices } from '@/data/islandServices';
 import { occasionPages } from '@/data/occasionPages';
 import { cateringFormats } from '@/data/cateringFormats';
@@ -41,7 +42,6 @@ import { islandIslands } from '@/data/islandIslands';
 import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
-import { areas } from '@/data/areas';
 import { photos, type PhotoKey } from '@/data/photos';
 import { getHubDirectoryById } from '@/data/hubDirectories';
 
@@ -602,7 +602,10 @@ export function AreasIndexView({ islandId }: { islandId: (typeof islandOrder)[nu
   const photo = photos[copy.photo];
   const hoods = moneyNeighborhoods[islandId];
   const hoodSlugs = new Set(hoods.map((h) => h.slug));
-  const notes = areas[islandId].filter((a) => !hoodSlugs.has(a.slug));
+  const supportingDoors = uniqueCells[islandId].filter((cell) =>
+    areas[islandId].some((place) => place.slug === cell.slug),
+  );
+  const notes = areas[islandId].filter((place) => !hoodSlugs.has(place.slug));
   return (
     <>
       <JsonLd
@@ -634,6 +637,14 @@ export function AreasIndexView({ islandId }: { islandId: (typeof islandOrder)[nu
                 <HostLink island={islandId} path={`/${hood.slug}`} className="block p-6">
                   <h2 className="font-display text-2xl font-light text-ink">{hood.name}</h2>
                   <p className="mt-2 text-sm text-mute">/{hood.slug}</p>
+                </HostLink>
+              </li>
+            ))}
+            {supportingDoors.map((cell) => (
+              <li key={cell.slug} className="bg-paper">
+                <HostLink island={islandId} path={`/${cell.slug}`} className="block p-6">
+                  <h2 className="font-display text-2xl font-light text-ink">{cell.name}</h2>
+                  <p className="mt-2 text-sm text-mute">/{cell.slug}</p>
                 </HostLink>
               </li>
             ))}

@@ -30,12 +30,12 @@ export const islandAreas: Record<IslandId, IslandAreasPage> = {
     photo: 'areasIndexOahu',
     body: [
       `Private chef Oahu (${SEARCH_VOLUMES['private chef oahu']}) stays on this host’s home. This directory does not steal that title.`,
-      'Dinner doors below are live URLs. Named places without a corridor page link to a kitchen note, not a fake /{slug}. North Shore is still a surcharge day.',
+      'Corridors and supporting-area dinner doors are live URLs. Dining-in blogs stay the kitchen notes beside them. North Shore is still a surcharge day.',
     ],
     faqs: [
       {
         q: 'Same as /locations?',
-        a: 'Locations lists only live dinner doors. This page adds the rest of the named places as kitchen notes.',
+        a: 'Locations lists money corridors. This page adds supporting-area dinner doors plus kitchen notes.',
       },
       {
         q: 'Same as /coverage?',
@@ -54,12 +54,12 @@ export const islandAreas: Record<IslandId, IslandAreasPage> = {
     photo: 'areasIndexMaui',
     body: [
       `Private chef Maui (${SEARCH_VOLUMES['private chef maui']}) stays on this host’s home. This directory does not steal that title.`,
-      'Dinner doors below are live URLs. Upcountry, Pāʻia, Makawao, and the rest are kitchen notes until they earn a corridor page. Saturday West Maui traffic still lives on /west-maui.',
+      'Corridors and supporting-area dinner doors — Upcountry, Pāʻia, Makawao, and the rest — are live URLs. Dining-in blogs stay the kitchen notes. Saturday West Maui traffic still lives on /west-maui.',
     ],
     faqs: [
       {
         q: 'Same as /locations?',
-        a: 'Locations lists only live dinner doors. This page adds Upcountry and the rest as kitchen notes.',
+        a: 'Locations lists money corridors. This page adds Upcountry and the rest as dinner doors plus kitchen notes.',
       },
       {
         q: 'Same as /south-maui or /west-maui?',
@@ -78,12 +78,12 @@ export const islandAreas: Record<IslandId, IslandAreasPage> = {
     photo: 'areasIndexKauai',
     body: [
       `Private chef Kauai (${SEARCH_VOLUMES['private chef kauai']}) stays on this host’s home. This directory does not steal that title. Inquiry stage.`,
-      'Princeville, Poʻipū, Hanalei, and Kapaʻa are dinner doors at inquiry. West-side towns are kitchen notes. A named place is not a live roster.',
+      'Princeville, Poʻipū, Hanalei, and Kapaʻa are corridor dinner doors at inquiry. West-side towns now have supporting dinner doors too. Dining-in blogs stay the kitchen notes. A named place is not a live roster.',
     ],
     faqs: [
       {
         q: 'Same as /locations?',
-        a: 'Locations lists only live dinner doors. This page adds west-side towns as kitchen notes.',
+        a: 'Locations lists money corridors. This page adds west-side towns as dinner doors plus kitchen notes.',
       },
       {
         q: 'Are you live on every town below?',
@@ -102,7 +102,7 @@ export const islandAreas: Record<IslandId, IslandAreasPage> = {
     photo: 'areasIndexBigisland',
     body: [
       `Private chef Kona (${SEARCH_VOLUMES['private chef kona']}) stays a dinner door. This directory does not steal that title. West side first.`,
-      'Kona, Waimea, Waikoloa, and Kohala are dinner doors at inquiry. Hilo, Volcano, Kaʻū, and the rest are kitchen notes or a dedicated east-side day — never a same-day round trip.',
+      'Kona, Waimea, Waikoloa, and Kohala are corridor dinner doors at inquiry. Hilo, Volcano, Kaʻū, and the rest are supporting dinner doors or a dedicated east-side day — never a same-day round trip. Dining-in blogs stay the kitchen notes.',
     ],
     faqs: [
       {
@@ -111,7 +111,7 @@ export const islandAreas: Record<IslandId, IslandAreasPage> = {
       },
       {
         q: 'Where is Hilo?',
-        a: 'On this list as kitchen notes, and as a dedicated day on /east-side. Not a Kona add-on.',
+        a: 'On this list as a supporting dinner door, as kitchen notes, and as a dedicated day on /east-side. Not a Kona add-on.',
       },
     ],
   },

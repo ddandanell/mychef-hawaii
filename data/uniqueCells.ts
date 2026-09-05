@@ -1,6 +1,7 @@
 import type { IslandId } from './islands';
 import type { PhotoKey } from './photos';
 import { SEARCH_VOLUMES } from './offers';
+import { AREA_CELLS } from './areaCells';
 
 /**
  * Island-only commercial cells from the catalog UNIQUE map.
@@ -147,6 +148,7 @@ export const uniqueCells: Record<IslandId, UniqueCell[]> = {
         { path: '/kamaaina', label: 'Kamaʻāina line' },
       ],
     },
+    ...AREA_CELLS.oahu,
   ],
   maui: [
     {
@@ -242,6 +244,7 @@ export const uniqueCells: Record<IslandId, UniqueCell[]> = {
         { path: '/bar', label: 'Villa cocktails' },
       ],
     },
+    ...AREA_CELLS.maui,
   ],
   kauai: [
     {
@@ -368,6 +371,7 @@ export const uniqueCells: Record<IslandId, UniqueCell[]> = {
         { path: '/hanalei-bridge', label: 'Far-North clause' },
       ],
     },
+    ...AREA_CELLS.kauai,
   ],
   bigisland: [
     {
@@ -494,6 +498,7 @@ export const uniqueCells: Record<IslandId, UniqueCell[]> = {
         { path: '/quote', label: 'Inquiry' },
       ],
     },
+    ...AREA_CELLS.bigisland,
   ],
 };
 

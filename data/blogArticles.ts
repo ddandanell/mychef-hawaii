@@ -547,19 +547,19 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       h1: 'Lanikai notes — 30-day houses, quieter than Kailua.',
       title: 'Lanikai kitchen notes — 30-day houses, quieter than Kailua | myCHEF',
       description:
-        'Short Lanikai notes: quieter 30-day beach houses. Not a live corridor URL. Distinct from /kailua and /blog/dining-in-kailua.',
+        'Short Lanikai notes: quieter 30-day beach houses. Distinct from /lanikai, /kailua, and /blog/dining-in-kailua.',
       lede:
-        '/kailua is the nearest live dinner door. This blog note is Lanikai — the same 30-day rule, quieter inventory, not a second corridor page.',
+        '/lanikai is the dinner door. /kailua is the windward corridor. This blog note is the Lanikai kitchen — the same 30-day rule, quieter inventory.',
       photo: 'dinLanikai',
       body: [
         'Same 30-day-estate rule as Kailua, quieter beach-house inventory. Galley kitchens are common; we say so on the quote. Weekend tourist drop-ins are declined.',
-        'There is no /lanikai corridor URL. /kailua stays the windward dinner door. Kamaʻāina weeks sit on /kamaaina.',
+        'The dinner door is /lanikai. This piece is the kitchen note. /kailua stays the windward corridor. Kamaʻāina weeks sit on /kamaaina.',
         'Send the address and the stay length on /quote. A one-night tourist dinner without a range is still declined.',
       ],
       faqs: [
         {
           q: 'Is /lanikai a dinner door?',
-          a: 'No. Open /kailua. This piece is the short Lanikai kitchen note.',
+          a: 'Yes. This piece is the kitchen note beside it. Open /lanikai.',
         },
         {
           q: 'Same as /blog/dining-in-kailua?',
@@ -567,6 +567,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/lanikai', label: 'Lanikai dinner door' },
         { path: '/kailua', label: 'Kailua dinner door' },
         { path: '/blog/dining-in-kailua', label: 'Kailua kitchen notes' },
         { path: '/quote', label: 'Quote form' },
@@ -584,13 +585,13 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinHawaiiKai',
       body: [
         'East Honolulu households. Resident entertaining more than tourist villas. Traffic is planned into the chef day. A cooktop is still required.',
-        'There is no /hawaii-kai corridor URL. Town dinners stay on /honolulu. Weekly resident service stays on /kamaaina.',
+        'The dinner door is /hawaii-kai. This piece is the kitchen note. Town dinners stay on /honolulu. Weekly resident service stays on /kamaaina.',
         `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one East Honolulu table.`,
       ],
       faqs: [
         {
           q: 'Is /hawaii-kai a dinner door?',
-          a: 'No. Open /honolulu. This piece is the short East Honolulu kitchen note.',
+          a: 'Yes. This piece is the kitchen note beside it. Open /hawaii-kai.',
         },
         {
           q: 'Same as /kamaaina?',
@@ -598,6 +599,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/hawaii-kai', label: 'Hawaiʻi Kai dinner door' },
         { path: '/honolulu', label: 'Honolulu dinner door' },
         { path: '/kamaaina', label: 'Kamaʻāina line' },
         { path: '/quote', label: 'Quote form' },
@@ -615,7 +617,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinDiamondHead',
       body: [
         'Gold Coast-adjacent estates and residences with real dining rooms. Building rules vary; we confirm load-in in writing. Celebration tables of 4–15.',
-        'There is no /diamond-head corridor URL. /kahala stays the dinner door. /gold-coast stays the estate cell.',
+        'The dinner door is /diamond-head. This piece is the kitchen note. /kahala stays the corridor. /gold-coast stays the estate cell.',
         'Hotel suites without a cooktop stay declined. Send the building type on /quote.',
       ],
       faqs: [
@@ -629,6 +631,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/diamond-head', label: 'Diamond Head dinner door' },
         { path: '/kahala', label: 'Kahala dinner door' },
         { path: '/gold-coast', label: 'Gold Coast estates' },
         { path: '/quote', label: 'Quote form' },
@@ -646,7 +649,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinKakaako',
       body: [
         'Tower residences. Kitchens are often compact; menus adapt. Freight elevators and quiet hours are handled in writing before the night.',
-        'There is no /kakaako corridor URL. We do not sell a rooftop we do not control. Load-in sits on /blog/condo-load-in.',
+        'The dinner door is /kakaako. This piece is the kitchen note. We do not sell a rooftop we do not control. Load-in sits on /blog/condo-load-in.',
         'A unit without a functioning cooktop is declined. Send the building packet on /quote.',
       ],
       faqs: [
@@ -660,6 +663,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/kakaako', label: 'Kakaʻako dinner door' },
         { path: '/honolulu', label: 'Honolulu dinner door' },
         { path: '/blog/condo-load-in', label: 'Condo load-in' },
         { path: '/quote', label: 'Quote form' },
@@ -677,7 +681,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinDowntown',
       body: [
         'Pied-à-terre kitchens and private dining rooms — not restaurant takeovers. Parking and loading are the constraint, not distance. Small celebrations and executive dinners off HCC.',
-        'There is no /downtown corridor URL. HCC citywides stay closed through 2027 — /conventions. A unit without a cooktop is declined.',
+        'The dinner door is /downtown. This piece is the kitchen note. HCC citywides stay closed through 2027 — /conventions. A unit without a cooktop is declined.',
         `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one downtown table in the house.`,
       ],
       faqs: [
@@ -691,6 +695,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/downtown', label: 'Downtown dinner door' },
         { path: '/honolulu', label: 'Honolulu dinner door' },
         { path: '/conventions', label: 'Conventions' },
         { path: '/quote', label: 'Quote form' },
@@ -708,7 +713,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinKaneohe',
       body: [
         'Windward town — quieter than Kailua, still a drive from town. Published surcharge, quoted with the menu. Household dinners and multi-day stays.',
-        'There is no /kaneohe corridor URL. /kailua stays the 30-day dinner door. A cooktop is still required.',
+        'The dinner door is /kaneohe. This piece is the kitchen note. /kailua stays the 30-day corridor. A cooktop is still required.',
         'Send the address on /quote. We will not hide the drive inside the menu.',
       ],
       faqs: [
@@ -722,6 +727,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/kaneohe', label: 'Kāneʻohe dinner door' },
         { path: '/kailua', label: 'Kailua dinner door' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Quote form' },
@@ -739,7 +745,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinEwa',
       body: [
         'Leeward residential. Closer to Ko Olina provisioning than to Waikīkī. West-side base. No town surcharge. Resident households and west-side villa overflow.',
-        'There is no /ewa corridor URL. /ko-olina stays the short-stay villa door. A cooktop is still required.',
+        'The dinner door is /ewa. This piece is the kitchen note. /ko-olina stays the short-stay villa door. A cooktop is still required.',
         `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is one leeward household table.`,
       ],
       faqs: [
@@ -749,10 +755,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /ewa a dinner door?',
-          a: 'No. Open /ko-olina or /quote.',
+          a: 'Yes. This piece is the kitchen note beside it. Open /ewa.',
         },
       ],
       related: [
+        { path: '/ewa', label: 'ʻEwa dinner door' },
         { path: '/ko-olina', label: 'Ko Olina dinner door' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Quote form' },
@@ -1454,13 +1461,13 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinUpcountry',
       body: [
         'Elevation and drive time. Published surcharge, quoted with the menu. Named farms only after written verification. Outdoor setups inherit a wet-weather backup.',
-        'There is no /upcountry corridor URL. Wailea stays the South Maui dinner door — /wailea. This article is why the drive is a line.',
+        'The dinner door is /upcountry. This piece is the kitchen note. Wailea stays the South Maui corridor — /wailea. This article is why the drive is a line.',
         `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is one Upcountry table that justifies the drive.`,
       ],
       faqs: [
         {
           q: 'Is /upcountry a dinner door?',
-          a: 'No. Open /coverage. This piece is the short elevation note.',
+          a: 'Yes. This piece is the kitchen note beside it. Open /upcountry.',
         },
         {
           q: 'Will you print a farm name?',
@@ -1468,6 +1475,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/upcountry', label: 'Upcountry dinner door' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
         { path: '/quote', label: 'Quote form' },
@@ -1485,7 +1493,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinNapili',
       body: [
         'West Maui with Kāʻanapali and Kapalua — never a Lahaina destination page. Same West Maui timing rules. Villa weeks and small celebrations.',
-        'There is no /napili corridor URL. /lahaina stays its own dinner door and is not copied here. Saturday West Maui arrival is planned, not assumed.',
+        'The dinner door is /napili. This piece is the kitchen note. /lahaina stays its own corridor and is not copied here. Saturday West Maui arrival is planned, not assumed.',
         `Private chef Maui (${SEARCH_VOLUMES['private chef maui']}) stays on this host’s home. This article does not steal that title.`,
       ],
       faqs: [
@@ -1499,6 +1507,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/napili', label: 'Nāpili dinner door' },
         { path: '/kapalua', label: 'Kapalua dinner door' },
         { path: '/west-maui', label: 'West Maui corridor' },
         { path: '/quote', label: 'Quote form' },
@@ -1516,13 +1525,13 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinPaia',
       body: [
         'North Shore module — quoted with the menu, not a doorway destination page. Extended drive. Estate dinners when the drive is planned, not stacked with Wailea.',
-        'There is no /paia corridor URL. We will not publish a flat fee for this cell. Send the address on /quote.',
+        'The dinner door is /paia. This piece is the kitchen note. The cell stays quote-only — we will not publish a flat fee. Send the address on /quote.',
         'A cooktop is still required. We do not invent a same-day Wailea-plus-Pāʻia chef day.',
       ],
       faqs: [
         {
           q: 'Is /paia a dinner door?',
-          a: 'No. Quote-only. Open /coverage, then /quote.',
+          a: 'Yes — quote-only. This piece is the kitchen note. Open /paia.',
         },
         {
           q: 'Can you stack this with Wailea the same day?',
@@ -1530,6 +1539,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/paia', label: 'Pāʻia dinner door' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/wailea', label: 'Wailea dinner door' },
         { path: '/quote', label: 'Quote form' },
@@ -1547,7 +1557,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinHonokowai',
       body: [
         'West Maui residential strip between Kāʻanapali and Kapalua. Condo kitchens common. Multi-day chef days more than one-off halo dinners.',
-        'There is no /honokowai corridor URL. Compact kitchens get a menu that fits the range. Load-in honesty sits on /blog/condo-load-in.',
+        'The dinner door is /honokowai. This piece is the kitchen note. Compact kitchens get a menu that fits the range. Load-in honesty sits on /blog/condo-load-in.',
         'Hotel rooms without a cooktop are still declined. Send the building type on /quote.',
       ],
       faqs: [
@@ -1561,6 +1571,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/honokowai', label: 'Honokōwai dinner door' },
         { path: '/kaanapali', label: 'Kāʻanapali dinner door' },
         { path: '/blog/condo-load-in', label: 'Condo load-in' },
         { path: '/quote', label: 'Quote form' },
@@ -1578,7 +1589,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinMakawao',
       body: [
         'Upcountry town. Elevation surcharge applies. Weather can turn on outdoor setups. Retreat houses and estate tables that justify the drive.',
-        'There is no /makawao corridor URL. Named farms only after written verification. A cooktop is still required.',
+        'The dinner door is /makawao. This piece is the kitchen note. Named farms only after written verification. A cooktop is still required.',
         `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is one Makawao table.`,
       ],
       faqs: [
@@ -1588,10 +1599,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /makawao a dinner door?',
-          a: 'No. Open /coverage, then /quote.',
+          a: 'Yes. This piece is the kitchen note beside it. Open /makawao.',
         },
       ],
       related: [
+        { path: '/makawao', label: 'Makawao dinner door' },
         { path: '/blog/dining-in-upcountry', label: 'Upcountry kitchen notes' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Quote form' },
@@ -1609,13 +1621,13 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinWaikapu',
       body: [
         'Central valley — not a resort corridor. Surcharge for drive time from Wailea or West Maui. Private estates, not visitor condos.',
-        'There is no /waikapu corridor URL. We will not stack a Wailea lunch with a Waikapū dinner as one chef day without writing it.',
+        'The dinner door is /waikapu. This piece is the kitchen note. We will not stack a Wailea lunch with a Waikapū dinner as one chef day without writing it.',
         'A cooktop is still required. Send the address on /quote.',
       ],
       faqs: [
         {
           q: 'Is /waikapu a dinner door?',
-          a: 'No. Open /wailea for South Maui, then /quote for the valley.',
+          a: 'Yes. This piece is the kitchen note beside it. Open /waikapu.',
         },
         {
           q: 'Is the drive included?',
@@ -1623,6 +1635,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/waikapu', label: 'Waikapū dinner door' },
         { path: '/wailea', label: 'Wailea dinner door' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Quote form' },
@@ -1640,7 +1653,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinHaleakala',
       body: [
         'High elevation. Surcharge. Temperature and drive both change the chef day. Retreat and estate dinners. Named farms only with verification.',
-        'There is no /haleakala corridor URL. We will not print a farm name we have not verified — /blog/sourcing-honesty.',
+        'The dinner door is /haleakala. This piece is the kitchen note. We will not print a farm name we have not verified — /blog/sourcing-honesty.',
         'A cooktop is still required. Outdoor setups inherit a wet-weather backup. Send the address on /quote.',
       ],
       faqs: [
@@ -1650,10 +1663,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /haleakala a dinner door?',
-          a: 'No. Open /coverage, then /quote.',
+          a: 'Yes. This piece is the kitchen note beside it. Open /haleakala.',
         },
       ],
       related: [
+        { path: '/haleakala', label: 'Kula dinner door' },
         { path: '/blog/dining-in-upcountry', label: 'Upcountry kitchen notes' },
         { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
         { path: '/quote', label: 'Quote form' },
@@ -2293,13 +2307,13 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinHaena',
       body: [
         'Far North. Quote-only. Seventy-two-hour notice. Road closures reschedule rather than forfeit. Inquiry until we can staff.',
-        'There is no /haena corridor URL. A closed bridge moves the night; it does not eat the deposit. Open /hanalei-bridge for the full clause.',
+        'The dinner door is /haena. This piece is the kitchen note. A closed bridge moves the night; it does not eat the deposit. Open /hanalei-bridge for the full clause.',
         `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one Far-North inquiry table.`,
       ],
       faqs: [
         {
           q: 'Is /haena a dinner door?',
-          a: 'No. Quote-only. Open /hanalei and /hanalei-bridge.',
+          a: 'Yes — quote-only, inquiry. This piece is the kitchen note. Open /haena.',
         },
         {
           q: 'Can you take same-day Hāʻena?',
@@ -2307,6 +2321,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/haena', label: 'Hāʻena dinner door' },
         { path: '/hanalei', label: 'Hanalei dinner door' },
         { path: '/hanalei-bridge', label: 'Hanalei bridge' },
         { path: '/quote', label: 'Inquiry form' },
@@ -2324,7 +2339,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinKoloa',
       body: [
         'South Shore town adjacent to Poʻipū. Same South Shore surcharge map. Retreat houses and small weddings to about 75. Inquiry until we can staff.',
-        'There is no /koloa corridor URL. We will not pretend Kōloa is a resort-residence page. A cooktop is still required.',
+        'The dinner door is /koloa. This piece is the kitchen note. We will not pretend Kōloa is a resort-residence page. A cooktop is still required.',
         'Open /poipu for the corridor. Send the address on /quote. A band is not a Book-now button.',
       ],
       faqs: [
@@ -2334,10 +2349,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /koloa live?',
-          a: 'No corridor URL. This blog note is the kitchen. Open /quote.',
+          a: 'The dinner door is /koloa at inquiry. This piece is the kitchen note.',
         },
       ],
       related: [
+        { path: '/koloa', label: 'Kōloa dinner door' },
         { path: '/poipu', label: 'Poʻipū dinner door' },
         { path: '/blog/dining-in-poipu', label: 'Poʻipū kitchen notes' },
         { path: '/quote', label: 'Inquiry form' },
@@ -2355,7 +2371,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinLihue',
       body: [
         'Planned base. Airport-adjacent, not the villa inventory. In-town households and staging. Included when we launch. Inquiry until we can staff.',
-        'There is no /lihue corridor URL. Princeville and Poʻipū stay the estate dinner doors. A cooktop is still required.',
+        'The dinner door is /lihue. This piece is the kitchen note. Princeville and Poʻipū stay the estate corridors. A cooktop is still required.',
         'We will not sell Līhuʻe as a North Shore estate page. Send the address on /quote.',
       ],
       faqs: [
@@ -2365,10 +2381,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /lihue a dinner door?',
-          a: 'No. This piece is the short staging-town note — at inquiry.',
+          a: 'Yes, at inquiry. This piece is the kitchen note. Open /lihue.',
         },
       ],
       related: [
+        { path: '/lihue', label: 'Līhuʻe dinner door' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/poipu', label: 'Poʻipū dinner door' },
         { path: '/quote', label: 'Inquiry form' },
@@ -2386,13 +2403,13 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinKalaheo',
       body: [
         'South-west residential. Between Līhuʻe and the South Shore villas. Surcharge, quoted with the menu. Inquiry until we can staff.',
-        'There is no /kalaheo corridor URL. Residential tables, not visitor-villa inventory. A cooktop is still required.',
+        'The dinner door is /kalaheo. This piece is the kitchen note. Residential tables, not visitor-villa inventory. A cooktop is still required.',
         `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one south-west inquiry table.`,
       ],
       faqs: [
         {
           q: 'Is /kalaheo a dinner door?',
-          a: 'No. Open /poipu. This piece is the shorter south-west kitchen note.',
+          a: 'Yes, at inquiry. This piece is the kitchen note. Open /kalaheo.',
         },
         {
           q: 'Are you live?',
@@ -2400,6 +2417,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/kalaheo', label: 'Kalāheo dinner door' },
         { path: '/poipu', label: 'Poʻipū dinner door' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Inquiry form' },
@@ -2417,7 +2435,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinKauaiWaimea',
       body: [
         'West side. Distance from Līhuʻe is the story. Extended surcharge. Advance notice. West-side estates. Inquiry until we can staff.',
-        'There is no /waimea corridor URL on this host. This is not the Hawaiʻi Island ranch note. A cooktop is still required.',
+        'The dinner door is /waimea on this host. This piece is the kitchen note. This is not the Hawaiʻi Island ranch note. A cooktop is still required.',
         `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one west-side inquiry table.`,
       ],
       faqs: [
@@ -2427,10 +2445,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /waimea a dinner door here?',
-          a: 'No. Open /coverage, then /quote.',
+          a: 'Yes, at inquiry on this host. This piece is the kitchen note. Open /waimea.',
         },
       ],
       related: [
+        { path: '/waimea', label: 'Kauaʻi Waimea dinner door' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/poipu', label: 'Poʻipū dinner door' },
         { path: '/quote', label: 'Inquiry form' },
@@ -2448,13 +2467,13 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinHanapepe',
       body: [
         'West-side town. Not a visitor-villa cluster. Surcharge, quoted. Private houses. Inquiry until we can staff.',
-        'There is no /hanapepe corridor URL. We will not sell this as a North Shore estate page. A cooktop is still required.',
+        'The dinner door is /hanapepe. This piece is the kitchen note. We will not sell this as a North Shore estate page. A cooktop is still required.',
         'Send the address on /quote. A band is not a Book-now button.',
       ],
       faqs: [
         {
           q: 'Is /hanapepe a dinner door?',
-          a: 'No. Open /coverage, then /quote.',
+          a: 'Yes, at inquiry. This piece is the kitchen note. Open /hanapepe.',
         },
         {
           q: 'Same as Kauai Waimea notes?',
@@ -2462,6 +2481,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/hanapepe', label: 'Hanapēpē dinner door' },
         { path: '/blog/dining-in-waimea', label: 'Kauai Waimea notes' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Inquiry form' },
@@ -2479,7 +2499,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinAnahola',
       body: [
         'East-north coast. Quieter than Kapaʻa, still a drive from Līhuʻe staging. Surcharge at launch, quoted with the menu. Household dinners. Inquiry until we can staff.',
-        'There is no /anahola corridor URL. /kapaa stays the east-side dinner door. A cooktop is still required.',
+        'The dinner door is /anahola. This piece is the kitchen note. /kapaa stays the east-side corridor. A cooktop is still required.',
         `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is one east-north inquiry table.`,
       ],
       faqs: [
@@ -2489,10 +2509,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /anahola live?',
-          a: 'No corridor URL. Inquiry. Open /quote.',
+          a: 'The dinner door is /anahola at inquiry. This piece is the kitchen note.',
         },
       ],
       related: [
+        { path: '/anahola', label: 'Anahola dinner door' },
         { path: '/kapaa', label: 'Kapaʻa dinner door' },
         { path: '/blog/dining-in-kapaa', label: 'Kapaʻa kitchen notes' },
         { path: '/quote', label: 'Inquiry form' },
@@ -2510,7 +2531,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinEleele',
       body: [
         'South-west residential. Between Kalāheo and the west side. Surcharge. Advance notice. Private houses. Inquiry until we can staff.',
-        'There is no /eleele corridor URL. We will not pretend this is a South Shore villa page. A cooktop is still required.',
+        'The dinner door is /eleele. This piece is the kitchen note. We will not pretend this is a South Shore villa page. A cooktop is still required.',
         'Send the address on /quote. A band is not a Book-now button.',
       ],
       faqs: [
@@ -2520,10 +2541,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /eleele a dinner door?',
-          a: 'No. Open /coverage, then /quote.',
+          a: 'Yes, at inquiry. This piece is the kitchen note. Open /eleele.',
         },
       ],
       related: [
+        { path: '/eleele', label: 'ʻEleʻele dinner door' },
         { path: '/blog/dining-in-kalaheo', label: 'Kalāheo kitchen notes' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3163,7 +3185,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinHilo',
       body: [
         'East side. Quote-only. Dedicated staffing. Two and a half to three hours from Kona. Inquiry until we can staff. Never squeezed into a west-side day.',
-        'There is no /hilo corridor URL. /east-side stays the honesty page. A cooktop is still required.',
+        'The dinner door is /hilo. This piece is the kitchen note. /east-side stays the crossing rule. A cooktop is still required.',
         `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one Hilo inquiry table with its own team day.`,
       ],
       faqs: [
@@ -3177,6 +3199,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/hilo', label: 'Hilo dinner door' },
         { path: '/east-side', label: 'East side' },
         { path: '/kona', label: 'Kona dinner door' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3194,7 +3217,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinVolcano',
       body: [
         'East side with Hilo. Quote-only, never squeezed into a west-side day. Lodge and estate dinners with dedicated staffing. Inquiry until we can staff.',
-        'There is no /volcano corridor URL. The drive is 2.5–3 hours from Kona. A cooktop is still required.',
+        'The dinner door is /volcano. This piece is the kitchen note. The drive is 2.5–3 hours from Kona. A cooktop is still required.',
         'Open /east-side for the crossing. Send both dates on /quote if you also want a west-side night.',
       ],
       faqs: [
@@ -3208,6 +3231,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/volcano', label: 'Volcano dinner door' },
         { path: '/east-side', label: 'East side' },
         { path: '/blog/dining-in-hilo', label: 'Hilo kitchen notes' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3225,7 +3249,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinKeauhou',
       body: [
         'South of town, still the Kona–Kohala corridor. Base zone at launch. Resort-residence dinners. Inquiry until we can staff. Event weeks compress availability — /ironman-weeks.',
-        'There is no /keauhou corridor URL. /kona stays the dinner door. East side stays a dedicated day — /east-side.',
+        'The dinner door is /keauhou. This piece is the kitchen note. /kona stays the corridor. East side stays a dedicated day — /east-side.',
         'A cooktop is still required. A band is not a Book-now button. Send the address on /quote.',
       ],
       faqs: [
@@ -3239,6 +3263,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/keauhou', label: 'Keauhou dinner door' },
         { path: '/kona', label: 'Kona dinner door' },
         { path: '/ironman-weeks', label: 'Ironman weeks' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3256,7 +3281,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinHolualoa',
       body: [
         'Mauka of Kailua-Kona. Coffee-country elevation, still the west-side corridor. Cooler evenings. Named coffee only with origin labeling. Inquiry until we can staff.',
-        'There is no /holualoa corridor URL. Act 198 from 2027 stays on /coffee-act-198. We do not invent a farm brand for the hillside.',
+        'The dinner door is /holualoa. This piece is the kitchen note. Act 198 from 2027 stays on /coffee-act-198. We do not invent a farm brand for the hillside.',
         `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one mauka inquiry table.`,
       ],
       faqs: [
@@ -3270,6 +3295,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/holualoa', label: 'Hōlualoa dinner door' },
         { path: '/kona', label: 'Kona dinner door' },
         { path: '/coffee-act-198', label: 'Coffee Act 198' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3287,7 +3313,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinKailuaKona',
       body: [
         'West-side town at the south end of the planned corridor. Planned base zone. Event weeks compress availability — /ironman-weeks. Inquiry until we can staff.',
-        'There is no /kailua-kona corridor URL. /kona stays the dinner door. East side stays a dedicated day — /east-side.',
+        'The dinner door is /kailua-kona. This piece is the kitchen note. /kona stays the corridor. East side stays a dedicated day — /east-side.',
         'A cooktop is still required. A band is not a Book-now button. Send the address on /quote.',
       ],
       faqs: [
@@ -3301,6 +3327,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/kailua-kona', label: 'Kailua-Kona dinner door' },
         { path: '/kona', label: 'Kona dinner door' },
         { path: '/ironman-weeks', label: 'Ironman weeks' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3318,7 +3345,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinMaunaLani',
       body: [
         'Kohala resort community. Same corridor, not a separate island claim. Base zone. Estate and resort-residence dinners. Inquiry until we can staff.',
-        'There is no /mauna-lani corridor URL. /kohala stays the named dinner door. East side stays /east-side.',
+        'The dinner door is /mauna-lani. This piece is the kitchen note. /kohala stays the named corridor. East side stays /east-side.',
         `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one Mauna Lani inquiry table.`,
       ],
       faqs: [
@@ -3332,6 +3359,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/mauna-lani', label: 'Mauna Lani dinner door' },
         { path: '/waikoloa', label: 'Waikoloa dinner door' },
         { path: '/blog/dining-in-kohala', label: 'Kohala kitchen notes' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3349,7 +3377,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinMaunaKea',
       body: [
         'North Kohala resort belt. Corridor, not the mountain. Base zone. Villa dinners. Inquiry until we can staff.',
-        'There is no /mauna-kea corridor URL. We will not sell a summit dinner. /kohala stays the named door.',
+        'The dinner door is /mauna-kea. This piece is the kitchen note. We will not sell a summit dinner. /kohala stays the named corridor.',
         'A cooktop is still required. East side is a different day — /east-side.',
       ],
       faqs: [
@@ -3363,6 +3391,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/mauna-kea', label: 'Mauna Kea resort dinner door' },
         { path: '/kohala', label: 'Kohala dinner door' },
         { path: '/blog/dining-in-kohala', label: 'Kohala kitchen notes' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3380,7 +3409,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinKau',
       body: [
         'South point direction. Extended surcharge, advance notice. South-side estates. Named Kaʻū coffee follows Act 198 from 2027. Inquiry until we can staff.',
-        'There is no /kau corridor URL. We do not invent a farm brand for the south. Open /coffee-act-198 for the rule.',
+        'The dinner door is /kau. This piece is the kitchen note. We do not invent a farm brand for the south. Open /coffee-act-198 for the rule.',
         `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is one south-side inquiry table.`,
       ],
       faqs: [
@@ -3394,6 +3423,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/kau', label: 'Kaʻū dinner door' },
         { path: '/coffee-act-198', label: 'Coffee Act 198' },
         { path: '/coverage', label: 'Coverage' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3411,7 +3441,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinHonokaa',
       body: [
         'Hāmākua coast. Surcharge. Named producers only after written verification. Estate dinners. Inquiry until we can staff.',
-        'There is no /honokaa corridor URL. This is not a same-day Kona add-on and not a Hilo day unless we quote it that way — /east-side.',
+        'The dinner door is /honokaa. This piece is the kitchen note. This is not a same-day Kona add-on and not a Hilo day unless we quote it that way — /east-side.',
         'A cooktop is still required. Send the address on /quote.',
       ],
       faqs: [
@@ -3425,6 +3455,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
       ],
       related: [
+        { path: '/honokaa', label: 'Honokaʻa dinner door' },
         { path: '/east-side', label: 'East side' },
         { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
         { path: '/quote', label: 'Inquiry form' },
@@ -3442,7 +3473,7 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       photo: 'dinPuako',
       body: [
         'Kohala coast residential between Waikoloa and Mauna Lani. Base zone inside the 30-minute corridor. Villa weeks. Inquiry until we can staff.',
-        'There is no /puako corridor URL. /waikoloa stays a dinner door. East side stays a dedicated day — /east-side.',
+        'The dinner door is /puako. This piece is the kitchen note. /waikoloa stays a corridor. East side stays a dedicated day — /east-side.',
         'A cooktop is still required. A band is not a Book-now button. Send the address on /quote.',
       ],
       faqs: [
@@ -3452,10 +3483,11 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         },
         {
           q: 'Is /puako a dinner door?',
-          a: 'No. Open /waikoloa or /quote.',
+          a: 'Yes, at inquiry. This piece is the kitchen note. Open /puako.',
         },
       ],
       related: [
+        { path: '/puako', label: 'Puakō dinner door' },
         { path: '/waikoloa', label: 'Waikoloa dinner door' },
         { path: '/kohala', label: 'Kohala dinner door' },
         { path: '/quote', label: 'Inquiry form' },

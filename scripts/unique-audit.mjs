@@ -140,7 +140,7 @@ const photosSrc = read('data/photos.ts');
 const cateringSrc = read('data/catering.ts');
 const eventsSrc = read('data/events.ts');
 const supportSrc = read('data/islandSupport.ts');
-const cellsSrc = read('data/uniqueCells.ts');
+const cellsSrc = read('data/uniqueCells.ts') + '\n' + read('data/areaCells.ts');
 const servicesSrc = read('data/islandServices.ts') + '\n' + read('data/gatedServices.ts') + '\n' + read('data/residentLine.ts') + '\n' + read('data/feeStackPages.ts');
 const occasionsSrc = read('data/occasionPages.ts') + '\n' + read('data/occasionExtras.ts');
 const formatsSrc = read('data/cateringFormats.ts');
@@ -224,7 +224,7 @@ if (faq.length !== 4) errors.push(`Expected 4 island FAQ pages, found ${faq.leng
 if (coverage.length !== 4) errors.push(`Expected 4 coverage pages, found ${coverage.length}`);
 if (how.length !== 4) errors.push(`Expected 4 how-it-works pages, found ${how.length}`);
 if (menus.length !== 4) errors.push(`Expected 4 menus pages, found ${menus.length}`);
-if (cells.length < 15) errors.push(`Expected ≥15 unique cells, found ${cells.length}`);
+if (cells.length < 47) errors.push(`Expected ≥47 unique cells, found ${cells.length}`);
 if (services.length < 56) errors.push(`Expected ≥56 island service pages, found ${services.length}`);
 if (occasions.length < 28) errors.push(`Expected ≥28 occasion pages, found ${occasions.length}`);
 if (formats.length < 24) errors.push(`Expected ≥24 catering format pages, found ${formats.length}`);

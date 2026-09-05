@@ -286,6 +286,18 @@ Still no zip on this machine. Wave 30 ships hub pickers for journal and shared-b
 - Search Console / indexation pass after Wave 1 is on `main`: inspect one corridor URL per island, then the rest.
 - Keep `*.mychef-hawaii.com` attached on the Vercel project so island hosts never 404.
 
+## Wave 33 — supporting-area unique cells (this branch)
+
+Still no zip on this machine. Wave 33 ships unique `/{slug}` dinner doors for supporting areas that already had `/blog/dining-in-{slug}` kitchen notes but 404'd at the place URL (32 cells). These are unique cells, **not** money corridors — null-volume place names stay out of money titles, and they are not added to middleware `CORRIDORS`.
+
+- Oʻahu: `/lanikai`, `/hawaii-kai`, `/diamond-head`, `/kakaako`, `/downtown`, `/kaneohe`, `/ewa`.
+- Maui: `/upcountry`, `/napili`, `/paia`, `/makawao`, `/honokowai`, `/waikapu`, `/haleakala`.
+- Kauaʻi (inquiry): `/haena`, `/koloa`, `/lihue`, `/kalaheo`, `/waimea`, `/hanapepe`, `/anahola`, `/eleele`.
+- Hawaiʻi Island (inquiry): `/kailua-kona`, `/keauhou`, `/mauna-lani`, `/mauna-kea`, `/hilo`, `/volcano`, `/kau`, `/honokaa`, `/holualoa`, `/puako`.
+- Distinct from money corridors, from `/gold-coast` / `/east-side` / `/kohala-corridor`, and from matching dining-in blogs (kitchen notes stay).
+- `/areas` lists supporting cells as live dinner doors; dining-in blogs remain kitchen notes.
+- New Grok stills for every Wave 33 URL. Kauaʻi and Hawaiʻi Island stay inquiry. Hilo / Volcano / Kaʻū stay quote-only dedicated days.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
