@@ -413,11 +413,6 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Wedding catering Oahu — one kitchen for the weekend. Kahala, Ko Olina and Kailua estates. Starting prices published.',
   },
-  '/oahu/wedding-catering': {
-    title: 'Wedding catering Oahu — Gold Coast weekend chefs | myCHEF',
-    description:
-      'Wedding catering Oahu from $125/pp plus staffing. Kahala, Ko Olina and windward estates. One culinary team.',
-  },
   '/oahu/bar': {
     title: 'Oʻahu villa cocktails — bartender on the lānai | myCHEF',
     description:
@@ -482,11 +477,6 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/maui/vacation-chef': {
     title: 'Maui vacation chef — Multi-day villa service | myCHEF',
     description: 'A chef for the whole Maui stay — provisioning, full-board days and retreat service.',
-  },
-  '/maui/wedding-catering': {
-    title: 'Maui wedding catering — Wailea, Kapalua, Makena | myCHEF',
-    description:
-      'Welcome dinner, rehearsal, reception and recovery brunch in Wailea, Kapalua, Kāʻanapali and Makena. Published starting prices.',
   },
   '/maui/weddings': {
     title: 'Wedding Catering Maui | Wedding-Week Chefs | myCHEF',
@@ -579,11 +569,6 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description:
       'Kauai catering from $150 a guest. Estate events on both shores. Inquiry stage. Buffet or plated.',
   },
-  '/kauai/wedding-catering': {
-    title: 'Kauai wedding catering — Princeville, Hanalei, Poʻipū | myCHEF',
-    description:
-      'Kauai wedding catering from $175/pp plus staffing. Estate formats on both shores. Published starting prices. WhatsApp the week.',
-  },
   '/kauai/weddings': {
     title: 'Kauai wedding catering | both shores — inquiry | myCHEF',
     description:
@@ -649,11 +634,6 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     title: 'Big Island catering — Kona & Kohala from $125/pp | myCHEF',
     description:
       'Catering on Hawaiʻi Island from $125/pp. Kohala Coast and Kona villa receptions, buffet or plated. WhatsApp for a written quote.',
-  },
-  '/bigisland/wedding-catering': {
-    title: 'Hawaiʻi Island wedding catering — Kohala Coast estates | myCHEF',
-    description:
-      'Kohala and Kona wedding weeks. Published starting prices. WhatsApp the date.',
   },
   '/bigisland/weddings': {
     title: 'Wedding catering Big Island | myCHEF',

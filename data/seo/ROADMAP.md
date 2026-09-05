@@ -943,6 +943,12 @@ Still no zip on this machine. Wave 115 renames leftover visible labels that stil
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 116 — /wedding-catering 301s onto /weddings (this branch)
+
+Still no zip on this machine. Wave 116 stops shipping `/wedding-catering` as a live alias with a competing wedding-catering title. Middleware 301s `/wedding-catering` (and `/[island]/wedding-catering`) onto `/weddings`. The island page, pageMeta titles, and OfferCatalog path are gone. `seo:audit` fails if the alias page, titles, or missing 301 return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

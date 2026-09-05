@@ -993,6 +993,23 @@ if (!/LOCAL_BUSINESS_JSONLD/.test(seoSrc)) {
 if (/jsonLd\.push\(localBusinessJsonLd/.test(seoSrc) && !/LOCAL_BUSINESS_JSONLD\.has\(localPath\)/.test(seoSrc)) {
   errors.push('LocalBusiness JSON-LD still stamps every unique URL');
 }
+if (/ISLAND_RATE_JSONLD[\s\S]{0,400}'\/wedding-catering'/.test(seoSrc)) {
+  errors.push('JSON-LD OfferCatalog still treats /wedding-catering as a live product URL');
+}
+if (!/segs\[0\] === 'wedding-catering'/.test(middlewareSrc) || !/pathname = '\/weddings'/.test(middlewareSrc)) {
+  errors.push('/wedding-catering must 301 to /weddings');
+}
+if (existsSync(join(ROOT, 'app/[island]/wedding-catering/page.tsx'))) {
+  errors.push('/wedding-catering still ships as a live island page');
+}
+if (
+  /'\/oahu\/wedding-catering'/.test(pageMetaSrc) ||
+  /'\/maui\/wedding-catering'/.test(pageMetaSrc) ||
+  /'\/kauai\/wedding-catering'/.test(pageMetaSrc) ||
+  /'\/bigisland\/wedding-catering'/.test(pageMetaSrc)
+) {
+  errors.push('pageMeta still titles the /wedding-catering alias');
+}
 
 const hubStealSrc = [
   'components/views/OfferViews.tsx',

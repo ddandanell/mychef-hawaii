@@ -44,6 +44,20 @@ export function middleware(request: NextRequest) {
 
   if (isStaticAsset(path)) return NextResponse.next();
 
+  {
+    const segs = path.split('/').filter(Boolean);
+    if (segs.length === 1 && segs[0] === 'wedding-catering') {
+      const dest = url.clone();
+      dest.pathname = '/weddings';
+      return NextResponse.redirect(dest, 301);
+    }
+    if (segs.length === 2 && isIsland(segs[0]) && segs[1] === 'wedding-catering') {
+      const dest = url.clone();
+      dest.pathname = `/${segs[0]}/weddings`;
+      return NextResponse.redirect(dest, 301);
+    }
+  }
+
   if (host === `www.${PRODUCTION_ROOT}`) {
     const dest = url.clone();
     dest.hostname = PRODUCTION_ROOT;

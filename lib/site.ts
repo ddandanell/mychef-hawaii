@@ -96,7 +96,7 @@ export function canonicalOrigin(island: IslandId | 'root', hostname?: string): s
   return `https://${island}.${PRODUCTION_ROOT}`;
 }
 
-/** Aliases stay live; canonical points at the master-map URL. */
+/** Leftover /wedding-catering links 301 in middleware. Canonical still maps the old path. */
 const CANONICAL_ALIASES: Record<string, string> = {
   '/wedding-catering': '/weddings',
 };
