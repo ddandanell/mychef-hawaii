@@ -1931,6 +1931,38 @@ export const photos = {
     file: '/photos/blog-reviews-bigisland.png',
     alt: `A blank unused ivory card under a brass clip on a Kohala lava-stone pass in hard sun.`,
   },
+  corpIndexOahu: {
+    file: '/photos/corp-index-oahu.png',
+    alt: `Unused ivory plates and unmarked papers on a Kahala dining table at dusk, brass clip.`,
+  },
+  corpIndexMaui: {
+    file: '/photos/corp-index-maui.png',
+    alt: `Unused ivory plates and unmarked papers on a Wailea dining table at west sunset.`,
+  },
+  corpIndexKauai: {
+    file: '/photos/corp-index-kauai.png',
+    alt: `Unused ivory plates and unmarked papers on a Princeville stone table in misted rain light.`,
+  },
+  corpIndexBigisland: {
+    file: '/photos/corp-index-bigisland.png',
+    alt: `Unused ivory plates and unmarked papers on a Kohala lava terrace in hard sun.`,
+  },
+  gatherIndexOahu: {
+    file: '/photos/gather-index-oahu.png',
+    alt: `Unused ivory plates and extra glasses on a Kahala lawn table at dusk, brass clip.`,
+  },
+  gatherIndexMaui: {
+    file: '/photos/gather-index-maui.png',
+    alt: `Unused ivory plates and extra glasses on a Wailea lawn table at west sunset.`,
+  },
+  gatherIndexKauai: {
+    file: '/photos/gather-index-kauai.png',
+    alt: `Unused ivory plates and extra glasses on a Kauai estate lawn table in misted valley light.`,
+  },
+  gatherIndexBigisland: {
+    file: '/photos/gather-index-bigisland.png',
+    alt: `Unused ivory plates and extra glasses on a Kohala lava terrace in hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

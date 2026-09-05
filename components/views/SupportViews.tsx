@@ -34,6 +34,8 @@ import { islandServiceIndex, SERVICE_INDEX_LINKS } from '@/data/islandServiceInd
 import { islandHelpIndex } from '@/data/islandHelpIndex';
 import { islandFineDiningIndex } from '@/data/islandFineDiningIndex';
 import { islandStaffingIndex } from '@/data/islandStaffingIndex';
+import { islandCorporate, CORPORATE_INDEX_LINKS } from '@/data/islandCorporate';
+import { islandGatherings, GATHERINGS_INDEX_LINKS } from '@/data/islandGatherings';
 import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
@@ -280,7 +282,7 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
           text={h1}
           className="font-display text-[clamp(2.5rem,6vw,4rem)] font-light leading-[1.05] text-ink"
         />
-        <p className="mt-5 max-w-[52ch] text-[17px] leading-[1.65] text-ink">
+        <p className="mt-6 max-w-[60ch] text-[17px] leading-[1.65] text-mute">
           {lede}
         </p>
         <div className="mt-8">
@@ -295,6 +297,22 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
               <p className="mt-3 text-[17px] leading-relaxed text-mute">{u.body}</p>
             </article>
           ))}
+        </div>
+        <div className="mx-auto mt-16 max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">By island</p>
+          <ul className="mt-6 grid gap-px bg-line md:grid-cols-2">
+            {islandOrder.map((id) => (
+              <li key={id} className="bg-paper">
+                <HostLink island={id} path={kind === 'gatherings' ? '/gatherings' : '/corporate'} className="block p-5">
+                  <p className="text-[12px] text-mute">{islands[id].name}</p>
+                  <h2 className="mt-2 font-display text-xl font-light text-ink">
+                    {kind === 'gatherings' ? 'House gatherings' : 'Villa offsites'}
+                  </h2>
+                  <p className="mt-2 text-sm text-mute">{kind === 'gatherings' ? '/gatherings' : '/corporate'}</p>
+                </HostLink>
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
       <QuoteTeaser />
@@ -449,7 +467,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/sitemap'] as const).map((path) => ({
+      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/sitemap'] as const).map((path) => ({
         host: id,
         path,
       })),
@@ -769,6 +787,32 @@ export function StaffingIndexView({ islandId }: { islandId: (typeof islandOrder)
       copy={islandStaffingIndex[islandId]}
       links={staffingPages[islandId].map((row) => ({ path: `/staffing/${row.slug}`, label: row.name }))}
       faqTitle="Before you add a line."
+    />
+  );
+}
+
+export function CorporateIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  const links =
+    islandId === 'oahu'
+      ? [{ path: '/conventions', label: 'HCC citywides' }, ...CORPORATE_INDEX_LINKS]
+      : CORPORATE_INDEX_LINKS;
+  return (
+    <NestedIndexView
+      islandId={islandId}
+      copy={islandCorporate[islandId]}
+      links={links}
+      faqTitle="Before you brief a house."
+    />
+  );
+}
+
+export function GatheringsIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  return (
+    <NestedIndexView
+      islandId={islandId}
+      copy={islandGatherings[islandId]}
+      links={GATHERINGS_INDEX_LINKS}
+      faqTitle="Before you pick an occasion."
     />
   );
 }

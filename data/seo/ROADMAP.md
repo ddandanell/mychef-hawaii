@@ -224,13 +224,21 @@ Still no zip on this machine. Wave 24 uniquifies the last extra-blog seed with a
 - Remaining extra-blog seeds stay unpublished: they overlap live occasion, menu, staffing, and bar URLs.
 - Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 24 URL.
 
-## Wave 25 — zip execution
+## Wave 25 — unique island offsite and gathering lists (this branch)
+
+Still no zip on this machine. Wave 25 uniquifies two reserved 404s on every island host:
+
+- Unique `/corporate` directories. Distinct from hub `/corporate`, `/corporate-catering`, `/events/corporate-events`, and `/help/corporate-guide`.
+- Unique `/gatherings` directories. Distinct from hub `/gatherings`, `/events`, `/blog/family-reunions`, and `/rehearsal-dinners`.
+- Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 25 URL.
+
+## Wave 26 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 26 — automation that stays on
+## Wave 27 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

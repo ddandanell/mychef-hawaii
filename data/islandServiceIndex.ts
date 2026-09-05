@@ -31,6 +31,8 @@ export const SERVICE_INDEX_LINKS: { path: string; label: string }[] = [
   { path: '/fine-dining', label: 'In-villa formats' },
   { path: '/staffing', label: 'Staffing add-ons' },
   { path: '/help', label: 'Help desk' },
+  { path: '/corporate', label: 'Villa offsites' },
+  { path: '/gatherings', label: 'House gatherings' },
   { path: '/pricing', label: 'What a night costs' },
   { path: '/quote', label: 'Quote / inquiry form' },
 ];

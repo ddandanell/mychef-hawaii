@@ -33,6 +33,8 @@ import { islandServiceIndex } from '@/data/islandServiceIndex';
 import { islandHelpIndex } from '@/data/islandHelpIndex';
 import { islandFineDiningIndex } from '@/data/islandFineDiningIndex';
 import { islandStaffingIndex } from '@/data/islandStaffingIndex';
+import { islandCorporate } from '@/data/islandCorporate';
+import { islandGatherings } from '@/data/islandGatherings';
 import { islandSitemap } from '@/data/islandSitemap';
 import { getJournalArticle, journalArticles } from '@/data/journalArticles';
 import { getBlogArticle, blogArticles } from '@/data/blogArticles';
@@ -140,6 +142,8 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     if (localPath === '/help') return `${origin}${photos[islandHelpIndex[islandId].photo].file}`;
     if (localPath === '/fine-dining') return `${origin}${photos[islandFineDiningIndex[islandId].photo].file}`;
     if (localPath === '/staffing') return `${origin}${photos[islandStaffingIndex[islandId].photo].file}`;
+    if (localPath === '/corporate') return `${origin}${photos[islandCorporate[islandId].photo].file}`;
+    if (localPath === '/gatherings') return `${origin}${photos[islandGatherings[islandId].photo].file}`;
     if (localPath === '/sitemap') return `${origin}${photos[islandSitemap[islandId].photo].file}`;
     const journalSlug = /^\/journal\/([^/]+)$/.exec(localPath)?.[1];
     const journalPiece = journalSlug ? getJournalArticle(islandId, journalSlug) : undefined;
@@ -368,6 +372,12 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (islandStaffingIndex[islandId] && localPath === '/staffing') {
       title = islandStaffingIndex[islandId].title;
       description = islandStaffingIndex[islandId].description;
+    } else if (islandCorporate[islandId] && localPath === '/corporate') {
+      title = islandCorporate[islandId].title;
+      description = islandCorporate[islandId].description;
+    } else if (islandGatherings[islandId] && localPath === '/gatherings') {
+      title = islandGatherings[islandId].title;
+      description = islandGatherings[islandId].description;
     } else if (islandSitemap[islandId] && localPath === '/sitemap') {
       title = islandSitemap[islandId].title;
       description = islandSitemap[islandId].description;
@@ -510,7 +520,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.7',
     })),
-    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
+    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
       loc: `https://${masterHostName(island)}${path}`,
       changefreq: 'monthly',
       priority: '0.6',
