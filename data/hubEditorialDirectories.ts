@@ -1045,3 +1045,15 @@ export const hubEditorialDirectories: Record<HubEditorialId, HubDirectory> = {
     ],
   },
 };
+
+export function nestedHubEditorials(kind: 'journal' | 'blog'): HubDirectory[] {
+  const prefix = `/${kind}/`;
+  const byPath = new Map(
+    (Object.values(hubEditorialDirectories) as HubDirectory[]).map((row) => [row.path, row]),
+  );
+  return HUB_EDITORIAL_PATHS.filter((path) => path.startsWith(prefix)).map((path) => {
+    const row = byPath.get(path);
+    if (!row) throw new Error(`Missing hub editorial for ${path}`);
+    return row;
+  });
+}

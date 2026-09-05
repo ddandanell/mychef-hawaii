@@ -448,6 +448,14 @@ Still no zip on this machine. Wave 49 lifts leftover paper doors on island homep
 - Named corridors open from a `DocumentPhotoGrid` of the unique corridor stills. Coverage/locations stay paper honesty lists.
 - Quote-form TypePanel stays. No new URLs.
 
+## Wave 50 — hub journal and blog indexes on photography (this branch)
+
+Still no zip on this machine. Wave 50 lists the existing hub editorial pickers on `/journal` and `/blog` as photography, matching the island indexes:
+
+- Hub `/journal` opens the ten statewide journal notes from their unique stills, then the island journals.
+- Hub `/blog` opens the twenty-seven shared kitchen notes from their unique stills, then the island guides.
+- Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

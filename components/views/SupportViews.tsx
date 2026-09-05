@@ -48,6 +48,7 @@ import { blogArticles } from '@/data/blogArticles';
 import { photos, type PhotoKey } from '@/data/photos';
 import { getHubDirectory, getHubDirectoryById } from '@/data/hubDirectories';
 import { nestedHubDirectories } from '@/data/hubNestedDirectories';
+import { nestedHubEditorials } from '@/data/hubEditorialDirectories';
 
 export function HowItWorksView() {
   const still = photos.hubHow;
@@ -479,6 +480,7 @@ export function IslandsView() {
 export function EditorialView({ kind }: { kind: 'journal' | 'blog' }) {
   const still = kind === 'journal' ? photos.hubJournal : photos.hubBlog;
   const title = kind === 'journal' ? 'The journal, by island.' : 'Guides and notes, by island.';
+  const notes = nestedHubEditorials(kind);
   return (
     <>
       <Hero src={still.file} alt={still.alt}>
@@ -492,6 +494,17 @@ export function EditorialView({ kind }: { kind: 'journal' | 'blog' }) {
           lives on the Maui host.
         </p>
       </Hero>
+      <HubPhotoGrid
+        eyebrow={kind === 'journal' ? 'Statewide notes' : 'Kitchen notes'}
+        heading={kind === 'journal' ? 'Open a journal note.' : 'Open a kitchen note.'}
+        intro="Each URL is a picker so it cannot steal an island title. Open the island document below for the host that actually cooks."
+        items={notes.map((row) => ({
+          href: row.path,
+          title: row.cardLabel,
+          body: row.lede,
+          still: photos[row.photo],
+        }))}
+      />
       <IslandPhotoPicker
         path={`/${kind}`}
         heading={kind === 'journal' ? 'Open the island journal.' : 'Open the island guides.'}
