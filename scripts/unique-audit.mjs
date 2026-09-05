@@ -488,8 +488,15 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 }
 
 const MONEY_TITLE_RE =
-  /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
+  /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii|lahaina maui|north shore oahu|poipu kauai)|wedding catering (oahu|maui|hawaii|kauai)|kauai wedding catering|personal chef (honolulu|maui|oahu)|mobile bar hawaii)\b/i;
+if (!/kauai wedding catering/.test(MONEY_TITLE_RE.source) || !/mobile bar hawaii/.test(MONEY_TITLE_RE.source)) {
+  errors.push('MONEY_TITLE_RE dropped kauai wedding catering or mobile bar hawaii');
+}
+if (!/personal chef/.test(MONEY_TITLE_RE.source) || !/lahaina maui/.test(MONEY_TITLE_RE.source)) {
+  errors.push('MONEY_TITLE_RE dropped personal-chef or long-tail private-chef phrases');
+}
 for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...contactDocs, ...trustDocs, ...serviceIndexDocs, ...helpIndexDocs, ...fineIndexDocs, ...staffIndexDocs, ...corporateDocs, ...gatheringsDocs, ...islandsIndexDocs, ...sitemapDocs, ...hubDirs, ...journalPieces, ...blogPieces]) {
+  if (row.slug === 'personal-chef') continue;
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }

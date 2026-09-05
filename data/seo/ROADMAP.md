@@ -949,6 +949,12 @@ Still no zip on this machine. Wave 116 stops shipping `/wedding-catering` as a l
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 117 — support titles stay off the rest of MASTER_KEYWORDS (this branch)
+
+Still no zip on this machine. Wave 117 expands the unique-audit money-title gate to the remaining measured phrases: `kauai wedding catering`, `mobile bar hawaii`, `personal chef honolulu|maui|oahu`, and the long-tail private-chef corridors. Support and hub-directory titles already stay off those phrases; the gate fails if one returns. Island `/personal-chef` owner titles stay out of this walk. Owner titles on `/`, `/catering`, `/weddings`, `/mobile-bar`, and money corridors are not in this walk. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.
