@@ -1,6 +1,7 @@
 import type { IslandId } from './islands';
 import { SEARCH_VOLUMES } from './offers';
 import type { UniqueCell } from './uniqueCells';
+import { EXTRA_JOURNAL_NOTES } from './extraJournalNotes';
 
 /**
  * Live journal article URLs. Distinct from /pricing, /private-chef-cost,
@@ -16,6 +17,9 @@ export const JOURNAL_ARTICLE_SLUGS = [
   'what-is-included',
   'how-far-ahead-to-book',
   'private-chef-vs-restaurant',
+  'wedding-week',
+  'vacation-chef-week',
+  'travel-zones',
 ] as const;
 export type JournalArticleSlug = (typeof JOURNAL_ARTICLE_SLUGS)[number];
 
@@ -242,6 +246,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    ...EXTRA_JOURNAL_NOTES.oahu as JournalArticle[],
   ],
   maui: [
     {
@@ -461,6 +466,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    ...EXTRA_JOURNAL_NOTES.maui as JournalArticle[],
   ],
   kauai: [
     {
@@ -680,6 +686,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
+    ...EXTRA_JOURNAL_NOTES.kauai as JournalArticle[],
   ],
   bigisland: [
     {
@@ -899,6 +906,7 @@ export const journalArticles: Record<IslandId, JournalArticle[]> = {
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
+    ...EXTRA_JOURNAL_NOTES.bigisland as JournalArticle[],
   ],
 };
 

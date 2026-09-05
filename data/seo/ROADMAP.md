@@ -316,6 +316,17 @@ Still no zip on this machine. Wave 34 ships the remaining extra-blog seeds as un
 - Hub pickers for each slug. Dining-in blogs stay island-only.
 - Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 34 URL.
 
+## Wave 35 — remaining journal kitchen notes beside live SKUs (this branch)
+
+Still no zip on this machine. Wave 35 ships the remaining journal seeds as unique kitchen notes beside live SKUs (3 slugs × 4 islands = 12 articles, plus 3 hub pickers). They do not steal wedding, vacation-chef, or coverage titles.
+
+- `/journal/wedding-week` beside `/weddings` (and Maui/Kauaʻi `/wedding-week` cells)
+- `/journal/vacation-chef-week` beside `/vacation-chef`
+- `/journal/travel-zones` beside `/coverage`
+- Hub pickers for each slug. Dining-in blogs stay island-only.
+- Island switcher treats `/journal/wedding-week` as a four-island nested key so it does not collide with Maui/Kauaʻi `/wedding-week` cells.
+- Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 35 URL.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

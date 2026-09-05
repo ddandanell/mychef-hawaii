@@ -169,7 +169,7 @@ const sitemapDocSrc = read('data/islandSitemap.ts');
 const hubDirSrc = read('data/hubDirectories.ts');
 const hubNestedSrc = read('data/hubNestedDirectories.ts');
 const hubEditorialSrc = read('data/hubEditorialDirectories.ts');
-const journalArticleSrc = read('data/journalArticles.ts');
+const journalArticleSrc = read('data/journalArticles.ts') + '\n' + read('data/extraJournalNotes.ts');
 const blogArticleSrc = read('data/blogArticles.ts') + '\n' + read('data/extraBlogNotes.ts');
 const middlewareSrc = read('middleware.ts');
 const files = photoFiles(photosSrc);
@@ -250,8 +250,8 @@ if (corporateDocs.length !== 4) errors.push(`Expected 4 island corporate indexes
 if (gatheringsDocs.length !== 4) errors.push(`Expected 4 island gatherings indexes, found ${gatheringsDocs.length}`);
 if (islandsIndexDocs.length !== 4) errors.push(`Expected 4 island islands indexes, found ${islandsIndexDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
-if (hubDirs.length !== 86) errors.push(`Expected 86 hub directories, found ${hubDirs.length}`);
-if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
+if (hubDirs.length !== 89) errors.push(`Expected 89 hub directories, found ${hubDirs.length}`);
+if (journalPieces.length !== 40) errors.push(`Expected 40 journal articles, found ${journalPieces.length}`);
 if (blogPieces.length !== 160) errors.push(`Expected 160 blog articles, found ${blogPieces.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));

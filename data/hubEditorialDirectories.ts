@@ -10,6 +10,9 @@ export const HUB_EDITORIAL_PATHS = [
   '/journal/what-is-included',
   '/journal/how-far-ahead-to-book',
   '/journal/private-chef-vs-restaurant',
+  '/journal/wedding-week',
+  '/journal/vacation-chef-week',
+  '/journal/travel-zones',
   '/blog/grocery-at-cost',
   '/blog/wine-and-alcohol',
   '/blog/weather-backup',
@@ -47,6 +50,9 @@ export type HubEditorialId =
   | 'jnlIncluded'
   | 'jnlBook'
   | 'jnlVsrest'
+  | 'jnlWedding'
+  | 'jnlVacweek'
+  | 'jnlZones'
   | 'blogGrocery'
   | 'blogWine'
   | 'blogWeather'
@@ -255,6 +261,84 @@ export const hubEditorialDirectories: Record<HubEditorialId, HubDirectory> = {
       {
         q: 'Same as /honeymoon-dinners?',
         a: 'Dinner for two is a SKU. This URL is the house-versus-restaurant note.',
+      },
+    ],
+  },
+  jnlWedding: {
+    path: '/journal/wedding-week',
+    h1: 'Wedding-week kitchen notes, by island.',
+    title: 'Wedding-week kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes how welcome, rehearsal, reception, and brunch stack beside /weddings. Distinct from Maui/Kauaʻi /wedding-week cells and from /help/wedding-guide.',
+    lede:
+      '/weddings owns the catering keyword. Maui and Kauaʻi keep a /wedding-week cell. Each island journal piece is the kitchen timing beside those doors. This page is the picker.',
+    kicker: 'Statewide · Wedding-week notes',
+    photo: 'hubJnlWedding',
+    cardLabel: 'Wedding-week kitchen notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the week-stack kitchen note, not a wedding title.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry. Oahu and Hawaiʻi Island have no /wedding-week cell — the journal note sits beside /weddings.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /weddings?',
+        a: 'That picker owns the catering keyword. This URL is the week-stack kitchen note.',
+      },
+      {
+        q: 'Same as /help/wedding-guide?',
+        a: 'That picker is the planner checklist. This URL is how the nights leave the pass.',
+      },
+    ],
+  },
+  jnlVacweek: {
+    path: '/journal/vacation-chef-week',
+    h1: 'Stay Chef week notes, by island.',
+    title: 'Stay Chef week notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes how a villa week stacks beside /vacation-chef. Distinct from the SKU and from /personal-chef.',
+    lede:
+      '/vacation-chef is the villa-week SKU. Each island journal piece is the crate-and-plate kitchen. This page is the picker.',
+    kicker: 'Statewide · Stay Chef weeks',
+    photo: 'hubJnlVacweek',
+    cardLabel: 'Stay Chef week notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the villa-week kitchen note, not a catering title.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /vacation-chef?',
+        a: 'That picker is the SKU. This URL is the week-stack kitchen note.',
+      },
+      {
+        q: 'Same as /personal-chef?',
+        a: 'That picker is the resident household line. This note is a visitor villa week.',
+      },
+    ],
+  },
+  jnlZones: {
+    path: '/journal/travel-zones',
+    h1: 'Travel-zone kitchen notes, by island.',
+    title: 'Travel-zone kitchen notes, by island | myCHEF Hawaii',
+    description:
+      'Each island writes why two corridors are not one cooler, beside /coverage. Distinct from the zone map and from /locations.',
+    lede:
+      '/coverage is the published map. Each island journal piece is the cooler-load honesty. This page is the picker.',
+    kicker: 'Statewide · Travel zones',
+    photo: 'hubJnlZones',
+    cardLabel: 'Travel-zone kitchen notes',
+    body: [
+      `hawaii catering (${SEARCH_VOLUMES['hawaii catering']}) stays on hub /catering. This directory is the travel kitchen note, not a coverage title.`,
+      'Open the island document below. Kauaʻi and Hawaiʻi Island stay inquiry. Hilo stays a dedicated day.',
+    ],
+    faqs: [
+      {
+        q: 'Same as /coverage?',
+        a: 'That picker is the zone map. This URL is the kitchen note beside it.',
+      },
+      {
+        q: 'Same as /locations?',
+        a: 'That picker lists dinner doors. This note is the travel honesty beside them.',
       },
     ],
   },

@@ -16,6 +16,12 @@ function slugOwners(): Map<string, Set<IslandId>> {
 
 const OWNERS = slugOwners();
 
+/** Nested journal/blog URLs can share a last segment with a place cell (e.g. /journal/wedding-week vs /wedding-week). */
+function nestedEditorialKey(clean: string): string | null {
+  const m = clean.match(/^\/(journal|blog)\/([^/]+)$/);
+  return m ? `${m[1]}/${m[2]}` : null;
+}
+
 export function localPathFromPathname(
   pathname: string,
   islandId: IslandId | null,
@@ -32,6 +38,10 @@ export function localPathFromPathname(
 
 export function islandSwitchPath(localPath: string, target: IslandId): string {
   const clean = (localPath.startsWith('/') ? localPath : `/${localPath}`).replace(/\/+$/, '') || '/';
+  const nested = nestedEditorialKey(clean);
+  if (nested && OWNERS.has(nested)) {
+    return OWNERS.get(nested)!.has(target) ? clean : '/';
+  }
   const segs = clean.split('/').filter(Boolean);
   for (const seg of segs) {
     if ((ISLAND_HOSTS as string[]).includes(seg)) continue;
@@ -43,6 +53,10 @@ export function islandSwitchPath(localPath: string, target: IslandId): string {
 
 export function hubSwitchPath(localPath: string): string {
   const clean = (localPath.startsWith('/') ? localPath : `/${localPath}`).replace(/\/+$/, '') || '/';
+  const nested = nestedEditorialKey(clean);
+  if (nested && OWNERS.has(nested)) {
+    return OWNERS.get(nested)!.size < islandOrder.length ? '/' : clean;
+  }
   const segs = clean.split('/').filter(Boolean);
   for (const seg of segs) {
     const owners = OWNERS.get(seg);

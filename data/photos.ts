@@ -2627,6 +2627,66 @@ export const photos = {
     file: '/photos/cell-puako.png',
     alt: `A Puakō residential villa table between Waikoloa and Mauna Lani — lava coast, plated kanpachi.`,
   },
+  jnlWeddingOahu: {
+    file: '/photos/jnl-wedding-oahu.png',
+    alt: `A chef plating a seated fish course on a Kahala dining table at dusk, unused extra settings, Diamond Head faint.`,
+  },
+  jnlWeddingMaui: {
+    file: '/photos/jnl-wedding-maui.png',
+    alt: `A chef plating a seated dinner on a Wailea ocean lawn at west sunset, unused extra ivory settings, Pacific beyond.`,
+  },
+  jnlWeddingKauai: {
+    file: '/photos/jnl-wedding-kauai.png',
+    alt: `A chef plating a seated dinner on a wet Princeville stone terrace, unused extra settings, misted mountains.`,
+  },
+  jnlWeddingBigisland: {
+    file: '/photos/jnl-wedding-bigisland.png',
+    alt: `A chef plating kanpachi on a Kohala lava-terrace table at sunset, unused extra ivory settings, Mauna Kea faint.`,
+  },
+  jnlVacweekOahu: {
+    file: '/photos/jnl-vacweek-oahu.png',
+    alt: `A chef stacking unused ivory plates beside unmarked produce crates in a Kahala kitchen, Diamond Head through the window.`,
+  },
+  jnlVacweekMaui: {
+    file: '/photos/jnl-vacweek-maui.png',
+    alt: `A chef stacking unused ivory plates beside unmarked produce crates in a Wailea kitchen, Pacific through the sliders.`,
+  },
+  jnlVacweekKauai: {
+    file: '/photos/jnl-vacweek-kauai.png',
+    alt: `A chef stacking unused ivory plates beside unmarked produce crates in a Poʻipū kitchen, pale south-shore light.`,
+  },
+  jnlVacweekBigisland: {
+    file: '/photos/jnl-vacweek-bigisland.png',
+    alt: `A chef stacking unused ivory plates beside unmarked produce in a Waikoloa kitchen, lava coast morning, clay bowl of coffee cherries.`,
+  },
+  jnlZonesOahu: {
+    file: '/photos/jnl-zones-oahu.png',
+    alt: `A chef loading stacked canvas coolers in a Kahala courtyard at dusk, unused ivory plates, Diamond Head faint.`,
+  },
+  jnlZonesMaui: {
+    file: '/photos/jnl-zones-maui.png',
+    alt: `A chef loading stacked canvas coolers beside a Wailea gate at west sunset, unused ivory plates, mountains inland.`,
+  },
+  jnlZonesKauai: {
+    file: '/photos/jnl-zones-kauai.png',
+    alt: `A chef loading stacked canvas coolers on wet Princeville stone, unused ivory plates, misted mountains.`,
+  },
+  jnlZonesBigisland: {
+    file: '/photos/jnl-zones-bigisland.png',
+    alt: `A chef loading stacked canvas coolers on a Kohala lava courtyard in hard sun, unused ivory plates, Mauna Kea faint.`,
+  },
+  hubJnlWedding: {
+    file: '/photos/hub-jnl-wedding.png',
+    alt: `Four small stacks of unused ivory plates on a koa table, unlit brass candleholders, volcanic-stone bowl of limes.`,
+  },
+  hubJnlVacweek: {
+    file: '/photos/hub-jnl-vacweek.png',
+    alt: `Unused unmarked produce crates beside stacked unused ivory breakfast and dinner plates on a koa pass, brass clip.`,
+  },
+  hubJnlZones: {
+    file: '/photos/hub-jnl-zones.png',
+    alt: `Two unused canvas coolers stacked beside unused ivory plates on a koa pass, brass clip, mossed lava.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;
