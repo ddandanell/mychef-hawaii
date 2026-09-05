@@ -564,6 +564,14 @@ Still no zip on this machine. Wave 63 gives `/quote` the same related-document p
 - Island `/quote` opens `/contact`, `/pricing`, `/how-it-works`, and `/help/getting-started` on island stills. Distinct from `/contact` (the desk). The five-field form and TypePanel stay. SiblingCluster stays paper.
 - Coverage/locations honesty lists stay paper. No new URLs.
 
+## Wave 64 — hub and island /pricing related doors (this branch)
+
+Still no zip on this machine. Wave 64 gives `/pricing` related-document photography without turning the rate card into tiles:
+
+- Hub `/pricing` opens `/quote`, `/private-chef-cost`, `/legal`, and `/menus` on existing stills. Island rate cards stay on the island host. The published table stays paper.
+- Island `/pricing` opens the same four paths on island stills. Distinct from `/quote` (the form) and `/private-chef-cost` (the stack). SiblingCluster stays paper.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

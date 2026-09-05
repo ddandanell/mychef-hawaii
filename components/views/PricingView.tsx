@@ -1,6 +1,6 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useMemo, useState, type ReactNode } from 'react';
 import { useSearchParams } from 'next/navigation';
 import * as Accordion from '@radix-ui/react-accordion';
 import { QuoteCta } from '@/components/Cta';
@@ -60,7 +60,7 @@ const faqs = [
   },
 ];
 
-export default function PricingView() {
+export default function PricingView({ related }: { related?: ReactNode } = {}) {
   const { islandId, href } = useIsland();
   const params = useSearchParams();
   const paramIsland = params.get('island');
@@ -212,6 +212,7 @@ export default function PricingView() {
       ) : (
         <Longform sections={hubPricingSections} />
       )}
+      {related}
       <section className="border-t border-line bg-paper py-20">
         <div className="mx-auto grid w-full max-w-container gap-12 px-5 lg:grid-cols-5 lg:px-10">
           <h2 className="font-display text-[clamp(2rem,4vw,2.5rem)] font-light text-ink lg:col-span-2">Questions</h2>
