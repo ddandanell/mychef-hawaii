@@ -6,7 +6,6 @@ import {
 } from './site';
 import { MASTER_MAP, masterHostName, type MasterHost } from '@/data/commercialGraph';
 import { getArea } from '@/data/areas';
-import { getArticle } from '@/data/editorial';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { getLocation } from '@/data/locations';
 import { getMoneyNeighborhood, islandOffers, moneyNeighborhoods } from '@/data/offers';
@@ -245,9 +244,6 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
       journalMatch?.[1] === 'journal' ? getJournalArticle(islandId, journalMatch[2]) : undefined;
     const blogPiece =
       journalMatch?.[1] === 'blog' ? getBlogArticle(islandId, journalMatch[2]) : undefined;
-    const article = journalMatch
-      ? getArticle(islandId, journalMatch[1] as 'journal' | 'blog', journalMatch[2])
-      : undefined;
     const placeSlug = /^\/([^/]+)$/.exec(localPath)?.[1];
     const hood = placeSlug ? getMoneyNeighborhood(islandId, placeSlug) : undefined;
 
@@ -258,10 +254,6 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (blogPiece) {
       title = blogPiece.title;
       description = blogPiece.description;
-      ogType = 'article';
-    } else if (article) {
-      title = article.title;
-      description = article.description;
       ogType = 'article';
     } else if (localPath === '/') {
       title = islandOffers[islandId].title;

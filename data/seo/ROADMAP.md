@@ -847,6 +847,12 @@ Still no zip on this machine. Wave 99 fixes the Maui island-chooser line so it n
 - `seo:audit` fails if chrome copy sells “private chef stays.”
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 100 — live titles never fall back to cloned editorial seeds (this branch)
+
+Still no zip on this machine. Wave 100 removes the `getArticle` title fallback from `resolveDocumentSeo`. Unique journal and blog intercepts already cover every live article URL. Cloned seeds such as “How much does a private chef cost on {island}?” can no longer ship if a slug is added without unique data. Hub `/journal` and `/blog` island pickers now count `journalArticles` / `blogArticles`, not `articlesFor`. `seo:audit` fails if that fallback or seed count returns. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

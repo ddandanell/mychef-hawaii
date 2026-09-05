@@ -783,6 +783,12 @@ if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
 if (/title = catalog\.title/.test(seoSrc) || /else if \(catalog\)/.test(seoSrc)) {
   errors.push('seo.ts still falls back to cloned catalog titles');
 }
+if (/title = article\.title/.test(seoSrc) || /else if \(article\)/.test(seoSrc)) {
+  errors.push('seo.ts still falls back to cloned editorial titles');
+}
+if (/from '@\/data\/editorial'/.test(seoSrc) || /import \{ getArticle \}/.test(seoSrc)) {
+  errors.push('seo.ts still imports cloned editorial seeds');
+}
 if (/Private chef \$\{area\.name\}/.test(seoSrc)) {
   errors.push('area fallback titles still use Private chef {area}');
 }
@@ -827,6 +833,11 @@ if (/cateringPrice: 'Signature dinner from/.test(chromeSrc)) {
 }
 if (/private chef stays/.test(chromeSrc)) {
   errors.push('Maui island chooser still sells Stay Chef as private chef stays');
+}
+
+const supportViewsSrc = read('components/views/SupportViews.tsx');
+if (/articlesFor/.test(supportViewsSrc) || /from '@\/data\/editorial'/.test(supportViewsSrc)) {
+  errors.push('hub journal/blog picker still counts cloned editorial seeds');
 }
 
 for (const key of [

@@ -14,7 +14,6 @@ import { islandChooserCopy } from '@/data/chromeCopy';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { feeStack } from '@/data/rateCard';
 import { proofRegister } from '@/data/proofRegister';
-import { articlesFor } from '@/data/editorial';
 import { MASTER_MAP, masterHostName } from '@/data/commercialGraph';
 import { HUB_ALL_PICKER_PATHS } from '@/data/hubDirectories';
 import { moneyNeighborhoods } from '@/data/offers';
@@ -812,7 +811,7 @@ export function EditorialView({ kind }: { kind: 'journal' | 'blog' }) {
         path={`/${kind}`}
         heading={kind === 'journal' ? 'Open the island journal.' : 'Open the island guides.'}
         detailOf={(id) => {
-          const n = articlesFor(id).filter((a) => a.kind === kind).length;
+          const n = kind === 'journal' ? journalArticles[id].length : blogArticles[id].length;
           return `${n} ${kind} pieces`;
         }}
       />
