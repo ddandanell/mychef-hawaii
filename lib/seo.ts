@@ -477,7 +477,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.7',
     })),
-    ...(['/about', '/events', '/mobile-bar', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
+    ...(['/about', '/events', '/mobile-bar', '/personal-chef', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
       loc: `https://${masterHostName(island)}${path}`,
       changefreq: 'monthly',
       priority: '0.6',
@@ -487,11 +487,13 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.55',
     })),
-    ...islandServices[island].map((cell) => ({
-      loc: `https://${masterHostName(island)}/${cell.slug}`,
-      changefreq: 'monthly',
-      priority: '0.5',
-    })),
+    ...islandServices[island]
+      .filter((cell) => cell.slug !== 'personal-chef')
+      .map((cell) => ({
+        loc: `https://${masterHostName(island)}/${cell.slug}`,
+        changefreq: 'monthly',
+        priority: '0.5',
+      })),
     ...occasionPages[island].map((cell) => ({
       loc: `https://${masterHostName(island)}/events/${cell.slug}`,
       changefreq: 'monthly',

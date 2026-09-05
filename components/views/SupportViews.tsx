@@ -873,12 +873,14 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/mobile-bar', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'] as const).map((path) => ({
+      ...(['/about', '/events', '/mobile-bar', '/personal-chef', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'] as const).map((path) => ({
         host: id,
         path,
       })),
       ...uniqueCells[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
-      ...islandServices[id].map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
+      ...islandServices[id]
+        .filter((cell) => cell.slug !== 'personal-chef')
+        .map((cell) => ({ host: id, path: `/${cell.slug}` as const })),
       ...occasionPages[id].map((cell) => ({ host: id, path: `/events/${cell.slug}` as const })),
       ...cateringFormats[id].map((cell) => ({ host: id, path: `/catering/${cell.slug}` as const })),
       ...fineDiningPages[id].map((cell) => ({ host: id, path: `/fine-dining/${cell.slug}` as const })),

@@ -33,7 +33,7 @@ function neighborhoodRows(island: IslandSitemapHost): { host: MasterHost; path: 
 }
 
 function supportRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
-  return [...SUPPORT_PATHS, '/about', '/events', '/mobile-bar', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'].map((path) => ({
+  return [...SUPPORT_PATHS, '/about', '/events', '/mobile-bar', '/personal-chef', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/services', '/help', '/fine-dining', '/staffing', '/corporate', '/gatherings', '/islands', '/sitemap'].map((path) => ({
     host: island,
     path,
     priority: '0.6',
@@ -43,7 +43,9 @@ function supportRows(island: IslandSitemapHost): { host: MasterHost; path: strin
 function uniqueCellRows(island: IslandSitemapHost): { host: MasterHost; path: string; priority: string }[] {
   return [
     ...uniqueCells[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.55' })),
-    ...islandServices[island].map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.5' })),
+    ...islandServices[island]
+      .filter((cell) => cell.slug !== 'personal-chef')
+      .map((cell) => ({ host: island, path: `/${cell.slug}`, priority: '0.5' })),
     ...occasionPages[island].map((cell) => ({ host: island, path: `/events/${cell.slug}`, priority: '0.5' })),
     ...cateringFormats[island].map((cell) => ({ host: island, path: `/catering/${cell.slug}`, priority: '0.5' })),
     ...fineDiningPages[island].map((cell) => ({ host: island, path: `/fine-dining/${cell.slug}`, priority: '0.45' })),

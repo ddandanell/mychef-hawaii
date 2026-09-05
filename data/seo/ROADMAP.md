@@ -1075,6 +1075,12 @@ Still no zip on this machine. Wave 137 sends header **Bar** to `/mobile-bar`, th
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 138 — island /personal-chef enters the support sitemap (this branch)
+
+Still no zip on this machine. Wave 138 lists island `/personal-chef` beside `/mobile-bar` on island XML and HTML sitemaps so `personal chef honolulu` and `personal chef maui` owners are advertised at support priority, not buried in the generic service-cell dump. The service-cell row is filtered to avoid duplicate locs. Hub `/personal-chef` stays a directory. `seo:audit` fails if those sitemap rows drop or duplicate. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.
