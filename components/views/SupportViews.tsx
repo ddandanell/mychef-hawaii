@@ -290,7 +290,7 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
           {lede}
         </p>
         <div className="mt-8">
-          <QuoteCta service="catering-events" />
+          <QuoteCta service="catering-events" variant="light" />
         </div>
       </Hero>
       <section className="bg-paper py-20">
@@ -375,7 +375,7 @@ export function HubDirectoryView({ id }: { id: string }) {
         />
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
         <div className="mt-8">
-          <QuoteCta />
+          <QuoteCta variant="light" />
         </div>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
@@ -703,7 +703,7 @@ export function ContactIndexView({ islandId }: { islandId: (typeof islandOrder)[
         />
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} />
+          <QuoteCta island={islandId} variant="light" />
         </div>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />

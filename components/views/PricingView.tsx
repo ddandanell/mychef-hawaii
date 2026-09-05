@@ -4,11 +4,14 @@ import { useMemo, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import * as Accordion from '@radix-ui/react-accordion';
 import { QuoteCta } from '@/components/Cta';
+import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
 import HostLink from '@/components/HostLink';
 import LineReveal from '@/components/LineReveal';
 import { Longform, SiblingCluster } from '@/components/Longform';
+import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
+import { islandChooserCopy } from '@/data/chromeCopy';
 import { useIsland } from '@/components/IslandProvider';
 import { hubPricingSections } from '@/data/longformHub';
 import { islandPricing } from '@/data/islandPricing';
@@ -79,29 +82,52 @@ export default function PricingView() {
 
   return (
     <>
-      {copy && photo ? (
-        <Hero src={photo.file} alt={photo.alt}>
-          <p className="text-[13px] text-mute">{copy.kicker}</p>
-          <LineReveal
-            text={copy.h1}
-            className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
-          />
-          <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
-          <div className="mt-8">
-            <QuoteCta island={islandId} />
-          </div>
-        </Hero>
-      ) : (
-        <section className="bg-paper py-20 lg:py-28">
-          <div className="mx-auto w-full max-w-container px-5 lg:px-10">
-            <p className="text-[12px] text-mute">Published starting prices</p>
-            <h1 className="mt-4 max-w-[18ch] font-display text-[clamp(2.5rem,6vw,4.5rem)] font-light leading-[1.05] text-ink">
-              {h1}
-            </h1>
-            <p className="mt-6 max-w-[62ch] text-[17px] leading-[1.65] text-mute">{lede}</p>
+      <Hero src={(photo ?? photos.menu).file} alt={(photo ?? photos.menu).alt}>
+        <p className="text-[13px] text-mute">{copy?.kicker ?? 'Published starting prices'}</p>
+        <LineReveal
+          text={h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{lede}</p>
+        <div className="mt-8">
+          <QuoteCta island={islandId} variant="light" />
+        </div>
+      </Hero>
+
+      {!islandId ? (
+        <section className="bg-paper py-24 lg:py-32">
+          <div className="mx-auto w-full max-w-spread px-5 lg:px-10">
+            <Eyebrow>Where we cook</Eyebrow>
+            <h2 className="mt-4 max-w-[18ch] font-display text-[clamp(2rem,4vw,3.25rem)] font-light leading-[1.08] text-ink">
+              Open the island rate card.
+            </h2>
+            <ul className="mt-14 grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
+              {islandOrder.map((id) => {
+                const still = photos[islandPricing[id].photo];
+                const chooser = islandChooserCopy[id];
+                return (
+                  <li key={id}>
+                    <HostLink island={id} path="/pricing" className="group block">
+                      <span className="relative block aspect-[3/4] overflow-hidden bg-sand">
+                        <Photo
+                          src={still.file}
+                          alt={still.alt}
+                          fill
+                          sizes="(min-width: 1280px) 25vw, (min-width: 640px) 50vw, 100vw"
+                          className="transition-transform duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.04] motion-reduce:transform-none"
+                        />
+                      </span>
+                      <span className="mt-5 block font-display text-[1.5rem] font-light text-ink">{islands[id].name}</span>
+                      <span className="mt-2 block text-[15px] leading-relaxed text-mute">{chooser.line}</span>
+                      <span className="mt-2 block text-[13px] text-mute">{chooser.price}</span>
+                    </HostLink>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </section>
-      )}
+      ) : null}
 
       <section className="bg-paper py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">

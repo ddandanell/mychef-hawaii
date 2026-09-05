@@ -46,7 +46,7 @@ export function LocationPlaceView({
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{hood.lede}</p>
         <p className="mt-4 text-[17px] text-ink">{hood.zone}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} />
+          <QuoteCta island={islandId} variant="light" />
         </div>
       </Hero>
 

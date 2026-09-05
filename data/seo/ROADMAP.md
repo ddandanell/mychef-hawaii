@@ -352,6 +352,13 @@ Still no zip on this machine. Wave 38 finishes type-on-photography leftovers on 
 - Island `/bar` and `/mobile-bar` add a body column and related links so the SKU is not only a hero plus FAQ.
 - Hub `/about` hero quote button matches the paper-on-photo treatment.
 
+## Wave 39 — hub rate card chrome + paper quote buttons on remaining heroes (this branch)
+
+Still no zip on this machine. Wave 39 finishes leftover type-on-photography on the rate card and remaining unique-document heroes:
+
+- Hub `/pricing` uses a cinematic hero plus a 4-up island picker. The published tariff table stays so islands can still be compared on one page.
+- Island money and unique-document heroes that still used an ink quote button on the photograph now use the paper button (`variant="light"`). Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

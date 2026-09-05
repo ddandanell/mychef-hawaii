@@ -41,7 +41,7 @@ export function IslandEventsView({ islandId, hostMode }: { islandId: IslandId; h
         />
         <p className="mt-6 max-w-[54ch] text-[17px] leading-[1.65] text-ink">{offer.lede}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="catering-events" />
+          <QuoteCta island={islandId} service="catering-events" variant="light" />
         </div>
       </Hero>
 

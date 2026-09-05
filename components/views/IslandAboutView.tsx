@@ -34,7 +34,7 @@ export function IslandAboutView({ islandId, hostMode }: { islandId: IslandId; ho
         />
         <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
         <div className="mt-8">
-          <QuoteCta island={islandId} />
+          <QuoteCta island={islandId} variant="light" />
         </div>
       </Hero>
 

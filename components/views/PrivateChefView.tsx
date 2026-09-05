@@ -41,7 +41,7 @@ export default function PrivateChefView({ islandId, hostMode }: { islandId: Isla
           In-home dinner, weekly household line, no restaurant. {core ? `${formatBand(core)} a guest CORE.` : ''}
         </p>
         <div className="mt-8">
-          <QuoteCta island={islandId} service="private-chef" />
+          <QuoteCta island={islandId} service="private-chef" variant="light" />
         </div>
       </Hero>
       <Longform sections={copy.sections} />
