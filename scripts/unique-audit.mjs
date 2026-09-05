@@ -627,6 +627,26 @@ if (/q: 'How much does a private chef cost in Hawaii\?'/.test(longHubSrc)) {
 if (/not a \/kona page/.test(longHubSrc)) {
   errors.push('hub quote copy still claims Kona is not a /kona page');
 }
+if (/Mobile bar is a published add-on/.test(longHubSrc)) {
+  errors.push('hub wedding FAQs still sell Mobile bar as a product name');
+}
+if (/the mobile bar as its own line/.test(longHubSrc) || /the mobile bar on a separate line/.test(longHubSrc)) {
+  errors.push('hub longform still uses mobile bar as a product name');
+}
+
+const longWeddingSrc = read('data/longformWeddings.ts');
+if (/Mobile bar is a published add-on/.test(longWeddingSrc)) {
+  errors.push('island wedding FAQs still sell Mobile bar as a product name');
+}
+if (/the mobile bar on \/bar/.test(longWeddingSrc)) {
+  errors.push('Oahu wedding copy still sends the packaged cart to /bar');
+}
+if (/the mobile bar as its own line/.test(longCateringSrc)) {
+  errors.push('island catering copy still uses mobile bar as a product name');
+}
+if (/Mobile bar is the four-hour package/.test(hubNestedSrc)) {
+  errors.push('hub bartender directory still uses Mobile bar as a product name');
+}
 
 const longIslandSrc = read('data/longformIslands.ts');
 if (/They are not their own URLs/.test(longIslandSrc) || /They are not their own URLs/.test(longHubSrc)) {
@@ -1074,6 +1094,12 @@ if (!/'@type': 'FAQPage'/.test(aboutViewSrc)) {
 const barViewSrc = read('components/views/BarView.tsx');
 if (!/HubMobileBarView[\s\S]{0,1500}'FoodService'/.test(barViewSrc) || !/Mobile bar Hawaii — myCHEF/.test(barViewSrc)) {
   errors.push('hub /mobile-bar still missing owner FoodService JSON-LD');
+}
+if (!/HubMobileBarView[\s\S]{0,2500}'FAQPage'/.test(barViewSrc)) {
+  errors.push('hub /mobile-bar still missing FAQPage JSON-LD');
+}
+if (!/hubMobileBarFaqs\.map/.test(barViewSrc) || !/items=\{hubMobileBarFaqs\}/.test(barViewSrc)) {
+  errors.push('hub /mobile-bar FAQPage still drifts from visible FAQs');
 }
 if (!/IslandMobileBarView[\s\S]{0,2500}'FoodService'/.test(barViewSrc)) {
   errors.push('island /mobile-bar still missing FoodService JSON-LD');

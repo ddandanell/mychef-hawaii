@@ -14,6 +14,25 @@ import { photos } from '@/data/photos';
 import { FEE_DISCLOSURE, formatMobileBarGuest, formatMobileBarPackage, getMobileBar } from '@/data/rateCard';
 import { islandHref } from '@/lib/paths';
 
+const hubMobileBarFaqs = [
+  {
+    q: 'What does mobile bar Hawaii include?',
+    a: 'A cart, a bartender, citrus, ice and glassware for four hours. Spirits billed at cost with receipts, or you supply your own. Island /mobile-bar pages publish the package price for that shore.',
+  },
+  {
+    q: 'How is this different from /bar?',
+    a: 'This URL owns the statewide four-hour package. /bar is the bartender add-on stacked with dinner. Open the island /mobile-bar document for that shore’s cart.',
+  },
+  {
+    q: 'Do you staff all four islands?',
+    a: 'Yes. Oʻahu and Maui take a written package quote now. Kauaʻi and Hawaiʻi Island are inquiry-stage — join the list with dates and shore. Starting prices are still published on every island page.',
+  },
+  {
+    q: 'Can we stack the cart with dinner or a wedding week?',
+    a: 'Yes. The packaged cart is a line on the same written quote as a visitor dinner or a wedding week. It is not buried inside a hospitality fee.',
+  },
+];
+
 const rows: { id: IslandId; line: string }[] = [
   { id: 'oahu', line: 'Waikīkī residences, Kahala lawns, Ko Olina villas and Kailua houses.' },
   { id: 'maui', line: 'Welcome pours in Wailea, Kapalua and Kāʻanapali.' },
@@ -184,16 +203,27 @@ export function HubMobileBarView() {
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FoodService',
-          name: 'Mobile bar Hawaii — myCHEF',
-          description:
-            'A cart, a bartender, citrus and ice as a published package. The cocktail-hour add-on lives on /bar.',
-          areaServed: 'Hawaiʻi',
-          serviceType: 'Mobile bar',
-          parentOrganization: { '@type': 'Organization', name: 'myCHEF Hawaii' },
-        }}
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: 'Mobile bar Hawaii — myCHEF',
+            description:
+              'A cart, a bartender, citrus and ice as a published package. The cocktail-hour add-on lives on /bar.',
+            areaServed: 'Hawaiʻi',
+            serviceType: 'Mobile bar',
+            parentOrganization: { '@type': 'Organization', name: 'myCHEF Hawaii' },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: hubMobileBarFaqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
       />
       <Hero src={photos.hubMobileBar.file} alt={photos.hubMobileBar.alt} min="short">
         <p className="text-[13px] text-mute">4-hour package</p>
@@ -246,6 +276,7 @@ export function HubMobileBarView() {
           },
         ]}
       />
+      <LongFaq items={hubMobileBarFaqs} />
       <QuoteTeaser headline="Date, headcount, island — we quote the package in writing." />
     </>
   );

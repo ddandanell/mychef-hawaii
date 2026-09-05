@@ -33,7 +33,7 @@ const oahuSections: CopySection[] = [
     h2: 'Wedding weekends, not a ballroom',
     paras: [
       'A wedding on Oahu is often a weekend stack rather than a seven-day hold: welcome dinner Friday, a smaller rehearsal table Saturday, reception that night, recovery brunch Sunday. Kahala, Ko Olina, and windward estates are the rooms we staff for this — about ten to seventy-five at the reception. Two people who want a fixed-price elopement dinner are a different product, not a miniature banquet.',
-      'Reception food follows the same $125–$190 band, plus the hourly crew. Florals, photography, and the officiant are yours. Drinks are BYO or the mobile bar as its own line. We do not bury a bartender inside a hospitality fee. A wet-weather plan is written before the deposit: indoor backup, covered lānai, or the reschedule posture published on /legal. We do not invent venue exclusivity we do not have.',
+      'Reception food follows the same $125–$190 band, plus the hourly crew. Florals, photography, and the officiant are yours. Drinks are BYO or the packaged cart as its own line. We do not bury a bartender inside a hospitality fee. A wet-weather plan is written before the deposit: indoor backup, covered lānai, or the reschedule posture published on /legal. We do not invent venue exclusivity we do not have.',
       'One crew holds one wedding weekend at a time. December through March presses the calendar. Ask as soon as the date is real. The full culinary week — and the island wedding page — live on /weddings.',
     ],
   },

@@ -1063,6 +1063,12 @@ Still no zip on this machine. Wave 135 puts hub `/mobile-bar` on `MASTER_MAP` so
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 136 — hub /mobile-bar ships FAQPage; competing copy drops Mobile bar (this branch)
+
+Still no zip on this machine. Wave 136 gives hub `/mobile-bar` visible FAQs and matching FAQPage JSON-LD — it was the only measured-keyword owner without them. Competing wedding, catering, and bartender-directory copy no longer uses “Mobile bar” as a product name or sends the packaged cart to `/bar`. Quote-form TypePanel stays. `seo:audit` fails if the FAQ lists drift or those product-name strings return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

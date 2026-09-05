@@ -32,7 +32,7 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
         h2: 'How an Oʻahu wedding weekend is quoted',
         paras: [
           'Five fields on /quote: island, dates, headcount, service, how to reach you. We reply in Hawaii business hours with a menu direction and a crew list. No account. No payment to enquire. WhatsApp is the same conversation. One honest follow-up, not a drip campaign. The written total is food, staffing, 20% service, GET up to 4.712%, and a 50% deposit to lock the weekend. Gratuity is voluntary.',
-          'December through March press the Oʻahu calendar. One crew holds one wedding weekend at a time. Ask as soon as you have a date — even if the house is not signed. We would rather hold a penciled Kahala Saturday than invent availability in January. Rentals and tabletop are coordinated before guests arrive when you want them; they are add-ons, not folded into a vague hospitality line. Alcohol is BYO or the mobile bar on /bar.',
+          'December through March press the Oʻahu calendar. One crew holds one wedding weekend at a time. Ask as soon as you have a date — even if the house is not signed. We would rather hold a penciled Kahala Saturday than invent availability in January. Rentals and tabletop are coordinated before guests arrive when you want them; they are add-ons, not folded into a vague hospitality line. Alcohol is BYO or the packaged cart on /mobile-bar.',
           'Siblings stay honest. A villa dinner without a reception is /private-chef — CORE $125–$190 USD a guest, groceries inside that band. A staffed event that is not a wedding week is /catering. Multi-day provisioning for a Ko Olina stay sits on /vacation-chef, Stay Chef from $850 a day, groceries at cost with receipts. This page owns the weekend stack. Do not expect the homepage to repeat it. Send the date on /quote.',
         ],
       },
@@ -52,7 +52,7 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
       },
       {
         q: 'Can we add a bar?',
-        a: 'Yes. Mobile bar is a published add-on on /bar, stacked on the same quote. We do not bury a bartender inside a hospitality fee.',
+        a: 'Yes. The four-hour packaged cart for a Kahala or Ko Olina weekend lives on /mobile-bar. The terrace add-on lives on /bar. We do not bury a bartender inside a hospitality fee.',
       },
       {
         q: 'When should we ask?',

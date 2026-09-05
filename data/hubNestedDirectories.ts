@@ -556,7 +556,7 @@ export const hubNestedDirectories: Record<HubNestedId, HubDirectory> = {
       },
       {
         q: 'Same as /mobile-bar?',
-        a: 'Mobile bar is the four-hour package. This is an hourly line.',
+        a: 'The four-hour packaged cart lives on /mobile-bar. This is an hourly line.',
       },
     ],
   },

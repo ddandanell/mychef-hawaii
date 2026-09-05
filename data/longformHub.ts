@@ -36,7 +36,7 @@ export const hubHomeSections: CopySection[] = [
   {
     h2: 'What a night includes',
     paras: [
-      'A signature dinner includes menu design, same-day shopping, cooking in that kitchen, table service, and cleanup. Groceries sit inside the per-guest band on a dinner night. Stay Chef days bill groceries at cost with receipts. Alcohol is BYO or the mobile bar as its own line. Rentals and venue fees are add-ons when you want them — never a silent hospitality fold-in.',
+      'A signature dinner includes menu design, same-day shopping, cooking in that kitchen, table service, and cleanup. Groceries sit inside the per-guest band on a dinner night. Stay Chef days bill groceries at cost with receipts. Alcohol is BYO or the packaged cart as its own line. Rentals and venue fees are add-ons when you want them — never a silent hospitality fold-in.',
       'Oʻahu CORE is $125–$190 a guest. Maui CORE is $150–$250. Kauaʻi matches the Maui band. Hawaiʻi Island CORE is $150–$225, with an ENTRY door from $110. Service 20% and Hawaiʻi GET up to 4.712% print after the food. A 50% deposit locks the date once you accept the written total. A tip is never required and never hidden.',
       'Small tables under about six are often a fixed night, not a per-head stack. Date Night for two has its own starting prices on each island card. Staffed rooms of about ten to seventy-five live on /catering. Wedding weeks live on /weddings. The line-by-line tariff lives on /pricing. Start on /quote.',
     ],
@@ -93,7 +93,7 @@ export const hubCateringSections: CopySection[] = [
     h2: 'Villas and estates — not ballrooms',
     paras: [
       'We cook in residences and estate kitchens. Hotel banquet rooms and citywide convention holds are a different industry. If the house has a cooktop and a table that fits the list, we design to that. If it does not, we say so.',
-      'Retreat weeks, production crews, and family reunions sit in the same band as a celebration dinner — the guest count and the format change the crew, not the honesty of the quote. Drinks are BYO or the mobile bar on a separate line. See /bar and /weddings.',
+      'Retreat weeks, production crews, and family reunions sit in the same band as a celebration dinner — the guest count and the format change the crew, not the honesty of the quote. Drinks are BYO or the packaged cart on a separate line. See /mobile-bar and /weddings.',
     ],
   },
   {
@@ -205,7 +205,7 @@ export const hubWeddingsFaqs: CopyFaq[] = [
   },
   {
     q: 'Can we add a bar?',
-    a: 'Yes. Mobile bar is a published add-on, stacked on the same quote.',
+    a: 'Yes. The packaged cart lives on /mobile-bar. The bartender add-on lives on /bar. Either stacks on the same quote.',
   },
   {
     q: 'Do you book Kauaʻi and the Big Island weddings now?',
