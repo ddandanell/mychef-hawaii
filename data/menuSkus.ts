@@ -63,7 +63,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Same as /catering/family-style?',
-          a: 'That page is the service. This page is the menu.',
+          a: 'That page is the service. This page is the menu — Kahala kitchen.',
         },
         {
           q: 'Same as grazing?',
@@ -93,7 +93,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Same as recovery brunch?',
-          a: 'That occasion is /events/brunch. This page is the breakfast menu.',
+          a: 'That occasion is /events/brunch. This page is the breakfast menu — Kahala kitchen.',
         },
         {
           q: 'Stay Chef breakfast every morning?',
@@ -123,7 +123,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Is lunch cheaper than dinner?',
-          a: 'Often a shorter arc. Still a written quote. See /pricing.',
+          a: 'Often a shorter arc. Still a written quote. See /pricing — Kahala kitchen.',
         },
         {
           q: 'Hotel-room lunch?',
@@ -185,7 +185,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Same as /catering/family-style?',
-          a: 'That page is the service. This page is the menu.',
+          a: 'That page is the service. This page is the menu — Wailea kitchen.',
         },
         {
           q: 'Kids on the platters?',
@@ -215,7 +215,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Same as recovery brunch?',
-          a: 'That occasion is /events/brunch. This page is the breakfast menu.',
+          a: 'That occasion is /events/brunch. This page is the breakfast menu — Wailea kitchen.',
         },
         {
           q: 'Stay Chef every morning?',
@@ -245,7 +245,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Cheaper than dinner?',
-          a: 'Often a shorter arc. Still a written quote. See /pricing.',
+          a: 'Often a shorter arc. Still a written quote. See /pricing — Wailea kitchen.',
         },
         {
           q: 'Beach-park lunch?',
@@ -281,7 +281,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
         },
         {
           q: 'Is this the sample on /menus?',
-          a: 'That is an example. This page is the SKU. Every table is still designed.',
+          a: 'That is an example. This page is the SKU. Every table is still designed — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -307,7 +307,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Same as /catering/family-style?',
-          a: 'That page is the service. This page is the menu.',
+          a: 'That page is the service. This page is the menu — Princeville kitchen at inquiry.',
         },
         {
           q: 'North Shore platters in surf season?',
@@ -337,7 +337,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Same as estate brunch?',
-          a: 'That occasion is /events/brunch. This page is the breakfast menu.',
+          a: 'That occasion is /events/brunch. This page is the breakfast menu — Princeville kitchen at inquiry.',
         },
         {
           q: 'Can I book breakfast this month?',
@@ -367,7 +367,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Cheaper than dinner?',
-          a: 'Often a shorter arc. Still a written quote. See /pricing.',
+          a: 'Often a shorter arc. Still a written quote. See /pricing — Princeville kitchen at inquiry.',
         },
         {
           q: 'Picnic lunch for a hike?',
@@ -399,7 +399,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Is this the sample on /menus?',
-          a: 'That is an example. This page is the SKU. Every table is still designed.',
+          a: 'That is an example. This page is the SKU. Every table is still designed — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Hilo three-course?',
@@ -429,7 +429,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Same as /catering/family-style?',
-          a: 'That page is the service. This page is the menu.',
+          a: 'That page is the service. This page is the menu — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Kids on lava at noon?',
@@ -459,7 +459,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Same as west-side brunch?',
-          a: 'That occasion is /events/brunch. This page is the breakfast menu.',
+          a: 'That occasion is /events/brunch. This page is the breakfast menu — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Kona coffee tasting with breakfast?',
@@ -489,7 +489,7 @@ export const menuSkuPages: Record<IslandId, MenuSkuPage[]> = {
       faqs: [
         {
           q: 'Cheaper than dinner?',
-          a: 'Often a shorter arc. Still a written quote. See /pricing.',
+          a: 'Often a shorter arc. Still a written quote. See /pricing — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Volcano picnic lunch from Waikoloa?',

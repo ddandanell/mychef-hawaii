@@ -540,7 +540,7 @@ export const gatedServices: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/retreats?',
-          a: 'That page is the gathering. This page is the food line.',
+          a: 'That page is the gathering. This page is the food line — Princeville kitchen at inquiry.',
         },
         {
           q: 'Vegan full-board on the North?',
@@ -722,7 +722,7 @@ export const gatedServices: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/retreats?',
-          a: 'That page is the gathering. This page is the food line.',
+          a: 'That page is the gathering. This page is the food line — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Volcano full-board?',

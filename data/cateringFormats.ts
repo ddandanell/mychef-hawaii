@@ -67,7 +67,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
         },
         {
           q: 'Can two of us sit plated?',
-          a: 'Yes. See /honeymoon-dinners.',
+          a: 'Yes. See /honeymoon-dinners — Kahala kitchen.',
         },
       ],
       related: [
@@ -249,7 +249,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
         },
         {
           q: 'Two of us?',
-          a: 'Yes. See /honeymoon-dinners.',
+          a: 'Yes. See /honeymoon-dinners — Wailea kitchen.',
         },
       ],
       related: [
@@ -431,7 +431,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
         },
         {
           q: 'Two of us?',
-          a: 'Yes. See /honeymoon-dinners.',
+          a: 'Yes. See /honeymoon-dinners — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -517,7 +517,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
       faqs: [
         {
           q: 'Enough for dinner?',
-          a: 'Say so on the brief. We write which.',
+          a: 'Say so on the brief. We write which — Princeville kitchen at inquiry.',
         },
         {
           q: 'Same day as the flight?',
@@ -613,7 +613,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
         },
         {
           q: 'Two of us?',
-          a: 'Yes. See /honeymoon-dinners.',
+          a: 'Yes. See /honeymoon-dinners — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -703,7 +703,7 @@ export const cateringFormats: Record<IslandId, CateringFormatPage[]> = {
         },
         {
           q: 'Enough for dinner?',
-          a: 'Say so on the brief. We write which.',
+          a: 'Say so on the brief. We write which — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [

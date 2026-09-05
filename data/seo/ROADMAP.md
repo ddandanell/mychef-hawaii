@@ -775,6 +775,13 @@ Still no zip on this machine. Wave 89 uniquifies leftover journal FAQs in `journ
 - Inquiry answers keep the inquiry clause. Hawaiʻi Island answers add “Hilo is never implied.”
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No related-door photography. No new URLs.
 
+## Wave 90 — leftover catalog FAQs stop cloning across islands (this branch)
+
+Still no zip on this machine. Wave 90 uniquifies remaining catalog FAQ clones in catering formats, fine-dining courses, gated services, help articles, cooking-class notes, menu SKUs, and extra occasions. Titles, H1s, and photos were already unique. No new URLs.
+
+- Answers now name Kahala, Wailea, Princeville, or Waikoloa. Inquiry hosts keep the inquiry clause. Hawaiʻi Island answers add “Hilo is never implied.”
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No related-door photography. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

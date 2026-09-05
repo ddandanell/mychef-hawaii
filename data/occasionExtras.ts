@@ -127,7 +127,7 @@ export const occasionExtras: Record<IslandId, OccasionExtra[]> = {
         },
         {
           q: 'Bloody Marys?',
-          a: 'Bar is /bar or /mobile-bar. Brunch food is this page.',
+          a: 'Bar is /bar or /mobile-bar. Brunch food is this page — Kahala kitchen.',
         },
       ],
       related: [
@@ -189,7 +189,7 @@ export const occasionExtras: Record<IslandId, OccasionExtra[]> = {
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That page is the food. This page is the occasion.',
+          a: 'That page is the food. This page is the occasion — Wailea kitchen.',
         },
       ],
       related: [
@@ -249,7 +249,7 @@ export const occasionExtras: Record<IslandId, OccasionExtra[]> = {
         },
         {
           q: 'Bloody Marys on the lanai?',
-          a: 'Bar is /bar or /mobile-bar. Brunch food is this page.',
+          a: 'Bar is /bar or /mobile-bar. Brunch food is this page — Wailea kitchen.',
         },
       ],
       related: [
@@ -311,7 +311,7 @@ export const occasionExtras: Record<IslandId, OccasionExtra[]> = {
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That page is the food. This page is the occasion.',
+          a: 'That page is the food. This page is the occasion — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -371,7 +371,7 @@ export const occasionExtras: Record<IslandId, OccasionExtra[]> = {
         },
         {
           q: 'Bloody Marys?',
-          a: 'Bar is /bar or /mobile-bar. Brunch food is this page.',
+          a: 'Bar is /bar or /mobile-bar. Brunch food is this page — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -433,7 +433,7 @@ export const occasionExtras: Record<IslandId, OccasionExtra[]> = {
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That page is the food. This page is the occasion.',
+          a: 'That page is the food. This page is the occasion — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [

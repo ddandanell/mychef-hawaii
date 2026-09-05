@@ -594,6 +594,27 @@ if (/This piece is a visitor villa week\.'/.test(extraJournalSrc)) {
   errors.push('extra-journal FAQs still clone the visitor-villa-week answer');
 }
 
+const leftoverCatalogFaqSrc = [
+  'data/cateringFormats.ts',
+  'data/fineDining.ts',
+  'data/gatedServices.ts',
+  'data/helpArticles.ts',
+  'data/islandServices.ts',
+  'data/menuSkus.ts',
+  'data/occasionExtras.ts',
+]
+  .map(read)
+  .join('\n');
+if (/Yes\. See \/honeymoon-dinners\.'/.test(leftoverCatalogFaqSrc)) {
+  errors.push('catalog FAQs still clone the honeymoon-dinners yes answer');
+}
+if (/The product door is \/weddings\. This page is the planner sequence\.'/.test(leftoverCatalogFaqSrc)) {
+  errors.push('help FAQs still clone the wedding-guide planner-sequence answer');
+}
+if (/That page is the service\. This page is the menu\.'/.test(leftoverCatalogFaqSrc)) {
+  errors.push('menu SKU FAQs still clone the service-vs-menu answer');
+}
+
 const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
   errors.push('location fallback titles still use private chef');

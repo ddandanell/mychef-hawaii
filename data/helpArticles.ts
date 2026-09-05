@@ -101,7 +101,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
       faqs: [
         {
           q: 'Is this the wedding product?',
-          a: 'The product door is /weddings. This page is the planner sequence.',
+          a: 'The product door is /weddings. This page is the planner sequence — Kahala kitchen.',
         },
         {
           q: 'Can you do the lawn and the dinner for two?',
@@ -135,7 +135,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That page is the SKU. This page is the briefing checklist.',
+          a: 'That page is the SKU. This page is the briefing checklist — Kahala kitchen.',
         },
       ],
       related: [
@@ -165,7 +165,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
         },
         {
           q: 'Where is the fee stack?',
-          a: '/private-chef-cost. The tariff itself is /pricing.',
+          a: '/private-chef-cost. The tariff itself is /pricing — Kahala kitchen.',
         },
       ],
       related: [
@@ -254,7 +254,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
       faqs: [
         {
           q: 'Is this the wedding product?',
-          a: 'The product door is /weddings. This page is the planner sequence.',
+          a: 'The product door is /weddings. This page is the planner sequence — Wailea kitchen.',
         },
         {
           q: 'West Maui Saturday ceremony?',
@@ -288,7 +288,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That page is the SKU. This page is the briefing checklist.',
+          a: 'That page is the SKU. This page is the briefing checklist — Wailea kitchen.',
         },
       ],
       related: [
@@ -318,7 +318,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
         },
         {
           q: 'Where is the fee stack?',
-          a: '/private-chef-cost. The tariff itself is /pricing.',
+          a: '/private-chef-cost. The tariff itself is /pricing — Wailea kitchen.',
         },
       ],
       related: [
@@ -441,7 +441,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That page is the SKU. This page is the briefing checklist.',
+          a: 'That page is the SKU. This page is the briefing checklist — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -471,7 +471,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
         },
         {
           q: 'Where is the fee stack?',
-          a: '/private-chef-cost. The tariff itself is /pricing.',
+          a: '/private-chef-cost. The tariff itself is /pricing — Princeville kitchen at inquiry.',
         },
       ],
       related: [
@@ -594,7 +594,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That page is the SKU. This page is the briefing checklist.',
+          a: 'That page is the SKU. This page is the briefing checklist — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -624,7 +624,7 @@ export const helpArticles: Record<IslandId, HelpArticle[]> = {
         },
         {
           q: 'Where is the fee stack?',
-          a: '/private-chef-cost. The tariff itself is /pricing.',
+          a: '/private-chef-cost. The tariff itself is /pricing — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [

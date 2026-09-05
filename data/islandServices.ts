@@ -532,7 +532,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'How many at the counter?',
-          a: 'Two to six. Past that it is a seated dinner. See /guest-counts.',
+          a: 'Two to six. Past that it is a seated dinner. See /guest-counts — Princeville kitchen at inquiry.',
         },
         {
           q: 'Same as private chef Kauai?',
@@ -717,7 +717,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'How many at the counter?',
-          a: 'Two to six. Past that it is a seated dinner. See /guest-counts.',
+          a: 'Two to six. Past that it is a seated dinner. See /guest-counts — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Coffee tasting with dinner?',

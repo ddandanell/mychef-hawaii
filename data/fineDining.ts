@@ -160,7 +160,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
       faqs: [
         {
           q: 'Same as honeymoon?',
-          a: '/honeymoon-dinners is the SKU. This page is the romantic format.',
+          a: '/honeymoon-dinners is the SKU. This page is the romantic format — Wailea kitchen.',
         },
         {
           q: 'Kapalua instead of Wailea?',
@@ -194,7 +194,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
         },
         {
           q: 'Same as omakase?',
-          a: 'Omakase is /omakase-at-home. This is the written arc.',
+          a: 'Omakase is /omakase-at-home. This is the written arc — Wailea kitchen.',
         },
       ],
       related: [
@@ -220,7 +220,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
       faqs: [
         {
           q: 'Same as /chefs-table?',
-          a: 'That page is the SKU. This page is the evening format.',
+          a: 'That page is the SKU. This page is the evening format — Wailea kitchen.',
         },
         {
           q: 'How many at the counter?',
@@ -312,7 +312,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
       faqs: [
         {
           q: 'Same as omakase?',
-          a: 'Omakase is /omakase-at-home. This is the written arc.',
+          a: 'Omakase is /omakase-at-home. This is the written arc — Princeville kitchen at inquiry.',
         },
         {
           q: 'Can I book a tasting this month?',
@@ -342,7 +342,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
       faqs: [
         {
           q: 'Same as /chefs-table?',
-          a: 'That page is the SKU. This page is the evening format.',
+          a: 'That page is the SKU. This page is the evening format — Princeville kitchen at inquiry.',
         },
         {
           q: 'How many at the counter?',
@@ -372,7 +372,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
       faqs: [
         {
           q: 'Birthday instead?',
-          a: 'Birthdays: /events/birthdays. This page is the plated celebration.',
+          a: 'Birthdays: /events/birthdays. This page is the plated celebration — Princeville kitchen at inquiry.',
         },
         {
           q: 'Can I book a date now?',
@@ -408,7 +408,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
         },
         {
           q: 'Same as honeymoon?',
-          a: '/honeymoon-dinners is the SKU. This page is the romantic format.',
+          a: '/honeymoon-dinners is the SKU. This page is the romantic format — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -434,7 +434,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
       faqs: [
         {
           q: 'Same as omakase?',
-          a: 'Omakase is /omakase-at-home. This is the written arc.',
+          a: 'Omakase is /omakase-at-home. This is the written arc — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Hilo tasting?',
@@ -464,7 +464,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
       faqs: [
         {
           q: 'Same as /chefs-table?',
-          a: 'That page is the SKU. This page is the evening format.',
+          a: 'That page is the SKU. This page is the evening format — Waikoloa kitchen. Hilo is never implied.',
         },
         {
           q: 'Hilo counter?',
@@ -498,7 +498,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
         },
         {
           q: 'Birthday instead?',
-          a: 'Birthdays: /events/birthdays. This page is the plated celebration.',
+          a: 'Birthdays: /events/birthdays. This page is the plated celebration — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
