@@ -559,6 +559,17 @@ if (
   errors.push('help indexes still clone the Same as /faq answer across islands');
 }
 
+const extraBlogSrc = read('data/extraBlogNotes.ts');
+if (/This piece is the kitchen note beside it\.'/.test(extraBlogSrc)) {
+  errors.push('extra-blog FAQs still clone the kitchen-note-beside-it answer');
+}
+if (/This piece is the later table\.'/.test(extraBlogSrc)) {
+  errors.push('extra-blog FAQs still clone the later-table answer');
+}
+if (/No\. One kitchen, two plate sizes\. Open \/quote\.'/.test(extraBlogSrc)) {
+  errors.push('extra-blog FAQs still clone the kids-station answer');
+}
+
 const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
   errors.push('location fallback titles still use private chef');

@@ -27,11 +27,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/anniversaries?',
-          a: 'That URL is the occasion SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the occasion SKU. This piece is the Kahala kitchen note beside it.',
         },
         {
           q: 'Same as /blog/proposal-dinners?',
-          a: 'That note is the ask. This piece is the later table.',
+          a: 'That note is the ask. This piece is the later Kahala table.',
         },
       ],
       related: [
@@ -59,11 +59,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /kids-menus?',
-          a: 'That URL is the SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the Kahala kitchen note beside it.',
         },
         {
           q: 'Do you run a kids station?',
-          a: 'No. One kitchen, two plate sizes. Open /quote.',
+          a: 'No. One kitchen, two plate sizes. Open /quote — Kahala kitchen.',
         },
       ],
       related: [
@@ -91,11 +91,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /menus/breakfast?',
-          a: 'That URL is the SKU. This piece is the morning kitchen note.',
+          a: 'That URL is the SKU. This piece is the Kahala morning kitchen note.',
         },
         {
           q: 'Can dinner leftovers be breakfast?',
-          a: 'Only if you ask and we write it. Open /quote.',
+          a: 'Only if you ask and we write it. Open /quote — Kahala kitchen.',
         },
       ],
       related: [
@@ -123,11 +123,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /menus/lunch?',
-          a: 'That URL is the SKU. This piece is the midday kitchen note.',
+          a: 'That URL is the SKU. This piece is the Kahala midday kitchen note.',
         },
         {
           q: 'Lunch and dinner as one unpaid day?',
-          a: 'No. Both nights print. Open /quote.',
+          a: 'No. Both nights print. Open /quote — Kahala kitchen.',
         },
       ],
       related: [
@@ -155,11 +155,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /staffing/servers?',
-          a: 'That URL is the hourly SKU. This piece is when we add the person.',
+          a: 'That URL is the hourly SKU. This piece is when we add the Kahala person.',
         },
         {
           q: 'Same as /bar?',
-          a: 'That URL is the bartender add-on. This piece is service at the table.',
+          a: 'That URL is the bartender add-on. This piece is service at the Kahala table.',
         },
       ],
       related: [
@@ -187,11 +187,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /bar?',
-          a: 'That URL is the add-on SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the add-on SKU. This piece is the Kahala kitchen note beside it.',
         },
         {
           q: 'Same as /staffing/bartenders?',
-          a: 'That URL is the hourly SKU. This piece is when we add the pour.',
+          a: 'That URL is the hourly SKU. This piece is when we add the Kahala pour.',
         },
       ],
       related: [
@@ -219,11 +219,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/welcome-dinners?',
-          a: 'That URL is the occasion SKU. This piece is the arrival kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Kahala arrival kitchen note.',
         },
         {
           q: 'Same as the reception?',
-          a: 'No. Separate line. Open /weddings if that is the night you mean.',
+          a: 'No. Separate line. Open /weddings if that is the night you mean — Kahala house.',
         },
       ],
       related: [
@@ -251,11 +251,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/brunch?',
-          a: 'That URL is the occasion SKU. This piece is the recovery-morning kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Kahala recovery-morning kitchen note.',
         },
         {
           q: 'Same as /menus/breakfast?',
-          a: 'Breakfast is a menu SKU. This note is the day-after occasion kitchen.',
+          a: 'Breakfast is a menu SKU. This note is the day-after Kahala kitchen.',
         },
       ],
       related: [
@@ -283,11 +283,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /rehearsal-dinners?',
-          a: 'That URL is the SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the Kahala kitchen note beside it.',
         },
         {
           q: 'Same as /weddings?',
-          a: 'That door owns the catering keyword. This note is the night-before kitchen.',
+          a: 'That door owns the catering keyword. This note is the Kahala night-before kitchen.',
         },
       ],
       related: [
@@ -315,11 +315,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/corporate-events?',
-          a: 'That URL is the occasion SKU. This piece is the house kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Kahala house kitchen note.',
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That URL is the kitchen SKU. This piece is the shorter offsite note.',
+          a: 'That URL is the kitchen SKU. This piece is the shorter Kahala offsite note.',
         },
       ],
       related: [
@@ -347,11 +347,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /retreat-catering?',
-          a: 'That URL is the kitchen SKU. This piece is the full-board kitchen note.',
+          a: 'That URL is the kitchen SKU. This piece is the Kahala full-board kitchen note.',
         },
         {
           q: 'Same as /events/retreats?',
-          a: 'That URL is the occasion. This piece is how the meals stack.',
+          a: 'That URL is the occasion. This piece is how the Kahala meals stack.',
         },
       ],
       related: [
@@ -381,11 +381,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/anniversaries?',
-          a: 'That URL is the occasion SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the occasion SKU. This piece is the Wailea kitchen note beside it.',
         },
         {
           q: 'Same as /blog/proposal-dinners?',
-          a: 'That note is the ask. This piece is the later table.',
+          a: 'That note is the ask. This piece is the later Wailea table.',
         },
       ],
       related: [
@@ -413,11 +413,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /kids-menus?',
-          a: 'That URL is the SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the Wailea kitchen note beside it.',
         },
         {
           q: 'Do you run a kids station?',
-          a: 'No. One kitchen, two plate sizes. Open /quote.',
+          a: 'No. One kitchen, two plate sizes. Open /quote — Wailea kitchen.',
         },
       ],
       related: [
@@ -445,11 +445,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /menus/breakfast?',
-          a: 'That URL is the SKU. This piece is the morning kitchen note.',
+          a: 'That URL is the SKU. This piece is the Wailea morning kitchen note.',
         },
         {
           q: 'Can dinner leftovers be breakfast?',
-          a: 'Only if you ask and we write it. Open /quote.',
+          a: 'Only if you ask and we write it. Open /quote — Wailea kitchen.',
         },
       ],
       related: [
@@ -477,11 +477,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /menus/lunch?',
-          a: 'That URL is the SKU. This piece is the midday kitchen note.',
+          a: 'That URL is the SKU. This piece is the Wailea midday kitchen note.',
         },
         {
           q: 'Lunch and dinner as one unpaid day?',
-          a: 'No. Both nights print. Open /quote.',
+          a: 'No. Both nights print. Open /quote — Wailea kitchen.',
         },
       ],
       related: [
@@ -509,11 +509,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /staffing/servers?',
-          a: 'That URL is the hourly SKU. This piece is when we add the person.',
+          a: 'That URL is the hourly SKU. This piece is when we add the Wailea person.',
         },
         {
           q: 'Same as /bar?',
-          a: 'That URL is the bartender add-on. This piece is service at the table.',
+          a: 'That URL is the bartender add-on. This piece is service at the Wailea table.',
         },
       ],
       related: [
@@ -541,11 +541,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /bar?',
-          a: 'That URL is the add-on SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the add-on SKU. This piece is the Wailea kitchen note beside it.',
         },
         {
           q: 'Same as /staffing/bartenders?',
-          a: 'That URL is the hourly SKU. This piece is when we add the pour.',
+          a: 'That URL is the hourly SKU. This piece is when we add the Wailea pour.',
         },
       ],
       related: [
@@ -573,11 +573,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/welcome-dinners?',
-          a: 'That URL is the occasion SKU. This piece is the arrival kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Wailea arrival kitchen note.',
         },
         {
           q: 'Same as the reception?',
-          a: 'No. Separate line. Open /weddings if that is the night you mean.',
+          a: 'No. Separate line. Open /weddings if that is the night you mean — Wailea villa.',
         },
       ],
       related: [
@@ -605,11 +605,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/brunch?',
-          a: 'That URL is the occasion SKU. This piece is the recovery-morning kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Wailea recovery-morning kitchen note.',
         },
         {
           q: 'Same as /menus/breakfast?',
-          a: 'Breakfast is a menu SKU. This note is the day-after occasion kitchen.',
+          a: 'Breakfast is a menu SKU. This note is the day-after Wailea kitchen.',
         },
       ],
       related: [
@@ -637,11 +637,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /rehearsal-dinners?',
-          a: 'That URL is the SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the Wailea kitchen note beside it.',
         },
         {
           q: 'Same as /weddings?',
-          a: 'That door owns the catering keyword. This note is the night-before kitchen.',
+          a: 'That door owns the catering keyword. This note is the Wailea night-before kitchen.',
         },
       ],
       related: [
@@ -669,11 +669,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/corporate-events?',
-          a: 'That URL is the occasion SKU. This piece is the house kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Wailea villa kitchen note.',
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That URL is the kitchen SKU. This piece is the shorter offsite note.',
+          a: 'That URL is the kitchen SKU. This piece is the shorter Wailea offsite note.',
         },
       ],
       related: [
@@ -701,11 +701,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /retreat-catering?',
-          a: 'That URL is the kitchen SKU. This piece is the full-board kitchen note.',
+          a: 'That URL is the kitchen SKU. This piece is the Wailea full-board kitchen note.',
         },
         {
           q: 'Same as /events/retreats?',
-          a: 'That URL is the occasion. This piece is how the meals stack.',
+          a: 'That URL is the occasion. This piece is how the Wailea meals stack.',
         },
       ],
       related: [
@@ -735,11 +735,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/anniversaries?',
-          a: 'That URL is the occasion SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the occasion SKU. This piece is the Princeville kitchen note beside it. Inquiry until we can staff.',
         },
         {
           q: 'Same as /blog/proposal-dinners?',
-          a: 'That note is the ask. This piece is the later table.',
+          a: 'That note is the ask. This piece is the later Princeville table. Inquiry until we can staff.',
         },
       ],
       related: [
@@ -767,11 +767,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /kids-menus?',
-          a: 'That URL is the SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the Princeville kitchen note beside it. Inquiry until we can staff.',
         },
         {
           q: 'Do you run a kids station?',
-          a: 'No. One kitchen, two plate sizes. Open /quote.',
+          a: 'No. One kitchen, two plate sizes. Open /quote — Princeville kitchen, when we can staff.',
         },
       ],
       related: [
@@ -799,11 +799,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /menus/breakfast?',
-          a: 'That URL is the SKU. This piece is the morning kitchen note.',
+          a: 'That URL is the SKU. This piece is the Princeville morning kitchen note. Inquiry until we can staff.',
         },
         {
           q: 'Can dinner leftovers be breakfast?',
-          a: 'Only if you ask and we write it. Open /quote.',
+          a: 'Only if you ask and we write it. Open /quote — Princeville kitchen, when we can staff.',
         },
       ],
       related: [
@@ -831,11 +831,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /menus/lunch?',
-          a: 'That URL is the SKU. This piece is the midday kitchen note.',
+          a: 'That URL is the SKU. This piece is the Princeville midday kitchen note. Inquiry until we can staff.',
         },
         {
           q: 'Lunch and dinner as one unpaid day?',
-          a: 'No. Both nights print. Open /quote.',
+          a: 'No. Both nights print. Open /quote — Princeville kitchen, when we can staff.',
         },
       ],
       related: [
@@ -863,11 +863,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /staffing/servers?',
-          a: 'That URL is the hourly SKU. This piece is when we add the person.',
+          a: 'That URL is the hourly SKU. This piece is when we add the Princeville person. Inquiry until we can staff.',
         },
         {
           q: 'Same as /bar?',
-          a: 'That URL is the bartender add-on. This piece is service at the table.',
+          a: 'That URL is the bartender add-on. This piece is service at the Princeville table. Inquiry until we can staff.',
         },
       ],
       related: [
@@ -895,11 +895,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /bar?',
-          a: 'That URL is the add-on SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the add-on SKU. This piece is the Princeville kitchen note beside it. Inquiry until we can staff.',
         },
         {
           q: 'Same as /staffing/bartenders?',
-          a: 'That URL is the hourly SKU. This piece is when we add the pour.',
+          a: 'That URL is the hourly SKU. This piece is when we add the Princeville pour. Inquiry until we can staff.',
         },
       ],
       related: [
@@ -927,11 +927,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/welcome-dinners?',
-          a: 'That URL is the occasion SKU. This piece is the arrival kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Princeville arrival kitchen note. Inquiry until we can staff.',
         },
         {
           q: 'Same as the reception?',
-          a: 'No. Separate line. Open /weddings if that is the night you mean.',
+          a: 'No. Separate line. Open /weddings if that is the night you mean — Princeville house at inquiry.',
         },
       ],
       related: [
@@ -959,11 +959,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/brunch?',
-          a: 'That URL is the occasion SKU. This piece is the recovery-morning kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Princeville recovery-morning kitchen note. Inquiry until we can staff.',
         },
         {
           q: 'Same as /menus/breakfast?',
-          a: 'Breakfast is a menu SKU. This note is the day-after occasion kitchen.',
+          a: 'Breakfast is a menu SKU. This note is the day-after Princeville kitchen. Inquiry until we can staff.',
         },
       ],
       related: [
@@ -991,11 +991,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /rehearsal-dinners?',
-          a: 'That URL is the SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the Princeville kitchen note beside it. Inquiry until we can staff.',
         },
         {
           q: 'Same as /weddings?',
-          a: 'That door owns the catering keyword. This note is the night-before kitchen.',
+          a: 'That door owns the catering keyword. This note is the Princeville night-before kitchen. Inquiry until we can staff.',
         },
       ],
       related: [
@@ -1023,11 +1023,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/corporate-events?',
-          a: 'That URL is the occasion SKU. This piece is the house kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Princeville house kitchen note. Inquiry until we can staff.',
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That URL is the kitchen SKU. This piece is the shorter offsite note.',
+          a: 'That URL is the kitchen SKU. This piece is the shorter Princeville offsite note. Inquiry until we can staff.',
         },
       ],
       related: [
@@ -1055,11 +1055,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /retreat-catering?',
-          a: 'That URL is the kitchen SKU. This piece is the full-board kitchen note.',
+          a: 'That URL is the kitchen SKU. This piece is the Princeville full-board kitchen note. Inquiry until we can staff.',
         },
         {
           q: 'Same as /events/retreats?',
-          a: 'That URL is the occasion. This piece is how the meals stack.',
+          a: 'That URL is the occasion. This piece is how the Princeville meals stack. Inquiry until we can staff.',
         },
       ],
       related: [
@@ -1089,11 +1089,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/anniversaries?',
-          a: 'That URL is the occasion SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the occasion SKU. This piece is the Waikoloa kitchen note beside it. Hilo is never implied.',
         },
         {
           q: 'Same as /blog/proposal-dinners?',
-          a: 'That note is the ask. This piece is the later table.',
+          a: 'That note is the ask. This piece is the later Waikoloa table. Hilo is never implied.',
         },
       ],
       related: [
@@ -1121,11 +1121,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /kids-menus?',
-          a: 'That URL is the SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the Waikoloa kitchen note beside it. Hilo is never implied.',
         },
         {
           q: 'Do you run a kids station?',
-          a: 'No. One kitchen, two plate sizes. Open /quote.',
+          a: 'No. One kitchen, two plate sizes. Open /quote — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -1153,11 +1153,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /menus/breakfast?',
-          a: 'That URL is the SKU. This piece is the morning kitchen note.',
+          a: 'That URL is the SKU. This piece is the Waikoloa morning kitchen note. Hilo is never implied.',
         },
         {
           q: 'Can dinner leftovers be breakfast?',
-          a: 'Only if you ask and we write it. Open /quote.',
+          a: 'Only if you ask and we write it. Open /quote — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -1185,11 +1185,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /menus/lunch?',
-          a: 'That URL is the SKU. This piece is the midday kitchen note.',
+          a: 'That URL is the SKU. This piece is the Waikoloa midday kitchen note. Hilo is never implied.',
         },
         {
           q: 'Lunch and dinner as one unpaid day?',
-          a: 'No. Both nights print. Open /quote.',
+          a: 'No. Both nights print. Open /quote — Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -1217,11 +1217,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /staffing/servers?',
-          a: 'That URL is the hourly SKU. This piece is when we add the person.',
+          a: 'That URL is the hourly SKU. This piece is when we add the Waikoloa person. Hilo is never implied.',
         },
         {
           q: 'Same as /bar?',
-          a: 'That URL is the bartender add-on. This piece is service at the table.',
+          a: 'That URL is the bartender add-on. This piece is service at the Waikoloa table. Hilo is never implied.',
         },
       ],
       related: [
@@ -1249,11 +1249,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /bar?',
-          a: 'That URL is the add-on SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the add-on SKU. This piece is the Waikoloa kitchen note beside it. Hilo is never implied.',
         },
         {
           q: 'Same as /staffing/bartenders?',
-          a: 'That URL is the hourly SKU. This piece is when we add the pour.',
+          a: 'That URL is the hourly SKU. This piece is when we add the Waikoloa pour. Hilo is never implied.',
         },
       ],
       related: [
@@ -1281,11 +1281,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/welcome-dinners?',
-          a: 'That URL is the occasion SKU. This piece is the arrival kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Waikoloa arrival kitchen note. Hilo is never implied.',
         },
         {
           q: 'Same as the reception?',
-          a: 'No. Separate line. Open /weddings if that is the night you mean.',
+          a: 'No. Separate line. Open /weddings if that is the night you mean — Waikoloa house. Hilo is never implied.',
         },
       ],
       related: [
@@ -1313,11 +1313,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/brunch?',
-          a: 'That URL is the occasion SKU. This piece is the recovery-morning kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Waikoloa recovery-morning kitchen note. Hilo is never implied.',
         },
         {
           q: 'Same as /menus/breakfast?',
-          a: 'Breakfast is a menu SKU. This note is the day-after occasion kitchen.',
+          a: 'Breakfast is a menu SKU. This note is the day-after Waikoloa kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -1345,11 +1345,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /rehearsal-dinners?',
-          a: 'That URL is the SKU. This piece is the kitchen note beside it.',
+          a: 'That URL is the SKU. This piece is the Waikoloa kitchen note beside it. Hilo is never implied.',
         },
         {
           q: 'Same as /weddings?',
-          a: 'That door owns the catering keyword. This note is the night-before kitchen.',
+          a: 'That door owns the catering keyword. This note is the Waikoloa night-before kitchen. Hilo is never implied.',
         },
       ],
       related: [
@@ -1377,11 +1377,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /events/corporate-events?',
-          a: 'That URL is the occasion SKU. This piece is the house kitchen note.',
+          a: 'That URL is the occasion SKU. This piece is the Waikoloa house kitchen note. Hilo is never implied.',
         },
         {
           q: 'Same as /corporate-catering?',
-          a: 'That URL is the kitchen SKU. This piece is the shorter offsite note.',
+          a: 'That URL is the kitchen SKU. This piece is the shorter Waikoloa offsite note. Hilo is never implied.',
         },
       ],
       related: [
@@ -1409,11 +1409,11 @@ export const EXTRA_BLOG_NOTES: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Same as /retreat-catering?',
-          a: 'That URL is the kitchen SKU. This piece is the full-board kitchen note.',
+          a: 'That URL is the kitchen SKU. This piece is the Waikoloa full-board kitchen note. Hilo is never implied.',
         },
         {
           q: 'Same as /events/retreats?',
-          a: 'That URL is the occasion. This piece is how the meals stack.',
+          a: 'That URL is the occasion. This piece is how the Waikoloa meals stack. Hilo is never implied.',
         },
       ],
       related: [

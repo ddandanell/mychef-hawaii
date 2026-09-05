@@ -751,6 +751,14 @@ Still no zip on this machine. Wave 86 uniquifies nested island indexes so Hawai�
 - Help “Same as /faq?” now names the corridor, the shore, both-shore inquiry, or the west-side desk.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. Nested SKU indexes stay SKU photo grids — no related-door photography. No new URLs.
 
+## Wave 87 — extra-blog FAQs stop cloning across islands (this branch)
+
+Still no zip on this machine. Wave 87 uniquifies the 11 extra-blog kitchen notes so FAQ answers name Kahala, Wailea, Princeville, or Waikoloa instead of cloning one sentence four times. Titles, H1s, ledes, and photos were already unique. No new URLs. `blogArticles.ts` still has some leftover clones (mostly live vs inquiry pairs) — later leftover, not this wave.
+
+- Anniversary, kids-plate, breakfast, lunch, staffing, bartender, welcome, brunch, rehearsal, offsite, and retreat notes now name the island kitchen in every FAQ.
+- Kauaʻi answers add inquiry honesty. Hawaiʻi Island answers add “Hilo is never implied.”
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No related-door photography. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
