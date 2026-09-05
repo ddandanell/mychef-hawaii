@@ -32,6 +32,10 @@ export const residentLine: Record<IslandId, UniqueCell> = {
         q: 'Same as /private-chef?',
         a: 'That door is the visitor dinner. This URL is weekly household cooking.',
       },
+      {
+        q: 'Personal chef to cook in my home?',
+        a: 'Related search. Yes, when you live here. Weekly Honolulu household cooking is this URL. “Hire a chef for home” is the same ask. A visitor dinner is /private-chef. Hotel rooms without a cooktop are declined.',
+      },
     ],
     related: [
       { path: '/kamaaina', label: 'Kamaʻāina line' },

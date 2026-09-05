@@ -51,6 +51,10 @@ export const eventOffers: Record<IslandId, EventOffer> = {
         q: 'Hire a chef for a party?',
         a: 'Related search. A house dinner is /private-chef. Ten to seventy-five is /catering. This page is the occasion — birthday, retreat, welcome night — not a ballroom hire.',
       },
+      {
+        q: 'Party catering Oahu?',
+        a: 'Related search. The staffed-room keyword is /catering. This page names the occasion. A house dinner for a small list is /private-chef. We do not staff ballrooms.',
+      },
     ],
   },
   maui: {

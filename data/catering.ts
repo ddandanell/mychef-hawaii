@@ -61,6 +61,10 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
         a: 'Related search, not a trophy. Published starting prices, a sample estate menu, and a written quote are the proof. We do not invent Hawaiʻi reviews to look like a ranking.',
       },
       {
+        q: 'Cheap catering Oahu?',
+        a: 'Related search, not a coupon. Published CORE from $125 a guest plus staffing, service, and GET as their own lines. We will not invent a mystery low number. The written quote is the total.',
+      },
+      {
         q: 'Wedding catering Oahu?',
         a: 'Yes. Estate and residence formats to about 75 guests. Welcome dinner, rehearsal, reception as separate lines. See /weddings.',
       },
@@ -95,6 +99,10 @@ export const cateringOffers: Record<IslandId, CateringOffer> = {
       {
         q: 'Sushi-forward catering?',
         a: 'We can arrange a sushi-forward menu as a direction — nigiri, sashimi, hand rolls. Not a separate brand.',
+      },
+      {
+        q: 'Affordable catering Maui?',
+        a: 'Related search, not a discount brand. Published CORE $150–$250 a guest plus staffing, service, and GET as their own lines. The written quote is the total. We do not invent a cheaper kitchen.',
       },
     ],
   },

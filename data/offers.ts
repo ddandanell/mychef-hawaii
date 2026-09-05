@@ -423,6 +423,10 @@ export const moneyNeighborhoods: Record<IslandId, MoneyNeighborhood[]> = {
           q: 'Personal chef vs private chef?',
           a: 'Private chef is the one-night dinner. Personal chef is the weekly Honolulu household line. Same team, different rhythm.',
         },
+        {
+          q: 'Honolulu catering?',
+          a: 'Related search. Staffed events ten to seventy-five are /catering — that URL owns Oahu catering. This page is the Honolulu residence dinner. Same team, different door.',
+        },
       ],
     },
     {

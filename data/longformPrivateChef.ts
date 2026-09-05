@@ -55,6 +55,10 @@ export const privateChefLongform: Record<IslandId, { sections: CopySection[]; fa
         a: 'Related search. Yes, when the house has a cooktop. Hotel rooms without kitchens are declined. This URL is the visitor dinner; weekly residents open /personal-chef.',
       },
       {
+        q: 'Private chef for a dinner party?',
+        a: 'Related search. A seated house dinner is this page. Ten to seventy-five is /catering. The occasion name — birthday, welcome night — is /events. We staff the kitchen you have, not a ballroom.',
+      },
+      {
         q: 'Our condo kitchen is small — does that still work?',
         a: 'Yes, when there is a real cooktop. We design bring-equipment menus and handle freight elevators and building COIs before the night. Hotel rooms without kitchens are declined.',
       },

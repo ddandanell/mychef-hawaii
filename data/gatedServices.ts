@@ -298,7 +298,7 @@ export const gatedServices: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Lotus Chefs or elite Maui chef omakase?',
-          a: 'Related searches, not us. We do not impersonate another kitchen.',
+          a: 'Related searches, not a stolen brand. We will not borrow Lotus Chefs or an “elite Maui chef” name. This URL is the tasting arc. Honesty: /what-we-dont-do.',
         },
         {
           q: 'Will you claim a fisherman?',

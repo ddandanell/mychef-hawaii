@@ -36,6 +36,10 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
           q: 'Will you cook a hotel room?',
           a: 'If there is a stove we can work. Most suites do not. Residences and villas are the product.',
         },
+        {
+          q: 'Filipino catering Oahu, or bento and catering Oahu?',
+          a: 'Related searches, not a bento mill. We cook villa dinners and staffed estate events. We do not run a banquet hall. See /catering for the staffed room we actually staff.',
+        },
       ],
       related: [
         { path: '/faq', label: 'FAQ' },
@@ -65,6 +69,10 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
         {
           q: 'Is a dinner for two too small?',
           a: 'No. Date night is a published band. See /honeymoon-dinners.',
+        },
+        {
+          q: 'Small catering Honolulu?',
+          a: 'Related search. A house dinner for two to fifteen is /private-chef. About ten to seventy-five is /catering. This page names the headcount so those doors stay honest.',
         },
       ],
       related: [
@@ -215,7 +223,7 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
       faqs: [
         {
           q: 'Lotus Chefs or elite Maui chef?',
-          a: 'Related searches, not us. We do not impersonate another kitchen.',
+          a: 'Related searches “lotus chefs maui” and “elite maui chef” are other kitchens. We do not impersonate them. This page is the refusal list; / is private chef Maui.',
         },
         {
           q: 'Do you have Maui reviews?',
@@ -405,6 +413,10 @@ export const islandServices: Record<IslandId, UniqueCell[]> = {
         {
           q: 'South Shore chef as a brand?',
           a: 'No. One department, two shores. See /south-shore.',
+        },
+        {
+          q: 'Farm cook Kauai?',
+          a: 'Related search, not us. We do not impersonate another kitchen or invent farm names. Inquiry-stage estate cooking on both shores is this department. See /about.',
         },
       ],
       related: [

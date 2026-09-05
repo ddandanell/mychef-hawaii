@@ -58,6 +58,10 @@ export const weddingLongform: Record<IslandId, { sections: CopySection[]; faqs: 
         q: 'When should we ask?',
         a: 'As soon as you have a date. December through March press the calendar. One crew holds one wedding weekend at a time. Typical reply in Hawaii business hours.',
       },
+      {
+        q: 'Affordable wedding catering Oahu?',
+        a: 'Related search, not a coupon. Wedding catering Oahu from $125 a guest plus staffing, with service and GET as their own lines. Elopements from $450. The written quote is the total — we will not invent a mystery low number.',
+      },
     ],
   },
   maui: {

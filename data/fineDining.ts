@@ -190,7 +190,7 @@ export const fineDiningPages: Record<IslandId, FineDiningPage[]> = {
       faqs: [
         {
           q: 'Lotus Chefs tasting?',
-          a: 'Related searches, not us. We do not impersonate another kitchen.',
+          a: 'Related search, not us. Lotus Chefs is another kitchen. This URL is a written tasting in a Wailea villa, not a restaurant impersonation. See /what-we-dont-do.',
         },
         {
           q: 'Same as omakase?',

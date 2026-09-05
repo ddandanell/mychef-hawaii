@@ -705,6 +705,15 @@ Still no zip on this machine. Wave 81 folds DataForSEO related searches from `RE
 - Kauaʻi `/princeville` names “private chef princeville kauai”. `/south-shore` names “south shore chef kauai”. “kauai catering menu”, “lotus chefs maui”, and “elite maui chef” were already on live FAQs.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 82 — fold leftover snapshot related searches into live FAQs (this branch)
+
+Still no zip on this machine. Wave 82 folds leftover DataForSEO snapshot `related` phrases into live FAQs. No new URLs. No invented volumes. Titles stay off those phrases. Competitor names and off-island noise stay on `/what-we-dont-do`.
+
+- Oahu `/honolulu` names “honolulu catering”. `/coverage` names “private chef near me”. `/private-chef` names “private chef for a dinner party”. `/personal-chef` names “personal chef to cook in my home” / “hire a chef for home”. `/events` names “party catering oahu”. `/catering` names “cheap catering oahu”. `/menus` names “honolulu catering menus with prices”. `/guest-counts` names “small catering honolulu”. `/what-we-dont-do` names Filipino catering and bento. `/weddings` names “affordable wedding catering oahu”.
+- Maui `/catering` names “affordable catering maui”. Kauaʻi `/what-we-dont-do` names “farm cook kauai”.
+- Maui honesty FAQs that still said “Related searches, not us” now name Lotus Chefs / elite Maui chef on `/what-we-dont-do`, `/fine-dining/tasting-menu`, and `/omakase-at-home`.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

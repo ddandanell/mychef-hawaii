@@ -182,6 +182,10 @@ export const islandCoverage: Record<IslandId, IslandSupportPage> = {
         q: 'Do you drive to the North Shore for one dinner?',
         a: 'Yes, as a surcharge day. Surf-season dates book early. The fee is on the quote, not discovered on the invoice.',
       },
+      {
+        q: 'Private chef near me?',
+        a: 'Related search. On this host, near you means the published corridors: Honolulu, Kahala, Waikīkī residences, Kailua, Ko Olina, and a North Shore surcharge. We do not claim every zip. See /locations.',
+      },
     ],
   },
   maui: {
@@ -470,6 +474,10 @@ export const islandMenus: Record<IslandId, IslandSupportPage> = {
       {
         q: 'Sushi-forward on Oʻahu?',
         a: 'A menu direction we can arrange — nigiri, sashimi, hand rolls — not a separate brand or a second URL.',
+      },
+      {
+        q: 'Honolulu catering menus with prices?',
+        a: 'Related search, not a PDF mill. This page is the per-table dinner plate. /catering is the staffed room. Both show a sample and a starting band. Your designed menu arrives after enquiry.',
       },
     ],
   },
