@@ -483,6 +483,9 @@ if (!/title:\s*`\$\{label\} on \$\{n\} \| myCHEF`/.test(catalogSrc)) {
 if (/Private chef Kauai from/.test(catalogSrc)) {
   errors.push('catalog Kauaʻi North Shore lede still stuffs Private chef Kauai');
 }
+if (/EVENT_SLUGS = \['weddings'/.test(catalogSrc) || /\/events\/weddings/.test(catalogSrc)) {
+  errors.push('catalog still lists /events/weddings — /weddings owns wedding titles');
+}
 
 const longCateringSrc = read('data/longformCatering.ts');
 if (/q: 'How much is Oahu catering\?'/.test(longCateringSrc)) {

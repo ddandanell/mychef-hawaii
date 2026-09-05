@@ -46,7 +46,7 @@ const SERVICE_PATHS: { path: string; label: string; lede: (n: string) => string 
   { path: '/what-we-dont-do', label: 'What we will not claim', lede: (n) => `No fake reviews, no invented licenses, no “now serving ${n}” language ahead of a staffed team.` },
 ];
 
-const EVENT_SLUGS = ['weddings', 'birthdays', 'anniversaries', 'corporate-events', 'retreats', 'villa-parties', 'welcome-dinners', 'brunch'];
+const EVENT_SLUGS = ['birthdays', 'anniversaries', 'corporate-events', 'retreats', 'villa-parties', 'welcome-dinners', 'brunch'];
 const CATERING_SLUGS = ['bbq', 'plated', 'family-style', 'buffet', 'grazing', 'drop-off'];
 const FINE_SLUGS = ['romantic-dinner', 'tasting-menu', 'chefs-table-evening', 'celebration-dinner'];
 const HELP_SLUGS = ['getting-started', 'menu-guide', 'wedding-guide', 'corporate-guide', 'managing-booking'];

@@ -798,6 +798,12 @@ Still no zip on this machine. Wave 92 fixes hub and Hawaiʻi Island home copy th
 - Hawaiʻi Island `/` names `/kona`, `/waikoloa`, `/kohala`, and `/waimea`. The “separate Kona site?” FAQ points at `/kona`.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 93 — catalog stops listing cloned /events/weddings (this branch)
+
+Still no zip on this machine. Wave 93 removes `weddings` from the catalog EVENT_SLUGS so island catalogs no longer claim a cloned `/events/weddings` cell. `/weddings` owns wedding-catering titles. Those four URLs stay 404. `seo:audit` fails if the catalog lists `/events/weddings` again. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
