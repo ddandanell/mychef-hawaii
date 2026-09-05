@@ -603,6 +603,14 @@ Still no zip on this machine. Wave 68 gives `/weddings` related-document photogr
 - Island `/weddings` opens the same four paths on island stills. Distinct from `/catering` (the larger room) and `/events` (occasions). SiblingCluster stays paper.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 69 — hub and island /catering related doors (this branch)
+
+Still no zip on this machine. Wave 69 gives `/catering` related-document photography without turning formats or the published price cards into tiles:
+
+- Hub `/catering` keeps the island picker, format documents, and paper rate cards, then opens `/weddings`, `/events`, `/quote`, and `/staffing` on existing stills.
+- Island `/catering` opens the same four paths on island stills. Distinct from `/weddings` (the week) and from format SKUs. Sample menu and price cards stay paper. SiblingCluster stays paper.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

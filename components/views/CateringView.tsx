@@ -18,6 +18,7 @@ import { islandHref } from '@/lib/paths';
 import { cateringFormats } from '@/data/cateringFormats';
 import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import HubPhotoGrid from '@/components/HubPhotoGrid';
+import { getHubDirectory } from '@/data/hubDirectories';
 import { nestedHubDirectories } from '@/data/hubNestedDirectories';
 
 /** Darker third of each island still — not a second catering frame, not a scrim. */
@@ -36,6 +37,8 @@ const sampleMenu = [
 ];
 
 export function HubCateringView() {
+  const events = getHubDirectory('/events');
+  const staffing = getHubDirectory('/staffing');
   return (
     <>
       <JsonLd
@@ -116,6 +119,38 @@ export function HubCateringView() {
       <PricesHub />
       <Sample />
       <Longform sections={hubCateringSections} />
+      <HubPhotoGrid
+        eyebrow="Beside this catering document"
+        heading="Open a related document."
+        intro="Formats stay above. The wedding week, occasions, the form, and staffing are their own URLs. Island catering stays on the island host."
+        columns={2}
+        items={[
+          {
+            href: '/weddings',
+            title: 'Wedding week',
+            body: 'Welcome dinner to recovery brunch. Distinct from this catering document.',
+            still: photos.weddingHero,
+          },
+          {
+            href: '/events',
+            title: events?.cardLabel ?? 'Occasions',
+            body: events?.lede ?? 'Occasion documents live on the island host. This page is the picker.',
+            still: photos.hubEvents,
+          },
+          {
+            href: '/quote',
+            title: 'The quote form',
+            body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+            still: photos.quoteHub,
+          },
+          {
+            href: '/staffing',
+            title: staffing?.cardLabel ?? 'Staffing',
+            body: staffing?.lede ?? 'Servers, bartenders, and butlers live on the island host.',
+            still: photos.hubStaff,
+          },
+        ]}
+      />
       <SiblingCluster current="catering" />
       <LongFaq items={[...HUB_CATERING.faqs, ...hubCateringFaqs]} />
       <QuoteTeaser headline="Hawaii catering — from $125 a guest. Quote in writing." />
@@ -200,6 +235,19 @@ export function IslandCateringView({ islandId, hostMode }: { islandId: IslandId;
 
       <Sample />
       <Longform sections={long.sections} />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${island.shortName} · Beside this catering document`}
+        heading="Open a related document."
+        intro="Formats stay above. The wedding week, occasions, the form, and staffing are their own URLs."
+        columns={2}
+        items={[
+          { path: '/weddings', label: 'Wedding week', detail: '/weddings' },
+          { path: '/events', label: 'Occasions', detail: '/events' },
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/staffing', label: 'Staffing', detail: '/staffing' },
+        ]}
+      />
       <SiblingCluster island={islandId} current="catering" href={href} />
       <LongFaq items={[...offer.faqs, ...long.faqs]} />
       <QuoteTeaser headline={`${offer.h1.split('—')[0].trim()} — quote in writing.`} island={islandId} />
