@@ -8,6 +8,7 @@ import Eyebrow from '@/components/Eyebrow';
 import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { LongFaq, Longform } from '@/components/Longform';
+import IslandPhotoPicker from '@/components/IslandPhotoPicker';
 import { islandChooserCopy } from '@/data/chromeCopy';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { feeStack } from '@/data/rateCard';
@@ -302,23 +303,12 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
             </article>
           ))}
         </div>
-        <div className="mx-auto mt-16 max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">By island</p>
-          <ul className="mt-6 grid gap-px bg-line md:grid-cols-2">
-            {islandOrder.map((id) => (
-              <li key={id} className="bg-paper">
-                <HostLink island={id} path={kind === 'gatherings' ? '/gatherings' : '/corporate'} className="block p-5">
-                  <p className="text-[12px] text-mute">{islands[id].name}</p>
-                  <h2 className="mt-2 font-display text-xl font-light text-ink">
-                    {kind === 'gatherings' ? 'House gatherings' : 'Villa offsites'}
-                  </h2>
-                  <p className="mt-2 text-sm text-mute">{kind === 'gatherings' ? '/gatherings' : '/corporate'}</p>
-                </HostLink>
-              </li>
-            ))}
-          </ul>
-        </div>
       </section>
+      <IslandPhotoPicker
+        path={kind === 'gatherings' ? '/gatherings' : '/corporate'}
+        heading={kind === 'gatherings' ? 'Open the island gatherings document.' : 'Open the island offsite document.'}
+        detailOf={() => (kind === 'gatherings' ? 'House gatherings' : 'Villa offsites')}
+      />
       <QuoteTeaser />
     </>
   );
@@ -326,27 +316,21 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
 
 export function HubAreasView() {
   return (
-    <section className="bg-paper py-20 lg:py-28">
-      <div className="mx-auto max-w-container px-5 lg:px-10">
-        <p className="text-[12px] text-mute">Statewide directory</p>
-        <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-light text-ink">
-          Where we cook, by island.
-        </h1>
-        <p className="mt-4 max-w-[65ch] text-mute">
-          Each island host has two geography pages. /locations is the live dinner-door list. /areas is the map notes —
-          corridors plus the rest of the named places. /islands is the island picker, not this page.
-        </p>
-        <div className="mt-12 grid gap-px bg-line md:grid-cols-2">
-          {islandOrder.map((id) => (
-            <HostLink key={id} island={id} path="/areas" className="bg-paper p-5">
-              <p className="text-[12px] text-mute">{islands[id].name}</p>
-              <h2 className="mt-2 font-display text-xl font-light text-ink">Map notes</h2>
-              <p className="mt-2 text-sm text-mute">/areas</p>
-            </HostLink>
-          ))}
+    <>
+      <section className="bg-paper py-20 lg:py-28">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">Statewide directory</p>
+          <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-light text-ink">
+            Where we cook, by island.
+          </h1>
+          <p className="mt-4 max-w-[65ch] text-mute">
+            Each island host has two geography pages. /locations is the live dinner-door list. /areas is the map notes —
+            corridors plus the rest of the named places. /islands is the island picker, not this page.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
+      <IslandPhotoPicker path="/areas" heading="Open the island map notes." detailOf={() => 'Map notes'} />
+    </>
   );
 }
 
@@ -379,25 +363,11 @@ export function HubDirectoryView({ id }: { id: string }) {
         </div>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
-      <section className="bg-paper py-20">
-        <div className="mx-auto max-w-container px-5 lg:px-10">
-          <p className="text-[12px] text-mute">By island</p>
-          <ul className="mt-6 grid gap-px bg-line md:grid-cols-2">
-            {islandOrder.map((id) => (
-              <li key={id} className="bg-paper">
-                <HostLink island={id} path={copy.path} className="block p-5">
-                  <p className="text-[12px] text-mute">{islands[id].name}</p>
-                  <h2 className="mt-2 font-display text-xl font-light text-ink">{copy.cardLabel}</h2>
-                  <p className="mt-2 text-sm text-mute">
-                    {copy.path}
-                    {islands[id].state === 'inquiry' ? ' · Inquiry' : ''}
-                  </p>
-                </HostLink>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
+      <IslandPhotoPicker
+        path={copy.path}
+        heading="Open the island document."
+        detailOf={() => copy.cardLabel}
+      />
       <LongFaq items={copy.faqs} title="Before you open an island." />
     </>
   );
@@ -469,29 +439,26 @@ export function IslandsView() {
 export function EditorialView({ kind }: { kind: 'journal' | 'blog' }) {
   const title = kind === 'journal' ? 'The journal, by island.' : 'Guides and notes, by island.';
   return (
-    <section className="bg-paper py-20 lg:py-28">
-      <div className="mx-auto max-w-container px-5 lg:px-10">
-        <p className="text-[12px] text-mute">Statewide directory</p>
-        <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-light text-ink">{title}</h1>
-        <p className="mt-4 max-w-[65ch] text-mute">
-          Each island department publishes its own {kind}. The hub does not rank for “private chef Maui” — that page
-          lives on the Maui host.
-        </p>
-        <div className="mt-12 grid gap-px bg-line md:grid-cols-2">
-          {islandOrder.map((id) => {
-            const list = articlesFor(id).filter((a) => a.kind === kind);
-            return (
-              <HostLink key={id} island={id} path={`/${kind}`} className="bg-paper p-5">
-                <p className="text-[12px] text-mute">{islands[id].name}</p>
-                <h2 className="mt-2 font-display text-xl font-light text-ink">
-                  {list.length} {kind} pieces
-                </h2>
-              </HostLink>
-            );
-          })}
+    <>
+      <section className="bg-paper py-20 lg:py-28">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">Statewide directory</p>
+          <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-light text-ink">{title}</h1>
+          <p className="mt-4 max-w-[65ch] text-mute">
+            Each island department publishes its own {kind}. The hub does not rank for “private chef Maui” — that page
+            lives on the Maui host.
+          </p>
         </div>
-      </div>
-    </section>
+      </section>
+      <IslandPhotoPicker
+        path={`/${kind}`}
+        heading={kind === 'journal' ? 'Open the island journal.' : 'Open the island guides.'}
+        detailOf={(id) => {
+          const n = articlesFor(id).filter((a) => a.kind === kind).length;
+          return `${n} ${kind} pieces`;
+        }}
+      />
+    </>
   );
 }
 
@@ -996,21 +963,10 @@ export function ServicesView() {
             </li>
           ))}
         </ul>
-        <p className="mt-16 text-[12px] text-mute">By island</p>
-        <ul className="mt-6 grid gap-px bg-line md:grid-cols-2">
-          {islandOrder.map((id) => (
-            <li key={id} className="bg-paper">
-              <HostLink island={id} path="/services" className="block p-5">
-                <p className="text-[12px] text-mute">{islands[id].name}</p>
-                <h2 className="mt-2 font-display text-xl font-light text-ink">Service list</h2>
-                <p className="mt-2 text-sm text-mute">/services</p>
-              </HostLink>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-10">
-          <QuoteCta />
-        </div>
+      </div>
+      <IslandPhotoPicker path="/services" heading="Open the island service list." detailOf={() => 'Service list'} />
+      <div className="mx-auto max-w-container px-5 pb-16 lg:px-10">
+        <QuoteCta />
       </div>
     </section>
   );

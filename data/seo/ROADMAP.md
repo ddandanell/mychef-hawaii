@@ -359,6 +359,14 @@ Still no zip on this machine. Wave 39 finishes leftover type-on-photography on t
 - Hub `/pricing` uses a cinematic hero plus a 4-up island picker. The published tariff table stays so islands can still be compared on one page.
 - Island money and unique-document heroes that still used an ink quote button on the photograph now use the paper button (`variant="light"`). Quote-form TypePanel stays.
 
+## Wave 40 — photo pickers on unique hub directories (this branch)
+
+Still no zip on this machine. Wave 40 replaces paper island tiles on unique hub pickers with the same 4-up photography used on money pages:
+
+- All 89 hub directory URLs (support, nested SKUs, journal/blog pickers) open island documents from selector stills.
+- Hub `/areas`, `/journal`, `/blog`, `/services`, `/corporate`, and `/gatherings` use the same picker.
+- Homepage island chooser shares that component. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
