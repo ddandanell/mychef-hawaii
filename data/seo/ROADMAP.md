@@ -549,6 +549,13 @@ Still no zip on this machine. Wave 61 stops leftover index titles from sitting o
 - `seo:audit` fails if those leftover titles return.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 62 — island /contact desk doors (this branch)
+
+Still no zip on this machine. Wave 62 gives island `/contact` the same related-document photography as `/legal` and `/trust`:
+
+- Island `/contact` opens `/quote`, `/help/getting-started`, `/how-it-works`, and `/faq` on existing stills. The desk copy stays. Hub `/contact` stays the four-island picker.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

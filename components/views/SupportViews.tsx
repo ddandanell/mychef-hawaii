@@ -880,6 +880,19 @@ export function ContactIndexView({ islandId }: { islandId: (typeof islandOrder)[
         </div>
       </Hero>
       <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].shortName} · Beside this desk`}
+        heading="Open a related document."
+        intro="/quote is the form. Getting started, how a night runs, and the FAQ are their own URLs. This page stays how to reach the desk."
+        columns={2}
+        items={[
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/help/getting-started', label: 'Getting started', detail: '/help/getting-started' },
+          { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+          { path: '/faq', label: 'FAQ', detail: '/faq' },
+        ]}
+      />
       <LongFaq items={copy.faqs} title="Before you look for a phone number." />
     </>
   );
