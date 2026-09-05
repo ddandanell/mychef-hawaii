@@ -462,6 +462,15 @@ if (/vacation chef and weekly household service/i.test(pageMetaSrc)) {
 if (/Legal notes for private chef & catering/i.test(pageMetaSrc)) {
   errors.push('hub /legal pageMeta still cannibalizes with private chef & catering');
 }
+if (/How a private chef booking works/i.test(pageMetaSrc)) {
+  errors.push('hub /how-it-works pageMeta still stuffs private chef hawaii');
+}
+if (/private chef journal/i.test(journalSrc) || /private chef journal/i.test(pageMetaSrc)) {
+  errors.push('island /journal titles still stuff private chef {island}');
+}
+if (/private chef blog/i.test(blogSrc) || /private chef blog/i.test(pageMetaSrc)) {
+  errors.push('island /blog titles still stuff private chef {island}');
+}
 
 const catalogSrc = read('data/islandCatalog.ts');
 if (/Private chef & catering/.test(catalogSrc)) {

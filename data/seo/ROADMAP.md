@@ -540,6 +540,15 @@ Still no zip on this machine. Wave 60 stops hub `/legal` from shipping `private 
 - Hub and island `/legal` open `/quote`, `/pricing`, `/private-chef-cost`, and `/trust` on existing stills. Distinct from `/how-it-works` (process) and `/trust` (honesty). Clause lists and the fee-stack paper list stay paper.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 61 — journal, blog, and hub /how-it-works titles stay off money keywords (this branch)
+
+Still no zip on this machine. Wave 61 stops leftover index titles from sitting on `private chef {island}` and `private chef hawaii`:
+
+- Island `/journal` and `/blog` titles are corridor/kitchen indexes. Island homes keep `private chef {island}`.
+- Hub `/how-it-works` is “How a booking works in Hawaii.” Hub `/` keeps `private chef hawaii`.
+- `seo:audit` fails if those leftover titles return.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

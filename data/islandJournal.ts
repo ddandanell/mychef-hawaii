@@ -20,7 +20,7 @@ export interface IslandJournalPage {
 export const islandJournal: Record<IslandId, IslandJournalPage> = {
   oahu: {
     h1: 'Oahu journal — corridor notes, not a statewide digest.',
-    title: 'Oahu private chef journal | myCHEF',
+    title: 'Oahu journal — corridor notes | myCHEF',
     description:
       'Oahu host journal: Honolulu, Waikīkī, Kailua, North Shore, Kahala, Ko Olina. Not the hub digest. Statewide Hawaii catering stays off this title.',
     lede:
@@ -34,7 +34,7 @@ export const islandJournal: Record<IslandId, IslandJournalPage> = {
   },
   maui: {
     h1: 'Maui journal — Wailea, Kāʻanapali, and the week between.',
-    title: 'Maui private chef journal | myCHEF',
+    title: 'Maui journal — South and West | myCHEF',
     description:
       'Maui host journal: South Maui, West Maui, wedding-week houses. Not Oahu, Kauaʻi, or Hawaiʻi Island. Not the hub directory.',
     lede:
@@ -48,7 +48,7 @@ export const islandJournal: Record<IslandId, IslandJournalPage> = {
   },
   kauai: {
     h1: 'Kauai journal — North Shore weather and South Shore kitchens.',
-    title: 'Kauai private chef journal | myCHEF',
+    title: 'Kauai journal — both shores | myCHEF',
     description:
       'Kauai host journal at inquiry: Princeville, Hanalei, Kapaʻa, Poʻipū. Not a staffed calendar. Not the hub directory.',
     lede:
@@ -62,7 +62,7 @@ export const islandJournal: Record<IslandId, IslandJournalPage> = {
   },
   bigisland: {
     h1: 'Hawaiʻi Island journal — west side first, east side another day.',
-    title: 'Hawaiʻi Island private chef journal | myCHEF',
+    title: 'Hawaiʻi Island journal — west side first | myCHEF',
     description:
       'Hawaiʻi Island host journal: Kona, Waikoloa, Waimea, Kohala. West side first. Hilo is a different day. Not the hub directory.',
     lede:

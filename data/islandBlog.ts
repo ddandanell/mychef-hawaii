@@ -20,7 +20,7 @@ export interface IslandBlogPage {
 export const islandBlog: Record<IslandId, IslandBlogPage> = {
   oahu: {
     h1: 'Oahu blog — Honolulu kitchens in plain language.',
-    title: 'Oahu private chef blog | myCHEF',
+    title: 'Oahu blog — Honolulu kitchens | myCHEF',
     description:
       'Shorter Oahu host posts for Honolulu kitchens and booking questions. Not the journal. Not a statewide feed.',
     lede:
@@ -34,7 +34,7 @@ export const islandBlog: Record<IslandId, IslandBlogPage> = {
   },
   maui: {
     h1: 'Maui blog — villa nights without a statewide feed.',
-    title: 'Maui private chef blog | myCHEF',
+    title: 'Maui blog — villa nights | myCHEF',
     description:
       'Shorter Maui host posts beside Wailea and Kāʻanapali nights. Not the journal. Not a statewide feed.',
     lede:
@@ -48,7 +48,7 @@ export const islandBlog: Record<IslandId, IslandBlogPage> = {
   },
   kauai: {
     h1: 'Kauai blog — inquiry notes, not a staffed calendar.',
-    title: 'Kauai private chef blog | myCHEF',
+    title: 'Kauai blog — inquiry notes | myCHEF',
     description:
       'Shorter Kauai host posts at inquiry. Princeville and Poʻipū named. Not a live roster. Not the journal.',
     lede:
@@ -62,7 +62,7 @@ export const islandBlog: Record<IslandId, IslandBlogPage> = {
   },
   bigisland: {
     h1: 'Hawaiʻi Island blog — Kona first, Hilo later.',
-    title: 'Hawaiʻi Island private chef blog | myCHEF',
+    title: 'Hawaiʻi Island blog — Kona first | myCHEF',
     description:
       'Shorter Hawaiʻi Island host posts. West side first. East side is a different day. Not the journal.',
     lede:

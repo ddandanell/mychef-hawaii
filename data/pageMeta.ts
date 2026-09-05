@@ -47,7 +47,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'A chef for the villa week. Day rates from $850 Oʻahu / $1,050 Maui. Groceries at cost.',
   },
   '/how-it-works': {
-    title: 'How a private chef booking works in Hawaii | myCHEF',
+    title: 'How a booking works in Hawaii | myCHEF',
     description:
       'WhatsApp or quote, menu in 48 hours, written price, we cook and leave it clean. Typical reply in Hawaii business hours.',
   },
@@ -456,12 +456,12 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'The Oahu coordinator has the corridor, the kitchen note, and the dates. Reply in Hawaii business hours.',
   },
   '/oahu/journal': {
-    title: 'Oahu private chef journal | myCHEF',
+    title: 'Oahu journal — corridor notes | myCHEF',
     description:
       'Oahu host journal: Honolulu, Waikīkī, Kailua, North Shore, Kahala, Ko Olina. Not the hub digest. Statewide Hawaii catering stays off this title.',
   },
   '/oahu/blog': {
-    title: 'Oahu private chef blog | myCHEF',
+    title: 'Oahu blog — Honolulu kitchens | myCHEF',
     description:
       'Shorter Oahu host posts for Honolulu kitchens and booking questions. Not the journal. Not a statewide feed.',
   },
@@ -532,12 +532,12 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'The Maui coordinator has the shore, the kitchen note, and the dates. Saturday West Maui traffic is planned into the reply.',
   },
   '/maui/journal': {
-    title: 'Maui private chef journal | myCHEF',
+    title: 'Maui journal — South and West | myCHEF',
     description:
       'Maui host journal: South Maui, West Maui, wedding-week houses. Not Oahu, Kauaʻi, or Hawaiʻi Island. Not the hub directory.',
   },
   '/maui/blog': {
-    title: 'Maui private chef blog | myCHEF',
+    title: 'Maui blog — villa nights | myCHEF',
     description:
       'Shorter Maui host posts beside Wailea and Kāʻanapali nights. Not the journal. Not a statewide feed.',
   },
@@ -616,12 +616,12 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'The Kauai inquiry list has the shore and the dates. We write back with what we can staff. Hanalei-bridge weather is a clause.',
   },
   '/kauai/journal': {
-    title: 'Kauai private chef journal | myCHEF',
+    title: 'Kauai journal — both shores | myCHEF',
     description:
       'Kauai host journal at inquiry: Princeville, Hanalei, Kapaʻa, Poʻipū. Not a staffed calendar. Not the hub directory.',
   },
   '/kauai/blog': {
-    title: 'Kauai private chef blog | myCHEF',
+    title: 'Kauai blog — inquiry notes | myCHEF',
     description:
       'Shorter Kauai host posts at inquiry. Princeville and Poʻipū named. Not a live roster. Not the journal.',
   },
@@ -694,12 +694,12 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
     description: 'The west-side inquiry list has the address and the dates. East side is a different day. We write back with what we can staff.',
   },
   '/bigisland/journal': {
-    title: 'Hawaiʻi Island private chef journal | myCHEF',
+    title: 'Hawaiʻi Island journal — west side first | myCHEF',
     description:
       'Hawaiʻi Island host journal: Kona, Waikoloa, Waimea, Kohala. West side first. Hilo is a different day. Not the hub directory.',
   },
   '/bigisland/blog': {
-    title: 'Hawaiʻi Island private chef blog | myCHEF',
+    title: 'Hawaiʻi Island blog — Kona first | myCHEF',
     description:
       'Shorter Hawaiʻi Island host posts. West side first. East side is a different day. Not the journal.',
   },
