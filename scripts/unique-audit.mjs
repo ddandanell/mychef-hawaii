@@ -234,7 +234,7 @@ if (fineIndexDocs.length !== 4) errors.push(`Expected 4 island fine-dining index
 if (staffIndexDocs.length !== 4) errors.push(`Expected 4 island staffing indexes, found ${staffIndexDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
-if (blogPieces.length !== 112) errors.push(`Expected 112 blog articles, found ${blogPieces.length}`);
+if (blogPieces.length !== 116) errors.push(`Expected 116 blog articles, found ${blogPieces.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));

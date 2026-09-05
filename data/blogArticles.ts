@@ -882,6 +882,37 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'no-fake-reviews',
+      name: 'No fake reviews',
+      h1: 'Oahu has no star ratings yet. We will not invent them.',
+      title: 'Why Oahu has no star ratings yet — zero guest reviews | myCHEF',
+      description:
+        'Why Oahu has no Hawaiʻi guest reviews yet: they publish after verified events. Distinct from /trust and /what-we-dont-do.',
+      lede:
+        '/what-we-dont-do is the claim list. /trust is the Oahu proof register. This blog note is why the review count is zero — not a five-star page we wrote in-house.',
+      photo: 'blogReviewsOahu',
+      body: [
+        'Hawaiʻi guest reviews on this host: none yet. They go up after verified events — never bought, never written here. Proof today is the rate card, the sample menu, cleanup, and a written quote.',
+        `Private chef Oahu (${SEARCH_VOLUMES['private chef oahu']}) stays on this host’s home. This article does not steal that title.`,
+        'The claim list is /what-we-dont-do. The register is /trust. This URL is the short why.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /trust?',
+          a: 'That page is the Oahu proof register. This note is why the star count is still zero.',
+        },
+        {
+          q: 'Same as /what-we-dont-do?',
+          a: 'That page is the claim list. This piece is the review-count essay beside it.',
+        },
+      ],
+      related: [
+        { path: '/trust', label: 'Honesty register' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   maui: [
     {
@@ -1752,6 +1783,37 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'no-fake-reviews',
+      name: 'No fake reviews',
+      h1: 'Maui has no star ratings yet. We will not invent them.',
+      title: 'Why Maui has no star ratings yet — zero guest reviews | myCHEF',
+      description:
+        'Why Maui has no Hawaiʻi guest reviews yet: they publish after verified events. Distinct from /trust and /what-we-dont-do.',
+      lede:
+        '/what-we-dont-do is the claim list. /trust is the Maui proof register. This blog note is why the review count is zero — not a Wailea five-star page we wrote in-house.',
+      photo: 'blogReviewsMaui',
+      body: [
+        'Hawaiʻi guest reviews on this host: none yet. They go up after verified events — never bought, never written here. Proof today is the rate card, the sample menu, cleanup, and a written quote.',
+        `Private chef Maui (${SEARCH_VOLUMES['private chef maui']}) stays on this host’s home. This article does not steal that title.`,
+        'The claim list is /what-we-dont-do. The register is /trust. This URL is the short why.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /trust?',
+          a: 'That page is the Maui proof register. This note is why the star count is still zero.',
+        },
+        {
+          q: 'Same as /what-we-dont-do?',
+          a: 'That page is the claim list. This piece is the review-count essay beside it.',
+        },
+      ],
+      related: [
+        { path: '/trust', label: 'Honesty register' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   kauai: [
     {
@@ -2588,6 +2650,37 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
         { path: '/hanalei-bridge', label: 'Hanalei bridge' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'no-fake-reviews',
+      name: 'No fake reviews',
+      h1: 'Kauai has no star ratings yet. Inquiry is not a five-star page.',
+      title: 'Why Kauai has no star ratings yet — inquiry, zero reviews | myCHEF',
+      description:
+        'Why Kauai has no Hawaiʻi guest reviews yet at inquiry. Distinct from /trust and /what-we-dont-do. Not a Book-now rating.',
+      lede:
+        '/what-we-dont-do is the claim list. /trust is the Kauai proof register at inquiry. This blog note is why the review count is zero — not a Princeville five-star page we invented.',
+      photo: 'blogReviewsKauai',
+      body: [
+        'Hawaiʻi guest reviews on this host: none yet. Inquiry stage is not a reason to invent stars. They go up after verified events — never bought, never written here.',
+        `Private chef Kauai (${SEARCH_VOLUMES['private chef kauai']}) stays on this host’s home. This article does not steal that title.`,
+        'The claim list is /what-we-dont-do. The register is /trust. A named shore is not a Book-now button.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /trust?',
+          a: 'That page is the Kauai proof register. This note is why the star count is still zero at inquiry.',
+        },
+        {
+          q: 'Are you live?',
+          a: 'Inquiry. Stars would be a lie. Send dates on /quote.',
+        },
+      ],
+      related: [
+        { path: '/trust', label: 'Honesty register' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
@@ -3489,6 +3582,37 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/ironman-weeks', label: 'Ironman weeks' },
         { path: '/journal/how-far-ahead-to-book', label: 'How far ahead' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'no-fake-reviews',
+      name: 'No fake reviews',
+      h1: 'West side has no star ratings yet. We will not invent them.',
+      title: 'Why the west side has no star ratings yet — zero guest reviews | myCHEF',
+      description:
+        'Why west-side Hawaiʻi Island has no guest reviews yet at inquiry. Distinct from /trust, /what-we-dont-do, and /east-side.',
+      lede:
+        '/what-we-dont-do is the claim list. /trust is the west-side proof register. This blog note is why the review count is zero — Hilo never implied, stars never invented.',
+      photo: 'blogReviewsBigisland',
+      body: [
+        'Hawaiʻi guest reviews on this host: none yet. Inquiry stage is not a reason to invent stars. They go up after verified events — never bought, never written here. West side first.',
+        `Private chef Kona (${SEARCH_VOLUMES['private chef kona']}) stays a dinner door. This article does not steal that title.`,
+        'The claim list is /what-we-dont-do. The register is /trust. East side is a dedicated day — /east-side.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /trust?',
+          a: 'That page is the west-side proof register. This note is why the star count is still zero.',
+        },
+        {
+          q: 'Does this cover Hilo reviews?',
+          a: 'No. Open /east-side. We will not invent those either.',
+        },
+      ],
+      related: [
+        { path: '/trust', label: 'Honesty register' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },

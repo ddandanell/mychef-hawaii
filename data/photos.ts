@@ -1915,6 +1915,22 @@ export const photos = {
     file: '/photos/staff-index-bigisland.png',
     alt: `Unused empty glasses and sand linen on a Kohala lava-stone pass in hard sun.`,
   },
+  blogReviewsOahu: {
+    file: '/photos/blog-reviews-oahu.png',
+    alt: `A blank unused ivory card under a brass clip on a Kahala koa pass at dusk, Diamond Head faint.`,
+  },
+  blogReviewsMaui: {
+    file: '/photos/blog-reviews-maui.png',
+    alt: `A blank unused ivory card under a brass clip on a Wailea lānai pass at west sunset.`,
+  },
+  blogReviewsKauai: {
+    file: '/photos/blog-reviews-kauai.png',
+    alt: `A blank unused ivory card under a rain-beaded brass clip on a wet Princeville stone pass.`,
+  },
+  blogReviewsBigisland: {
+    file: '/photos/blog-reviews-bigisland.png',
+    alt: `A blank unused ivory card under a brass clip on a Kohala lava-stone pass in hard sun.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

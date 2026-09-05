@@ -216,13 +216,21 @@ Still no zip on this machine. Wave 23 uniquifies three reserved 404s on every is
 - Unique `/staffing` directories. Distinct from nested roles, `/bar`, and `/mobile-bar`.
 - Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 23 URL.
 
-## Wave 24 — zip execution
+## Wave 24 — unique no-fake-reviews notes (this branch)
+
+Still no zip on this machine. Wave 24 uniquifies the last extra-blog seed with a distinct angle:
+
+- Unique `/blog/no-fake-reviews` — why the guest-review count is still zero. Distinct from `/trust` (honesty register) and `/what-we-dont-do` (claim list).
+- Remaining extra-blog seeds stay unpublished: they overlap live occasion, menu, staffing, and bar URLs.
+- Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 24 URL.
+
+## Wave 25 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 25 — automation that stays on
+## Wave 26 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.
