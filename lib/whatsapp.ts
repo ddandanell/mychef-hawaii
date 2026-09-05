@@ -1,17 +1,24 @@
-import type { IslandId } from '@/data/islands';
-import { islands } from '@/data/islands';
-
 /**
- * myCHEF Hawaii WhatsApp.
- * Do not invent a Hawaiʻi 808 number — this is the live line
- * with a Hawaii-prefilled opener. Typical reply in business hours.
+ * WhatsApp handoff config. The number is env-driven — we never ship a
+ * fabricated phone number (repo honesty rule). When
+ * NEXT_PUBLIC_WHATSAPP_NUMBER is unset, WhatsApp CTAs are simply hidden and
+ * the quote form remains the path. Set the real number in Secrets to turn it on.
+ *
+ * Value should be the full international number, digits only or with a leading
+ * "+", e.g. 18085551234.
  */
-export const WHATSAPP_NUMBER = '971551744849';
+export const WHATSAPP_NUMBER = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? '').replace(/[^\d]/g, '');
 
-export function whatsappHref(island?: IslandId | null, intent = 'a private chef'): string {
-  const where = island ? islands[island].name : 'Hawaii';
-  const message = `Hi myCHEF — I'd like ${intent} in ${where}. Dates and guest count:`;
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+export const hasWhatsApp = WHATSAPP_NUMBER.length >= 7;
+
+export function whatsappUrl(message?: string): string | null {
+  if (!hasWhatsApp) return null;
+  const base = `https://wa.me/${WHATSAPP_NUMBER}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
 }
 
-export const WA_REPLY = 'Typical reply in Hawaii business hours';
+export function whatsappMessage(context?: string): string {
+  return context
+    ? `Aloha myCHEF — I'd like a private chef / catering quote for ${context}.`
+    : `Aloha myCHEF — I'd like a private chef / catering quote in Hawaii.`;
+}
