@@ -1,4 +1,5 @@
 import { QuoteCta } from '@/components/Cta';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
@@ -51,6 +52,19 @@ export function LocationPlaceView({
       </Hero>
 
       <DocumentCopy heading={`How a ${hood.name} booking runs.`} paras={hood.body} />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${island.shortName} · Beside ${hood.name}`}
+        heading="Open a related document."
+        intro="This page is the dinner door for this corridor. What’s included, the staffed room, the form, and the coverage map are their own URLs."
+        columns={2}
+        items={[
+          { path: '/private-chef', label: 'What’s included', detail: '/private-chef' },
+          { path: '/catering', label: 'Villa catering', detail: '/catering' },
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/coverage', label: 'Coverage map', detail: '/coverage' },
+        ]}
+      />
 
       <SiblingCluster island={islandId} href={href} />
       <LongFaq items={hood.faqs} title={`Asked on ${hood.name} bookings.`} />
