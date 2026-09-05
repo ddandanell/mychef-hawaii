@@ -1061,6 +1061,13 @@ if (!/HubMobileBarView[\s\S]{0,1500}'FoodService'/.test(barViewSrc) || !/Mobile 
 if (!/IslandMobileBarView[\s\S]{0,2500}'FoodService'/.test(barViewSrc)) {
   errors.push('island /mobile-bar still missing FoodService JSON-LD');
 }
+if (!/IslandBarView[\s\S]{0,2000}'FAQPage'/.test(barViewSrc)) {
+  errors.push('island /bar still missing FAQPage JSON-LD');
+}
+const privateChefViewSrc = read('components/views/PrivateChefView.tsx');
+if (!/'FAQPage'/.test(privateChefViewSrc)) {
+  errors.push('island /private-chef still missing FAQPage JSON-LD');
+}
 const pricingViewSrc = read('components/views/PricingView.tsx');
 if (/>Mobile bar</.test(pricingViewSrc)) {
   errors.push('pricing table still labels the cart Mobile bar');

@@ -356,6 +356,17 @@ export function IslandBarView({ islandId, hostMode }: { islandId: IslandId; host
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
       <Hero src={copy.hero.file} alt={copy.hero.alt} min="short">
         <p className="text-[13px] text-mute">{islands[islandId].name}</p>
         <LineReveal

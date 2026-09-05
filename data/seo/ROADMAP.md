@@ -1045,6 +1045,12 @@ Still no zip on this machine. Wave 132 drops the view-level Organization on hub 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 133 — island /private-chef and /bar ship FAQPage JSON-LD (this branch)
+
+Still no zip on this machine. Wave 133 gives island `/private-chef` and island `/bar` FAQPage JSON-LD for the FAQs already on those pages. They are not money owners — no FoodService node. `seo:audit` fails if those FAQ nodes drop. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

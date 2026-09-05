@@ -1,6 +1,7 @@
 import { QuoteCta } from '@/components/Cta';
 import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Hero from '@/components/Hero';
+import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
 import QuoteTeaser from '@/components/QuoteTeaser';
@@ -39,6 +40,17 @@ export default function PrivateChefView({ islandId, hostMode }: { islandId: Isla
 
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
       <Hero src={hero.file} alt={hero.alt}>
         <p className="text-[13px] text-mute">myCHEF {islands[islandId].name}</p>
         <LineReveal
