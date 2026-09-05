@@ -1,4 +1,5 @@
 import { QuoteCta } from '@/components/Cta';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Hero from '@/components/Hero';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
@@ -47,6 +48,20 @@ export function IslandAboutView({ islandId, hostMode }: { islandId: IslandId; ho
           ))}
         </div>
       </section>
+
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${island.shortName} · Beside this department`}
+        heading="Open a related document."
+        intro="This page is who cooks here. Honesty, booking notes, the desk, and how a night runs are their own URLs."
+        columns={2}
+        items={[
+          { path: '/trust', label: 'Honesty register', detail: '/trust' },
+          { path: '/legal', label: 'Booking notes', detail: '/legal' },
+          { path: '/contact', label: 'The desk', detail: '/contact' },
+          { path: '/how-it-works', label: 'How it works', detail: '/how-it-works' },
+        ]}
+      />
 
       <SiblingCluster island={islandId} href={href} />
       <LongFaq items={copy.faqs} title={`The ${island.shortName} department.`} />

@@ -579,6 +579,14 @@ Still no zip on this machine. Wave 65 gives island `/faq` related-document photo
 - Island `/faq` opens `/quote`, `/contact`, `/how-it-works`, and `/coverage` on existing stills. The questions stay. Distinct from `/contact` (the desk) and `/how-it-works` (the process + help articles).
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
 
+## Wave 66 — hub and island /about related doors (this branch)
+
+Still no zip on this machine. Wave 66 gives `/about` related-document photography. The brigade copy, island crew stills, and LocationsBlock stay as they are.
+
+- Hub `/about` opens `/trust`, `/legal`, `/contact`, and `/how-it-works` on existing stills after the paper locations list. Island departments stay on the island host.
+- Island `/about` opens the same four paths on island stills. Distinct from `/faq` (questions) and `/trust` (honesty register). SiblingCluster stays paper.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

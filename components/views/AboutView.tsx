@@ -2,13 +2,16 @@ import Link from 'next/link';
 import HostLink from '@/components/HostLink';
 import { QuoteCta } from '@/components/Cta';
 import Hero from '@/components/Hero';
+import HubPhotoGrid from '@/components/HubPhotoGrid';
 import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, SiblingCluster } from '@/components/Longform';
 import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import { LocationsBlock } from '@/components/LocationsBlock';
+import { getHubDirectory } from '@/data/hubDirectories';
 import { islandOrder, islands } from '@/data/islands';
+import { photos } from '@/data/photos';
 
 const DESCRIPTION =
   'myCHEF Hawaii is a four-island villa chef team. We staff a brigade to the size of the house — chef, sous, service, bar, shopper. Request a quote.';
@@ -94,6 +97,7 @@ const islandCopy: Record<(typeof islandOrder)[number], string> = {
 };
 
 export default function AboutView() {
+  const contact = getHubDirectory('/contact');
   return (
     <>
       <JsonLd
@@ -242,6 +246,39 @@ export default function AboutView() {
       </section>
 
       <LocationsBlock id="locations" />
+
+      <HubPhotoGrid
+        eyebrow="Beside this department"
+        heading="Open a related document."
+        intro="This page is who cooks. Honesty, booking notes, the desk, and how a night runs are their own URLs. Island departments stay on the island host."
+        columns={2}
+        items={[
+          {
+            href: '/trust',
+            title: 'Honesty register',
+            body: 'What we will not invent. Reviews after verified events. Distinct from this department page.',
+            still: photos.hubTrust,
+          },
+          {
+            href: '/legal',
+            title: 'Booking notes',
+            body: 'Quotes, GET, deposits. Distinct from the rate card and the fee-stack explainer.',
+            still: photos.hubLegal,
+          },
+          {
+            href: '/contact',
+            title: contact?.cardLabel ?? 'The desk',
+            body: contact?.lede ?? 'Quotes and inquiry replies run in Hawaii Standard Time on the island host.',
+            still: contact ? photos[contact.photo] : photos.quoteHub,
+          },
+          {
+            href: '/how-it-works',
+            title: 'How a booking works',
+            body: 'One process on every island. Drive times live on the island host.',
+            still: photos.hubHow,
+          },
+        ]}
+      />
 
       <section className="bg-paper py-20 lg:py-28">
         <div className="mx-auto w-full max-w-container px-5 lg:px-10">
