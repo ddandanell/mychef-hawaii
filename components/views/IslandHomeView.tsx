@@ -35,15 +35,26 @@ export default function IslandHomeView({
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: copy.faqs.map((f) => ({
-            '@type': 'Question',
-            name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
-          })),
-        }}
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: `${offer.title.split('|')[0].trim()} — myCHEF`,
+            description: offer.description,
+            areaServed: island.name,
+            serviceType: 'Private chef',
+            parentOrganization: { '@type': 'Organization', name: `myCHEF ${island.name}` },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: copy.faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
       />
 
       <Hero src={hero.file} alt={hero.alt} objectPosition={heroFocal[islandId]}>

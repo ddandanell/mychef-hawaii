@@ -40,15 +40,26 @@ export default function HomeView() {
   return (
     <>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'FAQPage',
-          mainEntity: hubFaqs.map((f) => ({
-            '@type': 'Question',
-            name: f.q,
-            acceptedAnswer: { '@type': 'Answer', text: f.a },
-          })),
-        }}
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: 'Private chef Hawaii — myCHEF',
+            description: hubChrome.lede,
+            areaServed: 'Hawaiʻi',
+            serviceType: 'Private chef',
+            parentOrganization: { '@type': 'Organization', name: 'myCHEF Hawaii' },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: hubFaqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
       />
 
       <Hero src={photos.hubHero.file} alt={photos.hubHero.alt} objectPosition={heroFocal.hub}>

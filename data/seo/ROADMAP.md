@@ -1009,6 +1009,12 @@ Still no zip on this machine. Wave 126 gives money corridors and `/personal-chef
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 127 — hub and island homes ship owner FoodService JSON-LD (this branch)
+
+Still no zip on this machine. Wave 127 gives hub `/` and every island `/` a named FoodService node for `private chef hawaii` / `private chef {island}`, matching the owner schema already on catering, weddings, `/mobile-bar`, corridors, and `/personal-chef`. LocalBusiness on identity pages stays `myCHEF {island}`. `seo:audit` fails if those home nodes drop. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

@@ -1001,6 +1001,13 @@ const islandHomeSrc = read('components/views/IslandHomeView.tsx');
 if (!/PlacePriceBlock/.test(islandHomeSrc)) {
   errors.push('island homes must publish PlacePriceBlock');
 }
+if (!/IslandHomeView[\s\S]{0,2000}'FoodService'/.test(islandHomeSrc)) {
+  errors.push('island homes still missing owner FoodService JSON-LD');
+}
+const homeViewSrc = read('components/views/HomeView.tsx');
+if (!/Private chef Hawaii — myCHEF/.test(homeViewSrc)) {
+  errors.push('hub home still missing owner FoodService JSON-LD');
+}
 if (/path: '\/private-chef',\s*title: 'Private chef'/.test(islandHomeSrc)) {
   errors.push('island homes still label /private-chef as Private chef');
 }
