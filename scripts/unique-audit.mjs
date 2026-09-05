@@ -155,6 +155,7 @@ const thanksSrc = read('data/islandThanks.ts');
 const journalSrc = read('data/islandJournal.ts');
 const blogSrc = read('data/islandBlog.ts');
 const locationsSrc = read('data/islandLocations.ts');
+const areasSrc = read('data/islandAreas.ts');
 const sitemapDocSrc = read('data/islandSitemap.ts');
 const journalArticleSrc = read('data/journalArticles.ts');
 const blogArticleSrc = read('data/blogArticles.ts');
@@ -183,6 +184,7 @@ const thanksDocs = supportBlocks(thanksSrc, 'islandThanks');
 const journalDocs = supportBlocks(journalSrc, 'islandJournal');
 const blogDocs = supportBlocks(blogSrc, 'islandBlog');
 const locationDocs = supportBlocks(locationsSrc, 'islandLocations');
+const areaDocs = supportBlocks(areasSrc, 'islandAreas');
 const sitemapDocs = supportBlocks(sitemapDocSrc, 'islandSitemap');
 const journalPieces = uniqueCellMeta(journalArticleSrc);
 const blogPieces = uniqueCellMeta(blogArticleSrc);
@@ -211,9 +213,10 @@ if (thanksDocs.length !== 4) errors.push(`Expected 4 island thank-you pages, fou
 if (journalDocs.length !== 4) errors.push(`Expected 4 island journal pages, found ${journalDocs.length}`);
 if (blogDocs.length !== 4) errors.push(`Expected 4 island blog pages, found ${blogDocs.length}`);
 if (locationDocs.length !== 4) errors.push(`Expected 4 island locations pages, found ${locationDocs.length}`);
+if (areaDocs.length !== 4) errors.push(`Expected 4 island areas pages, found ${areaDocs.length}`);
 if (sitemapDocs.length !== 4) errors.push(`Expected 4 island sitemap pages, found ${sitemapDocs.length}`);
 if (journalPieces.length !== 28) errors.push(`Expected 28 journal articles, found ${journalPieces.length}`);
-if (blogPieces.length !== 96) errors.push(`Expected 96 blog articles, found ${blogPieces.length}`);
+if (blogPieces.length !== 104) errors.push(`Expected 104 blog articles, found ${blogPieces.length}`);
 
 errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
@@ -278,6 +281,9 @@ errors.push(...dupes(blogDocs.map((h) => files[h.photo] || h.photo), 'blog hero 
 errors.push(...dupes(locationDocs.map((h) => h.title), 'locations title'));
 errors.push(...dupes(locationDocs.map((h) => h.h1), 'locations H1'));
 errors.push(...dupes(locationDocs.map((h) => files[h.photo] || h.photo), 'locations hero file'));
+errors.push(...dupes(areaDocs.map((h) => h.title), 'areas title'));
+errors.push(...dupes(areaDocs.map((h) => h.h1), 'areas H1'));
+errors.push(...dupes(areaDocs.map((h) => files[h.photo] || h.photo), 'areas hero file'));
 errors.push(...dupes(sitemapDocs.map((h) => h.title), 'sitemap title'));
 errors.push(...dupes(sitemapDocs.map((h) => h.h1), 'sitemap H1'));
 errors.push(...dupes(sitemapDocs.map((h) => files[h.photo] || h.photo), 'sitemap hero file'));
@@ -312,6 +318,7 @@ const allTitles = [
   ...journalDocs.map((h) => h.title),
   ...blogDocs.map((h) => h.title),
   ...locationDocs.map((h) => h.title),
+  ...areaDocs.map((h) => h.title),
   ...sitemapDocs.map((h) => h.title),
   ...journalPieces.map((h) => h.title),
   ...blogPieces.map((h) => h.title),
@@ -349,7 +356,7 @@ for (const row of events) {
   }
 }
 
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
   const file = files[row.photo];
   const label = row.slug ? `/${row.slug}` : row.title;
   if (!file) errors.push(`unknown photo key ${row.photo} on ${label}`);
@@ -360,7 +367,7 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 
 const MONEY_TITLE_RE =
   /\b(oahu catering|maui catering|kauai catering|hawaii catering|big island catering|private chef (oahu|maui|kauai|honolulu|big island|kona|hawaii)|wedding catering (oahu|maui|hawaii|kauai))\b/i;
-for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
+for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services, ...occasions, ...formats, ...fine, ...staff, ...menuSkus, ...help, ...quoteDocs, ...pricingDocs, ...legalDocs, ...thanksDocs, ...journalDocs, ...blogDocs, ...locationDocs, ...areaDocs, ...sitemapDocs, ...journalPieces, ...blogPieces]) {
   if (MONEY_TITLE_RE.test(row.title)) {
     errors.push(`support/cell title uses a money keyword: ${row.title}`);
   }
@@ -413,5 +420,5 @@ if (errors.length) {
 }
 
 console.log(
-  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
+  `seo:audit ok — ${hoods.length} corridors, ${homes.length} homes, ${catering.length} catering, ${events.length} events, ${faq.length} faq, ${coverage.length} coverage, ${cells.length} unique cells, ${services.length} services, ${occasions.length} occasions, ${formats.length} formats, ${fine.length} fine-dining, ${staff.length} staffing, ${menuSkus.length} menu SKUs, ${help.length} help, ${quoteDocs.length} quote, ${pricingDocs.length} pricing, ${legalDocs.length} legal, ${thanksDocs.length} thank-you, ${journalDocs.length} journal, ${blogDocs.length} blog, ${locationDocs.length} locations, ${areaDocs.length} areas, ${sitemapDocs.length} sitemap, ${journalPieces.length} journal articles, ${blogPieces.length} blog articles.`,
 );

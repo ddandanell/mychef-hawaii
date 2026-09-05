@@ -75,14 +75,14 @@ const islandPhotos: Record<(typeof islandOrder)[number], { src: string; position
     alt: 'A staffed Maui villa service — a brigade assembled on an open-air deck at sunset.',
   },
   kauai: {
-    src: '/about/brigade-hero.png',
-    position: '18% 45%',
-    alt: 'Kitchen brigade at work in a Hawaiian villa — the same scale of crew we staff on Kauaʻi.',
+    src: '/about/about-kauai-crew.png',
+    position: 'center',
+    alt: 'A Kauaʻi villa brigade on a North Shore stone terrace at dusk — chef, sous, service, bartender, misted mountains.',
   },
   bigisland: {
-    src: '/about/brigade-hero.png',
-    position: '82% 40%',
-    alt: 'A villa kitchen brigade at twilight — the crew size we staff on the west side of Hawaiʻi Island.',
+    src: '/about/about-bigisland-crew.png',
+    position: 'center',
+    alt: 'A west-side Hawaiʻi Island villa brigade on a Kohala lava terrace at twilight — chefs plating, service moving, Mauna Kea faint.',
   },
 };
 
@@ -119,7 +119,7 @@ export default function AboutView() {
       />
 
       <Hero
-        src="/about/brigade-hero.png"
+        src="/about/about-hub.png"
         alt="A full villa brigade at twilight — chefs plating, service moving, a long table beyond the pass."
       >
         <p className="text-[13px] text-mute">About myCHEF Hawaii</p>

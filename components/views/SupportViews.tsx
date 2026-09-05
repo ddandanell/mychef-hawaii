@@ -27,9 +27,11 @@ import { islandLegal } from '@/data/islandLegal';
 import { islandJournal } from '@/data/islandJournal';
 import { islandBlog } from '@/data/islandBlog';
 import { islandLocations } from '@/data/islandLocations';
+import { islandAreas } from '@/data/islandAreas';
 import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
+import { areas } from '@/data/areas';
 import { photos } from '@/data/photos';
 
 export function HowItWorksView() {
@@ -250,6 +252,32 @@ export function CorporateView({ kind = 'corporate' }: { kind?: 'corporate' | 'ga
   );
 }
 
+export function HubAreasView() {
+  return (
+    <section className="bg-paper py-20 lg:py-28">
+      <div className="mx-auto max-w-container px-5 lg:px-10">
+        <p className="text-[12px] text-mute">Statewide directory</p>
+        <h1 className="mt-4 font-display text-[clamp(2rem,4vw,3.25rem)] font-light text-ink">
+          Where we cook, by island.
+        </h1>
+        <p className="mt-4 max-w-[65ch] text-mute">
+          Each island host has two geography pages. /locations is the live dinner-door list. /areas is the map notes —
+          corridors plus the rest of the named places. /islands is the island picker, not this page.
+        </p>
+        <div className="mt-12 grid gap-px bg-line md:grid-cols-2">
+          {islandOrder.map((id) => (
+            <HostLink key={id} island={id} path="/areas" className="bg-paper p-5">
+              <p className="text-[12px] text-mute">{islands[id].name}</p>
+              <h2 className="mt-2 font-display text-xl font-light text-ink">Map notes</h2>
+              <p className="mt-2 text-sm text-mute">/areas</p>
+            </HostLink>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export function IslandsView() {
   return (
     <>
@@ -371,7 +399,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/sitemap'] as const).map((path) => ({
+      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/sitemap'] as const).map((path) => ({
         host: id,
         path,
       })),
@@ -421,6 +449,65 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
           </ul>
         </div>
       </section>
+    </>
+  );
+}
+
+export function AreasIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  const copy = islandAreas[islandId];
+  const photo = photos[copy.photo];
+  const hoods = moneyNeighborhoods[islandId];
+  const hoodSlugs = new Set(hoods.map((h) => h.slug));
+  const notes = areas[islandId].filter((a) => !hoodSlugs.has(a.slug));
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">Live dinner doors</p>
+          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
+            {hoods.map((hood) => (
+              <li key={hood.slug} className="bg-paper">
+                <HostLink island={islandId} path={`/${hood.slug}`} className="block p-6">
+                  <h2 className="font-display text-2xl font-light text-ink">{hood.name}</h2>
+                  <p className="mt-2 text-sm text-mute">/{hood.slug}</p>
+                </HostLink>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-16 text-[12px] text-mute">Kitchen notes</p>
+          <ul className="mt-10 grid gap-px bg-line md:grid-cols-2">
+            {notes.map((place) => (
+              <li key={place.slug} className="bg-paper">
+                <HostLink island={islandId} path={`/blog/dining-in-${place.slug}`} className="block p-6">
+                  <h2 className="font-display text-2xl font-light text-ink">{place.name}</h2>
+                  <p className="mt-2 text-sm text-mute">/blog/dining-in-{place.slug}</p>
+                </HostLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <LongFaq items={copy.faqs} title="Before you pick a place." />
     </>
   );
 }

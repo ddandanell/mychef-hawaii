@@ -399,8 +399,8 @@ export default function QuoteForm({
         <div className="sticky top-0 flex h-[100dvh] items-end overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={asidePhoto?.file ?? '/photos/villa-table-menu-card-detail.jpg'}
-            alt={asidePhoto?.alt ?? 'A menu card on ivory linen beside a plated fish course.'}
+            src={asidePhoto?.file ?? '/photos/quote-hub.png'}
+            alt={asidePhoto?.alt ?? 'A blank cream menu card on ivory linen beside a plated fish course.'}
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="relative p-8">

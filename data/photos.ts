@@ -1735,6 +1735,58 @@ export const photos = {
     file: '/photos/din-puako.png',
     alt: `A Puakō Kohala Coast kitchen in hard sun, unused ivory plates, lava-stone residential.`,
   },
+  areasIndexOahu: {
+    file: '/photos/areas-oahu.png',
+    alt: `A Kahala dining table at dusk with blank cream place cards, brass clip, Diamond Head faint.`,
+  },
+  areasIndexMaui: {
+    file: '/photos/areas-maui.png',
+    alt: `A Wailea lānai table at west sunset with blank cream place cards, brass clip, Molokini faint.`,
+  },
+  areasIndexKauai: {
+    file: '/photos/areas-kauai.png',
+    alt: `A Princeville stone counter in rain with blank cream place cards, brass clip, misted mountains.`,
+  },
+  areasIndexBigisland: {
+    file: '/photos/areas-bigisland.png',
+    alt: `A Kohala lava-stone counter in hard sun with blank cream place cards, brass clip, Mauna Kea faint.`,
+  },
+  blogFarmsOahu: {
+    file: '/photos/blog-farms-oahu.png',
+    alt: `Unmarked produce crates of greens and citrus on a Kahala kitchen counter in overcast morning light.`,
+  },
+  blogFarmsMaui: {
+    file: '/photos/blog-farms-maui.png',
+    alt: `Unmarked produce crates of tomatoes and greens on a Wailea kitchen island, Haleakalā slope inland.`,
+  },
+  blogFarmsKauai: {
+    file: '/photos/blog-farms-kauai.png',
+    alt: `Unmarked produce crates of greens and citrus on a Poʻipū kitchen counter, red dirt and kiawe.`,
+  },
+  blogFarmsBigisland: {
+    file: '/photos/blog-farms-bigisland.png',
+    alt: `Unmarked produce crates of greens and citrus on a west-side kitchen counter in hard sun, lava-stone.`,
+  },
+  blogFishOahu: {
+    file: '/photos/blog-fish-oahu.png',
+    alt: `A whole unmarked silver fish on crushed ice on a Kahala kitchen counter at dusk, blank cream paper beside it.`,
+  },
+  blogFishMaui: {
+    file: '/photos/blog-fish-maui.png',
+    alt: `A whole unmarked silver fish on crushed ice on a Wailea kitchen counter at west sunset, blank cream paper beside it.`,
+  },
+  blogFishKauai: {
+    file: '/photos/blog-fish-kauai.png',
+    alt: `A whole unmarked silver fish on crushed ice on a wet Princeville stone counter, blank cream paper beside it.`,
+  },
+  blogFishBigisland: {
+    file: '/photos/blog-fish-bigisland.png',
+    alt: `A whole unmarked silver fish on crushed ice on a Kohala lava-stone counter in hard sun, blank cream paper beside it.`,
+  },
+  quoteHub: {
+    file: '/photos/quote-hub.png',
+    alt: `A blank cream menu card on ivory linen beside a plated fish course at a statewide villa table at dusk.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

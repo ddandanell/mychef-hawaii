@@ -758,6 +758,68 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'named-farms',
+      name: 'Named farms',
+      h1: 'Oahu farm names — Kahuku and Waimānalo only after written verification.',
+      title: 'Oahu farm names — Kahuku and Waimānalo only after verification | myCHEF',
+      description:
+        'Oahu farm names print on the invoice only after written verification. Distinct from /blog/sourcing-honesty and /what-we-dont-do.',
+      lede:
+        '/blog/sourcing-honesty is why most food still arrives by ship. This blog note is the farm-name rule — Kahuku and Waimānalo stay off the brochure until we have it in writing.',
+      photo: 'blogFarmsOahu',
+      body: [
+        'A draft that names a farm without a paper trail is a brochure. We will not print Kahuku greens or a Waimānalo citrus grower until the producer is verified in writing.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is how a farm line lands on an Oahu invoice.`,
+        'Fish is a different honesty note — /blog/fish-species. The claim list is /what-we-dont-do.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/sourcing-honesty?',
+          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice.',
+        },
+        {
+          q: 'Will you invent a farm for the menu card?',
+          a: 'No. Unverified produce is named as food.',
+        },
+      ],
+      related: [
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'fish-species',
+      name: 'Fish species',
+      h1: 'Oahu fish names — the species on the Honolulu invoice, not a guess.',
+      title: 'Oahu fish names — the species on the Honolulu invoice | myCHEF',
+      description:
+        'Oahu fish is named as the species on the invoice. Distinct from /blog/sourcing-honesty and /blog/named-farms.',
+      lede:
+        '/blog/sourcing-honesty is ship versus farm. /blog/named-farms is produce. This blog note is the fish line — the species we actually bought, not a brochure name.',
+      photo: 'blogFishOahu',
+      body: [
+        'The Honolulu invoice names the fish we purchased that morning. We will not print a species we did not buy, and we will not dress a grocery-case fillet as a pier story.',
+        `Oahu catering (${SEARCH_VOLUMES['oahu catering']}) stays on /catering. This article is how a fish line lands on an Oahu invoice.`,
+        'Produce names are a different note — /blog/named-farms. The claim list is /what-we-dont-do.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/sourcing-honesty?',
+          a: 'That piece is ship versus farm. This piece is the species on the fish line.',
+        },
+        {
+          q: 'Will you guess the species for the menu card?',
+          a: 'No. Unverified fish is named as fish.',
+        },
+      ],
+      related: [
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/blog/named-farms', label: 'Named farms' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   maui: [
     {
@@ -1504,6 +1566,68 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
         { path: '/quote', label: 'Quote form' },
       ],
     },
+    {
+      slug: 'named-farms',
+      name: 'Named farms',
+      h1: 'Maui farm names — Kula and Hāna only after written verification.',
+      title: 'Maui farm names — Kula and Hāna only after verification | myCHEF',
+      description:
+        'Maui farm names print on the invoice only after written verification. Distinct from /blog/sourcing-honesty and /what-we-dont-do.',
+      lede:
+        '/blog/sourcing-honesty is why most food still arrives by ship. This blog note is the farm-name rule — Kula and Hāna stay off the brochure until we have it in writing.',
+      photo: 'blogFarmsMaui',
+      body: [
+        'A draft that names a farm without a paper trail is a brochure. We will not print a Kula grower or a Hāna citrus name until the producer is verified in writing.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is how a farm line lands on a Maui invoice.`,
+        'Fish is a different honesty note — /blog/fish-species. The claim list is /what-we-dont-do.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/sourcing-honesty?',
+          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice.',
+        },
+        {
+          q: 'Will you invent an Upcountry farm for the menu card?',
+          a: 'No. Unverified produce is named as food.',
+        },
+      ],
+      related: [
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
+    {
+      slug: 'fish-species',
+      name: 'Fish species',
+      h1: 'Maui fish names — the species on the Wailea invoice, not a guess.',
+      title: 'Maui fish names — the species on the Wailea invoice | myCHEF',
+      description:
+        'Maui fish is named as the species on the invoice. Distinct from /blog/sourcing-honesty and /blog/named-farms.',
+      lede:
+        '/blog/sourcing-honesty is ship versus farm. /blog/named-farms is produce. This blog note is the fish line — the species we actually bought, not a brochure name.',
+      photo: 'blogFishMaui',
+      body: [
+        'The Wailea invoice names the fish we purchased that morning. We will not print a species we did not buy, and we will not dress a grocery-case fillet as a pier story.',
+        `Maui catering (${SEARCH_VOLUMES['maui catering']}) stays on /catering. This article is how a fish line lands on a Maui invoice.`,
+        'Produce names are a different note — /blog/named-farms. The claim list is /what-we-dont-do.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/sourcing-honesty?',
+          a: 'That piece is ship versus farm. This piece is the species on the fish line.',
+        },
+        {
+          q: 'Will you guess the species for the menu card?',
+          a: 'No. Unverified fish is named as fish.',
+        },
+      ],
+      related: [
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/blog/named-farms', label: 'Named farms' },
+        { path: '/quote', label: 'Quote form' },
+      ],
+    },
   ],
   kauai: [
     {
@@ -2216,6 +2340,68 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/blog/dining-in-kalaheo', label: 'Kalāheo kitchen notes' },
         { path: '/coverage', label: 'Coverage' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'named-farms',
+      name: 'Named farms',
+      h1: 'Kauai farm names — Kīlauea and Kōloa only after written verification.',
+      title: 'Kauai farm names — Kīlauea and Kōloa only after verification | myCHEF',
+      description:
+        'Kauai farm names print on an inquiry invoice only after written verification. Distinct from /blog/sourcing-honesty and /what-we-dont-do.',
+      lede:
+        '/blog/sourcing-honesty is why most food still arrives by ship. This blog note is the farm-name rule at inquiry — Kīlauea and Kōloa stay off the brochure until we have it in writing.',
+      photo: 'blogFarmsKauai',
+      body: [
+        'A draft that names a farm without a paper trail is a brochure. We will not print a Kīlauea grower or a Kōloa citrus name until the producer is verified in writing. Inquiry until we can staff.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is how a farm line lands on a Kauai inquiry invoice.`,
+        'Fish is a different honesty note — /blog/fish-species. The claim list is /what-we-dont-do.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/sourcing-honesty?',
+          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the inquiry invoice.',
+        },
+        {
+          q: 'Will you invent a North Shore farm for the menu card?',
+          a: 'No. Unverified produce is named as food.',
+        },
+      ],
+      related: [
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/what-we-dont-do', label: 'What we will not claim' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'fish-species',
+      name: 'Fish species',
+      h1: 'Kauai fish names — the species on the inquiry invoice, not a guess.',
+      title: 'Kauai fish names — the species on the inquiry invoice | myCHEF',
+      description:
+        'Kauai fish is named as the species on the inquiry invoice. Distinct from /blog/sourcing-honesty and /blog/named-farms.',
+      lede:
+        '/blog/sourcing-honesty is ship versus farm. /blog/named-farms is produce. This blog note is the fish line at inquiry — the species we actually bought, not a brochure name.',
+      photo: 'blogFishKauai',
+      body: [
+        'The inquiry invoice names the fish we purchased that morning when we can staff. We will not print a species we did not buy, and we will not dress a grocery-case fillet as a pier story.',
+        `Kauai catering (${SEARCH_VOLUMES['kauai catering']}) stays on /catering. This article is how a fish line lands on a Kauai inquiry invoice.`,
+        'Produce names are a different note — /blog/named-farms. The claim list is /what-we-dont-do.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/sourcing-honesty?',
+          a: 'That piece is ship versus farm. This piece is the species on the fish line.',
+        },
+        {
+          q: 'Will you guess the species for the menu card?',
+          a: 'No. Unverified fish is named as fish.',
+        },
+      ],
+      related: [
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/blog/named-farms', label: 'Named farms' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },
@@ -2993,6 +3179,68 @@ export const blogArticles: Record<IslandId, BlogArticle[]> = {
       related: [
         { path: '/waikoloa', label: 'Waikoloa dinner door' },
         { path: '/kohala', label: 'Kohala dinner door' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'named-farms',
+      name: 'Named farms',
+      h1: 'West-side farm names — produce on the invoice, coffee follows Act 198.',
+      title: 'Hawaiʻi Island farm names — produce on the invoice, coffee follows Act 198 | myCHEF',
+      description:
+        'West-side farm names print on the invoice only after written verification. Named coffee follows Act 198. Distinct from /blog/sourcing-honesty and /coffee-act-198.',
+      lede:
+        '/blog/sourcing-honesty is why most food still arrives by ship. /coffee-act-198 is the origin rule. This blog note is the farm-name rule for produce on a west-side inquiry invoice.',
+      photo: 'blogFarmsBigisland',
+      body: [
+        'A draft that names a farm without a paper trail is a brochure. Produce prints as food until the producer is verified in writing. Named coffee follows Act 198 — that rule lives on /coffee-act-198.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is how a farm line lands on a west-side inquiry invoice.`,
+        'Fish is a different honesty note — /blog/fish-species. East side is a dedicated day — /east-side.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /coffee-act-198?',
+          a: 'That page is the coffee origin rule. This piece is produce names on the invoice.',
+        },
+        {
+          q: 'Same as /blog/sourcing-honesty?',
+          a: 'That piece is ship versus farm. This piece is when a farm name is allowed on the invoice.',
+        },
+      ],
+      related: [
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/coffee-act-198', label: 'Coffee Act 198' },
+        { path: '/quote', label: 'Inquiry form' },
+      ],
+    },
+    {
+      slug: 'fish-species',
+      name: 'Fish species',
+      h1: 'West-side fish names — the species on the Kona invoice, not a guess.',
+      title: 'Hawaiʻi Island fish names — the species on the west-side invoice | myCHEF',
+      description:
+        'West-side fish is named as the species on the inquiry invoice. Distinct from /blog/sourcing-honesty and /blog/named-farms.',
+      lede:
+        '/blog/sourcing-honesty is ship versus farm. /blog/named-farms is produce. This blog note is the fish line on a west-side inquiry invoice — the species we actually bought, not a brochure name.',
+      photo: 'blogFishBigisland',
+      body: [
+        'The west-side invoice names the fish we purchased that morning when we can staff. We will not print a species we did not buy, and we will not dress a grocery-case fillet as a pier story.',
+        `Big island catering (${SEARCH_VOLUMES['big island catering']}) stays on /catering. This article is how a fish line lands on a west-side inquiry invoice.`,
+        'Produce names are a different note — /blog/named-farms. East side is a dedicated day — /east-side.',
+      ],
+      faqs: [
+        {
+          q: 'Same as /blog/sourcing-honesty?',
+          a: 'That piece is ship versus farm. This piece is the species on the fish line.',
+        },
+        {
+          q: 'Will you guess the species for the menu card?',
+          a: 'No. Unverified fish is named as fish.',
+        },
+      ],
+      related: [
+        { path: '/blog/sourcing-honesty', label: 'Sourcing honesty' },
+        { path: '/blog/named-farms', label: 'Named farms' },
         { path: '/quote', label: 'Inquiry form' },
       ],
     },

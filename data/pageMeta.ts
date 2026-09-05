@@ -23,8 +23,9 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
       'Four island sites. Private chef Maui from $150 a guest. Private chef Kauai from $150 a guest. Oahu from $125 a guest. Big Island from $125 a guest.',
   },
   '/areas': {
-    title: 'Private chef Oahu, Maui, Kauai & Big Island | myCHEF',
-    description: 'Choose your island. Neighborhood pages live on each island host.',
+    title: 'Where we cook, by island — map notes | myCHEF',
+    description:
+      'Map notes on every island host: live corridors plus the rest of the named places. Choose an island, then the geography.',
   },
   '/services': {
     title: 'Private chef, catering, weddings & mobile bar | myCHEF Hawaii',

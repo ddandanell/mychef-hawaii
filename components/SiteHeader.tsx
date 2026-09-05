@@ -53,11 +53,15 @@ const ISLAND_SWITCH: NavTarget[] = [
 ];
 
 function areaItems(islandId: (typeof islandOrder)[number]): NavTarget[] {
-  return moneyNeighborhoods[islandId].map((hood) => ({
-    label: hood.name,
-    island: islandId,
-    path: `/${hood.slug}`,
-  }));
+  return [
+    { label: 'Map notes', island: islandId, path: '/areas' },
+    { label: 'Live corridors', island: islandId, path: '/locations' },
+    ...moneyNeighborhoods[islandId].map((hood) => ({
+      label: hood.name,
+      island: islandId,
+      path: `/${hood.slug}`,
+    })),
+  ];
 }
 
 function MobileLink({ item, onPick }: { item: NavTarget; onPick: () => void }) {
