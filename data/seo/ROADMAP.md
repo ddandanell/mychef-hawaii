@@ -997,6 +997,12 @@ Still no zip on this machine. Wave 124 gives island `/catering` and `/weddings` 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 125 — hub /mobile-bar ships owner FoodService JSON-LD (this branch)
+
+Still no zip on this machine. Wave 125 gives hub `/mobile-bar` the same owner FoodService JSON-LD catering and weddings already ship, named Mobile bar Hawaii. Island `/mobile-bar` gets island-specific FoodService names from their H1s and `serviceType: Bartending`, so the statewide phrase stays on the hub. `seo:audit` fails if the hub node drops. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

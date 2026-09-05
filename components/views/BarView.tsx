@@ -4,6 +4,7 @@ import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
 import HubPhotoGrid from '@/components/HubPhotoGrid';
+import JsonLd from '@/components/JsonLd';
 import LineReveal from '@/components/LineReveal';
 import { DocumentCopy, LongFaq, SiblingCluster } from '@/components/Longform';
 import Photo from '@/components/Photo';
@@ -182,6 +183,18 @@ const PACKAGE: Record<IslandId, { h1: string; lede: string; hero: { file: string
 export function HubMobileBarView() {
   return (
     <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FoodService',
+          name: 'Mobile bar Hawaii — myCHEF',
+          description:
+            'A cart, a bartender, citrus and ice as a published package. The cocktail-hour add-on lives on /bar.',
+          areaServed: 'Hawaiʻi',
+          serviceType: 'Mobile bar',
+          parentOrganization: { '@type': 'Organization', name: 'myCHEF Hawaii' },
+        }}
+      />
       <Hero src={photos.hubMobileBar.file} alt={photos.hubMobileBar.alt} min="short">
         <p className="text-[13px] text-mute">4-hour package</p>
         <LineReveal
@@ -259,6 +272,28 @@ export function IslandMobileBarView({ islandId, hostMode }: { islandId: IslandId
 
   return (
     <>
+      <JsonLd
+        data={[
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FoodService',
+            name: `${copy.h1.split('—')[0].trim().replace(/\.$/, '')} — myCHEF`,
+            description: copy.lede,
+            areaServed: islands[islandId].name,
+            serviceType: 'Bartending',
+            parentOrganization: { '@type': 'Organization', name: `myCHEF ${islands[islandId].name}` },
+          },
+          {
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.q,
+              acceptedAnswer: { '@type': 'Answer', text: f.a },
+            })),
+          },
+        ]}
+      />
       <Hero src={copy.hero.file} alt={copy.hero.alt} min="short">
         <p className="text-[13px] text-mute">{islands[islandId].name} · 4-hour package</p>
         <LineReveal

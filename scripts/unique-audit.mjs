@@ -1025,6 +1025,13 @@ if (/label: 'Mobile bar package'/.test(weddingViewSrc)) {
 if (!/IslandWeddingView[\s\S]{0,1200}'FoodService'/.test(weddingViewSrc)) {
   errors.push('island /weddings still missing owner FoodService JSON-LD');
 }
+const barViewSrc = read('components/views/BarView.tsx');
+if (!/HubMobileBarView[\s\S]{0,1500}'FoodService'/.test(barViewSrc) || !/Mobile bar Hawaii — myCHEF/.test(barViewSrc)) {
+  errors.push('hub /mobile-bar still missing owner FoodService JSON-LD');
+}
+if (!/IslandMobileBarView[\s\S]{0,2500}'FoodService'/.test(barViewSrc)) {
+  errors.push('island /mobile-bar still missing FoodService JSON-LD');
+}
 const pricingViewSrc = read('components/views/PricingView.tsx');
 if (/>Mobile bar</.test(pricingViewSrc)) {
   errors.push('pricing table still labels the cart Mobile bar');
