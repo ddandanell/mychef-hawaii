@@ -46,9 +46,9 @@ function neighborhoods(src) {
 function islandOfferMeta(src) {
   const block = sliceExport(src, 'islandOffers', 'export const moneyNeighborhoods');
   const items = [];
-  const re = /h1:\s*'([^']+)'[\s\S]*?title:\s*'([^']+)'/g;
+  const re = /h1:\s*'([^']+)'[\s\S]*?title:\s*'([^']+)'[\s\S]*?heroPhoto:\s*'([^']+)'/g;
   let m;
-  while ((m = re.exec(block))) items.push({ h1: m[1], title: m[2] });
+  while ((m = re.exec(block))) items.push({ h1: m[1], title: m[2], photo: m[3] });
   return items;
 }
 
@@ -258,6 +258,7 @@ errors.push(...dupes(hoods.map((h) => h.title), 'neighborhood title'));
 errors.push(...dupes(hoods.map((h) => h.h1), 'neighborhood H1'));
 errors.push(...dupes(hoods.map((h) => files[h.photo] || h.photo), 'neighborhood hero file'));
 errors.push(...dupes(homes.map((h) => h.title), 'island home title'));
+errors.push(...dupes(homes.map((h) => files[h.photo] || h.photo), 'island home hero file'));
 errors.push(...dupes(catering.map((h) => h.title), 'catering title'));
 errors.push(...dupes(catering.map((h) => files[h.photo] || h.photo), 'catering hero file'));
 errors.push(...dupes(events.map((h) => h.title), 'events title'));
@@ -613,6 +614,112 @@ if (/The product door is \/weddings\. This page is the planner sequence\.'/.test
 }
 if (/That page is the service\. This page is the menu\.'/.test(leftoverCatalogFaqSrc)) {
   errors.push('menu SKU FAQs still clone the service-vs-menu answer');
+}
+
+const LEFTOVER_JPEG_RE =
+  /oahu-villa-lanai-plated-dinner-dusk\.jpg|oahu-gold-coast-estate-dinner\.jpg|maui-villa-terrace-cocktail-bar\.jpg|bartender-terrace-service\.jpg|maui-wedding-long-table-banyan-dusk\.jpg|wedding-tabletop-candles-ivory\.jpg|kauai-chef-plating-seared-fish-mountains\.jpg|kohala-grilled-whole-fish-lava-golden-hour\.jpg|maui-wailea-kitchen-plating\.jpg|upcountry-maui-mist-kitchen-produce\.jpg|vacation-chef-morning-breakfast-pool\.jpg|estate-catering-chef-team-lawn-dusk\.jpg|gatherings-garden-table-dusk\.jpg|live-fire-grill-lanai-fish\.jpg|hawaii-produce-fish-sourcing-still\.jpg|plated-fish-lanai-dusk\.jpg|villa-chef-assistant-kitchen\.jpg|villa-table-menu-card-detail\.jpg/;
+const leftoverJpegDocs = [
+  ...hoods,
+  ...homes,
+  ...catering,
+  ...events,
+  ...faq,
+  ...coverage,
+  ...how,
+  ...menus,
+  ...cells,
+  ...services,
+  ...occasions,
+  ...formats,
+  ...fine,
+  ...staff,
+  ...menuSkus,
+  ...help,
+  ...quoteDocs,
+  ...pricingDocs,
+  ...legalDocs,
+  ...thanksDocs,
+  ...journalDocs,
+  ...blogDocs,
+  ...locationDocs,
+  ...areaDocs,
+  ...contactDocs,
+  ...trustDocs,
+  ...serviceIndexDocs,
+  ...helpIndexDocs,
+  ...fineIndexDocs,
+  ...staffIndexDocs,
+  ...corporateDocs,
+  ...gatheringsDocs,
+  ...islandsIndexDocs,
+  ...sitemapDocs,
+  ...hubDirs,
+  ...journalPieces,
+  ...blogPieces,
+];
+for (const row of leftoverJpegDocs) {
+  const file = files[row.photo] || '';
+  if (LEFTOVER_JPEG_RE.test(file)) {
+    const label = row.slug ? `/${row.slug}` : row.title;
+    errors.push(`live document ${label} still uses leftover JPEG ${file}`);
+  }
+}
+
+const homeTitleBlob = homes.map((h) => h.title).join('\n').toLowerCase();
+const hoodTitleBlob = hoods.map((h) => h.title).join('\n').toLowerCase();
+const cateringTitleBlob = catering.map((h) => h.title).join('\n').toLowerCase();
+const residentSrc = read('data/residentLine.ts').toLowerCase();
+if (!/private chef hawaii/.test(pageMetaSrc.toLowerCase())) {
+  errors.push('hub home title no longer owns private chef hawaii');
+}
+if (!/hawaii catering/.test(pageMetaSrc.toLowerCase())) {
+  errors.push('hub /catering title no longer owns hawaii catering');
+}
+if (!/wedding catering hawaii/.test(pageMetaSrc.toLowerCase())) {
+  errors.push('hub /weddings title no longer owns wedding catering hawaii');
+}
+if (!/mobile bar hawaii/.test(pageMetaSrc.toLowerCase())) {
+  errors.push('hub /mobile-bar title no longer owns mobile bar hawaii');
+}
+if (!homeTitleBlob.includes('private chef oahu')) errors.push('Oahu home title no longer owns private chef oahu');
+if (!homeTitleBlob.includes('private chef maui')) errors.push('Maui home title no longer owns private chef maui');
+if (!homeTitleBlob.includes('private chef kauai')) errors.push('Kauai home title no longer owns private chef kauai');
+if (!homeTitleBlob.includes('private chef big island')) {
+  errors.push('Hawaiʻi Island home title no longer owns private chef big island');
+}
+if (!cateringTitleBlob.includes('oahu catering')) errors.push('Oahu /catering title no longer owns oahu catering');
+if (!cateringTitleBlob.includes('maui catering')) errors.push('Maui /catering title no longer owns maui catering');
+if (!cateringTitleBlob.includes('kauai catering')) errors.push('Kauai /catering title no longer owns kauai catering');
+if (!cateringTitleBlob.includes('big island catering')) {
+  errors.push('Hawaiʻi Island /catering title no longer owns big island catering');
+}
+if (!hoodTitleBlob.includes('private chef honolulu')) {
+  errors.push('/honolulu title no longer owns private chef honolulu');
+}
+if (!hoodTitleBlob.includes('private chef lahaina maui')) {
+  errors.push('/lahaina title no longer owns private chef lahaina maui');
+}
+if (!hoodTitleBlob.includes('private chef kona')) errors.push('/kona title no longer owns private chef kona');
+if (!hoodTitleBlob.includes('private chef poipu kauai')) {
+  errors.push('/poipu title no longer owns private chef poipu kauai');
+}
+if (!hoodTitleBlob.includes('private chef north shore oahu')) {
+  errors.push('/north-shore title no longer owns private chef north shore oahu');
+}
+if (!/personal chef honolulu/.test(residentSrc)) {
+  errors.push('Oahu /personal-chef title no longer owns personal chef honolulu');
+}
+if (!/personal chef maui/.test(residentSrc)) {
+  errors.push('Maui /personal-chef title no longer owns personal chef maui');
+}
+if (!/wedding catering oahu/.test(pageMetaSrc.toLowerCase())) {
+  errors.push('Oahu /weddings title no longer owns wedding catering oahu');
+}
+if (!/wedding catering maui/.test(pageMetaSrc.toLowerCase())) {
+  errors.push('Maui /weddings title no longer owns wedding catering maui');
+}
+if (!/kauai wedding catering/.test(pageMetaSrc.toLowerCase())) {
+  errors.push('Kauai /weddings title no longer owns kauai wedding catering');
 }
 
 const seoSrc = read('lib/seo.ts');

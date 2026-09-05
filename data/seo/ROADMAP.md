@@ -782,6 +782,14 @@ Still no zip on this machine. Wave 90 uniquifies remaining catalog FAQ clones in
 - Answers now name Kahala, Wailea, Princeville, or Waikoloa. Inquiry hosts keep the inquiry clause. Hawaiʻi Island answers add “Hilo is never implied.”
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No related-door photography. No new URLs.
 
+## Wave 91 — leftover-JPEG and DataForSEO title gates (this branch)
+
+Still no zip on this machine. Wave 91 does not remap leftover JPEGs onto unique-cell, neighborhood, or island-home heroes. Those keys stay in `data/photos.ts` / unused `data/assets.ts`. `seo:audit` now fails if any live document hero file is one of those JPEGs, and it fails if a DataForSEO master-keyword title drops off its owner URL.
+
+- Island-home heroes are checked by file, not only by photo key.
+- Hub `/`, `/catering`, `/weddings`, `/mobile-bar`; island homes; island `/catering`; `/honolulu`, `/lahaina`, `/kona`, `/poipu`, `/north-shore`; Oahu/Maui `/personal-chef`; island `/weddings` must keep their measured title phrases.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No related-door photography. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
