@@ -13,9 +13,6 @@ import { getHubDirectory } from '@/data/hubDirectories';
 import { islandOrder, islands } from '@/data/islands';
 import { photos } from '@/data/photos';
 
-const DESCRIPTION =
-  'myCHEF Hawaii is a four-island villa chef team. We staff a brigade to the size of the house — chef, sous, service, bar, shopper. Request a quote.';
-
 const faqs = [
   {
     q: 'How many people show up to cook?',
@@ -101,25 +98,15 @@ export default function AboutView() {
   return (
     <>
       <JsonLd
-        data={[
-          {
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'myCHEF Hawaii',
-            url: 'https://mychef-hawaii.com/about',
-            areaServed: 'Hawaiʻi',
-            description: DESCRIPTION,
-          },
-          {
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: faqs.map((f) => ({
-              '@type': 'Question',
-              name: f.q,
-              acceptedAnswer: { '@type': 'Answer', text: f.a },
-            })),
-          },
-        ]}
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
       />
 
       <Hero

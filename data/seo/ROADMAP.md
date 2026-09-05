@@ -1039,6 +1039,12 @@ Still no zip on this machine. Wave 131 gives hub `/weddings` and every island `/
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 132 — hub /about stops shipping a second Organization (this branch)
+
+Still no zip on this machine. Wave 132 drops the view-level Organization on hub `/about`. Layout already ships Organization plus LocalBusiness on identity pages; the extra node used a different URL (`/about` vs the origin). FAQPage stays. `seo:audit` fails if the second Organization returns. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.
