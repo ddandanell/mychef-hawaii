@@ -3,6 +3,7 @@ import { QuoteCta } from '@/components/Cta';
 import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
+import HubPhotoGrid from '@/components/HubPhotoGrid';
 import LineReveal from '@/components/LineReveal';
 import { DocumentCopy, LongFaq, SiblingCluster } from '@/components/Longform';
 import Photo from '@/components/Photo';
@@ -114,6 +115,38 @@ export function HubBarView() {
           return `${formatMobileBarPackage(id)} · or $${bar.perGuest[0]}–$${bar.perGuest[1]} a guest`;
         }}
       />
+      <HubPhotoGrid
+        eyebrow="Beside this bartender add-on"
+        heading="Open a related document."
+        intro="This page is the four-island picker for the terrace hour. The packaged cart, wedding weeks, visitor dinners, and the form are their own URLs."
+        columns={2}
+        items={[
+          {
+            href: '/mobile-bar',
+            title: 'The packaged cart',
+            body: 'Four hours, priced as a package. Distinct from this add-on hour. Hub /mobile-bar holds the statewide title.',
+            still: photos.hubMobileBar,
+          },
+          {
+            href: '/weddings',
+            title: 'Wedding week',
+            body: 'One team for the week. The bar is a line on that quote, not a second company.',
+            still: photos.weddingHero,
+          },
+          {
+            href: '/private-chef',
+            title: 'Visitor dinner',
+            body: 'One night in the house. Stack the terrace hour or book dinner alone.',
+            still: photos.chefMaui,
+          },
+          {
+            href: '/quote',
+            title: 'The quote form',
+            body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+            still: photos.quoteHub,
+          },
+        ]}
+      />
       <QuoteTeaser headline="Date, headcount, island — we quote the bar in writing." />
     </>
   );
@@ -167,6 +200,38 @@ export function HubMobileBarView() {
         heading="Open the island package document."
         stills={PACKAGE}
         priceOf={(id) => formatMobileBarPackage(id)}
+      />
+      <HubPhotoGrid
+        eyebrow="Beside this packaged cart"
+        heading="Open a related document."
+        intro="This page holds the statewide mobile-bar title. The bartender add-on, wedding weeks, visitor dinners, and the form are their own URLs."
+        columns={2}
+        items={[
+          {
+            href: '/bar',
+            title: 'Bartender add-on',
+            body: 'The terrace hour stacked with dinner. Distinct from this four-hour package.',
+            still: photos.barHero,
+          },
+          {
+            href: '/weddings',
+            title: 'Wedding week',
+            body: 'One team for the week. The packaged cart is a line on that quote.',
+            still: photos.weddingHero,
+          },
+          {
+            href: '/private-chef',
+            title: 'Visitor dinner',
+            body: 'One night in the house. Stack the cart or book dinner alone.',
+            still: photos.chefMaui,
+          },
+          {
+            href: '/quote',
+            title: 'The quote form',
+            body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+            still: photos.quoteHub,
+          },
+        ]}
       />
       <QuoteTeaser headline="Date, headcount, island — we quote the package in writing." />
     </>

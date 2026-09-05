@@ -625,6 +625,14 @@ Still no zip on this machine. Wave 71 gives island `/coverage` related-document 
 - Island `/coverage` opens `/locations`, `/areas`, `/quote`, and `/how-it-works` on existing stills after the paper zone list. Neighborhood and unique-cell honesty links stay paper.
 - Distinct from `/faq` (questions) and `/locations` (live dinner doors). SiblingCluster stays paper. No new URLs.
 
+## Wave 72 — hub /bar and /mobile-bar related doors (this branch)
+
+Still no zip on this machine. Wave 72 gives hub `/bar` and hub `/mobile-bar` related-document photography after the island pickers. Island bar pages already open related documents.
+
+- Hub `/bar` keeps the four-island picker for the terrace hour, then opens `/mobile-bar`, `/weddings`, `/private-chef`, and `/quote` on existing stills. The packaged-cart card is titled “The packaged cart” so it cannot steal `mobile bar hawaii`.
+- Hub `/mobile-bar` keeps the statewide title and island picker, then opens `/bar`, `/weddings`, `/private-chef`, and `/quote`. Distinct from `/bar` (the add-on hour).
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. SiblingCluster stays paper. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
