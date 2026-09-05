@@ -440,6 +440,14 @@ Still no zip on this machine. Wave 48 finishes the `/bar` vs `/mobile-bar` split
 - Island `/bar` FAQs name `/mobile-bar` as the packaged cart instead of treating the add-on as that package.
 - Quote-form TypePanel stays. No new URLs.
 
+## Wave 49 — island-home corridors on photography (this branch)
+
+Still no zip on this machine. Wave 49 lifts leftover paper doors on island homepages onto existing Grok stills:
+
+- Island-home private chef and catering doors use the island `/private-chef` and `/catering` stills.
+- Named corridors open from a `DocumentPhotoGrid` of the unique corridor stills. Coverage/locations stay paper honesty lists.
+- Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

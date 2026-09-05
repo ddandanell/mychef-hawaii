@@ -16,7 +16,7 @@ export default function DocumentPhotoGrid({
   eyebrow: string;
   heading: string;
   intro?: string;
-  items: { path: string; label: string; detail?: string }[];
+  items: { path: string; label: string; detail?: string; id?: string }[];
 }) {
   const fallback = islands[islandId].selectorImage;
   return (
@@ -31,7 +31,7 @@ export default function DocumentPhotoGrid({
           {items.map((item) => {
             const still = stillForPath(islandId, item.path);
             return (
-              <li key={item.path}>
+              <li key={item.path} id={item.id} className={item.id ? 'scroll-mt-24' : undefined}>
                 <HostLink island={islandId} path={item.path} className="group block">
                   <span className="relative block aspect-[3/4] overflow-hidden bg-sand">
                     <Photo
