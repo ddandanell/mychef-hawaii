@@ -1,4 +1,5 @@
 import { QuoteCta } from '@/components/Cta';
+import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Hero from '@/components/Hero';
 import LineReveal from '@/components/LineReveal';
 import { LongFaq, Longform, SiblingCluster } from '@/components/Longform';
@@ -52,6 +53,19 @@ export default function PrivateChefView({ islandId, hostMode }: { islandId: Isla
         </div>
       </Hero>
       <Longform sections={copy.sections} />
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].shortName} · Beside this visitor dinner`}
+        heading="Open a related document."
+        intro="This URL is one dinner. Weekly household cooking, the villa week, the form, and the rate card are their own URLs."
+        columns={2}
+        items={[
+          { path: '/personal-chef', label: 'Household week', detail: '/personal-chef' },
+          { path: '/vacation-chef', label: 'Stay Chef week', detail: '/vacation-chef' },
+          { path: '/quote', label: 'The quote form', detail: '/quote' },
+          { path: '/pricing', label: 'What a night costs', detail: '/pricing' },
+        ]}
+      />
       <SiblingCluster island={islandId} current="chef" href={href} />
       <LongFaq items={copy.faqs} />
       <QuoteTeaser island={islandId} />

@@ -2,12 +2,14 @@ import { QuoteCta } from '@/components/Cta';
 import DocumentPhotoGrid from '@/components/DocumentPhotoGrid';
 import Eyebrow from '@/components/Eyebrow';
 import Hero from '@/components/Hero';
+import HubPhotoGrid from '@/components/HubPhotoGrid';
 import LineReveal from '@/components/LineReveal';
 import { DocumentCopy, SiblingCluster } from '@/components/Longform';
 import Photo from '@/components/Photo';
 import QuoteTeaser from '@/components/QuoteTeaser';
 import HostLink from '@/components/HostLink';
 import { islandChooserCopy } from '@/data/chromeCopy';
+import { getHubDirectory } from '@/data/hubDirectories';
 import { islandOrder, islands, type IslandId } from '@/data/islands';
 import { islandOffers } from '@/data/offers';
 import type { PhotoKey } from '@/data/photos';
@@ -83,6 +85,7 @@ const VAC: Record<
 };
 
 export function HubOfferView({ kind }: { kind: 'private-chef' | 'vacation-chef' }) {
+  const household = getHubDirectory('/personal-chef');
   const copy =
     kind === 'private-chef'
       ? {
@@ -146,6 +149,40 @@ export function HubOfferView({ kind }: { kind: 'private-chef' | 'vacation-chef' 
           </ul>
         </div>
       </section>
+      {kind === 'private-chef' ? (
+        <HubPhotoGrid
+          eyebrow="Beside this visitor dinner"
+          heading="Open a related document."
+          intro="This page is the four-island picker for visitor dinners. Household weeks, Stay Chef weeks, the form, and the rate card are their own URLs."
+          columns={2}
+          items={[
+            {
+              href: '/personal-chef',
+              title: household?.cardLabel ?? 'Household week',
+              body: household?.lede ?? 'Weekly household cooking lives on each island /personal-chef.',
+              still: photos.hubPersonal,
+            },
+            {
+              href: '/vacation-chef',
+              title: 'Stay Chef week',
+              body: 'A chef for the villa week. Groceries at cost. Distinct from one visitor dinner.',
+              still: photos.vacationMaui,
+            },
+            {
+              href: '/quote',
+              title: 'The quote form',
+              body: 'Five fields. A human reply. Typical response in Hawaii business hours.',
+              still: photos.quoteHub,
+            },
+            {
+              href: '/pricing',
+              title: 'What a night costs',
+              body: 'The published rate card. Distinct from the fee-stack explainer.',
+              still: photos.hubPricing,
+            },
+          ]}
+        />
+      ) : null}
       <QuoteTeaser />
     </>
   );

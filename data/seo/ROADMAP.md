@@ -587,6 +587,14 @@ Still no zip on this machine. Wave 66 gives `/about` related-document photograph
 - Island `/about` opens the same four paths on island stills. Distinct from `/faq` (questions) and `/trust` (honesty register). SiblingCluster stays paper.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 67 — hub and island /private-chef related doors (this branch)
+
+Still no zip on this machine. Wave 67 gives `/private-chef` related-document photography without stealing the visitor-dinner title:
+
+- Hub `/private-chef` keeps the four-island picker, then opens `/personal-chef`, `/vacation-chef`, `/quote`, and `/pricing` on existing stills.
+- Island `/private-chef` opens the same four paths on island stills. Distinct from `/personal-chef` (household week) and `/vacation-chef` (Stay Chef). SiblingCluster stays paper.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
