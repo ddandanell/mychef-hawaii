@@ -724,6 +724,15 @@ Still no zip on this machine. Wave 83 uniquifies FAQ lists that were concatenate
 - Oahu home and hub copy no longer claim neighborhood corridors are “not their own URLs”. `/honolulu`, `/waikiki`, `/kahala`, and `/kona` are live corridor URLs on the island hosts. Hub `/quote` no longer says Kona is “not a /kona page”. Unused `hubPricingFaqs` (never rendered) is removed so it cannot re-duplicate the hub home price FAQ.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 84 — island-home H2s stop stealing corridor titles (this branch)
+
+Still no zip on this machine. Wave 84 uniquifies island-home longform so corridor titles stay on corridor URLs. No new URLs. Home titles stay `private chef {island}`.
+
+- Oahu `/` H2 “Private chef Honolulu” is now “Honolulu residences” and names `/honolulu`. “Personal chef Oahu” is now “Weekly households” and names `/personal-chef`.
+- Maui `/` no longer claims neighborhood names “are not destination URLs”; it names `/wailea`, `/lahaina`, and `/kaanapali`. “Private chef Maui cost” is now “What a Maui night costs” and names `/private-chef-cost`.
+- Hawaiʻi Island `/` H2 “Private chef Kona” is now “Kona and the west-side shop” and names `/kona`. Copy no longer says Kona “is not a path of its own.”
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

@@ -509,6 +509,24 @@ const longIslandSrc = read('data/longformIslands.ts');
 if (/They are not their own URLs/.test(longIslandSrc) || /They are not their own URLs/.test(longHubSrc)) {
   errors.push('copy still claims neighborhood corridors are not URLs');
 }
+if (/They are not destination URLs/.test(longIslandSrc)) {
+  errors.push('Maui home still claims neighborhood names are not destination URLs');
+}
+if (/it is not a path of its own/.test(longIslandSrc)) {
+  errors.push('Hawaiʻi Island home still claims Kona is not a path of its own');
+}
+if (/h2: 'Private chef Kona'/.test(longIslandSrc)) {
+  errors.push('Hawaiʻi Island home H2 still steals private chef kona from /kona');
+}
+if (/h2: 'Private chef Honolulu'/.test(longIslandSrc)) {
+  errors.push('Oahu home H2 still steals private chef honolulu from /honolulu');
+}
+if (/h2: 'Private chef Maui cost'/.test(longIslandSrc)) {
+  errors.push('Maui home H2 still steals the cost story from /private-chef-cost');
+}
+if (/h2: 'Personal chef Oahu'/.test(longIslandSrc)) {
+  errors.push('Oahu home H2 still steals personal chef oahu from /personal-chef');
+}
 
 const seoSrc = read('lib/seo.ts');
 if (/\$\{locRec\.name\} private chef/.test(seoSrc)) {
