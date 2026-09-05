@@ -470,6 +470,9 @@ for (const row of [...faq, ...coverage, ...how, ...menus, ...cells, ...services,
 }
 
 const pageMetaSrc = read('data/pageMeta.ts');
+if (/PAGE_META\[prefixed\] \?\? PAGE_META\[clean\]/.test(pageMetaSrc)) {
+  errors.push('lookupPageMeta still falls back to hub titles on island hosts');
+}
 if (/Private chef Oahu, Maui, Kauai/.test(pageMetaSrc)) {
   errors.push('hub /islands pageMeta still stuffs island money keywords');
 }
@@ -788,6 +791,9 @@ if (/title = article\.title/.test(seoSrc) || /else if \(article\)/.test(seoSrc))
 }
 if (/from '@\/data\/editorial'/.test(seoSrc) || /import \{ getArticle \}/.test(seoSrc)) {
   errors.push('seo.ts still imports cloned editorial seeds');
+}
+if (/metaForPath\(path, islandId/.test(seoSrc)) {
+  errors.push('seo.ts still uses hub DEFAULT titles on island hosts');
 }
 if (/Private chef \$\{area\.name\}/.test(seoSrc)) {
   errors.push('area fallback titles still use Private chef {area}');

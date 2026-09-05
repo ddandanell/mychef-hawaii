@@ -384,9 +384,8 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
         title = explicit.title;
         description = explicit.description;
       } else {
-        const mapped = metaForPath(path, islandId, hostMode);
-        title = mapped.title;
-        description = mapped.description;
+        title = `${island.name} | myCHEF`;
+        description = `Villa kitchens on ${island.name}. Written quotes.`;
       }
     }
   } else {

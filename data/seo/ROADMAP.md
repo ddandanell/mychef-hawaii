@@ -853,6 +853,12 @@ Still no zip on this machine. Wave 100 removes the `getArticle` title fallback f
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 101 — island hosts never inherit hub pageMeta titles (this branch)
+
+Still no zip on this machine. Wave 101 stops `lookupPageMeta` from falling back to hub `PAGE_META` keys on island hosts, and stops `resolveDocumentSeo` from using the hub home DEFAULT (`Private Chef Hawaii`) when unique island data misses. Prefixed island titles (`/oahu/private-chef`, and the rest) still win. A miss now titles `{island} | myCHEF`, never the hub money title. `seo:audit` fails if that hub fallback returns. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

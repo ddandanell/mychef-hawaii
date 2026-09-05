@@ -732,7 +732,7 @@ export function lookupPageMeta(
   const clean = pathname.replace(/\/$/, '') || '/';
   if (hostMode && islandId) {
     const prefixed = clean === '/' ? `/${islandId}` : `/${islandId}${clean}`;
-    return PAGE_META[prefixed] ?? PAGE_META[clean];
+    return PAGE_META[prefixed];
   }
   return PAGE_META[clean];
 }
