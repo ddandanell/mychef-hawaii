@@ -77,6 +77,7 @@ export default function SiteHeader() {
   const overlay = onHero && !scrolled && !drawerOpen;
 
   return (
+    <>
     <header
       data-chrome={overlay ? 'overlay' : 'solid'}
       className={cn(
@@ -166,15 +167,16 @@ export default function SiteHeader() {
           </button>
         </div>
       </div>
+    </header>
 
-      <AnimatePresence>
+    <AnimatePresence>
         {drawerOpen && (
           <motion.div
             initial={reduce ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={reduce ? undefined : { opacity: 0 }}
             transition={{ duration: DURATION.fast, ease: EASE_STANDARD }}
-            className="fixed inset-0 top-16 z-40 flex flex-col bg-paper lg:hidden"
+            className="fixed inset-0 top-16 z-40 flex flex-col overscroll-contain bg-paper lg:hidden"
           >
             <nav aria-label="Mobile" className="flex flex-1 flex-col overflow-y-auto px-5 py-4">
               {islandId ? (
@@ -290,6 +292,6 @@ export default function SiteHeader() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </>
   );
 }

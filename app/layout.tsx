@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Fraunces, Inter } from 'next/font/google';
 import { IslandProvider } from '@/components/IslandProvider';
 import JsonLd from '@/components/JsonLd';
+import MobileActionBar from '@/components/sections/MobileActionBar';
 import SiteFooter from '@/components/SiteFooter';
 import SiteHeader from '@/components/SiteHeader';
 import { requestHostMode, requestIsland, resolveRequestSeo } from '@/lib/request';
@@ -48,6 +49,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
             {children}
           </main>
           <SiteFooter islandId={islandId} hostMode={hostMode} />
+          <div className="h-16 lg:hidden" aria-hidden />
+          <MobileActionBar />
         </IslandProvider>
       </body>
     </html>
