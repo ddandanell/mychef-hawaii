@@ -1017,6 +1017,18 @@ if (/>Mobile bar</.test(pricingViewSrc)) {
 if (/name: `Private chef dinner/.test(seoSrc) || /name: `Private chef —/.test(seoSrc)) {
   errors.push('JSON-LD offers still use Private chef dinner names');
 }
+if (/name: `Villa dinner[\s\S]{0,160}serviceType: 'Private chef'/.test(seoSrc)) {
+  errors.push('JSON-LD Villa dinner offers still use serviceType Private chef');
+}
+if (/name: `Stay Chef[\s\S]{0,160}serviceType: 'Personal chef'/.test(seoSrc)) {
+  errors.push('JSON-LD Stay Chef offers still use serviceType Personal chef');
+}
+if (/name: `Wedding week[\s\S]{0,160}serviceType: 'Catering'/.test(seoSrc)) {
+  errors.push('JSON-LD Wedding week offers still use serviceType Catering');
+}
+if (!/function localBusinessJsonLd[\s\S]{0,500}serviceType: 'Private chef'/.test(seoSrc)) {
+  errors.push('LocalBusiness JSON-LD must keep serviceType Private chef on identity pages');
+}
 if (/name: `Mobile bar/.test(seoSrc)) {
   errors.push('JSON-LD offers still use Mobile bar names');
 }

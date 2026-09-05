@@ -130,7 +130,7 @@ function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
       {
         '@type': 'Offer',
         name: `Villa dinner — ${n}`,
-        itemOffered: { '@type': 'Service', name: `Villa dinner — ${n}`, serviceType: 'Private chef' },
+        itemOffered: { '@type': 'Service', name: `Villa dinner — ${n}`, serviceType: 'Villa dinner' },
         priceSpecification: core
           ? {
               '@type': 'PriceSpecification',
@@ -145,7 +145,7 @@ function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
       {
         '@type': 'Offer',
         name: `Stay Chef — ${n}`,
-        itemOffered: { '@type': 'Service', name: `Stay Chef — ${n}`, serviceType: 'Personal chef' },
+        itemOffered: { '@type': 'Service', name: `Stay Chef — ${n}`, serviceType: 'Stay Chef' },
         priceSpecification: {
           '@type': 'PriceSpecification',
           priceCurrency: 'USD',
@@ -156,7 +156,7 @@ function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
       {
         '@type': 'Offer',
         name: `Wedding week — ${n}`,
-        itemOffered: { '@type': 'Service', name: `Wedding week — ${n}`, serviceType: 'Catering' },
+        itemOffered: { '@type': 'Service', name: `Wedding week — ${n}`, serviceType: 'Wedding week' },
         priceSpecification: {
           '@type': 'PriceSpecification',
           priceCurrency: 'USD',

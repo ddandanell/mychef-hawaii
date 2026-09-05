@@ -973,6 +973,12 @@ Still no zip on this machine. Wave 120 points the site-header Private chef item 
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. Site header/footer stay paper.
 
+## Wave 121 — OfferCatalog serviceType stays off money keywords (this branch)
+
+Still no zip on this machine. Wave 121 stops OfferCatalog JSON-LD from classifying Villa dinner / Stay Chef / Wedding week as Private chef, Personal chef, or Catering. Those serviceTypes leaked the money phrases onto `/pricing`, `/services`, and `/private-chef`. Offers now use Villa dinner / Stay Chef / Wedding week / Bartending. LocalBusiness on `/`, `/about`, and `/contact` still uses `serviceType: Private chef`. Owner-page FoodService JSON-LD on hub `/catering` and `/weddings` stays. `seo:audit` fails if those catalog serviceTypes return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.
