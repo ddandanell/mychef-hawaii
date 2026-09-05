@@ -22,14 +22,14 @@ export const hubHomeSections: CopySection[] = [
     paras: [
       'A vacation rental chef is the honest name for most visitor bookings: Airbnb, VRBO, resort residence, estate week. The test is the kitchen. If there is a cooktop, a fridge, and a table, we can work. If there is not, we say no before you put a deposit down.',
       'Stay Chef is the multi-day version — day rates from $850 on Oʻahu and $1,050 on Maui, groceries billed at cost with receipts. Arrival-night dinner plus a stocked fridge is the usual first move. Full-board days exist for houses that actually cook three times.',
-      'Neighborhood names — Wailea, Waikīkī, Princeville, Kona — belong in the quote, not as their own URLs. Open the island site for the kitchen that matches the house. Request a quote statewide on /quote.',
+      'Neighborhood corridors live on the island hosts — /wailea on Maui, /waikiki on Oʻahu, /princeville on Kauaʻi, /kona on Hawaiʻi Island. They are not hub paths. Open the island site for the kitchen that matches the house. Request a quote statewide on /quote.',
     ],
   },
   {
     h2: 'Four islands, one written total',
     paras: [
       'Oʻahu is town kitchens and the west-side villa belt: Honolulu residences, Kahala dining rooms, Ko Olina short-stay houses. Maui is the villa week people picture — Wailea, West Maui, Kīhei — with staffed receptions as a larger door next to dinner. Kauaʻi is both shores, inquiry-stage: Princeville and Hanalei to the north, Poʻipū and Kōloa to the south. Hawaiʻi Island is west-side first — Kona and the Kohala Coast — also inquiry-stage. Hilo is a different day. We will not sell a same-day crossing.',
-      'Each island host publishes its own starting prices. This page is the statewide door: private chef Hawaii in the villa you booked, on the island you booked. It does not replace the Oʻahu, Maui, Kauaʻi, or Big Island homes. Those pages own their island phrases. Honolulu is a secondary on the Oʻahu home. Kona is a secondary on the Big Island home. Neither is a path of its own.',
+      'Each island host publishes its own starting prices. This page is the statewide door: private chef Hawaii in the villa you booked, on the island you booked. It does not replace the Oʻahu, Maui, Kauaʻi, or Big Island homes. Those pages own their island phrases. Honolulu lives on the Oʻahu host as /honolulu. Kona lives on the Hawaiʻi Island host as /kona. Neither is a separate company or a separate domain.',
       'Oʻahu and Maui take a written quote now. Kauaʻi and Hawaiʻi Island take the inquiry list — dates and shore, not a Book now button. The form is the same five fields. The reply is still a human in Hawaii business hours.',
     ],
   },

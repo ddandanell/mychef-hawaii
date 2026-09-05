@@ -274,7 +274,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
         h2: 'How we quote Hawaiʻi Island',
         paras: [
           'Island, dates, headcount, service, property type. Five fields. A Hawaiʻi Island coordinator answers on working days, usually within one business day. We ask west-side or east-side in the first thread because that answer changes the crew, not just the drive. Allergies and a bartender belong there too. 50% locks the date once you accept the written total. Waikoloa, Mauna Lani, and town addresses all count as west-side for that first question.',
-          'Vacation-rental kitchens on the Kohala Coast and in Kona town are the default yes — when they actually cook. A resort room with no range is declined on this island the same as anywhere we work. Neighborhood names — Kona, Waikoloa, Kohala, Waimea — belong in the quote, not as their own paths. Start on /quote. Stack a staffed room on /catering or a week of vows on /weddings when the list grows.',
+          'Vacation-rental kitchens on the Kohala Coast and in Kona town are the default yes — when they actually cook. A resort room with no range is declined on this island the same as anywhere we work. Live corridor URLs on this host are /kona, /waikoloa, /kohala, and /waimea. Start on /quote. Stack a staffed room on /catering or a week of vows on /weddings when the list grows.',
         ],
       },
     ],
@@ -285,7 +285,7 @@ export const islandHomeLongform: Record<IslandId, { sections: CopySection[]; faq
       },
       {
         q: 'Is there a separate Kona site?',
-        a: 'No. Private chef Kona lives on this Hawaiʻi Island home. We do not spin Kona out as its own path. Put the west-side address on /quote.',
+        a: 'No. There is no separate Kona hostname. /kona is the west-side corridor on this Hawaiʻi Island host. This home still owns private chef Big Island. Put the west-side address on /quote.',
       },
       {
         q: 'Can you cover Hilo from Kona in one day?',

@@ -510,11 +510,23 @@ const longIslandSrc = read('data/longformIslands.ts');
 if (/They are not their own URLs/.test(longIslandSrc) || /They are not their own URLs/.test(longHubSrc)) {
   errors.push('copy still claims neighborhood corridors are not URLs');
 }
+if (/not as their own URLs/.test(longHubSrc) || /not as their own URLs/.test(longIslandSrc)) {
+  errors.push('copy still claims neighborhood corridors are not URLs');
+}
 if (/They are not destination URLs/.test(longIslandSrc)) {
   errors.push('Maui home still claims neighborhood names are not destination URLs');
 }
 if (/it is not a path of its own/.test(longIslandSrc)) {
   errors.push('Hawaiʻi Island home still claims Kona is not a path of its own');
+}
+if (/a path of its own/.test(longHubSrc) || /a path of its own/.test(longIslandSrc)) {
+  errors.push('copy still claims Honolulu or Kona is not a path of its own');
+}
+if (/not as their own paths/.test(longIslandSrc) || /not as their own paths/.test(longHubSrc)) {
+  errors.push('copy still claims neighborhood corridors are not their own paths');
+}
+if (/spin Kona out as its own path/.test(longIslandSrc)) {
+  errors.push('Hawaiʻi Island FAQ still claims Kona is not its own path');
 }
 if (/h2: 'Private chef Kona'/.test(longIslandSrc)) {
   errors.push('Hawaiʻi Island home H2 still steals private chef kona from /kona');

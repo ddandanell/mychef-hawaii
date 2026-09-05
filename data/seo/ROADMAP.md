@@ -790,6 +790,14 @@ Still no zip on this machine. Wave 91 does not remap leftover JPEGs onto unique-
 - Hub `/`, `/catering`, `/weddings`, `/mobile-bar`; island homes; island `/catering`; `/honolulu`, `/lahaina`, `/kona`, `/poipu`, `/north-shore`; Oahu/Maui `/personal-chef`; island `/weddings` must keep their measured title phrases.
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No related-door photography. No new URLs.
 
+## Wave 92 — leftover copy stops denying live corridor URLs (this branch)
+
+Still no zip on this machine. Wave 92 fixes hub and Hawaiʻi Island home copy that still claimed Honolulu and Kona were not their own paths. Those corridors are live URLs on the island hosts. No new URLs. No JPEG remaps. No related-door photography.
+
+- Hub `/` names `/wailea`, `/waikiki`, `/princeville`, and `/kona` as island-host corridors, not hub paths.
+- Hawaiʻi Island `/` names `/kona`, `/waikoloa`, `/kohala`, and `/waimea`. The “separate Kona site?” FAQ points at `/kona`.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
