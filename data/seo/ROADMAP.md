@@ -967,6 +967,12 @@ Still no zip on this machine. Wave 119 makes `seo:audit` fail if two live unique
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 120 — site header and hub /services stay off the private-chef keyword (this branch)
+
+Still no zip on this machine. Wave 120 points the site-header Private chef item at `/` — the live owner of `private chef {island}` and `private chef hawaii` — instead of `/private-chef`, the inclusion document. Hub `/services` hero copy now reads Villa dinners / wedding weeks, matching PlacePriceBlock. Hub home still merchandises its own Private chef card into `/private-chef`. `seo:audit` fails if the header path or hub `/services` lede return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. Site header/footer stay paper.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

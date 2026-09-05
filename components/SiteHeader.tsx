@@ -98,7 +98,7 @@ export default function SiteHeader() {
         <nav aria-label="Primary" className="hidden items-center gap-6 lg:flex">
           {islandId ? (
             <>
-              <HostLink island={islandId} path="/private-chef" className={linkCls}>
+              <HostLink island={islandId} path="/" className={linkCls}>
                 Private chef
               </HostLink>
               <HostLink island={islandId} path="/catering" className={linkCls}>
@@ -126,7 +126,7 @@ export default function SiteHeader() {
             </>
           ) : (
             <>
-              <HostLink island="root" path="/private-chef" className={linkCls}>
+              <HostLink island="root" path="/" className={linkCls}>
                 Private chef
               </HostLink>
               <HostLink island="root" path="/catering" className={linkCls}>
@@ -181,7 +181,7 @@ export default function SiteHeader() {
                 <>
                   <HostLink
                     island={islandId}
-                    path="/private-chef"
+                    path="/"
                     className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
                   >
                     Private chef
@@ -236,7 +236,7 @@ export default function SiteHeader() {
                 <>
                   <HostLink
                     island="root"
-                    path="/private-chef"
+                    path="/"
                     className="block border-b border-line py-4 font-display text-2xl font-light text-ink"
                   >
                     Private chef

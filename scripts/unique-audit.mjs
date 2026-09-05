@@ -1109,6 +1109,14 @@ if (/articlesFor/.test(supportViewsSrc) || /from '@\/data\/editorial'/.test(supp
 if (/href: '\/private-chef',\s*title: 'Private chef'/.test(supportViewsSrc)) {
   errors.push('hub /services still labels /private-chef as Private chef');
 }
+if (/Private chef dinners from \$125 a guest, Stay Chef day rates, wedding catering/.test(supportViewsSrc)) {
+  errors.push('hub /services hero still uses Private chef dinners / wedding catering');
+}
+
+const headerSrc = read('components/SiteHeader.tsx');
+if (/path="\/private-chef"[\s\S]{0,240}Private chef/.test(headerSrc)) {
+  errors.push('site header still sends Private chef to /private-chef');
+}
 
 for (const key of [
   'vacationOahu',
