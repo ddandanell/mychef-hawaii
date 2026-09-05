@@ -73,7 +73,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/bar': {
     title: 'Villa bartender add-on — terrace cocktails, by island | myCHEF',
     description:
-      'A bartender stacked with dinner or booked as its own hour. The four-hour mobile bar Hawaii package lives on /mobile-bar. Starting prices published per island.',
+      'A bartender stacked with dinner or booked as its own hour. The four-hour packaged cart lives on /mobile-bar. Starting prices published per island.',
   },
   '/mobile-bar': {
     title: 'Mobile bar Hawaii | 4-hour villa package | myCHEF',

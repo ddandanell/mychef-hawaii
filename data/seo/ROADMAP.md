@@ -1015,6 +1015,12 @@ Still no zip on this machine. Wave 127 gives hub `/` and every island `/` a name
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 128 — hub /bar meta stays off mobile bar hawaii (this branch)
+
+Still no zip on this machine. Wave 128 rewrites the hub `/bar` meta description so the bartender add-on no longer uses the contiguous `mobile bar Hawaii` phrase owned by hub `/mobile-bar`. Visible `/bar` copy already said packaged cart. `seo:audit` fails if that meta phrase returns. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

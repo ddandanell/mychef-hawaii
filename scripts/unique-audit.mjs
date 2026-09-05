@@ -562,6 +562,9 @@ if (/Legal notes for private chef & catering/i.test(pageMetaSrc)) {
 if (/How a private chef booking works/i.test(pageMetaSrc)) {
   errors.push('hub /how-it-works pageMeta still stuffs private chef hawaii');
 }
+if (/'\/bar':[\s\S]{0,500}mobile bar Hawaii/.test(pageMetaSrc)) {
+  errors.push('hub /bar pageMeta still uses the mobile bar Hawaii keyword');
+}
 if (/private chef journal/i.test(journalSrc) || /private chef journal/i.test(pageMetaSrc)) {
   errors.push('island /journal titles still stuff private chef {island}');
 }
