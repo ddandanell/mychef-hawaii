@@ -128,44 +128,35 @@ export function IslandSupportView({
       {showMenu ? <SampleMenu island={islandId} /> : null}
 
       {showMenu ? (
-        <nav aria-label="Menu documents on this island" className="border-t border-line bg-sand py-10">
-          <div className="mx-auto flex w-full max-w-container flex-wrap gap-x-6 gap-y-2 px-5 text-sm lg:px-10">
-            {menuSkuPages[islandId].map((sku) => (
-              <HostLink
-                key={sku.slug}
-                island={islandId}
-                path={`/menus/${sku.slug}`}
-                className="text-ink underline underline-offset-4"
-              >
-                {sku.name}
-              </HostLink>
-            ))}
-          </div>
-        </nav>
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Menu documents`}
+          heading="Open a menu document."
+          intro="Each SKU is its own URL so it cannot steal this process page. Designed per table, not a standing carte."
+          columns={2}
+          items={menuSkuPages[islandId].map((sku) => ({
+            path: `/menus/${sku.slug}`,
+            label: sku.name,
+            detail: `/menus/${sku.slug}`,
+          }))}
+        />
       ) : null}
 
       {showHelp ? (
-        <nav aria-label="Help articles on this island" className="border-t border-line bg-sand py-10">
-          <div className="mx-auto flex w-full max-w-container flex-wrap gap-x-6 gap-y-2 px-5 text-sm lg:px-10">
-            {helpArticles[islandId].map((article) => (
-              <HostLink
-                key={article.slug}
-                island={islandId}
-                path={`/help/${article.slug}`}
-                className="text-ink underline underline-offset-4"
-              >
-                {article.name}
-              </HostLink>
-            ))}
-            <HostLink
-              island={islandId}
-              path="/private-chef-cost"
-              className="text-ink underline underline-offset-4"
-            >
-              Fee stack
-            </HostLink>
-          </div>
-        </nav>
+        <DocumentPhotoGrid
+          islandId={islandId}
+          eyebrow={`${island.shortName} · Help`}
+          heading="Open a help document."
+          intro="Getting started, the menu guide, wedding and corporate notes, and the fee stack. Distinct from this process page."
+          items={[
+            ...helpArticles[islandId].map((article) => ({
+              path: `/help/${article.slug}`,
+              label: article.name,
+              detail: `/help/${article.slug}`,
+            })),
+            { path: '/private-chef-cost', label: 'Fee stack', detail: '/private-chef-cost' },
+          ]}
+        />
       ) : null}
 
       <SiblingCluster island={islandId} href={href} />

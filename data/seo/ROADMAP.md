@@ -472,6 +472,14 @@ Still no zip on this machine. Wave 52 lifts leftover paper related-document list
 - Unique cells, journals, blogs, and SKUs that already publish `related` open those URLs from photography instead of paper underlines.
 - Coverage/locations stay paper. Quote-form TypePanel stays. No new URLs.
 
+## Wave 53 — island /menus and /how-it-works document lists (this branch)
+
+Still no zip on this machine. Wave 53 lifts leftover paper SKU and help lists onto existing stills:
+
+- Island `/menus` opens the four menu SKUs from a `DocumentPhotoGrid`. The sample three-course stays paper.
+- Island `/how-it-works` opens the help articles and `/private-chef-cost` from photography. Process steps stay paper.
+- Coverage/locations stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
