@@ -17,6 +17,7 @@ import { photos } from '@/data/photos';
 import { stillForPath } from '@/lib/documentStill';
 import { islandHref } from '@/lib/paths';
 import { LocationsBlock } from '@/components/LocationsBlock';
+import PlacePriceBlock from '@/components/PlacePriceBlock';
 
 export default function IslandHomeView({
   islandId,
@@ -105,6 +106,8 @@ export default function IslandHomeView({
           })}
         </div>
       </section>
+
+      <PlacePriceBlock islandId={islandId} placeName={island.name} href={href} />
 
       <SampleMenu island={islandId} />
       <Longform sections={copy.sections} />

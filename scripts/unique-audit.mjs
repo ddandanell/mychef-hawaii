@@ -943,6 +943,10 @@ if (!/PlacePriceBlock/.test(placeViewSrc)) {
 if (!/isAreaDinnerDoor\(islandId, cell\.slug\)/.test(uniqueViewSrc) || !/PlacePriceBlock/.test(uniqueViewSrc)) {
   errors.push('supporting-area dinner doors must reuse PlacePriceBlock gated to AREA_CELLS');
 }
+const islandHomeSrc = read('components/views/IslandHomeView.tsx');
+if (!/PlacePriceBlock/.test(islandHomeSrc)) {
+  errors.push('island homes must publish PlacePriceBlock');
+}
 
 const hubStealSrc = [
   'components/views/OfferViews.tsx',

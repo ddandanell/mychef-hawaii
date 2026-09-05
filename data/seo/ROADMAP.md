@@ -907,6 +907,12 @@ Still no zip on this machine. Wave 109 extracts the corridor published-price blo
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. Corridor and supporting-area `PlacePriceBlock` is a paper rate-card strip.
 
+## Wave 110 — island homes publish the same rate card (this branch)
+
+Still no zip on this machine. Wave 110 shows `PlacePriceBlock` on every island `/`, the live owner of `private chef {island}`. The four cards stay Villa dinner / Stay Chef / Wedding week / Packaged cart. H2 is `What a night in {island} starts at`, distinct from corridor and supporting-area H2s and from `/pricing`. Honesty unique cells stay without dinner rate cards. `seo:audit` fails if island homes drop the block. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. `PlacePriceBlock` is a paper rate-card strip.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

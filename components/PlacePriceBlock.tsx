@@ -9,7 +9,7 @@ import {
   getTiers,
 } from '@/data/rateCard';
 
-/** Paper rate-card strip for money corridors and AREA_CELLS dinner doors. Labels stay off money keywords. */
+/** Paper rate-card strip for island homes, money corridors, and AREA_CELLS dinner doors. Labels stay off money keywords. */
 export default function PlacePriceBlock({
   islandId,
   placeName,
