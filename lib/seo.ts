@@ -27,6 +27,8 @@ import { islandJournal } from '@/data/islandJournal';
 import { islandBlog } from '@/data/islandBlog';
 import { islandLocations } from '@/data/islandLocations';
 import { islandAreas } from '@/data/islandAreas';
+import { islandContact } from '@/data/islandContact';
+import { islandTrust } from '@/data/islandTrust';
 import { islandSitemap } from '@/data/islandSitemap';
 import { getJournalArticle, journalArticles } from '@/data/journalArticles';
 import { getBlogArticle, blogArticles } from '@/data/blogArticles';
@@ -128,6 +130,8 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
     if (localPath === '/blog') return `${origin}${photos[islandBlog[islandId].photo].file}`;
     if (localPath === '/locations') return `${origin}${photos[islandLocations[islandId].photo].file}`;
     if (localPath === '/areas') return `${origin}${photos[islandAreas[islandId].photo].file}`;
+    if (localPath === '/contact') return `${origin}${photos[islandContact[islandId].photo].file}`;
+    if (localPath === '/trust') return `${origin}${photos[islandTrust[islandId].photo].file}`;
     if (localPath === '/sitemap') return `${origin}${photos[islandSitemap[islandId].photo].file}`;
     const journalSlug = /^\/journal\/([^/]+)$/.exec(localPath)?.[1];
     const journalPiece = journalSlug ? getJournalArticle(islandId, journalSlug) : undefined;
@@ -338,6 +342,12 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
     } else if (islandAreas[islandId] && localPath === '/areas') {
       title = islandAreas[islandId].title;
       description = islandAreas[islandId].description;
+    } else if (islandContact[islandId] && localPath === '/contact') {
+      title = islandContact[islandId].title;
+      description = islandContact[islandId].description;
+    } else if (islandTrust[islandId] && localPath === '/trust') {
+      title = islandTrust[islandId].title;
+      description = islandTrust[islandId].description;
     } else if (islandSitemap[islandId] && localPath === '/sitemap') {
       title = islandSitemap[islandId].title;
       description = islandSitemap[islandId].description;
@@ -480,7 +490,7 @@ export function sitemapLocs(hostname: string): { loc: string; changefreq: string
       changefreq: 'monthly',
       priority: '0.7',
     })),
-    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
+    ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/sitemap', ...SUPPORT_PATHS] as const).map((path) => ({
       loc: `https://${masterHostName(island)}${path}`,
       changefreq: 'monthly',
       priority: '0.6',

@@ -183,13 +183,21 @@ Still no zip on this machine. Wave 19 uniquifies remaining cloned hub/island geo
 - Unique `/blog/named-farms` and `/blog/fish-species` on every island host. Distinct from `/blog/sourcing-honesty` and `/coffee-act-198`. Titles never use money keywords.
 - New Grok stills for every Wave 19 URL.
 
-## Wave 20 — zip execution
+## Wave 20 — unique contact desks and honesty registers (this branch)
+
+Still no zip on this machine. Wave 20 uniquifies two reserved 404s on every island host:
+
+- Unique `/contact` — how to reach the island desk. Distinct from `/quote` (the form). No second form, no invented 808 number, no street office.
+- Unique `/trust` — island honesty register. Distinct from `/what-we-dont-do` (claim list), `/legal`, and hub `/trust`.
+- Titles never use money keywords. Kauaʻi and Hawaiʻi Island stay inquiry. New Grok stills for every Wave 20 URL.
+
+## Wave 21 — zip execution
 
 - Open the blueprint zip. Stop inventing page lists. Build every remaining URL it names.
 - Schema, FAQ, and sample-menu expansions the zip specifies beyond the catalog stand-in.
 - Hub vs island keyword split exactly as the zip writes it.
 
-## Wave 21 — automation that stays on
+## Wave 22 — automation that stays on
 
 - `seo:audit` in CI (this branch).
 - Scheduled `seo:snapshot` Action shipped in Wave 8 — add `DATAFORSEO_LOGIN` / `DATAFORSEO_PASSWORD` GitHub secrets to turn it on. Do not commit secrets.

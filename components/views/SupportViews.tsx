@@ -28,6 +28,8 @@ import { islandJournal } from '@/data/islandJournal';
 import { islandBlog } from '@/data/islandBlog';
 import { islandLocations } from '@/data/islandLocations';
 import { islandAreas } from '@/data/islandAreas';
+import { islandContact } from '@/data/islandContact';
+import { islandTrust } from '@/data/islandTrust';
 import { islandSitemap } from '@/data/islandSitemap';
 import { journalArticles } from '@/data/journalArticles';
 import { blogArticles } from '@/data/blogArticles';
@@ -94,6 +96,50 @@ export function TrustView() {
           </ul>
         </div>
       </section>
+      <QuoteTeaser />
+    </>
+  );
+}
+
+export function IslandTrustView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  const copy = islandTrust[islandId];
+  const photo = photos[copy.photo];
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <section className="bg-paper py-20">
+        <div className="mx-auto max-w-container px-5 lg:px-10">
+          <p className="text-[12px] text-mute">What we can show today</p>
+          <ul className="mt-12 max-w-3xl space-y-8">
+            {proofRegister.map((row) => (
+              <li key={row.claim} className="border-b border-line pb-6">
+                <p className="text-[17px] leading-[1.65] text-ink">{row.claim}</p>
+                <p className="mt-2 text-[12px] text-mute">{row.label}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+      <LongFaq items={copy.faqs} title="Before you read the register as a review page." />
       <QuoteTeaser />
     </>
   );
@@ -399,7 +445,7 @@ export function HtmlSitemapView({ islandId }: { islandId?: (typeof islandOrder)[
     ...hosts.flatMap((id) => [
       ...moneyNeighborhoods[id].map((hood) => ({ host: id, path: `/${hood.slug}` as const })),
       ...SUPPORT_PATHS.map((path) => ({ host: id, path })),
-      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/sitemap'] as const).map((path) => ({
+      ...(['/about', '/events', '/legal', '/journal', '/blog', '/locations', '/areas', '/contact', '/trust', '/sitemap'] as const).map((path) => ({
         host: id,
         path,
       })),
@@ -508,6 +554,39 @@ export function AreasIndexView({ islandId }: { islandId: (typeof islandOrder)[nu
         </div>
       </section>
       <LongFaq items={copy.faqs} title="Before you pick a place." />
+    </>
+  );
+}
+
+export function ContactIndexView({ islandId }: { islandId: (typeof islandOrder)[number] }) {
+  const copy = islandContact[islandId];
+  const photo = photos[copy.photo];
+  return (
+    <>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: copy.faqs.map((f) => ({
+            '@type': 'Question',
+            name: f.q,
+            acceptedAnswer: { '@type': 'Answer', text: f.a },
+          })),
+        }}
+      />
+      <Hero src={photo.file} alt={photo.alt}>
+        <p className="text-[13px] text-mute">{copy.kicker}</p>
+        <LineReveal
+          text={copy.h1}
+          className="mt-4 font-display text-[clamp(2.5rem,6vw,4.25rem)] font-light leading-[1.05] tracking-[-0.02em] text-ink"
+        />
+        <p className="mt-5 max-w-[46ch] text-[17px] leading-[1.55] text-ink">{copy.lede}</p>
+        <div className="mt-8">
+          <QuoteCta island={islandId} />
+        </div>
+      </Hero>
+      <Longform sections={[{ h2: copy.kicker, paras: copy.body }]} />
+      <LongFaq items={copy.faqs} title="Before you look for a phone number." />
     </>
   );
 }

@@ -36,6 +36,7 @@ const RESERVED_PLACE_SLUGS = new Set([
   'sitemap.xml',
   'staffing',
   'thank-you',
+  'trust',
   'vacation-chef',
   'wedding',
   'wedding-catering',

@@ -1787,6 +1787,38 @@ export const photos = {
     file: '/photos/quote-hub.png',
     alt: `A blank cream menu card on ivory linen beside a plated fish course at a statewide villa table at dusk.`,
   },
+  contactOahu: {
+    file: '/photos/contact-oahu.png',
+    alt: `A Kahala kitchen desk at dusk with a closed unmarked notepad and brass pen, no telephone, Diamond Head faint.`,
+  },
+  contactMaui: {
+    file: '/photos/contact-maui.png',
+    alt: `A Wailea lānai desk at west sunset with a closed unmarked notepad and brass pen, no telephone, Pacific beyond.`,
+  },
+  contactKauai: {
+    file: '/photos/contact-kauai.png',
+    alt: `A Princeville stone desk in rain with a closed unmarked notepad and brass pen, no telephone, misted mountains.`,
+  },
+  contactBigisland: {
+    file: '/photos/contact-bigisland.png',
+    alt: `A Kohala lava-stone desk in hard sun with a closed unmarked notepad and brass pen, no telephone, Mauna Kea faint.`,
+  },
+  trustOahu: {
+    file: '/photos/trust-oahu.png',
+    alt: `Blank cream ledger cards and a brass clip on a Kahala kitchen counter at dusk, unused ivory plates, Diamond Head faint.`,
+  },
+  trustMaui: {
+    file: '/photos/trust-maui.png',
+    alt: `Blank cream ledger cards and a brass clip on a Wailea kitchen island at west sunset, unused ivory plates.`,
+  },
+  trustKauai: {
+    file: '/photos/trust-kauai.png',
+    alt: `Blank cream ledger cards and a brass clip on a wet Princeville stone counter, unused ivory plates, mountain rain.`,
+  },
+  trustBigisland: {
+    file: '/photos/trust-bigisland.png',
+    alt: `Blank cream ledger cards and a brass clip on a Kohala lava-stone counter in hard sun, unused ivory plates.`,
+  },
 } as const;
 
 export type PhotoKey = keyof typeof photos;

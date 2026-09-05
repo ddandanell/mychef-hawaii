@@ -142,6 +142,8 @@ export default function SiteHeader() {
                   { label: 'Menus', island: islandId, path: '/menus' },
                   { label: 'Fee stack', island: islandId, path: '/private-chef-cost' },
                   { label: 'What we will not claim', island: islandId, path: '/what-we-dont-do' },
+                  { label: 'Honesty register', island: islandId, path: '/trust' },
+                  { label: 'Contact', island: islandId, path: '/contact' },
                   { label: 'About', island: islandId, path: '/about' },
                 ]}
               />
@@ -236,6 +238,8 @@ export default function SiteHeader() {
                         { label: 'Menus', path: '/menus' },
                         { label: 'Fee stack', path: '/private-chef-cost' },
                         { label: 'What we will not claim', path: '/what-we-dont-do' },
+                        { label: 'Honesty register', path: '/trust' },
+                        { label: 'Contact', path: '/contact' },
                         { label: 'About', path: '/about' },
                       ] as const
                     ).map((item) => (
