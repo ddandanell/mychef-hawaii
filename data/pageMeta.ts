@@ -496,7 +496,7 @@ export const PAGE_META: Record<string, PageMetaRecord> = {
   '/maui/bar': {
     title: 'Maui villa cocktails — Wailea and Kapalua terraces | myCHEF',
     description:
-      'Terrace cocktail add-on for Maui villas and wedding weeks. Published starting prices. Stack with the chef.',
+      'Terrace cocktail add-on for Maui villas and wedding weeks. The four-hour mobile bar package lives on /mobile-bar. Published starting prices. Stack with the chef.',
   },
   '/maui/mobile-bar': {
     title: 'Maui 4-hour mobile bar package | myCHEF',

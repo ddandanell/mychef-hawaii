@@ -432,6 +432,14 @@ Still no zip on this machine. Wave 47 replaces leftover JPEG heroes on the twelv
 - Hub `/pricing` uses a unique unused-plates still for the hero and Open Graph, not the leftover menu-card JPEG.
 - Quote-form TypePanel stays. No new URLs.
 
+## Wave 48 — island /bar H1s stay off the mobile-bar keyword (this branch)
+
+Still no zip on this machine. Wave 48 finishes the `/bar` vs `/mobile-bar` split on island hosts:
+
+- Maui `/bar` H1 is the bartender add-on, not “Mobile bar…”. The four-hour package stays on `/mobile-bar`.
+- Island `/bar` FAQs name `/mobile-bar` as the packaged cart instead of treating the add-on as that package.
+- Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.
