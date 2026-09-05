@@ -961,6 +961,12 @@ Still no zip on this machine. Wave 118 renames the island-home card into `/priva
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 119 — unique documents keep unique stills across types (this branch)
+
+Still no zip on this machine. Wave 119 makes `seo:audit` fail if two live unique documents share a hero file across types (corridor vs cell vs SKU vs hub directory vs journal vs blog). Within-type uniqueness already existed. Named catalog cells already have unique live copy; this gate keeps the Grok stills from collapsing while the zip is missing. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

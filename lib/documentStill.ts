@@ -99,7 +99,7 @@ export function stillForPath(islandId: IslandId, localPath: string): DocumentSti
       ],
     );
   }
-  if (localPath === '/weddings' || localPath === '/wedding-catering') {
+  if (localPath === '/weddings') {
     return fromKey(
       ({ oahu: 'weddingOahu', maui: 'weddingMaui', kauai: 'weddingKauai', bigisland: 'weddingBigisland' } as const)[
         islandId

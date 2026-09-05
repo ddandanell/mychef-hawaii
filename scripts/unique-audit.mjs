@@ -447,6 +447,47 @@ const allTitles = [
 ];
 errors.push(...dupes(allTitles, 'cross-type title'));
 
+const allHeroes = [
+  ...hoods,
+  ...homes,
+  ...catering,
+  ...events,
+  ...faq,
+  ...coverage,
+  ...how,
+  ...menus,
+  ...cells,
+  ...services,
+  ...occasions,
+  ...formats,
+  ...fine,
+  ...staff,
+  ...menuSkus,
+  ...help,
+  ...quoteDocs,
+  ...pricingDocs,
+  ...legalDocs,
+  ...thanksDocs,
+  ...journalDocs,
+  ...blogDocs,
+  ...locationDocs,
+  ...areaDocs,
+  ...contactDocs,
+  ...trustDocs,
+  ...serviceIndexDocs,
+  ...helpIndexDocs,
+  ...fineIndexDocs,
+  ...staffIndexDocs,
+  ...corporateDocs,
+  ...gatheringsDocs,
+  ...islandsIndexDocs,
+  ...sitemapDocs,
+  ...hubDirs,
+  ...journalPieces,
+  ...blogPieces,
+].map((h) => files[h.photo] || h.photo);
+errors.push(...dupes(allHeroes, 'cross-type hero file'));
+
 const cateringTitles = new Set(catering.map((h) => h.title));
 for (const row of events) {
   if (cateringTitles.has(row.title)) errors.push(`events title collides with catering: ${row.title}`);
@@ -1011,6 +1052,10 @@ if (!/segs\[0\] === 'wedding-catering'/.test(middlewareSrc) || !/pathname = '\/w
 }
 if (existsSync(join(ROOT, 'app/[island]/wedding-catering/page.tsx'))) {
   errors.push('/wedding-catering still ships as a live island page');
+}
+const stillSrc = read('lib/documentStill.ts');
+if (/localPath === '\/wedding-catering'/.test(stillSrc)) {
+  errors.push('documentStill still treats /wedding-catering as a live still path');
 }
 if (
   /'\/oahu\/wedding-catering'/.test(pageMetaSrc) ||
