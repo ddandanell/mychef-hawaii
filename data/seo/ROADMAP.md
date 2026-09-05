@@ -524,6 +524,14 @@ Still no zip on this machine. Wave 58 stops catalog and location fallback titles
 - `seo:audit` fails if those leftover templates return.
 - Hub `/how-it-works` opens `/faq`, `/coverage`, `/quote`, and `/pricing` on existing stills. Process steps stay paper. Help articles stay on `/help`. No new URLs.
 
+## Wave 59 — hub and island /trust honesty doors (this branch)
+
+Still no zip on this machine. Wave 59 gives `/trust` the same related-document photography as `/how-it-works`, without turning the proof register into tiles:
+
+- Hub `/trust` opens `/what-we-dont-do`, `/blog/no-fake-reviews`, `/legal`, and `/faq` on existing stills. The proof list stays paper. Island honesty registers stay on the island host.
+- Island `/trust` opens the same four URLs on island stills. Distinct from `/how-it-works` (process doors) and from `/help`.
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays. No new URLs.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`.

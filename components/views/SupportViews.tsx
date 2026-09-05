@@ -131,6 +131,9 @@ export function HowItWorksView() {
 
 export function TrustView() {
   const still = photos.hubTrust;
+  const honesty = getHubDirectory('/what-we-dont-do');
+  const reviews = getHubDirectory('/blog/no-fake-reviews');
+  const faq = getHubDirectory('/faq');
   return (
     <>
       <Hero src={still.file} alt={still.alt}>
@@ -160,6 +163,38 @@ export function TrustView() {
           </ul>
         </div>
       </section>
+      <HubPhotoGrid
+        eyebrow="Beside this register"
+        heading="Open a related document."
+        intro="The proof list stays on this page. The claim list, the zero-review note, legal notes, and the FAQ are their own URLs. Island honesty registers stay on the island host."
+        columns={2}
+        items={[
+          {
+            href: '/what-we-dont-do',
+            title: honesty?.cardLabel ?? 'Claim list',
+            body: honesty?.lede ?? 'No invented reviews, no fake licenses. Each island writes that in its own words.',
+            still: honesty ? photos[honesty.photo] : photos.hubHonesty,
+          },
+          {
+            href: '/blog/no-fake-reviews',
+            title: reviews?.cardLabel ?? 'Why the count is zero',
+            body: reviews?.lede ?? 'We do not invent Hawaiʻi star ratings.',
+            still: reviews ? photos[reviews.photo] : photos.hubBlogReviews,
+          },
+          {
+            href: '/legal',
+            title: 'Legal notes',
+            body: 'GET, service charge, cancellation, and weather posture. Distinct from this register.',
+            still: photos.hubLegal,
+          },
+          {
+            href: '/faq',
+            title: faq?.cardLabel ?? 'Questions',
+            body: faq?.lede ?? 'Booking questions live on the island host.',
+            still: faq ? photos[faq.photo] : photos.hubFaq,
+          },
+        ]}
+      />
       <IslandPhotoPicker path="/trust" heading="Open the island honesty register." detailOf={() => 'Honesty register'} />
       <QuoteTeaser />
     </>
@@ -204,6 +239,19 @@ export function IslandTrustView({ islandId }: { islandId: (typeof islandOrder)[n
           </ul>
         </div>
       </section>
+      <DocumentPhotoGrid
+        islandId={islandId}
+        eyebrow={`${islands[islandId].shortName} · Beside this register`}
+        heading="Open a related document."
+        intro="The proof list stays on this page. The claim list, the zero-review note, legal notes, and the FAQ are their own URLs."
+        columns={2}
+        items={[
+          { path: '/what-we-dont-do', label: 'Claim list', detail: '/what-we-dont-do' },
+          { path: '/blog/no-fake-reviews', label: 'Why the count is zero', detail: '/blog/no-fake-reviews' },
+          { path: '/legal', label: 'Legal notes', detail: '/legal' },
+          { path: '/faq', label: 'FAQ', detail: '/faq' },
+        ]}
+      />
       <LongFaq items={copy.faqs} title="Before you read the register as a review page." />
       <QuoteTeaser />
     </>
