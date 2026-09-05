@@ -971,6 +971,18 @@ if (/name: `Wedding catering/.test(seoSrc)) {
 if (/private chef and catering prices/.test(seoSrc)) {
   errors.push('JSON-LD OfferCatalog still titles itself private chef and catering prices');
 }
+if (!/ISLAND_RATE_JSONLD/.test(seoSrc) || !/HUB_RATE_JSONLD/.test(seoSrc)) {
+  errors.push('JSON-LD OfferCatalog must use the rate-page allow lists');
+}
+if (/ISLAND_RATE_JSONLD[\s\S]{0,400}'\/events'/.test(seoSrc) || /ISLAND_RATE_JSONLD[\s\S]{0,400}'\/menus'/.test(seoSrc)) {
+  errors.push('JSON-LD OfferCatalog still sprays onto /events or /menus');
+}
+if (/HUB_RATE_JSONLD[\s\S]{0,250}'\/corporate'/.test(seoSrc) || /HUB_RATE_JSONLD[\s\S]{0,250}'\/gatherings'/.test(seoSrc)) {
+  errors.push('JSON-LD OfferCatalog still sprays onto hub /corporate or /gatherings');
+}
+if (/ISLAND_RATE_JSONLD[\s\S]{0,400}'\/bar'/.test(seoSrc) || /HUB_RATE_JSONLD[\s\S]{0,250}'\/bar'/.test(seoSrc)) {
+  errors.push('JSON-LD OfferCatalog still treats /bar as the packaged-cart product');
+}
 
 const hubStealSrc = [
   'components/views/OfferViews.tsx',

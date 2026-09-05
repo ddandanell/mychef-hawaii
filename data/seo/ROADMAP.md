@@ -925,6 +925,12 @@ Still no zip on this machine. Wave 112 renames leftover visible labels that stil
 
 - Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
 
+## Wave 113 — OfferCatalog JSON-LD stays on rate and product pages (this branch)
+
+Still no zip on this machine. Wave 113 stops spraying the four-offer catalog onto `/events`, `/menus`, `/bar`, hub `/corporate`, and hub `/gatherings`. Catalog stays on `/`, `/pricing`, `/private-chef-cost`, `/services`, and the dinner / Stay Chef / catering / wedding / packaged-cart product URLs. `seo:audit` fails if those spray paths return. No new URLs. No JPEG remaps. No related-door photography.
+
+- Coverage/locations honesty lists stay paper. Quote-form TypePanel stays.
+
 ## Keyword discipline (measured, not invented)
 
 Use these as title keywords. Null-volume neighborhood phrases stay in H1/FAQ, not in the `<title>`. `private chef maui cost` (10) stays in Maui `/private-chef-cost` and `/pricing` body copy — a support title containing that phrase would match `private chef maui`.

@@ -102,6 +102,21 @@ function ogImageFor(islandId: IslandId | null, origin: string, localPath = '/'):
   return `${origin}${photos[islandOffers[islandId].heroPhoto].file}`;
 }
 
+const ISLAND_RATE_JSONLD = new Set([
+  '/',
+  '/pricing',
+  '/private-chef-cost',
+  '/services',
+  '/mobile-bar',
+  '/weddings',
+  '/wedding-catering',
+  '/private-chef',
+  '/vacation-chef',
+  '/catering',
+]);
+
+const HUB_RATE_JSONLD = new Set(['/', '/pricing', '/services', '/mobile-bar', '/weddings']);
+
 function offerCatalogJsonLd(origin: string, islandId: IslandId | null) {
   const ids: IslandId[] = islandId ? [islandId] : ['oahu', 'maui', 'kauai', 'bigisland'];
   const items = ids.flatMap((id) => {
@@ -422,21 +437,7 @@ export function resolveDocumentSeo(hostname: string, pathname: string): Document
 
   jsonLd.push(localBusinessJsonLd(islandId, origin || `https://${PRODUCTION_ROOT}`));
 
-  const priced =
-    localPath === '/' ||
-    localPath === '/pricing' ||
-    localPath === '/private-chef-cost' ||
-    localPath === '/services' ||
-    localPath === '/bar' ||
-    localPath === '/mobile-bar' ||
-    localPath === '/weddings' ||
-    localPath === '/wedding-catering' ||
-    localPath === '/private-chef' ||
-    localPath === '/vacation-chef' ||
-    localPath === '/catering' ||
-    localPath === '/events' ||
-    localPath === '/menus' ||
-    (!islandId && ['/', '/pricing', '/services', '/bar', '/mobile-bar', '/weddings', '/corporate', '/gatherings'].includes(path));
+  const priced = islandId ? ISLAND_RATE_JSONLD.has(localPath) : HUB_RATE_JSONLD.has(path);
   if (priced) {
     jsonLd.push(offerCatalogJsonLd(origin || `https://${PRODUCTION_ROOT}`, islandId));
   }
